@@ -1,8 +1,8 @@
 # Shamoo
 
-Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch adds production decorator declarations, compiler metadata generation, and controlled platform bundles to the protocol and dependency-injection foundation.
+Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch adds production lifecycle orchestration, scoped invocation pipelines, compiler metadata generation, and controlled platform bundles to the protocol and dependency-injection foundation.
 
-`shamooc` discovers components, modules, injection, lifecycle, events, commands, tasks, and invocation-pipeline declarations without legacy reflected type metadata. It emits canonical metadata and the bundler produces separate Paper and Velocity ESM artifacts. Platform host registration, generated Paper/Velocity Java APIs, scheduler execution, command/event dispatch, configuration file loading, and runnable packaged Minecraft plugins remain later-phase work.
+`shamooc` discovers components, modules, injection, lifecycle, events, commands, tasks, and invocation-pipeline declarations without legacy reflected type metadata. The lifecycle runtime validates and executes that metadata with DI, cancellation, draining, and deterministic cleanup. It does not register or dispatch host events, commands, or scheduled tasks. The bundler produces separate Paper and Velocity ESM artifacts; platform host registration, generated Paper/Velocity Java APIs, configuration file loading, and runnable packaged Minecraft plugins remain later-phase work.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ pnpm run docs
 | `@shamoo/compiler`                         | `shamooc`, TypeScript discovery, diagnostics, and metadata |
 | `@shamoo/metadata`, `@shamoo/reflection`   | Canonical metadata and explicit declaration access         |
 | `@shamoo/decorators`                       | Class, method, parameter, and property declarations        |
-| `@shamoo/lifecycle`, `@shamoo/conditions`  | Lifecycle and conditional declaration contracts            |
+| `@shamoo/lifecycle`, `@shamoo/conditions`  | Lifecycle execution, invocation runtime, and conditions    |
 | `@shamoo/events`, `@shamoo/commands`       | Event and command declaration contracts                    |
 | `@shamoo/scheduler`                        | Lifecycle-owned task declaration contracts                 |
 | `@shamoo/interceptors`, `guards`, `pipes`  | Invocation pipeline contracts                              |
@@ -45,7 +45,7 @@ pnpm run docs
 | `@shamoo/cli`                              | Command parsing contract; no installed executable          |
 | `@shamoo/create-plugin`                    | Plugin project declarations; no interactive generator      |
 
-See the [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), [architecture](docs/architecture.md), and pinned [Winter compatibility audit](docs/winter-compatibility.md).
+See the [lifecycle guide](docs/lifecycle.md), [pipeline guide](docs/invocation-pipeline.md), [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), [architecture](docs/architecture.md), and pinned [Winter compatibility audit](docs/winter-compatibility.md).
 
 ## License
 

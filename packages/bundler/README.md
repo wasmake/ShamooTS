@@ -1,3 +1,4 @@
 # @shamoo/bundler
 
-Reserved for reproducible plugin artifact assembly in Phase 5.
+Produces separate, source-mapped Paper and Velocity ESM bundles from compiler
+metadata. Cross-platform imports are rejected before resolution.

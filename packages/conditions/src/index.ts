@@ -1,4 +1,6 @@
-/** Compiler-discovered component conditions. @packageDocumentation */
+/**
+ * Compiler-discovered component conditions.
+ */
 export { Requires, RequiresExpression } from '@shamoo/decorators';
 export interface ConditionContext {
   readonly platform: 'paper' | 'velocity';

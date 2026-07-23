@@ -1,4 +1,6 @@
-/** Invocation guard declarations. @packageDocumentation */
+/**
+ * Invocation guard declarations.
+ */
 import type { InvocationContext } from '@shamoo/interceptors';
 export { UseGuards } from '@shamoo/decorators';
 export interface Guard {

@@ -129,6 +129,29 @@ describe('decorator declarations', () => {
     expect(getRuntimeDeclarations(Child)).toEqual([]);
   });
 
+  it('keeps Stage 3 metadata own and tolerates an empty declaration slot', () => {
+    const inherited = {
+      [declarations.SHAMOO_DECLARATIONS]: [{ name: 'Inherited', target: 'class', arguments: [] }],
+    };
+    const metadata = Object.create(inherited) as Record<PropertyKey, unknown>;
+    class OwnMetadata {
+      public readonly kind = 'own';
+    }
+    declarations.Plugin()(OwnMetadata, { kind: 'class', metadata });
+    expect(Object.hasOwn(metadata, declarations.SHAMOO_DECLARATIONS)).toBe(true);
+    expect(getRuntimeDeclarations(OwnMetadata).map((item) => item.name)).toEqual(['Plugin']);
+    expect(inherited[declarations.SHAMOO_DECLARATIONS]).toHaveLength(1);
+
+    class EmptyMetadata {
+      public readonly kind = 'empty';
+    }
+    const metadataSymbol = (Symbol as typeof Symbol & { metadata: symbol }).metadata;
+    Object.defineProperty(EmptyMetadata, metadataSymbol, {
+      value: { [declarations.SHAMOO_DECLARATIONS]: undefined },
+    });
+    expect(getRuntimeDeclarations(EmptyMetadata)).toEqual([]);
+  });
+
   it('enforces class, lifecycle, handler, and injection conflicts at runtime', () => {
     class Target {
       public readonly target = true;

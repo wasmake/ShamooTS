@@ -1,4 +1,12 @@
-import { ConfigValue, Inject, OnDisable, OnEnable, Plugin, Service } from '@shamoo/decorators';
+import {
+  ConfigValue,
+  Inject,
+  OnDisable,
+  OnEnable,
+  Optional,
+  Plugin,
+  Service,
+} from '@shamoo/decorators';
 
 @Plugin()
 @Service()
@@ -9,10 +17,14 @@ export class BadDecorators {
   }
 
   @OnEnable()
+  @OnEnable()
   @OnDisable()
   public lifecycle(): void {
     return;
   }
 
   public readonly invalid = true;
+
+  @Optional()
+  public missingToken!: string;
 }

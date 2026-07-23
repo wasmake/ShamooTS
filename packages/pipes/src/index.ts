@@ -1,4 +1,6 @@
-/** Input transformation declarations. @packageDocumentation */
+/**
+ * Input transformation declarations.
+ */
 export { UsePipes } from '@shamoo/decorators';
 export interface PipeContext {
   readonly kind: 'event' | 'command' | 'task';

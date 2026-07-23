@@ -1,4 +1,6 @@
-/** Standard decorators whose declarations are consumed by `shamooc`. @packageDocumentation */
+/**
+ * Standard decorators whose declarations are consumed by `shamooc`.
+ */
 import type { Scope, ServiceIdentifier } from '@shamoo/di';
 
 export const SHAMOO_DECLARATIONS = Symbol.for('shamoo.decorator.declarations');

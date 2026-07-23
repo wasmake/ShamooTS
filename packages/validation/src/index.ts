@@ -1,4 +1,6 @@
-/** Compiler-discovered validation rules. @packageDocumentation */
+/**
+ * Compiler-discovered validation rules.
+ */
 export { Validate } from '@shamoo/decorators';
 export interface ValidationIssue {
   readonly path: readonly (string | number)[];

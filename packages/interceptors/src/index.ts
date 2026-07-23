@@ -1,4 +1,6 @@
-/** Invocation interceptor declarations. @packageDocumentation */
+/**
+ * Invocation interceptor declarations.
+ */
 export { UseInterceptors } from '@shamoo/decorators';
 export interface InvocationContext {
   readonly target: object;

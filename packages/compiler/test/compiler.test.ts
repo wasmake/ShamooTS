@@ -90,7 +90,14 @@ describe('shamooc metadata compiler', () => {
         expect.objectContaining({ code: 'DECORATOR_USAGE' }),
       ]),
     );
-    expect(bad.diagnostics.filter((item) => item.code === 'DECORATOR_CONFLICT')).toHaveLength(3);
+    expect(bad.diagnostics.filter((item) => item.code === 'DECORATOR_CONFLICT')).toHaveLength(4);
+    expect(
+      bad.diagnostics.find(
+        (item) =>
+          item.code === 'INJECTION_TOKEN_REQUIRED' &&
+          item.message.includes("Property 'missingToken'"),
+      ),
+    ).toBeDefined();
 
     const identity = await compilePlugin(request('module-identity'));
     const moduleCycle = identity.diagnostics.find((item) => item.code === 'MODULE_CYCLE');
@@ -218,9 +225,49 @@ describe('shamooc metadata compiler', () => {
     );
   });
 
+  it('handles namespace decorators, expression metadata, token fallbacks, and malformed module options', async () => {
+    const result = await compilePlugin({
+      ...request('edge-branches'),
+      platforms: [PlatformKind.VELOCITY],
+    });
+    expect(result.diagnostics).toEqual([]);
+    expect(result.manifest?.entrypoints).toEqual({
+      velocity: { source: 'src/plugin.ts', output: 'velocity/index.js' },
+    });
+    const plugin = result.manifest?.components.find((item) => item.name === 'EdgePlugin');
+    expect(plugin?.platform).toBe('common');
+    expect(plugin?.decorators[0]?.arguments).toEqual([
+      {
+        '[computed]': 'undefined',
+        expression: '1 + 2',
+        nested: { a: 2, z: 1 },
+      },
+    ]);
+    expect(plugin?.properties.map((item) => item.token)).toEqual([
+      { kind: 'token', value: { binding: 'ConfigValue', value: 'value' } },
+      { kind: 'token', value: '(1 + 2) as unknown as string' },
+      { kind: 'class', name: 'Dependency', module: 'src/dependency.ts' },
+      { kind: 'class', name: 'Dependency', module: 'src/dependency.ts' },
+    ]);
+    expect(plugin?.methods[0]?.parameters[0]?.token).toEqual({
+      kind: 'class',
+      name: 'Dependency',
+      module: 'src/dependency.ts',
+    });
+    expect(result.manifest?.modules).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ name: 'EdgeModule', declarations: [], exports: [] }),
+        expect.objectContaining({ name: 'EmptyModule', declarations: [], exports: [] }),
+      ]),
+    );
+  });
+
   it('validates requests and exposes throwing compilation', async () => {
     expect(() => {
       validateCompilationRequest({ ...request('valid'), entrypoint: '' });
+    }).toThrow('must not be empty');
+    expect(() => {
+      validateCompilationRequest({ ...request('valid'), entrypoint: '   ' });
     }).toThrow('must not be empty');
     expect(() => {
       validateCompilationRequest({ ...request('valid'), platforms: [] });

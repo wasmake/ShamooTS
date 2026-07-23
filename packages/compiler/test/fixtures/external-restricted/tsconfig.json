@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": "../../../../..",
+    "paths": {
+      "@shamoo/*": ["packages/*/src/index.ts"],
+      "external-wrapper": [
+        "packages/compiler/test/fixtures/external-restricted/vendor/external-wrapper/index.d.ts"
+      ]
+    },
+    "strict": true,
+    "target": "ES2022",
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"]
+}

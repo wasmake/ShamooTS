@@ -1,8 +1,9 @@
-declare const paperPluginBrand: unique symbol;
-declare const paperServerBrand: unique symbol;
-export type PaperPlugin = object & { readonly [paperPluginBrand]: true };
-export type PaperServer = object & { readonly [paperServerBrand]: true };
+export * from './generated/bindings.generated.js';
+export * from './generated/events.generated.js';
+
+import type { Plugin, Server } from './generated/bindings.generated.js';
+
 export interface PaperEntrypointContext {
-  readonly plugin: PaperPlugin;
-  readonly server: PaperServer;
+  readonly plugin: Plugin;
+  readonly server: Server;
 }

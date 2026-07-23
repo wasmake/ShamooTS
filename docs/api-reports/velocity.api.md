@@ -11,11 +11,74 @@ export function createVelocityPlatform(capabilities?: Iterable<PlatformCapabilit
 export function defineVelocityEntrypoint(entrypoint: VelocityEntrypoint): VelocityEntrypoint;
 
 // @public (undocumented)
+export interface VelocityCommandContext {
+    // (undocumented)
+    readonly arguments: ReadonlyMap<string, string>;
+    // (undocumented)
+    readonly input: string;
+    // (undocumented)
+    readonly source: Player | 'console';
+}
+
+// @public (undocumented)
+export interface VelocityCommandRegistry {
+    // (undocumented)
+    register(name: string, execute: (context: VelocityCommandContext) => VelocityCommandResult): () => void;
+}
+
+// @public (undocumented)
+export type VelocityCommandResult = number | boolean | Component | Promise<number | boolean | Component>;
+
+// @public (undocumented)
+export interface VelocityConnectionRequest {
+    // (undocumented)
+    connect(): Promise<boolean>;
+    // (undocumented)
+    readonly player: Player;
+    // (undocumented)
+    readonly server: RegisteredServer;
+}
+
+// @public (undocumented)
 export interface VelocityEntrypoint {
     // (undocumented)
     start(context: VelocityEntrypointContext): void | Promise<void>;
     // (undocumented)
     stop?(context: VelocityEntrypointContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export type VelocityEventHandler<Name extends VelocityEventType> = (event: GeneratedEventMap[Name]) => void | Promise<void>;
+
+// @public (undocumented)
+export interface VelocityEventRegistry {
+    // (undocumented)
+    on<Name extends VelocityEventType>(type: Name, handler: VelocityEventHandler<Name>): () => void;
+}
+
+// @public (undocumented)
+export type VelocityEventType = keyof GeneratedEventMap;
+
+// @public (undocumented)
+export interface VelocityMessagingChannel<T> {
+    // (undocumented)
+    decode(payload: Uint8Array): T;
+    // (undocumented)
+    encode(value: T): Uint8Array;
+    // (undocumented)
+    readonly id: string;
+}
+
+// @public (undocumented)
+export interface VelocityMessenger {
+    // (undocumented)
+    send<T>(server: RegisteredServer, channel: VelocityMessagingChannel<T>, value: T): boolean;
+}
+
+// @public (undocumented)
+export interface VelocityScheduler {
+    // (undocumented)
+    async(task: () => void | Promise<void>, delayMilliseconds?: number): ScheduledTask;
 }
 
 // (No @packageDocumentation comment for this package)

@@ -1,4 +1,5 @@
 import { access, readFile } from 'node:fs/promises';
+import ts from 'typescript';
 
 const packages = [
   ['core', '@shamoo/core'],
@@ -9,8 +10,13 @@ const packages = [
   ['platform', '@shamoo/platform'],
   ['paper', '@shamoo/paper'],
   ['paper-raw', '@shamoo/paper-raw'],
+  ['paper-nms', '@shamoo/paper-nms'],
+  ['paper-packets', '@shamoo/paper-packets'],
+  ['paper-codegen', '@shamoo/paper-codegen'],
   ['velocity', '@shamoo/velocity'],
   ['velocity-raw', '@shamoo/velocity-raw'],
+  ['velocity-codegen', '@shamoo/velocity-codegen'],
+  ['platform-codegen', '@shamoo/platform-codegen'],
   ['runtime-protocol', '@shamoo/runtime-protocol'],
   ['compiler', '@shamoo/compiler'],
   ['cli', '@shamoo/cli'],
@@ -46,6 +52,34 @@ for (const [directory, expectedName] of packages) {
   }
   await access(new URL('dist/index.js', root));
   await access(new URL('dist/index.d.ts', root));
+  const declarationPath = new URL('dist/index.d.ts', root);
+  const program = ts.createProgram([declarationPath.pathname], {
+    module: ts.ModuleKind.NodeNext,
+    moduleResolution: ts.ModuleResolutionKind.NodeNext,
+    skipLibCheck: false,
+    target: ts.ScriptTarget.ES2022,
+  });
+  const source = program.getSourceFile(declarationPath.pathname);
+  const checker = program.getTypeChecker();
+  const moduleSymbol = source === undefined ? undefined : checker.getSymbolAtLocation(source);
+  if (source === undefined || moduleSymbol === undefined)
+    throw new Error(`Cannot inspect type exports: ${expectedName}`);
+  const typeValues = checker
+    .getExportsOfModule(moduleSymbol)
+    .filter((symbol) => {
+      const target =
+        symbol.flags & ts.SymbolFlags.Alias ? checker.getAliasedSymbol(symbol) : symbol;
+      return (target.flags & ts.SymbolFlags.Value) !== 0;
+    })
+    .map((symbol) => symbol.name)
+    .sort();
+  const runtimeValues = Object.keys(await import(new URL('dist/index.js', root).href)).sort();
+  if (JSON.stringify(typeValues) !== JSON.stringify(runtimeValues))
+    throw new Error(
+      `Runtime/type export mismatch for ${expectedName}: types=${typeValues.join(',')} runtime=${runtimeValues.join(',')}`,
+    );
 }
 
-process.stdout.write(`Validated ${packages.length} public packages and built API declarations.\n`);
+process.stdout.write(
+  `Validated ${packages.length} public packages, declarations, and runtime/type export parity.\n`,
+);

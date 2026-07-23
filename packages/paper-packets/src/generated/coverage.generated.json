@@ -1,0 +1,947 @@
+{
+  "platform": "paper-packets",
+  "apiVersion": "1.21.8+paper.55+mache.2",
+  "declarations": {
+    "expected": 219,
+    "emitted": 219,
+    "percent": 100
+  },
+  "members": {
+    "expected": 2029,
+    "emitted": 2029,
+    "percent": 100
+  },
+  "events": {
+    "expected": 0,
+    "emitted": 0,
+    "percent": 100
+  },
+  "exceptions": {
+    "expected": 3,
+    "emitted": 3,
+    "percent": 100
+  },
+  "packets": {
+    "expected": 219,
+    "emitted": 219,
+    "percent": 100
+  },
+  "packetRegistrations": {
+    "expected": 244,
+    "emitted": 244,
+    "percent": 100
+  },
+  "packetRegistrationIds": {
+    "expected": 244,
+    "emitted": 244,
+    "percent": 100
+  },
+  "declarationIndex": {
+    "expected": 219,
+    "emitted": 219,
+    "percent": 100
+  },
+  "opaqueMappings": [
+    {
+      "javaName": "com.mojang.authlib.GameProfile",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.suggestion.Suggestions",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.tree.RootCommandNode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.datafixers.util.Pair",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "io.netty.buffer.ByteBuf",
+      "occurrences": 32,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "it.unimi.dsi.fastutil.ints.Int2ObjectMap",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "it.unimi.dsi.fastutil.ints.IntList",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "it.unimi.dsi.fastutil.objects.Object2IntMap",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "it.unimi.dsi.fastutil.shorts.Short2ObjectMap",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "it.unimi.dsi.fastutil.shorts.ShortSet",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.Record",
+      "occurrences": 105,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.security.PrivateKey",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.security.PublicKey",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.time.Instant",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.BitSet",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.EnumSet",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.UUID",
+      "occurrences": 24,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "javax.crypto.SecretKey",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.kyori.adventure.text.Component",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.md_5.bungee.api.chat.BaseComponent",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.advancements.AdvancementHolder",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.advancements.AdvancementProgress",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.commands.arguments.ArgumentSignatures",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.commands.arguments.EntityAnchorArgument$Anchor",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.commands.CommandBuildContext",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.BlockPos",
+      "occurrences": 42,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.Direction",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.Holder",
+      "occurrences": 17,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.particles.ParticleOptions",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.Registry",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.RegistryAccess",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.RegistrySynchronization$PackedRegistryEntry",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.SectionPos",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.core.Vec3i",
+      "occurrences": 7,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.gametest.framework.GameTestInstance",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.nbt.CompoundTag",
+      "occurrences": 5,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.nbt.Tag",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.ChatType$Bound",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.Component",
+      "occurrences": 33,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.FilterMask",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.LastSeenMessages$Update",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.MessageSignature",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.MessageSignature$Packed",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.numbers.NumberFormat",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.RemoteChatSession$Data",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.chat.SignedMessageBody$Packed",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.codec.StreamCodec",
+      "occurrences": 221,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.Connection",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.FriendlyByteBuf",
+      "occurrences": 137,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.HashedStack",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.PacketListener",
+      "occurrences": 218,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.BundleDelimiterPacket",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.common.ClientCommonPacketListener",
+      "occurrences": 26,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.common.custom.CustomPacketPayload",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.common.ServerboundResourcePackPacket$Action",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.common.ServerCommonPacketListener",
+      "occurrences": 12,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener",
+      "occurrences": 10,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.cookie.ClientCookiePacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.cookie.ServerCookiePacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundBossEventPacket$Handler",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket$ChunkBiomeData",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundCommandsPacket$NodeBuilder",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundCommandsPacket$NodeInspector",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundCommandSuggestionsPacket$Entry",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundCustomChatCompletionsPacket$Action",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type",
+      "occurrences": 16,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundLevelChunkPacketData",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundMoveEntityPacket",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Action",
+      "occurrences": 5,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Entry",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket$Entry",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Action",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Parameters",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket$Operation",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket$AttributeSnapshot",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ClientGamePacketListener",
+      "occurrences": 231,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.CommonPlayerSpawnInfo",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundClientCommandPacket$Action",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundInteractPacket$Handler",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundMovePlayerPacket",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundPlayerActionPacket$Action",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket$Action",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundSeenAdvancementsPacket$Action",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerboundTestInstanceBlockActionPacket$Action",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.game.ServerGamePacketListener",
+      "occurrences": 108,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.handshake.ClientIntent",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.handshake.ServerHandshakePacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.login.ClientLoginPacketListener",
+      "occurrences": 10,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.login.custom.CustomQueryAnswerPayload",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.login.custom.CustomQueryPayload",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.login.ServerLoginPacketListener",
+      "occurrences": 8,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.Packet",
+      "occurrences": 212,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.PacketType",
+      "occurrences": 219,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.ping.ClientPongPacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.ping.ServerPingPacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.status.ClientStatusPacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.status.ServerStatus",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.protocol.status.ServerStatusPacketListener",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.RegistryFriendlyByteBuf",
+      "occurrences": 52,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.network.syncher.SynchedEntityData$DataValue",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.resources.ResourceKey",
+      "occurrences": 9,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.resources.ResourceLocation",
+      "occurrences": 28,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.dialog.Dialog",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.level.ClientInformation",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.level.ServerEntity",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.level.ServerLevel",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.level.ServerPlayer",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.packs.repository.KnownPack",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.server.ServerLinks$UntrustedEntry",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.sounds.SoundEvent",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.sounds.SoundSource",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.stats.RecipeBookSettings",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.stats.Stat",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.tags.TagNetworkSerialization$NetworkPayload",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.util.debugchart.RemoteDebugSampleType",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.BossEvent",
+      "occurrences": 5,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.damagesource.CombatTracker",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.damagesource.DamageSource",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.damagesource.DamageType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.Difficulty",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.effect.MobEffect",
+      "occurrences": 7,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.effect.MobEffectInstance",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.ai.attributes.AttributeInstance",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.Entity",
+      "occurrences": 29,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.EntityType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.EquipmentSlot",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.LivingEntity",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.player.Abilities",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.player.Input",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.PositionMoveRotation",
+      "occurrences": 8,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.Relative",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.entity.vehicle.NewMinecartBehavior$MinecartStep",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.InteractionHand",
+      "occurrences": 10,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.inventory.ClickType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.inventory.MenuType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.inventory.RecipeBookType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.crafting.display.RecipeDisplay",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.crafting.display.RecipeDisplayId",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.crafting.RecipePropertySet",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.crafting.SelectableRecipe$SingleInputSet",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.crafting.StonecutterRecipe",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.ItemStack",
+      "occurrences": 16,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.item.trading.MerchantOffers",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.BaseCommandBlock",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.Block",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.entity.BlockEntity",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.entity.BlockEntityType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.entity.CommandBlockEntity$Mode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.entity.JigsawBlockEntity$JointType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.entity.StructureBlockEntity$UpdateType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.entity.TestInstanceBlockEntity$Data",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.Mirror",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.Rotation",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.state.BlockState",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.state.properties.StructureMode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.block.state.properties.TestBlockMode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.BlockGetter",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.border.WorldBorder",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.chunk.LevelChunk",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.chunk.LevelChunkSection",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.ChunkPos",
+      "occurrences": 5,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.GameType",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.Level",
+      "occurrences": 10,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.lighting.LevelLightEngine",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.saveddata.maps.MapDecoration",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.saveddata.maps.MapId",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.saveddata.maps.MapItemSavedData",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.level.saveddata.maps.MapItemSavedData$MapPatch",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.phys.BlockHitResult",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.phys.Vec3",
+      "occurrences": 16,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.scores.criteria.ObjectiveCriteria$RenderType",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.scores.DisplaySlot",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.scores.Objective",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.scores.PlayerTeam",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.TickRateManager",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.waypoints.TrackedWaypoint",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.waypoints.TrackedWaypointManager",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.minecraft.world.waypoints.Waypoint$Icon",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    }
+  ],
+  "exclusions": []
+}

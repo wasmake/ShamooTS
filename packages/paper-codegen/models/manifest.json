@@ -1,0 +1,22 @@
+{
+  "generatedBy": "ShamooRuntime ASM scanner",
+  "sourceRepository": "/home/shamoo/ShamooRuntime",
+  "algorithm": "sha256",
+  "models": [
+    {
+      "file": "paper.model.json",
+      "source": "runtime-codegen-support/generated/paper/model.json",
+      "sha256": "c060c1ccff10fdfeecef7ca1985a4a2d41a261a7bc755df060dd0a1f9e9f7661"
+    },
+    {
+      "file": "paper-nms.model.json",
+      "source": "platform-paper-nms/generated/paper-nms/model.json",
+      "sha256": "4c637abd6fc3ecdb23ba975580894e8265568bddb7056f542a251e3e3c49c6d4"
+    },
+    {
+      "file": "paper-packets.model.json",
+      "source": "platform-paper-nms/generated/paper-packets/model.json",
+      "sha256": "695238525bdaccdff3aaee4136787fcbe53387a96a5b3b921f0f602b75cac0e6"
+    }
+  ]
+}

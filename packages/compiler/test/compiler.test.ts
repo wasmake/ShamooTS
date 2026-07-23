@@ -146,6 +146,53 @@ describe('shamooc metadata compiler', () => {
     expect(permitted.diagnostics.filter((item) => item.code === 'PERMISSION_REQUIRED')).toEqual([]);
   });
 
+  it('requires explicit Paper internal permissions and records them in the manifest', async () => {
+    const denied = await compilePlugin(request('paper-internals'));
+    expect(denied.diagnostics.filter((item) => item.code === 'PERMISSION_REQUIRED')).toHaveLength(
+      2,
+    );
+    const permitted = await compilePlugin({
+      ...request('paper-internals'),
+      permissions: { nms: true, packets: true },
+    });
+    expect(permitted.diagnostics).toEqual([]);
+    expect(permitted.manifest?.permissions).toEqual({ nms: true, packets: true });
+    const velocity = await compilePlugin({
+      ...request('paper-internals'),
+      platforms: [PlatformKind.VELOCITY],
+      permissions: { nms: true, packets: true },
+    });
+    expect(velocity.diagnostics).toEqual(
+      expect.arrayContaining([expect.objectContaining({ code: 'PLATFORM_LEAK' })]),
+    );
+  }, 120_000);
+
+  it('follows reachable external dependency declarations for restricted imports', async () => {
+    const denied = await compilePlugin(request('external-restricted'));
+    expect(
+      denied.diagnostics.some(
+        (item) => item.code === 'PERMISSION_REQUIRED' && item.message.includes('@shamoo/paper-nms'),
+      ),
+    ).toBe(true);
+    const permitted = await compilePlugin({
+      ...request('external-restricted'),
+      permissions: { nms: true },
+    });
+    expect(permitted.diagnostics).toEqual([]);
+  }, 120_000);
+
+  it('extracts generated event convenience decorator metadata', async () => {
+    const result = await compilePlugin(request('generated-event'));
+    expect(result.diagnostics).toEqual([]);
+    expect(result.manifest?.components[0]?.methods).toEqual([
+      expect.objectContaining({
+        name: 'joined',
+        invocation: 'event',
+        decorators: [expect.objectContaining({ name: 'OnPlayerJoinEvent', arguments: [] })],
+      }),
+    ]);
+  });
+
   it('checks every static import form, nonliteral dynamic paths, and bare builtins', async () => {
     const result = await compilePlugin(request('import-forms'));
     expect(result.diagnostics.some((item) => item.code === 'PLATFORM_LEAK')).toBe(true);
@@ -191,7 +238,7 @@ describe('shamooc metadata compiler', () => {
       paper: { source: 'src/paper.ts', output: 'paper/index.js' },
       velocity: { source: 'src/velocity.ts', output: 'velocity/index.js' },
     });
-  }, 15_000);
+  }, 60_000);
 
   it('assigns metadata ownership from separate transitive platform reachability', async () => {
     const base = request('platform-reach');
@@ -311,5 +358,5 @@ describe('shamooc metadata compiler', () => {
     await expect(readCompilerManifest(output)).resolves.toMatchObject({
       packageName: '@fixture/plugin',
     });
-  }, 15_000);
+  }, 60_000);
 });

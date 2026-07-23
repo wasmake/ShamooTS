@@ -15,6 +15,9 @@ All notable changes to publishable Shamoo packages will be documented here. The 
 - Six-stage async lifecycle execution with DI method parameters, cancellation, deterministic reverse cleanup, and aggregate cleanup errors.
 - Scoped event/command/task/service invocation with correlation, guards, pipes, validation, interceptors, filters, exact disposal, backpressure, and draining.
 - Strict runtime loading of versioned compiler metadata without evaluating metadata values or arbitrary properties.
+- Validated deterministic JVM API model generation for pinned Paper `1.21.8-R0.1-SNAPSHOT` and Velocity `3.4.0-SNAPSHOT` fixtures, with raw and idiomatic bindings, event parity, and exact fixture coverage reports.
+- Paper-only `@shamoo/paper-nms` and `@shamoo/paper-packets` packages pinned to Minecraft protocol `1.21.8` and Mojang mappings `1.21.8+build.1`, including typed interception decisions and compiler permissions.
+- Platform codegen generate, sync, and diff commands, golden output tests, separate NMS/packet coverage, package-boundary validation, and API documentation extraction.
 
 ## 0.1.0-alpha.1 - 2026-07-23
 

@@ -8,10 +8,30 @@
 export const CLI_VERSION: "0.1.0-alpha.1";
 
 // @public (undocumented)
-export type CliCommand = 'build' | 'help' | 'version';
+export type CliCommand = 'build' | 'help' | 'version' | 'paper' | 'velocity';
+
+// @public (undocumented)
+export type CodegenAction = 'generate' | 'sync' | 'diff';
 
 // @public (undocumented)
 export function parseCliCommand(argument: string | undefined): CliCommand;
+
+// @public (undocumented)
+export function parsePlatformCodegenInvocation(arguments_: readonly string[]): PlatformCodegenInvocation;
+
+// @public (undocumented)
+export interface PlatformCodegenInvocation {
+    // (undocumented)
+    readonly action: CodegenAction;
+    // (undocumented)
+    readonly model?: string;
+    // (undocumented)
+    readonly outputDirectory?: string;
+    // (undocumented)
+    readonly platform: 'paper' | 'velocity';
+    // (undocumented)
+    readonly surface?: 'paper' | 'paper-nms' | 'paper-packets';
+}
 
 // (No @packageDocumentation comment for this package)
 

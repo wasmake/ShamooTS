@@ -1,8 +1,8 @@
 # Shamoo
 
-Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch adds production lifecycle orchestration, scoped invocation pipelines, compiler metadata generation, and controlled platform bundles to the protocol and dependency-injection foundation.
+Shamoo is a TypeScript framework for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch includes deterministic generated platform bindings, exact-version Paper NMS and packet surfaces, lifecycle orchestration, compiler metadata generation, and isolated platform bundles.
 
-`shamooc` discovers components, modules, injection, lifecycle, events, commands, tasks, and invocation-pipeline declarations without legacy reflected type metadata. The lifecycle runtime validates and executes that metadata with DI, cancellation, draining, and deterministic cleanup. It does not register or dispatch host events, commands, or scheduled tasks. The bundler produces separate Paper and Velocity ESM artifacts; platform host registration, generated Paper/Velocity Java APIs, configuration file loading, and runnable packaged Minecraft plugins remain later-phase work.
+`shamooc` discovers components, modules, injection, lifecycle, events, commands, tasks, packets, and invocation-pipeline declarations without legacy reflected type metadata. Paper, Velocity, NMS, and packet declarations are generated from checksum-verified canonical JVM scanner models. Coverage is measured against those complete pinned models; small fixtures are used only by parser unit tests.
 
 ## Requirements
 
@@ -15,10 +15,13 @@ Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Pape
 corepack enable
 pnpm install --frozen-lockfile
 pnpm check
+pnpm codegen:check
 pnpm run docs
 ```
 
 `pnpm check` formats, lints, typechecks, tests, builds every publishable package, and validates package manifests and generated declarations. `pnpm run docs` generates Markdown API documentation for all public packages (`pnpm docs` is a reserved pnpm command).
+
+The complete generated declaration compile may require `NODE_OPTIONS=--max-old-space-size=8192 pnpm check`.
 
 ## Public packages
 
@@ -30,8 +33,10 @@ pnpm run docs
 | `@shamoo/config`                           | Source and decoder contracts; no file loader               |
 | `@shamoo/testing`                          | Platform descriptors for contract tests                    |
 | `@shamoo/platform`                         | Validated platform declarations and capability assertions  |
-| `@shamoo/paper`, `@shamoo/paper-raw`       | Paper entrypoint declarations and opaque bridge types      |
-| `@shamoo/velocity`, `@shamoo/velocity-raw` | Velocity entrypoint declarations and opaque bridge types   |
+| `@shamoo/paper`, `@shamoo/paper-raw`       | Generated Paper raw API and idiomatic platform contracts   |
+| `@shamoo/paper-nms`, `paper-packets`       | Exact-version Paper-only NMS and packet declarations       |
+| `@shamoo/velocity`, `@shamoo/velocity-raw` | Generated Velocity raw API and async platform contracts    |
+| `@shamoo/*-codegen`, `platform-codegen`    | Scanner model validation, generation, sync, diff, coverage |
 | `@shamoo/runtime-protocol`                 | Strict descriptor parsing and compatibility negotiation    |
 | `@shamoo/compiler`                         | `shamooc`, TypeScript discovery, diagnostics, and metadata |
 | `@shamoo/metadata`, `@shamoo/reflection`   | Canonical metadata and explicit declaration access         |
@@ -45,7 +50,7 @@ pnpm run docs
 | `@shamoo/cli`                              | Command parsing contract; no installed executable          |
 | `@shamoo/create-plugin`                    | Plugin project declarations; no interactive generator      |
 
-See the [lifecycle guide](docs/lifecycle.md), [pipeline guide](docs/invocation-pipeline.md), [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), [architecture](docs/architecture.md), and pinned [Winter compatibility audit](docs/winter-compatibility.md).
+See the [platform bindings guide](docs/platform-bindings.md), [lifecycle guide](docs/lifecycle.md), [pipeline guide](docs/invocation-pipeline.md), [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), and [architecture](docs/architecture.md).
 
 ## License
 

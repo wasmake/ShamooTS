@@ -1,3 +1,3 @@
 # @shamoo/velocity-codegen
 
-Reserved for Velocity bridge generation after the compiler pipeline is implemented in Phase 5.
+Generates package-sharded raw Velocity declarations, all event decorators, and exact coverage from the checksum-verified canonical model under `models/`. Files under `fixtures/` are unit fixtures only.

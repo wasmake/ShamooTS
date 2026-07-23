@@ -1,0 +1,15 @@
+// Generated from paper 1.21.8-R0.1-20250906.215025-55 (paper-api+adventure). Do not edit.
+import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
+
+/** JVM interface io.papermc.paper.inventory.tooltip.TooltipContext. */
+export interface TooltipContextMembers {
+  asAdvanced(): TooltipContext;
+  asCreative(): TooltipContext;
+  isAdvanced(): boolean;
+  isCreative(): boolean;
+}
+export type TooltipContext = TooltipContextMembers;
+export interface TooltipContextStatics {
+  create(): TooltipContext;
+  create(arg0: boolean, arg1: boolean): TooltipContext;
+}

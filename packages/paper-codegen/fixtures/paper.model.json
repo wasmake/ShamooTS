@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "platform": "paper",
+  "apiVersion": "1.21.8-R0.1-SNAPSHOT",
+  "generatedBy": "shamoo-jvm-scanner/0.1",
+  "declarations": [
+    {
+      "id": "java.lang.Runnable",
+      "javaName": "java.lang.Runnable",
+      "name": "Runnable",
+      "kind": "interface",
+      "functionalMethod": "run",
+      "methods": [{ "name": "run", "parameters": [], "returns": "void" }]
+    },
+    {
+      "id": "java.util.Optional",
+      "javaName": "java.util.Optional",
+      "name": "Optional",
+      "kind": "class",
+      "typeParameters": [{ "name": "T" }],
+      "methods": [
+        {
+          "name": "get",
+          "parameters": [],
+          "returns": "T",
+          "throws": ["java.util.NoSuchElementException"]
+        },
+        { "name": "isPresent", "parameters": [], "returns": "boolean" },
+        { "name": "orElse", "parameters": [{ "name": "other", "type": "T" }], "returns": "T" }
+      ]
+    },
+    {
+      "id": "java.util.Collection",
+      "javaName": "java.util.Collection",
+      "name": "JavaCollection",
+      "kind": "interface",
+      "typeParameters": [{ "name": "E" }],
+      "methods": [
+        { "name": "iterator", "parameters": [], "returns": "IterableIterator<E>" },
+        { "name": "size", "parameters": [], "returns": "number" }
+      ]
+    },
+    {
+      "id": "java.util.concurrent.CompletionStage",
+      "javaName": "java.util.concurrent.CompletionStage",
+      "name": "CompletionStage",
+      "kind": "interface",
+      "typeParameters": [{ "name": "T" }],
+      "methods": [{ "name": "toCompletableFuture", "parameters": [], "returns": "Promise<T>" }]
+    },
+    {
+      "id": "net.kyori.adventure.text.Component",
+      "javaName": "net.kyori.adventure.text.Component",
+      "name": "Component",
+      "kind": "interface"
+    },
+    {
+      "id": "net.kyori.adventure.key.Key",
+      "javaName": "net.kyori.adventure.key.Key",
+      "name": "Key",
+      "kind": "interface",
+      "methods": [{ "name": "asString", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "com.mojang.brigadier.Command",
+      "javaName": "com.mojang.brigadier.Command",
+      "name": "BrigadierCommand",
+      "kind": "interface",
+      "typeParameters": [{ "name": "S" }],
+      "functionalMethod": "run",
+      "methods": [
+        {
+          "name": "run",
+          "parameters": [{ "name": "context", "type": "CommandContext<S>" }],
+          "returns": "number",
+          "throws": ["com.mojang.brigadier.exceptions.CommandSyntaxException"]
+        }
+      ]
+    },
+    {
+      "id": "com.mojang.brigadier.context.CommandContext",
+      "javaName": "com.mojang.brigadier.context.CommandContext",
+      "name": "CommandContext",
+      "kind": "class",
+      "typeParameters": [{ "name": "S" }],
+      "methods": [
+        { "name": "getSource", "parameters": [], "returns": "S" },
+        {
+          "name": "getArgument",
+          "parameters": [
+            { "name": "name", "type": "string" },
+            { "name": "clazz", "type": "JvmClass<T>" }
+          ],
+          "returns": "T",
+          "typeParameters": [{ "name": "T" }]
+        }
+      ]
+    },
+    {
+      "id": "java.lang.Class",
+      "javaName": "java.lang.Class",
+      "name": "JvmClass",
+      "kind": "opaque",
+      "typeParameters": [{ "name": "T" }]
+    },
+    {
+      "id": "org.bukkit.NamespacedKey",
+      "javaName": "org.bukkit.NamespacedKey",
+      "name": "NamespacedKey",
+      "kind": "class",
+      "implements": ["Key"],
+      "constructors": [
+        {
+          "parameters": [
+            { "name": "namespace", "type": "string" },
+            { "name": "key", "type": "string" }
+          ],
+          "throws": ["java.lang.IllegalArgumentException"]
+        }
+      ],
+      "fields": [
+        {
+          "name": "MINECRAFT",
+          "type": "string",
+          "static": true,
+          "readonly": true,
+          "constant": "minecraft"
+        }
+      ],
+      "methods": [{ "name": "asString", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "org.bukkit.Registry",
+      "javaName": "org.bukkit.Registry",
+      "name": "Registry",
+      "kind": "interface",
+      "typeParameters": [{ "name": "T", "bound": "Keyed" }],
+      "extends": ["Iterable<T>"],
+      "methods": [
+        {
+          "name": "get",
+          "parameters": [{ "name": "key", "type": "NamespacedKey" }],
+          "returns": "T",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "org.bukkit.Keyed",
+      "javaName": "org.bukkit.Keyed",
+      "name": "Keyed",
+      "kind": "interface",
+      "methods": [{ "name": "getKey", "parameters": [], "returns": "NamespacedKey" }]
+    },
+    {
+      "id": "org.bukkit.event.Event",
+      "javaName": "org.bukkit.event.Event",
+      "name": "Event",
+      "kind": "abstract",
+      "methods": [{ "name": "getEventName", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "org.bukkit.event.Cancellable",
+      "javaName": "org.bukkit.event.Cancellable",
+      "name": "Cancellable",
+      "kind": "interface",
+      "methods": [
+        { "name": "isCancelled", "parameters": [], "returns": "boolean" },
+        {
+          "name": "setCancelled",
+          "parameters": [{ "name": "cancelled", "type": "boolean" }],
+          "returns": "void"
+        }
+      ]
+    },
+    {
+      "id": "org.bukkit.entity.Entity",
+      "javaName": "org.bukkit.entity.Entity",
+      "name": "Entity",
+      "kind": "interface",
+      "methods": [{ "name": "getName", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "org.bukkit.entity.Player",
+      "javaName": "org.bukkit.entity.Player",
+      "name": "Player",
+      "kind": "interface",
+      "extends": ["Entity"],
+      "methods": [
+        {
+          "name": "sendMessage",
+          "parameters": [{ "name": "message", "type": "Component" }],
+          "returns": "void"
+        },
+        { "name": "getUniqueId", "parameters": [], "returns": "string" }
+      ]
+    },
+    {
+      "id": "org.bukkit.event.player.PlayerJoinEvent",
+      "javaName": "org.bukkit.event.player.PlayerJoinEvent",
+      "name": "PlayerJoinEvent",
+      "kind": "class",
+      "extends": ["Event"],
+      "constructors": [
+        {
+          "parameters": [
+            { "name": "player", "type": "Player" },
+            { "name": "joinMessage", "type": "Component", "nullable": true }
+          ]
+        }
+      ],
+      "methods": [
+        { "name": "getPlayer", "parameters": [], "returns": "Player" },
+        { "name": "joinMessage", "parameters": [], "returns": "Component", "nullable": true },
+        {
+          "name": "joinMessage",
+          "parameters": [{ "name": "message", "type": "Component", "nullable": true }],
+          "returns": "void"
+        }
+      ]
+    },
+    {
+      "id": "org.bukkit.event.player.PlayerMoveEvent",
+      "javaName": "org.bukkit.event.player.PlayerMoveEvent",
+      "name": "PlayerMoveEvent",
+      "kind": "class",
+      "extends": ["Event", "Cancellable"],
+      "methods": [
+        { "name": "getPlayer", "parameters": [], "returns": "Player" },
+        { "name": "isCancelled", "parameters": [], "returns": "boolean" },
+        {
+          "name": "setCancelled",
+          "parameters": [{ "name": "cancelled", "type": "boolean" }],
+          "returns": "void"
+        }
+      ]
+    },
+    {
+      "id": "org.bukkit.event.Event.Result",
+      "javaName": "org.bukkit.event.Event$Result",
+      "name": "EventResult",
+      "nestedIn": "Event",
+      "kind": "enum",
+      "enumConstants": ["DENY", "DEFAULT", "ALLOW"]
+    },
+    {
+      "id": "io.papermc.paper.threadedregions.scheduler.ScheduledTask",
+      "javaName": "io.papermc.paper.threadedregions.scheduler.ScheduledTask",
+      "name": "ScheduledTask",
+      "kind": "interface",
+      "methods": [{ "name": "cancel", "parameters": [], "returns": "ScheduledTaskCancelledState" }]
+    },
+    {
+      "id": "io.papermc.paper.threadedregions.scheduler.ScheduledTask.CancelledState",
+      "javaName": "io.papermc.paper.threadedregions.scheduler.ScheduledTask$CancelledState",
+      "name": "ScheduledTaskCancelledState",
+      "nestedIn": "ScheduledTask",
+      "kind": "enum",
+      "enumConstants": [
+        "CANCELLED_BY_CALLER",
+        "CANCELLED_ALREADY",
+        "RUNNING",
+        "NEXT_RUNS_CANCELLED"
+      ]
+    },
+    {
+      "id": "io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler",
+      "javaName": "io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler",
+      "name": "GlobalRegionScheduler",
+      "kind": "interface",
+      "methods": [
+        {
+          "name": "execute",
+          "parameters": [
+            { "name": "plugin", "type": "PaperPlugin" },
+            { "name": "run", "type": "Runnable" }
+          ],
+          "returns": "void"
+        }
+      ]
+    },
+    {
+      "id": "org.bukkit.Server",
+      "javaName": "org.bukkit.Server",
+      "name": "PaperServer",
+      "kind": "interface",
+      "methods": [
+        { "name": "getOnlinePlayers", "parameters": [], "returns": "JavaCollection<Player>" },
+        { "name": "getGlobalRegionScheduler", "parameters": [], "returns": "GlobalRegionScheduler" }
+      ]
+    },
+    {
+      "id": "org.bukkit.plugin.Plugin",
+      "javaName": "org.bukkit.plugin.Plugin",
+      "name": "PaperPlugin",
+      "kind": "interface",
+      "methods": [{ "name": "getName", "parameters": [], "returns": "string" }]
+    }
+  ],
+  "events": [
+    {
+      "type": "PlayerJoinEvent",
+      "javaName": "org.bukkit.event.player.PlayerJoinEvent",
+      "cancellable": false
+    },
+    {
+      "type": "PlayerMoveEvent",
+      "javaName": "org.bukkit.event.player.PlayerMoveEvent",
+      "cancellable": true
+    }
+  ]
+}

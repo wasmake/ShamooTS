@@ -1,0 +1,337 @@
+{
+  "platform": "velocity",
+  "apiVersion": "3.4.0-20260121.190037-118",
+  "declarations": {
+    "expected": 358,
+    "emitted": 358,
+    "percent": 100
+  },
+  "members": {
+    "expected": 2664,
+    "emitted": 2664,
+    "percent": 100
+  },
+  "events": {
+    "expected": 46,
+    "emitted": 46,
+    "percent": 100
+  },
+  "exceptions": {
+    "expected": 11,
+    "emitted": 11,
+    "percent": 100
+  },
+  "packets": {
+    "expected": 0,
+    "emitted": 0,
+    "percent": 100
+  },
+  "packetRegistrations": {
+    "expected": 0,
+    "emitted": 0,
+    "percent": 100
+  },
+  "packetRegistrationIds": {
+    "expected": 0,
+    "emitted": 0,
+    "percent": 100
+  },
+  "declarationIndex": {
+    "expected": 358,
+    "emitted": 358,
+    "percent": 100
+  },
+  "opaqueMappings": [
+    {
+      "javaName": "com.google.common.collect.ImmutableMap",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.google.common.io.ByteArrayDataInput",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.google.common.io.ByteArrayDataOutput",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.arguments.ArgumentType",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.builder.LiteralArgumentBuilder",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.builder.RequiredArgumentBuilder",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.Message",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.suggestion.Suggestions",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.tree.CommandNode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.tree.LiteralCommandNode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "com.mojang.brigadier.tree.RootCommandNode",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.awt.image.BufferedImage",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.io.ByteArrayInputStream",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.annotation.Annotation",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.ClassLoader",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.Comparable",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.Enum",
+      "occurrences": 40,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.Exception",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.Record",
+      "occurrences": 8,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.RuntimeException",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.lang.Throwable",
+      "occurrences": 13,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.net.InetAddress",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.net.InetSocketAddress",
+      "occurrences": 14,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.net.URI",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.net.URL",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.nio.file.Path",
+      "occurrences": 6,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.security.PublicKey",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.text.MessageFormat",
+      "occurrences": 9,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.time.Duration",
+      "occurrences": 15,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.time.Instant",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.time.temporal.TemporalAmount",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.concurrent.Executor",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.concurrent.ExecutorService",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.concurrent.TimeUnit",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.Deque",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.function.BiPredicate",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.function.BooleanSupplier",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.function.UnaryOperator",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.Iterator",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.Locale",
+      "occurrences": 38,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.regex.MatchResult",
+      "occurrences": 2,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.regex.Pattern",
+      "occurrences": 9,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.ResourceBundle",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.ResourceBundle$Control",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.Spliterator",
+      "occurrences": 4,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.stream.Collector",
+      "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.stream.Stream",
+      "occurrences": 29,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.util.UUID",
+      "occurrences": 59,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "javax.annotation.processing.AbstractProcessor",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "javax.annotation.processing.ProcessingEnvironment",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "javax.annotation.processing.RoundEnvironment",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "javax.lang.model.element.TypeElement",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "javax.lang.model.SourceVersion",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.kyori.adventure.key.Key",
+      "occurrences": 94,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.kyori.adventure.key.Keyed",
+      "occurrences": 20,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.kyori.adventure.text.minimessage.tag.resolver.TagResolver",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.kyori.examination.Examinable",
+      "occurrences": 37,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "net.kyori.examination.ExaminableProperty",
+      "occurrences": 29,
+      "reason": "not-in-scanner-model"
+    }
+  ],
+  "exclusions": []
+}

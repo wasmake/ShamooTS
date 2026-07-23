@@ -1,3 +1,3 @@
 # @shamoo/paper
 
-Paper platform and entrypoint declarations. Phase 1 does not load or execute Minecraft plugins.
+Idiomatic Paper entrypoints plus typed event, command, messaging, and server/global/region/entity scheduler contracts. One-to-one generated Java declarations remain available from `@shamoo/paper-raw`.

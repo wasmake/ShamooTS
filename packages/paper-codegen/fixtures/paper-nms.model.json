@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "platform": "paper-nms",
+  "apiVersion": "1.21.8",
+  "mapping": "mojang:1.21.8+build.1/paper:1.21.8-R0.1-SNAPSHOT",
+  "generatedBy": "shamoo-jvm-scanner/0.1",
+  "declarations": [
+    {
+      "id": "net.minecraft.resources.ResourceLocation",
+      "javaName": "net.minecraft.resources.ResourceLocation",
+      "name": "ResourceLocation",
+      "kind": "record",
+      "constructors": [
+        {
+          "parameters": [
+            { "name": "namespace", "type": "string" },
+            { "name": "path", "type": "string" }
+          ],
+          "throws": ["net.minecraft.ResourceLocationException"]
+        }
+      ],
+      "methods": [
+        { "name": "getNamespace", "parameters": [], "returns": "string" },
+        { "name": "getPath", "parameters": [], "returns": "string" }
+      ]
+    },
+    {
+      "id": "net.minecraft.network.protocol.Packet",
+      "javaName": "net.minecraft.network.protocol.Packet",
+      "name": "NmsPacket",
+      "kind": "interface",
+      "typeParameters": [{ "name": "T", "bound": "PacketListener" }],
+      "methods": [
+        { "name": "handle", "parameters": [{ "name": "listener", "type": "T" }], "returns": "void" }
+      ]
+    },
+    {
+      "id": "net.minecraft.network.PacketListener",
+      "javaName": "net.minecraft.network.PacketListener",
+      "name": "PacketListener",
+      "kind": "interface"
+    },
+    {
+      "id": "net.minecraft.server.level.ServerPlayer",
+      "javaName": "net.minecraft.server.level.ServerPlayer",
+      "name": "ServerPlayer",
+      "kind": "class",
+      "fields": [
+        { "name": "connection", "type": "ServerGamePacketListenerImpl", "readonly": true }
+      ],
+      "methods": [{ "name": "getScoreboardName", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "net.minecraft.server.network.ServerGamePacketListenerImpl",
+      "javaName": "net.minecraft.server.network.ServerGamePacketListenerImpl",
+      "name": "ServerGamePacketListenerImpl",
+      "kind": "class",
+      "implements": ["PacketListener"],
+      "methods": [
+        {
+          "name": "send",
+          "parameters": [{ "name": "packet", "type": "NmsPacket<PacketListener>" }],
+          "returns": "void"
+        }
+      ]
+    }
+  ]
+}

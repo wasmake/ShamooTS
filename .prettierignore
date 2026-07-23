@@ -3,6 +3,8 @@ dist
 coverage
 docs/generated
 docs/api-reports/*.api.md
+packages/*/src/generated
+packages/*-codegen/models/*.model.json
 packages/runtime-protocol/test/fixtures/common-descriptor.golden.json
 packages/compiler/test/fixtures/valid/expected.golden.json
 .api-extractor

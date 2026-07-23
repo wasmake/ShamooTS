@@ -41,6 +41,8 @@ export interface CompilerDiagnostic {
 export interface CompilerPermissions {
   readonly builtins?: readonly string[];
   readonly nativeAddons?: boolean;
+  readonly nms?: boolean;
+  readonly packets?: boolean;
 }
 export interface PluginCompilationRequest {
   readonly tsconfig?: string;
@@ -78,6 +80,9 @@ const methodOnly = new Set([
   'Scheduled',
   'Interval',
   'Timeout',
+  'PacketHandler',
+  'OnPacketReceive',
+  'OnPacketSend',
 ]);
 const memberOnly = new Set([
   'Inject',
@@ -111,7 +116,15 @@ const decoratorTargets = new Map<string, readonly string[]>([
   ),
 ]);
 const platformPackages: Readonly<Record<'paper' | 'velocity', readonly string[]>> = {
-  paper: ['@shamoo/paper', '@shamoo/paper-raw', 'org.bukkit', 'io.papermc'],
+  paper: [
+    '@shamoo/paper',
+    '@shamoo/paper-raw',
+    '@shamoo/paper-nms',
+    '@shamoo/paper-packets',
+    'org.bukkit',
+    'io.papermc',
+    'net.minecraft',
+  ],
   velocity: ['@shamoo/velocity', '@shamoo/velocity-raw', 'com.velocitypowered'],
 };
 const lifecycleStages: ReadonlyMap<
@@ -125,13 +138,16 @@ const lifecycleStages: ReadonlyMap<
   ['OnDisable', 'disable'],
   ['OnUnload', 'unload'],
 ] as const);
-const invocationKinds: ReadonlyMap<string, 'event' | 'command' | 'task'> = new Map([
+const invocationKinds: ReadonlyMap<string, 'event' | 'command' | 'task' | 'packet'> = new Map([
   ['EventHandler', 'event'],
   ['Command', 'command'],
   ['Subcommand', 'command'],
   ['Scheduled', 'task'],
   ['Interval', 'task'],
   ['Timeout', 'task'],
+  ['PacketHandler', 'packet'],
+  ['OnPacketReceive', 'packet'],
+  ['OnPacketSend', 'packet'],
 ] as const);
 const unsupportedBuiltins = new Set(['node:module', 'node:repl', 'node:vm']);
 const nodeBuiltins = new Set(
@@ -149,6 +165,9 @@ const decoratorPackages = new Set([
   '@shamoo/pipes',
   '@shamoo/filters',
   '@shamoo/validation',
+  '@shamoo/paper-packets',
+  '@shamoo/paper-raw',
+  '@shamoo/velocity-raw',
 ]);
 
 export class CompilationError extends Error {
@@ -637,9 +656,15 @@ function discover(
                   const lifecycle = metadata
                     .map((item) => lifecycleStages.get(item.name))
                     .find((item) => item !== undefined);
-                  const invocation = metadata
-                    .map((item) => invocationKinds.get(item.name))
-                    .find((item) => item !== undefined);
+                  const invocation =
+                    metadata
+                      .map((item) => invocationKinds.get(item.name))
+                      .find((item) => item !== undefined) ??
+                    (metadata.some(
+                      (item) => item.name.startsWith('On') && item.name.endsWith('Event'),
+                    )
+                      ? 'event'
+                      : undefined);
                   return {
                     ...(lifecycle === undefined ? {} : { lifecycle }),
                     ...(invocation === undefined ? {} : { invocation }),
@@ -751,7 +776,22 @@ function reachableFrom(
     const file = resolve(next.file);
     if (reached.has(file)) continue;
     reached.set(file, next.path);
-    const source = program.getSourceFile(file);
+    if (
+      file.includes(`${sep}src${sep}generated${sep}`) ||
+      file.includes(`${sep}@shamoo${sep}paper-nms${sep}`) ||
+      file.includes(`${sep}@shamoo${sep}paper-packets${sep}`) ||
+      file.includes(`${sep}packages${sep}paper-nms${sep}`) ||
+      file.includes(`${sep}packages${sep}paper-packets${sep}`)
+    )
+      continue;
+    const source =
+      program.getSourceFile(file) ??
+      (() => {
+        const contents = ts.sys.readFile(file);
+        return contents === undefined
+          ? undefined
+          : ts.createSourceFile(file, contents, ts.ScriptTarget.Latest, true);
+      })();
     if (source === undefined) continue;
     for (const reference of importReferences(source)) {
       if (reference.specifier === undefined) continue;
@@ -761,7 +801,7 @@ function reachableFrom(
         program.getCompilerOptions(),
         ts.sys,
       ).resolvedModule?.resolvedFileName;
-      if (imported !== undefined && resolve(imported).startsWith(`${root}${sep}`)) {
+      if (imported !== undefined) {
         queue.push({
           file: imported,
           path: [...next.path, normalized(root, imported)],
@@ -877,6 +917,38 @@ function checkImports(
           continue;
         }
         const value = reference.specifier;
+        if (
+          platform === 'paper' &&
+          value.startsWith('@shamoo/paper-nms') &&
+          request.permissions?.nms !== true
+        ) {
+          const key = `nms-permission:${source.fileName}:${String(reference.node.pos)}`;
+          if (!reported.has(key)) {
+            reported.add(key);
+            diagnostics.push({
+              code: 'PERMISSION_REQUIRED',
+              message: `Paper NMS import '${value}' requires the compiler nms permission.`,
+              location: sourceLocation,
+              suggestion: 'Set permissions.nms to true for this exact-version Paper module.',
+            });
+          }
+        }
+        if (
+          platform === 'paper' &&
+          value.startsWith('@shamoo/paper-packets') &&
+          request.permissions?.packets !== true
+        ) {
+          const key = `packet-permission:${source.fileName}:${String(reference.node.pos)}`;
+          if (!reported.has(key)) {
+            reported.add(key);
+            diagnostics.push({
+              code: 'PERMISSION_REQUIRED',
+              message: `Paper packet import '${value}' requires the compiler packets permission.`,
+              location: sourceLocation,
+              suggestion: 'Set permissions.packets to true for this exact-version Paper module.',
+            });
+          }
+        }
         if (platformPackages[opposite].some((prefix) => value.startsWith(prefix))) {
           const key = `platform:${platform}:${source.fileName}:${String(reference.node.pos)}`;
           if (!reported.has(key)) {
@@ -986,6 +1058,14 @@ export async function compilePlugin(request: PluginCompilationRequest): Promise<
     packageName: request.packageName,
     components: discovered.components.sort((left, right) => left.id.localeCompare(right.id)),
     modules: discovered.modules.sort((left, right) => left.id.localeCompare(right.id)),
+    ...(request.permissions?.nms === true || request.permissions?.packets === true
+      ? {
+          permissions: {
+            ...(request.permissions.nms === true ? { nms: true } : {}),
+            ...(request.permissions.packets === true ? { packets: true } : {}),
+          },
+        }
+      : {}),
     entrypoints: {
       ...(platforms.has('paper')
         ? {

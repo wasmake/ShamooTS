@@ -39,7 +39,7 @@ export interface DependencyMetadata {
 export interface MethodMetadata {
   readonly name: string;
   readonly lifecycle?: 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
-  readonly invocation?: 'event' | 'command' | 'task';
+  readonly invocation?: 'event' | 'command' | 'task' | 'packet';
   readonly decorators: readonly DecoratorMetadata[];
   readonly parameters: readonly DependencyMetadata[];
   readonly location: SourceLocation;
@@ -93,6 +93,10 @@ export interface CompilerManifest {
   readonly packageName: string;
   readonly components: readonly ComponentMetadata[];
   readonly modules: readonly ModuleMetadata[];
+  readonly permissions?: {
+    readonly nms?: boolean;
+    readonly packets?: boolean;
+  };
   readonly entrypoints: {
     readonly paper?: PlatformEntrypointMetadata;
     readonly velocity?: PlatformEntrypointMetadata;

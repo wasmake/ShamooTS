@@ -51,8 +51,10 @@ describe('decorator declarations', () => {
     for (const factory of [
       declarations.OnLoad,
       declarations.OnEnable,
+      declarations.OnReady,
+      declarations.OnDrain,
       declarations.OnDisable,
-      declarations.OnReload,
+      declarations.OnUnload,
       declarations.EventHandler,
       declarations.Command,
       declarations.Subcommand,

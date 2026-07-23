@@ -252,6 +252,24 @@ describe('module graphs', () => {
     expect(container.resolve('second-consumer')).toBe('second');
   });
 
+  it('resolves method dependencies in the requesting provider module', async () => {
+    class PrivateConsumer {
+      public readonly privateConsumer = true;
+    }
+    const privateModule = defineModule({
+      id: 'method-requester',
+      providers: [PrivateConsumer, { provide: 'private-method-value', useValue: 'private' }],
+    });
+    const container = new Container({ modules: [privateModule] });
+
+    await expect(
+      container.resolveDependencyAsync({ token: 'private-method-value' }, PrivateConsumer),
+    ).resolves.toBe('private');
+    await expect(
+      container.resolveDependencyAsync({ token: 'private-method-value' }),
+    ).rejects.toThrow(ProviderMissingError);
+  });
+
   it('validates module definitions', () => {
     expect(() => defineModule({ id: 'Bad module' })).toThrow(InvalidModuleError);
     expect(() =>

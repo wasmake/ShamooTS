@@ -5,6 +5,9 @@
 ```ts
 
 // @public (undocumented)
+export function applyPipes(value: unknown, pipes: readonly Pipe[], context: PipeContext): Promise<unknown>;
+
+// @public (undocumented)
 export interface Pipe<Input = unknown, Output = unknown> {
     // (undocumented)
     transform(value: Input, context: PipeContext): Output | Promise<Output>;
@@ -13,9 +16,13 @@ export interface Pipe<Input = unknown, Output = unknown> {
 // @public
 export interface PipeContext {
     // (undocumented)
-    readonly kind: 'event' | 'command' | 'task';
+    readonly index: number;
+    // (undocumented)
+    readonly kind: 'event' | 'command' | 'task' | 'service';
     // (undocumented)
     readonly parameter?: string;
+    // (undocumented)
+    readonly signal: AbortSignal;
 }
 
 // @public (undocumented)

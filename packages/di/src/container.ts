@@ -407,6 +407,25 @@ export class Container {
   public async resolveAllAsync<T>(token: ServiceIdentifier<T>): Promise<readonly T[]> {
     return this.#resolveAsync(token, undefined, [], undefined, true) as Promise<T[]>;
   }
+  /** Resolves method metadata with the same qualifiers, visibility, and optionality as provider injection. */
+  public async resolveDependencyAsync(
+    dependency: Dependency,
+    requester?: ServiceIdentifier,
+  ): Promise<unknown> {
+    const token = tokenOf(dependency.token);
+    const requesterModule = requester === undefined ? undefined : this.#requesterModule(requester);
+    if (dependency.lazy === true)
+      return () => this.#resolveAsync(token, requesterModule, [], { ...dependency, lazy: false });
+    return this.#resolveAsync(token, requesterModule, [], dependency);
+  }
+
+  #requesterModule(token: ServiceIdentifier): ModuleNode | undefined {
+    const records = this.#records.filter((record) => record.provider.provide === token);
+    if (records.length === 0) throw new ProviderMissingError(tokenName(token));
+    const modules = new Set(records.map((record) => record.module));
+    if (modules.size > 1) throw new ProviderAmbiguityError(tokenName(token));
+    return records[0]?.module;
+  }
 
   #visible(record: RecordEntry, requester?: ModuleNode): boolean {
     const source = record.module;

@@ -5,6 +5,9 @@
 ```ts
 
 // @public (undocumented)
+export function applyExceptionFilters(error: unknown, filters: readonly ExceptionFilter[], context: InvocationContext): Promise<unknown>;
+
+// @public (undocumented)
 export const Catch = (...types: readonly unknown[]): ShamooDecorator =>
 declaration('Catch', ['class', 'method'], types);
 

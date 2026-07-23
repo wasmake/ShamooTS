@@ -78,6 +78,7 @@ export class Container {
     resolveAllAsync<T>(token: ServiceIdentifier<T>): Promise<readonly T[]>;
     // (undocumented)
     resolveAsync<T>(token: ServiceIdentifier<T>): Promise<T>;
+    resolveDependencyAsync(dependency: Dependency, requester?: ServiceIdentifier): Promise<unknown>;
     // (undocumented)
     trace<T>(token: ServiceIdentifier<T>): ResolutionTrace<T>;
 }

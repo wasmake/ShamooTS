@@ -20,6 +20,9 @@ export const Component: (options?: Readonly<Record<string, unknown>>) => ShamooD
 export const ConfigValue: (...args: readonly unknown[]) => ShamooDecorator;
 
 // @public (undocumented)
+export const Context: (...args: readonly unknown[]) => ShamooDecorator;
+
+// @public (undocumented)
 export type DecoratorTarget = 'class' | 'method' | 'parameter' | 'property';
 
 // @public (undocumented)
@@ -57,13 +60,19 @@ export const Named: (...args: readonly unknown[]) => ShamooDecorator;
 export const OnDisable: (...args: readonly unknown[]) => ShamooDecorator;
 
 // @public (undocumented)
+export const OnDrain: (...args: readonly unknown[]) => ShamooDecorator;
+
+// @public (undocumented)
 export const OnEnable: (...args: readonly unknown[]) => ShamooDecorator;
 
 // @public (undocumented)
 export const OnLoad: (...args: readonly unknown[]) => ShamooDecorator;
 
 // @public (undocumented)
-export const OnReload: (...args: readonly unknown[]) => ShamooDecorator;
+export const OnReady: (...args: readonly unknown[]) => ShamooDecorator;
+
+// @public (undocumented)
+export const OnUnload: (...args: readonly unknown[]) => ShamooDecorator;
 
 // @public (undocumented)
 const Option_2: (...args: readonly unknown[]) => ShamooDecorator;

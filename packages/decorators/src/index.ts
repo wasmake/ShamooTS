@@ -41,9 +41,9 @@ const repeatableDeclarations = new Set([
 ]);
 const conflictGroups: readonly (readonly string[])[] = [
   ['Plugin', 'Module', 'Component', 'Injectable', 'Service'],
-  ['OnLoad', 'OnEnable', 'OnDisable', 'OnReload'],
+  ['OnLoad', 'OnEnable', 'OnReady', 'OnDrain', 'OnDisable', 'OnUnload'],
   ['EventHandler', 'Command', 'Subcommand', 'Scheduled', 'Interval', 'Timeout'],
-  ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender'],
+  ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender', 'Context'],
 ];
 
 function declarationsForMetadata(metadata: MetadataCarrier): RuntimeDecoratorDeclaration[] {
@@ -170,11 +170,14 @@ export const Lazy = member('Lazy');
 export const Named = member('Named');
 export const Qualifier = member('Qualifier');
 export const ConfigValue = member('ConfigValue');
+export const Context = member('Context');
 
 export const OnLoad = method('OnLoad');
 export const OnEnable = method('OnEnable');
+export const OnReady = method('OnReady');
+export const OnDrain = method('OnDrain');
 export const OnDisable = method('OnDisable');
-export const OnReload = method('OnReload');
+export const OnUnload = method('OnUnload');
 export const EventHandler = method('EventHandler');
 export const Command = method('Command');
 export const Subcommand = method('Subcommand');

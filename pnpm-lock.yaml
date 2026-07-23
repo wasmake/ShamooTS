@@ -212,6 +212,27 @@ importers:
       '@shamoo/decorators':
         specifier: workspace:^
         version: link:../decorators
+      '@shamoo/di':
+        specifier: workspace:^
+        version: link:../di
+      '@shamoo/filters':
+        specifier: workspace:^
+        version: link:../filters
+      '@shamoo/guards':
+        specifier: workspace:^
+        version: link:../guards
+      '@shamoo/interceptors':
+        specifier: workspace:^
+        version: link:../interceptors
+      '@shamoo/metadata':
+        specifier: workspace:^
+        version: link:../metadata
+      '@shamoo/pipes':
+        specifier: workspace:^
+        version: link:../pipes
+      '@shamoo/validation':
+        specifier: workspace:^
+        version: link:../validation
 
   packages/metadata: {}
 

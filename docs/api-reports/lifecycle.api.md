@@ -4,11 +4,214 @@
 
 ```ts
 
+// @public (undocumented)
+export const Context = member('Context');
+
+// @public (undocumented)
+export class DrainTimeoutError extends Error {
+    constructor(active: number, timeout: number);
+    // (undocumented)
+    readonly active: number;
+    // (undocumented)
+    readonly code = "SHAMOO_DRAIN_TIMEOUT";
+    // (undocumented)
+    readonly timeout: number;
+}
+
+// @public (undocumented)
+export interface InvocationMethod {
+    // (undocumented)
+    readonly filters?: readonly ExceptionFilter[];
+    // (undocumented)
+    readonly guards?: readonly Guard[];
+    // (undocumented)
+    readonly interceptors?: readonly Interceptor[];
+    // (undocumented)
+    readonly kind: InvocationKind;
+    // (undocumented)
+    readonly method: string | symbol;
+    // (undocumented)
+    readonly parameters?: readonly RuntimeParameter[];
+    readonly requester?: ServiceIdentifier;
+    readonly scope?: 'event' | 'command' | 'task';
+    // (undocumented)
+    readonly target: object;
+    // (undocumented)
+    readonly transformError?: (error: unknown, context: InvocationContext) => unknown;
+    // (undocumented)
+    readonly transformResult?: (value: unknown, context: InvocationContext) => unknown;
+}
+
+// @public (undocumented)
+export class InvocationRejectedError extends Error {
+    constructor(reason: 'draining' | 'disposed' | 'backpressure');
+    // (undocumented)
+    readonly code = "SHAMOO_INVOCATION_REJECTED";
+    // (undocumented)
+    readonly reason: 'draining' | 'disposed' | 'backpressure';
+}
+
+// @public (undocumented)
+export class InvocationRuntime {
+    constructor(container: Container, options?: InvocationRuntimeOptions);
+    // (undocumented)
+    get activeCount(): number;
+    // (undocumented)
+    dispose(timeout?: number): Promise<void>;
+    // (undocumented)
+    drain(timeout?: number): Promise<void>;
+    // (undocumented)
+    get draining(): boolean;
+    // (undocumented)
+    invoke(metadata: InvocationMethod, options?: InvokeOptions): Promise<unknown>;
+}
+
+// @public (undocumented)
+export interface InvocationRuntimeOptions {
+    // (undocumented)
+    readonly maxActive?: number;
+    // (undocumented)
+    readonly timeout?: number;
+}
+
+// @public (undocumented)
+export class InvocationTimeoutError extends Error {
+    constructor(timeout: number);
+    // (undocumented)
+    readonly code = "SHAMOO_INVOCATION_TIMEOUT";
+    // (undocumented)
+    readonly timeout: number;
+}
+
+// @public (undocumented)
+export interface InvokeOptions {
+    // (undocumented)
+    readonly context?: Readonly<Record<string, unknown>>;
+    // (undocumented)
+    readonly correlationId?: string;
+    // (undocumented)
+    readonly signal?: AbortSignal;
+    // (undocumented)
+    readonly timeout?: number;
+    // (undocumented)
+    readonly values?: readonly unknown[];
+}
+
+// @public (undocumented)
+export function isCompilerManifest(value: unknown): value is CompilerManifest;
+
+// @public (undocumented)
+export class LifecycleAggregateError extends AggregateError {
+    constructor(stage: 'disable' | 'unload', errors: readonly LifecycleError[]);
+    // (undocumented)
+    readonly code = "SHAMOO_LIFECYCLE_CLEANUP";
+    // (undocumented)
+    readonly stage: 'disable' | 'unload';
+}
+
+// @public (undocumented)
+export interface LifecycleContext {
+    // (undocumented)
+    readonly signal: AbortSignal;
+    // (undocumented)
+    readonly stage: LifecycleStage;
+}
+
+// @public (undocumented)
+export class LifecycleError extends Error {
+    constructor(stage: LifecycleStage, componentId: string, method: string | symbol, cause: unknown);
+    // (undocumented)
+    readonly cause: unknown;
+    // (undocumented)
+    readonly code = "SHAMOO_LIFECYCLE";
+    // (undocumented)
+    readonly componentId: string;
+    // (undocumented)
+    readonly method: string | symbol;
+    // (undocumented)
+    readonly stage: LifecycleStage;
+}
+
+// @public (undocumented)
+export class LifecycleExecutor {
+    constructor(container: Container, methods: readonly LifecycleMethod[], options?: LifecycleExecutorOptions);
+    // (undocumented)
+    execute(stage: LifecycleStage): Promise<void>;
+}
+
+// @public (undocumented)
+export interface LifecycleExecutorOptions {
+    // (undocumented)
+    readonly timeout?: number;
+}
+
+// @public (undocumented)
+export interface LifecycleMethod {
+    // (undocumented)
+    readonly componentId: string;
+    // (undocumented)
+    readonly method: string | symbol;
+    // (undocumented)
+    readonly order?: number;
+    // (undocumented)
+    readonly parameters?: readonly RuntimeParameter[];
+    readonly requester?: ServiceIdentifier;
+    // (undocumented)
+    readonly stage: LifecycleStage;
+    // (undocumented)
+    readonly target: object;
+}
+
+// @public (undocumented)
+export class LifecycleOrderError extends Error {
+    constructor(expected: LifecycleStage | undefined, received: LifecycleStage);
+    // (undocumented)
+    readonly code = "SHAMOO_LIFECYCLE_ORDER";
+    // (undocumented)
+    readonly expected: LifecycleStage | undefined;
+    // (undocumented)
+    readonly received: LifecycleStage;
+}
+
 // @public
-export type LifecycleStage = 'load' | 'enable' | 'reload' | 'disable';
+export type LifecycleStage = 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
+
+// @public (undocumented)
+export class LifecycleTimeoutError extends Error {
+    constructor(stage: LifecycleStage, timeout: number);
+    // (undocumented)
+    readonly code = "SHAMOO_LIFECYCLE_TIMEOUT";
+    // (undocumented)
+    readonly stage: LifecycleStage;
+    // (undocumented)
+    readonly timeout: number;
+}
+
+// @public (undocumented)
+export interface LoadedRuntimeMetadata {
+    // (undocumented)
+    readonly invocations: readonly (InvocationMethod & {
+        readonly componentId: string;
+    })[];
+    // (undocumented)
+    readonly lifecycle: readonly LifecycleMethod[];
+}
+
+// @public
+export function loadRuntimeMetadata(input: unknown, resolver: RuntimeMetadataResolver): LoadedRuntimeMetadata;
+
+// @public (undocumented)
+export class MetadataValidationError extends Error {
+    constructor(message: string);
+    // (undocumented)
+    readonly code = "SHAMOO_METADATA_INVALID";
+}
 
 // @public (undocumented)
 export const OnDisable = method('OnDisable');
+
+// @public (undocumented)
+export const OnDrain = method('OnDrain');
 
 // @public (undocumented)
 export const OnEnable = method('OnEnable');
@@ -17,7 +220,72 @@ export const OnEnable = method('OnEnable');
 export const OnLoad = method('OnLoad');
 
 // @public (undocumented)
-export const OnReload = method('OnReload');
+export interface OnPluginDisable {
+    // (undocumented)
+    onPluginDisable(context: LifecycleContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export interface OnPluginDrain {
+    // (undocumented)
+    onPluginDrain(context: LifecycleContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export interface OnPluginEnable {
+    // (undocumented)
+    onPluginEnable(context: LifecycleContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export interface OnPluginLoad {
+    // (undocumented)
+    onPluginLoad(context: LifecycleContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export interface OnPluginReady {
+    // (undocumented)
+    onPluginReady(context: LifecycleContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export interface OnPluginUnload {
+    // (undocumented)
+    onPluginUnload(context: LifecycleContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export const OnReady = method('OnReady');
+
+// @public (undocumented)
+export const OnUnload = method('OnUnload');
+
+// @public (undocumented)
+export interface RuntimeMetadataResolver {
+    isExecutableMethod(componentId: string, method: string): boolean;
+    // (undocumented)
+    resolveComponent(id: string): object;
+    resolveRequester?(componentId: string): ServiceIdentifier;
+    // (undocumented)
+    resolveToken(token: TokenMetadata): ServiceIdentifier;
+}
+
+// @public (undocumented)
+export interface RuntimeParameter {
+    // (undocumented)
+    readonly contextKey?: string;
+    // (undocumented)
+    readonly dependency?: Dependency;
+    // (undocumented)
+    readonly index: number;
+    // (undocumented)
+    readonly name?: string;
+    // (undocumented)
+    readonly pipes?: readonly Pipe[];
+    // (undocumented)
+    readonly validators?: readonly Validator[];
+}
 
 // (No @packageDocumentation comment for this package)
 

@@ -68,8 +68,10 @@ const classDecorators = new Map<string, ComponentMetadata['kind']>([
 const methodOnly = new Set([
   'OnLoad',
   'OnEnable',
+  'OnReady',
+  'OnDrain',
   'OnDisable',
-  'OnReload',
+  'OnUnload',
   'EventHandler',
   'Command',
   'Subcommand',
@@ -88,6 +90,7 @@ const memberOnly = new Set([
   'Argument',
   'Option',
   'Sender',
+  'Context',
   'Validate',
 ]);
 const repeatable = new Set([
@@ -111,6 +114,25 @@ const platformPackages: Readonly<Record<'paper' | 'velocity', readonly string[]>
   paper: ['@shamoo/paper', '@shamoo/paper-raw', 'org.bukkit', 'io.papermc'],
   velocity: ['@shamoo/velocity', '@shamoo/velocity-raw', 'com.velocitypowered'],
 };
+const lifecycleStages: ReadonlyMap<
+  string,
+  'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload'
+> = new Map([
+  ['OnLoad', 'load'],
+  ['OnEnable', 'enable'],
+  ['OnReady', 'ready'],
+  ['OnDrain', 'drain'],
+  ['OnDisable', 'disable'],
+  ['OnUnload', 'unload'],
+] as const);
+const invocationKinds: ReadonlyMap<string, 'event' | 'command' | 'task'> = new Map([
+  ['EventHandler', 'event'],
+  ['Command', 'command'],
+  ['Subcommand', 'command'],
+  ['Scheduled', 'task'],
+  ['Interval', 'task'],
+  ['Timeout', 'task'],
+] as const);
 const unsupportedBuiltins = new Set(['node:module', 'node:repl', 'node:vm']);
 const nodeBuiltins = new Set(
   builtinModules.map((name) => (name.startsWith('node:') ? name.slice(5) : name)),
@@ -241,7 +263,7 @@ function resolvedSymbol(checker: ts.TypeChecker, expression: ts.Expression): ts.
 }
 function tokenFromInject(checker: ts.TypeChecker, node: ts.Node): TokenMetadata | undefined {
   const binding = decorators(node).find((item) =>
-    ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender'].includes(
+    ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender', 'Context'].includes(
       decoratorName(checker, item) ?? '',
     ),
   );
@@ -546,14 +568,16 @@ function discover(
           location: location(root, node),
         });
       const conflictGroups = [
-        names.filter((name) => ['OnLoad', 'OnEnable', 'OnDisable', 'OnReload'].includes(name)),
+        names.filter((name) =>
+          ['OnLoad', 'OnEnable', 'OnReady', 'OnDrain', 'OnDisable', 'OnUnload'].includes(name),
+        ),
         names.filter((name) =>
           ['EventHandler', 'Command', 'Subcommand', 'Scheduled', 'Interval', 'Timeout'].includes(
             name,
           ),
         ),
         names.filter((name) =>
-          ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender'].includes(name),
+          ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender', 'Context'].includes(name),
         ),
       ];
       const conflict = conflictGroups.find((group) => new Set(group).size > 1);
@@ -609,6 +633,18 @@ function discover(
             return [
               {
                 name: member.name.getText(),
+                ...(() => {
+                  const lifecycle = metadata
+                    .map((item) => lifecycleStages.get(item.name))
+                    .find((item) => item !== undefined);
+                  const invocation = metadata
+                    .map((item) => invocationKinds.get(item.name))
+                    .find((item) => item !== undefined);
+                  return {
+                    ...(lifecycle === undefined ? {} : { lifecycle }),
+                    ...(invocation === undefined ? {} : { invocation }),
+                  };
+                })(),
                 decorators: metadata,
                 parameters: methodParameters,
                 location: location(root, member),

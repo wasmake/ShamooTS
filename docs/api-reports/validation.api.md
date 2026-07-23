@@ -8,6 +8,18 @@
 export const Validate = (...rules: readonly unknown[]): ShamooDecorator =>
 member('Validate')(...rules);
 
+// @public (undocumented)
+export function validateValue(value: unknown, validators: readonly Validator[]): Promise<void>;
+
+// @public (undocumented)
+export class ValidationError extends Error {
+    constructor(issues: readonly ValidationIssue[]);
+    // (undocumented)
+    readonly code = "SHAMOO_VALIDATION";
+    // (undocumented)
+    readonly issues: readonly ValidationIssue[];
+}
+
 // @public
 export interface ValidationIssue {
     // (undocumented)

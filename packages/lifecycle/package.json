@@ -1,7 +1,7 @@
 {
   "name": "@shamoo/lifecycle",
   "version": "0.1.0-alpha.1",
-  "description": "Shamoo lifecycle declarations.",
+  "description": "Shamoo lifecycle and scoped invocation runtime.",
   "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
@@ -24,7 +24,14 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean"
   },
   "dependencies": {
-    "@shamoo/decorators": "workspace:^"
+    "@shamoo/decorators": "workspace:^",
+    "@shamoo/di": "workspace:^",
+    "@shamoo/filters": "workspace:^",
+    "@shamoo/guards": "workspace:^",
+    "@shamoo/interceptors": "workspace:^",
+    "@shamoo/metadata": "workspace:^",
+    "@shamoo/pipes": "workspace:^",
+    "@shamoo/validation": "workspace:^"
   },
   "engines": {
     "node": ">=22.0.0"

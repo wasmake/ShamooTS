@@ -12,6 +12,9 @@ All notable changes to publishable Shamoo packages will be documented here. The 
 - Compiler-discovered class, method, parameter, and property decorators with explicit interface tokens and strict conflict diagnostics.
 - Canonical, source-located plugin metadata from `shamooc`, including module graphs, injection, lifecycle, events, commands, tasks, conditions, configuration bindings, and invocation pipelines.
 - Reachability-aware Paper/Velocity compatibility and permission diagnostics, plus pinned-esbuild platform ESM bundles with source maps and independent leakage enforcement.
+- Six-stage async lifecycle execution with DI method parameters, cancellation, deterministic reverse cleanup, and aggregate cleanup errors.
+- Scoped event/command/task/service invocation with correlation, guards, pipes, validation, interceptors, filters, exact disposal, backpressure, and draining.
+- Strict runtime loading of versioned compiler metadata without evaluating metadata values or arbitrary properties.
 
 ## 0.1.0-alpha.1 - 2026-07-23
 

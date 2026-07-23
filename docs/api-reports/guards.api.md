@@ -11,6 +11,18 @@ export interface Guard {
 }
 
 // @public (undocumented)
+export class GuardRejectedError extends Error {
+    constructor(guardIndex: number);
+    // (undocumented)
+    readonly code = "SHAMOO_GUARD_REJECTED";
+    // (undocumented)
+    readonly guardIndex: number;
+}
+
+// @public (undocumented)
+export function runGuards(guards: readonly Guard[], context: InvocationContext): Promise<void>;
+
+// @public (undocumented)
 export const UseGuards = (...types: readonly unknown[]): ShamooDecorator =>
 declaration('UseGuards', ['class', 'method'], types);
 

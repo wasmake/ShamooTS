@@ -111,6 +111,7 @@
               "name": "OnEnable"
             }
           ],
+          "lifecycle": "enable",
           "location": {
             "column": 3,
             "file": "src/plugin.ts",
@@ -149,6 +150,7 @@
               "name": "EventHandler"
             }
           ],
+          "invocation": "event",
           "location": {
             "column": 3,
             "file": "src/plugin.ts",
@@ -171,6 +173,7 @@
               "name": "Command"
             }
           ],
+          "invocation": "command",
           "location": {
             "column": 3,
             "file": "src/plugin.ts",
@@ -231,7 +234,7 @@
       "source": "src/plugin.ts"
     }
   },
-  "formatVersion": 1,
+  "formatVersion": 2,
   "modules": [
     {
       "declarations": [

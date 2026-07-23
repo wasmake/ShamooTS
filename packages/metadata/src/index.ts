@@ -1,6 +1,6 @@
 /** Canonical, runtime-neutral output produced by `shamooc`. @packageDocumentation */
 
-export const COMPILER_METADATA_VERSION = 1 as const;
+export const COMPILER_METADATA_VERSION = 2 as const;
 export type MetadataPlatform = 'common' | 'paper' | 'velocity';
 export type DeclarationKind =
   'plugin' | 'module' | 'component' | 'service' | 'event-listener' | 'command' | 'task';
@@ -38,6 +38,8 @@ export interface DependencyMetadata {
 }
 export interface MethodMetadata {
   readonly name: string;
+  readonly lifecycle?: 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
+  readonly invocation?: 'event' | 'command' | 'task';
   readonly decorators: readonly DecoratorMetadata[];
   readonly parameters: readonly DependencyMetadata[];
   readonly location: SourceLocation;
@@ -86,7 +88,7 @@ export interface PlatformEntrypointMetadata {
   readonly output: string;
 }
 export interface CompilerManifest {
-  readonly formatVersion: 1;
+  readonly formatVersion: 2;
   readonly compilerVersion: string;
   readonly packageName: string;
   readonly components: readonly ComponentMetadata[];

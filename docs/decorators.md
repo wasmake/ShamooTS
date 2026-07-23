@@ -8,7 +8,7 @@ not infer types at runtime.
 | ----------------------------- | ------------------------------------------------------------------------------------- |
 | Class                         | `Plugin`, `Module`, `Component`, `Injectable`, `Service`, `Global`, `Primary`         |
 | Injection parameter/property  | `Inject`, `Optional`, `InjectAll`, `Lazy`, `Named`, `Qualifier`, `ConfigValue`        |
-| Lifecycle method              | `OnLoad`, `OnEnable`, `OnDisable`, `OnReload`                                         |
+| Lifecycle method              | `OnLoad`, `OnEnable`, `OnReady`, `OnDrain`, `OnDisable`, `OnUnload`                   |
 | Event/command method          | `EventHandler`, `Command`, `Subcommand`                                               |
 | Command parameter             | `Argument`, `Option`, `Sender`                                                        |
 | Task method                   | `Scheduled`, `Interval`, `Timeout`                                                    |

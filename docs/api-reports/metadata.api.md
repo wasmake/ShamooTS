@@ -13,7 +13,7 @@ export type CanonicalValue = null | boolean | number | string | readonly Canonic
 };
 
 // @public
-export const COMPILER_METADATA_VERSION: 1;
+export const COMPILER_METADATA_VERSION: 2;
 
 // @public (undocumented)
 export interface CompilerManifest {
@@ -27,7 +27,7 @@ export interface CompilerManifest {
         readonly velocity?: PlatformEntrypointMetadata;
     };
     // (undocumented)
-    readonly formatVersion: 1;
+    readonly formatVersion: 2;
     // (undocumented)
     readonly modules: readonly ModuleMetadata[];
     // (undocumented)
@@ -101,6 +101,10 @@ export type MetadataPlatform = 'common' | 'paper' | 'velocity';
 export interface MethodMetadata {
     // (undocumented)
     readonly decorators: readonly DecoratorMetadata_2[];
+    // (undocumented)
+    readonly invocation?: 'event' | 'command' | 'task';
+    // (undocumented)
+    readonly lifecycle?: 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
     // (undocumented)
     readonly location: SourceLocation;
     // (undocumented)

@@ -4,23 +4,39 @@
 
 ```ts
 
+// @public
+export function composeInterceptors<Result>(context: Omit<InvocationContext<Result>, 'proceed'>, interceptors: readonly Interceptor<Result>[], handler: () => Result | Promise<Result>): Promise<Result>;
+
 // @public (undocumented)
-export interface Interceptor {
+export interface Interceptor<Result = unknown> {
     // (undocumented)
-    intercept(context: InvocationContext): unknown;
+    intercept(context: InvocationContext<Result>): Result | Promise<Result>;
 }
 
-// @public
-export interface InvocationContext {
+// @public (undocumented)
+export interface InvocationContext<Result = unknown> {
     // (undocumented)
     readonly arguments: readonly unknown[];
     // (undocumented)
+    readonly attributes: ReadonlyMap<string, unknown>;
+    // (undocumented)
+    readonly correlationId: string;
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly kind: InvocationKind;
+    // (undocumented)
     readonly method: string | symbol;
     // (undocumented)
-    proceed(): unknown;
+    proceed(): Promise<Result>;
+    // (undocumented)
+    readonly signal: AbortSignal;
     // (undocumented)
     readonly target: object;
 }
+
+// @public
+export type InvocationKind = 'event' | 'command' | 'task' | 'service';
 
 // @public (undocumented)
 export const UseInterceptors = (...types: readonly unknown[]): ShamooDecorator =>

@@ -25,6 +25,15 @@ export default defineConfig({
       '@shamoo/interceptors': fileURLToPath(
         new URL('./packages/interceptors/src/index.ts', import.meta.url),
       ),
+      '@shamoo/filters': fileURLToPath(new URL('./packages/filters/src/index.ts', import.meta.url)),
+      '@shamoo/guards': fileURLToPath(new URL('./packages/guards/src/index.ts', import.meta.url)),
+      '@shamoo/lifecycle': fileURLToPath(
+        new URL('./packages/lifecycle/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/pipes': fileURLToPath(new URL('./packages/pipes/src/index.ts', import.meta.url)),
+      '@shamoo/validation': fileURLToPath(
+        new URL('./packages/validation/src/index.ts', import.meta.url),
+      ),
       '@shamoo/paper': fileURLToPath(new URL('./packages/paper/src/index.ts', import.meta.url)),
       '@shamoo/paper-raw': fileURLToPath(
         new URL('./packages/paper-raw/src/index.ts', import.meta.url),

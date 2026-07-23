@@ -5,7 +5,187 @@
 ```ts
 
 // @public (undocumented)
+export interface AsyncFactoryProvider<T> extends ProviderOptions<T> {
+    // (undocumented)
+    readonly inject?: readonly Dependency[];
+    // (undocumented)
+    readonly useAsyncFactory: (...dependencies: readonly unknown[]) => Promise<T>;
+}
+
+// @public (undocumented)
+export interface AsyncModuleDefinition {
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly inject?: readonly Dependency[];
+    // (undocumented)
+    readonly useFactory: (...dependencies: readonly unknown[]) => DynamicModuleDefinition | Promise<DynamicModuleDefinition>;
+}
+
+// @public (undocumented)
+export class AsyncProviderError extends DiError {
+    constructor(token: string);
+}
+
+// @public (undocumented)
+export class CircularDependencyError extends DiError {
+    constructor(path: readonly string[]);
+}
+
+// @public (undocumented)
+export interface ClassMetadata {
+    // (undocumented)
+    readonly lifecycle?: LifecycleMetadata;
+    // (undocumented)
+    readonly parameters?: readonly Dependency[];
+    // (undocumented)
+    readonly properties?: readonly PropertyDependency[];
+}
+
+// @public (undocumented)
+export interface ClassProvider<T> extends ProviderOptions<T> {
+    // (undocumented)
+    readonly metadata?: ClassMetadata;
+    // (undocumented)
+    readonly useClass: ConcreteConstructor<T>;
+}
+
+// @public (undocumented)
+export type ConcreteConstructor<T = unknown> = new (...args: never[]) => T;
+
+// @public (undocumented)
+export class Container {
+    constructor(options?: ContainerOptions);
+    // (undocumented)
+    child(scope: Exclude<Scope, Scope.SINGLETON | Scope.PLUGIN | Scope.MODULE | Scope.TRANSIENT>, context?: Readonly<Record<string, unknown>>): Container;
+    // (undocumented)
+    context(key: string): unknown;
+    // (undocumented)
+    static create(options?: ContainerOptions): Promise<Container>;
+    // (undocumented)
+    dispose(): Promise<void>;
+    // (undocumented)
+    initialize(): Promise<void>;
+    // (undocumented)
+    inspect(): readonly ProviderInspection[];
+    // (undocumented)
+    override<T>(provider: ProviderInput<T>): void;
+    // (undocumented)
+    resolve<T>(token: ServiceIdentifier<T>): T;
+    // (undocumented)
+    resolveAll<T>(token: ServiceIdentifier<T>): readonly T[];
+    // (undocumented)
+    resolveAllAsync<T>(token: ServiceIdentifier<T>): Promise<readonly T[]>;
+    // (undocumented)
+    resolveAsync<T>(token: ServiceIdentifier<T>): Promise<T>;
+    // (undocumented)
+    trace<T>(token: ServiceIdentifier<T>): ResolutionTrace<T>;
+}
+
+// @public (undocumented)
+export interface ContainerLike {
+    // (undocumented)
+    resolve<T>(token: ServiceIdentifier<T>): T;
+    // (undocumented)
+    resolveAsync<T>(token: ServiceIdentifier<T>): Promise<T>;
+}
+
+// @public (undocumented)
+export interface ContainerOptions {
+    // (undocumented)
+    readonly modules?: readonly ModuleImport[];
+    // (undocumented)
+    readonly providers?: readonly ProviderInput[];
+}
+
+// @public (undocumented)
 export function createToken<T>(description: string): InjectionToken<T>;
+
+// @public (undocumented)
+export function defineAsyncModule(definition: AsyncModuleDefinition): AsyncModuleDefinition;
+
+// @public (undocumented)
+export function defineDynamicModule(definition: DynamicModuleDefinition): DynamicModuleDefinition;
+
+// @public (undocumented)
+export function defineModule(definition: ModuleDefinition): ModuleDefinition;
+
+// @public (undocumented)
+export interface Dependency<T = unknown> {
+    // (undocumented)
+    readonly all?: boolean;
+    // (undocumented)
+    readonly circular?: boolean;
+    // (undocumented)
+    readonly lazy?: boolean;
+    // (undocumented)
+    readonly name?: string;
+    // (undocumented)
+    readonly optional?: boolean;
+    // (undocumented)
+    readonly qualifier?: string;
+    // (undocumented)
+    readonly token: TokenReference<T>;
+}
+
+// @public (undocumented)
+export class DependencyResolutionError extends DiError {
+    constructor(token: string, cause: unknown);
+}
+
+// @public (undocumented)
+export class DiError extends Error {
+    constructor(code: DiErrorCode, message: string, details?: Readonly<Record<string, unknown>>);
+    // (undocumented)
+    readonly code: DiErrorCode;
+    // (undocumented)
+    readonly details: Readonly<Record<string, unknown>>;
+}
+
+// @public (undocumented)
+export type DiErrorCode = 'PROVIDER_MISSING' | 'PROVIDER_AMBIGUITY' | 'PROVIDER_CONFLICT' | 'INVALID_PROVIDER' | 'INVALID_MODULE' | 'INVALID_EXPORT' | 'CIRCULAR_DEPENDENCY' | 'MODULE_CYCLE' | 'SCOPE_VIOLATION' | 'DISPOSED_SCOPE' | 'DEPENDENCY_RESOLUTION' | 'ASYNC_PROVIDER';
+
+// @public (undocumented)
+export class DisposedScopeError extends DiError {
+    constructor();
+}
+
+// @public (undocumented)
+export interface DynamicModuleDefinition extends Omit<ModuleDefinition, 'imports' | 'providers'> {
+    // (undocumented)
+    readonly imports?: readonly ModuleImport[];
+    // (undocumented)
+    readonly providers?: readonly ProviderInput[];
+}
+
+// @public (undocumented)
+export interface DynamicProvider<T> extends ProviderOptions<T> {
+    // (undocumented)
+    readonly useDynamic: (context: ResolutionContext) => Provider<T> | Promise<Provider<T>>;
+}
+
+// @public (undocumented)
+export interface ExistingProvider<T> extends ProviderOptions<T> {
+    // (undocumented)
+    readonly useExisting: TokenReference<T>;
+}
+
+// @public (undocumented)
+export interface FactoryProvider<T> extends ProviderOptions<T> {
+    // (undocumented)
+    readonly inject?: readonly Dependency[];
+    // (undocumented)
+    readonly useFactory: (...dependencies: readonly unknown[]) => T;
+}
+
+// @public (undocumented)
+export function forwardRef<T>(forward: () => T): ForwardReference<T>;
+
+// @public (undocumented)
+export interface ForwardReference<T> {
+    // (undocumented)
+    readonly forward: () => T;
+}
 
 // @public (undocumented)
 export interface InjectionToken<T> {
@@ -16,7 +196,169 @@ export interface InjectionToken<T> {
 }
 
 // @public (undocumented)
-export type ServiceIdentifier<T> = Constructor<T> | InjectionToken<T>;
+export class InvalidExportError extends DiError {
+    constructor(module: string, token: string);
+}
+
+// @public (undocumented)
+export class InvalidModuleError extends DiError {
+    constructor(message: string);
+}
+
+// @public (undocumented)
+export class InvalidProviderError extends DiError {
+    constructor(message: string);
+}
+
+// @public (undocumented)
+export interface LifecycleMetadata {
+    // (undocumented)
+    readonly dispose?: string | symbol;
+    // (undocumented)
+    readonly initialize?: string | symbol;
+}
+
+// @public (undocumented)
+export class ModuleCycleError extends DiError {
+    constructor(path: readonly string[]);
+}
+
+// @public (undocumented)
+export interface ModuleDefinition {
+    // (undocumented)
+    readonly exports?: readonly ServiceIdentifier[];
+    // (undocumented)
+    readonly global?: boolean;
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly imports?: readonly ModuleImport[];
+    // (undocumented)
+    readonly providers?: readonly ProviderInput[];
+}
+
+// @public (undocumented)
+export type ModuleImport = ModuleDefinition | AsyncModuleDefinition | ForwardReference<ModuleDefinition>;
+
+// @public (undocumented)
+export interface PropertyDependency extends Dependency {
+    // (undocumented)
+    readonly property: string | symbol;
+}
+
+// @public (undocumented)
+export type Provider<T = unknown> = ClassProvider<T> | ValueProvider<T> | FactoryProvider<T> | AsyncFactoryProvider<T> | ExistingProvider<T> | DynamicProvider<T>;
+
+// @public (undocumented)
+export class ProviderAmbiguityError extends DiError {
+    constructor(token: string);
+}
+
+// @public (undocumented)
+export class ProviderConflictError extends DiError {
+    constructor(token: string);
+}
+
+// @public (undocumented)
+export type ProviderInput<T = unknown> = Provider<T> | ConcreteConstructor<T>;
+
+// @public (undocumented)
+export interface ProviderInspection {
+    // (undocumented)
+    readonly initialized: boolean;
+    // (undocumented)
+    readonly kind: 'class' | 'value' | 'factory' | 'asyncFactory' | 'existing' | 'dynamic';
+    // (undocumented)
+    readonly module: string | undefined;
+    // (undocumented)
+    readonly multi: boolean;
+    // (undocumented)
+    readonly primary: boolean;
+    // (undocumented)
+    readonly scope: Scope;
+    // (undocumented)
+    readonly token: string;
+}
+
+// @public (undocumented)
+export class ProviderMissingError extends DiError {
+    constructor(token: string);
+}
+
+// @public (undocumented)
+export interface ResolutionContext {
+    // (undocumented)
+    readonly container: ContainerLike;
+    // (undocumented)
+    readonly context: ReadonlyMap<string, unknown>;
+    // (undocumented)
+    readonly scope: Scope;
+}
+
+// @public (undocumented)
+export interface ResolutionTrace<T> {
+    // (undocumented)
+    readonly entries: readonly ResolutionTraceEntry[];
+    // (undocumented)
+    readonly error?: unknown;
+    // (undocumented)
+    readonly value?: T;
+}
+
+// @public (undocumented)
+export interface ResolutionTraceEntry {
+    // (undocumented)
+    readonly action: 'resolve' | 'cache' | 'create' | 'dependency' | 'error';
+    // (undocumented)
+    readonly detail?: string;
+    // (undocumented)
+    readonly module?: string;
+    // (undocumented)
+    readonly token: string;
+}
+
+// @public (undocumented)
+export enum Scope {
+    // (undocumented)
+    COMMAND = "Command",
+    // (undocumented)
+    EVENT = "Event",
+    // (undocumented)
+    MODULE = "Module",
+    // (undocumented)
+    PLAYER = "Player",
+    // (undocumented)
+    PLUGIN = "Plugin",
+    // (undocumented)
+    PROXY = "Proxy",
+    // (undocumented)
+    REGION = "Region",
+    // (undocumented)
+    SINGLETON = "Singleton",
+    // (undocumented)
+    TASK = "Task",
+    // (undocumented)
+    TRANSIENT = "Transient",
+    // (undocumented)
+    WORLD = "World"
+}
+
+// @public (undocumented)
+export class ScopeViolationError extends DiError {
+    constructor(message: string);
+}
+
+// @public (undocumented)
+export type ServiceIdentifier<T = unknown> = Constructor<T> | InjectionToken<T> | string | symbol;
+
+// @public (undocumented)
+export type TokenReference<T = unknown> = ServiceIdentifier<T> | ForwardReference<ServiceIdentifier<T>>;
+
+// @public (undocumented)
+export interface ValueProvider<T> extends ProviderOptions<T> {
+    // (undocumented)
+    readonly useValue: T;
+}
 
 // (No @packageDocumentation comment for this package)
 

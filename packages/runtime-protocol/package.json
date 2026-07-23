@@ -24,7 +24,11 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean"
   },
   "dependencies": {
-    "@shamoo/core": "workspace:^"
+    "semver": "7.7.2",
+    "zod": "4.0.10"
+  },
+  "devDependencies": {
+    "@types/semver": "7.7.0"
   },
   "engines": {
     "node": ">=22.0.0"

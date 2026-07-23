@@ -1,4 +1,4 @@
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -57,6 +57,9 @@ for (const directory of packageDirectories) {
   });
   const result = Extractor.invoke(config, { localBuild: true, showVerboseMessages: false });
   if (!result.succeeded) throw new Error(`API extraction failed for ${directory}`);
+  const reportPath = join(root, 'docs', 'api-reports', `${directory}.api.md`);
+  const report = await readFile(reportPath, 'utf8');
+  await writeFile(reportPath, report.replaceAll('\r\n', '\n'), 'utf8');
 }
 
 process.stdout.write(`Extracted ${packageDirectories.length} public API reports.\n`);

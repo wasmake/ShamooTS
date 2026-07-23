@@ -1,7 +1,7 @@
 {
   "name": "@shamoo/di",
   "version": "0.1.0-alpha.1",
-  "description": "Dependency injection tokens and identifiers for Shamoo.",
+  "description": "Explicit-metadata dependency injection and module runtime for Shamoo.",
   "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,

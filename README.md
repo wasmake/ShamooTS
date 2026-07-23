@@ -1,8 +1,8 @@
 # Shamoo
 
-Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. Version `0.1.0-alpha.1` is **Phase 1**: it establishes package boundaries, platform contracts, host entrypoint declarations, protocol primitives, and strict repository tooling.
+Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch adds the synchronized Phase 2 protocol and a substantial Phase 3 dependency-injection/module runtime to the Phase 1 package foundation.
 
-It does not yet provide a dependency injection container, decorator discovery, lifecycle execution, event or command registration, scheduling, configuration files, Java bridge generation, bundling, or runnable Minecraft plugins. Those capabilities remain explicitly phase-gated.
+It does not yet provide decorator/compiler discovery, event or command registration, scheduling, configuration files, Java bridge generation, bundling, or runnable Minecraft plugins. DI lifecycle methods are supported only through explicit generated metadata contracts.
 
 ## Requirements
 
@@ -18,21 +18,21 @@ pnpm check
 pnpm run docs
 ```
 
-`pnpm check` formats, lints, typechecks, tests, builds every publishable package, and validates package manifests and generated declarations. `pnpm run docs` generates Markdown API documentation for all 14 public Phase 1 packages (`pnpm docs` is a reserved pnpm command).
+`pnpm check` formats, lints, typechecks, tests, builds every publishable package, and validates package manifests and generated declarations. `pnpm run docs` generates Markdown API documentation for all 14 public packages (`pnpm docs` is a reserved pnpm command).
 
 ## Public packages
 
-| Package                                    | Phase 1 scope                                              |
+| Package                                    | Current scope                                              |
 | ------------------------------------------ | ---------------------------------------------------------- |
 | `@shamoo/core`                             | Paper/Velocity kinds, capabilities, and branded identities |
 | `@shamoo/common`                           | Shared types and typed base errors                         |
-| `@shamoo/di`                               | Injection tokens and service identifiers; no container     |
+| `@shamoo/di`                               | Plugin-local DI containers, scopes, providers, and modules |
 | `@shamoo/config`                           | Source and decoder contracts; no file loader               |
 | `@shamoo/testing`                          | Platform descriptors for contract tests                    |
 | `@shamoo/platform`                         | Validated platform declarations and capability assertions  |
 | `@shamoo/paper`, `@shamoo/paper-raw`       | Paper entrypoint declarations and opaque bridge types      |
 | `@shamoo/velocity`, `@shamoo/velocity-raw` | Velocity entrypoint declarations and opaque bridge types   |
-| `@shamoo/runtime-protocol`                 | Versioned host/runtime handshake primitives                |
+| `@shamoo/runtime-protocol`                 | Strict descriptor parsing and compatibility negotiation    |
 | `@shamoo/compiler`                         | Compilation request validation; no compiler pipeline       |
 | `@shamoo/cli`                              | Command parsing contract; no installed executable          |
 | `@shamoo/create-plugin`                    | Plugin project declarations; no interactive generator      |

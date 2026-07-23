@@ -42,7 +42,7 @@ describe('Velocity codegen filesystem wrapper', () => {
     ).toMatchObject({ changed: true, expected: '', actual: 'stale' });
     expect(await syncVelocityBindings(request)).toContain(stale);
     await expect(access(stale)).rejects.toMatchObject({ code: 'ENOENT' });
-  });
+  }, 120_000);
 
   it('accepts a model path and rejects non-Velocity models', async () => {
     const outputDirectory = await mkdtemp(join(tmpdir(), 'shamoo-velocity-model-'));

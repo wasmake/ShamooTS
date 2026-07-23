@@ -785,7 +785,10 @@ function substituteType(value: string, substitutions: ReadonlyMap<string, string
   let output = value;
   for (const [name, replacement] of substitutions)
     output = output.replace(
-      new RegExp(`(?<![A-Za-z0-9_$])${name.replaceAll(/[$]/g, '\\$&')}(?![A-Za-z0-9_$])`, 'g'),
+      new RegExp(
+        `(?<![A-Za-z0-9_$])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z0-9_$])`,
+        'g',
+      ),
       replacement,
     );
   return output;

@@ -1,8 +1,11 @@
-declare const velocityPluginBrand: unique symbol;
-declare const velocityProxyBrand: unique symbol;
-export type VelocityPlugin = object & { readonly [velocityPluginBrand]: true };
-export type VelocityProxy = object & { readonly [velocityProxyBrand]: true };
+export * from './generated/bindings.generated.js';
+export * from './generated/events.generated.js';
+
+import type { JavaOpaque, ProxyServer } from './generated/bindings.generated.js';
+
+export type VelocityPlugin = JavaOpaque<'java.lang.Object'>;
+
 export interface VelocityEntrypointContext {
   readonly plugin: VelocityPlugin;
-  readonly proxy: VelocityProxy;
+  readonly proxy: ProxyServer;
 }

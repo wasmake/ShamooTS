@@ -32,6 +32,11 @@ export interface CompilerManifest {
     readonly modules: readonly ModuleMetadata[];
     // (undocumented)
     readonly packageName: string;
+    // (undocumented)
+    readonly permissions?: {
+        readonly nms?: boolean;
+        readonly packets?: boolean;
+    };
 }
 
 // @public (undocumented)
@@ -102,7 +107,7 @@ export interface MethodMetadata {
     // (undocumented)
     readonly decorators: readonly DecoratorMetadata_2[];
     // (undocumented)
-    readonly invocation?: 'event' | 'command' | 'task';
+    readonly invocation?: 'event' | 'command' | 'task' | 'packet';
     // (undocumented)
     readonly lifecycle?: 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
     // (undocumented)

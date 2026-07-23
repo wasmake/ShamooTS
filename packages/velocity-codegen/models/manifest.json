@@ -1,0 +1,12 @@
+{
+  "generatedBy": "ShamooRuntime ASM scanner",
+  "sourceRepository": "/home/shamoo/ShamooRuntime",
+  "algorithm": "sha256",
+  "models": [
+    {
+      "file": "velocity.model.json",
+      "source": "runtime-codegen-support/generated/velocity/model.json",
+      "sha256": "3cb1a94fa7a0a73ad73466132b1ba2d4217bf9be537e5441932a8dc648a56490"
+    }
+  ]
+}

@@ -52,6 +52,10 @@ export interface CompilerPermissions {
     readonly builtins?: readonly string[];
     // (undocumented)
     readonly nativeAddons?: boolean;
+    // (undocumented)
+    readonly nms?: boolean;
+    // (undocumented)
+    readonly packets?: boolean;
 }
 
 // @public (undocumented)

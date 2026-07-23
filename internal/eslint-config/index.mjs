@@ -11,6 +11,7 @@ export default tseslint.config(
       '**/coverage/**',
       '**/node_modules/**',
       'docs/generated/**',
+      '**/src/generated/**',
     ],
   },
   eslint.configs.recommended,
@@ -18,6 +19,12 @@ export default tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   { ...importX.flatConfigs.recommended, files: ['**/*.ts'] },
   { ...importX.flatConfigs.typescript, files: ['**/*.ts'] },
+  {
+    files: ['packages/platform-codegen/src/**/*.ts'],
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': 'off',
+    },
+  },
   {
     files: ['**/*.ts'],
     languageOptions: {

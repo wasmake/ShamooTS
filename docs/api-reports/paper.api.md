@@ -11,11 +11,88 @@ export function createPaperPlatform(capabilities?: Iterable<PlatformCapability>,
 export function definePaperEntrypoint(entrypoint: PaperEntrypoint): PaperEntrypoint;
 
 // @public (undocumented)
+export interface MutablePaperEvent<T> {
+    // (undocumented)
+    readonly cancelled: boolean;
+    // (undocumented)
+    readonly event: T;
+    // (undocumented)
+    setCancelled(cancelled: boolean): void;
+}
+
+// @public (undocumented)
+export interface PaperCommandContext {
+    // (undocumented)
+    readonly arguments: ReadonlyMap<string, string>;
+    // (undocumented)
+    readonly input: string;
+    // (undocumented)
+    readonly sender: Player | PaperEntrypointContext['server'];
+}
+
+// @public (undocumented)
+export interface PaperCommandRegistry {
+    // (undocumented)
+    register(name: string, execute: (context: PaperCommandContext) => PaperCommandResult): () => void;
+}
+
+// @public (undocumented)
+export type PaperCommandResult = number | boolean | Component | Promise<number | boolean | Component>;
+
+// @public (undocumented)
 export interface PaperEntrypoint {
     // (undocumented)
     disable?(context: PaperEntrypointContext): void | Promise<void>;
     // (undocumented)
     enable(context: PaperEntrypointContext): void | Promise<void>;
+}
+
+// @public (undocumented)
+export type PaperEventHandler<Name extends PaperEventType> = (context: MutablePaperEvent<GeneratedEventMap[Name]>) => void | Promise<void>;
+
+// @public (undocumented)
+export interface PaperEventRegistry {
+    // (undocumented)
+    on<Name extends PaperEventType>(type: Name, handler: PaperEventHandler<Name>): () => void;
+}
+
+// @public (undocumented)
+export type PaperEventType = keyof GeneratedEventMap;
+
+// @public (undocumented)
+export interface PaperMessagingChannel<T> {
+    // (undocumented)
+    decode(payload: Uint8Array): T;
+    // (undocumented)
+    encode(value: T): Uint8Array;
+    // (undocumented)
+    readonly key: string;
+}
+
+// @public (undocumented)
+export interface PaperMessenger {
+    // (undocumented)
+    send<T>(player: Player, channel: PaperMessagingChannel<T>, value: T): void;
+}
+
+// @public (undocumented)
+export interface PaperScheduler {
+    // (undocumented)
+    entity(entity: Entity, task: () => void, delayTicks?: number): ScheduledHandle;
+    // (undocumented)
+    global(scheduler: GlobalRegionScheduler, task: () => void, delayTicks?: number): ScheduledHandle;
+    // (undocumented)
+    region(world: string, chunkX: number, chunkZ: number, task: () => void, delayTicks?: number): ScheduledHandle;
+    // (undocumented)
+    server(task: () => void, delayTicks?: number): ScheduledHandle;
+}
+
+// @public (undocumented)
+export interface ScheduledHandle {
+    // (undocumented)
+    cancel(): ReturnType<ScheduledTask['cancel']>;
+    // (undocumented)
+    readonly native: ScheduledTask;
 }
 
 // (No @packageDocumentation comment for this package)

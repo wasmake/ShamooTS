@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "platform": "paper-packets",
+  "apiVersion": "1.21.8",
+  "mapping": "protocol:1.21.8/mojang:1.21.8+build.1",
+  "generatedBy": "shamoo-jvm-scanner/0.1",
+  "declarations": [
+    {
+      "id": "ServerboundHelloPacket",
+      "javaName": "net.minecraft.network.protocol.login.ServerboundHelloPacket",
+      "name": "ServerboundHelloPacket",
+      "kind": "record",
+      "methods": [{ "name": "name", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "ClientboundLoginFinishedPacket",
+      "javaName": "net.minecraft.network.protocol.login.ClientboundLoginFinishedPacket",
+      "name": "ClientboundLoginFinishedPacket",
+      "kind": "record",
+      "methods": [{ "name": "profileId", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "ServerboundChatPacket",
+      "javaName": "net.minecraft.network.protocol.game.ServerboundChatPacket",
+      "name": "ServerboundChatPacket",
+      "kind": "record",
+      "methods": [{ "name": "message", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "ClientboundSystemChatPacket",
+      "javaName": "net.minecraft.network.protocol.game.ClientboundSystemChatPacket",
+      "name": "ClientboundSystemChatPacket",
+      "kind": "record",
+      "methods": [
+        { "name": "content", "parameters": [], "returns": "string" },
+        { "name": "overlay", "parameters": [], "returns": "boolean" }
+      ]
+    }
+  ],
+  "packets": [
+    {
+      "type": "ServerboundHelloPacket",
+      "javaName": "net.minecraft.network.protocol.login.ServerboundHelloPacket",
+      "phase": "login",
+      "direction": "serverbound"
+    },
+    {
+      "type": "ClientboundLoginFinishedPacket",
+      "javaName": "net.minecraft.network.protocol.login.ClientboundLoginFinishedPacket",
+      "phase": "login",
+      "direction": "clientbound"
+    },
+    {
+      "type": "ServerboundChatPacket",
+      "javaName": "net.minecraft.network.protocol.game.ServerboundChatPacket",
+      "phase": "play",
+      "direction": "serverbound"
+    },
+    {
+      "type": "ClientboundSystemChatPacket",
+      "javaName": "net.minecraft.network.protocol.game.ClientboundSystemChatPacket",
+      "phase": "play",
+      "direction": "clientbound"
+    }
+  ]
+}

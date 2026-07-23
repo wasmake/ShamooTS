@@ -73,4 +73,30 @@ describe('platform bundler', () => {
       ).rejects.toThrow('paper bundle cannot import');
     },
   );
+
+  it('enforces manifest permissions on transitive restricted imports', async () => {
+    const outputDirectory = await mkdtemp(join(tmpdir(), 'shamoo-bundle-permission-'));
+    const restricted = {
+      ...manifest,
+      entrypoints: {
+        paper: { source: 'fixtures/restricted-transitive.ts', output: 'paper/index.js' },
+      },
+    };
+    await expect(
+      bundlePlugin({
+        manifest: restricted,
+        projectRoot,
+        outputDirectory,
+        external: ['@shamoo/paper-nms'],
+      }),
+    ).rejects.toThrow('not allowed by manifest permissions');
+    await expect(
+      bundlePlugin({
+        manifest: { ...restricted, permissions: { nms: true } },
+        projectRoot,
+        outputDirectory,
+        external: ['@shamoo/paper-nms'],
+      }),
+    ).resolves.toHaveLength(1);
+  });
 });

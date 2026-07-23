@@ -3,7 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
 import type { CompilerManifest } from '@shamoo/metadata';
-import { build, type OnResolveArgs, type OutputFile, type Plugin } from 'esbuild';
+import { build, type BuildResult, type OnResolveArgs, type OutputFile, type Plugin } from 'esbuild';
 
 export interface BundleRequest {
   readonly manifest: CompilerManifest;
@@ -28,11 +28,22 @@ export class PlatformLeakageError extends Error {
 }
 
 const prefixes = {
-  paper: ['@shamoo/paper', '@shamoo/paper-raw', 'org.bukkit', 'io.papermc'],
+  paper: [
+    '@shamoo/paper',
+    '@shamoo/paper-raw',
+    '@shamoo/paper-nms',
+    '@shamoo/paper-packets',
+    'org.bukkit',
+    'io.papermc',
+    'net.minecraft',
+  ],
   velocity: ['@shamoo/velocity', '@shamoo/velocity-raw', 'com.velocitypowered'],
 } as const;
 
-function leakageGuard(platform: 'paper' | 'velocity'): Plugin {
+function leakageGuard(
+  platform: 'paper' | 'velocity',
+  permissions: CompilerManifest['permissions'],
+): Plugin {
   const opposite = platform === 'paper' ? 'velocity' : 'paper';
   return {
     name: 'shamoo-platform-boundary',
@@ -41,10 +52,40 @@ function leakageGuard(platform: 'paper' | 'velocity'): Plugin {
         if (prefixes[opposite].some((prefix) => args.path.startsWith(prefix))) {
           throw new PlatformLeakageError(platform, args.path, args.importer || '<entrypoint>');
         }
+        if (
+          platform === 'paper' &&
+          ((args.path.startsWith('@shamoo/paper-nms') && permissions?.nms !== true) ||
+            (args.path.startsWith('@shamoo/paper-packets') && permissions?.packets !== true))
+        )
+          throw new Error(
+            `paper bundle import '${args.path}' from ${args.importer || '<entrypoint>'} is not allowed by manifest permissions.`,
+          );
         return undefined;
       });
     },
   };
+}
+
+function enforceMetafile(
+  platform: 'paper' | 'velocity',
+  permissions: CompilerManifest['permissions'],
+  result: BuildResult,
+): void {
+  for (const [importer, input] of Object.entries(result.metafile?.inputs ?? {})) {
+    for (const imported of input.imports) {
+      if (
+        platform === 'paper' &&
+        ((imported.path.startsWith('@shamoo/paper-nms') && permissions?.nms !== true) ||
+          (imported.path.startsWith('@shamoo/paper-packets') && permissions?.packets !== true))
+      )
+        throw new Error(
+          `paper bundle import '${imported.path}' from ${importer} is not allowed by manifest permissions.`,
+        );
+      const opposite = platform === 'paper' ? 'velocity' : 'paper';
+      if (prefixes[opposite].some((prefix) => imported.path.startsWith(prefix)))
+        throw new PlatformLeakageError(platform, imported.path, importer);
+    }
+  }
 }
 
 async function emit(files: readonly OutputFile[]): Promise<void> {
@@ -72,13 +113,14 @@ export async function bundlePlugin(request: BundleRequest): Promise<readonly Bun
       legalComments: 'none',
       metafile: true,
       platform: 'node',
-      plugins: [leakageGuard(platform)],
+      plugins: [leakageGuard(platform, request.manifest.permissions)],
       sourcemap: 'external',
       sourcesContent: true,
       target: 'node22',
       treeShaking: true,
       write: false,
     });
+    enforceMetafile(platform, request.manifest.permissions, result);
     const outputFiles = result.outputFiles;
     await emit(outputFiles);
     const code = outputFiles.find((file) => file.path === output);

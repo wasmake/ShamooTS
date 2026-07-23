@@ -1,0 +1,11 @@
+{
+  "extends": "../../../../../internal/tsconfig/base.json",
+  "compilerOptions": {
+    "composite": false,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "skipLibCheck": false,
+    "types": ["node"]
+  },
+  "include": ["index.ts"]
+}

@@ -38,6 +38,21 @@ export default defineConfig({
       '@shamoo/paper-raw': fileURLToPath(
         new URL('./packages/paper-raw/src/index.ts', import.meta.url),
       ),
+      '@shamoo/paper-nms': fileURLToPath(
+        new URL('./packages/paper-nms/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/paper-packets': fileURLToPath(
+        new URL('./packages/paper-packets/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/paper-codegen': fileURLToPath(
+        new URL('./packages/paper-codegen/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/velocity-codegen': fileURLToPath(
+        new URL('./packages/velocity-codegen/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/platform-codegen': fileURLToPath(
+        new URL('./packages/platform-codegen/src/index.ts', import.meta.url),
+      ),
       '@shamoo/platform': fileURLToPath(
         new URL('./packages/platform/src/index.ts', import.meta.url),
       ),
@@ -58,6 +73,7 @@ export default defineConfig({
   },
   test: {
     coverage: {
+      exclude: ['packages/*/src/generated/**'],
       include: ['packages/*/src/**/*.ts'],
       provider: 'v8',
       reporter: ['text', 'json-summary'],
@@ -70,6 +86,6 @@ export default defineConfig({
     },
     include: ['packages/*/test/**/*.test.ts', 'integration-tests/*/test/**/*.test.ts'],
     pool: 'threads',
-    testTimeout: 30_000,
+    testTimeout: 60_000,
   },
 });

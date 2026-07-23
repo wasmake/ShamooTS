@@ -1,0 +1,381 @@
+// Generated from paper-nms 1.21.8+paper.55+mache.2 (mojang+paperweight). Do not edit.
+import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
+import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
+import type * as j_net_minecraft_data_worldgen from './net.minecraft.data.worldgen.generated.js';
+import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
+import type * as j_net_minecraft_world_level_block from './net.minecraft.world.level.block.generated.js';
+import type * as j_net_minecraft_world_level_levelgen_blockpredicates from './net.minecraft.world.level.levelgen.blockpredicates.generated.js';
+import type * as j_net_minecraft_world_level_levelgen_feature from './net.minecraft.world.level.levelgen.feature.generated.js';
+import type * as j_net_minecraft_world_level_levelgen_feature_configurations from './net.minecraft.world.level.levelgen.feature.configurations.generated.js';
+import type * as j_net_minecraft_world_level_levelgen_placement from './net.minecraft.world.level.levelgen.placement.generated.js';
+
+/** JVM class net.minecraft.data.worldgen.placement.AquaticPlacements. */
+export interface AquaticPlacementsMembers {
+}
+export type AquaticPlacements = AquaticPlacementsMembers;
+export interface AquaticPlacementsStatics {
+  new(): AquaticPlacements;
+  readonly KELP_COLD: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly KELP_WARM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_COLD: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_DEEP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_DEEP_COLD: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_DEEP_WARM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_NORMAL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_RIVER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEAGRASS_WARM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SEA_PICKLE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly WARM_OCEAN_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.CavePlacements. */
+export interface CavePlacementsMembers {
+}
+export type CavePlacements = CavePlacementsMembers;
+export interface CavePlacementsStatics {
+  new(): CavePlacements;
+  readonly AMETHYST_GEODE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly CAVE_VINES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly CLASSIC_VINES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DRIPSTONE_CLUSTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FOSSIL_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FOSSIL_UPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly GLOW_LICHEN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LARGE_DRIPSTONE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LUSH_CAVES_CEILING_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LUSH_CAVES_CLAY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LUSH_CAVES_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MONSTER_ROOM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MONSTER_ROOM_DEEP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly POINTED_DRIPSTONE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ROOTED_AZALEA_TREE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SCULK_PATCH_ANCIENT_CITY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SCULK_PATCH_DEEP_DARK: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SCULK_VEIN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPORE_BLOSSOM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly UNDERWATER_MAGMA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.EndPlacements. */
+export interface EndPlacementsMembers {
+}
+export type EndPlacements = EndPlacementsMembers;
+export interface EndPlacementsStatics {
+  new(): EndPlacements;
+  readonly CHORUS_PLANT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly END_GATEWAY_RETURN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly END_ISLAND_DECORATED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly END_PLATFORM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly END_SPIKE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.MiscOverworldPlacements. */
+export interface MiscOverworldPlacementsMembers {
+}
+export type MiscOverworldPlacements = MiscOverworldPlacementsMembers;
+export interface MiscOverworldPlacementsStatics {
+  new(): MiscOverworldPlacements;
+  readonly BLUE_ICE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DESERT_WELL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DISK_CLAY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DISK_GRASS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DISK_GRAVEL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DISK_SAND: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FOREST_ROCK: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FREEZE_TOP_LAYER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ICEBERG_BLUE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ICEBERG_PACKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ICE_PATCH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ICE_SPIKE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LAKE_LAVA_SURFACE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LAKE_LAVA_UNDERGROUND: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_LAVA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_LAVA_FROZEN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_WATER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly VOID_START_PLATFORM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.NetherPlacements. */
+export interface NetherPlacementsMembers {
+}
+export type NetherPlacements = NetherPlacementsMembers;
+export interface NetherPlacementsStatics {
+  new(): NetherPlacements;
+  readonly BASALT_BLOBS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BASALT_PILLAR: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BLACKSTONE_BLOBS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly CRIMSON_FOREST_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DELTA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly GLOWSTONE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly GLOWSTONE_EXTRA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly LARGE_BASALT_COLUMNS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly NETHER_SPROUTS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_CRIMSON_ROOTS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_FIRE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_SOUL_FIRE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SMALL_BASALT_COLUMNS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_CLOSED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_CLOSED_DOUBLE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_DELTA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRING_OPEN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TWISTING_VINES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly WARPED_FOREST_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly WEEPING_VINES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.OrePlacements. */
+export interface OrePlacementsMembers {
+}
+export type OrePlacements = OrePlacementsMembers;
+export interface OrePlacementsStatics {
+  new(): OrePlacements;
+  readonly ORE_ANCIENT_DEBRIS_LARGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_ANCIENT_DEBRIS_SMALL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_ANDESITE_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_ANDESITE_UPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_BLACKSTONE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_CLAY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_COAL_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_COAL_UPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_COPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_COPPER_LARGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIAMOND: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIAMOND_BURIED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIAMOND_LARGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIAMOND_MEDIUM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIORITE_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIORITE_UPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_DIRT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_EMERALD: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GOLD: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GOLD_DELTAS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GOLD_EXTRA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GOLD_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GOLD_NETHER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GRANITE_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GRANITE_UPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GRAVEL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_GRAVEL_NETHER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_INFESTED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_IRON_MIDDLE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_IRON_SMALL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_IRON_UPPER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_LAPIS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_LAPIS_BURIED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_MAGMA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_QUARTZ_DELTAS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_QUARTZ_NETHER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_REDSTONE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_REDSTONE_LOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_SOUL_SAND: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly ORE_TUFF: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.PlacementUtils. */
+export interface PlacementUtilsMembers {
+}
+export type PlacementUtils = PlacementUtilsMembers;
+export interface PlacementUtilsStatics {
+  new(): PlacementUtils;
+  readonly FULL_RANGE: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly HEIGHTMAP: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly HEIGHTMAP_NO_LEAVES: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly HEIGHTMAP_OCEAN_FLOOR: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly HEIGHTMAP_TOP_SOLID: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly HEIGHTMAP_WORLD_SURFACE: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly RANGE_10_10: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly RANGE_4_4: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly RANGE_8_8: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  readonly RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT: j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+  countExtra(arg0: number, arg1: number, arg2: number): j_net_minecraft_world_level_levelgen_placement.PlacementModifier;
+  createKey(arg0: string): j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  filtered<FC /* extends j_net_minecraft_world_level_levelgen_feature_configurations.FeatureConfiguration */, F /* extends j_net_minecraft_world_level_levelgen_feature.Feature<FC> */>(arg0: F, arg1: FC, arg2: j_net_minecraft_world_level_levelgen_blockpredicates.BlockPredicate_3): j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  filteredByBlockSurvival(arg0: j_net_minecraft_world_level_block.Block): j_net_minecraft_world_level_levelgen_placement.BlockPredicateFilter;
+  inlinePlaced(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_feature.ConfiguredFeature<object, object>>, ...arg1: Array<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>): j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  inlinePlaced<FC /* extends j_net_minecraft_world_level_levelgen_feature_configurations.FeatureConfiguration */, F /* extends j_net_minecraft_world_level_levelgen_feature.Feature<FC> */>(arg0: F, arg1: FC, ...arg2: Array<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>): j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  isEmpty(): j_net_minecraft_world_level_levelgen_placement.PlacementFilter;
+  onlyWhenEmpty<FC /* extends j_net_minecraft_world_level_levelgen_feature_configurations.FeatureConfiguration */, F /* extends j_net_minecraft_world_level_levelgen_feature.Feature<FC> */>(arg0: F, arg1: FC): j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  register(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_feature.ConfiguredFeature<object, object>>, arg3: JavaList<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>): void;
+  register(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_feature.ConfiguredFeature<object, object>>, ...arg3: Array<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.TreePlacements. */
+export interface TreePlacementsMembers {
+}
+export type TreePlacements = TreePlacementsMembers;
+export interface TreePlacementsStatics {
+  new(): TreePlacements;
+  readonly ACACIA_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BIRCH_BEES_0002_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BIRCH_BEES_0002_PLACED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BIRCH_BEES_002: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BIRCH_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BIRCH_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly CHERRY_BEES_005: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly CHERRY_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly CRIMSON_FUNGI: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DARK_OAK_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DARK_OAK_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FALLEN_BIRCH_TREE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FALLEN_JUNGLE_TREE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FALLEN_OAK_TREE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FALLEN_SPRUCE_TREE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FALLEN_SUPER_BIRCH_TREE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FANCY_OAK_BEES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FANCY_OAK_BEES_0002_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FANCY_OAK_BEES_002: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FANCY_OAK_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FANCY_OAK_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly JUNGLE_BUSH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly JUNGLE_TREE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MANGROVE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MEGA_JUNGLE_TREE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MEGA_PINE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MEGA_SPRUCE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly OAK_BEES_0002_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly OAK_BEES_002: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly OAK_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly OAK_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PALE_OAK_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PALE_OAK_CREAKING_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PINE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PINE_ON_SNOW: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRUCE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRUCE_ON_SNOW: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SUPER_BIRCH_BEES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SUPER_BIRCH_BEES_0002: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TALL_MANGROVE_CHECKED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly WARPED_FUNGI: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.VegetationPlacements. */
+export interface VegetationPlacementsMembers {
+}
+export type VegetationPlacements = VegetationPlacementsMembers;
+export interface VegetationPlacementsStatics {
+  new(): VegetationPlacements;
+  readonly BAMBOO: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BAMBOO_LIGHT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BAMBOO_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BIRCH_TALL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BROWN_MUSHROOM_NETHER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BROWN_MUSHROOM_NORMAL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BROWN_MUSHROOM_OLD_GROWTH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BROWN_MUSHROOM_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly BROWN_MUSHROOM_TAIGA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly DARK_FOREST_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_CHERRY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_DEFAULT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_FLOWER_FOREST: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_FOREST_FLOWERS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_MEADOW: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_PALE_GARDEN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_PLAINS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_WARM: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FOREST_FLOWERS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly GRASS_BONEMEAL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly MUSHROOM_ISLAND_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PALE_GARDEN_FLOWERS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PALE_GARDEN_VEGETATION: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PALE_MOSS_PATCH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_BERRY_COMMON: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_BERRY_RARE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_BUSH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_CACTUS_DECORATED: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_CACTUS_DESERT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_DEAD_BUSH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_DEAD_BUSH_2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_DEAD_BUSH_BADLANDS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_DRY_GRASS_BADLANDS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_DRY_GRASS_DESERT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_FIREFLY_BUSH_NEAR_WATER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_FIREFLY_BUSH_NEAR_WATER_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_FIREFLY_BUSH_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_BADLANDS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_FOREST: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_JUNGLE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_MEADOW: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_NORMAL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_PLAIN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_SAVANNA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_TAIGA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_GRASS_TAIGA_2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_LARGE_FERN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_MELON: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_MELON_SPARSE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_PUMPKIN: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_SUGAR_CANE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_SUGAR_CANE_BADLANDS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_SUGAR_CANE_DESERT: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_SUGAR_CANE_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_SUNFLOWER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_TALL_GRASS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_TALL_GRASS_2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_WATERLILY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly RED_MUSHROOM_NETHER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly RED_MUSHROOM_NORMAL: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly RED_MUSHROOM_OLD_GROWTH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly RED_MUSHROOM_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly RED_MUSHROOM_TAIGA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_BADLANDS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_BIRCH: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_BIRCH_AND_OAK_LEAF_LITTER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_CHERRY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_FLOWER_FOREST: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_GROVE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_JUNGLE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_MANGROVE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_MEADOW: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_OLD_GROWTH_PINE_TAIGA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_OLD_GROWTH_SPRUCE_TAIGA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_PLAINS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_SAVANNA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_SNOWY: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_SPARSE_JUNGLE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_SWAMP: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_TAIGA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_WATER: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_WINDSWEPT_FOREST: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_WINDSWEPT_HILLS: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly TREES_WINDSWEPT_SAVANNA: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly VINES: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly WILDFLOWERS_BIRCH_FOREST: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly WILDFLOWERS_MEADOW: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+  treePlacement(arg0: j_net_minecraft_world_level_levelgen_placement.PlacementModifier): JavaList<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>;
+  treePlacement(arg0: j_net_minecraft_world_level_levelgen_placement.PlacementModifier, arg1: j_net_minecraft_world_level_block.Block): JavaList<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>;
+  worldSurfaceSquaredWithCount(arg0: number): JavaList<j_net_minecraft_world_level_levelgen_placement.PlacementModifier>;
+}
+
+/** JVM class net.minecraft.data.worldgen.placement.VillagePlacements. */
+export interface VillagePlacementsMembers {
+}
+export type VillagePlacements = VillagePlacementsMembers;
+export interface VillagePlacementsStatics {
+  new(): VillagePlacements;
+  readonly ACACIA_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly FLOWER_PLAIN_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly OAK_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_BERRY_BUSH_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_CACTUS_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PATCH_TAIGA_GRASS_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PILE_HAY_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PILE_ICE_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PILE_MELON_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PILE_PUMPKIN_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PILE_SNOW_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly PINE_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  readonly SPRUCE_VILLAGE: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>;
+  bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): void;
+}

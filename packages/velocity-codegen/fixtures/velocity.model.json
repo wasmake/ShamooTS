@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "platform": "velocity",
+  "apiVersion": "3.4.0-SNAPSHOT",
+  "generatedBy": "shamoo-jvm-scanner/0.1",
+  "declarations": [
+    {
+      "id": "java.util.Optional",
+      "javaName": "java.util.Optional",
+      "name": "Optional",
+      "kind": "interface",
+      "typeParameters": [{ "name": "T" }],
+      "methods": [
+        {
+          "name": "get",
+          "parameters": [],
+          "returns": "T",
+          "throws": ["java.util.NoSuchElementException"]
+        },
+        { "name": "isPresent", "parameters": [], "returns": "boolean" }
+      ]
+    },
+    {
+      "id": "java.util.concurrent.CompletableFuture",
+      "javaName": "java.util.concurrent.CompletableFuture",
+      "name": "CompletableFuture",
+      "kind": "interface",
+      "typeParameters": [{ "name": "T" }],
+      "methods": [
+        {
+          "name": "thenApply",
+          "parameters": [{ "name": "mapper", "type": "(value: T) => U" }],
+          "returns": "CompletableFuture<U>",
+          "typeParameters": [{ "name": "U" }]
+        },
+        { "name": "toPromise", "parameters": [], "returns": "Promise<T>" }
+      ]
+    },
+    {
+      "id": "net.kyori.adventure.text.Component",
+      "javaName": "net.kyori.adventure.text.Component",
+      "name": "Component",
+      "kind": "interface"
+    },
+    {
+      "id": "com.velocitypowered.api.proxy.Player",
+      "javaName": "com.velocitypowered.api.proxy.Player",
+      "name": "Player",
+      "kind": "interface",
+      "methods": [
+        { "name": "getUsername", "parameters": [], "returns": "string" },
+        {
+          "name": "sendMessage",
+          "parameters": [{ "name": "component", "type": "Component" }],
+          "returns": "void"
+        },
+        { "name": "getCurrentServer", "parameters": [], "returns": "Optional<ServerConnection>" }
+      ]
+    },
+    {
+      "id": "com.velocitypowered.api.proxy.ServerConnection",
+      "javaName": "com.velocitypowered.api.proxy.ServerConnection",
+      "name": "ServerConnection",
+      "kind": "interface",
+      "methods": [{ "name": "getServer", "parameters": [], "returns": "RegisteredServer" }]
+    },
+    {
+      "id": "com.velocitypowered.api.proxy.server.RegisteredServer",
+      "javaName": "com.velocitypowered.api.proxy.server.RegisteredServer",
+      "name": "RegisteredServer",
+      "kind": "interface",
+      "methods": [
+        { "name": "ping", "parameters": [], "returns": "CompletableFuture<ServerPing>" },
+        {
+          "name": "sendPluginMessage",
+          "parameters": [
+            { "name": "identifier", "type": "ChannelIdentifier" },
+            { "name": "data", "type": "Uint8Array" }
+          ],
+          "returns": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "com.velocitypowered.api.proxy.server.ServerPing",
+      "javaName": "com.velocitypowered.api.proxy.server.ServerPing",
+      "name": "ServerPing",
+      "kind": "interface",
+      "methods": [{ "name": "getDescriptionComponent", "parameters": [], "returns": "Component" }]
+    },
+    {
+      "id": "com.velocitypowered.api.proxy.messages.ChannelIdentifier",
+      "javaName": "com.velocitypowered.api.proxy.messages.ChannelIdentifier",
+      "name": "ChannelIdentifier",
+      "kind": "interface",
+      "methods": [{ "name": "getId", "parameters": [], "returns": "string" }]
+    },
+    {
+      "id": "com.velocitypowered.api.proxy.ProxyServer",
+      "javaName": "com.velocitypowered.api.proxy.ProxyServer",
+      "name": "VelocityProxy",
+      "kind": "interface",
+      "methods": [
+        { "name": "getAllPlayers", "parameters": [], "returns": "ReadonlyArray<Player>" },
+        {
+          "name": "getPlayer",
+          "parameters": [{ "name": "username", "type": "string" }],
+          "returns": "Optional<Player>"
+        }
+      ]
+    },
+    {
+      "id": "com.velocitypowered.api.event.connection.PostLoginEvent",
+      "javaName": "com.velocitypowered.api.event.connection.PostLoginEvent",
+      "name": "PostLoginEvent",
+      "kind": "class",
+      "constructors": [{ "parameters": [{ "name": "player", "type": "Player" }] }],
+      "methods": [{ "name": "getPlayer", "parameters": [], "returns": "Player" }]
+    },
+    {
+      "id": "com.velocitypowered.api.event.player.ServerPreConnectEvent",
+      "javaName": "com.velocitypowered.api.event.player.ServerPreConnectEvent",
+      "name": "ServerPreConnectEvent",
+      "kind": "class",
+      "methods": [
+        { "name": "getPlayer", "parameters": [], "returns": "Player" },
+        { "name": "getResult", "parameters": [], "returns": "ServerPreConnectResult" },
+        {
+          "name": "setResult",
+          "parameters": [{ "name": "result", "type": "ServerPreConnectResult" }],
+          "returns": "void"
+        }
+      ]
+    },
+    {
+      "id": "com.velocitypowered.api.event.player.ServerPreConnectEvent.ServerResult",
+      "javaName": "com.velocitypowered.api.event.player.ServerPreConnectEvent$ServerResult",
+      "name": "ServerPreConnectResult",
+      "nestedIn": "ServerPreConnectEvent",
+      "kind": "interface",
+      "methods": [
+        { "name": "getServer", "parameters": [], "returns": "Optional<RegisteredServer>" },
+        { "name": "isAllowed", "parameters": [], "returns": "boolean" }
+      ]
+    },
+    {
+      "id": "com.velocitypowered.api.scheduler.Scheduler",
+      "javaName": "com.velocitypowered.api.scheduler.Scheduler",
+      "name": "VelocityScheduler",
+      "kind": "interface",
+      "methods": [
+        {
+          "name": "buildTask",
+          "parameters": [
+            { "name": "plugin", "type": "VelocityPlugin" },
+            { "name": "task", "type": "() => void" }
+          ],
+          "returns": "TaskBuilder"
+        }
+      ]
+    },
+    {
+      "id": "com.velocitypowered.api.scheduler.TaskBuilder",
+      "javaName": "com.velocitypowered.api.scheduler.TaskBuilder",
+      "name": "TaskBuilder",
+      "kind": "interface",
+      "methods": [{ "name": "schedule", "parameters": [], "returns": "ScheduledTask" }]
+    },
+    {
+      "id": "com.velocitypowered.api.scheduler.ScheduledTask",
+      "javaName": "com.velocitypowered.api.scheduler.ScheduledTask",
+      "name": "ScheduledTask",
+      "kind": "interface",
+      "methods": [{ "name": "cancel", "parameters": [], "returns": "void" }]
+    },
+    {
+      "id": "java.lang.Object",
+      "javaName": "java.lang.Object",
+      "name": "VelocityPlugin",
+      "kind": "opaque"
+    }
+  ],
+  "events": [
+    {
+      "type": "PostLoginEvent",
+      "javaName": "com.velocitypowered.api.event.connection.PostLoginEvent",
+      "cancellable": false
+    },
+    {
+      "type": "ServerPreConnectEvent",
+      "javaName": "com.velocitypowered.api.event.player.ServerPreConnectEvent",
+      "cancellable": true
+    }
+  ]
+}

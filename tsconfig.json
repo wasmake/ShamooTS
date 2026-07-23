@@ -12,5 +12,5 @@
     "packages/*/test/**/*.ts",
     "integration-tests/*/test/**/*.ts"
   ],
-  "exclude": ["packages/node", "examples/basic"]
+  "exclude": ["packages/node", "examples/basic", "packages/compiler/test/fixtures"]
 }

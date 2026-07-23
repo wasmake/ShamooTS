@@ -16,8 +16,13 @@ Paper and Velocity entrypoint helpers freeze declarations. The raw contexts are 
 
 Each DI root represents exactly one plugin. Module graph visibility, global exports, provider caches, overrides, traces, and disposal remain inside that root. Explicit metadata is the only constructor/property/lifecycle input. Child contexts model invocation scopes and scope compatibility prevents longer-lived providers from retaining narrower values. See [DI](di.md) and [ADR 0002](adr/0002-explicit-di-and-protocol-boundaries.md).
 
+`shamooc` produces that explicit metadata through TypeScript symbol and AST
+analysis. Platform-specific reachability and bundling remain separate checks so
+neither metadata nor a supplied manifest can introduce cross-platform imports.
+See [compiler](compiler.md) and [ADR 0003](adr/0003-compiler-owned-metadata.md).
+
 ## Build and release
 
-All 14 public packages share version `0.1.0-alpha.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
+All public packages share version `0.1.0-alpha.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
 
-Source-bearing packages are workspaces. Future scopes remain plain directories until they have behavior worth compiling, avoiding nominal modules that imply unavailable functionality.
+Source-bearing packages are workspaces. Remaining future scopes stay plain directories until they have behavior worth compiling, avoiding nominal modules that imply unavailable functionality.

@@ -1,3 +1,3 @@
 # @shamoo/scheduler
 
-Reserved for lifecycle-owned scheduling in Phase 4.
+Compiler-discovered lifecycle-owned task declarations and canonical time units.

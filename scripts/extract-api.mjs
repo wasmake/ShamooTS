@@ -20,6 +20,20 @@ const packageDirectories = [
   'compiler',
   'cli',
   'create-shamoo-plugin',
+  'metadata',
+  'decorators',
+  'lifecycle',
+  'conditions',
+  'events',
+  'commands',
+  'scheduler',
+  'interceptors',
+  'guards',
+  'pipes',
+  'filters',
+  'validation',
+  'reflection',
+  'bundler',
 ];
 
 await mkdir(join(root, 'docs/api-reports'), { recursive: true });

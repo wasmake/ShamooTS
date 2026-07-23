@@ -1,3 +1,4 @@
 # @shamoo/decorators
 
-Reserved for framework decorators after metadata semantics are implemented in Phase 2.
+Standard TypeScript decorators discovered by `shamooc`. They do not use legacy
+`emitDecoratorMetadata`; interface injection requires `@Inject(token)`.

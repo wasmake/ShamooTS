@@ -1,8 +1,8 @@
 # Shamoo
 
-Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch adds the synchronized Phase 2 protocol and a substantial Phase 3 dependency-injection/module runtime to the Phase 1 package foundation.
+Shamoo is a TypeScript framework foundation for Minecraft plugins targeting Paper servers and Velocity proxies. The current development branch adds production decorator declarations, compiler metadata generation, and controlled platform bundles to the protocol and dependency-injection foundation.
 
-It does not yet provide decorator/compiler discovery, event or command registration, scheduling, configuration files, Java bridge generation, bundling, or runnable Minecraft plugins. DI lifecycle methods are supported only through explicit generated metadata contracts.
+`shamooc` discovers components, modules, injection, lifecycle, events, commands, tasks, and invocation-pipeline declarations without legacy reflected type metadata. It emits canonical metadata and the bundler produces separate Paper and Velocity ESM artifacts. Platform host registration, generated Paper/Velocity Java APIs, scheduler execution, command/event dispatch, configuration file loading, and runnable packaged Minecraft plugins remain later-phase work.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ pnpm check
 pnpm run docs
 ```
 
-`pnpm check` formats, lints, typechecks, tests, builds every publishable package, and validates package manifests and generated declarations. `pnpm run docs` generates Markdown API documentation for all 14 public packages (`pnpm docs` is a reserved pnpm command).
+`pnpm check` formats, lints, typechecks, tests, builds every publishable package, and validates package manifests and generated declarations. `pnpm run docs` generates Markdown API documentation for all public packages (`pnpm docs` is a reserved pnpm command).
 
 ## Public packages
 
@@ -33,11 +33,19 @@ pnpm run docs
 | `@shamoo/paper`, `@shamoo/paper-raw`       | Paper entrypoint declarations and opaque bridge types      |
 | `@shamoo/velocity`, `@shamoo/velocity-raw` | Velocity entrypoint declarations and opaque bridge types   |
 | `@shamoo/runtime-protocol`                 | Strict descriptor parsing and compatibility negotiation    |
-| `@shamoo/compiler`                         | Compilation request validation; no compiler pipeline       |
+| `@shamoo/compiler`                         | `shamooc`, TypeScript discovery, diagnostics, and metadata |
+| `@shamoo/metadata`, `@shamoo/reflection`   | Canonical metadata and explicit declaration access         |
+| `@shamoo/decorators`                       | Class, method, parameter, and property declarations        |
+| `@shamoo/lifecycle`, `@shamoo/conditions`  | Lifecycle and conditional declaration contracts            |
+| `@shamoo/events`, `@shamoo/commands`       | Event and command declaration contracts                    |
+| `@shamoo/scheduler`                        | Lifecycle-owned task declaration contracts                 |
+| `@shamoo/interceptors`, `guards`, `pipes`  | Invocation pipeline contracts                              |
+| `@shamoo/filters`, `@shamoo/validation`    | Error and input validation contracts                       |
+| `@shamoo/bundler`                          | Separate source-mapped Paper and Velocity ESM bundles      |
 | `@shamoo/cli`                              | Command parsing contract; no installed executable          |
 | `@shamoo/create-plugin`                    | Plugin project declarations; no interactive generator      |
 
-Required future package and example scopes are present with README files that identify their implementation gates. See [architecture](docs/architecture.md) and the pinned [Winter compatibility audit](docs/winter-compatibility.md).
+See the [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), [architecture](docs/architecture.md), and pinned [Winter compatibility audit](docs/winter-compatibility.md).
 
 ## License
 

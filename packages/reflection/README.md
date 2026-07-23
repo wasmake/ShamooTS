@@ -1,3 +1,4 @@
 # @shamoo/reflection
 
-Reserved for generated reflection access after metadata design is implemented in Phase 2.
+Safe access to explicit runtime decorator declarations. Compiler metadata remains
+the production discovery source.

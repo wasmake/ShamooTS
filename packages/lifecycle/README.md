@@ -1,3 +1,3 @@
 # @shamoo/lifecycle
 
-Reserved for plugin lifecycle orchestration after dependency injection is implemented in Phase 2.
+Compiler-discovered lifecycle declarations and canonical lifecycle stages.

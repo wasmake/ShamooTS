@@ -22,6 +22,20 @@ const publicPackages = [
   'compiler',
   'cli',
   'create-shamoo-plugin',
+  'metadata',
+  'decorators',
+  'lifecycle',
+  'conditions',
+  'events',
+  'commands',
+  'scheduler',
+  'interceptors',
+  'guards',
+  'pipes',
+  'filters',
+  'validation',
+  'reflection',
+  'bundler',
 ];
 
 describe('public package boundaries', () => {

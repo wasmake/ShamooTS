@@ -1,3 +1,3 @@
 # @shamoo/events
 
-Reserved for the platform-neutral event model in Phase 3.
+Platform-neutral event declarations consumed by compiler-generated metadata.

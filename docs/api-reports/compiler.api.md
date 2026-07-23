@@ -5,14 +5,80 @@
 ```ts
 
 // @public (undocumented)
+export class CompilationError extends Error {
+    constructor(diagnostics: readonly CompilerDiagnostic[]);
+    // (undocumented)
+    readonly code = "SHAMOO_COMPILATION";
+    // (undocumented)
+    readonly diagnostics: readonly CompilerDiagnostic[];
+}
+
+// @public (undocumented)
+export interface CompilationResult {
+    // (undocumented)
+    readonly diagnostics: readonly CompilerDiagnostic[];
+    // (undocumented)
+    readonly manifest?: CompilerManifest;
+    // (undocumented)
+    readonly metadata?: string;
+}
+
+// @public (undocumented)
+export function compilePlugin(request: PluginCompilationRequest): Promise<CompilationResult>;
+
+// @public (undocumented)
+export function compilePluginOrThrow(request: PluginCompilationRequest): Promise<CompilerManifest>;
+
+// @public (undocumented)
+export interface CompilerDiagnostic {
+    // (undocumented)
+    readonly code: CompilerDiagnosticCode;
+    // (undocumented)
+    readonly dependencyPath?: readonly string[];
+    // (undocumented)
+    readonly location?: SourceLocation;
+    // (undocumented)
+    readonly message: string;
+    // (undocumented)
+    readonly suggestion?: string;
+}
+
+// @public (undocumented)
+export type CompilerDiagnosticCode = 'TYPESCRIPT' | 'DECORATOR_USAGE' | 'DECORATOR_CONFLICT' | 'INJECTION_TOKEN_REQUIRED' | 'MODULE_CYCLE' | 'PLATFORM_LEAK' | 'UNSUPPORTED_IMPORT' | 'PERMISSION_REQUIRED';
+
+// @public (undocumented)
+export interface CompilerPermissions {
+    // (undocumented)
+    readonly builtins?: readonly string[];
+    // (undocumented)
+    readonly nativeAddons?: boolean;
+}
+
+// @public (undocumented)
 export interface PluginCompilationRequest {
     // (undocumented)
     readonly entrypoint: string;
     // (undocumented)
+    readonly output?: string;
+    // (undocumented)
     readonly packageName: PackageName;
     // (undocumented)
+    readonly paperEntrypoint?: string;
+    // (undocumented)
+    readonly permissions?: CompilerPermissions;
+    // (undocumented)
     readonly platforms: readonly PlatformKind[];
+    // (undocumented)
+    readonly tsconfig?: string;
+    // (undocumented)
+    readonly velocityEntrypoint?: string;
 }
+
+// @public
+export function readCompilerManifest(path: string): Promise<CompilerManifest>;
+
+// @public (undocumented)
+export const SHAMOO_COMPILER_VERSION = "0.1.0-alpha.1";
 
 // @public (undocumented)
 export function validateCompilationRequest(request: PluginCompilationRequest): void;

@@ -281,6 +281,69 @@ describe('LifecycleExecutor', () => {
     await drain;
     expect(ready).toHaveBeenCalledWith('ready');
   });
+
+  it('reports initialization, timeout configuration, and non-callable hook failures', async () => {
+    const initialization = new LifecycleExecutor(
+      new Container({
+        providers: [
+          {
+            provide: 'broken initialization',
+            eager: true,
+            useAsyncFactory: () => Promise.reject(new Error('initialization failed')),
+          },
+        ],
+      }),
+      [],
+    );
+    const initializationError = await initialization
+      .execute('load')
+      .catch((error: unknown) => error);
+    expect(initializationError).toBeInstanceOf(LifecycleError);
+    expect(initializationError).toMatchObject({ componentId: 'container', method: 'initialize' });
+    expect((initializationError as LifecycleError).cause).toMatchObject({
+      message: 'initialization failed',
+    });
+
+    const invalidTimeout = new LifecycleExecutor(new Container(), [], { timeout: Number.NaN });
+    const timeoutError = await invalidTimeout.execute('load').catch((error: unknown) => error);
+    expect(timeoutError).toBeInstanceOf(LifecycleError);
+    expect((timeoutError as LifecycleError).cause).toBeInstanceOf(RangeError);
+
+    const nonCallable = new LifecycleExecutor(new Container(), [
+      { componentId: 'invalid', target: { hook: true }, method: 'hook', stage: 'load' },
+    ]);
+    const callableError = await nonCallable.execute('load').catch((error: unknown) => error);
+    expect(callableError).toBeInstanceOf(LifecycleError);
+    expect((callableError as LifecycleError).cause).toBeInstanceOf(TypeError);
+  });
+
+  it('aggregates unload failures and preserves their idempotent outcome', async () => {
+    const unload = vi.fn(() => {
+      throw new Error('unload failed');
+    });
+    const executor = new LifecycleExecutor(new Container(), [
+      {
+        componentId: 'component',
+        target: { load: () => undefined },
+        method: 'load',
+        stage: 'load',
+      },
+      { componentId: 'component', target: { unload }, method: 'unload', stage: 'unload' },
+    ]);
+    for (const stage of ['load', 'enable', 'ready', 'drain', 'disable'] as const)
+      await executor.execute(stage);
+
+    const unloadError = await executor.execute('unload').catch((error: unknown) => error);
+    expect(unloadError).toBeInstanceOf(AggregateError);
+    expect(unloadError).toMatchObject({ stage: 'unload' });
+    const errors = (unloadError as { errors: LifecycleError[] }).errors;
+    expect(errors[0]).toBeInstanceOf(LifecycleError);
+    expect(errors[0]?.cause).toMatchObject({
+      message: 'unload failed',
+    });
+    await expect(executor.execute('unload')).rejects.toBe(unloadError);
+    expect(unload).toHaveBeenCalledOnce();
+  });
 });
 
 describe('InvocationRuntime', () => {
@@ -657,6 +720,60 @@ describe('InvocationRuntime', () => {
     expect(runtime.activeCount).toBe(0);
     await runtime.drain();
   });
+
+  it('propagates external cancellation and exposes named pipe context', async () => {
+    const abort = new AbortController();
+    abort.abort(new Error('cancelled'));
+    const pipe = vi.fn((value: unknown) => value);
+    const runtime = new InvocationRuntime(new Container());
+
+    await expect(
+      runtime.invoke(
+        {
+          kind: 'task',
+          target: {
+            run: (signal: AbortSignal, value: string) => ({
+              aborted: signal.aborted,
+              reason: (signal.reason as Error).message,
+              value,
+            }),
+          },
+          method: 'run',
+          parameters: [
+            { index: 0, contextKey: 'abortSignal' },
+            { index: 1, name: 'payload', pipes: [{ transform: pipe }] },
+          ],
+        },
+        { values: [undefined, 'input'], signal: abort.signal, timeout: 100 },
+      ),
+    ).resolves.toEqual({ aborted: true, reason: 'cancelled', value: 'input' });
+    expect(pipe).toHaveBeenCalledWith(
+      'input',
+      expect.objectContaining({ kind: 'task', index: 1, parameter: 'payload' }),
+    );
+  });
+
+  it('drains active work without a timeout', async () => {
+    let release: (() => void) | undefined;
+    const runtime = new InvocationRuntime(new Container());
+    const invocation = runtime.invoke({
+      kind: 'task',
+      target: {
+        run: () =>
+          new Promise<void>((resolve) => {
+            release = resolve;
+          }),
+      },
+      method: 'run',
+    });
+    await vi.waitFor(() => {
+      expect(release).toBeTypeOf('function');
+    });
+    const drain = runtime.drain();
+    expect(runtime.draining).toBe(true);
+    release?.();
+    await Promise.all([invocation, drain]);
+  });
 });
 
 describe('compiler metadata adapter', () => {
@@ -788,5 +905,166 @@ describe('compiler metadata adapter', () => {
       entrypoints: {},
     };
     expect(isCompilerManifest(invalid)).toBe(false);
+  });
+
+  it('accepts rich canonical metadata and retains dependency and requester fields', () => {
+    const dependency = {
+      index: 0,
+      token: { kind: 'class', name: 'Dependency', module: './dependency.js' },
+      optional: true,
+      all: true,
+      lazy: true,
+      name: 'dependency',
+      qualifier: 'primary',
+      location,
+    };
+    const target = { load: vi.fn(), task: vi.fn() };
+    const manifest = {
+      formatVersion: 2,
+      compilerVersion: 'test',
+      packageName: '@test/rich-plugin',
+      components: [
+        {
+          id: 'plugin.ts#Plugin',
+          kind: 'plugin',
+          name: 'Plugin',
+          file: 'plugin.ts',
+          platform: 'common',
+          decorators: [
+            {
+              name: 'Plugin',
+              arguments: [1, true, null, ['nested'], { canonical: 'value' }],
+              location,
+            },
+          ],
+          constructor: [dependency],
+          properties: [{ ...dependency, property: 'dependency', index: undefined }],
+          methods: [
+            {
+              name: 'load',
+              lifecycle: 'load',
+              decorators: [{ name: 'OnLoad', arguments: [], location }],
+              parameters: [dependency],
+              location,
+            },
+            {
+              name: 'task',
+              invocation: 'task',
+              decorators: [{ name: 'Scheduled', arguments: [], location }],
+              parameters: [
+                {
+                  index: 0,
+                  token: { kind: 'token', value: { binding: 'Argument', value: 'input' } },
+                  location,
+                },
+              ],
+              location,
+            },
+          ],
+          location,
+        },
+      ],
+      modules: [
+        {
+          id: 'plugin.ts#Module',
+          name: 'Module',
+          imports: [{ id: 'shared.ts#Module', forwardRef: false }],
+          declarations: ['plugin.ts#Plugin'],
+          exports: ['plugin.ts#Plugin'],
+          global: true,
+          location,
+        },
+      ],
+      entrypoints: {
+        paper: { source: 'paper.ts', output: 'paper.js' },
+        velocity: { source: 'velocity.ts', output: 'velocity.js' },
+      },
+    };
+    const loaded = loadRuntimeMetadata(manifest, {
+      resolveComponent: () => target,
+      resolveToken: () => 'dependency-token',
+      isExecutableMethod: () => true,
+      resolveRequester: () => 'plugin-requester',
+    });
+
+    expect(loaded.lifecycle[0]).toMatchObject({
+      requester: 'plugin-requester',
+      parameters: [
+        {
+          dependency: {
+            token: 'dependency-token',
+            optional: true,
+            all: true,
+            lazy: true,
+            name: 'dependency',
+            qualifier: 'primary',
+          },
+        },
+      ],
+    });
+    expect(loaded.invocations[0]).toMatchObject({
+      requester: 'plugin-requester',
+      parameters: [{ contextKey: 'input' }],
+    });
+  });
+
+  it('rejects unsupported context bindings and non-canonical manifest values', () => {
+    const method = {
+      name: 'task',
+      decorators: [{ name: 'Scheduled', arguments: [], location }],
+      parameters: [
+        {
+          index: 0,
+          token: { kind: 'token', value: { binding: 'Unsupported', value: 'input' } },
+          location,
+        },
+      ],
+      location,
+    };
+    const component = {
+      id: 'plugin.ts#Plugin',
+      kind: 'plugin',
+      name: 'Plugin',
+      file: 'plugin.ts',
+      platform: 'common',
+      decorators: [],
+      constructor: [],
+      properties: [],
+      methods: [method],
+      location,
+    };
+    const manifest = {
+      formatVersion: 2,
+      compilerVersion: 'test',
+      packageName: '@test/plugin',
+      components: [component],
+      modules: [],
+      entrypoints: {},
+    };
+    expect(() =>
+      loadRuntimeMetadata(manifest, {
+        resolveComponent: () => ({}),
+        resolveToken: () => 'token',
+        isExecutableMethod: () => true,
+      }),
+    ).toThrow('Unsupported context binding Unsupported');
+
+    expect(
+      isCompilerManifest({
+        ...manifest,
+        components: [
+          {
+            ...component,
+            decorators: [{ name: 'Plugin', arguments: [Number.NaN], location }],
+          },
+        ],
+      }),
+    ).toBe(false);
+    expect(
+      isCompilerManifest({
+        ...manifest,
+        components: [{ ...component, methods: [{ ...method, lifecycle: 'invalid' }] }],
+      }),
+    ).toBe(false);
   });
 });

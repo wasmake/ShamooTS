@@ -3,6 +3,7 @@ dist
 coverage
 docs/generated
 docs/api-reports/*.api.md
+packages/runtime-protocol/test/fixtures/common-descriptor.golden.json
 .api-extractor
 pnpm-lock.yaml
 CHANGELOG.md

@@ -4,21 +4,198 @@
 
 ```ts
 
+import { z } from 'zod';
+
+// @public (undocumented)
+export const COMMON_DESCRIPTOR_JSON_SCHEMA: Readonly<z.core.JSONSchema.JSONSchema>;
+
+// @public (undocumented)
+export type CommonDescriptor = z.infer<typeof CommonDescriptorSchema>;
+
+// @public (undocumented)
+export const CommonDescriptorSchema: z.ZodObject<{
+    name: z.ZodString;
+    displayName: z.ZodString;
+    version: z.ZodString;
+    shamoo: z.ZodObject<{
+        api: z.ZodString;
+        runtime: z.ZodString;
+        manifest: z.ZodLiteral<1>;
+    }, z.core.$strict>;
+    platforms: z.ZodUnion<readonly [z.ZodObject<{
+        paper: z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            entrypoint: z.ZodString;
+            minecraft: z.ZodString;
+            paperApi: z.ZodString;
+        }, z.core.$strict>;
+        velocity: z.ZodDiscriminatedUnion<[z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            entrypoint: z.ZodString;
+            velocityApi: z.ZodString;
+        }, z.core.$strict>, z.ZodObject<{
+            enabled: z.ZodLiteral<false>;
+            entrypoint: z.ZodOptional<z.ZodString>;
+            velocityApi: z.ZodOptional<z.ZodString>;
+        }, z.core.$strict>]>;
+    }, z.core.$strict>, z.ZodObject<{
+        paper: z.ZodDiscriminatedUnion<[z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            entrypoint: z.ZodString;
+            minecraft: z.ZodString;
+            paperApi: z.ZodString;
+        }, z.core.$strict>, z.ZodObject<{
+            enabled: z.ZodLiteral<false>;
+            entrypoint: z.ZodOptional<z.ZodString>;
+            minecraft: z.ZodOptional<z.ZodString>;
+            paperApi: z.ZodOptional<z.ZodString>;
+        }, z.core.$strict>]>;
+        velocity: z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            entrypoint: z.ZodString;
+            velocityApi: z.ZodString;
+        }, z.core.$strict>;
+    }, z.core.$strict>]>;
+    dependencies: z.ZodObject<{
+        required: z.ZodRecord<z.ZodString, z.ZodString>;
+        optional: z.ZodRecord<z.ZodString, z.ZodString>;
+        loadBefore: z.ZodArray<z.ZodString>;
+        loadAfter: z.ZodArray<z.ZodString>;
+    }, z.core.$strict>;
+    node: z.ZodObject<{
+        builtins: z.ZodArray<z.ZodString>;
+        filesystem: z.ZodObject<{
+            read: z.ZodArray<z.ZodString>;
+            write: z.ZodArray<z.ZodString>;
+        }, z.core.$strict>;
+        network: z.ZodBoolean;
+        workers: z.ZodBoolean;
+        childProcess: z.ZodBoolean;
+        nativeAddons: z.ZodBoolean;
+    }, z.core.$strict>;
+    reload: z.ZodObject<{
+        watch: z.ZodBoolean;
+        debounceMs: z.ZodNumber;
+        preserveState: z.ZodBoolean;
+    }, z.core.$strict>;
+}, z.core.$strict>;
+
+// @public (undocumented)
+export interface CompatibilityReason {
+    // (undocumented)
+    readonly code: 'PROTOCOL' | 'RUNTIME' | 'API' | 'PLATFORM' | 'MINECRAFT' | 'CAPABILITY';
+    // (undocumented)
+    readonly message: string;
+    // (undocumented)
+    readonly path: string;
+}
+
+// @public (undocumented)
+export interface CompatibilityResult {
+    // (undocumented)
+    readonly compatible: boolean;
+    // (undocumented)
+    readonly reasons: readonly CompatibilityReason[];
+}
+
+// @public (undocumented)
+export function isCommonDescriptor(value: unknown): value is CommonDescriptor;
+
 // @public (undocumented)
 export function isRuntimeHandshake(value: unknown): value is RuntimeHandshake;
+
+// @public (undocumented)
+export const MANIFEST_VERSION: 1;
+
+// @public (undocumented)
+export function negotiateCompatibility(descriptor: CommonDescriptor, runtime: RuntimeCompatibility): CompatibilityResult;
+
+// @public (undocumented)
+export function parseCommonDescriptor(value: unknown): CommonDescriptor;
+
+// @public (undocumented)
+export const PROTOCOL_VERSION: Readonly<{
+    readonly major: 1;
+    readonly minor: 0;
+}>;
+
+// @public (undocumented)
+export interface ProtocolIssue {
+    // (undocumented)
+    readonly code: string;
+    // (undocumented)
+    readonly message: string;
+    // (undocumented)
+    readonly path: readonly (string | number)[];
+}
+
+// @public (undocumented)
+export class ProtocolValidationError extends Error {
+    constructor(issues: readonly ProtocolIssue[]);
+    // (undocumented)
+    readonly code = "PROTOCOL_VALIDATION";
+    // (undocumented)
+    readonly issues: readonly ProtocolIssue[];
+}
+
+// @public (undocumented)
+export type ProtocolVersion = z.infer<typeof ProtocolVersionSchema>;
+
+// @public (undocumented)
+export const ProtocolVersionSchema: z.ZodObject<{
+    major: z.ZodLiteral<1>;
+    minor: z.ZodNumber;
+}, z.core.$strict>;
 
 // @public (undocumented)
 export const RUNTIME_PROTOCOL_VERSION: 1;
 
 // @public (undocumented)
+export interface RuntimeCompatibility {
+    // (undocumented)
+    readonly apiVersion: string;
+    // (undocumented)
+    readonly node: {
+        readonly builtins: ReadonlySet<string>;
+        readonly filesystem: {
+            readonly read: boolean;
+            readonly write: boolean;
+        };
+        readonly network: boolean;
+        readonly workers: boolean;
+        readonly childProcess: boolean;
+        readonly nativeAddons: boolean;
+    };
+    // (undocumented)
+    readonly platform: RuntimePlatform;
+    // (undocumented)
+    readonly protocol: {
+        readonly major: number;
+        readonly minor: number;
+    };
+    // (undocumented)
+    readonly runtimeVersion: string;
+}
+
+// @public (undocumented)
 export interface RuntimeHandshake {
     // (undocumented)
-    readonly packageName: PackageName;
+    readonly packageName: string;
     // (undocumented)
-    readonly platform: PlatformKind;
+    readonly platform: 'paper' | 'velocity';
     // (undocumented)
     readonly protocolVersion: typeof RUNTIME_PROTOCOL_VERSION;
 }
+
+// @public (undocumented)
+export type RuntimePlatform = {
+    readonly name: 'paper';
+    readonly minecraftVersion: string;
+    readonly paperApiVersion: string;
+} | {
+    readonly name: 'velocity';
+    readonly velocityApiVersion: string;
+};
 
 // (No @packageDocumentation comment for this package)
 

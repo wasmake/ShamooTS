@@ -1,0 +1,17 @@
+{
+  "name": "@shamoo/tsup-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --build --pretty false"
+  },
+  "dependencies": {
+    "tsup": "^8.5.0"
+  },
+  "devDependencies": {
+    "@shamoo/tsconfig": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}

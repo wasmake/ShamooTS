@@ -1,0 +1,47 @@
+{
+  "name": "shamoo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript framework foundation for Minecraft Paper and Velocity plugins.",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@11.15.0",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "scripts": {
+    "api:check": "node scripts/check-packages.mjs && node scripts/extract-api.mjs",
+    "build": "pnpm clean && pnpm --filter './packages/**' --if-present build",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm api:check",
+    "clean": "node scripts/clean.mjs",
+    "docs": "typedoc",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings 0",
+    "package:check": "node scripts/check-packages.mjs",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --project tsconfig.json --pretty false"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "@eslint/js": "^9.31.0",
+    "@microsoft/api-extractor": "^7.52.11",
+    "@types/node": "^22.16.5",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.31.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.1",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typedoc": "^0.28.8",
+    "typedoc-plugin-markdown": "^4.8.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0",
+    "vitest": "^3.2.4"
+  }
+}

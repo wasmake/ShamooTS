@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.tsbuild/
+.api-extractor/
+coverage/
+*.tsbuildinfo
+docs/generated/
+.DS_Store
+.env
+.env.*
+!.env.example
+pnpm-debug.log*

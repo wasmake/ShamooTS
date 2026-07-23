@@ -1,0 +1,5 @@
+{
+  "kind": "paper",
+  "name": "Paper fixture",
+  "capabilities": ["events", "scheduling"]
+}

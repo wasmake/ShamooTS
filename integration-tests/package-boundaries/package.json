@@ -1,0 +1,11 @@
+{
+  "name": "@shamoo/integration-package-boundaries",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@shamoo/core": "workspace:*",
+    "@shamoo/paper": "workspace:*",
+    "@shamoo/platform": "workspace:*"
+  }
+}

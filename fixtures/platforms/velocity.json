@@ -1,0 +1,5 @@
+{
+  "kind": "velocity",
+  "name": "Velocity fixture",
+  "capabilities": ["messaging"]
+}

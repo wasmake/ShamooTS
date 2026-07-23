@@ -1,0 +1,10 @@
+{
+  "extends": "./internal/tsconfig/base.json",
+  "compilerOptions": {
+    "composite": false,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": ["packages/*/src/**/*.ts"]
+}

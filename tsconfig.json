@@ -1,0 +1,16 @@
+{
+  "extends": "./internal/tsconfig/base.json",
+  "compilerOptions": {
+    "composite": false,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": [
+    "*.config.ts",
+    "packages/*/src/**/*.ts",
+    "packages/*/test/**/*.ts",
+    "integration-tests/*/test/**/*.ts"
+  ],
+  "exclude": ["packages/node", "examples/basic"]
+}

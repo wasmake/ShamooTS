@@ -1,0 +1,26 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "packages/core/src/index.ts",
+    "packages/common/src/index.ts",
+    "packages/di/src/index.ts",
+    "packages/config/src/index.ts",
+    "packages/testing/src/index.ts",
+    "packages/platform/src/index.ts",
+    "packages/paper/src/index.ts",
+    "packages/paper-raw/src/index.ts",
+    "packages/velocity/src/index.ts",
+    "packages/velocity-raw/src/index.ts",
+    "packages/runtime-protocol/src/index.ts",
+    "packages/compiler/src/index.ts",
+    "packages/cli/src/index.ts",
+    "packages/create-shamoo-plugin/src/index.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "out": "docs/generated/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "tsconfig": "tsconfig.docs.json",
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeInternal": true
+}

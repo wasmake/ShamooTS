@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+docs/generated
+docs/api-reports/*.api.md
+.api-extractor
+pnpm-lock.yaml
+CHANGELOG.md

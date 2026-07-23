@@ -1,3 +1,3 @@
 # @shamoo/metadata
 
-Reserved for generated metadata contracts after compiler metadata design is implemented in Phase 2.
+Versioned, canonical compiler metadata shared by the compiler, bundler, and runtime adapters.

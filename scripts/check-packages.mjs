@@ -15,6 +15,20 @@ const packages = [
   ['compiler', '@shamoo/compiler'],
   ['cli', '@shamoo/cli'],
   ['create-shamoo-plugin', '@shamoo/create-plugin'],
+  ['metadata', '@shamoo/metadata'],
+  ['decorators', '@shamoo/decorators'],
+  ['lifecycle', '@shamoo/lifecycle'],
+  ['conditions', '@shamoo/conditions'],
+  ['events', '@shamoo/events'],
+  ['commands', '@shamoo/commands'],
+  ['scheduler', '@shamoo/scheduler'],
+  ['interceptors', '@shamoo/interceptors'],
+  ['guards', '@shamoo/guards'],
+  ['pipes', '@shamoo/pipes'],
+  ['filters', '@shamoo/filters'],
+  ['validation', '@shamoo/validation'],
+  ['reflection', '@shamoo/reflection'],
+  ['bundler', '@shamoo/bundler'],
 ];
 
 for (const [directory, expectedName] of packages) {

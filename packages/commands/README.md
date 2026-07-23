@@ -1,3 +1,3 @@
 # @shamoo/commands
 
-Reserved for command declarations and dispatch in Phase 4.
+Compiler-discovered command, argument, option, and sender declarations.

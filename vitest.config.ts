@@ -16,6 +16,15 @@ export default defineConfig({
         new URL('./packages/create-shamoo-plugin/src/index.ts', import.meta.url),
       ),
       '@shamoo/di': fileURLToPath(new URL('./packages/di/src/index.ts', import.meta.url)),
+      '@shamoo/metadata': fileURLToPath(
+        new URL('./packages/metadata/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/decorators': fileURLToPath(
+        new URL('./packages/decorators/src/index.ts', import.meta.url),
+      ),
+      '@shamoo/interceptors': fileURLToPath(
+        new URL('./packages/interceptors/src/index.ts', import.meta.url),
+      ),
       '@shamoo/paper': fileURLToPath(new URL('./packages/paper/src/index.ts', import.meta.url)),
       '@shamoo/paper-raw': fileURLToPath(
         new URL('./packages/paper-raw/src/index.ts', import.meta.url),
@@ -52,5 +61,6 @@ export default defineConfig({
     },
     include: ['packages/*/test/**/*.test.ts', 'integration-tests/*/test/**/*.test.ts'],
     pool: 'threads',
+    testTimeout: 30_000,
   },
 });

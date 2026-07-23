@@ -1,0 +1,256 @@
+{
+  "compilerVersion": "0.1.0-alpha.1",
+  "components": [
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "exports": [
+                "Logger"
+              ],
+              "providers": [
+                "Logger",
+                "FixturePlugin"
+              ]
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 69
+          },
+          "name": "Module"
+        },
+        {
+          "arguments": [],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 70
+          },
+          "name": "Global"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#FixtureModule",
+      "kind": "module",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 69
+      },
+      "methods": [],
+      "name": "FixtureModule",
+      "platform": "common",
+      "properties": []
+    },
+    {
+      "constructor": [
+        {
+          "all": true,
+          "index": 0,
+          "lazy": true,
+          "location": {
+            "column": 5,
+            "file": "src/plugin.ts",
+            "line": 45
+          },
+          "name": "logger",
+          "optional": true,
+          "qualifier": "Logger.name",
+          "token": {
+            "kind": "class",
+            "module": "src/plugin.ts",
+            "name": "Logger"
+          }
+        }
+      ],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "count": 1,
+              "disabled": false,
+              "empty": null,
+              "enabled": true,
+              "logger": "Logger.name",
+              "name": "fixture",
+              "tags": [
+                "compiler"
+              ]
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 31
+          },
+          "name": "Plugin"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#FixturePlugin",
+      "kind": "plugin",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 31
+      },
+      "methods": [
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 53
+              },
+              "name": "OnEnable"
+            }
+          ],
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 53
+          },
+          "name": "enable",
+          "parameters": [
+            {
+              "index": 0,
+              "location": {
+                "column": 17,
+                "file": "src/plugin.ts",
+                "line": 54
+              },
+              "token": {
+                "kind": "class",
+                "module": "src/plugin.ts",
+                "name": "Logger"
+              }
+            }
+          ]
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                {
+                  "priority": "normal"
+                }
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 58
+              },
+              "name": "EventHandler"
+            }
+          ],
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 58
+          },
+          "name": "event",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                "fixture"
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 63
+              },
+              "name": "Command"
+            }
+          ],
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 63
+          },
+          "name": "command",
+          "parameters": []
+        }
+      ],
+      "name": "FixturePlugin",
+      "platform": "common",
+      "properties": [
+        {
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 41
+          },
+          "property": "audit",
+          "token": {
+            "kind": "token",
+            "module": "src/plugin.ts",
+            "name": "AUDIT"
+          }
+        }
+      ]
+    },
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 24
+          },
+          "name": "Service"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#Logger",
+      "kind": "service",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 24
+      },
+      "methods": [],
+      "name": "Logger",
+      "platform": "common",
+      "properties": []
+    }
+  ],
+  "entrypoints": {
+    "paper": {
+      "output": "paper/index.js",
+      "source": "src/plugin.ts"
+    }
+  },
+  "formatVersion": 1,
+  "modules": [
+    {
+      "declarations": [
+        "src/plugin.ts#FixturePlugin",
+        "src/plugin.ts#Logger"
+      ],
+      "exports": [
+        "src/plugin.ts#Logger"
+      ],
+      "global": true,
+      "id": "src/plugin.ts#FixtureModule",
+      "imports": [],
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 69
+      },
+      "name": "FixtureModule"
+    }
+  ],
+  "packageName": "@fixture/plugin"
+}

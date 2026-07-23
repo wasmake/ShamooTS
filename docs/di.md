@@ -24,4 +24,8 @@ Invocation scopes are created explicitly with `container.child(scope, context)`.
 
 Overrides are local to the container or child where they are installed. `inspect` reports provider form, owner module, scope, cache state and selection flags. `trace` records synchronous resolution, dependency, creation, cache and error events.
 
-Current implementation boundaries are deliberate: there is no decorator/compiler integration, automatic invocation-scope creation, cross-plugin provider registry, interception, parameter-name inference, or transparent primitive circular proxy. Module exports are provider tokens rather than module re-export declarations.
+Compiler metadata now supplies constructor, property, and lifecycle declarations.
+Automatic invocation-scope creation, cross-plugin provider registries, runtime
+interception/dispatch, parameter-name inference, and transparent primitive
+circular proxies remain outside the DI runtime. Module exports are provider
+tokens rather than module re-export declarations.

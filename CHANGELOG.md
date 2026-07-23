@@ -9,6 +9,9 @@ All notable changes to publishable Shamoo packages will be documented here. The 
 - Protocol `1.0` common descriptor validation, canonical JSON schema, compatibility negotiation, structured errors, and cross-runtime golden fixture.
 - Plugin-isolated DI containers with explicit metadata, provider forms, scopes, lifecycle/disposal, overrides, traces, and deterministic module graphs.
 - DI and protocol architecture documentation and integration coverage above repository thresholds.
+- Compiler-discovered class, method, parameter, and property decorators with explicit interface tokens and strict conflict diagnostics.
+- Canonical, source-located plugin metadata from `shamooc`, including module graphs, injection, lifecycle, events, commands, tasks, conditions, configuration bindings, and invocation pipelines.
+- Reachability-aware Paper/Velocity compatibility and permission diagnostics, plus pinned-esbuild platform ESM bundles with source maps and independent leakage enforcement.
 
 ## 0.1.0-alpha.1 - 2026-07-23
 

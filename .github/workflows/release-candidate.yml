@@ -37,11 +37,6 @@ jobs:
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-        with:
-          repository: wasmake/ShamooRuntime
-          path: ShamooRuntime
-          ref: ${{ github.ref_name }}
       - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
         with:
           run_install: false
@@ -50,11 +45,16 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm test:coverage
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: wasmake/ShamooRuntime
+          path: ShamooRuntime
+          ref: ${{ github.ref_name }}
       - run: pnpm contract:check
         env:
           SHAMOO_RUNTIME_ROOT: ${{ github.workspace }}/ShamooRuntime
-      - run: pnpm check
-      - run: pnpm test:coverage
 
   package:
     needs: full-ci

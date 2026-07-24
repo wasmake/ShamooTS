@@ -14,3 +14,9 @@ The Runtime provides sender identity, tokenized arguments, feedback, cached play
 main-hand inspection, and atomic main-hand removal without exposing native Java objects.
 Parameter decorators and the guard/pipe/interceptor invocation pipeline remain separate from
 this direct command context.
+
+## Ready-to-run
+
+Download `shamoo-example-commands-paper-<version>.tgz` from the GitHub release and extract it into
+`<paper-server>/plugins/ShamooRuntime/plugins`. The archive is already compiled; do not place it in
+Paper's general `plugins` directory.

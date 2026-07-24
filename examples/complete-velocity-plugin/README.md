@@ -29,5 +29,11 @@ pnpm test
 pnpm build
 ```
 
-Deploy the generated installation with `pnpm shamoo deploy --velocity <watched-root>`. The target
-is ShamooRuntime's watched plugin directory, not Velocity's general `plugins` directory.
+## Ready-to-run
+
+Download `shamoo-example-complete-velocity-plugin-velocity-<version>.tgz` from the GitHub release
+and extract it into `<velocity-server>/plugins/shamooruntime/plugins`. The target is ShamooRuntime's
+watched root, not Velocity's general `plugins` directory.
+
+For a local source build, deploy the generated installation with
+`pnpm shamoo deploy --velocity <watched-root>`.

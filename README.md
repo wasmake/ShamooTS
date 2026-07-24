@@ -23,6 +23,13 @@ pnpm run docs
 
 The complete generated declaration compile may require `NODE_OPTIONS=--max-old-space-size=8192 pnpm check`.
 
+## Ready-to-run examples
+
+Release candidates include precompiled Paper and Velocity example installations that can be
+extracted directly into ShamooRuntime's watched plugin root. See the [examples catalog](examples)
+for downloads, platform support, installation paths, local build commands, and clearly identified
+source-only demonstrations.
+
 ## Public packages
 
 | Package                                    | Current scope                                                    |

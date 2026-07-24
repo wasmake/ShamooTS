@@ -4,6 +4,9 @@ This example uses `@shamoo/testing` to create a deterministic Paper platform des
 the production `LifecycleExecutor` with an explicit `Container` and lifecycle method metadata.
 Vitest verifies capabilities, injected lifecycle dependencies, canonical stage order, and cleanup.
 
+> **Source-only demonstration:** this is a test fixture, not a server plugin, and is not included in
+> the ready-to-run release archives.
+
 ```sh
 pnpm --filter @shamoo-examples/testing typecheck
 pnpm --filter @shamoo-examples/testing test

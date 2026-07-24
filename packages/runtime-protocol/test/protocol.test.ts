@@ -211,6 +211,37 @@ describe('common protocol descriptor', () => {
     expect(parseCommonDescriptor(value).dependencies).toEqual(value.dependencies);
   });
 
+  it('rejects conflicting dependencies and duplicate capability entries', async () => {
+    const conflicting = structuredClone(await fixture());
+    conflicting.dependencies.required = { core: '1.x' };
+    conflicting.dependencies.optional = { core: '^1.0.0' };
+    expect(() => parseCommonDescriptor(conflicting)).toThrow('both required and optional');
+
+    const ordering = structuredClone(await fixture());
+    ordering.dependencies.loadBefore = ['core', 'core'];
+    ordering.dependencies.loadAfter = ['identity'];
+    ordering.node.builtins = ['node:buffer', 'node:buffer'];
+    const error = await Promise.resolve()
+      .then(() => parseCommonDescriptor(ordering))
+      .catch((reason: unknown) => reason);
+    expect(error).toBeInstanceOf(ProtocolValidationError);
+    expect((error as ProtocolValidationError).issues.map(({ message }) => message)).toEqual(
+      expect.arrayContaining([
+        'Duplicate load ordering entry: core',
+        'A plugin cannot order itself.',
+        'Entries must be unique.',
+      ]),
+    );
+  });
+
+  it('accepts explicitly relative entrypoints', async () => {
+    const value = structuredClone(await fixture());
+    value.platforms.paper.entrypoint = './dist/paper.mjs';
+    expect(parseCommonDescriptor(value).platforms.paper).toMatchObject({
+      entrypoint: './dist/paper.mjs',
+    });
+  });
+
   it.each(['', ' ', '\t\n'])('rejects empty semver range %j', async (range) => {
     const value = structuredClone(await fixture());
     value.shamoo.api = range;
@@ -340,6 +371,106 @@ describe('communication wire protocol', () => {
     expect(() => decodeCommunicationEnvelope(future)).toThrow(CommunicationWireError);
   });
 
+  it('rejects invalid envelope fields before encoding', () => {
+    const base = {
+      protocolVersion: COMMUNICATION_PROTOCOL_VERSION,
+      kind: 'request',
+      requestId,
+      contract: { id: 'example/routing', version: '1.0.0' },
+      operation: 'lookup',
+      payload: new Uint8Array(),
+    } as const;
+    expect(() => encodeCommunicationEnvelope({ ...base, protocolVersion: 2 as 1 })).toThrow(
+      'Unsupported communication protocol version',
+    );
+    expect(() => encodeCommunicationEnvelope({ ...base, operation: 'bad operation' })).toThrow(
+      'Invalid operation',
+    );
+    expect(() =>
+      encodeCommunicationEnvelope({
+        ...base,
+        payload: new DataView(new ArrayBuffer(1)) as unknown as Uint8Array,
+      }),
+    ).toThrow('must be a Uint8Array');
+
+    const response = {
+      protocolVersion: COMMUNICATION_PROTOCOL_VERSION,
+      kind: 'response',
+      requestId,
+      status: 'error',
+      error: { code: 'unavailable', message: 'Unavailable' },
+    } as const;
+    expect(() =>
+      encodeCommunicationEnvelope({ ...response, error: { ...response.error, code: 'BAD CODE' } }),
+    ).toThrow('Invalid error code');
+    expect(() =>
+      encodeCommunicationEnvelope({ ...response, error: { ...response.error, message: '  ' } }),
+    ).toThrow('must not be blank');
+    expect(() =>
+      encodeCommunicationEnvelope({
+        ...response,
+        error: { ...response.error, message: '\ud800x' },
+      }),
+    ).toThrow('not valid Unicode');
+    expect(() =>
+      encodeCommunicationEnvelope({
+        ...response,
+        error: { ...response.error, message: 'x'.repeat(1_025) },
+      }),
+    ).toThrow('Invalid error message byte length');
+  });
+
+  it('rejects malformed frame headers, lengths, and decoded fields', async () => {
+    const fixtures = await golden();
+    const request = requiredFixture(fixtures, 'request');
+    const invalid = (mutate: (frame: Uint8Array) => void): Uint8Array => {
+      const frame = request.slice();
+      mutate(frame);
+      return frame;
+    };
+    expect(() => decodeCommunicationEnvelope(new Uint8Array(21))).toThrow(
+      'Invalid communication frame size',
+    );
+    expect(() => decodeCommunicationEnvelope(invalid((frame) => (frame[0] = 0)))).toThrow(
+      'Invalid communication magic',
+    );
+    expect(() => decodeCommunicationEnvelope(invalid((frame) => (frame[5] = 3)))).toThrow(
+      'Invalid communication role',
+    );
+    expect(() => decodeCommunicationEnvelope(request.slice(0, 22))).toThrow(
+      'Truncated contract id length',
+    );
+    expect(() =>
+      decodeCommunicationEnvelope(
+        invalid((frame) => {
+          new DataView(frame.buffer).setUint16(22, 0);
+        }),
+      ),
+    ).toThrow('Invalid contract id length');
+    expect(() => decodeCommunicationEnvelope(invalid((frame) => (frame[32] = 0x20)))).toThrow(
+      'Invalid contract id',
+    );
+    expect(() => decodeCommunicationEnvelope(invalid((frame) => (frame[47] = 0x76)))).toThrow(
+      'Contract version must be exact semver',
+    );
+    expect(() => decodeCommunicationEnvelope(invalid((frame) => (frame[52] = 0x20)))).toThrow(
+      'Invalid operation',
+    );
+
+    for (const [name, message] of [
+      ['success', 'Response length does not match the frame'],
+      ['error', 'Error lengths do not match the frame'],
+    ] as const) {
+      const fixture = requiredFixture(fixtures, name);
+      const trailing = new Uint8Array(fixture.byteLength + 1);
+      trailing.set(fixture);
+      expect(() => decodeCommunicationEnvelope(trailing)).toThrow(message);
+    }
+    const structuredError = requiredFixture(fixtures, 'error').slice();
+    structuredError[26] = 0x20;
+    expect(() => decodeCommunicationEnvelope(structuredError)).toThrow('Invalid structured error');
+  });
+
   it('does not retain mutable payload or frame bytes', () => {
     const payload = Uint8Array.from([1, 2]);
     const frame = encodeCommunicationEnvelope({
@@ -389,6 +520,30 @@ describe('compatibility negotiation', () => {
       'platforms.paper.minecraft',
       'platforms.paper.paperApi',
     ]);
+  });
+
+  it('reports disabled and incompatible selected platforms', async () => {
+    const paperDisabled = structuredClone(await fixture());
+    paperDisabled.platforms.paper = { enabled: false };
+    expect(negotiateCompatibility(paperDisabled, runtime()).reasons).toMatchObject([
+      { path: 'platforms.paper.enabled' },
+    ]);
+
+    const velocityDisabled = structuredClone(await fixture());
+    velocityDisabled.platforms.velocity = { enabled: false };
+    expect(
+      negotiateCompatibility(
+        velocityDisabled,
+        runtime({ platform: { name: 'velocity', velocityApiVersion: '3.4.0' } }),
+      ).reasons,
+    ).toMatchObject([{ path: 'platforms.velocity.enabled' }]);
+
+    expect(
+      negotiateCompatibility(
+        await fixture(),
+        runtime({ platform: { name: 'velocity', velocityApiVersion: '4.0.0' } }),
+      ).reasons,
+    ).toMatchObject([{ path: 'platforms.velocity.velocityApi' }]);
   });
 
   it('reports all runtime, protocol, platform, and Node incompatibilities', async () => {

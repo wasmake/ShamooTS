@@ -35,6 +35,16 @@ describe('CLI parsing', () => {
       model: 'model.json',
       outputDirectory: 'out',
     });
+    expect(parsePlatformCodegenInvocation(['velocity', 'sync', '-'])).toEqual({
+      platform: 'velocity',
+      action: 'sync',
+    });
+    expect(parsePlatformCodegenInvocation(['paper', 'diff', 'paper', '-', 'generated'])).toEqual({
+      platform: 'paper',
+      action: 'diff',
+      surface: 'paper',
+      outputDirectory: 'generated',
+    });
   });
 
   it('rejects non-platform commands, actions, and Paper surfaces', () => {

@@ -110,6 +110,23 @@ describe('Paper Velocity communication', () => {
     ).rejects.toThrow('proxy disconnected');
   });
 
+  it('honors cancellation and host availability responses', async () => {
+    const request = new PaperVelocityTransport({
+      request: () => Promise.resolve({ available: false, payload: new Uint8Array(), error: null }),
+    });
+    const abort = new AbortController();
+    abort.abort(new Error('cancelled'));
+    await expect(
+      request.request(new Uint8Array(), { timeoutMs: 10, signal: abort.signal }),
+    ).rejects.toThrow('cancelled');
+    await expect(
+      request.request(new Uint8Array(), {
+        timeoutMs: 10,
+        signal: new AbortController().signal,
+      }),
+    ).rejects.toThrow('Shamoo Velocity transport is unavailable');
+  });
+
   it('injects the host capability when present and remains standalone when absent', () => {
     const standalone = new Container({ providers: paperCommunicationProviders() });
     expect(standalone.resolve(PAPER_VELOCITY_TRANSPORT).availability().available).toBe(false);

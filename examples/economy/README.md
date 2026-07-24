@@ -37,18 +37,17 @@ From this directory, or with the equivalent workspace filter from the repository
 pnpm test
 pnpm typecheck
 pnpm build
-pnpm deploy --paper /absolute/path/to/shamoo-runtime-watched-root
+pnpm deploy
 ```
 
-`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. The deploy target is the
-ShamooRuntime watched root, not Paper's general `plugins` directory. It can instead be set as
-`deploy.paper` in `shamoo.config.json`, after which `pnpm deploy` needs no override.
+`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. `pnpm deploy` regenerates the
+checked-in installation under `deployment/paper`.
 
 All balances live only in the `EconomyPlugin` instance. They reset to zero whenever the plugin is
 disabled, unloaded, redeployed, or the server restarts. No files or database are used.
 
 ## Ready-to-run
 
-Download `shamoo-example-economy-paper-<version>.tgz` from the GitHub release and extract it into
+Drag [`deployment/paper/economy`](deployment/paper/economy) into
 `<paper-server>/plugins/ShamooRuntime/plugins`. No Node.js toolchain is needed on the server. The
 example remains intentionally in-memory, so balances reset on restart or reload.

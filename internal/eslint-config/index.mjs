@@ -12,6 +12,7 @@ export default tseslint.config(
       '**/node_modules/**',
       'docs/generated/**',
       'examples/compiled/**',
+      'examples/*/deployment/**',
       'release/**',
       '**/src/generated/**',
     ],

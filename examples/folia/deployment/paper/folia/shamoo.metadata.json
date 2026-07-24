@@ -1,0 +1,106 @@
+{
+  "communication": {
+    "consumers": [],
+    "events": [],
+    "services": []
+  },
+  "compilerVersion": "0.1.0-rc.1",
+  "components": [
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "name": "folia"
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 3
+          },
+          "name": "Plugin"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#FoliaPlugin",
+      "kind": "plugin",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 3
+      },
+      "methods": [
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 5
+              },
+              "name": "OnEnable"
+            }
+          ],
+          "lifecycle": "enable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 5
+          },
+          "name": "enabled",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 10
+              },
+              "name": "OnDisable"
+            }
+          ],
+          "lifecycle": "disable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 10
+          },
+          "name": "disabled",
+          "parameters": []
+        }
+      ],
+      "name": "FoliaPlugin",
+      "platform": "common",
+      "properties": []
+    }
+  ],
+  "entrypoints": {
+    "paper": {
+      "output": "paper/index.js",
+      "source": "src/paper.ts"
+    }
+  },
+  "formatVersion": 2,
+  "modules": [],
+  "packageName": "@shamoo-examples/folia",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    }
+  },
+  "sourceMaps": [
+    {
+      "format": "source-map-v3",
+      "generated": "paper/index.js",
+      "map": "paper/index.js.map"
+    }
+  ]
+}

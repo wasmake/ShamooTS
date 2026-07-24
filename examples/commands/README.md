@@ -17,6 +17,6 @@ this direct command context.
 
 ## Ready-to-run
 
-Download `shamoo-example-commands-paper-<version>.tgz` from the GitHub release and extract it into
-`<paper-server>/plugins/ShamooRuntime/plugins`. The archive is already compiled; do not place it in
-Paper's general `plugins` directory.
+Drag [`deployment/paper/commands`](deployment/paper/commands) into
+`<paper-server>/plugins/ShamooRuntime/plugins`. It is already compiled; do not place it in Paper's
+general `plugins` directory. Run `pnpm deploy` here to regenerate it.

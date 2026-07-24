@@ -1,0 +1,255 @@
+{
+  "communication": {
+    "consumers": [],
+    "events": [],
+    "services": []
+  },
+  "compilerVersion": "0.1.0-rc.1",
+  "components": [
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "name": "complete-paper-plugin"
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 7
+          },
+          "name": "Plugin"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#CompletePaperPlugin",
+      "kind": "plugin",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 13
+              },
+              "name": "OnLoad"
+            }
+          ],
+          "lifecycle": "load",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 13
+          },
+          "name": "loaded",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 18
+              },
+              "name": "OnEnable"
+            }
+          ],
+          "lifecycle": "enable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 18
+          },
+          "name": "enabled",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 23
+              },
+              "name": "OnReady"
+            }
+          ],
+          "lifecycle": "ready",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 23
+          },
+          "name": "becameReady",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 29
+              },
+              "name": "OnPlayerJoinEvent"
+            }
+          ],
+          "invocation": "event",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 29
+          },
+          "name": "playerJoined",
+          "parameters": [
+            {
+              "index": 0,
+              "location": {
+                "column": 23,
+                "file": "src/plugin.ts",
+                "line": 30
+              },
+              "token": {
+                "kind": "token",
+                "value": {
+                  "binding": "Context",
+                  "value": "value"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                "shamoo-status"
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 36
+              },
+              "name": "Command"
+            }
+          ],
+          "invocation": "command",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 36
+          },
+          "name": "status",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                {
+                  "delay": 20,
+                  "unit": "ticks"
+                }
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 44
+              },
+              "name": "Scheduled"
+            }
+          ],
+          "invocation": "task",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 44
+          },
+          "name": "heartbeat",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 50
+              },
+              "name": "OnDrain"
+            }
+          ],
+          "lifecycle": "drain",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 50
+          },
+          "name": "draining",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 56
+              },
+              "name": "OnDisable"
+            }
+          ],
+          "lifecycle": "disable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 56
+          },
+          "name": "disabled",
+          "parameters": []
+        }
+      ],
+      "name": "CompletePaperPlugin",
+      "platform": "paper",
+      "properties": []
+    }
+  ],
+  "entrypoints": {
+    "paper": {
+      "output": "paper/index.js",
+      "source": "src/paper.ts"
+    }
+  },
+  "formatVersion": 2,
+  "modules": [],
+  "packageName": "@shamoo-examples/complete-paper-plugin",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    }
+  },
+  "sourceMaps": [
+    {
+      "format": "source-map-v3",
+      "generated": "paper/index.js",
+      "map": "paper/index.js.map"
+    }
+  ]
+}

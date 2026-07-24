@@ -6,8 +6,8 @@ import { promisify } from 'node:util';
 const execute = promisify(execFile);
 const root = resolve(import.meta.dirname, '..');
 const examplesRoot = resolve(root, 'examples');
-const outputRoot = resolve(root, process.argv[2] ?? 'examples/compiled');
-const archiveRoot = process.argv[3] === undefined ? undefined : resolve(root, process.argv[3]);
+const cli = resolve(root, 'packages/cli/dist/cli.js');
+const archiveRoot = process.argv[2] === undefined ? undefined : resolve(root, process.argv[2]);
 const deployableExamples = [
   'commands',
   'complete-paper-plugin',
@@ -35,12 +35,8 @@ function installationName(packageName) {
   return (packageName.split('/').at(-1) ?? packageName).replace(/[^a-zA-Z0-9._-]/gu, '-');
 }
 
-assertWithinRoot(outputRoot, 'Example output');
-if (archiveRoot !== undefined) assertWithinRoot(archiveRoot, 'Example archive output');
-await rm(outputRoot, { force: true, recursive: true });
-await mkdir(resolve(outputRoot, 'paper'), { recursive: true });
-await mkdir(resolve(outputRoot, 'velocity'), { recursive: true });
 if (archiveRoot !== undefined) {
+  assertWithinRoot(archiveRoot, 'Example archive output');
   await mkdir(archiveRoot, { recursive: true });
   const oldArchives = (await readdir(archiveRoot)).filter(
     (name) => name.startsWith('shamoo-example-') && name.endsWith('.tgz'),
@@ -56,21 +52,19 @@ let installations = 0;
 
 for (const example of deployableExamples) {
   const project = resolve(examplesRoot, example);
+  const deployment = resolve(project, 'deployment');
   const config = JSON.parse(await readFile(resolve(project, 'shamoo.config.json'), 'utf8'));
+  assertWithinRoot(deployment, 'Example deployment output');
+  await rm(deployment, { force: true, recursive: true });
+
   const { stdout, stderr } = await execute(
-    'pnpm',
-    [
-      'exec',
-      'shamoo',
-      'deploy',
-      '--project',
-      project,
-      '--paper',
-      resolve(outputRoot, 'paper'),
-      '--velocity',
-      resolve(outputRoot, 'velocity'),
-    ],
-    { cwd: project, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+    process.execPath,
+    [cli, 'deploy', '--project', project],
+    {
+      cwd: project,
+      encoding: 'utf8',
+      maxBuffer: 10 * 1024 * 1024,
+    },
   );
   process.stdout.write(stdout);
   process.stderr.write(stderr);
@@ -83,12 +77,10 @@ for (const example of deployableExamples) {
       archiveRoot,
       `shamoo-example-${example}-${platform}-${releaseVersion}.tgz`,
     );
-    await execute('tar', ['-czf', archive, '-C', resolve(outputRoot, platform), installation], {
+    await execute('tar', ['-czf', archive, '-C', resolve(deployment, platform), installation], {
       cwd: root,
     });
   }
 }
 
-process.stdout.write(
-  `Built ${String(installations)} ready-to-run example installation(s) in ${outputRoot}.\n`,
-);
+process.stdout.write(`Built ${String(installations)} checked-in example deployment(s).\n`);

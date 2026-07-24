@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "shamoo build",
+    "deploy": "shamoo deploy",
     "doctor": "shamoo doctor",
     "test": "vitest run",
     "typecheck": "tsc --project tsconfig.json --pretty false"

@@ -1,0 +1,138 @@
+{
+  "communication": {
+    "consumers": [],
+    "events": [],
+    "services": []
+  },
+  "compilerVersion": "0.1.0-rc.1",
+  "components": [
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "name": "dual-platform-plugin"
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 3
+          },
+          "name": "Plugin"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#DualPlatformPlugin",
+      "kind": "plugin",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 3
+      },
+      "methods": [
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 12
+              },
+              "name": "OnEnable"
+            }
+          ],
+          "lifecycle": "enable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 12
+          },
+          "name": "enable",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 17
+              },
+              "name": "OnDisable"
+            }
+          ],
+          "lifecycle": "disable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 17
+          },
+          "name": "disable",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                "shamoo-status"
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 22
+              },
+              "name": "Command"
+            }
+          ],
+          "invocation": "command",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 22
+          },
+          "name": "status",
+          "parameters": []
+        }
+      ],
+      "name": "DualPlatformPlugin",
+      "platform": "common",
+      "properties": []
+    }
+  ],
+  "entrypoints": {
+    "paper": {
+      "output": "paper/index.js",
+      "source": "src/paper.ts"
+    },
+    "velocity": {
+      "output": "velocity/index.js",
+      "source": "src/velocity.ts"
+    }
+  },
+  "formatVersion": 2,
+  "modules": [],
+  "packageName": "@shamoo-examples/dual-platform-plugin",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    }
+  },
+  "sourceMaps": [
+    {
+      "format": "source-map-v3",
+      "generated": "paper/index.js",
+      "map": "paper/index.js.map"
+    },
+    {
+      "format": "source-map-v3",
+      "generated": "velocity/index.js",
+      "map": "velocity/index.js.map"
+    }
+  ]
+}

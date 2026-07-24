@@ -1,7 +1,7 @@
 # Examples
 
-ShamooTS includes deployable server plugins and source-only demonstrations. Release candidates
-attach one ready-to-run archive for each supported platform of every deployable example.
+ShamooTS includes deployable server plugins and source-only demonstrations. Every deployable
+example contains an already compiled installation under its own `deployment` directory.
 
 ## Ready-to-run examples
 
@@ -16,19 +16,19 @@ attach one ready-to-run archive for each supported platform of every deployable 
 | [`folia`](folia)                                       | Paper/Folia        | Region-owned and entity-owned scheduling helpers |
 | [`hello-world`](hello-world)                           | Paper              | Minimal lifecycle plugin                         |
 
-Download the archive matching the example and platform from the latest GitHub release. Extract it
-directly into ShamooRuntime's watched root:
+Open an example's `deployment/<platform>` directory and copy the plugin directory inside it directly
+into ShamooRuntime's watched root:
 
 - Paper: `<server>/plugins/ShamooRuntime/plugins`
 - Velocity: `<server>/plugins/shamooruntime/plugins`
 
-The archive already contains the installation directory, descriptor, compiler metadata, bundle,
-and source map. Do not place it in the server's general `plugins` directory. ShamooRuntime itself
-must already be installed there.
+The checked-in plugin directory already contains its descriptor, compiler metadata, bundle, and
+source map. Do not place it in the server's general `plugins` directory. ShamooRuntime itself must
+already be installed there.
 
-Build all installations locally with `pnpm examples:build`. Generated directories are written to
-`examples/compiled/paper` and `examples/compiled/velocity` and can be copied to the corresponding
-watched root without further compilation.
+Run `pnpm deploy` inside one deployable example to regenerate its local installation, or run
+`pnpm examples:build` from the repository root to regenerate all of them. Release candidates also
+provide the same installations as platform-specific archives.
 
 ## Source-only demonstrations
 

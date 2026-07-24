@@ -1,0 +1,42 @@
+{
+  "name": "complete-velocity-plugin",
+  "displayName": "complete-velocity-plugin",
+  "version": "0.1.0",
+  "shamoo": {
+    "api": "^0.1.0",
+    "runtime": "^0.1.0",
+    "manifest": 1
+  },
+  "platforms": {
+    "paper": {
+      "enabled": false
+    },
+    "velocity": {
+      "enabled": true,
+      "entrypoint": "velocity/index.js",
+      "velocityApi": "*"
+    }
+  },
+  "dependencies": {
+    "required": {},
+    "optional": {},
+    "loadBefore": [],
+    "loadAfter": []
+  },
+  "node": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "reload": {
+    "watch": true,
+    "debounceMs": 150,
+    "preserveState": false
+  }
+}

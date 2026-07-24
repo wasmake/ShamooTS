@@ -9,12 +9,11 @@ pnpm typecheck
 pnpm build
 ```
 
-`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. Configure a
-`deploy.paper` watched-root path in `shamoo.config.json` before running `shamoo deploy`
-or `shamoo dev`.
+`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. `pnpm deploy` regenerates the
+checked-in installation under `deployment/paper`.
 
 ## Ready-to-run
 
-Download `shamoo-example-hello-world-paper-<version>.tgz` from the GitHub release and extract it
-into `<paper-server>/plugins/ShamooRuntime/plugins`. Restart the server or let ShamooRuntime's
-watcher discover the new installation directory.
+Drag [`deployment/paper/hello-world`](deployment/paper/hello-world) into
+`<paper-server>/plugins/ShamooRuntime/plugins`. Restart the server or let ShamooRuntime's watcher
+discover it. Run `pnpm deploy` here to regenerate the checked-in installation.

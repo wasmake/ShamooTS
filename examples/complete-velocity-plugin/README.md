@@ -31,9 +31,7 @@ pnpm build
 
 ## Ready-to-run
 
-Download `shamoo-example-complete-velocity-plugin-velocity-<version>.tgz` from the GitHub release
-and extract it into `<velocity-server>/plugins/shamooruntime/plugins`. The target is ShamooRuntime's
-watched root, not Velocity's general `plugins` directory.
-
-For a local source build, deploy the generated installation with
-`pnpm shamoo deploy --velocity <watched-root>`.
+Drag
+[`deployment/velocity/complete-velocity-plugin`](deployment/velocity/complete-velocity-plugin)
+into `<velocity-server>/plugins/shamooruntime/plugins`. The target is ShamooRuntime's watched root,
+not Velocity's general `plugins` directory. Run `pnpm deploy` here to regenerate it.

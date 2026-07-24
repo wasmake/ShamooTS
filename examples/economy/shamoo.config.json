@@ -7,6 +7,9 @@
   "paperEntrypoint": "src/paper.ts",
   "tsconfig": "tsconfig.json",
   "outDir": "dist",
+  "deploy": {
+    "paper": "deployment/paper"
+  },
   "permissions": {
     "builtins": [],
     "filesystem": {

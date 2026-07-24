@@ -26,10 +26,11 @@ pnpm build
 
 ## Ready-to-run
 
-Download the archive for the server receiving the plugin:
+Drag the installation for the server receiving the plugin into that server's ShamooRuntime watched
+root:
 
-- Paper: `shamoo-example-dual-platform-plugin-paper-<version>.tgz`
-- Velocity: `shamoo-example-dual-platform-plugin-velocity-<version>.tgz`
+- Paper: [`deployment/paper/dual-platform-plugin`](deployment/paper/dual-platform-plugin)
+- Velocity: [`deployment/velocity/dual-platform-plugin`](deployment/velocity/dual-platform-plugin)
 
-Extract it into that server's ShamooRuntime watched root. Each archive is independent and already
-contains the correct platform bundle; installing one does not install the example on both servers.
+Each directory is independent and already contains the correct platform bundle; copying one does
+not install the example on both servers. Run `pnpm deploy` here to regenerate both.

@@ -25,10 +25,9 @@ The complete generated declaration compile may require `NODE_OPTIONS=--max-old-s
 
 ## Ready-to-run examples
 
-Release candidates include precompiled Paper and Velocity example installations that can be
-extracted directly into ShamooRuntime's watched plugin root. See the [examples catalog](examples)
-for downloads, platform support, installation paths, local build commands, and clearly identified
-source-only demonstrations.
+Each deployable example includes a checked-in Paper or Velocity installation that can be copied
+directly into ShamooRuntime's watched plugin root. See the [examples catalog](examples) for platform
+support, repository paths, regeneration commands, and clearly identified source-only demonstrations.
 
 ## Public packages
 

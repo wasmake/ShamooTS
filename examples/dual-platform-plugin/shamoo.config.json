@@ -6,6 +6,10 @@
   "velocityEntrypoint": "src/velocity.ts",
   "tsconfig": "tsconfig.json",
   "outDir": "dist",
+  "deploy": {
+    "paper": "deployment/paper",
+    "velocity": "deployment/velocity"
+  },
   "permissions": {
     "builtins": [],
     "filesystem": {

@@ -36,6 +36,7 @@ jobs:
       - run: pnpm build
       - run: pnpm package:check
       - run: pnpm examples:pack
+      - run: git diff --exit-code -- 'examples/*/deployment'
 
   test-node:
     runs-on: ubuntu-latest

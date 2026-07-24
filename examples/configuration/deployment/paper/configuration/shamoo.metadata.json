@@ -1,0 +1,127 @@
+{
+  "communication": {
+    "consumers": [],
+    "events": [],
+    "services": []
+  },
+  "compilerVersion": "0.1.0-rc.1",
+  "components": [
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "name": "configuration"
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 12
+          },
+          "name": "Plugin"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#ConfigurationPlugin",
+      "kind": "plugin",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 12
+      },
+      "methods": [
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 16
+              },
+              "name": "OnLoad"
+            }
+          ],
+          "lifecycle": "load",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 16
+          },
+          "name": "loadConfiguration",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 25
+              },
+              "name": "OnEnable"
+            }
+          ],
+          "lifecycle": "enable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 25
+          },
+          "name": "enabled",
+          "parameters": []
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 31
+              },
+              "name": "OnDisable"
+            }
+          ],
+          "lifecycle": "disable",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 31
+          },
+          "name": "disabled",
+          "parameters": []
+        }
+      ],
+      "name": "ConfigurationPlugin",
+      "platform": "common",
+      "properties": []
+    }
+  ],
+  "entrypoints": {
+    "paper": {
+      "output": "paper/index.js",
+      "source": "src/paper.ts"
+    }
+  },
+  "formatVersion": 2,
+  "modules": [],
+  "packageName": "@shamoo-examples/configuration",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    }
+  },
+  "sourceMaps": [
+    {
+      "format": "source-map-v3",
+      "generated": "paper/index.js",
+      "map": "paper/index.js.map"
+    }
+  ]
+}

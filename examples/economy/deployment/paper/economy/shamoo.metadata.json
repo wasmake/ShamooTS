@@ -1,0 +1,181 @@
+{
+  "communication": {
+    "consumers": [],
+    "events": [],
+    "services": []
+  },
+  "compilerVersion": "0.1.0-rc.1",
+  "components": [
+    {
+      "constructor": [],
+      "decorators": [
+        {
+          "arguments": [
+            {
+              "name": "economy"
+            }
+          ],
+          "location": {
+            "column": 1,
+            "file": "src/plugin.ts",
+            "line": 65
+          },
+          "name": "Plugin"
+        }
+      ],
+      "file": "src/plugin.ts",
+      "id": "src/plugin.ts#EconomyPlugin",
+      "kind": "plugin",
+      "location": {
+        "column": 1,
+        "file": "src/plugin.ts",
+        "line": 65
+      },
+      "methods": [
+        {
+          "decorators": [
+            {
+              "arguments": [
+                "pay"
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 69
+              },
+              "name": "Command"
+            }
+          ],
+          "invocation": "command",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 69
+          },
+          "name": "pay",
+          "parameters": [
+            {
+              "index": 0,
+              "location": {
+                "column": 14,
+                "file": "src/plugin.ts",
+                "line": 70
+              },
+              "token": {
+                "kind": "token",
+                "value": {
+                  "binding": "Context",
+                  "value": "value"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                "bal"
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 93
+              },
+              "name": "Command"
+            }
+          ],
+          "invocation": "command",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 93
+          },
+          "name": "balance",
+          "parameters": [
+            {
+              "index": 0,
+              "location": {
+                "column": 18,
+                "file": "src/plugin.ts",
+                "line": 94
+              },
+              "token": {
+                "kind": "token",
+                "value": {
+                  "binding": "Context",
+                  "value": "value"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "decorators": [
+            {
+              "arguments": [
+                "sell"
+              ],
+              "location": {
+                "column": 3,
+                "file": "src/plugin.ts",
+                "line": 107
+              },
+              "name": "Command"
+            }
+          ],
+          "invocation": "command",
+          "location": {
+            "column": 3,
+            "file": "src/plugin.ts",
+            "line": 107
+          },
+          "name": "sell",
+          "parameters": [
+            {
+              "index": 0,
+              "location": {
+                "column": 15,
+                "file": "src/plugin.ts",
+                "line": 108
+              },
+              "token": {
+                "kind": "token",
+                "value": {
+                  "binding": "Context",
+                  "value": "value"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "EconomyPlugin",
+      "platform": "paper",
+      "properties": []
+    }
+  ],
+  "entrypoints": {
+    "paper": {
+      "output": "paper/index.js",
+      "source": "src/paper.ts"
+    }
+  },
+  "formatVersion": 2,
+  "modules": [],
+  "packageName": "@shamoo-examples/economy",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    }
+  },
+  "sourceMaps": [
+    {
+      "format": "source-map-v3",
+      "generated": "paper/index.js",
+      "map": "paper/index.js.map"
+    }
+  ]
+}

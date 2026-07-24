@@ -17,6 +17,6 @@ use the `folia` example for explicit scheduler ownership.
 
 ## Ready-to-run
 
-Download `shamoo-example-complete-paper-plugin-paper-<version>.tgz` from the GitHub release and
-extract it into `<paper-server>/plugins/ShamooRuntime/plugins`. The archive includes the complete
-compiled Runtime installation directory.
+Drag [`deployment/paper/complete-paper-plugin`](deployment/paper/complete-paper-plugin) into
+`<paper-server>/plugins/ShamooRuntime/plugins`. It contains the complete compiled Runtime
+installation. Run `pnpm deploy` here to regenerate it.

@@ -2,6 +2,7 @@ node_modules
 dist
 coverage
 docs/generated
+examples/*/deployment
 docs/api-reports/*.api.md
 packages/*/src/generated
 packages/*-codegen/models/*.model.json

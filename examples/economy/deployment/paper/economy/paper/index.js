@@ -2343,6 +2343,8 @@ var paper_default = definePaperEntrypoint({
 });
 
 // ../../packages/bundler/dist/runtime-adapter.js
+var PLATFORM_BINDING_PROTOCOL_MAJOR = 1;
+var PLATFORM_BINDING_PROTOCOL_MINOR = 0;
 var callbackMarker = (name) => ({ $callback: name });
 function runtimeHost() {
   const value = Reflect.get(globalThis, "host");
@@ -2470,7 +2472,16 @@ function installRuntimeAdapter(manifest, platform, exports) {
     callbacks.add(name);
     return name;
   };
-  const call = (name, metadata, ...arguments_) => host === void 0 ? void 0 : operation(host, name)(metadata, ...arguments_);
+  const call = (name, metadata, ...arguments_) => host === void 0 ? void 0 : operation(host, name)(
+    {
+      ...metadata,
+      namespace: platform,
+      typeName: name,
+      protocolMajor: PLATFORM_BINDING_PROTOCOL_MAJOR,
+      protocolMinor: PLATFORM_BINDING_PROTOCOL_MINOR
+    },
+    ...arguments_
+  );
   for (const component of manifest.components) {
     if (component.platform !== "common" && component.platform !== platform) continue;
     const target = executable(component, exports);

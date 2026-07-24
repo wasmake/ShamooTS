@@ -139,6 +139,10 @@ describe('platform bundler', () => {
           expect.objectContaining({
             componentId: 'fixtures/runtime-adapter.ts#AdapterPlugin',
             method: 'joined',
+            namespace: 'paper',
+            typeName: 'paperSubscribeEvent',
+            protocolMajor: 1,
+            protocolMinor: 0,
           }),
           'PlayerJoinEvent',
           'NORMAL',
@@ -149,6 +153,10 @@ describe('platform bundler', () => {
           expect.objectContaining({
             componentId: 'fixtures/runtime-adapter.ts#AdapterPlugin',
             method: 'commanded',
+            namespace: 'paper',
+            typeName: 'paperRegisterCommand',
+            protocolMajor: 1,
+            protocolMinor: 0,
           }),
           'sample',
           [],

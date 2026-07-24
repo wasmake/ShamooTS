@@ -1,5 +1,8 @@
 import type { CompilerManifest, ComponentMetadata, MethodMetadata } from '@shamoo/metadata';
 
+const PLATFORM_BINDING_PROTOCOL_MAJOR = 1;
+const PLATFORM_BINDING_PROTOCOL_MINOR = 0;
+
 type Data =
   | null
   | boolean
@@ -209,7 +212,18 @@ export function installRuntimeAdapter(
     return name;
   };
   const call = (name: string, metadata: object, ...arguments_: readonly unknown[]): unknown =>
-    host === undefined ? undefined : operation(host, name)(metadata, ...arguments_);
+    host === undefined
+      ? undefined
+      : operation(host, name)(
+          {
+            ...metadata,
+            namespace: platform,
+            typeName: name,
+            protocolMajor: PLATFORM_BINDING_PROTOCOL_MAJOR,
+            protocolMinor: PLATFORM_BINDING_PROTOCOL_MINOR,
+          },
+          ...arguments_,
+        );
 
   for (const component of manifest.components) {
     if (component.platform !== 'common' && component.platform !== platform) continue;

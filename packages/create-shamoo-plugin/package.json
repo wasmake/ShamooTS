@@ -1,7 +1,7 @@
 {
   "name": "@shamoo/create-plugin",
   "version": "0.1.0-alpha.1",
-  "description": "Project declaration foundation for creating Shamoo plugins.",
+  "description": "Safe, deterministic project scaffolding for Shamoo plugins.",
   "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,

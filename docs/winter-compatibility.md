@@ -4,7 +4,12 @@
 
 This source audit is pinned to Winter **2.1.1**, commit [`421d39bf7efcdf14ebe9d2a085e858487d4945f8`](https://github.com/thewinterframework/winter/commit/421d39bf7efcdf14ebe9d2a085e858487d4945f8). Paths below are relative to that commit. The baseline includes its `core` and `paper` modules. Shamoo is source-concept compatible where stated, not Java binary, annotation, Guice, or behavior compatible.
 
-Classifications mean: **Foundation** is represented by an honest Phase 1 contract; **Planned equivalent** preserves the concept with TypeScript APIs; **Intentional replacement** preserves the use case with different semantics; **Defect not preserved** explicitly rejects audited behavior; **Out of scope** belongs to another repository or phase.
+This document records the pinned source audit, not current implementation status.
+The current repository now includes DI containers, lifecycle/invocation execution,
+compiler metadata, generated Paper/Velocity bindings, scheduling declarations,
+communication contracts, and a CLI. Rows below that say "planned" or name an old
+phase are historical audit decisions and must not be read as a current API matrix.
+Use the package API reports and `docs/compatibility.md` for implemented surfaces.
 
 ## Public feature matrix
 
@@ -52,6 +57,8 @@ Classifications mean: **Foundation** is represented by an honest Phase 1 contrac
 | No tests in repository               | The pinned tree has no `src/test` tree or test suite.                                                                                                                                                 | Require unit and integration characterization before claiming parity.                             |
 | License provenance mismatch          | `build.gradle.kts` declares MIT publication metadata, but the pinned repository has no `LICENSE` file. `core/.../utils/TimeUnit.java` carries an Oracle GPLv2 with Classpath Exception source notice. | Do not copy source. Reimplement from behavior/contracts and retain a documented provenance audit. |
 
-## Phase 1 conclusion
+## Audit conclusion
 
-Phase 1 is not Winter parity. It supplies names, host boundaries, protocol versioning, and package topology needed to build and test later systems. Every matrix row requiring discovery, DI, lifecycle execution, expressions, scheduling, Paper registration, or code generation remains unimplemented until its stated phase and must not be presented as runnable.
+Shamoo does not claim Winter source or behavior parity. The analyzer identifies
+Java annotation syntax with a comment/string-aware lexical pass and emits migration
+guidance; it does not resolve Java symbols, compile input, or rewrite source.

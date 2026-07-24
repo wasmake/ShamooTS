@@ -1,0 +1,17 @@
+{
+  "name": "@shamoo-examples/testing",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "tsc --project tsconfig.json --pretty false"
+  },
+  "dependencies": {
+    "@shamoo/core": "workspace:*",
+    "@shamoo/di": "workspace:*",
+    "@shamoo/lifecycle": "workspace:*",
+    "@shamoo/platform": "workspace:*",
+    "@shamoo/testing": "workspace:*"
+  }
+}

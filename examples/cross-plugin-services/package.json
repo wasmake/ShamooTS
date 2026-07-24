@@ -1,0 +1,13 @@
+{
+  "name": "@shamoo-examples/cross-plugin-services",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "tsc --project tsconfig.json --pretty false"
+  },
+  "dependencies": {
+    "@shamoo/communication": "workspace:*"
+  }
+}

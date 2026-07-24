@@ -1,3 +1,14 @@
 # Custom events
 
-Phase 3 gates this example on platform-neutral and host event adapters.
+This example defines a semver-versioned custom event with a bounded, runtime-validating JSON
+codec. `VersionedEventBus` only delivers events to compatible subscribers, awaits asynchronous
+handlers, and returns closeable subscription ownership.
+
+```sh
+pnpm --filter @shamoo-examples/custom-events typecheck
+pnpm --filter @shamoo-examples/custom-events test
+```
+
+The bus is in-process and platform-neutral. Host-backed contract events currently require an
+explicit Paper or Velocity host facade adapter; compiler communication event metadata is not
+automatically wired by the bundled TypeScript runtime adapter.

@@ -57,6 +57,227 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(supports-color@8.1.1)(tsx@4.23.1)(yaml@2.9.0)
 
+  examples/commands:
+    dependencies:
+      '@shamoo/commands':
+        specifier: workspace:*
+        version: link:../../packages/commands
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/guards':
+        specifier: workspace:*
+        version: link:../../packages/guards
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  examples/complete-paper-plugin:
+    dependencies:
+      '@shamoo/commands':
+        specifier: workspace:*
+        version: link:../../packages/commands
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/lifecycle':
+        specifier: workspace:*
+        version: link:../../packages/lifecycle
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+      '@shamoo/paper-raw':
+        specifier: workspace:*
+        version: link:../../packages/paper-raw
+      '@shamoo/scheduler':
+        specifier: workspace:*
+        version: link:../../packages/scheduler
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  examples/complete-velocity-plugin:
+    dependencies:
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/velocity':
+        specifier: workspace:*
+        version: link:../../packages/velocity
+      '@shamoo/velocity-raw':
+        specifier: workspace:*
+        version: link:../../packages/velocity-raw
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(supports-color@8.1.1)(tsx@4.23.1)(yaml@2.9.0)
+
+  examples/configuration:
+    dependencies:
+      '@shamoo/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  examples/cross-plugin-services:
+    dependencies:
+      '@shamoo/communication':
+        specifier: workspace:*
+        version: link:../../packages/communication
+
+  examples/custom-events:
+    dependencies:
+      '@shamoo/communication':
+        specifier: workspace:*
+        version: link:../../packages/communication
+
+  examples/dual-platform-plugin:
+    dependencies:
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+      '@shamoo/velocity':
+        specifier: workspace:*
+        version: link:../../packages/velocity
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(supports-color@8.1.1)(tsx@4.23.1)(yaml@2.9.0)
+
+  examples/economy:
+    dependencies:
+      '@shamoo/communication':
+        specifier: workspace:*
+        version: link:../../packages/communication
+
+  examples/folia:
+    dependencies:
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+      '@shamoo/paper-raw':
+        specifier: workspace:*
+        version: link:../../packages/paper-raw
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  examples/hello-world:
+    dependencies:
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  examples/hot-reload:
+    dependencies:
+      '@shamoo/communication':
+        specifier: workspace:*
+        version: link:../../packages/communication
+      '@shamoo/di':
+        specifier: workspace:*
+        version: link:../../packages/di
+      '@shamoo/lifecycle':
+        specifier: workspace:*
+        version: link:../../packages/lifecycle
+
+  examples/proxy-routing:
+    dependencies:
+      '@shamoo/communication':
+        specifier: workspace:*
+        version: link:../../packages/communication
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+      '@shamoo/velocity':
+        specifier: workspace:*
+        version: link:../../packages/velocity
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(supports-color@8.1.1)(tsx@4.23.1)(yaml@2.9.0)
+
+  examples/testing:
+    dependencies:
+      '@shamoo/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@shamoo/di':
+        specifier: workspace:*
+        version: link:../../packages/di
+      '@shamoo/lifecycle':
+        specifier: workspace:*
+        version: link:../../packages/lifecycle
+      '@shamoo/platform':
+        specifier: workspace:*
+        version: link:../../packages/platform
+      '@shamoo/testing':
+        specifier: workspace:*
+        version: link:../../packages/testing
+
   integration-tests/package-boundaries:
     dependencies:
       '@shamoo/core':

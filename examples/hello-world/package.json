@@ -1,0 +1,19 @@
+{
+  "name": "@shamoo-examples/hello-world",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "shamoo build",
+    "doctor": "shamoo doctor",
+    "typecheck": "tsc --project tsconfig.json --pretty false"
+  },
+  "dependencies": {
+    "@shamoo/decorators": "workspace:*",
+    "@shamoo/paper": "workspace:*"
+  },
+  "devDependencies": {
+    "@shamoo/cli": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}

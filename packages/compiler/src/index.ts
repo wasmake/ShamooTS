@@ -8,9 +8,11 @@ import type { PackageName, PlatformKind } from '@shamoo/core';
 import {
   COMPILER_METADATA_VERSION,
   canonicalMetadataJson,
+  parseCompilerManifest,
   type CanonicalValue,
   type CompilerManifest,
   type ComponentMetadata,
+  type CommunicationMetadata,
   type DecoratorMetadata,
   type DependencyMetadata,
   type MetadataPlatform,
@@ -40,6 +42,13 @@ export interface CompilerDiagnostic {
 }
 export interface CompilerPermissions {
   readonly builtins?: readonly string[];
+  readonly filesystem?: {
+    readonly read: readonly string[];
+    readonly write: readonly string[];
+  };
+  readonly network?: boolean;
+  readonly workers?: boolean;
+  readonly childProcess?: boolean;
   readonly nativeAddons?: boolean;
   readonly nms?: boolean;
   readonly packets?: boolean;
@@ -53,6 +62,7 @@ export interface PluginCompilationRequest {
   readonly velocityEntrypoint?: string;
   readonly output?: string;
   readonly permissions?: CompilerPermissions;
+  readonly communication?: CommunicationMetadata;
 }
 export interface CompilationResult {
   readonly manifest?: CompilerManifest;
@@ -150,6 +160,28 @@ const invocationKinds: ReadonlyMap<string, 'event' | 'command' | 'task' | 'packe
   ['OnPacketSend', 'packet'],
 ] as const);
 const unsupportedBuiltins = new Set(['node:module', 'node:repl', 'node:vm']);
+const capabilityBuiltins = new Map<string, keyof CompilerPermissions>([
+  ['node:fs', 'filesystem'],
+  ['node:fs/promises', 'filesystem'],
+  ['node:http', 'network'],
+  ['node:https', 'network'],
+  ['node:http2', 'network'],
+  ['node:net', 'network'],
+  ['node:tls', 'network'],
+  ['node:dgram', 'network'],
+  ['node:dns', 'network'],
+  ['node:dns/promises', 'network'],
+  ['node:worker_threads', 'workers'],
+  ['node:child_process', 'childProcess'],
+]);
+function hasPermission(
+  permissions: CompilerPermissions | undefined,
+  capability: keyof CompilerPermissions,
+): boolean {
+  return capability === 'filesystem'
+    ? permissions?.filesystem !== undefined
+    : permissions?.[capability] === true;
+}
 const nodeBuiltins = new Set(
   builtinModules.map((name) => (name.startsWith('node:') ? name.slice(5) : name)),
 );
@@ -467,6 +499,27 @@ interface ImportReference {
 }
 function importReferences(source: ts.SourceFile): readonly ImportReference[] {
   const references: ImportReference[] = [];
+  const constants = new Map<string, string>();
+  const requireAliases = new Set(['require']);
+  for (const statement of source.statements) {
+    if (!ts.isVariableStatement(statement)) continue;
+    for (const declaration of statement.declarationList.declarations) {
+      if (!ts.isIdentifier(declaration.name) || declaration.initializer === undefined) continue;
+      if (ts.isStringLiteralLike(declaration.initializer))
+        constants.set(declaration.name.text, declaration.initializer.text);
+      else if (
+        ts.isIdentifier(declaration.initializer) &&
+        requireAliases.has(declaration.initializer.text)
+      )
+        requireAliases.add(declaration.name.text);
+    }
+  }
+  const staticSpecifier = (expression: ts.Expression): string | undefined =>
+    ts.isStringLiteralLike(expression)
+      ? expression.text
+      : ts.isIdentifier(expression)
+        ? constants.get(expression.text)
+        : undefined;
   const visit = (node: ts.Node): void => {
     if (
       (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) &&
@@ -493,12 +546,13 @@ function importReferences(source: ts.SourceFile): readonly ImportReference[] {
     if (
       ts.isCallExpression(node) &&
       (node.expression.kind === ts.SyntaxKind.ImportKeyword ||
-        (ts.isIdentifier(node.expression) && node.expression.text === 'require'))
+        (ts.isIdentifier(node.expression) && requireAliases.has(node.expression.text)))
     ) {
       const argument = node.arguments[0];
       if (argument !== undefined) {
+        const specifier = staticSpecifier(argument);
         references.push({
-          ...(ts.isStringLiteralLike(argument) ? { specifier: argument.text } : {}),
+          ...(specifier === undefined ? {} : { specifier }),
           node: argument,
           dynamic: true,
         });
@@ -962,15 +1016,16 @@ function checkImports(
             });
           }
         }
-        if (value.endsWith('.node')) {
+        if (value.endsWith('.node') && request.permissions?.nativeAddons !== true) {
           const key = `native:${source.fileName}:${String(reference.node.pos)}`;
           if (!reported.has(key)) {
             reported.add(key);
             diagnostics.push({
-              code: 'UNSUPPORTED_IMPORT',
-              message: `Native addon import '${value}' is unsupported.`,
+              code: 'PERMISSION_REQUIRED',
+              message: `Native addon import '${value}' is not declared in compiler permissions.`,
               location: sourceLocation,
-              suggestion: 'Move native functionality behind a host capability or remove the addon.',
+              suggestion:
+                'Set permissions.nativeAddons to true only for a trusted compatible host.',
             });
           }
         }
@@ -994,6 +1049,19 @@ function checkImports(
             location: sourceLocation,
             suggestion: `Add '${builtin}' to permissions.builtins if the host supports it.`,
           });
+        } else if (builtin !== undefined) {
+          const capability = capabilityBuiltins.get(builtin);
+          if (capability !== undefined && !hasPermission(request.permissions, capability)) {
+            const key = `capability:${source.fileName}:${String(reference.node.pos)}`;
+            if (reported.has(key)) continue;
+            reported.add(key);
+            diagnostics.push({
+              code: 'PERMISSION_REQUIRED',
+              message: `Node builtin '${builtin}' requires the '${capability}' compiler capability.`,
+              location: sourceLocation,
+              suggestion: `Set permissions.${capability} to true if the host grants that capability.`,
+            });
+          }
         }
       }
     }
@@ -1058,9 +1126,29 @@ export async function compilePlugin(request: PluginCompilationRequest): Promise<
     packageName: request.packageName,
     components: discovered.components.sort((left, right) => left.id.localeCompare(right.id)),
     modules: discovered.modules.sort((left, right) => left.id.localeCompare(right.id)),
-    ...(request.permissions?.nms === true || request.permissions?.packets === true
+    ...(request.communication === undefined ? {} : { communication: request.communication }),
+    ...(request.permissions !== undefined
       ? {
           permissions: {
+            ...(request.permissions.builtins === undefined
+              ? {}
+              : {
+                  builtins: [...request.permissions.builtins]
+                    .map((value) => builtinName(value) ?? value)
+                    .sort(),
+                }),
+            ...(request.permissions.filesystem === undefined
+              ? {}
+              : {
+                  filesystem: {
+                    read: [...request.permissions.filesystem.read].sort(),
+                    write: [...request.permissions.filesystem.write].sort(),
+                  },
+                }),
+            ...(request.permissions.network === true ? { network: true } : {}),
+            ...(request.permissions.workers === true ? { workers: true } : {}),
+            ...(request.permissions.childProcess === true ? { childProcess: true } : {}),
+            ...(request.permissions.nativeAddons === true ? { nativeAddons: true } : {}),
             ...(request.permissions.nms === true ? { nms: true } : {}),
             ...(request.permissions.packets === true ? { packets: true } : {}),
           },
@@ -1110,5 +1198,6 @@ export async function compilePluginOrThrow(
 
 /** Reads compiler metadata without executing plugin code. */
 export async function readCompilerManifest(path: string): Promise<CompilerManifest> {
-  return JSON.parse(await readFile(path, 'utf8')) as CompilerManifest;
+  const input: unknown = JSON.parse(await readFile(path, 'utf8'));
+  return parseCompilerManifest(input);
 }

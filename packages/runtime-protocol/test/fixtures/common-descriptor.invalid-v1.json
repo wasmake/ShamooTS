@@ -1,0 +1,24 @@
+[
+  {
+    "name": "plugin id length",
+    "pointer": "/name",
+    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  { "name": "bare builtin", "pointer": "/node/builtins/0", "value": "buffer" },
+  {
+    "name": "filesystem dot segment",
+    "pointer": "/node/filesystem/read/0",
+    "value": "./data/./cache"
+  },
+  {
+    "name": "filesystem whitespace",
+    "pointer": "/node/filesystem/read/0",
+    "value": "./data cache"
+  },
+  {
+    "name": "entrypoint dot segment",
+    "pointer": "/platforms/paper/entrypoint",
+    "value": "dist/./paper.mjs"
+  },
+  { "name": "maximum debounce", "pointer": "/reload/debounceMs", "value": 60001 }
+]

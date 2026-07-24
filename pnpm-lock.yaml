@@ -119,8 +119,36 @@ importers:
       esbuild:
         specifier: 0.27.7
         version: 0.27.7
+      typescript:
+        specifier: 5.8.3
+        version: 5.8.3
 
-  packages/cli: {}
+  packages/cli:
+    dependencies:
+      '@shamoo/bundler':
+        specifier: workspace:^
+        version: link:../bundler
+      '@shamoo/compiler':
+        specifier: workspace:^
+        version: link:../compiler
+      '@shamoo/core':
+        specifier: workspace:^
+        version: link:../core
+      '@shamoo/create-plugin':
+        specifier: workspace:^
+        version: link:../create-shamoo-plugin
+      '@shamoo/metadata':
+        specifier: workspace:^
+        version: link:../metadata
+      '@shamoo/paper-codegen':
+        specifier: workspace:^
+        version: link:../paper-codegen
+      '@shamoo/runtime-protocol':
+        specifier: workspace:^
+        version: link:../runtime-protocol
+      '@shamoo/velocity-codegen':
+        specifier: workspace:^
+        version: link:../velocity-codegen
 
   packages/commands:
     dependencies:
@@ -129,6 +157,25 @@ importers:
         version: link:../decorators
 
   packages/common: {}
+
+  packages/communication:
+    dependencies:
+      '@shamoo/lifecycle':
+        specifier: workspace:^
+        version: link:../lifecycle
+      '@shamoo/metadata':
+        specifier: workspace:^
+        version: link:../metadata
+      '@shamoo/runtime-protocol':
+        specifier: workspace:^
+        version: link:../runtime-protocol
+      semver:
+        specifier: 7.7.2
+        version: 7.7.2
+    devDependencies:
+      '@types/semver':
+        specifier: 7.7.0
+        version: 7.7.0
 
   packages/compiler:
     dependencies:
@@ -234,13 +281,23 @@ importers:
         specifier: workspace:^
         version: link:../validation
 
-  packages/metadata: {}
+  packages/metadata:
+    dependencies:
+      zod:
+        specifier: 4.3.6
+        version: 4.3.6
 
   packages/paper:
     dependencies:
+      '@shamoo/communication':
+        specifier: workspace:^
+        version: link:../communication
       '@shamoo/core':
         specifier: workspace:^
         version: link:../core
+      '@shamoo/di':
+        specifier: workspace:^
+        version: link:../di
       '@shamoo/paper-raw':
         specifier: workspace:^
         version: link:../paper-raw
@@ -328,6 +385,9 @@ importers:
 
   packages/velocity:
     dependencies:
+      '@shamoo/communication':
+        specifier: workspace:^
+        version: link:../communication
       '@shamoo/core':
         specifier: workspace:^
         version: link:../core
@@ -2545,6 +2605,9 @@ packages:
   zod@4.0.10:
     resolution: {integrity: sha512-3vB+UU3/VmLL2lvwcY/4RV2i9z/YU0DTV/tDuYjrwmx5WeJ7hwy+rGEEx8glHp6Yxw7ibRbKSaIFBgReRPe5KA==}
 
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
+
 snapshots:
 
   '@ampproject/remapping@2.3.0':
@@ -2583,7 +2646,7 @@ snapshots:
       outdent: 0.5.0
       prettier: 2.8.8
       resolve-from: 5.0.0
-      semver: 7.8.5
+      semver: 7.7.2
 
   '@changesets/assemble-release-plan@6.0.10':
     dependencies:
@@ -2592,7 +2655,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@manypkg/get-packages': 1.1.3
-      semver: 7.8.5
+      semver: 7.7.2
 
   '@changesets/changelog-git@0.2.1':
     dependencies:
@@ -2649,7 +2712,7 @@ snapshots:
       '@changesets/types': 6.1.0
       '@manypkg/get-packages': 1.1.3
       picocolors: 1.1.1
-      semver: 7.8.5
+      semver: 7.7.2
 
   '@changesets/get-release-plan@4.0.16':
     dependencies:
@@ -3949,7 +4012,7 @@ snapshots:
 
   is-bun-module@2.0.0:
     dependencies:
-      semver: 7.8.5
+      semver: 7.7.2
 
   is-core-module@2.16.2:
     dependencies:
@@ -4084,7 +4147,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.8.5
+      semver: 7.7.2
 
   markdown-it@14.3.0:
     dependencies:
@@ -4661,3 +4724,5 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@4.0.10: {}
+
+  zod@4.3.6: {}

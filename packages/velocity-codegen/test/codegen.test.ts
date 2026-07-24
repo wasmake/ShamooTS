@@ -22,9 +22,13 @@ describe('Velocity codegen filesystem wrapper', () => {
   it('generates, syncs, and detects changed output', async () => {
     const outputDirectory = await mkdtemp(join(tmpdir(), 'shamoo-velocity-'));
     const request = { model: velocityModel, outputDirectory };
-    await expect(generateVelocityBindings(request)).resolves.toMatchObject({
+    const generated = await generateVelocityBindings(request);
+    expect(generated).toMatchObject({
       coverage: { platform: 'velocity' },
     });
+    expect(generated.coverage.declarations.percent).toBe(100);
+    expect(generated.coverage.members.percent).toBe(100);
+    expect(generated.coverage.events.percent).toBe(100);
     const changed = await syncVelocityBindings(request);
     expect(changed.length).toBeGreaterThanOrEqual(5);
     await expect(syncVelocityBindings(request)).resolves.toEqual([]);

@@ -338,6 +338,7 @@ const invocationScopes: Readonly<Record<Exclude<InvocationKind, 'service'>, Invo
   event: Scope.EVENT,
   command: Scope.COMMAND,
   task: Scope.TASK,
+  packet: Scope.EVENT,
 };
 let invocationSequence = 0;
 
@@ -346,6 +347,7 @@ export class InvocationRuntime {
   readonly #maxActive: number;
   readonly #timeout: number | undefined;
   readonly #idle = new Set<() => void>();
+  #callables = new WeakMap<object, Map<string | symbol, (...args: unknown[]) => unknown>>();
   #active = 0;
   #draining = false;
   #disposed = false;
@@ -401,7 +403,7 @@ export class InvocationRuntime {
           throw new TypeError('Service invocations require an event, command, or task scope.');
         scope = this.#container.child(invocationScopes[scopeKind], contextValues);
         const args = await this.#parameters(scope, metadata, options.values ?? [], abort.signal);
-        const base = {
+        context = {
           id,
           correlationId,
           kind: metadata.kind,
@@ -409,12 +411,12 @@ export class InvocationRuntime {
           method: metadata.method,
           arguments: args,
           signal: abort.signal,
-          attributes: new Map(Object.entries(contextValues)),
-        } satisfies Omit<InvocationContext, 'proceed'>;
-        context = { ...base, proceed: () => Promise.reject(new Error('No continuation.')) };
+          attributes: context.attributes,
+          proceed: () => Promise.reject(new Error('No continuation.')),
+        };
         await runGuards(metadata.guards ?? [], context);
-        const result = await composeInterceptors(base, metadata.interceptors ?? [], () =>
-          callable(metadata.target, metadata.method).apply(metadata.target, args),
+        const result = await composeInterceptors(context, metadata.interceptors ?? [], () =>
+          this.#callable(metadata.target, metadata.method)(...args),
         );
         return metadata.transformResult === undefined
           ? result
@@ -444,6 +446,21 @@ export class InvocationRuntime {
       abort,
       () => new InvocationTimeoutError(options.timeout ?? this.#timeout ?? 0),
     );
+  }
+
+  #callable(target: object, method: string | symbol): (...args: unknown[]) => unknown {
+    let methods = this.#callables.get(target);
+    if (methods === undefined) {
+      methods = new Map();
+      this.#callables.set(target, methods);
+    }
+    let adapter = methods.get(method);
+    if (adapter === undefined) {
+      const value = callable(target, method);
+      adapter = (...args) => Reflect.apply(value, target, args);
+      methods.set(method, adapter);
+    }
+    return adapter;
   }
 
   async #parameters(
@@ -501,6 +518,7 @@ export class InvocationRuntime {
     if (this.#disposed) return;
     await this.drain(timeout);
     this.#disposed = true;
+    this.#callables = new WeakMap();
   }
 }
 
@@ -539,6 +557,9 @@ const invocationNames: Readonly<Record<string, InvocationKind>> = {
   Scheduled: 'task',
   Interval: 'task',
   Timeout: 'task',
+  PacketHandler: 'packet',
+  OnPacketReceive: 'packet',
+  OnPacketSend: 'packet',
 };
 function assertRecord(value: unknown, label: string): asserts value is Record<string, unknown> {
   if (value === null || typeof value !== 'object' || Array.isArray(value))
@@ -589,6 +610,11 @@ export function loadRuntimeMetadata(
     throw new MetadataValidationError('Manifest does not match the compiler metadata schema.');
   const lifecycle: LifecycleMethod[] = [];
   const invocations: (InvocationMethod & { componentId: string })[] = [];
+  const serviceMethods = new Set(
+    input.communication?.services.flatMap((service) =>
+      service.methods.map((method) => `${service.componentId}\u0000${method}`),
+    ) ?? [],
+  );
   for (const rawComponent of input.components) {
     assertRecord(rawComponent, 'Component');
     if (typeof rawComponent.id !== 'string' || !Array.isArray(rawComponent.methods))
@@ -608,18 +634,12 @@ export function loadRuntimeMetadata(
           throw new MetadataValidationError('Decorator name is required.');
         return decorator.name;
       });
-      const executable = names.filter(
+      const decoratorExecutables = names.filter(
         (name) => lifecycleNames[name] !== undefined || invocationNames[name] !== undefined,
       );
-      if (executable.length > 1)
+      if (decoratorExecutables.length > 1)
         throw new MetadataValidationError(
           `Method ${rawMethod.name} has conflicting executable decorators.`,
-        );
-      const name = executable[0];
-      if (name === undefined) continue;
-      if (!resolver.isExecutableMethod(rawComponent.id, rawMethod.name))
-        throw new MetadataValidationError(
-          `Method ${rawComponent.id}.${rawMethod.name} is not in the compiler executable allowlist.`,
         );
       const emittedLifecycle = rawMethod.lifecycle;
       const emittedInvocation = rawMethod.invocation;
@@ -631,13 +651,31 @@ export function loadRuntimeMetadata(
             ))) ||
         (emittedInvocation !== undefined &&
           (typeof emittedInvocation !== 'string' ||
-            !['event', 'command', 'task'].includes(emittedInvocation)))
+            !['event', 'command', 'task', 'packet'].includes(emittedInvocation)))
       )
         throw new MetadataValidationError(`Method ${rawMethod.name} has an invalid runtime stage.`);
+      if (emittedLifecycle !== undefined && emittedInvocation !== undefined)
+        throw new MetadataValidationError(
+          `Method ${rawMethod.name} has conflicting compiler runtime metadata.`,
+        );
+      const decoratorName = decoratorExecutables[0];
+      const decoratorLifecycle =
+        decoratorName === undefined ? undefined : lifecycleNames[decoratorName];
+      const decoratorInvocation =
+        decoratorName === undefined ? undefined : invocationNames[decoratorName];
+      const stage = (emittedLifecycle ?? decoratorLifecycle) as LifecycleStage | undefined;
+      const declaredService = serviceMethods.has(`${rawComponent.id}\u0000${rawMethod.name}`);
+      const kind = (emittedInvocation ??
+        decoratorInvocation ??
+        (declaredService ? 'service' : undefined)) as InvocationKind | undefined;
+      if (stage === undefined && kind === undefined) continue;
+      if (!resolver.isExecutableMethod(rawComponent.id, rawMethod.name))
+        throw new MetadataValidationError(
+          `Method ${rawComponent.id}.${rawMethod.name} is not in the compiler executable allowlist.`,
+        );
       const parameters = rawMethod.parameters.map((item) => runtimeParameter(item, resolver));
-      const stage = lifecycleNames[name];
       if (stage !== undefined) {
-        if (emittedLifecycle !== undefined && emittedLifecycle !== stage)
+        if (decoratorLifecycle !== undefined && decoratorLifecycle !== stage)
           throw new MetadataValidationError(
             `Method ${rawMethod.name} lifecycle stage disagrees with its decorator.`,
           );
@@ -652,9 +690,8 @@ export function loadRuntimeMetadata(
             : { requester: resolver.resolveRequester(rawComponent.id) }),
         });
       } else {
-        const kind = invocationNames[name];
         if (kind !== undefined) {
-          if (emittedInvocation !== undefined && emittedInvocation !== kind)
+          if (decoratorInvocation !== undefined && decoratorInvocation !== kind)
             throw new MetadataValidationError(
               `Method ${rawMethod.name} invocation kind disagrees with its decorator.`,
             );
@@ -664,6 +701,7 @@ export function loadRuntimeMetadata(
             target,
             method: rawMethod.name,
             parameters,
+            ...(kind === 'service' ? { scope: 'task' as const } : {}),
             ...(resolver.resolveRequester === undefined
               ? {}
               : { requester: resolver.resolveRequester(rawComponent.id) }),
@@ -737,7 +775,7 @@ function methodMetadata(value: unknown): boolean {
     record(value) &&
     typeof value.name === 'string' &&
     optionalEnum(value.lifecycle, ['load', 'enable', 'ready', 'drain', 'disable', 'unload']) &&
-    optionalEnum(value.invocation, ['event', 'command', 'task']) &&
+    optionalEnum(value.invocation, ['event', 'command', 'task', 'packet']) &&
     Array.isArray(value.decorators) &&
     value.decorators.every(decoratorMetadata) &&
     Array.isArray(value.parameters) &&
@@ -786,6 +824,41 @@ function moduleMetadata(value: unknown): boolean {
 function entrypointMetadata(value: unknown): boolean {
   return record(value) && typeof value.source === 'string' && typeof value.output === 'string';
 }
+function permissionsMetadata(value: unknown): boolean {
+  if (!record(value)) return false;
+  const keys = new Set([
+    'builtins',
+    'filesystem',
+    'network',
+    'workers',
+    'childProcess',
+    'nativeAddons',
+    'nms',
+    'packets',
+  ]);
+  if (Object.keys(value).some((key) => !keys.has(key))) return false;
+  const builtins = value.builtins;
+  if (
+    builtins !== undefined &&
+    (!Array.isArray(builtins) ||
+      builtins.some((item) => typeof item !== 'string' || !item.startsWith('node:')) ||
+      new Set(builtins).size !== builtins.length)
+  )
+    return false;
+  const filesystem = value.filesystem;
+  if (
+    filesystem !== undefined &&
+    (!record(filesystem) ||
+      !Array.isArray(filesystem.read) ||
+      !filesystem.read.every((item) => typeof item === 'string') ||
+      !Array.isArray(filesystem.write) ||
+      !filesystem.write.every((item) => typeof item === 'string'))
+  )
+    return false;
+  return [...keys]
+    .filter((key) => key !== 'builtins' && key !== 'filesystem')
+    .every((key) => value[key] === undefined || value[key] === true);
+}
 function compilerManifest(value: unknown): value is CompilerManifest {
   if (!record(value) || !record(value.entrypoints)) return false;
   return (
@@ -796,8 +869,40 @@ function compilerManifest(value: unknown): value is CompilerManifest {
     value.components.every(componentMetadata) &&
     Array.isArray(value.modules) &&
     value.modules.every(moduleMetadata) &&
+    (value.permissions === undefined || permissionsMetadata(value.permissions)) &&
+    (value.communication === undefined || communicationMetadata(value.communication)) &&
     (value.entrypoints.paper === undefined || entrypointMetadata(value.entrypoints.paper)) &&
     (value.entrypoints.velocity === undefined || entrypointMetadata(value.entrypoints.velocity))
+  );
+}
+function communicationMetadata(value: unknown): boolean {
+  if (
+    !record(value) ||
+    !Array.isArray(value.services) ||
+    !Array.isArray(value.events) ||
+    !Array.isArray(value.consumers)
+  )
+    return false;
+  return (
+    value.services.every(
+      (item) =>
+        record(item) &&
+        typeof item.id === 'string' &&
+        typeof item.version === 'string' &&
+        typeof item.componentId === 'string' &&
+        Array.isArray(item.methods) &&
+        item.methods.every((method) => typeof method === 'string'),
+    ) &&
+    value.events.every(
+      (item) => record(item) && typeof item.id === 'string' && typeof item.version === 'string',
+    ) &&
+    value.consumers.every(
+      (item) =>
+        record(item) &&
+        typeof item.id === 'string' &&
+        typeof item.versionRange === 'string' &&
+        (item.dependentReload === 'keep-running' || item.dependentReload === 'reload'),
+    )
   );
 }
 function record(value: unknown): value is Record<string, unknown> {

@@ -4,6 +4,7 @@ import ts from 'typescript';
 const packages = [
   ['core', '@shamoo/core'],
   ['common', '@shamoo/common'],
+  ['communication', '@shamoo/communication'],
   ['di', '@shamoo/di'],
   ['config', '@shamoo/config'],
   ['testing', '@shamoo/testing'],

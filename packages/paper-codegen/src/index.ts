@@ -70,7 +70,15 @@ export async function generatePaperBindings(
   const value = await model(request.model ?? PINNED_PAPER_MODELS[request.surface]);
   if (value.platform !== request.surface)
     throw new TypeError(`Expected ${request.surface} model, received ${value.platform}.`);
-  return generatePlatform(value);
+  const generated = generatePlatform(value);
+  for (const [name, coverage] of Object.entries({
+    declarations: generated.coverage.declarations,
+    members: generated.coverage.members,
+    events: generated.coverage.events,
+  }))
+    if (coverage.percent !== 100 || coverage.emitted !== coverage.expected)
+      throw new TypeError(`Paper ${name} coverage must be independently 100%.`);
+  return generated;
 }
 export async function diffPaperBindings(
   request: PaperGenerationRequest,

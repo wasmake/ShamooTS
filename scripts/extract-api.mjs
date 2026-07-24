@@ -8,10 +8,13 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const packageDirectories = [
   'core',
   'common',
+  'communication',
   'di',
   'config',
   'testing',
   'platform',
+  'paper',
+  'velocity',
   'paper-codegen',
   'velocity-codegen',
   'platform-codegen',
@@ -150,7 +153,27 @@ for (const directory of packageDirectories) {
     configObjectFullPath: join(packageRoot, 'api-extractor.json'),
     packageJsonFullPath: join(packageRoot, 'package.json'),
   });
-  const result = Extractor.invoke(config, { localBuild: true, showVerboseMessages: false });
+  let result;
+  try {
+    result = Extractor.invoke(config, { localBuild: true, showVerboseMessages: false });
+  } catch (error) {
+    if (
+      !['paper', 'velocity'].includes(directory) ||
+      !String(error).includes('Unable to follow symbol')
+    )
+      throw error;
+    // API Extractor currently crashes while following some keyword-named members in the complete
+    // generated JVM declaration graph. Preserve a deterministic facade report until that upstream
+    // parser defect is fixed instead of excluding these public packages from API review.
+    const declaration = await readFile(join(packageRoot, 'dist/index.d.ts'), 'utf8');
+    await writeFile(
+      join(root, 'docs', 'api-reports', `${directory}.api.md`),
+      `## API Report File for "@shamoo/${directory}"\n\n> Generated from the rolled-up public declaration because API Extractor cannot follow a keyword-named member in the generated JVM graph.\n\n\`\`\`ts\n${declaration.trim()}\n\`\`\`\n`,
+      'utf8',
+    );
+    process.stdout.write(`Used rolled-up declaration fallback for ${directory}.\n`);
+    continue;
+  }
   if (!result.succeeded) throw new Error(`API extraction failed for ${directory}`);
   const reportPath = join(root, 'docs', 'api-reports', `${directory}.api.md`);
   const report = await readFile(reportPath, 'utf8');

@@ -2,10 +2,17 @@ import { readFile } from 'node:fs/promises';
 
 import {
   COMMON_DESCRIPTOR_JSON_SCHEMA,
+  COMMUNICATION_PROTOCOL_VERSION,
   MANIFEST_VERSION,
+  MAX_COMMUNICATION_FRAME_BYTES,
+  MAX_COMMUNICATION_PAYLOAD_BYTES,
   PROTOCOL_VERSION,
   ProtocolVersionSchema,
   ProtocolValidationError,
+  RuntimeSourceMap,
+  CommunicationWireError,
+  decodeCommunicationEnvelope,
+  encodeCommunicationEnvelope,
   isCommonDescriptor,
   negotiateCompatibility,
   parseCommonDescriptor,
@@ -67,6 +74,21 @@ function runtime(overrides: Partial<RuntimeCompatibility> = {}): RuntimeCompatib
 }
 
 describe('common protocol descriptor', () => {
+  it('maps exact one-based cross-runtime source positions', () => {
+    const maps = new RuntimeSourceMap();
+    const generated = { resourceName: 'paper/index.js', line: 2, column: 4 };
+    const original = { resourceName: 'src/plugin.ts', line: 10, column: 3 };
+    maps.register(generated, original);
+    expect(maps.map(generated)).toEqual(original);
+    expect(maps.map({ ...generated, column: 5 })).toEqual({ ...generated, column: 5 });
+    expect(maps.size).toBe(1);
+    expect(() => {
+      maps.register({ ...generated, line: 0 }, original);
+    }).toThrow('one-based');
+    maps.clear();
+    expect(maps.size).toBe(0);
+  });
+
   it('matches and round-trips the cross-runtime golden fixture exactly', async () => {
     const descriptor = await fixture();
     expect(descriptor).toEqual(canonicalDescriptor);
@@ -199,6 +221,140 @@ describe('common protocol descriptor', () => {
     const value = structuredClone(await fixture());
     value.node.filesystem.read = [path];
     expect(() => parseCommonDescriptor(value)).toThrow(ProtocolValidationError);
+  });
+
+  it('rejects the shared Java/TypeScript canonical invalid-v1 cases', async () => {
+    const cases = JSON.parse(
+      await readFile(
+        new URL('./fixtures/common-descriptor.invalid-v1.json', import.meta.url),
+        'utf8',
+      ),
+    ) as { name: string; pointer: string; value: unknown }[];
+    for (const invalid of cases) {
+      const value = structuredClone(await fixture()) as unknown as Record<string, unknown>;
+      const segments = invalid.pointer.slice(1).split('/');
+      let target: Record<string, unknown> | unknown[] = value;
+      for (const segment of segments.slice(0, -1)) {
+        const next: unknown = Reflect.get(target, segment);
+        if (next === null || typeof next !== 'object')
+          throw new Error(`Invalid golden pointer: ${invalid.pointer}`);
+        target = next as Record<string, unknown> | unknown[];
+      }
+      const key = segments.at(-1);
+      if (key === undefined) throw new Error(`Invalid golden pointer: ${invalid.pointer}`);
+      Reflect.set(target, key, invalid.value);
+      expect(isCommonDescriptor(value), invalid.name).toBe(false);
+    }
+  });
+});
+
+describe('communication wire protocol', () => {
+  const requestId = '00112233-4455-6677-8899-aabbccddeeff';
+  const golden = async (): Promise<Record<string, Uint8Array>> =>
+    Object.fromEntries(
+      (await readFile(new URL('./fixtures/communication-v1-golden.hex', import.meta.url), 'ascii'))
+        .trim()
+        .split('\n')
+        .map((line) => {
+          const [name, hex] = line.split('=', 2) as [string, string];
+          return [name, Uint8Array.from(Buffer.from(hex, 'hex'))];
+        }),
+    );
+  const requiredFixture = (fixtures: Record<string, Uint8Array>, name: string): Uint8Array => {
+    const value = fixtures[name];
+    if (value === undefined) throw new Error(`Missing golden fixture: ${name}`);
+    return value;
+  };
+
+  it('matches Java golden bytes and decodes every role', async () => {
+    const request = {
+      protocolVersion: COMMUNICATION_PROTOCOL_VERSION,
+      kind: 'request',
+      requestId,
+      contract: { id: 'example/routing', version: '1.2.3' },
+      operation: 'lookup',
+      payload: Uint8Array.from([0, 1, 254, 255]),
+    } as const;
+    const success = {
+      protocolVersion: COMMUNICATION_PROTOCOL_VERSION,
+      kind: 'response',
+      requestId,
+      status: 'success',
+      payload: Uint8Array.from([0, 1, 254, 255]),
+    } as const;
+    const error = {
+      protocolVersion: COMMUNICATION_PROTOCOL_VERSION,
+      kind: 'response',
+      requestId,
+      status: 'error',
+      error: { code: 'unavailable', message: 'Provider is reloading.' },
+    } as const;
+    const fixtures = await golden();
+    for (const [name, envelope] of Object.entries({ request, success, error })) {
+      const fixture = requiredFixture(fixtures, name);
+      expect(encodeCommunicationEnvelope(envelope)).toEqual(fixture);
+      expect(decodeCommunicationEnvelope(fixture)).toEqual(envelope);
+    }
+  });
+
+  it('rejects oversized, malformed UTF-8, trailing, non-UUID, and future frames', async () => {
+    const base = {
+      protocolVersion: COMMUNICATION_PROTOCOL_VERSION,
+      kind: 'request',
+      requestId,
+      contract: { id: 'example/routing', version: '1.0.0' },
+      operation: 'lookup',
+      payload: new Uint8Array(),
+    } as const;
+    expect(() =>
+      encodeCommunicationEnvelope({
+        ...base,
+        payload: new Uint8Array(MAX_COMMUNICATION_PAYLOAD_BYTES + 1),
+      }),
+    ).toThrow(CommunicationWireError);
+    expect(() =>
+      decodeCommunicationEnvelope(new Uint8Array(MAX_COMMUNICATION_FRAME_BYTES + 1)),
+    ).toThrow(CommunicationWireError);
+    expect(() => encodeCommunicationEnvelope({ ...base, requestId: 'request-1' })).toThrow(
+      CommunicationWireError,
+    );
+    expect(() =>
+      encodeCommunicationEnvelope({ ...base, contract: { id: 'bad route', version: '1.0.0' } }),
+    ).toThrow(CommunicationWireError);
+    expect(() =>
+      encodeCommunicationEnvelope({
+        ...base,
+        contract: { id: 'example/routing', version: 'v1.0.0' },
+      }),
+    ).toThrow(CommunicationWireError);
+    const fixtures = await golden();
+    const requestFixture = requiredFixture(fixtures, 'request');
+    const trailing = new Uint8Array(requestFixture.byteLength + 1);
+    trailing.set(requestFixture);
+    expect(() => decodeCommunicationEnvelope(trailing)).toThrow(CommunicationWireError);
+    const malformed = requestFixture.slice();
+    malformed[32] = 0xff;
+    expect(() => decodeCommunicationEnvelope(malformed)).toThrow(CommunicationWireError);
+    const future = requestFixture.slice();
+    future[4] = 2;
+    expect(() => decodeCommunicationEnvelope(future)).toThrow(CommunicationWireError);
+  });
+
+  it('does not retain mutable payload or frame bytes', () => {
+    const payload = Uint8Array.from([1, 2]);
+    const frame = encodeCommunicationEnvelope({
+      protocolVersion: 1,
+      kind: 'response',
+      requestId,
+      status: 'success',
+      payload,
+    });
+    payload[0] = 9;
+    const decoded = decodeCommunicationEnvelope(frame);
+    frame[frame.length - 1] = 9;
+    expect(
+      decoded.kind === 'response' && decoded.status === 'success' ? decoded.payload : undefined,
+    ).toEqual(Uint8Array.from([1, 2]));
   });
 });
 

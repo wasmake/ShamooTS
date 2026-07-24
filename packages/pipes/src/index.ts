@@ -3,7 +3,7 @@
  */
 export { UsePipes } from '@shamoo/decorators';
 export interface PipeContext {
-  readonly kind: 'event' | 'command' | 'task' | 'service';
+  readonly kind: 'event' | 'command' | 'task' | 'packet' | 'service';
   readonly index: number;
   readonly parameter?: string;
   readonly signal: AbortSignal;

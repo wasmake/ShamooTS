@@ -1,4 +1,4 @@
-import { mkdtemp, readFile } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -141,7 +141,11 @@ describe('shamooc metadata compiler', () => {
     );
     const permitted = await compilePlugin({
       ...request('native'),
-      permissions: { builtins: ['node:fs'] },
+      permissions: {
+        builtins: ['node:fs'],
+        filesystem: { read: ['./'], write: [] },
+        nativeAddons: true,
+      },
     });
     expect(permitted.diagnostics.filter((item) => item.code === 'PERMISSION_REQUIRED')).toEqual([]);
   });
@@ -208,9 +212,45 @@ describe('shamooc metadata compiler', () => {
     ).toBe(true);
     const permitted = await compilePlugin({
       ...request('import-forms'),
-      permissions: { builtins: ['node:fs', 'path'] },
+      permissions: {
+        builtins: ['node:fs', 'path'],
+        filesystem: { read: ['./'], write: [] },
+      },
     });
     expect(permitted.diagnostics.filter((item) => item.code === 'PERMISSION_REQUIRED')).toEqual([]);
+  });
+
+  it('rejects capability escapes through aliases, re-exports, and dynamic imports', async () => {
+    const denied = await compilePlugin({
+      ...request('permission-escapes'),
+      permissions: {
+        builtins: ['node:fs', 'node:https', 'node:worker_threads', 'node:child_process'],
+      },
+    });
+    const messages = denied.diagnostics.map((item) => item.message).join('\n');
+    for (const capability of ['filesystem', 'network', 'workers', 'childProcess', 'Native addon'])
+      expect(messages).toContain(capability);
+
+    const permitted = await compilePlugin({
+      ...request('permission-escapes'),
+      permissions: {
+        builtins: ['node:fs', 'node:https', 'node:worker_threads', 'node:child_process'],
+        filesystem: { read: ['./'], write: ['./data'] },
+        network: true,
+        workers: true,
+        childProcess: true,
+        nativeAddons: true,
+      },
+    });
+    expect(permitted.diagnostics).toEqual([]);
+    expect(permitted.manifest?.permissions).toEqual({
+      builtins: ['node:child_process', 'node:fs', 'node:https', 'node:worker_threads'],
+      filesystem: { read: ['./'], write: ['./data'] },
+      network: true,
+      workers: true,
+      childProcess: true,
+      nativeAddons: true,
+    });
   });
 
   it('selects Paper, Velocity, and dual entrypoints without claiming generated APIs', async () => {
@@ -358,5 +398,12 @@ describe('shamooc metadata compiler', () => {
     await expect(readCompilerManifest(output)).resolves.toMatchObject({
       packageName: '@fixture/plugin',
     });
+    await writeFile(output, JSON.stringify({ formatVersion: 2, packageName: '@fixture/plugin' }));
+    await expect(readCompilerManifest(output)).rejects.toThrow();
+    await writeFile(
+      output,
+      JSON.stringify({ ...(await compilePluginOrThrow(request('valid'))), unexpected: true }),
+    );
+    await expect(readCompilerManifest(output)).rejects.toThrow();
   }, 60_000);
 });

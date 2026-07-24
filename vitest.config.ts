@@ -6,7 +6,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@shamoo/cli': fileURLToPath(new URL('./packages/cli/src/index.ts', import.meta.url)),
+      '@shamoo/bundler': fileURLToPath(new URL('./packages/bundler/src/index.ts', import.meta.url)),
       '@shamoo/common': fileURLToPath(new URL('./packages/common/src/index.ts', import.meta.url)),
+      '@shamoo/communication': fileURLToPath(
+        new URL('./packages/communication/src/index.ts', import.meta.url),
+      ),
       '@shamoo/compiler': fileURLToPath(
         new URL('./packages/compiler/src/index.ts', import.meta.url),
       ),

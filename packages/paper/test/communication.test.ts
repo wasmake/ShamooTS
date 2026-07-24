@@ -7,8 +7,18 @@ import {
   VelocityTransportUnavailableError,
   createPaperHostApi,
   paperCommunicationProviders,
+  type PaperCommandContext,
+  type PaperRuntimeHost,
 } from '@shamoo/paper';
 import { describe, expect, it } from 'vitest';
+
+function invokeCallback(
+  callback: (...values: readonly never[]) => unknown,
+  value: unknown,
+): unknown {
+  const result: unknown = Reflect.apply(callback, undefined, [value]);
+  return result;
+}
 
 describe('Paper Velocity communication', () => {
   it('uses explicit callback markers for Paper, service, and contract event host APIs', async () => {
@@ -27,6 +37,10 @@ describe('Paper Velocity communication', () => {
       },
       paperSubscribeEvent: record('event'),
       paperRegisterCommand: record('command'),
+      paperCommandReply: record('command-reply'),
+      paperCommandFindPlayer: record('command-find-player'),
+      paperCommandMainHand: record('command-main-hand'),
+      paperCommandTakeMainHand: record('command-take-main-hand'),
       paperScheduleGlobal: record('task'),
       paperSubscribePacket: record('packet'),
       paperProxyRequest: () => Promise.resolve({ available: false, payload: new Uint8Array() }),
@@ -49,6 +63,187 @@ describe('Paper Velocity communication', () => {
     ]);
     expect(calls[0]?.values.at(-1)).toEqual({ $callback: 'paper.api.event.0' });
     expect(callbacks.size).toBe(3);
+  });
+
+  it('registers data-only command contexts and routes operations with a hidden token', () => {
+    const callbacks = new Map<string, (...values: readonly never[]) => unknown>();
+    const registrations: (readonly unknown[])[] = [];
+    const operations: { readonly name: string; readonly values: readonly unknown[] }[] = [];
+    const operation =
+      (name: string, result: unknown) =>
+      (...values: readonly unknown[]) => {
+        operations.push({ name, values });
+        return result;
+      };
+    const host: PaperRuntimeHost = {
+      registerCallback(name, callback) {
+        callbacks.set(name, callback);
+        return true;
+      },
+      paperSubscribeEvent: () => true,
+      paperRegisterCommand(...values) {
+        registrations.push(values);
+        return true;
+      },
+      paperCommandReply: operation('reply', true),
+      paperCommandFindPlayer: operation('findPlayer', {
+        id: 'player-id',
+        name: 'Sam',
+        online: true,
+      }),
+      paperCommandMainHand: operation('mainHand', { material: 'DIAMOND', amount: 3 }),
+      paperCommandTakeMainHand: operation('takeMainHand', false),
+      paperScheduleGlobal: () => true,
+      paperSubscribePacket: () => true,
+      paperProxyRequest: () => Promise.resolve({ available: false, payload: new Uint8Array() }),
+      shamooProvideService: () => true,
+      shamooSubscribeEvent: () => true,
+      shamooPublishEvent: () => Promise.resolve(true),
+    };
+    let context: PaperCommandContext | undefined;
+    createPaperHostApi(host).command(
+      'sample',
+      (value) => {
+        context = value;
+        expect(value.reply('hello')).toBe(true);
+        expect(value.findPlayer('Sam')).toEqual({ id: 'player-id', name: 'Sam', online: true });
+        expect(value.mainHand()).toEqual({ material: 'DIAMOND', amount: 3 });
+        expect(value.takeMainHand('DIAMOND', 3)).toBe(false);
+        return true;
+      },
+      ['example'],
+    );
+    expect(registrations).toEqual([
+      [{ source: 'api' }, 'sample', ['example'], { $callback: 'paper.api.command.0' }],
+    ]);
+    const callback = callbacks.get('paper.api.command.0');
+    expect(callback).toBeDefined();
+    if (callback === undefined) throw new Error('Paper command callback was not registered.');
+    const rawArguments = ['one', 'two'];
+    expect(
+      invokeCallback(callback, {
+        token: 'secret-token',
+        sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+        alias: 'sample',
+        arguments: rawArguments,
+      }),
+    ).toBe(true);
+    expect(context).toMatchObject({
+      sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+      alias: 'sample',
+      arguments: ['one', 'two'],
+    });
+    expect(context).not.toHaveProperty('token');
+    expect(Object.isFrozen(context)).toBe(true);
+    expect(Object.isFrozen(context?.sender)).toBe(true);
+    expect(Object.isFrozen(context?.arguments)).toBe(true);
+    expect(context?.arguments).not.toBe(rawArguments);
+    expect(operations).toEqual([
+      { name: 'reply', values: [{ source: 'api' }, 'secret-token', 'hello'] },
+      { name: 'findPlayer', values: [{ source: 'api' }, 'secret-token', 'Sam'] },
+      { name: 'mainHand', values: [{ source: 'api' }, 'secret-token'] },
+      {
+        name: 'takeMainHand',
+        values: [{ source: 'api' }, 'secret-token', 'DIAMOND', 3],
+      },
+    ]);
+  });
+
+  it('rejects malformed command DTOs and operation results', () => {
+    const callbacks = new Map<string, (...values: readonly never[]) => unknown>();
+    let mainHandResult: unknown = { material: 'DIAMOND', amount: 1.5 };
+    const host: PaperRuntimeHost = {
+      registerCallback(name, callback) {
+        callbacks.set(name, callback);
+        return true;
+      },
+      paperSubscribeEvent: () => true,
+      paperRegisterCommand: () => true,
+      paperCommandReply: () => 'yes',
+      paperCommandFindPlayer: () => ({ id: 'id', name: 'Sam', online: 'yes' }),
+      paperCommandMainHand: () => mainHandResult,
+      paperCommandTakeMainHand: () => 1,
+      paperScheduleGlobal: () => true,
+      paperSubscribePacket: () => true,
+      paperProxyRequest: () => Promise.resolve({ available: false, payload: new Uint8Array() }),
+      shamooProvideService: () => true,
+      shamooSubscribeEvent: () => true,
+      shamooPublishEvent: () => Promise.resolve(true),
+    };
+    createPaperHostApi(host).command('sample', (context) => {
+      switch (context.arguments[0]) {
+        case 'reply':
+          return context.reply('message');
+        case 'find':
+          return context.findPlayer('Sam');
+        case 'take':
+          return context.takeMainHand('DIAMOND', 1);
+        default:
+          return context.mainHand();
+      }
+    });
+    const callback = callbacks.get('paper.api.command.0');
+    expect(callback).toBeDefined();
+    if (callback === undefined) throw new Error('Paper command callback was not registered.');
+    const invoke = (value: unknown): unknown => invokeCallback(callback, value);
+    expect(() => invoke(null)).toThrow(TypeError);
+    expect(() =>
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'invalid' },
+        alias: 'sample',
+        arguments: [],
+      }),
+    ).toThrow(TypeError);
+    expect(() =>
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: ['valid', 1],
+      }),
+    ).toThrow(TypeError);
+    expect(() =>
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: [],
+      }),
+    ).toThrow('Invalid Paper command item amount');
+    expect(() =>
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: ['reply'],
+      }),
+    ).toThrow('Invalid Paper command reply result');
+    expect(() =>
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: ['find'],
+      }),
+    ).toThrow('Invalid Paper command player online state');
+    expect(() =>
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: ['take'],
+      }),
+    ).toThrow('Invalid Paper command take-main-hand result');
+    mainHandResult = null;
+    expect(
+      invoke({
+        token: 'token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: [],
+      }),
+    ).toBeNull();
   });
 
   it('is explicitly unavailable and does not send when Paper runs standalone', async () => {

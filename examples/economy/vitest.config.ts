@@ -5,6 +5,7 @@ import { defineConfig } from 'vitest/config';
 const aliases = Object.fromEntries(
   [
     'common',
+    'commands',
     'communication',
     'core',
     'decorators',
@@ -16,6 +17,7 @@ const aliases = Object.fromEntries(
     'metadata',
     'pipes',
     'platform',
+    'paper',
     'runtime-protocol',
     'testing',
     'validation',

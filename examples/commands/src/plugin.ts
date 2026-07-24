@@ -1,37 +1,27 @@
-import { Argument, Command, Option, Sender } from '@shamoo/commands';
-import { OnEnable, Plugin } from '@shamoo/decorators';
-import { UseGuards, type Guard } from '@shamoo/guards';
-
-export class SenderMetadataGuard implements Guard {
-  public canActivate(context: Parameters<Guard['canActivate']>[0]): boolean {
-    return context.attributes.has('sender');
-  }
-}
+import { Command } from '@shamoo/commands';
+import { Context, OnEnable, Plugin } from '@shamoo/decorators';
+import type { PaperCommandContext } from '@shamoo/paper';
 
 @Plugin({ name: 'commands' })
 export class CommandsPlugin {
   @OnEnable()
   public enabled(): void {
-    console.info('[commands] Registered shamoo-ping and shamoo-greet metadata.');
+    console.info('[commands] Registered shamoo-ping and shamoo-greet.');
   }
 
   @Command('shamoo-ping')
-  public ping(): boolean {
-    console.info('[commands] pong');
+  public ping(@Context() context: PaperCommandContext): boolean {
+    context.reply('pong');
     return true;
   }
 
   @Command('shamoo-greet')
-  @UseGuards(SenderMetadataGuard)
-  public greet(
-    @Sender() sender?: unknown,
-    @Argument('name') name?: string,
-    @Option('uppercase') uppercase?: boolean,
-  ): boolean {
-    const recipient = typeof name === 'string' && name.trim().length > 0 ? name.trim() : 'player';
+  public greet(@Context() context: PaperCommandContext): boolean {
+    const uppercase = context.arguments.includes('--uppercase');
+    const recipient =
+      context.arguments.find((value) => value !== '--uppercase') ?? context.sender.name;
     const greeting = `Hello, ${recipient}!`;
-    const output = uppercase === true ? greeting.toUpperCase() : greeting;
-    console.info(`[commands] ${output} senderSupplied=${String(sender !== undefined)}`);
+    context.reply(uppercase ? greeting.toUpperCase() : greeting);
     return true;
   }
 }

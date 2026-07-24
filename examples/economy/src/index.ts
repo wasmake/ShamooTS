@@ -35,6 +35,32 @@ export class InsufficientFundsError extends Error {
   }
 }
 
+const DECIMAL_AMOUNT = /^(\d+)(?:\.(\d{1,2}))?$/u;
+
+export function parseMoney(value: string): number {
+  const match = DECIMAL_AMOUNT.exec(value.trim());
+  if (match === null)
+    throw new EconomyValidationError(
+      'Amount must be a positive decimal with at most two digits after the decimal point.',
+    );
+
+  const major = match[1];
+  if (major === undefined) throw new EconomyValidationError('Amount is missing.');
+  const fraction = (match[2] ?? '').padEnd(2, '0');
+  const amount = BigInt(major) * 100n + BigInt(fraction || '0');
+  if (amount <= 0n || amount > BigInt(Number.MAX_SAFE_INTEGER))
+    throw new EconomyValidationError('Amount must be positive and within the safe integer range.');
+  return Number(amount);
+}
+
+export function formatMoney(amount: number): string {
+  if (!Number.isSafeInteger(amount) || amount < 0)
+    throw new EconomyValidationError('Money values must be non-negative safe integers.');
+  const major = Math.floor(amount / 100);
+  const fraction = String(amount % 100).padStart(2, '0');
+  return `$${String(major)}.${fraction}`;
+}
+
 function accountId(value: string): string {
   const normalized = value.trim();
   if (!/^[a-z0-9][a-z0-9._-]{0,63}$/i.test(normalized))
@@ -92,14 +118,4 @@ export class InMemoryEconomy implements EconomyService {
     this.#balances.set(from, sourceBalance - amount);
     this.#balances.set(to, destinationBalance);
   }
-}
-
-export function runEconomyDemo(): Readonly<Record<string, number>> {
-  const economy = new InMemoryEconomy();
-  economy.deposit('alex', 1_000);
-  economy.transfer('alex', 'sam', 275);
-  return Object.freeze({
-    alex: economy.balance('alex'),
-    sam: economy.balance('sam'),
-  });
 }

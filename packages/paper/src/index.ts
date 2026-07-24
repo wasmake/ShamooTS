@@ -56,10 +56,28 @@ export interface PaperEventRegistry {
 }
 export type PaperCommandResult =
   number | boolean | Component | Promise<number | boolean | Component>;
+export interface PaperCommandSender {
+  readonly name: string;
+  readonly kind: 'player' | 'other';
+  readonly id?: string;
+}
+export interface PaperCommandPlayer {
+  readonly id: string;
+  readonly name: string;
+  readonly online: boolean;
+}
+export interface PaperCommandItem {
+  readonly material: string;
+  readonly amount: number;
+}
 export interface PaperCommandContext {
-  readonly sender: Player | PaperEntrypointContext['server'];
-  readonly input: string;
-  readonly arguments: ReadonlyMap<string, string>;
+  readonly sender: PaperCommandSender;
+  readonly alias: string;
+  readonly arguments: readonly string[];
+  reply(message: string): boolean;
+  findPlayer(name: string): PaperCommandPlayer | null;
+  mainHand(): PaperCommandItem | null;
+  takeMainHand(material: string, amount: number): boolean;
 }
 export interface PaperCommandRegistry {
   register(name: string, execute: (context: PaperCommandContext) => PaperCommandResult): () => void;
@@ -104,6 +122,15 @@ export interface PaperRuntimeHost {
     aliases: readonly string[],
     callback: { readonly $callback: string },
   ): unknown;
+  paperCommandReply(metadata: object, token: string, message: string): unknown;
+  paperCommandFindPlayer(metadata: object, token: string, name: string): unknown;
+  paperCommandMainHand(metadata: object, token: string): unknown;
+  paperCommandTakeMainHand(
+    metadata: object,
+    token: string,
+    material: string,
+    amount: number,
+  ): unknown;
   paperScheduleGlobal(metadata: object, callback: { readonly $callback: string }): unknown;
   paperSubscribePacket(metadata: object, callback: { readonly $callback: string }): unknown;
   paperProxyRequest(metadata: object, payload: Uint8Array): Promise<PaperProxyResponse>;
@@ -116,7 +143,7 @@ export interface PaperHostApi {
   on(type: string, handler: (event: unknown) => unknown, priority?: string): void;
   command(
     name: string,
-    handler: (...values: readonly unknown[]) => unknown,
+    handler: (context: PaperCommandContext) => unknown,
     aliases?: readonly string[],
   ): void;
   schedule(handler: () => unknown): void;
@@ -128,6 +155,99 @@ export interface PaperHostApi {
   ): void;
   subscribeEvent(id: string, versionRange: string, handler: (payload: unknown) => unknown): void;
   publishEvent(id: string, version: string, payload: unknown): Promise<unknown>;
+}
+
+function commandRecord(value: unknown, label: string): Readonly<Record<string, unknown>> {
+  if (value === null || typeof value !== 'object' || Array.isArray(value))
+    throw new TypeError(`Invalid Paper command ${label}.`);
+  return value as Readonly<Record<string, unknown>>;
+}
+
+function commandKeys(
+  value: Readonly<Record<string, unknown>>,
+  expected: readonly string[],
+  label: string,
+): void {
+  const keys = Reflect.ownKeys(value);
+  if (
+    keys.length !== expected.length ||
+    keys.some((key) => typeof key !== 'string' || !expected.includes(key))
+  )
+    throw new TypeError(`Invalid Paper command ${label}.`);
+}
+
+function commandString(value: unknown, label: string): string {
+  if (typeof value !== 'string') throw new TypeError(`Invalid Paper command ${label}.`);
+  return value;
+}
+
+function commandBoolean(value: unknown, label: string): boolean {
+  if (typeof value !== 'boolean') throw new TypeError(`Invalid Paper command ${label}.`);
+  return value;
+}
+
+function commandPlayer(value: unknown): PaperCommandPlayer | null {
+  if (value === null) return null;
+  const player = commandRecord(value, 'player result');
+  commandKeys(player, ['id', 'name', 'online'], 'player result');
+  return Object.freeze({
+    id: commandString(player.id, 'player id'),
+    name: commandString(player.name, 'player name'),
+    online: commandBoolean(player.online, 'player online state'),
+  });
+}
+
+function commandItem(value: unknown): PaperCommandItem | null {
+  if (value === null) return null;
+  const item = commandRecord(value, 'item result');
+  commandKeys(item, ['material', 'amount'], 'item result');
+  if (typeof item.amount !== 'number' || !Number.isInteger(item.amount))
+    throw new TypeError('Invalid Paper command item amount.');
+  return Object.freeze({
+    material: commandString(item.material, 'item material'),
+    amount: item.amount,
+  });
+}
+
+function paperCommandContext(
+  host: PaperRuntimeHost,
+  metadata: object,
+  value: unknown,
+): PaperCommandContext {
+  const raw = commandRecord(value, 'context');
+  commandKeys(raw, ['token', 'sender', 'alias', 'arguments'], 'context');
+  const token = commandString(raw.token, 'token');
+  const rawSender = commandRecord(raw.sender, 'sender');
+  const senderKeys = Object.hasOwn(rawSender, 'id') ? ['name', 'kind', 'id'] : ['name', 'kind'];
+  commandKeys(rawSender, senderKeys, 'sender');
+  const kind = rawSender.kind;
+  if (kind !== 'player' && kind !== 'other')
+    throw new TypeError('Invalid Paper command sender kind.');
+  const name = commandString(rawSender.name, 'sender name');
+  const sender: PaperCommandSender = Object.hasOwn(rawSender, 'id')
+    ? Object.freeze({ name, kind, id: commandString(rawSender.id, 'sender id') })
+    : Object.freeze({ name, kind });
+  if (
+    !Array.isArray(raw.arguments) ||
+    !raw.arguments.every((argument) => typeof argument === 'string')
+  )
+    throw new TypeError('Invalid Paper command arguments.');
+  const arguments_ = Object.freeze([...raw.arguments]);
+  return Object.freeze({
+    sender,
+    alias: commandString(raw.alias, 'alias'),
+    arguments: arguments_,
+    reply: (message: string) =>
+      commandBoolean(host.paperCommandReply(metadata, token, message), 'reply result'),
+    findPlayer: (playerName: string) =>
+      commandPlayer(host.paperCommandFindPlayer(metadata, token, playerName)),
+    mainHand: () => commandItem(host.paperCommandMainHand(metadata, token)),
+    takeMainHand: (material: string, amount: number) =>
+      commandBoolean(
+        host.paperCommandTakeMainHand(metadata, token, material, amount),
+        'take-main-hand result',
+      ),
+  });
 }
 
 /** Publishable facade over ShamooRuntime's explicit data-only Paper host operations. */
@@ -150,11 +270,16 @@ export function createPaperHostApi(host: PaperRuntimeHost, namespace = 'paper.ap
       );
     },
     command(name, handler, aliases = []) {
+      const metadata = { source: 'api' };
+      const commandHandler = (...values: readonly unknown[]): unknown => {
+        if (values.length !== 1) throw new TypeError('Invalid Paper command callback arguments.');
+        return handler(paperCommandContext(host, metadata, values[0]));
+      };
       host.paperRegisterCommand(
-        { source: 'api' },
+        metadata,
         name,
         aliases,
-        marker(callback('command', handler)),
+        marker(callback('command', commandHandler)),
       );
     },
     schedule(handler) {

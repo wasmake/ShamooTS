@@ -7,7 +7,7 @@ import * as _shamoo_di from '@shamoo/di';
 import { Provider } from '@shamoo/di';
 import { PlatformCapability, Platform } from '@shamoo/core';
 import { BinaryRequestTransport, TransportAvailability, BinaryRequestOptions } from '@shamoo/communication';
-import { Player, PaperEntrypointContext, Component, GeneratedEventMap, GeneratedEventCancellabilityMap, ScheduledTask, GlobalRegionScheduler, Entity } from '@shamoo/paper-raw';
+import { Component, PaperEntrypointContext, GeneratedEventMap, GeneratedEventCancellabilityMap, Player, ScheduledTask, GlobalRegionScheduler, Entity } from '@shamoo/paper-raw';
 
 interface PaperEntrypoint {
     enable(context: PaperEntrypointContext): void | Promise<void>;
@@ -30,10 +30,28 @@ interface PaperEventRegistry {
     on<Name extends PaperEventType>(type: Name, handler: PaperEventHandler<Name>): () => void;
 }
 type PaperCommandResult = number | boolean | Component | Promise<number | boolean | Component>;
+interface PaperCommandSender {
+    readonly name: string;
+    readonly kind: 'player' | 'other';
+    readonly id?: string;
+}
+interface PaperCommandPlayer {
+    readonly id: string;
+    readonly name: string;
+    readonly online: boolean;
+}
+interface PaperCommandItem {
+    readonly material: string;
+    readonly amount: number;
+}
 interface PaperCommandContext {
-    readonly sender: Player | PaperEntrypointContext['server'];
-    readonly input: string;
-    readonly arguments: ReadonlyMap<string, string>;
+    readonly sender: PaperCommandSender;
+    readonly alias: string;
+    readonly arguments: readonly string[];
+    reply(message: string): boolean;
+    findPlayer(name: string): PaperCommandPlayer | null;
+    mainHand(): PaperCommandItem | null;
+    takeMainHand(material: string, amount: number): boolean;
 }
 interface PaperCommandRegistry {
     register(name: string, execute: (context: PaperCommandContext) => PaperCommandResult): () => void;
@@ -64,6 +82,10 @@ interface PaperRuntimeHost {
     paperRegisterCommand(metadata: object, name: string, aliases: readonly string[], callback: {
         readonly $callback: string;
     }): unknown;
+    paperCommandReply(metadata: object, token: string, message: string): unknown;
+    paperCommandFindPlayer(metadata: object, token: string, name: string): unknown;
+    paperCommandMainHand(metadata: object, token: string): unknown;
+    paperCommandTakeMainHand(metadata: object, token: string, material: string, amount: number): unknown;
     paperScheduleGlobal(metadata: object, callback: {
         readonly $callback: string;
     }): unknown;
@@ -77,7 +99,7 @@ interface PaperRuntimeHost {
 }
 interface PaperHostApi {
     on(type: string, handler: (event: unknown) => unknown, priority?: string): void;
-    command(name: string, handler: (...values: readonly unknown[]) => unknown, aliases?: readonly string[]): void;
+    command(name: string, handler: (context: PaperCommandContext) => unknown, aliases?: readonly string[]): void;
     schedule(handler: () => unknown): void;
     packet(handler: (packet: unknown) => unknown): void;
     provideService(id: string, version: string, handler: (operation: string, values: readonly unknown[]) => unknown): void;
@@ -113,5 +135,5 @@ declare class VelocityTransportUnavailableError extends Error {
     constructor(message: string);
 }
 
-export { type MutablePaperEvent, PAPER_VELOCITY_MESSAGE_BRIDGE, PAPER_VELOCITY_TRANSPORT, type PaperCommandContext, type PaperCommandRegistry, type PaperCommandResult, type PaperEntrypoint, type PaperEventContext, type PaperEventHandler, type PaperEventRegistry, type PaperEventType, type PaperHostApi, type PaperMessagingChannel, type PaperMessenger, type PaperProxyResponse, type PaperRuntimeHost, type PaperScheduler, type PaperVelocityMessageBridge, PaperVelocityTransport, type RegisteredPaperEvent, type ScheduledHandle, VelocityTransportUnavailableError, createPaperHostApi, createPaperPlatform, definePaperEntrypoint, paperCommunicationProviders, paperHostCommunicationProviders };
+export { type MutablePaperEvent, PAPER_VELOCITY_MESSAGE_BRIDGE, PAPER_VELOCITY_TRANSPORT, type PaperCommandContext, type PaperCommandItem, type PaperCommandPlayer, type PaperCommandRegistry, type PaperCommandResult, type PaperCommandSender, type PaperEntrypoint, type PaperEventContext, type PaperEventHandler, type PaperEventRegistry, type PaperEventType, type PaperHostApi, type PaperMessagingChannel, type PaperMessenger, type PaperProxyResponse, type PaperRuntimeHost, type PaperScheduler, type PaperVelocityMessageBridge, PaperVelocityTransport, type RegisteredPaperEvent, type ScheduledHandle, VelocityTransportUnavailableError, createPaperHostApi, createPaperPlatform, definePaperEntrypoint, paperCommunicationProviders, paperHostCommunicationProviders };
 ```

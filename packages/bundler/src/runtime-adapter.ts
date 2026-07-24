@@ -15,6 +15,29 @@ interface RuntimeHost {
     callback: (...values: readonly Data[]) => unknown,
   ) => boolean;
 }
+interface PaperCommandSender {
+  readonly name: string;
+  readonly kind: 'player' | 'other';
+  readonly id?: string;
+}
+interface PaperCommandPlayer {
+  readonly id: string;
+  readonly name: string;
+  readonly online: boolean;
+}
+interface PaperCommandItem {
+  readonly material: string;
+  readonly amount: number;
+}
+interface PaperCommandContext {
+  readonly sender: PaperCommandSender;
+  readonly alias: string;
+  readonly arguments: readonly string[];
+  reply(message: string): boolean;
+  findPlayer(name: string): PaperCommandPlayer | null;
+  mainHand(): PaperCommandItem | null;
+  takeMainHand(material: string, amount: number): boolean;
+}
 
 const callbackMarker = (name: string): { readonly $callback: string } => ({ $callback: name });
 
@@ -34,6 +57,102 @@ function operation(host: RuntimeHost, name: string): HostOperation {
   if (typeof value !== 'function')
     throw new TypeError(`Runtime host operation is unavailable: ${name}`);
   return value.bind(host) as HostOperation;
+}
+
+function commandRecord(value: unknown, label: string): Readonly<Record<string, unknown>> {
+  if (value === null || typeof value !== 'object' || Array.isArray(value))
+    throw new TypeError(`Invalid Paper command ${label}.`);
+  return value as Readonly<Record<string, unknown>>;
+}
+
+function commandKeys(
+  value: Readonly<Record<string, unknown>>,
+  expected: readonly string[],
+  label: string,
+): void {
+  const keys = Reflect.ownKeys(value);
+  if (
+    keys.length !== expected.length ||
+    keys.some((key) => typeof key !== 'string' || !expected.includes(key))
+  )
+    throw new TypeError(`Invalid Paper command ${label}.`);
+}
+
+function commandString(value: unknown, label: string): string {
+  if (typeof value !== 'string') throw new TypeError(`Invalid Paper command ${label}.`);
+  return value;
+}
+
+function commandBoolean(value: unknown, label: string): boolean {
+  if (typeof value !== 'boolean') throw new TypeError(`Invalid Paper command ${label}.`);
+  return value;
+}
+
+function commandPlayer(value: unknown): PaperCommandPlayer | null {
+  if (value === null) return null;
+  const player = commandRecord(value, 'player result');
+  commandKeys(player, ['id', 'name', 'online'], 'player result');
+  return Object.freeze({
+    id: commandString(player.id, 'player id'),
+    name: commandString(player.name, 'player name'),
+    online: commandBoolean(player.online, 'player online state'),
+  });
+}
+
+function commandItem(value: unknown): PaperCommandItem | null {
+  if (value === null) return null;
+  const item = commandRecord(value, 'item result');
+  commandKeys(item, ['material', 'amount'], 'item result');
+  if (typeof item.amount !== 'number' || !Number.isInteger(item.amount))
+    throw new TypeError('Invalid Paper command item amount.');
+  return Object.freeze({
+    material: commandString(item.material, 'item material'),
+    amount: item.amount,
+  });
+}
+
+function paperCommandContext(
+  host: RuntimeHost,
+  metadata: object,
+  value: unknown,
+): PaperCommandContext {
+  const raw = commandRecord(value, 'context');
+  commandKeys(raw, ['token', 'sender', 'alias', 'arguments'], 'context');
+  const token = commandString(raw.token, 'token');
+  const rawSender = commandRecord(raw.sender, 'sender');
+  const senderKeys = Object.hasOwn(rawSender, 'id') ? ['name', 'kind', 'id'] : ['name', 'kind'];
+  commandKeys(rawSender, senderKeys, 'sender');
+  const kind = rawSender.kind;
+  if (kind !== 'player' && kind !== 'other')
+    throw new TypeError('Invalid Paper command sender kind.');
+  const name = commandString(rawSender.name, 'sender name');
+  const sender: PaperCommandSender = Object.hasOwn(rawSender, 'id')
+    ? Object.freeze({ name, kind, id: commandString(rawSender.id, 'sender id') })
+    : Object.freeze({ name, kind });
+  if (
+    !Array.isArray(raw.arguments) ||
+    !raw.arguments.every((argument) => typeof argument === 'string')
+  )
+    throw new TypeError('Invalid Paper command arguments.');
+  const arguments_ = Object.freeze([...raw.arguments]);
+  return Object.freeze({
+    sender,
+    alias: commandString(raw.alias, 'alias'),
+    arguments: arguments_,
+    reply: (message: string) =>
+      commandBoolean(
+        operation(host, 'paperCommandReply')(metadata, token, message),
+        'reply result',
+      ),
+    findPlayer: (playerName: string) =>
+      commandPlayer(operation(host, 'paperCommandFindPlayer')(metadata, token, playerName)),
+    mainHand: () => commandItem(operation(host, 'paperCommandMainHand')(metadata, token)),
+    takeMainHand: (material: string, amount: number) =>
+      commandBoolean(
+        operation(host, 'paperCommandTakeMainHand')(metadata, token, material, amount),
+        'take-main-hand result',
+      ),
+  });
 }
 
 function executable(
@@ -101,7 +220,7 @@ export function installRuntimeAdapter(
       const implementation: unknown = Reflect.get(target, method.name);
       if (typeof implementation !== 'function')
         throw new TypeError(`Compiler executable is missing: ${component.id}.${method.name}`);
-      const invoke = (...values: readonly Data[]): unknown =>
+      const invoke = (...values: readonly unknown[]): unknown =>
         Reflect.apply(implementation, target, values);
       if (method.lifecycle !== undefined) {
         const methods = lifecycle.get(method.lifecycle) ?? [];
@@ -109,12 +228,22 @@ export function installRuntimeAdapter(
         lifecycle.set(method.lifecycle, methods);
       }
       if (method.invocation === undefined) continue;
-      const callback = register(`compiled.${component.id}.${method.name}`, invoke);
       const metadata = {
         componentId: component.id,
         method: method.name,
         decorators: method.decorators,
       };
+      const commandInvoke = (...values: readonly Data[]): unknown => {
+        if (values.length !== 1) throw new TypeError('Invalid Paper command callback arguments.');
+        if (host === undefined) throw new TypeError('Runtime host is unavailable.');
+        return invoke(paperCommandContext(host, metadata, values[0]));
+      };
+      const callback = register(
+        `compiled.${component.id}.${method.name}`,
+        platform === 'paper' && method.invocation === 'command' && host !== undefined
+          ? commandInvoke
+          : invoke,
+      );
       const declaration = decorator(method);
       if (method.invocation === 'event') {
         const event =

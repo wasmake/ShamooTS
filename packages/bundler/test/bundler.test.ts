@@ -40,6 +40,8 @@ describe('platform bundler', () => {
     const outputDirectory = await mkdtemp(join(tmpdir(), 'shamoo-bundle-adapter-'));
     const callbacks = new Map<string, (...values: unknown[]) => unknown>();
     const registrations: unknown[][] = [];
+    const commandOperations: { name: string; values: unknown[] }[] = [];
+    let mainHandResult: unknown = { material: 'DIAMOND', amount: 2 };
     Reflect.set(globalThis, 'host', {
       registerCallback(name: string, callback: (...values: unknown[]) => unknown) {
         callbacks.set(name, callback);
@@ -48,6 +50,26 @@ describe('platform bundler', () => {
       paperSubscribeEvent(...values: unknown[]) {
         registrations.push(values);
         return true;
+      },
+      paperRegisterCommand(...values: unknown[]) {
+        registrations.push(values);
+        return true;
+      },
+      paperCommandReply(...values: unknown[]) {
+        commandOperations.push({ name: 'reply', values });
+        return true;
+      },
+      paperCommandFindPlayer(...values: unknown[]) {
+        commandOperations.push({ name: 'findPlayer', values });
+        return { id: 'player-id', name: 'Sam', online: false };
+      },
+      paperCommandMainHand(...values: unknown[]) {
+        commandOperations.push({ name: 'mainHand', values });
+        return mainHandResult;
+      },
+      paperCommandTakeMainHand(...values: unknown[]) {
+        commandOperations.push({ name: 'takeMainHand', values });
+        return false;
       },
     });
     try {
@@ -84,6 +106,19 @@ describe('platform bundler', () => {
                 parameters: [],
                 location: { file: 'fixtures/runtime-adapter.ts', line: 8, column: 3 },
               },
+              {
+                name: 'commanded',
+                invocation: 'command',
+                decorators: [
+                  {
+                    name: 'Command',
+                    arguments: ['sample'],
+                    location: { file: 'fixtures/runtime-adapter.ts', line: 13, column: 3 },
+                  },
+                ],
+                parameters: [],
+                location: { file: 'fixtures/runtime-adapter.ts', line: 13, column: 3 },
+              },
             ],
             location: { file: 'fixtures/runtime-adapter.ts', line: 3, column: 1 },
           },
@@ -110,8 +145,67 @@ describe('platform bundler', () => {
           false,
           { $callback: 'compiled.fixtures/runtime-adapter.ts#AdapterPlugin.joined' },
         ],
+        [
+          expect.objectContaining({
+            componentId: 'fixtures/runtime-adapter.ts#AdapterPlugin',
+            method: 'commanded',
+          }),
+          'sample',
+          [],
+          { $callback: 'compiled.fixtures/runtime-adapter.ts#AdapterPlugin.commanded' },
+        ],
       ]);
       expect(callbacks.has('compiled.fixtures/runtime-adapter.ts#AdapterPlugin.joined')).toBe(true);
+      const commandCallback = callbacks.get(
+        'compiled.fixtures/runtime-adapter.ts#AdapterPlugin.commanded',
+      );
+      expect(commandCallback).toBeDefined();
+      const context = commandCallback?.({
+        token: 'command-token',
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: ['one'],
+      }) as {
+        readonly sender: object;
+        readonly arguments: readonly string[];
+        reply(message: string): boolean;
+        findPlayer(name: string): object | null;
+        mainHand(): object | null;
+        takeMainHand(material: string, amount: number): boolean;
+      };
+      expect(context).toMatchObject({
+        sender: { name: 'Console', kind: 'other' },
+        alias: 'sample',
+        arguments: ['one'],
+      });
+      expect(context).not.toHaveProperty('token');
+      expect(Object.isFrozen(context)).toBe(true);
+      expect(Object.isFrozen(context.sender)).toBe(true);
+      expect(Object.isFrozen(context.arguments)).toBe(true);
+      expect(context.reply('hello')).toBe(true);
+      const player = context.findPlayer('Sam');
+      expect(player).toEqual({ id: 'player-id', name: 'Sam', online: false });
+      expect(Object.isFrozen(player)).toBe(true);
+      const item = context.mainHand();
+      expect(item).toEqual({ material: 'DIAMOND', amount: 2 });
+      expect(Object.isFrozen(item)).toBe(true);
+      expect(context.takeMainHand('DIAMOND', 2)).toBe(false);
+      const operationMetadata: unknown = expect.objectContaining({
+        componentId: 'fixtures/runtime-adapter.ts#AdapterPlugin',
+        method: 'commanded',
+      });
+      expect(commandOperations).toEqual([
+        { name: 'reply', values: [operationMetadata, 'command-token', 'hello'] },
+        { name: 'findPlayer', values: [operationMetadata, 'command-token', 'Sam'] },
+        { name: 'mainHand', values: [operationMetadata, 'command-token'] },
+        {
+          name: 'takeMainHand',
+          values: [operationMetadata, 'command-token', 'DIAMOND', 2],
+        },
+      ]);
+      expect(() => commandCallback?.({ token: 'missing fields' })).toThrow(TypeError);
+      mainHandResult = { material: 'DIAMOND', amount: 'two' };
+      expect(() => context.mainHand()).toThrow('Invalid Paper command item amount');
       expect(await readFile(join(outputDirectory, 'paper/index.js'), 'utf8')).toContain(
         'entry-enable',
       );

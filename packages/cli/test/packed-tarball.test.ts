@@ -19,6 +19,10 @@ describe('packed CLI', () => {
     const root = await mkdtemp(join(tmpdir(), 'shamoo-packed-cli-'));
     temporary.push(root);
     const tarballs = join(root, 'tarballs');
+    await execute('pnpm', ['--filter', '@shamoo/cli...', 'build'], {
+      cwd: repository,
+      timeout: 120_000,
+    });
     await execute('pnpm', ['--filter', '@shamoo/cli...', 'pack', '--pack-destination', tarballs], {
       cwd: repository,
       timeout: 120_000,

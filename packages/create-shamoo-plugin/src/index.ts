@@ -52,9 +52,9 @@ function packageJson(
   packageManager: NonNullable<ScaffoldPluginOptions['packageManager']>,
 ): string {
   const dependencies: Record<string, string> = {
-    '@shamoo/decorators': '^0.1.0-alpha.1',
-    ...(platforms.includes(PlatformKind.PAPER) ? { '@shamoo/paper': '^0.1.0-alpha.1' } : {}),
-    ...(platforms.includes(PlatformKind.VELOCITY) ? { '@shamoo/velocity': '^0.1.0-alpha.1' } : {}),
+    '@shamoo/decorators': '^0.1.0-rc.1',
+    ...(platforms.includes(PlatformKind.PAPER) ? { '@shamoo/paper': '^0.1.0-rc.1' } : {}),
+    ...(platforms.includes(PlatformKind.VELOCITY) ? { '@shamoo/velocity': '^0.1.0-rc.1' } : {}),
   };
   return `${JSON.stringify(
     {
@@ -69,7 +69,7 @@ function packageJson(
       },
       dependencies,
       devDependencies: {
-        '@shamoo/cli': '^0.1.0-alpha.1',
+        '@shamoo/cli': '^0.1.0-rc.1',
         typescript: '^5.8.3',
       },
       packageManager: `${packageManager}@${packageManager === 'pnpm' ? '10.0.0' : packageManager === 'npm' ? '10.0.0' : '1.22.22'}`,

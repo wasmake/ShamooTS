@@ -24,6 +24,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --max-warnings 0",
     "package:check": "node scripts/check-packages.mjs",
+    "release:check": "node scripts/check-release-artifacts.mjs",
     "test": "vitest run",
     "test:packed-cli": "vitest run packages/cli/test/packed-tarball.test.ts",
     "test:coverage": "vitest run --coverage",

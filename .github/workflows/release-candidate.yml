@@ -7,22 +7,45 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: release-candidate-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
+  verify-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Verify canonical release tag
+        run: |
+          set -euo pipefail
+          release_version="$(node --print "require('./packages/core/package.json').version")"
+          if [ "$GITHUB_REF_NAME" != "v$release_version" ]; then
+            printf 'Tag %s must exactly match package version v%s.\n' "$GITHUB_REF_NAME" "$release_version" >&2
+            exit 1
+          fi
+          git fetch origin main --no-tags
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+
   full-ci:
+    needs: verify-tag
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: wasmake/ShamooRuntime
           path: ShamooRuntime
-      - uses: pnpm/action-setup@v4
+          ref: ${{ github.ref_name }}
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
         with:
           run_install: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: pnpm
@@ -33,7 +56,7 @@ jobs:
       - run: pnpm check
       - run: pnpm test:coverage
 
-  candidate:
+  package:
     needs: full-ci
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -44,15 +67,16 @@ jobs:
     env:
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: wasmake/ShamooRuntime
           path: ShamooRuntime
-      - uses: pnpm/action-setup@v4
+          ref: ${{ github.ref_name }}
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
         with:
           run_install: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: pnpm
@@ -65,24 +89,61 @@ jobs:
       - run: mkdir release
       - name: Pack release candidates
         run: pnpm --recursive --filter './packages/**' pack --pack-destination "$GITHUB_WORKSPACE/release"
+      - name: Verify packed package set and manifests
+        run: pnpm release:check release
       - name: Create SBOM
-        uses: anchore/sbom-action@v0
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
         with:
           path: release
           format: spdx-json
           output-file: release/shamoo-${{ github.ref_name }}.spdx.json
+          upload-artifact: false
       - name: Create checksums
         working-directory: release
         run: sha256sum -- *.tgz *.spdx.json > SHA256SUMS
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3
         with:
           subject-path: |-
             release/*.tgz
             release/SHA256SUMS
             release/*.spdx.json
-      - uses: actions/upload-artifact@v4
+      - name: Attest package SBOM
+        uses: actions/attest-sbom@51e74621a501c89df81fc1391c5a8f4cfc9fab2f # v3
+        with:
+          subject-path: release/*.tgz
+          sbom-path: release/shamoo-${{ github.ref_name }}.spdx.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: shamoo-${{ github.ref_name }}
           path: release/
           if-no-files-found: error
           retention-days: 14
+  publish-release:
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download retained release candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: shamoo-${{ github.ref_name }}
+          path: release
+      - name: Publish GitHub prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            printf 'Release %s already exists; release candidates are immutable.\n' "$GITHUB_REF_NAME" >&2
+            exit 1
+          fi
+          assets=(release/*.tgz "release/shamoo-$GITHUB_REF_NAME.spdx.json" release/SHA256SUMS)
+          [[ ${#assets[@]} -eq 36 ]]
+          gh release create "$GITHUB_REF_NAME" "${assets[@]}" \
+            --verify-tag \
+            --prerelease \
+            --latest=false \
+            --title "Shamoo $GITHUB_REF_NAME" \
+            --generate-notes

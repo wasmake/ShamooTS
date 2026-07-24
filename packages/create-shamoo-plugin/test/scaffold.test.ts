@@ -54,12 +54,15 @@ describe('plugin scaffolding', () => {
       const packageValue = JSON.parse(await readFile(join(directory, 'package.json'), 'utf8')) as {
         packageManager: string;
         dependencies: Record<string, string>;
+        devDependencies: Record<string, string>;
       };
       expect(packageValue.packageManager).toBe(expectedManager);
       expect(result.files).toContain(`src/${directoryName}.ts`);
       expect(
         Object.keys(packageValue.dependencies).some((name) => name.endsWith(directoryName)),
       ).toBe(true);
+      expect(new Set(Object.values(packageValue.dependencies))).toEqual(new Set(['^0.1.0-rc.1']));
+      expect(packageValue.devDependencies['@shamoo/cli']).toBe('^0.1.0-rc.1');
     },
   );
 

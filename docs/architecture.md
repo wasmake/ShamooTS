@@ -25,13 +25,15 @@ See [compiler](compiler.md) and [ADR 0003](adr/0003-compiler-owned-metadata.md).
 
 ## Build and release
 
-All public packages share version `0.1.0-alpha.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
+All public packages share version `0.1.0-rc.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
 
 Release-candidate tags run the complete repository check before packaging. The
 workflow creates package tarballs, an SPDX JSON SBOM, and SHA-256 checksums,
 uploads them as a GitHub artifact, and issues GitHub/Sigstore build-provenance
-attestations over every artifact. It never publishes to npm; publication is a
-separate, deliberate release action.
+attestations over every artifact and SBOM attestations over every tarball. It
+publishes all assets through a draft and refuses to replace an existing release.
+It never publishes to npm; registry publication is a separate, deliberate
+release action.
 
 Shamoo's compiler and bundler form a static policy boundary, not a security
 sandbox. Platform adapters own JVM objects, transport authentication, and host

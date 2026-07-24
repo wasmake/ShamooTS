@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/di",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-rc.1",
   "description": "Explicit-metadata dependency injection and module runtime for Shamoo.",
   "license": "Apache-2.0",
   "type": "module",

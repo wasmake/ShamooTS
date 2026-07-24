@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/platform-codegen",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-rc.1",
   "description": "Validated deterministic JVM API model and TypeScript declaration generator for Shamoo.",
   "license": "Apache-2.0",
   "type": "module",

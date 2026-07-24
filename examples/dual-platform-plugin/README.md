@@ -23,3 +23,13 @@ pnpm typecheck
 pnpm test
 pnpm build
 ```
+
+## Ready-to-run
+
+Download the archive for the server receiving the plugin:
+
+- Paper: `shamoo-example-dual-platform-plugin-paper-<version>.tgz`
+- Velocity: `shamoo-example-dual-platform-plugin-velocity-<version>.tgz`
+
+Extract it into that server's ShamooRuntime watched root. Each archive is independent and already
+contains the correct platform bundle; installing one does not install the example on both servers.

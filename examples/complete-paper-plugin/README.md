@@ -14,3 +14,9 @@ The `/shamoo-status` handler reports status to the Runtime log, joining players 
 a message, and the scheduled heartbeat records task execution. The current adapter
 registers scheduled declarations as global work and does not interpret delay metadata;
 use the `folia` example for explicit scheduler ownership.
+
+## Ready-to-run
+
+Download `shamoo-example-complete-paper-plugin-paper-<version>.tgz` from the GitHub release and
+extract it into `<paper-server>/plugins/ShamooRuntime/plugins`. The archive includes the complete
+compiled Runtime installation directory.

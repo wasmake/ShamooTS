@@ -4,6 +4,9 @@ This example exercises Shamoo's versioned service contracts and stable consumer 
 process. The consumer keeps the same proxy while a provider is replaced, and closing the old
 provider's generation-aware registration cannot unregister the replacement.
 
+> **Source-only demonstration:** this example has no server entrypoint and is not included in the
+> ready-to-run release archives.
+
 ```sh
 pnpm --filter @shamoo-examples/cross-plugin-services typecheck
 pnpm --filter @shamoo-examples/cross-plugin-services test

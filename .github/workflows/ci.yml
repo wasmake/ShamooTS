@@ -35,6 +35,7 @@ jobs:
       - run: pnpm test:coverage
       - run: pnpm build
       - run: pnpm package:check
+      - run: pnpm examples:pack
 
   test-node:
     runs-on: ubuntu-latest

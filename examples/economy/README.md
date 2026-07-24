@@ -46,3 +46,9 @@ ShamooRuntime watched root, not Paper's general `plugins` directory. It can inst
 
 All balances live only in the `EconomyPlugin` instance. They reset to zero whenever the plugin is
 disabled, unloaded, redeployed, or the server restarts. No files or database are used.
+
+## Ready-to-run
+
+Download `shamoo-example-economy-paper-<version>.tgz` from the GitHub release and extract it into
+`<paper-server>/plugins/ShamooRuntime/plugins`. No Node.js toolchain is needed on the server. The
+example remains intentionally in-memory, so balances reset on restart or reload.

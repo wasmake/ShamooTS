@@ -5,6 +5,8 @@ dist/
 coverage/
 *.tsbuildinfo
 docs/generated/
+examples/compiled/
+release/
 .DS_Store
 .env
 .env.*

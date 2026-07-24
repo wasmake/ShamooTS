@@ -13,3 +13,9 @@ pnpm build
 loader or reload manager. This example therefore uses a deterministic in-memory source
 and performs one meaningful lifecycle load; it does not claim automatic file watching or
 `@ConfigValue` injection.
+
+## Ready-to-run
+
+Download `shamoo-example-configuration-paper-<version>.tgz` from the GitHub release and extract it
+into `<paper-server>/plugins/ShamooRuntime/plugins`. This demonstrates validated startup decoding;
+it does not create or watch a configuration file.

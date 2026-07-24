@@ -4,6 +4,9 @@ Typed Paper-to-Velocity request/response routing over Shamoo's bounded binary co
 protocol. The example keeps its contract platform-neutral, adapts it to a Velocity proxy endpoint,
 and creates a Paper `CommunicationClient` over the host-owned optional proxy bridge.
 
+> **Source-only demonstration:** the required host wiring is not currently exposed to bundled
+> plugins, so publishing this example as a ready-to-run archive would be misleading.
+
 ## Runtime wiring
 
 The current bundled entrypoint context does not expose `PaperRuntimeHost` or `VelocityRuntimeHost`,

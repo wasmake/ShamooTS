@@ -91,6 +91,8 @@ jobs:
         run: pnpm --recursive --filter './packages/**' pack --pack-destination "$GITHUB_WORKSPACE/release"
       - name: Verify packed package set and manifests
         run: pnpm release:check release
+      - name: Pack ready-to-run examples
+        run: pnpm examples:pack
       - name: Create SBOM
         uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
         with:
@@ -140,7 +142,7 @@ jobs:
             exit 1
           fi
           assets=(release/*.tgz "release/shamoo-$GITHUB_REF_NAME.spdx.json" release/SHA256SUMS)
-          [[ ${#assets[@]} -eq 36 ]]
+          [[ ${#assets[@]} -eq 45 ]]
           gh release create "$GITHUB_REF_NAME" "${assets[@]}" \
             --verify-tag \
             --prerelease \

@@ -20,6 +20,8 @@
     "codegen:check": "pnpm --filter @shamoo/paper-codegen exec tsx src/cli.ts diff paper - ../../packages/paper-raw/src/generated && pnpm --filter @shamoo/paper-codegen exec tsx src/cli.ts diff paper-nms - ../../packages/paper-nms/src/generated && pnpm --filter @shamoo/paper-codegen exec tsx src/cli.ts diff paper-packets - ../../packages/paper-packets/src/generated && pnpm --filter @shamoo/velocity-codegen exec tsx src/cli.ts diff - ../../packages/velocity-raw/src/generated",
     "contract:check": "node scripts/check-runtime-contract.mjs",
     "docs": "typedoc",
+    "examples:build": "pnpm build && node scripts/build-examples.mjs",
+    "examples:pack": "node scripts/build-examples.mjs examples/compiled release",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --max-warnings 0",

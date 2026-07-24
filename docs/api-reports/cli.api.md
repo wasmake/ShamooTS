@@ -11,7 +11,7 @@ export function analyzeWinterMigration(sourceRoot: string): Promise<WinterMigrat
 export function buildProject(projectRoot: string): Promise<ProjectBuildResult>;
 
 // @public (undocumented)
-export const CLI_VERSION: "0.1.0-alpha.1";
+export const CLI_VERSION: "0.1.0-rc.1";
 
 // @public (undocumented)
 export type CliCommand = 'build' | 'create' | 'deploy' | 'dev' | 'doctor' | 'help' | 'migrate' | 'paper' | 'velocity' | 'version';

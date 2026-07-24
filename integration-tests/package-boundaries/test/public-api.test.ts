@@ -65,7 +65,7 @@ describe('public package boundaries', () => {
       await readFile(`${repositoryRoot}/packages/${name}/package.json`, 'utf8'),
     ) as { exports: Record<string, unknown>; files: string[]; private?: boolean; version: string };
     expect(manifest.private).not.toBe(true);
-    expect(manifest.version).toBe('0.1.0-alpha.1');
+    expect(manifest.version).toBe('0.1.0-rc.1');
     expect(manifest.files).toContain('dist');
     expect(JSON.stringify(manifest.exports)).not.toContain('/src/');
   });

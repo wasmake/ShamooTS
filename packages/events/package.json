@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/events",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-rc.1",
   "description": "Shamoo event declaration contracts.",
   "license": "Apache-2.0",
   "type": "module",

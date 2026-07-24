@@ -38,12 +38,18 @@ const packages = [
   ['bundler', '@shamoo/bundler'],
 ];
 
+let releaseVersion;
 for (const [directory, expectedName] of packages) {
   const root = new URL(`../packages/${directory}/`, import.meta.url);
   const manifest = JSON.parse(await readFile(new URL('package.json', root), 'utf8'));
+  if (releaseVersion === undefined) {
+    if (typeof manifest.version !== 'string' || manifest.version.length === 0)
+      throw new Error(`Invalid public package version: ${expectedName}`);
+    releaseVersion = manifest.version;
+  }
   if (
     manifest.name !== expectedName ||
-    manifest.version !== '0.1.0-alpha.1' ||
+    manifest.version !== releaseVersion ||
     manifest.private === true ||
     !manifest.exports?.['.'] ||
     !manifest.files?.includes('dist') ||
@@ -82,5 +88,5 @@ for (const [directory, expectedName] of packages) {
 }
 
 process.stdout.write(
-  `Validated ${packages.length} public packages, declarations, and runtime/type export parity.\n`,
+  `Validated ${packages.length} public packages at ${releaseVersion}, declarations, and runtime/type export parity.\n`,
 );

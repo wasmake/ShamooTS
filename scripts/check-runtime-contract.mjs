@@ -36,8 +36,17 @@ for (const [file, expression] of [
 
 const tag = process.env.GITHUB_REF_NAME;
 if (tag !== undefined) {
-  const expected = new RegExp(`^v${releaseVersion.replaceAll('.', '\\.')}-rc\\.[1-9][0-9]*$`, 'u');
-  if (!expected.test(tag)) throw new Error(`RC tag ${tag} must match v${releaseVersion}-rc.N.`);
+  if (releaseVersion.includes('-')) {
+    const expectedTag = `v${releaseVersion}`;
+    if (tag !== expectedTag)
+      throw new Error(`Release tag ${tag} must exactly match ${expectedTag}.`);
+  } else {
+    const expected = new RegExp(
+      `^v${releaseVersion.replaceAll('.', '\\.')}-rc\\.[1-9][0-9]*$`,
+      'u',
+    );
+    if (!expected.test(tag)) throw new Error(`RC tag ${tag} must match v${releaseVersion}-rc.N.`);
+  }
 }
 
 const runtimeProperties = await readFile(resolve(runtimeRoot, 'gradle.properties'), 'utf8');

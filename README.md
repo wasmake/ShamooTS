@@ -51,7 +51,7 @@ The complete generated declaration compile may require `NODE_OPTIONS=--max-old-s
 | `@shamoo/cli`                              | Installed build, deploy, dev, doctor, migration, and codegen CLI |
 | `@shamoo/create-plugin`                    | Safe non-interactive plugin project scaffolding                  |
 
-See the [platform bindings guide](docs/platform-bindings.md), [compatibility matrix](docs/compatibility.md), [plugin communication guide](docs/communication.md), [lifecycle guide](docs/lifecycle.md), [pipeline guide](docs/invocation-pipeline.md), [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), and [architecture](docs/architecture.md).
+See the [platform bindings guide](docs/platform-bindings.md), [compatibility matrix](docs/compatibility.md), [plugin communication guide](docs/communication.md), [lifecycle guide](docs/lifecycle.md), [pipeline guide](docs/invocation-pipeline.md), [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), [release guide](docs/releases.md), and [architecture](docs/architecture.md).
 
 ## License
 

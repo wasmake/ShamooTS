@@ -48,7 +48,7 @@ describe('packed CLI', () => {
       cwd: root,
       timeout: 30_000,
     });
-    expect(result.stdout.trim()).toMatch(/^0\.1\.0-alpha\.1$/u);
+    expect(result.stdout.trim()).toMatch(/^0\.1\.0-rc\.1$/u);
     const cli = join(root, 'node_modules', '.bin', executable);
     await execute(cli, ['create', 'fixture', '--name', 'packed-fixture', '--platform', 'paper'], {
       cwd: root,

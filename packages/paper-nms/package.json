@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/paper-nms",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-rc.1",
   "description": "Exact-version Mojang-mapped Paper NMS declarations without compatibility guarantees.",
   "license": "Apache-2.0",
   "type": "module",

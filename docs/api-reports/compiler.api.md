@@ -95,7 +95,7 @@ export interface PluginCompilationRequest {
 export function readCompilerManifest(path: string): Promise<CompilerManifest>;
 
 // @public (undocumented)
-export const SHAMOO_COMPILER_VERSION = "0.1.0-alpha.1";
+export const SHAMOO_COMPILER_VERSION = "0.1.0-rc.1";
 
 // @public (undocumented)
 export function validateCompilationRequest(request: PluginCompilationRequest): void;

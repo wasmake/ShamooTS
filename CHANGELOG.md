@@ -4,6 +4,8 @@ All notable changes to publishable Shamoo packages will be documented here. The 
 
 ## Unreleased
 
+## 0.1.0-rc.1 - 2026-07-24
+
 ### Added
 
 - Protocol `1.0` common descriptor validation, canonical JSON schema, compatibility negotiation, structured errors, and cross-runtime golden fixture.

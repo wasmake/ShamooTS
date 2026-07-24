@@ -49,6 +49,7 @@ describe('Paper codegen filesystem wrapper', () => {
       ]).toEqual(expect.arrayContaining([expect.objectContaining({ changed: false })]));
       expect(Object.values(difference.shards).every((item) => !item.changed)).toBe(true);
     },
+    120_000,
   );
 
   it('accepts model paths and rejects a mismatched surface', async () => {

@@ -9,6 +9,11 @@ export class AdapterPlugin {
     calls.push('joined');
     return value;
   }
+
+  public commanded(value: unknown): unknown {
+    calls.push('commanded');
+    return value;
+  }
 }
 
 export default {

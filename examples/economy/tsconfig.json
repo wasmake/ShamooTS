@@ -9,6 +9,7 @@
     },
     "strict": true,
     "noEmit": true,
+    "experimentalDecorators": true,
     "exactOptionalPropertyTypes": true,
     "noUncheckedIndexedAccess": true,
     "verbatimModuleSyntax": true,

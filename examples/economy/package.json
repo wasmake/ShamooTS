@@ -1,13 +1,24 @@
 {
   "name": "@shamoo-examples/economy",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "shamoo build",
+    "deploy": "shamoo deploy",
+    "doctor": "shamoo doctor",
     "test": "vitest run --config vitest.config.ts",
     "typecheck": "tsc --project tsconfig.json --pretty false"
   },
   "dependencies": {
-    "@shamoo/communication": "workspace:*"
+    "@shamoo/commands": "workspace:*",
+    "@shamoo/communication": "workspace:*",
+    "@shamoo/decorators": "workspace:*",
+    "@shamoo/paper": "workspace:*"
+  },
+  "devDependencies": {
+    "@shamoo/cli": "workspace:*",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }

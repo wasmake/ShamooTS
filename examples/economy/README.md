@@ -1,15 +1,48 @@
 # Economy
 
-This example implements a validated, in-memory economy behind a versioned Shamoo service
-contract. Balances use non-negative safe integers representing minor currency units. Deposits,
-withdrawals, and transfers reject invalid input, and failed transfers do not partially mutate
-balances.
+A deployable Paper economy backed by a validated in-memory ledger. Accounts are keyed by player
+UUID, balances are integer minor units, and no starting money is created. Players fund the economy
+by selling priced items.
+
+## Commands
+
+- `/pay <player> <amount>` transfers money atomically to an exact online or cached player. Amounts
+  use decimal currency syntax such as `12.34`; self-payments are rejected.
+- `/bal [player]` shows your balance or the balance of an exact online or cached player. The console
+  must provide a player.
+- `/sell` sells the entire stack in the player's main hand. The stack is atomically compared and
+  removed before the account is credited, so a changed item cannot be duplicated.
+
+## Prices
+
+Prices are minor units per item and are configured in `MATERIAL_PRICES` in `src/plugin.ts`.
+
+| Material     | Unit price |
+| ------------ | ---------: |
+| Cobblestone  |      $0.01 |
+| Coal         |      $0.25 |
+| Copper ingot |      $0.50 |
+| Iron ingot   |      $1.00 |
+| Gold ingot   |      $2.50 |
+| Emerald      |      $7.50 |
+| Diamond      |     $10.00 |
+
+Air, invalid stacks, and materials absent from this table cannot be sold.
+
+## Build And Deploy
+
+From this directory, or with the equivalent workspace filter from the repository root:
 
 ```sh
-pnpm --filter @shamoo-examples/economy typecheck
-pnpm --filter @shamoo-examples/economy test
+pnpm test
+pnpm typecheck
+pnpm build
+pnpm deploy --paper /absolute/path/to/shamoo-runtime-watched-root
 ```
 
-The example deliberately makes no persistence claim. A production plugin can place a durable
-store behind the same domain service once it has selected and implemented an application-specific
-storage policy.
+`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. The deploy target is the
+ShamooRuntime watched root, not Paper's general `plugins` directory. It can instead be set as
+`deploy.paper` in `shamoo.config.json`, after which `pnpm deploy` needs no override.
+
+All balances live only in the `EconomyPlugin` instance. They reset to zero whenever the plugin is
+disabled, unloaded, redeployed, or the server restarts. No files or database are used.

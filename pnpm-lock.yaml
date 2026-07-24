@@ -65,9 +65,6 @@ importers:
       '@shamoo/decorators':
         specifier: workspace:*
         version: link:../../packages/decorators
-      '@shamoo/guards':
-        specifier: workspace:*
-        version: link:../../packages/guards
       '@shamoo/paper':
         specifier: workspace:*
         version: link:../../packages/paper
@@ -184,9 +181,28 @@ importers:
 
   examples/economy:
     dependencies:
+      '@shamoo/commands':
+        specifier: workspace:*
+        version: link:../../packages/commands
       '@shamoo/communication':
         specifier: workspace:*
         version: link:../../packages/communication
+      '@shamoo/decorators':
+        specifier: workspace:*
+        version: link:../../packages/decorators
+      '@shamoo/paper':
+        specifier: workspace:*
+        version: link:../../packages/paper
+    devDependencies:
+      '@shamoo/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(supports-color@8.1.1)(tsx@4.23.1)(yaml@2.9.0)
 
   examples/folia:
     dependencies:

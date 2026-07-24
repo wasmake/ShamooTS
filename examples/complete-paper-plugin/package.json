@@ -1,0 +1,23 @@
+{
+  "name": "@shamoo-examples/complete-paper-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "shamoo build",
+    "doctor": "shamoo doctor",
+    "typecheck": "tsc --project tsconfig.json --pretty false"
+  },
+  "dependencies": {
+    "@shamoo/commands": "workspace:*",
+    "@shamoo/decorators": "workspace:*",
+    "@shamoo/lifecycle": "workspace:*",
+    "@shamoo/paper": "workspace:*",
+    "@shamoo/paper-raw": "workspace:*",
+    "@shamoo/scheduler": "workspace:*"
+  },
+  "devDependencies": {
+    "@shamoo/cli": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}

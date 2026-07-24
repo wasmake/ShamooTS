@@ -1,0 +1,24 @@
+{
+  "name": "@shamoo-examples/complete-velocity-plugin",
+  "platforms": ["velocity"],
+  "entrypoint": "src/plugin.ts",
+  "velocityEntrypoint": "src/velocity.ts",
+  "tsconfig": "tsconfig.json",
+  "outDir": "dist",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "communication": {
+    "services": [],
+    "events": [],
+    "consumers": []
+  }
+}

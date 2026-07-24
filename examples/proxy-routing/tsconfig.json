@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "paths": {
+      "@shamoo/*": ["packages/*/src/index.ts"]
+    },
+    "strict": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts", "vitest.config.ts"]
+}

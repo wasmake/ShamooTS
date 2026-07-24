@@ -1,0 +1,22 @@
+{
+  "name": "@shamoo-examples/complete-velocity-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "shamoo build",
+    "doctor": "shamoo doctor",
+    "test": "vitest run",
+    "typecheck": "tsc --project tsconfig.json --pretty false"
+  },
+  "dependencies": {
+    "@shamoo/decorators": "workspace:*",
+    "@shamoo/velocity": "workspace:*",
+    "@shamoo/velocity-raw": "workspace:*"
+  },
+  "devDependencies": {
+    "@shamoo/cli": "workspace:*",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

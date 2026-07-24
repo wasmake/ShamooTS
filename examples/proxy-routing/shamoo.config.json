@@ -1,0 +1,25 @@
+{
+  "name": "@shamoo-examples/proxy-routing",
+  "platforms": ["paper", "velocity"],
+  "entrypoint": "src/plugin.ts",
+  "paperEntrypoint": "src/paper.ts",
+  "velocityEntrypoint": "src/velocity.ts",
+  "tsconfig": "tsconfig.json",
+  "outDir": "dist",
+  "permissions": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "communication": {
+    "services": [],
+    "events": [],
+    "consumers": []
+  }
+}

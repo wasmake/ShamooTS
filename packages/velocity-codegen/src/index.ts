@@ -51,7 +51,15 @@ async function generate(request: VelocityGenerationRequest): Promise<GeneratedPl
   );
   if (model.platform !== 'velocity')
     throw new TypeError(`Expected velocity model, received ${model.platform}.`);
-  return generatePlatform(model);
+  const generated = generatePlatform(model);
+  for (const [name, coverage] of Object.entries({
+    declarations: generated.coverage.declarations,
+    members: generated.coverage.members,
+    events: generated.coverage.events,
+  }))
+    if (coverage.percent !== 100 || coverage.emitted !== coverage.expected)
+      throw new TypeError(`Velocity ${name} coverage must be independently 100%.`);
+  return generated;
 }
 export async function generateVelocityBindings(
   request: VelocityGenerationRequest,

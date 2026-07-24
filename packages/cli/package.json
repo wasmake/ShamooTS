@@ -1,7 +1,7 @@
 {
   "name": "@shamoo/cli",
   "version": "0.1.0-alpha.1",
-  "description": "Command parsing foundation for the Shamoo toolchain.",
+  "description": "Production CLI and developer tooling for Shamoo plugins.",
   "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
@@ -12,6 +12,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "shamoo": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -21,7 +24,17 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean"
+    "build": "tsup src/index.ts src/cli.ts --format esm,cjs --dts --sourcemap --clean"
+  },
+  "dependencies": {
+    "@shamoo/bundler": "workspace:^",
+    "@shamoo/compiler": "workspace:^",
+    "@shamoo/core": "workspace:^",
+    "@shamoo/create-plugin": "workspace:^",
+    "@shamoo/metadata": "workspace:^",
+    "@shamoo/paper-codegen": "workspace:^",
+    "@shamoo/runtime-protocol": "workspace:^",
+    "@shamoo/velocity-codegen": "workspace:^"
   },
   "engines": {
     "node": ">=22.0.0"

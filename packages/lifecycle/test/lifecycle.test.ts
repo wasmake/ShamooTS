@@ -426,6 +426,26 @@ describe('InvocationRuntime', () => {
     ).resolves.toBe('filtered:GuardRejectedError');
   });
 
+  it('caches call adapters only within one plugin runtime', async () => {
+    let reads = 0;
+    const target = Object.defineProperty({}, 'run', {
+      get: () => {
+        reads += 1;
+        return () => reads;
+      },
+    });
+    const metadata = { kind: 'task', target, method: 'run' } as const;
+    const first = new InvocationRuntime(new Container());
+    await expect(first.invoke(metadata)).resolves.toBe(1);
+    await expect(first.invoke(metadata)).resolves.toBe(1);
+    expect(reads).toBe(1);
+
+    const second = new InvocationRuntime(new Container());
+    await expect(second.invoke(metadata)).resolves.toBe(2);
+    expect(reads).toBe(2);
+    await Promise.all([first.dispose(), second.dispose()]);
+  });
+
   it('creates the applicable scope and disposes it exactly once on success and failure', async () => {
     const dispose = vi.fn();
     const scoped = createToken<object>('scoped');
@@ -777,6 +797,97 @@ describe('InvocationRuntime', () => {
 });
 
 describe('compiler metadata adapter', () => {
+  it('materializes compiler-declared service methods as task-scoped invocations', () => {
+    const target = { greet: vi.fn() };
+    const manifest = {
+      formatVersion: 2,
+      compilerVersion: 'test',
+      packageName: 'service-plugin',
+      modules: [],
+      entrypoints: {},
+      communication: {
+        services: [
+          {
+            id: 'example/greeting',
+            version: '1.0.0',
+            componentId: 'plugin.ts#Greeting',
+            methods: ['greet'],
+          },
+        ],
+        events: [],
+        consumers: [],
+      },
+      components: [
+        {
+          id: 'plugin.ts#Greeting',
+          kind: 'service',
+          name: 'Greeting',
+          file: 'plugin.ts',
+          platform: 'common',
+          decorators: [],
+          constructor: [],
+          properties: [],
+          methods: [{ name: 'greet', decorators: [], parameters: [], location }],
+          location,
+        },
+      ],
+    };
+    const loaded = loadRuntimeMetadata(manifest, {
+      resolveComponent: () => target,
+      resolveToken: () => 'token',
+      isExecutableMethod: () => true,
+    });
+    expect(loaded.invocations).toMatchObject([
+      { componentId: 'plugin.ts#Greeting', method: 'greet', kind: 'service', scope: 'task' },
+    ]);
+  });
+
+  it.each([
+    ['OnBlockBreakEvent', 'event'],
+    ['OnPlayerChatEvent', 'event'],
+    ['OnPacketReceive', 'packet'],
+  ] as const)(
+    'loads compiler invocation metadata for real generated %s names',
+    (decorator, kind) => {
+      const target = { handle: vi.fn() };
+      const manifest = {
+        formatVersion: 2,
+        compilerVersion: 'test',
+        packageName: '@test/generated-events',
+        modules: [],
+        entrypoints: {},
+        components: [
+          {
+            id: 'plugin.ts#Listener',
+            kind: 'component',
+            name: 'Listener',
+            file: 'plugin.ts',
+            platform: 'paper',
+            decorators: [],
+            constructor: [],
+            properties: [],
+            methods: [
+              {
+                name: 'handle',
+                invocation: kind,
+                decorators: [{ name: decorator, arguments: [], location }],
+                parameters: [],
+                location,
+              },
+            ],
+            location,
+          },
+        ],
+      };
+      const loaded = loadRuntimeMetadata(manifest, {
+        resolveComponent: () => target,
+        resolveToken: () => 'token',
+        isExecutableMethod: () => true,
+      });
+      expect(loaded.invocations).toMatchObject([{ kind, method: 'handle' }]);
+    },
+  );
+
   it('loads only executable whitelisted fields and maps lifecycle, scope, context, and DI parameters', () => {
     const target = { load: vi.fn(), command: vi.fn() };
     const manifest = {

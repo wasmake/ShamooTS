@@ -24,6 +24,7 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean"
   },
   "dependencies": {
+    "@shamoo/communication": "workspace:^",
     "@shamoo/core": "workspace:^",
     "@shamoo/platform": "workspace:^",
     "@shamoo/velocity-raw": "workspace:^"

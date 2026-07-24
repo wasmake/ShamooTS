@@ -24,7 +24,7 @@ describe('foundation validation branches', () => {
   });
 
   it('rejects unknown CLI arguments', () => {
-    expect(() => parseCliCommand('deploy')).toThrow('Unknown Shamoo command: deploy');
+    expect(() => parseCliCommand('fabric')).toThrow('Unknown Shamoo command: fabric');
   });
 
   it('validates every compiler request requirement', () => {

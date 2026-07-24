@@ -6,6 +6,8 @@ Shamoo is a framework foundation for TypeScript-authored Minecraft plugins. Phas
 
 The dependency direction is `common/core -> platform and protocol -> paper/velocity -> compiler declarations`. Raw packages hold opaque branded host values so TypeScript code cannot accidentally treat arbitrary objects as Paper or Velocity handles. `@shamoo/di` is an isolated runtime package; `@shamoo/config` remains contract-only.
 
+Cross-plugin communication follows `runtime-protocol -> communication -> paper/velocity`. The neutral layer owns semver service/event contracts, reload policy, codecs, stable rebinding proxies, and transport errors. Platform packages only adapt host messaging. Paper can run without Velocity and exposes that state explicitly rather than silently dropping requests.
+
 ## Platform model
 
 `PlatformKind` is the exact two-member enum `PAPER` and `VELOCITY`. A `Platform` has a branded name and an explicit read-only capability set. Capabilities describe commands, configuration, events, messaging, and scheduling. They are assertions by a host adapter, not evidence that Phase 1 implements those systems.
@@ -24,5 +26,17 @@ See [compiler](compiler.md) and [ADR 0003](adr/0003-compiler-owned-metadata.md).
 ## Build and release
 
 All public packages share version `0.1.0-alpha.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
+
+Release-candidate tags run the complete repository check before packaging. The
+workflow creates package tarballs, an SPDX JSON SBOM, and SHA-256 checksums,
+uploads them as a GitHub artifact, and issues GitHub/Sigstore build-provenance
+attestations over every artifact. It never publishes to npm; publication is a
+separate, deliberate release action.
+
+Shamoo's compiler and bundler form a static policy boundary, not a security
+sandbox. Platform adapters own JVM objects, transport authentication, and host
+capability grants. Plugin dependencies and explicitly permitted Node/native APIs
+remain inside the plugin process trust boundary. See [compiler](compiler.md) and
+[compatibility matrix](compatibility.md).
 
 Source-bearing packages are workspaces. Remaining future scopes stay plain directories until they have behavior worth compiling, avoiding nominal modules that imply unavailable functionality.

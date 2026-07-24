@@ -29,5 +29,8 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "dependencies": {
+    "zod": "4.3.6"
   }
 }

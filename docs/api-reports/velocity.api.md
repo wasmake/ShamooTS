@@ -4,6 +4,12 @@
 
 ```ts
 
+// @public
+export function createVelocityCommunicationHandler(handler: CommunicationRequestHandler): (payload: Uint8Array) => Promise<Uint8Array>;
+
+// @public
+export function createVelocityHostApi(host: VelocityRuntimeHost, namespace?: string): VelocityHostApi;
+
 // @public (undocumented)
 export function createVelocityPlatform(capabilities?: Iterable<PlatformCapability>, name?: string): Platform;
 
@@ -60,6 +66,24 @@ export interface VelocityEventRegistry {
 export type VelocityEventType = keyof GeneratedEventMap;
 
 // @public (undocumented)
+export interface VelocityHostApi {
+    // (undocumented)
+    command(name: string, handler: (...values: readonly unknown[]) => unknown, aliases?: readonly string[]): void;
+    // (undocumented)
+    on(type: string, handler: (event: unknown) => unknown, order?: number): void;
+    // (undocumented)
+    provideService(id: string, version: string, handler: (operation: string, values: readonly unknown[]) => unknown): void;
+    // (undocumented)
+    proxyEndpoint(handler: (payload: Uint8Array) => unknown): void;
+    // (undocumented)
+    publishEvent(id: string, version: string, payload: unknown): Promise<unknown>;
+    // (undocumented)
+    schedule(delayMilliseconds: number, handler: () => unknown): void;
+    // (undocumented)
+    subscribeEvent(id: string, versionRange: string, handler: (payload: unknown) => unknown): void;
+}
+
+// @public (undocumented)
 export interface VelocityMessagingChannel<T> {
     // (undocumented)
     decode(payload: Uint8Array): T;
@@ -73,6 +97,34 @@ export interface VelocityMessagingChannel<T> {
 export interface VelocityMessenger {
     // (undocumented)
     send<T>(server: RegisteredServer, channel: VelocityMessagingChannel<T>, value: T): boolean;
+}
+
+// @public (undocumented)
+export interface VelocityRuntimeHost {
+    // (undocumented)
+    registerCallback(name: string, callback: (...values: readonly never[]) => unknown): boolean;
+    // (undocumented)
+    shamooProvideService(id: string, version: string, callback: string): unknown;
+    // (undocumented)
+    shamooPublishEvent(id: string, version: string, payload: unknown): Promise<unknown>;
+    // (undocumented)
+    shamooSubscribeEvent(id: string, versionRange: string, callback: string): unknown;
+    // (undocumented)
+    velocityRegisterCommand(metadata: object, name: string, aliases: readonly string[], callback: {
+        readonly $callback: string;
+    }): unknown;
+    // (undocumented)
+    velocityRegisterProxyEndpoint(metadata: object, callback: {
+        readonly $callback: string;
+    }): unknown;
+    // (undocumented)
+    velocitySchedule(metadata: object, delayMilliseconds: number, callback: {
+        readonly $callback: string;
+    }): unknown;
+    // (undocumented)
+    velocitySubscribeEvent(metadata: object, type: string, order: number, callback: {
+        readonly $callback: string;
+    }): unknown;
 }
 
 // @public (undocumented)

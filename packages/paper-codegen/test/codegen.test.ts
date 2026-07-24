@@ -33,6 +33,10 @@ describe('Paper codegen filesystem wrapper', () => {
     async (surface) => {
       const outputDirectory = await mkdtemp(join(tmpdir(), `shamoo-${surface}-`));
       const request = { surface, model: model(surface), outputDirectory };
+      const generated = await generatePaperBindings(request);
+      expect(generated.coverage.declarations.percent).toBe(100);
+      expect(generated.coverage.members.percent).toBe(100);
+      expect(generated.coverage.events.percent).toBe(100);
       const first = await syncPaperBindings(request);
       expect(first.length).toBeGreaterThanOrEqual(4);
       await expect(syncPaperBindings(request)).resolves.toEqual([]);
@@ -45,6 +49,7 @@ describe('Paper codegen filesystem wrapper', () => {
       ]).toEqual(expect.arrayContaining([expect.objectContaining({ changed: false })]));
       expect(Object.values(difference.shards).every((item) => !item.changed)).toBe(true);
     },
+    120_000,
   );
 
   it('accepts model paths and rejects a mismatched surface', async () => {

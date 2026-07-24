@@ -2,7 +2,7 @@
  * Invocation interceptor declarations.
  */
 export { UseInterceptors } from '@shamoo/decorators';
-export type InvocationKind = 'event' | 'command' | 'task' | 'service';
+export type InvocationKind = 'event' | 'command' | 'task' | 'packet' | 'service';
 export interface InvocationContext<Result = unknown> {
   readonly id: string;
   readonly correlationId: string;

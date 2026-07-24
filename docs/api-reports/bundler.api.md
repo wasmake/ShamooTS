@@ -32,6 +32,13 @@ export interface BundleRequest {
 }
 
 // @public (undocumented)
+export class CapabilityError extends Error {
+    constructor(importPath: string, importer: string, capability: string);
+    // (undocumented)
+    readonly code = "CAPABILITY_REQUIRED";
+}
+
+// @public (undocumented)
 export class PlatformLeakageError extends Error {
     constructor(platform: string, importPath: string, importer: string);
     // (undocumented)

@@ -6,11 +6,11 @@ describe('CLI parsing', () => {
   it('recognizes aliases, commands, and unknown input', () => {
     expect([undefined, '--help', '-h'].map(parseCliCommand)).toEqual(['help', 'help', 'help']);
     expect(['--version', '-v'].map(parseCliCommand)).toEqual(['version', 'version']);
-    expect(['build', 'paper', 'velocity'].map(parseCliCommand)).toEqual([
-      'build',
-      'paper',
-      'velocity',
-    ]);
+    expect(
+      ['build', 'create', 'deploy', 'dev', 'doctor', 'migrate', 'paper', 'velocity'].map(
+        parseCliCommand,
+      ),
+    ).toEqual(['build', 'create', 'deploy', 'dev', 'doctor', 'migrate', 'paper', 'velocity']);
     expect(() => parseCliCommand('wat')).toThrow('Unknown Shamoo command');
   });
 
@@ -34,6 +34,16 @@ describe('CLI parsing', () => {
       action: 'diff',
       model: 'model.json',
       outputDirectory: 'out',
+    });
+    expect(parsePlatformCodegenInvocation(['velocity', 'sync', '-'])).toEqual({
+      platform: 'velocity',
+      action: 'sync',
+    });
+    expect(parsePlatformCodegenInvocation(['paper', 'diff', 'paper', '-', 'generated'])).toEqual({
+      platform: 'paper',
+      action: 'diff',
+      surface: 'paper',
+      outputDirectory: 'generated',
     });
   });
 

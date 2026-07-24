@@ -3,10 +3,13 @@
   "entryPoints": [
     "packages/core/src/index.ts",
     "packages/common/src/index.ts",
+    "packages/communication/src/index.ts",
     "packages/di/src/index.ts",
     "packages/config/src/index.ts",
     "packages/testing/src/index.ts",
     "packages/platform/src/index.ts",
+    "packages/paper/src/index.ts",
+    "packages/velocity/src/index.ts",
     "packages/paper-codegen/src/index.ts",
     "packages/velocity-codegen/src/index.ts",
     "packages/platform-codegen/src/index.ts",

@@ -2,7 +2,9 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 import { PlatformCapability, PlatformKind } from '@shamoo/core';
+import { jsonCodec } from '@shamoo/communication';
 import { createPaperPlatform } from '@shamoo/paper';
+import { createVelocityPlatform } from '@shamoo/velocity';
 import { assertCapabilities } from '@shamoo/platform';
 import { describe, expect, it } from 'vitest';
 
@@ -10,6 +12,7 @@ const repositoryRoot = fileURLToPath(new URL('../../..', import.meta.url));
 const publicPackages = [
   'core',
   'common',
+  'communication',
   'di',
   'config',
   'testing',
@@ -50,6 +53,11 @@ describe('public package boundaries', () => {
     expect(() => {
       assertCapabilities(platform, [PlatformCapability.EVENTS]);
     }).not.toThrow();
+  });
+
+  it('exposes Velocity and isolate-safe communication through public exports', () => {
+    expect(createVelocityPlatform().kind).toBe(PlatformKind.VELOCITY);
+    expect(jsonCodec<number>().decode(jsonCodec<number>().encode(1))).toBe(1);
   });
 
   it.each(publicPackages)('%s has publishable artifact exports', async (name) => {

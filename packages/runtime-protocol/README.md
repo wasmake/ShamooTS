@@ -1,6 +1,6 @@
 # @shamoo/runtime-protocol
 
-Strict protocol `1.0` contracts shared by TypeScript plugins and Java hosts. The package validates canonical manifest v1 descriptors, exports a draft-07 JSON schema, negotiates the separately versioned runtime protocol against one selected host platform, and reports structured validation issues.
+Strict protocol `1.0` contracts shared by TypeScript plugins and Java hosts. The package validates canonical manifest v1 descriptors, exports a draft-07 JSON schema, negotiates the separately versioned runtime protocol against one selected host platform, and encodes bounded binary communication wire protocol `1` request/response envelopes.
 
 ```ts
 import { negotiateCompatibility, parseCommonDescriptor } from '@shamoo/runtime-protocol';

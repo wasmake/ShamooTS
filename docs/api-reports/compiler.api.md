@@ -51,15 +51,28 @@ export interface CompilerPermissions {
     // (undocumented)
     readonly builtins?: readonly string[];
     // (undocumented)
+    readonly childProcess?: boolean;
+    // (undocumented)
+    readonly filesystem?: {
+        readonly read: readonly string[];
+        readonly write: readonly string[];
+    };
+    // (undocumented)
     readonly nativeAddons?: boolean;
+    // (undocumented)
+    readonly network?: boolean;
     // (undocumented)
     readonly nms?: boolean;
     // (undocumented)
     readonly packets?: boolean;
+    // (undocumented)
+    readonly workers?: boolean;
 }
 
 // @public (undocumented)
 export interface PluginCompilationRequest {
+    // (undocumented)
+    readonly communication?: CommunicationMetadata;
     // (undocumented)
     readonly entrypoint: string;
     // (undocumented)

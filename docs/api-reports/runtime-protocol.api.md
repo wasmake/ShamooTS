@@ -81,6 +81,61 @@ export const CommonDescriptorSchema: z.ZodObject<{
 }, z.core.$strict>;
 
 // @public (undocumented)
+export const COMMUNICATION_PROTOCOL_VERSION: 1;
+
+// @public (undocumented)
+export interface CommunicationContractReference {
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly version: string;
+}
+
+// @public (undocumented)
+export type CommunicationEnvelope = CommunicationRequestEnvelope | CommunicationResponseEnvelope;
+
+// @public (undocumented)
+export interface CommunicationRequestEnvelope {
+    // (undocumented)
+    readonly contract: CommunicationContractReference;
+    // (undocumented)
+    readonly kind: 'request';
+    // (undocumented)
+    readonly operation: string;
+    // (undocumented)
+    readonly payload: Uint8Array;
+    // (undocumented)
+    readonly protocolVersion: typeof COMMUNICATION_PROTOCOL_VERSION;
+    // (undocumented)
+    readonly requestId: string;
+}
+
+// @public (undocumented)
+export type CommunicationResponseEnvelope = {
+    readonly protocolVersion: typeof COMMUNICATION_PROTOCOL_VERSION;
+    readonly kind: 'response';
+    readonly requestId: string;
+    readonly status: 'success';
+    readonly payload: Uint8Array;
+} | {
+    readonly protocolVersion: typeof COMMUNICATION_PROTOCOL_VERSION;
+    readonly kind: 'response';
+    readonly requestId: string;
+    readonly status: 'error';
+    readonly error: {
+        readonly code: string;
+        readonly message: string;
+    };
+};
+
+// @public (undocumented)
+export class CommunicationWireError extends Error {
+    constructor(message: string);
+    // (undocumented)
+    readonly code = "COMMUNICATION_WIRE_INVALID";
+}
+
+// @public (undocumented)
 export interface CompatibilityReason {
     // (undocumented)
     readonly code: 'PROTOCOL' | 'RUNTIME' | 'API' | 'PLATFORM' | 'MINECRAFT' | 'CAPABILITY';
@@ -99,6 +154,26 @@ export interface CompatibilityResult {
 }
 
 // @public (undocumented)
+export interface CrossRuntimeTrace {
+    // (undocumented)
+    readonly frames: readonly RuntimeStackFrame[];
+    // (undocumented)
+    readonly message: string;
+    // (undocumented)
+    readonly pluginId: string;
+    // (undocumented)
+    readonly scriptStack?: string;
+    // (undocumented)
+    readonly sourcePosition?: RuntimeSourcePosition;
+}
+
+// @public
+export function decodeCommunicationEnvelope(frame: Uint8Array): CommunicationEnvelope;
+
+// @public
+export function encodeCommunicationEnvelope(envelope: CommunicationEnvelope): Uint8Array;
+
+// @public (undocumented)
 export function isCommonDescriptor(value: unknown): value is CommonDescriptor;
 
 // @public (undocumented)
@@ -106,6 +181,12 @@ export function isRuntimeHandshake(value: unknown): value is RuntimeHandshake;
 
 // @public (undocumented)
 export const MANIFEST_VERSION: 1;
+
+// @public
+export const MAX_COMMUNICATION_FRAME_BYTES = 32766;
+
+// @public
+export const MAX_COMMUNICATION_PAYLOAD_BYTES = 30000;
 
 // @public (undocumented)
 export function negotiateCompatibility(descriptor: CommonDescriptor, runtime: RuntimeCompatibility): CompatibilityResult;
@@ -196,6 +277,34 @@ export type RuntimePlatform = {
     readonly name: 'velocity';
     readonly velocityApiVersion: string;
 };
+
+// @public
+export class RuntimeSourceMap {
+    // (undocumented)
+    clear(): void;
+    // (undocumented)
+    map(generated: RuntimeSourcePosition): RuntimeSourcePosition;
+    // (undocumented)
+    register(generated: RuntimeSourcePosition, original: RuntimeSourcePosition): void;
+    // (undocumented)
+    get size(): number;
+}
+
+// @public
+export interface RuntimeSourcePosition {
+    // (undocumented)
+    readonly column: number;
+    // (undocumented)
+    readonly line: number;
+    // (undocumented)
+    readonly resourceName: string;
+}
+
+// @public (undocumented)
+export interface RuntimeStackFrame extends RuntimeSourcePosition {
+    // (undocumented)
+    readonly functionName?: string;
+}
 
 // (No @packageDocumentation comment for this package)
 

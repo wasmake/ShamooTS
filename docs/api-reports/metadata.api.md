@@ -12,19 +12,31 @@ export type CanonicalValue = null | boolean | number | string | readonly Canonic
     readonly [key: string]: CanonicalValue;
 };
 
+// @public (undocumented)
+export interface CommunicationMetadata {
+    // (undocumented)
+    readonly consumers: readonly ServiceConsumerMetadata[];
+    // (undocumented)
+    readonly events: readonly EventContractMetadata[];
+    // (undocumented)
+    readonly services: readonly ServiceContractMetadata[];
+}
+
 // @public
 export const COMPILER_METADATA_VERSION: 2;
 
 // @public (undocumented)
 export interface CompilerManifest {
     // (undocumented)
+    readonly communication?: CommunicationMetadata | undefined;
+    // (undocumented)
     readonly compilerVersion: string;
     // (undocumented)
     readonly components: readonly ComponentMetadata[];
     // (undocumented)
     readonly entrypoints: {
-        readonly paper?: PlatformEntrypointMetadata;
-        readonly velocity?: PlatformEntrypointMetadata;
+        readonly paper?: PlatformEntrypointMetadata | undefined;
+        readonly velocity?: PlatformEntrypointMetadata | undefined;
     };
     // (undocumented)
     readonly formatVersion: 2;
@@ -34,9 +46,20 @@ export interface CompilerManifest {
     readonly packageName: string;
     // (undocumented)
     readonly permissions?: {
-        readonly nms?: boolean;
-        readonly packets?: boolean;
-    };
+        readonly builtins?: readonly string[] | undefined;
+        readonly filesystem?: {
+            readonly read: readonly string[];
+            readonly write: readonly string[];
+        } | undefined;
+        readonly network?: boolean | undefined;
+        readonly workers?: boolean | undefined;
+        readonly childProcess?: boolean | undefined;
+        readonly nativeAddons?: boolean | undefined;
+        readonly nms?: boolean | undefined;
+        readonly packets?: boolean | undefined;
+    } | undefined;
+    // (undocumented)
+    readonly sourceMaps?: readonly SourceMapMetadata[] | undefined;
 }
 
 // @public (undocumented)
@@ -80,23 +103,31 @@ export { DecoratorMetadata_2 as DecoratorMetadata }
 // @public (undocumented)
 export interface DependencyMetadata {
     // (undocumented)
-    readonly all?: boolean;
+    readonly all?: boolean | undefined;
     // (undocumented)
-    readonly index?: number;
+    readonly index?: number | undefined;
     // (undocumented)
-    readonly lazy?: boolean;
+    readonly lazy?: boolean | undefined;
     // (undocumented)
     readonly location: SourceLocation;
     // (undocumented)
-    readonly name?: string;
+    readonly name?: string | undefined;
     // (undocumented)
-    readonly optional?: boolean;
+    readonly optional?: boolean | undefined;
     // (undocumented)
-    readonly property?: string;
+    readonly property?: string | undefined;
     // (undocumented)
-    readonly qualifier?: string;
+    readonly qualifier?: string | undefined;
     // (undocumented)
     readonly token: TokenMetadata;
+}
+
+// @public (undocumented)
+export interface EventContractMetadata {
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly version: string;
 }
 
 // @public (undocumented)
@@ -107,9 +138,9 @@ export interface MethodMetadata {
     // (undocumented)
     readonly decorators: readonly DecoratorMetadata_2[];
     // (undocumented)
-    readonly invocation?: 'event' | 'command' | 'task' | 'packet';
+    readonly invocation?: 'event' | 'command' | 'task' | 'packet' | undefined;
     // (undocumented)
-    readonly lifecycle?: 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
+    readonly lifecycle?: 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload' | undefined;
     // (undocumented)
     readonly location: SourceLocation;
     // (undocumented)
@@ -145,11 +176,35 @@ export interface ModuleMetadata {
 }
 
 // @public (undocumented)
+export function parseCompilerManifest(input: unknown): CompilerManifest;
+
+// @public (undocumented)
 export interface PlatformEntrypointMetadata {
     // (undocumented)
     readonly output: string;
     // (undocumented)
     readonly source: string;
+}
+
+// @public (undocumented)
+export interface ServiceConsumerMetadata {
+    readonly dependentReload: 'keep-running' | 'reload';
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly versionRange: string;
+}
+
+// @public (undocumented)
+export interface ServiceContractMetadata {
+    // (undocumented)
+    readonly componentId: string;
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly methods: readonly string[];
+    // (undocumented)
+    readonly version: string;
 }
 
 // @public (undocumented)
@@ -160,6 +215,16 @@ export interface SourceLocation {
     readonly file: string;
     // (undocumented)
     readonly line: number;
+}
+
+// @public (undocumented)
+export interface SourceMapMetadata {
+    // (undocumented)
+    readonly format: 'source-map-v3';
+    // (undocumented)
+    readonly generated: string;
+    // (undocumented)
+    readonly map: string;
 }
 
 // @public (undocumented)

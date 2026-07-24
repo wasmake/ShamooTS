@@ -4,14 +4,34 @@
 
 ```ts
 
+// @public
+export function analyzeWinterMigration(sourceRoot: string): Promise<WinterMigrationReport>;
+
+// @public (undocumented)
+export function buildProject(projectRoot: string): Promise<ProjectBuildResult>;
+
 // @public (undocumented)
 export const CLI_VERSION: "0.1.0-alpha.1";
 
 // @public (undocumented)
-export type CliCommand = 'build' | 'help' | 'version' | 'paper' | 'velocity';
+export type CliCommand = 'build' | 'create' | 'deploy' | 'dev' | 'doctor' | 'help' | 'migrate' | 'paper' | 'velocity' | 'version';
+
+// @public (undocumented)
+export interface CliIo {
+    // (undocumented)
+    readonly stderr: (value: string) => void;
+    // (undocumented)
+    readonly stdout: (value: string) => void;
+}
 
 // @public (undocumented)
 export type CodegenAction = 'generate' | 'sync' | 'diff';
+
+// @public (undocumented)
+export function deployProject(build: ProjectBuildResult, overrides?: Readonly<Partial<Record<'paper' | 'velocity', string>>>): Promise<readonly string[]>;
+
+// @public (undocumented)
+export function diagnoseRuntime(projectRoot: string): Promise<readonly RuntimeDiagnostic[]>;
 
 // @public (undocumented)
 export function parseCliCommand(argument: string | undefined): CliCommand;
@@ -31,6 +51,121 @@ export interface PlatformCodegenInvocation {
     readonly platform: 'paper' | 'velocity';
     // (undocumented)
     readonly surface?: 'paper' | 'paper-nms' | 'paper-packets';
+}
+
+// @public (undocumented)
+export interface ProjectBuildResult {
+    // (undocumented)
+    readonly artifacts: readonly BundleArtifact[];
+    // (undocumented)
+    readonly config: ShamooProjectConfig;
+    // (undocumented)
+    readonly manifest: NonNullable<Awaited<ReturnType<typeof compilePlugin>>['manifest']>;
+    // (undocumented)
+    readonly metadata: string;
+    // (undocumented)
+    readonly root: string;
+}
+
+// @public (undocumented)
+export function readProjectConfig(projectRoot: string): Promise<ShamooProjectConfig>;
+
+// @public (undocumented)
+export function runCli(arguments_: readonly string[], options?: RunCliOptions): Promise<number>;
+
+// @public (undocumented)
+export interface RunCliOptions {
+    // (undocumented)
+    readonly cwd?: string;
+    // (undocumented)
+    readonly io?: CliIo;
+    // (undocumented)
+    readonly watchSignal?: AbortSignal;
+}
+
+// @public (undocumented)
+export interface RuntimeDiagnostic {
+    // (undocumented)
+    readonly check: string;
+    // (undocumented)
+    readonly message: string;
+    // (undocumented)
+    readonly status: 'ok' | 'warning' | 'error';
+}
+
+// @public (undocumented)
+export interface ShamooProjectConfig {
+    // (undocumented)
+    readonly communication?: CommunicationMetadata;
+    // (undocumented)
+    readonly compatibility?: {
+        readonly api?: string;
+        readonly runtime?: string;
+        readonly minecraft?: string;
+        readonly paperApi?: string;
+        readonly velocityApi?: string;
+    };
+    // (undocumented)
+    readonly deploy?: {
+        readonly paper?: string;
+        readonly velocity?: string;
+    };
+    // (undocumented)
+    readonly displayName?: string;
+    // (undocumented)
+    readonly entrypoint: string;
+    // (undocumented)
+    readonly name: string;
+    // (undocumented)
+    readonly outDir?: string;
+    // (undocumented)
+    readonly paperEntrypoint?: string;
+    // (undocumented)
+    readonly permissions?: {
+        readonly builtins: readonly string[];
+        readonly filesystem: {
+            readonly read: readonly string[];
+            readonly write: readonly string[];
+        };
+        readonly network: boolean;
+        readonly workers: boolean;
+        readonly childProcess: boolean;
+        readonly nativeAddons: boolean;
+        readonly nms?: boolean;
+        readonly packets?: boolean;
+    };
+    // (undocumented)
+    readonly platforms: readonly ('paper' | 'velocity')[];
+    // (undocumented)
+    readonly tsconfig?: string;
+    // (undocumented)
+    readonly velocityEntrypoint?: string;
+    // (undocumented)
+    readonly version?: string;
+}
+
+// @public (undocumented)
+export interface WinterMigrationFinding {
+    // (undocumented)
+    readonly file: string;
+    // (undocumented)
+    readonly line: number;
+    // (undocumented)
+    readonly note: string;
+    // (undocumented)
+    readonly shamoo: string;
+    // (undocumented)
+    readonly winter: string;
+}
+
+// @public (undocumented)
+export interface WinterMigrationReport {
+    // (undocumented)
+    readonly files: number;
+    // (undocumented)
+    readonly findings: readonly WinterMigrationFinding[];
+    // (undocumented)
+    readonly root: string;
 }
 
 // (No @packageDocumentation comment for this package)

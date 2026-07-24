@@ -1,0 +1,88 @@
+name: Release candidate
+
+on:
+  push:
+    tags: ['v*-rc.*']
+
+permissions:
+  contents: read
+
+jobs:
+  full-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NODE_OPTIONS: --max-old-space-size=8192
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wasmake/ShamooRuntime
+          path: ShamooRuntime
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm contract:check
+        env:
+          SHAMOO_RUNTIME_ROOT: ${{ github.workspace }}/ShamooRuntime
+      - run: pnpm check
+      - run: pnpm test:coverage
+
+  candidate:
+    needs: full-ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    env:
+      NODE_OPTIONS: --max-old-space-size=8192
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wasmake/ShamooRuntime
+          path: ShamooRuntime
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm contract:check
+        env:
+          SHAMOO_RUNTIME_ROOT: ${{ github.workspace }}/ShamooRuntime
+      - run: pnpm build
+      - run: pnpm test:packed-cli
+      - run: mkdir release
+      - name: Pack release candidates
+        run: pnpm --recursive --filter './packages/**' pack --pack-destination "$GITHUB_WORKSPACE/release"
+      - name: Create SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: release
+          format: spdx-json
+          output-file: release/shamoo-${{ github.ref_name }}.spdx.json
+      - name: Create checksums
+        working-directory: release
+        run: sha256sum -- *.tgz *.spdx.json > SHA256SUMS
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |-
+            release/*.tgz
+            release/SHA256SUMS
+            release/*.spdx.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shamoo-${{ github.ref_name }}
+          path: release/
+          if-no-files-found: error
+          retention-days: 14

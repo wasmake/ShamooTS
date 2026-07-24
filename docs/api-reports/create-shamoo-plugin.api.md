@@ -5,6 +5,9 @@
 ```ts
 
 // @public (undocumented)
+export function defaultPluginName(directory: string): string;
+
+// @public (undocumented)
 export function definePluginProject(name: string, platform: PlatformKind): PluginProjectDeclaration;
 
 // @public (undocumented)
@@ -13,6 +16,29 @@ export interface PluginProjectDeclaration {
     readonly name: PackageName;
     // (undocumented)
     readonly platform: PlatformKind;
+}
+
+// @public
+export function scaffoldPlugin(options: ScaffoldPluginOptions): Promise<ScaffoldPluginResult>;
+
+// @public (undocumented)
+export interface ScaffoldPluginOptions {
+    // (undocumented)
+    readonly directory: string;
+    // (undocumented)
+    readonly name: string;
+    // (undocumented)
+    readonly packageManager?: 'npm' | 'pnpm' | 'yarn';
+    // (undocumented)
+    readonly platforms?: readonly PlatformKind[];
+}
+
+// @public (undocumented)
+export interface ScaffoldPluginResult {
+    // (undocumented)
+    readonly directory: string;
+    // (undocumented)
+    readonly files: readonly string[];
 }
 
 // (No @packageDocumentation comment for this package)

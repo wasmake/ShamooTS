@@ -36,7 +36,7 @@ export interface InvocationContext<Result = unknown> {
 }
 
 // @public
-export type InvocationKind = 'event' | 'command' | 'task' | 'service';
+export type InvocationKind = 'event' | 'command' | 'task' | 'packet' | 'service';
 
 // @public (undocumented)
 export const UseInterceptors = (...types: readonly unknown[]): ShamooDecorator =>

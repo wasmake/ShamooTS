@@ -18,7 +18,7 @@ export interface PipeContext {
     // (undocumented)
     readonly index: number;
     // (undocumented)
-    readonly kind: 'event' | 'command' | 'task' | 'service';
+    readonly kind: 'event' | 'command' | 'task' | 'packet' | 'service';
     // (undocumented)
     readonly parameter?: string;
     // (undocumented)

@@ -1,4 +1,5 @@
 # @shamoo/bundler
 
-Produces separate, source-mapped Paper and Velocity ESM bundles from compiler
-metadata. Cross-platform imports are rejected before resolution.
+Produces one self-contained, source-mapped ESM bundle with lazy Paper and
+Velocity component registries. The compiler remains authoritative for platform
+and capability import validation.

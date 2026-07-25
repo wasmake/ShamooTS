@@ -52,9 +52,9 @@ describe('Paper Velocity communication', () => {
       },
     });
     api.on('PlayerJoinEvent', () => undefined);
-    api.provideService('example/service', '1.0.0', () => undefined);
-    api.subscribeEvent('example/event', '^1.0.0', () => undefined);
-    await api.publishEvent('example/event', '1.0.0', { online: true });
+    api.provideService('example.service', '1.0.0', () => undefined);
+    api.subscribeEvent('example.event', '^1.0.0', () => undefined);
+    await api.publishEvent('example.event', '1.0.0', { online: true });
     expect(calls.map((item) => item.name)).toEqual([
       'event',
       'service',
@@ -257,7 +257,7 @@ describe('Paper Velocity communication', () => {
     ).rejects.toBeInstanceOf(VelocityTransportUnavailableError);
 
     const procedure = defineRemoteProcedure({
-      id: 'example/ping',
+      id: 'example.ping',
       version: '1.0.0',
       operation: 'ping',
       request: jsonCodec<null>(),

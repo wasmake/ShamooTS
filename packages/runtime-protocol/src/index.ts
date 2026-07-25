@@ -1,10 +1,11 @@
 /** Strict, transport-neutral contracts shared by Shamoo hosts and generated bridges. @packageDocumentation */
+import { CompilerMetadataSchema } from '@shamoo/metadata';
 import { satisfies, valid, validRange } from 'semver';
 import { z } from 'zod';
 
 export const RUNTIME_PROTOCOL_VERSION = 1 as const;
 export const PROTOCOL_VERSION = Object.freeze({ major: 1, minor: 0 } as const);
-export const MANIFEST_VERSION = 1 as const;
+export const MANIFEST_VERSION = 2 as const;
 export const COMMUNICATION_PROTOCOL_VERSION = 1 as const;
 /** Maximum complete plugin-message frame accepted by Paper and Velocity adapters. */
 export const MAX_COMMUNICATION_FRAME_BYTES = 32_766;
@@ -12,33 +13,46 @@ export const MAX_COMMUNICATION_FRAME_BYTES = 32_766;
 export const MAX_COMMUNICATION_PAYLOAD_BYTES = 30_000;
 
 const identifier = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
-const entrypoint =
-  /^(?!\/)(?![A-Za-z]:)(?!.*\\)(?!.*\0)(?!.*(?:^|\/)\.\.(?:\/|$))(?!.*\/\/)(?:\.\/)?[A-Za-z0-9._/-]+\.(?:js|mjs|cjs)$/;
-const safePath = /^(?!\/)(?![A-Za-z]:)(?!.*\\)(?!.*\s)(?!.*(?:^|\/)\.\.(?:\/|$))[^:*?"<>|]+$/;
+const exactSemanticVersion =
+  /^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
+const number = String.raw`(?:0|[1-9]\d*)`;
+const versionIdentifier = String.raw`(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)`;
+const prerelease = String.raw`(?:-${versionIdentifier}(?:\.${versionIdentifier})*)`;
+const build = String.raw`(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)`;
+const fullVersion = String.raw`${number}\.${number}\.${number}${prerelease}?${build}?`;
+const wildcard = String.raw`(?:x|X|\*)`;
+const partialVersion = String.raw`(?:${fullVersion}|${number}(?:\.(?:${number}(?:\.(?:${number}|${wildcard}))?|${wildcard}))?|${wildcard})`;
+const simpleRange = String.raw`(?:(?:<=|>=|<|>|=)[ \t]*|(?:\^|~>?))?${partialVersion}`;
+const rangeSet = String.raw`(?:${partialVersion}[ \t]+-[ \t]+${partialVersion}|${simpleRange}(?:[ \t]+${simpleRange})*)`;
+const npmSemverRange = new RegExp(
+  String.raw`^[ \t]*${rangeSet}(?:[ \t]*\|\|[ \t]*${rangeSet})*[ \t]*$`,
+);
+const safePath =
+  /^(?!\/)(?![A-Za-z]:)(?!.*\\)(?!.*\0)(?!\.$)(?!.*(?:^|\/)\.\.(?:\/|$))(?!.*(?:\/)\.(?:\/|$))(?!.*\/\/)(?:\.\/)?[^/]+(?:\/[^/]+)*$/;
 
 const strictObject = <T extends z.ZodRawShape>(shape: T) => z.strictObject(shape);
-const hasControlCharacter = (value: string): boolean => {
-  for (let index = 0; index < value.length; index += 1) {
-    const code = value.charCodeAt(index);
-    if (code <= 0x1f || (code >= 0x7f && code <= 0x9f)) return true;
-  }
-  return false;
-};
-const nonEmpty = z.string().trim().min(1);
+const nonEmpty = z
+  .string()
+  .min(1)
+  .max(256)
+  .refine((value) => value.trim().length > 0, 'Expected non-blank text.');
 const nameSchema = z.string().max(64).regex(identifier, 'Expected a lowercase Shamoo identifier.');
 const rangeSchema = z
   .string()
-  .refine(
-    (value) => value.trim().length > 0 && validRange(value) !== null,
-    'Invalid semver range.',
-  );
+  .max(256)
+  .regex(npmSemverRange, 'Invalid semver range.')
+  .refine((value) => validRange(value) !== null, 'Invalid semver range.');
 const versionSchema = z
   .string()
+  .regex(exactSemanticVersion, 'Invalid semantic version.')
   .refine((value) => valid(value) !== null, 'Invalid semantic version.');
 const pathSchema = z
   .string()
-  .regex(safePath, 'Expected a safe relative path without traversal.')
-  .refine((value) => !hasControlCharacter(value), 'Expected a path without control characters.')
+  .max(512)
+  .refine(
+    (value) => value === './' || safePath.test(value),
+    'Expected a safe relative path without traversal.',
+  )
   .refine((value) => {
     const normalized = value.startsWith('./') ? value.slice(2) : value;
     return (
@@ -48,16 +62,9 @@ const pathSchema = z
         .every((segment) => segment !== '' && segment !== '.' && segment !== '..')
     );
   }, 'Expected a path without empty, dot, or traversal segments.');
-const entrypointSchema = z
-  .string()
-  .regex(entrypoint, 'Expected a safe relative JavaScript entrypoint.')
-  .refine((value) => {
-    const normalized = value.startsWith('./') ? value.slice(2) : value;
-    return normalized
-      .split('/')
-      .every((segment) => segment !== '' && segment !== '.' && segment !== '..');
-  }, 'Expected an entrypoint without empty, dot, or traversal segments.');
-const dependencyMapSchema = z.record(nameSchema, rangeSchema);
+const dependencyMapSchema = z
+  .record(nameSchema, rangeSchema)
+  .refine((value) => Object.keys(value).length <= 256, 'Too many dependency entries.');
 
 export const ProtocolVersionSchema = strictObject({
   major: z.literal(PROTOCOL_VERSION.major),
@@ -66,31 +73,22 @@ export const ProtocolVersionSchema = strictObject({
 
 const enabledPaperPlatformSchema = strictObject({
   enabled: z.literal(true),
-  entrypoint: entrypointSchema,
   minecraft: rangeSchema,
   paperApi: rangeSchema,
+  nms: z.boolean(),
+  packets: z.boolean(),
 });
 const paperPlatformSchema = z.discriminatedUnion('enabled', [
   enabledPaperPlatformSchema,
-  strictObject({
-    enabled: z.literal(false),
-    entrypoint: entrypointSchema.optional(),
-    minecraft: rangeSchema.optional(),
-    paperApi: rangeSchema.optional(),
-  }),
+  strictObject({ enabled: z.literal(false) }),
 ]);
 const enabledVelocityPlatformSchema = strictObject({
   enabled: z.literal(true),
-  entrypoint: entrypointSchema,
   velocityApi: rangeSchema,
 });
 const velocityPlatformSchema = z.discriminatedUnion('enabled', [
   enabledVelocityPlatformSchema,
-  strictObject({
-    enabled: z.literal(false),
-    entrypoint: entrypointSchema.optional(),
-    velocityApi: rangeSchema.optional(),
-  }),
+  strictObject({ enabled: z.literal(false) }),
 ]);
 const platformsSchema = z.union(
   [
@@ -113,14 +111,21 @@ export const CommonDescriptorSchema = strictObject({
   dependencies: strictObject({
     required: dependencyMapSchema,
     optional: dependencyMapSchema,
-    loadBefore: z.array(nameSchema),
-    loadAfter: z.array(nameSchema),
+    loadBefore: z.array(nameSchema).max(256),
+    loadAfter: z.array(nameSchema).max(256),
   }),
   node: strictObject({
-    builtins: z.array(z.string().regex(/^node:[a-z][a-z0-9_/-]*$/)),
+    builtins: z
+      .array(
+        z
+          .string()
+          .max(256)
+          .regex(/^(?:node:)?[a-z][a-z0-9_/-]*$/),
+      )
+      .max(256),
     filesystem: strictObject({
-      read: z.array(pathSchema),
-      write: z.array(pathSchema),
+      read: z.array(pathSchema).max(256),
+      write: z.array(pathSchema).max(256),
     }),
     network: z.boolean(),
     workers: z.boolean(),
@@ -132,6 +137,7 @@ export const CommonDescriptorSchema = strictObject({
     debounceMs: z.number().int().min(0).max(60_000),
     preserveState: z.boolean(),
   }),
+  compiler: CompilerMetadataSchema,
 }).superRefine((descriptor, context) => {
   const required = Object.keys(descriptor.dependencies.required);
   const duplicateDependency = Object.keys(descriptor.dependencies.optional).find((name) =>
@@ -170,6 +176,31 @@ export const CommonDescriptorSchema = strictObject({
   ] as const) {
     if (new Set(values).size !== values.length)
       context.addIssue({ code: 'custom', path: [...path], message: 'Entries must be unique.' });
+  }
+  descriptor.compiler.components.forEach((component, index) => {
+    if (
+      (component.platform === 'paper' && !descriptor.platforms.paper.enabled) ||
+      (component.platform === 'velocity' && !descriptor.platforms.velocity.enabled)
+    )
+      context.addIssue({
+        code: 'custom',
+        path: ['compiler', 'components', index, 'platform'],
+        message: `Compiler component requires the ${component.platform} target to be enabled.`,
+      });
+  });
+  if (descriptor.platforms.paper.enabled && descriptor.platforms.velocity.enabled) {
+    const components = new Map(
+      descriptor.compiler.components.map((component) => [component.id, component]),
+    );
+    descriptor.compiler.communication.services.forEach((service, index) => {
+      const provider = components.get(service.componentId);
+      if (provider !== undefined && provider.platform !== 'common')
+        context.addIssue({
+          code: 'custom',
+          path: ['compiler', 'communication', 'services', index, 'componentId'],
+          message: 'A dual-platform service provider must be a common component.',
+        });
+    });
   }
 });
 
@@ -285,7 +316,10 @@ export function encodeCommunicationEnvelope(envelope: CommunicationEnvelope): Ui
   let fields: readonly (readonly [Uint8Array, 2 | 4])[];
   if (envelope.kind === 'request') {
     if (!communicationContractId.test(envelope.contract.id)) wireError('Invalid contract id.');
-    if (valid(envelope.contract.version) !== envelope.contract.version)
+    if (
+      !exactSemanticVersion.test(envelope.contract.version) ||
+      valid(envelope.contract.version) === null
+    )
       wireError('Contract version must be exact semver.');
     if (!identifier.test(envelope.operation)) wireError('Invalid operation.');
     const contract = strictBytes(
@@ -393,7 +427,7 @@ export function decodeCommunicationEnvelope(frame: Uint8Array): CommunicationEnv
       const operation = text(operationLength, 'operation');
       const payload = frame.slice(offset, offset + payloadLength);
       if (!communicationContractId.test(contractId)) wireError('Invalid contract id.');
-      if (valid(contractVersion) !== contractVersion)
+      if (!exactSemanticVersion.test(contractVersion) || valid(contractVersion) === null)
         wireError('Contract version must be exact semver.');
       if (!identifier.test(operation)) wireError('Invalid operation.');
       return {
@@ -549,7 +583,10 @@ export function isCommonDescriptor(value: unknown): value is CommonDescriptor {
 }
 
 export const COMMON_DESCRIPTOR_JSON_SCHEMA = Object.freeze(
-  z.toJSONSchema(CommonDescriptorSchema, { target: 'draft-7', unrepresentable: 'throw' }),
+  z.toJSONSchema(CommonDescriptorSchema, {
+    target: 'draft-2020-12',
+    unrepresentable: 'throw',
+  }),
 );
 
 export type RuntimePlatform =

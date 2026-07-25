@@ -1,19 +1,18 @@
 # Dual-platform plugin
 
-One platform-neutral plugin declaration compiled into independent Paper and Velocity bundles.
-`src/plugin.ts` contains no platform imports, so `shamooc` assigns it to the common reachability
-graph. The two thin entrypoints select the host lifecycle names without sharing platform APIs.
+One platform-neutral plugin declaration compiled into a single universal Paper and Velocity
+installation. `src/plugin.ts` contains no platform imports, so `shamooc` assigns it to both lazy
+platform graphs.
 
 ## Structure
 
 - `src/plugin.ts` provides common lifecycle and command behavior.
-- `src/paper.ts` exports the Paper entrypoint.
-- `src/velocity.ts` exports the Velocity entrypoint.
-- `test/plugin.test.ts` verifies the shared behavior and both frozen entrypoint declarations.
+- `src/paper.ts` is the import-only Paper source graph root.
+- `src/velocity.ts` is the import-only Velocity source graph root.
+- `test/plugin.test.ts` verifies the shared behavior.
 
-The default entrypoint hooks intentionally accept no context because the current bundled runtime
-adapter invokes them without one. Platform-specific code can be added behind the corresponding
-entrypoint without making it reachable from the opposite bundle.
+Platform-specific components can be imported by only the corresponding source root without making
+them reachable from the opposite lazy graph.
 
 ## Build
 
@@ -26,10 +25,8 @@ pnpm build
 
 ## Ready-to-run
 
-Download the archive for the server receiving the plugin:
-
-- Paper: `shamoo-example-dual-platform-plugin-paper-<version>.tgz`
-- Velocity: `shamoo-example-dual-platform-plugin-velocity-<version>.tgz`
-
-Extract it into that server's ShamooRuntime watched root. Each archive is independent and already
-contains the correct platform bundle; installing one does not install the example on both servers.
+Use the checked-in
+[`examples/compiled/dual-platform-plugin`](../compiled/dual-platform-plugin) installation, or
+download `shamoo-example-dual-platform-plugin-<version>.tgz` from the GitHub release. The exact same
+three-file artifact can be installed in either the Paper or Velocity ShamooRuntime watched root.
+Copy it to both hosts if the example should run on both.

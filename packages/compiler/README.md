@@ -1,5 +1,6 @@
 # @shamoo/compiler
 
-`shamooc` resolves a tsconfig, type-checks reachable plugin sources, discovers
+The compiler resolves a tsconfig, type-checks reachable plugin sources, discovers
 TypeScript decorator AST, validates platform and permission boundaries, and
-emits canonical metadata. It does not generate Paper or Velocity Java APIs.
+returns canonical `CompilerMetadata` in memory. The `shamooc` executable is
+provided by `@shamoo/cli` and runs the same complete build as `shamoo build`.

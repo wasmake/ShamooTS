@@ -1,0 +1,2 @@
+# Preserve canonical compiler bytes; bundled template literals can contain indented blank lines.
+examples/compiled/** whitespace=-blank-at-eol,-blank-at-eof

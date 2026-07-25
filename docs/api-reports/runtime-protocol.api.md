@@ -7,52 +7,41 @@
 import { z } from 'zod';
 
 // @public (undocumented)
-export const COMMON_DESCRIPTOR_JSON_SCHEMA: Readonly<z.core.JSONSchema.JSONSchema>;
-
-// @public (undocumented)
-export type CommonDescriptor = z.infer<typeof CommonDescriptorSchema>;
-
-// @public (undocumented)
-export const CommonDescriptorSchema: z.ZodObject<{
+export const COMMON_DESCRIPTOR_JSON_SCHEMA: Readonly<z.core.ZodStandardJSONSchemaPayload<z.ZodObject<{
     name: z.ZodString;
     displayName: z.ZodString;
     version: z.ZodString;
     shamoo: z.ZodObject<{
         api: z.ZodString;
         runtime: z.ZodString;
-        manifest: z.ZodLiteral<1>;
+        manifest: z.ZodLiteral<2>;
     }, z.core.$strict>;
     platforms: z.ZodUnion<readonly [z.ZodObject<{
         paper: z.ZodObject<{
             enabled: z.ZodLiteral<true>;
-            entrypoint: z.ZodString;
             minecraft: z.ZodString;
             paperApi: z.ZodString;
+            nms: z.ZodBoolean;
+            packets: z.ZodBoolean;
         }, z.core.$strict>;
         velocity: z.ZodDiscriminatedUnion<[z.ZodObject<{
             enabled: z.ZodLiteral<true>;
-            entrypoint: z.ZodString;
             velocityApi: z.ZodString;
         }, z.core.$strict>, z.ZodObject<{
             enabled: z.ZodLiteral<false>;
-            entrypoint: z.ZodOptional<z.ZodString>;
-            velocityApi: z.ZodOptional<z.ZodString>;
-        }, z.core.$strict>]>;
+        }, z.core.$strict>], "enabled">;
     }, z.core.$strict>, z.ZodObject<{
         paper: z.ZodDiscriminatedUnion<[z.ZodObject<{
             enabled: z.ZodLiteral<true>;
-            entrypoint: z.ZodString;
             minecraft: z.ZodString;
             paperApi: z.ZodString;
+            nms: z.ZodBoolean;
+            packets: z.ZodBoolean;
         }, z.core.$strict>, z.ZodObject<{
             enabled: z.ZodLiteral<false>;
-            entrypoint: z.ZodOptional<z.ZodString>;
-            minecraft: z.ZodOptional<z.ZodString>;
-            paperApi: z.ZodOptional<z.ZodString>;
-        }, z.core.$strict>]>;
+        }, z.core.$strict>], "enabled">;
         velocity: z.ZodObject<{
             enabled: z.ZodLiteral<true>;
-            entrypoint: z.ZodString;
             velocityApi: z.ZodString;
         }, z.core.$strict>;
     }, z.core.$strict>]>;
@@ -78,6 +67,74 @@ export const CommonDescriptorSchema: z.ZodObject<{
         debounceMs: z.ZodNumber;
         preserveState: z.ZodBoolean;
     }, z.core.$strict>;
+    compiler: z.ZodType<_shamoo_metadata.CompilerMetadata, unknown, z.core.$ZodTypeInternals<_shamoo_metadata.CompilerMetadata, unknown>>;
+}, z.core.$strict>>>;
+
+// @public (undocumented)
+export type CommonDescriptor = z.infer<typeof CommonDescriptorSchema>;
+
+// @public (undocumented)
+export const CommonDescriptorSchema: z.ZodObject<{
+    name: z.ZodString;
+    displayName: z.ZodString;
+    version: z.ZodString;
+    shamoo: z.ZodObject<{
+        api: z.ZodString;
+        runtime: z.ZodString;
+        manifest: z.ZodLiteral<2>;
+    }, z.core.$strict>;
+    platforms: z.ZodUnion<readonly [z.ZodObject<{
+        paper: z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            minecraft: z.ZodString;
+            paperApi: z.ZodString;
+            nms: z.ZodBoolean;
+            packets: z.ZodBoolean;
+        }, z.core.$strict>;
+        velocity: z.ZodDiscriminatedUnion<[z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            velocityApi: z.ZodString;
+        }, z.core.$strict>, z.ZodObject<{
+            enabled: z.ZodLiteral<false>;
+        }, z.core.$strict>], "enabled">;
+    }, z.core.$strict>, z.ZodObject<{
+        paper: z.ZodDiscriminatedUnion<[z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            minecraft: z.ZodString;
+            paperApi: z.ZodString;
+            nms: z.ZodBoolean;
+            packets: z.ZodBoolean;
+        }, z.core.$strict>, z.ZodObject<{
+            enabled: z.ZodLiteral<false>;
+        }, z.core.$strict>], "enabled">;
+        velocity: z.ZodObject<{
+            enabled: z.ZodLiteral<true>;
+            velocityApi: z.ZodString;
+        }, z.core.$strict>;
+    }, z.core.$strict>]>;
+    dependencies: z.ZodObject<{
+        required: z.ZodRecord<z.ZodString, z.ZodString>;
+        optional: z.ZodRecord<z.ZodString, z.ZodString>;
+        loadBefore: z.ZodArray<z.ZodString>;
+        loadAfter: z.ZodArray<z.ZodString>;
+    }, z.core.$strict>;
+    node: z.ZodObject<{
+        builtins: z.ZodArray<z.ZodString>;
+        filesystem: z.ZodObject<{
+            read: z.ZodArray<z.ZodString>;
+            write: z.ZodArray<z.ZodString>;
+        }, z.core.$strict>;
+        network: z.ZodBoolean;
+        workers: z.ZodBoolean;
+        childProcess: z.ZodBoolean;
+        nativeAddons: z.ZodBoolean;
+    }, z.core.$strict>;
+    reload: z.ZodObject<{
+        watch: z.ZodBoolean;
+        debounceMs: z.ZodNumber;
+        preserveState: z.ZodBoolean;
+    }, z.core.$strict>;
+    compiler: z.ZodType<_shamoo_metadata.CompilerMetadata, unknown, z.core.$ZodTypeInternals<_shamoo_metadata.CompilerMetadata, unknown>>;
 }, z.core.$strict>;
 
 // @public (undocumented)
@@ -180,7 +237,7 @@ export function isCommonDescriptor(value: unknown): value is CommonDescriptor;
 export function isRuntimeHandshake(value: unknown): value is RuntimeHandshake;
 
 // @public (undocumented)
-export const MANIFEST_VERSION: 1;
+export const MANIFEST_VERSION: 2;
 
 // @public
 export const MAX_COMMUNICATION_FRAME_BYTES = 32766;

@@ -25,38 +25,38 @@ The complete generated declaration compile may require `NODE_OPTIONS=--max-old-s
 
 ## Ready-to-run examples
 
-Release candidates include precompiled Paper and Velocity example installations that can be
-extracted directly into ShamooRuntime's watched plugin root. See the [examples catalog](examples)
-for downloads, platform support, installation paths, local build commands, and clearly identified
-source-only demonstrations.
+Release candidates include eight precompiled universal example installations that can be extracted
+directly into ShamooRuntime's Paper or Velocity watched plugin root. The same dual-platform artifact
+runs on either host. See the [examples catalog](examples) for checked-in installations, downloads,
+platform support, local build commands, and clearly identified source-only demonstrations.
 
 ## Public packages
 
-| Package                                    | Current scope                                                    |
-| ------------------------------------------ | ---------------------------------------------------------------- |
-| `@shamoo/core`                             | Paper/Velocity kinds, capabilities, and branded identities       |
-| `@shamoo/common`                           | Shared types and typed base errors                               |
-| `@shamoo/communication`                    | Versioned services, events, reload policy, typed transport       |
-| `@shamoo/di`                               | Plugin-local DI containers, scopes, providers, and modules       |
-| `@shamoo/config`                           | Source and decoder contracts; no file loader                     |
-| `@shamoo/testing`                          | Platform descriptors for contract tests                          |
-| `@shamoo/platform`                         | Validated platform declarations and capability assertions        |
-| `@shamoo/paper`, `@shamoo/paper-raw`       | Generated Paper raw API and idiomatic platform contracts         |
-| `@shamoo/paper-nms`, `paper-packets`       | Exact-version Paper-only NMS and packet declarations             |
-| `@shamoo/velocity`, `@shamoo/velocity-raw` | Generated Velocity raw API and async platform contracts          |
-| `@shamoo/*-codegen`, `platform-codegen`    | Scanner model validation, generation, sync, diff, coverage       |
-| `@shamoo/runtime-protocol`                 | Strict descriptor parsing and compatibility negotiation          |
-| `@shamoo/compiler`                         | `shamooc`, TypeScript discovery, diagnostics, and metadata       |
-| `@shamoo/metadata`, `@shamoo/reflection`   | Canonical metadata and explicit declaration access               |
-| `@shamoo/decorators`                       | Class, method, parameter, and property declarations              |
-| `@shamoo/lifecycle`, `@shamoo/conditions`  | Lifecycle execution, invocation runtime, and conditions          |
-| `@shamoo/events`, `@shamoo/commands`       | Event and command declaration contracts                          |
-| `@shamoo/scheduler`                        | Lifecycle-owned task declaration contracts                       |
-| `@shamoo/interceptors`, `guards`, `pipes`  | Invocation pipeline contracts                                    |
-| `@shamoo/filters`, `@shamoo/validation`    | Error and input validation contracts                             |
-| `@shamoo/bundler`                          | Separate source-mapped Paper and Velocity ESM bundles            |
-| `@shamoo/cli`                              | Installed build, deploy, dev, doctor, migration, and codegen CLI |
-| `@shamoo/create-plugin`                    | Safe non-interactive plugin project scaffolding                  |
+| Package                                    | Current scope                                              |
+| ------------------------------------------ | ---------------------------------------------------------- |
+| `@shamoo/core`                             | Paper/Velocity kinds, capabilities, and branded identities |
+| `@shamoo/common`                           | Shared types and typed base errors                         |
+| `@shamoo/communication`                    | Versioned services, events, reload policy, typed transport |
+| `@shamoo/di`                               | Plugin-local DI containers, scopes, providers, and modules |
+| `@shamoo/config`                           | Source and decoder contracts; no file loader               |
+| `@shamoo/testing`                          | Platform descriptors for contract tests                    |
+| `@shamoo/platform`                         | Validated platform declarations and capability assertions  |
+| `@shamoo/paper`, `@shamoo/paper-raw`       | Generated Paper raw API and idiomatic platform contracts   |
+| `@shamoo/paper-nms`, `paper-packets`       | Exact-version Paper-only NMS and packet declarations       |
+| `@shamoo/velocity`, `@shamoo/velocity-raw` | Generated Velocity raw API and async platform contracts    |
+| `@shamoo/*-codegen`, `platform-codegen`    | Scanner model validation, generation, sync, diff, coverage |
+| `@shamoo/runtime-protocol`                 | Strict descriptor parsing and compatibility negotiation    |
+| `@shamoo/compiler`                         | TypeScript discovery, diagnostics, and in-memory metadata  |
+| `@shamoo/metadata`, `@shamoo/reflection`   | Canonical metadata and explicit declaration access         |
+| `@shamoo/decorators`                       | Class, method, parameter, and property declarations        |
+| `@shamoo/lifecycle`, `@shamoo/conditions`  | Lifecycle execution, invocation runtime, and conditions    |
+| `@shamoo/events`, `@shamoo/commands`       | Event and command declaration contracts                    |
+| `@shamoo/scheduler`                        | Lifecycle-owned task declaration contracts                 |
+| `@shamoo/interceptors`, `guards`, `pipes`  | Invocation pipeline contracts                              |
+| `@shamoo/filters`, `@shamoo/validation`    | Error and input validation contracts                       |
+| `@shamoo/bundler`                          | One source-mapped ESM bundle with lazy platform registries |
+| `@shamoo/cli`                              | Installed build, dev, doctor, migration, and codegen CLI   |
+| `@shamoo/create-plugin`                    | Safe non-interactive plugin project scaffolding            |
 
 See the [platform bindings guide](docs/platform-bindings.md), [compatibility matrix](docs/compatibility.md), [plugin communication guide](docs/communication.md), [lifecycle guide](docs/lifecycle.md), [pipeline guide](docs/invocation-pipeline.md), [compiler guide](docs/compiler.md), [decorator reference](docs/decorators.md), [release guide](docs/releases.md), and [architecture](docs/architecture.md).
 

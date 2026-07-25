@@ -12,7 +12,7 @@ interface Economy {
 }
 
 const economy = defineServiceContract<Economy>({
-  id: 'example/economy',
+  id: 'example.economy',
   version: '2.1.0',
   methods: ['balance'],
 });

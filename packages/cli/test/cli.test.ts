@@ -7,10 +7,8 @@ describe('CLI parsing', () => {
     expect([undefined, '--help', '-h'].map(parseCliCommand)).toEqual(['help', 'help', 'help']);
     expect(['--version', '-v'].map(parseCliCommand)).toEqual(['version', 'version']);
     expect(
-      ['build', 'create', 'deploy', 'dev', 'doctor', 'migrate', 'paper', 'velocity'].map(
-        parseCliCommand,
-      ),
-    ).toEqual(['build', 'create', 'deploy', 'dev', 'doctor', 'migrate', 'paper', 'velocity']);
+      ['build', 'create', 'dev', 'doctor', 'migrate', 'paper', 'velocity'].map(parseCliCommand),
+    ).toEqual(['build', 'create', 'dev', 'doctor', 'migrate', 'paper', 'velocity']);
     expect(() => parseCliCommand('wat')).toThrow('Unknown Shamoo command');
   });
 

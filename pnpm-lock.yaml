@@ -103,6 +103,9 @@ importers:
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(supports-color@8.1.1)(tsx@4.23.1)(yaml@2.9.0)
 
   examples/complete-velocity-plugin:
     dependencies:
@@ -356,9 +359,6 @@ importers:
       esbuild:
         specifier: 0.27.7
         version: 0.27.7
-      typescript:
-        specifier: 5.8.3
-        version: 5.8.3
 
   packages/cli:
     dependencies:
@@ -520,9 +520,16 @@ importers:
 
   packages/metadata:
     dependencies:
+      semver:
+        specifier: 7.7.2
+        version: 7.7.2
       zod:
         specifier: 4.3.6
         version: 4.3.6
+    devDependencies:
+      '@types/semver':
+        specifier: 7.7.0
+        version: 7.7.0
 
   packages/paper:
     dependencies:
@@ -591,12 +598,15 @@ importers:
 
   packages/runtime-protocol:
     dependencies:
+      '@shamoo/metadata':
+        specifier: workspace:^
+        version: link:../metadata
       semver:
         specifier: 7.7.2
         version: 7.7.2
       zod:
-        specifier: 4.0.10
-        version: 4.0.10
+        specifier: 4.3.6
+        version: 4.3.6
     devDependencies:
       '@types/semver':
         specifier: 7.7.0
@@ -2839,9 +2849,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@4.0.10:
-    resolution: {integrity: sha512-3vB+UU3/VmLL2lvwcY/4RV2i9z/YU0DTV/tDuYjrwmx5WeJ7hwy+rGEEx8glHp6Yxw7ibRbKSaIFBgReRPe5KA==}
-
   zod@4.3.6:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
@@ -4959,7 +4966,5 @@ snapshots:
   yaml@2.9.0: {}
 
   yocto-queue@0.1.0: {}
-
-  zod@4.0.10: {}
 
   zod@4.3.6: {}

@@ -93,6 +93,8 @@ jobs:
         run: pnpm release:check release
       - name: Pack ready-to-run examples
         run: pnpm examples:pack
+      - name: Verify tracked example installations
+        run: pnpm examples:check
       - name: Create SBOM
         uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
         with:
@@ -142,7 +144,7 @@ jobs:
             exit 1
           fi
           assets=(release/*.tgz "release/shamoo-$GITHUB_REF_NAME.spdx.json" release/SHA256SUMS)
-          [[ ${#assets[@]} -eq 45 ]]
+          [[ ${#assets[@]} -eq 44 ]]
           gh release create "$GITHUB_REF_NAME" "${assets[@]}" \
             --verify-tag \
             --prerelease \

@@ -98,7 +98,7 @@ export interface InvokeOptions {
 }
 
 // @public (undocumented)
-export function isCompilerManifest(value: unknown): value is CompilerManifest;
+export function isCompilerMetadata(value: unknown): value is CompilerMetadata;
 
 // @public (undocumented)
 export class LifecycleAggregateError extends AggregateError {

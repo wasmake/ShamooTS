@@ -17,7 +17,7 @@ function isPlayerLeveledEvent(value: unknown): value is PlayerLeveledEvent {
 }
 
 export const PLAYER_LEVELED_EVENT = defineEventContract({
-  id: 'example/player-leveled',
+  id: 'example.player-leveled',
   version: '1.0.0',
   codec: jsonCodec<PlayerLeveledEvent>({
     maximumBytes: 1_024,

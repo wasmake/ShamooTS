@@ -21,6 +21,7 @@
     "contract:check": "node scripts/check-runtime-contract.mjs",
     "docs": "typedoc",
     "examples:build": "pnpm build && node scripts/build-examples.mjs",
+    "examples:check": "node scripts/check-compiled-examples.mjs",
     "examples:pack": "node scripts/build-examples.mjs examples/compiled release",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

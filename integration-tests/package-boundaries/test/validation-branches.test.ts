@@ -28,14 +28,12 @@ describe('foundation validation branches', () => {
   });
 
   it('validates every compiler request requirement', () => {
-    const name = packageName('@example/plugin');
     expect(() => {
-      validateCompilationRequest({ entrypoint: 'src/index.ts', packageName: name, platforms: [] });
+      validateCompilationRequest({ entrypoint: 'src/index.ts', platforms: [] });
     }).toThrow(InvalidDeclarationError);
     expect(() => {
       validateCompilationRequest({
         entrypoint: 'src/index.ts',
-        packageName: name,
         platforms: [PlatformKind.PAPER],
       });
     }).not.toThrow();

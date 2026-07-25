@@ -1,0 +1,185 @@
+{
+  "name": "commands",
+  "displayName": "Shamoo Commands Example",
+  "version": "0.1.0",
+  "shamoo": {
+    "api": "^0.1.0",
+    "runtime": "^0.1.0",
+    "manifest": 2
+  },
+  "platforms": {
+    "paper": {
+      "enabled": true,
+      "minecraft": "*",
+      "paperApi": "*",
+      "nms": false,
+      "packets": false
+    },
+    "velocity": {
+      "enabled": false
+    }
+  },
+  "dependencies": {
+    "required": {},
+    "optional": {},
+    "loadBefore": [],
+    "loadAfter": []
+  },
+  "node": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "reload": {
+    "watch": true,
+    "debounceMs": 150,
+    "preserveState": false
+  },
+  "compiler": {
+    "version": "0.1.0-rc.1",
+    "components": [
+      {
+        "id": "src/plugin.ts#CommandsPlugin",
+        "kind": "plugin",
+        "name": "CommandsPlugin",
+        "file": "src/plugin.ts",
+        "platform": "paper",
+        "decorators": [
+          {
+            "name": "Plugin",
+            "arguments": [
+              {
+                "name": "commands"
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 5,
+              "column": 1
+            }
+          }
+        ],
+        "constructor": [],
+        "properties": [],
+        "methods": [
+          {
+            "name": "enabled",
+            "lifecycle": "enable",
+            "decorators": [
+              {
+                "name": "OnEnable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 7,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 7,
+              "column": 3
+            }
+          },
+          {
+            "name": "ping",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "shamoo-ping"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 12,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 13,
+                  "column": 15
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 12,
+              "column": 3
+            }
+          },
+          {
+            "name": "greet",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "shamoo-greet"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 18,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 19,
+                  "column": 16
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 18,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "src/plugin.ts",
+          "line": 5,
+          "column": 1
+        }
+      }
+    ],
+    "modules": [],
+    "communication": {
+      "services": [],
+      "events": [],
+      "consumers": []
+    }
+  }
+}

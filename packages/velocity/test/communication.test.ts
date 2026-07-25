@@ -46,7 +46,7 @@ describe('Velocity communication adapter', () => {
       protocolVersion: 1,
       kind: 'request',
       requestId: '00112233-4455-6677-8899-aabbccddeeff',
-      contract: { id: 'example/ping', version: '1.0.0' },
+      contract: { id: 'example.ping', version: '1.0.0' },
       operation: 'ping',
       payload: codec.encode('ping'),
     });

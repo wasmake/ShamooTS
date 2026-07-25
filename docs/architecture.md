@@ -19,8 +19,8 @@ Paper and Velocity entrypoint helpers freeze declarations. The raw contexts are 
 Each DI root represents exactly one plugin. Module graph visibility, global exports, provider caches, overrides, traces, and disposal remain inside that root. Explicit metadata is the only constructor/property/lifecycle input. Child contexts model invocation scopes and scope compatibility prevents longer-lived providers from retaining narrower values. See [DI](di.md) and [ADR 0002](adr/0002-explicit-di-and-protocol-boundaries.md).
 
 `shamooc` produces that explicit metadata through TypeScript symbol and AST
-analysis. Platform-specific reachability and bundling remain separate checks so
-neither metadata nor a supplied manifest can introduce cross-platform imports.
+analysis. The compiler owns platform/capability policy; the bundler produces one
+universal module with lazy platform registries and does not duplicate AST checks.
 See [compiler](compiler.md) and [ADR 0003](adr/0003-compiler-owned-metadata.md).
 
 ## Build and release

@@ -1,10 +1,10 @@
-import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { readProjectConfig, runCli } from '../src/index.js';
+import { buildProject, readProjectConfig, runCli } from '../src/index.js';
 
 const temporary: string[] = [];
 
@@ -58,9 +58,16 @@ describe('CLI command integration', () => {
       [{ name: 'example', platforms: [], entrypoint: 'src.ts' }, "'platforms'"],
       [{ name: 'example', platforms: ['paper', 'paper'], entrypoint: 'src.ts' }, "'platforms'"],
       [{ name: 'example', platforms: ['fabric'], entrypoint: 'src.ts' }, "'platforms'"],
-      [{ name: 'example', platforms: ['paper'], entrypoint: 'src.ts', deploy: [] }, "'deploy'"],
+      [
+        { name: 'example', platforms: ['paper'], entrypoint: 'src.ts', artifact: {} },
+        "unsupported field 'artifact'",
+      ],
       [{ name: 'example', platforms: ['paper'], entrypoint: '' }, "'entrypoint'"],
       [{ name: 'example', platforms: ['paper'], entrypoint: '/absolute.ts' }, 'relative'],
+      [
+        { name: 'example', platforms: ['paper'], entrypoint: 'src.ts', outDir: '.' },
+        'project root',
+      ],
     ] as const) {
       await writeFile(config, JSON.stringify(value), 'utf8');
       await expect(readProjectConfig(root)).rejects.toThrow(message);
@@ -76,13 +83,11 @@ describe('CLI command integration', () => {
         velocityEntrypoint: 'src/velocity.ts',
         tsconfig: 'config/tsconfig.json',
         outDir: 'output',
-        deploy: { paper: 'paper/plugins', velocity: 'velocity/plugins' },
       }),
       'utf8',
     );
     await expect(readProjectConfig(root)).resolves.toMatchObject({
       platforms: ['paper', 'velocity'],
-      deploy: { paper: 'paper/plugins', velocity: 'velocity/plugins' },
     });
   });
 
@@ -102,7 +107,6 @@ describe('CLI command integration', () => {
       0,
     );
     expect(diagnosed.stdout.join('')).toContain('OK config');
-    expect(diagnosed.stdout.join('')).toContain('WARNING deploy:paper');
     expect(diagnosed.stderr).toEqual([]);
     const diagnosedJson = output();
     expect(
@@ -166,7 +170,7 @@ describe('CLI command integration', () => {
     expect(velocity.stdout.join('')).toContain('Synchronized velocity bindings');
   });
 
-  it('builds, deploys, and completes an aborted development watch with real artifacts', async () => {
+  it('builds exactly three files and completes an aborted build-only development watch', async () => {
     const root = await workspace();
     await mkdir(join(root, 'src'));
     await writeFile(join(root, 'src/plugin.ts'), 'export default { enable() {} };\n', 'utf8');
@@ -190,40 +194,165 @@ describe('CLI command integration', () => {
         name: '@example/identity',
         platforms: ['paper'],
         entrypoint: 'src/plugin.ts',
-        deploy: { paper: 'server/plugins' },
       }),
       'utf8',
     );
-    const deployed = output();
-    expect(await runCli(['deploy'], { cwd: root, io: deployed.io })).toBe(0);
-    expect(await readFile(join(root, 'server/plugins/identity/paper/index.js'), 'utf8')).toContain(
-      'enable',
-    );
-    await expect(
-      readFile(join(root, 'server/plugins/identity/paper/index.js.map'), 'utf8'),
-    ).resolves.toContain('sources');
-    await expect(
-      readFile(join(root, 'server/plugins/identity/shamoo.metadata.json'), 'utf8'),
-    ).resolves.toContain('"format": "source-map-v3"');
-    await expect(
-      readFile(join(root, 'server/plugins/identity/shamoo-plugin.json'), 'utf8'),
-    ).resolves.toContain('"entrypoint": "paper/index.js"');
+    await mkdir(join(root, 'dist'));
+    await writeFile(join(root, 'dist/stale.txt'), 'stale', 'utf8');
     expect(await runCli(['build'], { cwd: root, io: output().io })).toBe(0);
-    expect(
-      await runCli(['deploy', '--paper', 'alternate/plugins'], { cwd: root, io: output().io }),
-    ).toBe(0);
-    await expect(
-      readFile(join(root, 'alternate/plugins/identity/paper/index.js'), 'utf8'),
-    ).resolves.toContain('enable');
-
+    expect(await readdir(join(root, 'dist'))).toEqual([
+      'index.js',
+      'index.js.map',
+      'shamoo-plugin.json',
+    ]);
+    await expect(readFile(join(root, 'dist/index.js.map'), 'utf8')).resolves.toContain('sources');
+    const manifest = JSON.parse(await readFile(join(root, 'dist/shamoo-plugin.json'), 'utf8')) as {
+      name: string;
+      shamoo: { manifest: number };
+      platforms: { paper: object; velocity: object };
+      compiler: { version: unknown };
+    };
+    expect(manifest).toMatchObject({
+      name: 'identity',
+      shamoo: { manifest: 2 },
+      platforms: {
+        paper: { enabled: true, minecraft: '*', paperApi: '*', nms: false, packets: false },
+        velocity: { enabled: false },
+      },
+      compiler: {
+        components: [],
+        modules: [],
+        communication: { services: [], events: [], consumers: [] },
+      },
+    });
+    expect(typeof manifest.compiler.version).toBe('string');
+    expect(manifest.platforms.paper).not.toHaveProperty('entrypoint');
+    expect(manifest.platforms.velocity).toEqual({ enabled: false });
+    expect(manifest.compiler).not.toHaveProperty('packageName');
     const controller = new AbortController();
     controller.abort();
     const development = output();
     expect(
       await runCli(['dev'], { cwd: root, io: development.io, watchSignal: controller.signal }),
     ).toBe(0);
-    expect(development.stdout.join('')).toContain('Deployed 4 development files');
+    expect(development.stdout.join('')).toContain('Built development plugin artifact');
   });
+
+  it('rejects an output directory containing source without deleting project inputs', async () => {
+    const root = await workspace();
+    await mkdir(join(root, 'src'));
+    await writeFile(join(root, 'src/plugin.ts'), 'export const source = true;\n', 'utf8');
+    await writeFile(
+      join(root, 'tsconfig.json'),
+      JSON.stringify({ include: ['src/**/*.ts'] }),
+      'utf8',
+    );
+    await writeFile(
+      join(root, 'shamoo.config.json'),
+      JSON.stringify({
+        name: 'safe-output',
+        platforms: ['paper'],
+        entrypoint: 'src/plugin.ts',
+        outDir: 'src',
+      }),
+      'utf8',
+    );
+
+    await expect(buildProject(root)).rejects.toThrow('outDir must not contain');
+    await expect(readFile(join(root, 'src/plugin.ts'), 'utf8')).resolves.toContain('source = true');
+    await expect(readFile(join(root, 'tsconfig.json'), 'utf8')).resolves.toContain('src/**/*.ts');
+    await expect(readFile(join(root, 'shamoo.config.json'), 'utf8')).resolves.toContain(
+      'safe-output',
+    );
+  });
+
+  it('preserves the previous complete output when a rebuild fails', async () => {
+    const root = await workspace();
+    await mkdir(join(root, 'src'));
+    await writeFile(join(root, 'src/plugin.ts'), 'export const value = 1;\n', 'utf8');
+    await writeFile(
+      join(root, 'tsconfig.json'),
+      JSON.stringify({
+        compilerOptions: {
+          target: 'ES2022',
+          module: 'NodeNext',
+          moduleResolution: 'NodeNext',
+          strict: true,
+          noEmit: true,
+        },
+        include: ['src/**/*.ts'],
+      }),
+      'utf8',
+    );
+    await writeFile(
+      join(root, 'shamoo.config.json'),
+      JSON.stringify({
+        name: 'preserved-output',
+        platforms: ['paper'],
+        entrypoint: 'src/plugin.ts',
+      }),
+      'utf8',
+    );
+    await buildProject(root);
+    const previous = await Promise.all(
+      ['index.js', 'index.js.map', 'shamoo-plugin.json'].map((file) =>
+        readFile(join(root, 'dist', file)),
+      ),
+    );
+
+    await writeFile(join(root, 'src/plugin.ts'), 'export const value: = 2;\n', 'utf8');
+    await expect(buildProject(root)).rejects.toThrow('TYPESCRIPT');
+    const retained = await Promise.all(
+      ['index.js', 'index.js.map', 'shamoo-plugin.json'].map((file) =>
+        readFile(join(root, 'dist', file)),
+      ),
+    );
+    expect(retained).toEqual(previous);
+    expect((await readdir(root)).some((name) => name.startsWith('.dist-build-'))).toBe(false);
+  });
+
+  it('rejects a generated manifest exceeding the Runtime UTF-8 byte limit before writing', async () => {
+    const root = await workspace();
+    await mkdir(join(root, 'src'));
+    await mkdir(join(root, 'dist'));
+    await writeFile(join(root, 'src/plugin.ts'), 'export const value = 1;\n', 'utf8');
+    await writeFile(join(root, 'dist/previous.txt'), 'previous output', 'utf8');
+    await writeFile(
+      join(root, 'tsconfig.json'),
+      JSON.stringify({
+        compilerOptions: {
+          target: 'ES2022',
+          module: 'NodeNext',
+          moduleResolution: 'NodeNext',
+          strict: true,
+          noEmit: true,
+        },
+        include: ['src/**/*.ts'],
+      }),
+      'utf8',
+    );
+    const suffix = 'a'.repeat(200);
+    const events = Array.from({ length: 5_000 }, (_, index) => ({
+      id: `event.${String(index)}.${suffix}`,
+      version: '1.0.0',
+    }));
+    await writeFile(
+      join(root, 'shamoo.config.json'),
+      JSON.stringify({
+        name: 'bounded-manifest',
+        platforms: ['paper'],
+        entrypoint: 'src/plugin.ts',
+        communication: { services: [], events, consumers: [] },
+      }),
+      'utf8',
+    );
+
+    await expect(buildProject(root)).rejects.toThrow('1,048,576 UTF-8 bytes');
+    await expect(readFile(join(root, 'dist/previous.txt'), 'utf8')).resolves.toBe(
+      'previous output',
+    );
+    expect(await readdir(join(root, 'dist'))).toEqual(['previous.txt']);
+  }, 120_000);
 
   it('reports actionable Winter migrations and skips symlink traversal', async () => {
     const root = await workspace();

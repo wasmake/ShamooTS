@@ -16,6 +16,7 @@ and performs one meaningful lifecycle load; it does not claim automatic file wat
 
 ## Ready-to-run
 
-Download `shamoo-example-configuration-paper-<version>.tgz` from the GitHub release and extract it
+Use the checked-in [`examples/compiled/configuration`](../compiled/configuration) installation, or
+download `shamoo-example-configuration-<version>.tgz` from the GitHub release. Copy or extract it
 into `<paper-server>/plugins/ShamooRuntime/plugins`. This demonstrates validated startup decoding;
 it does not create or watch a configuration file.

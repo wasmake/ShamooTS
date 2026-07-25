@@ -14,7 +14,7 @@ export function buildProject(projectRoot: string): Promise<ProjectBuildResult>;
 export const CLI_VERSION: "0.1.0-rc.1";
 
 // @public (undocumented)
-export type CliCommand = 'build' | 'create' | 'deploy' | 'dev' | 'doctor' | 'help' | 'migrate' | 'paper' | 'velocity' | 'version';
+export type CliCommand = 'build' | 'create' | 'dev' | 'doctor' | 'help' | 'migrate' | 'paper' | 'velocity' | 'version';
 
 // @public (undocumented)
 export interface CliIo {
@@ -26,9 +26,6 @@ export interface CliIo {
 
 // @public (undocumented)
 export type CodegenAction = 'generate' | 'sync' | 'diff';
-
-// @public (undocumented)
-export function deployProject(build: ProjectBuildResult, overrides?: Readonly<Partial<Record<'paper' | 'velocity', string>>>): Promise<readonly string[]>;
 
 // @public (undocumented)
 export function diagnoseRuntime(projectRoot: string): Promise<readonly RuntimeDiagnostic[]>;
@@ -56,13 +53,11 @@ export interface PlatformCodegenInvocation {
 // @public (undocumented)
 export interface ProjectBuildResult {
     // (undocumented)
-    readonly artifacts: readonly BundleArtifact[];
+    readonly artifact: BundleArtifact;
     // (undocumented)
     readonly config: ShamooProjectConfig;
     // (undocumented)
-    readonly manifest: NonNullable<Awaited<ReturnType<typeof compilePlugin>>['manifest']>;
-    // (undocumented)
-    readonly metadata: string;
+    readonly manifestPath: string;
     // (undocumented)
     readonly root: string;
 }
@@ -104,11 +99,6 @@ export interface ShamooProjectConfig {
         readonly minecraft?: string;
         readonly paperApi?: string;
         readonly velocityApi?: string;
-    };
-    // (undocumented)
-    readonly deploy?: {
-        readonly paper?: string;
-        readonly velocity?: string;
     };
     // (undocumented)
     readonly displayName?: string;

@@ -5,7 +5,7 @@ export interface GreetingService {
 }
 
 export const GREETING_SERVICE = defineServiceContract<GreetingService>({
-  id: 'example/greeting',
+  id: 'example.greeting',
   version: '1.0.0',
   methods: ['greet'],
 });

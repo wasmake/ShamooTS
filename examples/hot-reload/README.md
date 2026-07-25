@@ -17,5 +17,5 @@ pnpm --filter @shamoo-examples/hot-reload typecheck
 pnpm --filter @shamoo-examples/hot-reload test
 ```
 
-For deployed development, `shamoo dev` performs rebuild and redeploy. It should not be described as
+For Runtime development, `shamoo dev` performs build-only watching. It should not be described as
 JavaScript module hot replacement or state preservation.

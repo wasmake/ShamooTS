@@ -2,9 +2,27 @@
 import { decodeCommunicationEnvelope, encodeCommunicationEnvelope } from '@shamoo/runtime-protocol';
 import { satisfies, valid, validRange } from 'semver';
 import type { InvocationRuntime, LoadedRuntimeMetadata } from '@shamoo/lifecycle';
-import type { CommunicationMetadata, CompilerManifest } from '@shamoo/metadata';
+import type { CommunicationMetadata, CompilerMetadata } from '@shamoo/metadata';
 
-const contractIdPattern = /^[a-z][a-z0-9]*(?:[._/-][a-z0-9]+)*$/;
+const contractIdPattern = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
+const exactSemanticVersion =
+  /^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
+const number = String.raw`(?:0|[1-9]\d*)`;
+const versionIdentifier = String.raw`(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)`;
+const prerelease = String.raw`(?:-${versionIdentifier}(?:\.${versionIdentifier})*)`;
+const build = String.raw`(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)`;
+const fullVersion = String.raw`${number}\.${number}\.${number}${prerelease}?${build}?`;
+const wildcard = String.raw`(?:x|X|\*)`;
+const partialVersion = String.raw`(?:${fullVersion}|${number}(?:\.(?:${number}(?:\.(?:${number}|${wildcard}))?|${wildcard}))?|${wildcard})`;
+const simpleRange = String.raw`(?:(?:<=|>=|<|>|=)[ \t]*|(?:\^|~>?))?${partialVersion}`;
+const rangeSet = String.raw`(?:${partialVersion}[ \t]+-[ \t]+${partialVersion}|${simpleRange}(?:[ \t]+${simpleRange})*)`;
+const npmSemverRange = new RegExp(
+  String.raw`^[ \t]*${rangeSet}(?:[ \t]*\|\|[ \t]*${rangeSet})*[ \t]*$`,
+);
+
+function validSemanticRange(value: string): boolean {
+  return npmSemverRange.test(value) && validRange(value) !== null;
+}
 
 export interface Codec<T> {
   encode(value: T): Uint8Array;
@@ -105,7 +123,7 @@ export class ServiceUnavailableError extends Error {
 function assertContract(id: string, version: string): void {
   if (id.length > 128 || !contractIdPattern.test(id))
     throw new TypeError(`Invalid communication contract id: ${id}`);
-  if (valid(version) === null)
+  if (!exactSemanticVersion.test(version) || valid(version) === null)
     throw new TypeError(`Contract version must be exact semver: ${version}`);
 }
 
@@ -178,7 +196,7 @@ export class ServiceRegistry {
     versionRange = contract.version,
   ): ServiceAvailability {
     this.#assertDeclared(contract.id, contract.version, 'service');
-    if (validRange(versionRange) === null)
+    if (!validSemanticRange(versionRange))
       throw new TypeError(`Invalid semver range: ${versionRange}`);
     const provider = this.#providers.get(contract.id);
     if (provider === undefined) return { available: false, reason: 'missing' };
@@ -192,7 +210,7 @@ export class ServiceRegistry {
     versionRange = contract.version,
   ): T {
     this.#assertDeclared(contract.id, contract.version, 'service');
-    if (validRange(versionRange) === null)
+    if (!validSemanticRange(versionRange))
       throw new TypeError(`Invalid semver range: ${versionRange}`);
     const key = `${contract.id}\u0000${versionRange}`;
     const existing = this.#proxies.get(key);
@@ -227,13 +245,13 @@ export class ServiceRegistry {
 
 /** Registers compiler-declared component methods through the scoped invocation runtime. */
 export function registerCompilerServices(
-  manifest: CompilerManifest,
+  metadata: CompilerMetadata,
   loaded: LoadedRuntimeMetadata,
   runtime: InvocationRuntime,
-  registry = new ServiceRegistry(manifest.communication),
+  registry = new ServiceRegistry(metadata.communication),
 ): readonly ServiceRegistration[] {
   return Object.freeze(
-    (manifest.communication?.services ?? []).map((service) => {
+    metadata.communication.services.map((service) => {
       const methods = new Map(
         service.methods.map((method) => {
           const invocation = loaded.invocations.find(
@@ -269,16 +287,16 @@ export function registerCompilerServices(
 /** Selects consumer plugins whose compiler metadata requests dependent reload. */
 export function dependentReloadConsumers(
   serviceId: string,
-  manifests: readonly CompilerManifest[],
+  metadata: readonly { readonly name: string; readonly compiler: CompilerMetadata }[],
 ): readonly string[] {
   return Object.freeze(
-    manifests
+    metadata
       .filter((manifest) =>
-        manifest.communication?.consumers.some(
+        manifest.compiler.communication.consumers.some(
           (consumer) => consumer.id === serviceId && consumer.dependentReload === 'reload',
         ),
       )
-      .map((manifest) => manifest.packageName)
+      .map((manifest) => manifest.name)
       .sort(),
   );
 }
@@ -326,7 +344,7 @@ export class VersionedEventBus {
     versionRange = contract.version,
   ): EventSubscription {
     this.#assertDeclared(contract);
-    if (validRange(versionRange) === null)
+    if (!validSemanticRange(versionRange))
       throw new TypeError(`Invalid semver range: ${versionRange}`);
     const listener: EventListener = {
       range: versionRange,

@@ -65,12 +65,12 @@ const tsGolden = JSON.parse(
 );
 const javaGolden = JSON.parse(
   await readFile(
-    resolve(runtimeRoot, 'runtime-protocol/src/test/resources/manifests/full-v1.json'),
+    resolve(runtimeRoot, 'runtime-protocol/src/test/resources/manifests/full-v2.json'),
     'utf8',
   ),
 );
 if (JSON.stringify(tsGolden) !== JSON.stringify(javaGolden))
-  throw new Error('Java and TypeScript canonical v1 descriptor fixtures differ.');
+  throw new Error('Java and TypeScript canonical v2 descriptor fixtures differ.');
 
 const javaValidation = await readFile(
   resolve(
@@ -86,6 +86,13 @@ const javaReload = await readFile(
   ),
   'utf8',
 );
+const javaArtifacts = await readFile(
+  resolve(
+    runtimeRoot,
+    'runtime-protocol/src/main/java/dev/shamoo/runtime/protocol/PluginArtifactProtocol.java',
+  ),
+  'utf8',
+);
 for (const contract of [
   'value.length() > 64',
   '(?:node:)?',
@@ -95,8 +102,11 @@ for (const contract of [
   if (!javaValidation.includes(contract))
     throw new Error(`Runtime validation contract is missing ${contract}.`);
 if (!javaReload.includes('MAX_DEBOUNCE_MS = 60_000'))
-  throw new Error('Runtime debounce contract is not canonical v1.');
+  throw new Error('Runtime debounce contract is not canonical v2.');
+for (const artifact of ['index.js', 'index.js.map', 'shamoo-plugin.json'])
+  if (!javaArtifacts.includes(`"${artifact}"`))
+    throw new Error(`Runtime artifact contract is missing ${artifact}.`);
 
 process.stdout.write(
-  `Verified TS ${releaseVersion} against Runtime ${runtimeVersion}, protocol v1, and the shared descriptor fixture.\n`,
+  `Verified TS ${releaseVersion} against Runtime ${runtimeVersion}, manifest v2, and the shared descriptor fixture.\n`,
 );

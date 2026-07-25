@@ -61,11 +61,26 @@ describe('packed CLI', () => {
     );
     await writeFile(join(root, 'fixture/src/plugin.ts'), 'export {};\n', 'utf8');
     await execute(cli, ['build', '--project', 'fixture'], { cwd: root, timeout: 120_000 });
-    await expect(readFile(join(root, 'fixture/dist/paper/index.js'), 'utf8')).resolves.toContain(
-      'installRuntimeAdapter',
+    expect((await readdir(join(root, 'fixture/dist'))).sort()).toEqual([
+      'index.js',
+      'index.js.map',
+      'shamoo-plugin.json',
+    ]);
+    const shamooManifest = await readFile(join(root, 'fixture/dist/shamoo-plugin.json'), 'utf8');
+    await expect(readFile(join(root, 'fixture/dist/index.js.map'), 'utf8')).resolves.toContain(
+      'runtime-adapter.ts',
     );
-    await expect(
-      readFile(join(root, 'fixture/dist/paper/index.js.map'), 'utf8'),
-    ).resolves.toContain('runtime-adapter.ts');
+
+    const compilerExecutable = process.platform === 'win32' ? 'shamooc.cmd' : 'shamooc';
+    const shamooc = join(root, 'node_modules', '.bin', compilerExecutable);
+    await execute(shamooc, ['--project', 'fixture'], { cwd: root, timeout: 120_000 });
+    expect((await readdir(join(root, 'fixture/dist'))).sort()).toEqual([
+      'index.js',
+      'index.js.map',
+      'shamoo-plugin.json',
+    ]);
+    await expect(readFile(join(root, 'fixture/dist/shamoo-plugin.json'), 'utf8')).resolves.toBe(
+      shamooManifest,
+    );
   }, 180_000);
 });

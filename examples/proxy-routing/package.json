@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "shamoo build",
+    "build": "shamooc",
     "doctor": "shamoo doctor",
     "test": "vitest run",
     "typecheck": "tsc --project tsconfig.json --pretty false"

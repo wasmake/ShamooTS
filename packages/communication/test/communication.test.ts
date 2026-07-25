@@ -25,7 +25,7 @@ interface GreetingService {
 }
 
 const greeting = defineServiceContract<GreetingService>({
-  id: 'example/greeting',
+  id: 'example.greeting',
   version: '1.2.0',
   methods: ['greet'],
 });
@@ -35,11 +35,8 @@ describe('cross-plugin services', () => {
     const location = { file: 'plugin.ts', line: 1, column: 1 };
     const target = { greet: (name: string) => `hello ${name}` };
     const manifest = {
-      formatVersion: 2 as const,
-      compilerVersion: 'test',
-      packageName: 'service-plugin',
+      version: 'test',
       modules: [],
-      entrypoints: {},
       communication: {
         services: [
           {
@@ -89,49 +86,49 @@ describe('cross-plugin services', () => {
           methods: ['greet'],
         },
       ],
-      events: [{ id: 'example/changed', version: '1.0.0' }],
+      events: [{ id: 'example.changed', version: '1.0.0' }],
       consumers: [],
     } as const;
     expect(() =>
       new ServiceRegistry(metadata).register(greeting, { greet: (name) => name }),
     ).not.toThrow();
     const undeclared = defineServiceContract<{ ping(): void }>({
-      id: 'example/ping',
+      id: 'example.ping',
       version: '1.0.0',
       methods: ['ping'],
     });
     expect(() => new ServiceRegistry(metadata).service(undeclared)).toThrow('compiler metadata');
     const bus = new VersionedEventBus(metadata);
     const declared = defineEventContract({
-      id: 'example/changed',
+      id: 'example.changed',
       version: '1.0.0',
       codec: jsonCodec<number>(),
     });
     await expect(bus.publish(declared, 1)).resolves.toBe(0);
     expect(() =>
       bus.subscribe(
-        defineEventContract({ id: 'example/other', version: '1.0.0', codec: jsonCodec<number>() }),
+        defineEventContract({ id: 'example.other', version: '1.0.0', codec: jsonCodec<number>() }),
         () => undefined,
       ),
     ).toThrow('compiler metadata');
   });
 
   it('uses per-consumer compiler metadata for Java-compatible dependent reload', () => {
-    const manifest = (packageName: string, dependentReload: 'keep-running' | 'reload') => ({
-      formatVersion: 2 as const,
-      compilerVersion: 'test',
-      packageName,
-      components: [],
-      modules: [],
-      entrypoints: {},
-      communication: {
-        services: [],
-        events: [],
-        consumers: [{ id: 'example/greeting', versionRange: '^1.0.0', dependentReload }],
+    const manifest = (name: string, dependentReload: 'keep-running' | 'reload') => ({
+      name,
+      compiler: {
+        version: 'test',
+        components: [],
+        modules: [],
+        communication: {
+          services: [],
+          events: [],
+          consumers: [{ id: 'example.greeting', versionRange: '^1.0.0', dependentReload }],
+        },
       },
     });
     expect(
-      dependentReloadConsumers('example/greeting', [
+      dependentReloadConsumers('example.greeting', [
         manifest('z-consumer', 'reload'),
         manifest('a-consumer', 'reload'),
         manifest('running', 'keep-running'),
@@ -171,17 +168,17 @@ describe('cross-plugin services', () => {
       'contract id',
     );
     expect(() =>
-      defineServiceContract({ id: 'example/service', version: '^1.0.0', methods: ['x'] }),
+      defineServiceContract({ id: 'example.service', version: '^1.0.0', methods: ['x'] }),
     ).toThrow('exact semver');
     expect(() =>
-      defineServiceContract({ id: 'example/service', version: '1.0.0', methods: [] }),
+      defineServiceContract({ id: 'example.service', version: '1.0.0', methods: [] }),
     ).toThrow('unique method');
     expect(() =>
-      defineServiceContract({ id: 'example/service', version: '1.0.0', methods: ['x', 'x'] }),
+      defineServiceContract({ id: 'example.service', version: '1.0.0', methods: ['x', 'x'] }),
     ).toThrow('unique method');
 
     const contract = defineServiceContract<{ x(): number }>({
-      id: 'example/service',
+      id: 'example.service',
       version: '1.0.0',
       methods: ['x'],
     });
@@ -189,6 +186,12 @@ describe('cross-plugin services', () => {
     expect(() => services.register(contract, {} as { x(): number })).toThrow('missing method');
     expect(() => services.availability(contract, 'invalid range')).toThrow('Invalid semver range');
     expect(() => services.service(contract, 'invalid range')).toThrow('Invalid semver range');
+    for (const version of ['v1.0.0', ' 1.0.0 '])
+      expect(() =>
+        defineServiceContract({ id: 'example.strict', version, methods: ['x'] }),
+      ).toThrow('exact semver');
+    for (const range of ['v1.0.0', '1.0.0 ||'])
+      expect(() => services.availability(contract, range)).toThrow('Invalid semver range');
     expect(services.availability(contract)).toEqual({ available: false, reason: 'missing' });
     const proxy = services.service(contract);
     expect(Object.prototype.toString.call(proxy)).toBe('[object ShamooServiceProxy]');
@@ -220,7 +223,7 @@ describe('versioned events and reload policies', () => {
         value !== null &&
         typeof Reflect.get(value, 'value') === 'number',
     });
-    const event = defineEventContract({ id: 'example/changed', version: '2.1.0', codec });
+    const event = defineEventContract({ id: 'example.changed', version: '2.1.0', codec });
     const bus = new VersionedEventBus();
     const received: number[] = [];
     bus.subscribe(
@@ -255,7 +258,7 @@ describe('versioned events and reload policies', () => {
   it('validates event subscriptions and awaits asynchronous listeners', async () => {
     const codec = jsonCodec<number>();
     expect(() => defineEventContract({ id: 'invalid id', version: '1.0.0', codec })).toThrow();
-    const event = defineEventContract({ id: 'example/async', version: '1.0.0', codec });
+    const event = defineEventContract({ id: 'example.async', version: '1.0.0', codec });
     const bus = new VersionedEventBus();
     expect(() => bus.subscribe(event, () => undefined, 'invalid range')).toThrow();
     let delivered = false;
@@ -289,7 +292,7 @@ describe('communication codecs', () => {
 
 describe('optional remote communication', () => {
   const procedure = defineRemoteProcedure({
-    id: 'example/routing',
+    id: 'example.routing',
     version: '1.0.0',
     operation: 'lookup',
     request: jsonCodec<{ player: string }>(),

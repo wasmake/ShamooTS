@@ -212,7 +212,7 @@
                   "kind": "token",
                   "value": {
                     "binding": "Context",
-                    "value": "value"
+                    "arguments": []
                   }
                 },
                 "location": {
@@ -249,7 +249,7 @@
                   "kind": "token",
                   "value": {
                     "binding": "Context",
-                    "value": "value"
+                    "arguments": []
                   }
                 },
                 "location": {

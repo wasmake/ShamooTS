@@ -6,12 +6,24 @@ by selling priced items.
 
 ## Commands
 
-- `/pay <player> <amount>` transfers money atomically to an exact online or cached player. Amounts
-  use decimal currency syntax such as `12.34`; self-payments are rejected.
-- `/bal [player]` shows your balance or the balance of an exact online or cached player. The console
-  must provide a player.
-- `/sell` sells the entire stack in the player's main hand. The stack is atomically compared and
-  removed before the account is credited, so a changed item cannot be duplicated.
+- `/pay <player> <amount>` transfers money atomically to an exact online or cached player. Player
+  names and decimal amounts are bound with `@Argument`; amounts such as `12.34` are converted to
+  minor units without floating-point arithmetic. Self-payments are rejected.
+- `/bal [player] [--minor|-m]` or `/balance` shows your balance or an exact online/cached player's
+  balance. The bound boolean option switches to raw minor units. The console must provide a player.
+- `/sell` atomically compares and removes the player's complete main-hand stack before crediting the
+  ledger, so a changed item cannot be duplicated.
+- `/prices` or `/shop` opens a protected one-row price list. Its item callbacks repeat prices in chat
+  without exposing the underlying Bukkit inventory or item objects.
+
+The compiler emits route syntax, parser/suggestion metadata, sender restrictions, and parameter
+bindings. The runtime rejects malformed invocations before the handler runs. Custom `parseMoney`
+validation remains in the handler because currency syntax is intentionally stricter than the general
+`number` parser.
+
+All Paper context operations are scheduler-marshalled promises. The handlers await player lookup,
+main-hand inspection/removal, inventory opening, and explicit replies before returning `void`.
+Decorated method return values are ignored by native dispatch.
 
 ## Prices
 
@@ -39,8 +51,10 @@ pnpm typecheck
 pnpm build
 ```
 
-`pnpm build` writes `index.js`, `index.js.map`, and `shamoo-plugin.json` to `dist/`.
-Install that directory using the server's artifact-management workflow.
+`pnpm build` writes `index.js`, `index.js.map`, and `shamoo-plugin.json` to `dist/`. Install that
+directory using the server's artifact-management workflow. See the repository
+[command guide](../../docs/commands.md) and
+[Paper rich text/UI guide](../../docs/paper-rich-text-ui.md) for the binding and inventory APIs.
 
 All balances live only in the `EconomyPlugin` instance. They reset to zero whenever the plugin is
 disabled, unloaded, redeployed, or the server restarts. No files or database are used.

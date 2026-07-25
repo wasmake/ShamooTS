@@ -60,7 +60,7 @@
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 5,
+              "line": 21,
               "column": 1
             }
           }
@@ -77,7 +77,7 @@
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 7,
+                  "line": 23,
                   "column": 3
                 }
               }
@@ -85,7 +85,7 @@
             "parameters": [],
             "location": {
               "file": "src/plugin.ts",
-              "line": 7,
+              "line": 23,
               "column": 3
             }
           },
@@ -96,11 +96,17 @@
               {
                 "name": "Command",
                 "arguments": [
-                  "shamoo-ping"
+                  "shamoo-ping",
+                  {
+                    "aliases": [
+                      "sping"
+                    ],
+                    "description": "Check whether the Shamoo commands example is responding."
+                  }
                 ],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 12,
+                  "line": 28,
                   "column": 3
                 }
               }
@@ -111,20 +117,35 @@
                 "token": {
                   "kind": "token",
                   "value": {
-                    "binding": "Context",
-                    "value": "value"
+                    "binding": "Sender",
+                    "arguments": []
                   }
                 },
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 13,
-                  "column": 15
+                  "line": 33,
+                  "column": 5
+                }
+              },
+              {
+                "index": 1,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 34,
+                  "column": 5
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 12,
+              "line": 28,
               "column": 3
             }
           },
@@ -135,11 +156,143 @@
               {
                 "name": "Command",
                 "arguments": [
-                  "shamoo-greet"
+                  "shamoo-greet [player] [message...]",
+                  {
+                    "aliases": [
+                      "sgreet"
+                    ],
+                    "description": "Greet an online player with an optional custom message."
+                  }
                 ],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 18,
+                  "line": 45,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Argument",
+                    "arguments": [
+                      "player",
+                      {
+                        "parser": "player",
+                        "suggestions": [
+                          "players"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 50,
+                  "column": 5
+                }
+              },
+              {
+                "index": 1,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Argument",
+                    "arguments": [
+                      "message"
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 52,
+                  "column": 5
+                }
+              },
+              {
+                "index": 2,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Option",
+                    "arguments": [
+                      "uppercase",
+                      {
+                        "aliases": [
+                          "u"
+                        ],
+                        "parser": "boolean"
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 53,
+                  "column": 5
+                }
+              },
+              {
+                "index": 3,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Sender",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 54,
+                  "column": 5
+                }
+              },
+              {
+                "index": 4,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 55,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 45,
+              "column": 3
+            }
+          },
+          {
+            "name": "menu",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Subcommand",
+                "arguments": [
+                  "shamoo-showcase",
+                  "menu",
+                  {
+                    "aliases": [
+                      "shamoo-demo"
+                    ],
+                    "description": "Open a protected rich-text and item-action showcase.",
+                    "permission": "shamoo.showcase",
+                    "sender": "player"
+                  }
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 66,
                   "column": 3
                 }
               }
@@ -151,26 +304,160 @@
                   "kind": "token",
                   "value": {
                     "binding": "Context",
-                    "value": "value"
+                    "arguments": []
                   }
                 },
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 19,
-                  "column": 16
+                  "line": 72,
+                  "column": 21
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 18,
+              "line": 66,
+              "column": 3
+            }
+          },
+          {
+            "name": "grant",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Subcommand",
+                "arguments": [
+                  "shamoo-showcase",
+                  "grant <material> [amount]",
+                  {
+                    "aliases": [
+                      "shamoo-demo"
+                    ],
+                    "description": "Grant an item whose left and right clicks run TypeScript callbacks.",
+                    "permission": "shamoo.showcase",
+                    "sender": "player"
+                  }
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 142,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Argument",
+                    "arguments": [
+                      "material",
+                      {
+                        "parser": "material",
+                        "suggestions": [
+                          "materials"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 149,
+                  "column": 5
+                }
+              },
+              {
+                "index": 1,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Argument",
+                    "arguments": [
+                      "amount",
+                      {
+                        "parser": "integer",
+                        "suggestions": [
+                          "1",
+                          "16",
+                          "64"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 150,
+                  "column": 5
+                }
+              },
+              {
+                "index": 2,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Option",
+                    "arguments": [
+                      "announce",
+                      {
+                        "aliases": [
+                          "a"
+                        ],
+                        "parser": "boolean"
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 152,
+                  "column": 5
+                }
+              },
+              {
+                "index": 3,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Sender",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 153,
+                  "column": 5
+                }
+              },
+              {
+                "index": 4,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 154,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 142,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "src/plugin.ts",
-          "line": 5,
+          "line": 21,
           "column": 1
         }
       }

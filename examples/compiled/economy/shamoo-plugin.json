@@ -60,7 +60,7 @@
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 65,
+              "line": 60,
               "column": 1
             }
           }
@@ -75,11 +75,15 @@
               {
                 "name": "Command",
                 "arguments": [
-                  "pay"
+                  "pay <player> <amount>",
+                  {
+                    "description": "Transfer decimal currency to an exact online or cached player.",
+                    "sender": "player"
+                  }
                 ],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 69,
+                  "line": 64,
                   "column": 3
                 }
               }
@@ -90,20 +94,81 @@
                 "token": {
                   "kind": "token",
                   "value": {
-                    "binding": "Context",
-                    "value": "value"
+                    "binding": "Argument",
+                    "arguments": [
+                      "player",
+                      {
+                        "suggestions": [
+                          "players"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 69,
+                  "column": 5
+                }
+              },
+              {
+                "index": 1,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Argument",
+                    "arguments": [
+                      "amount",
+                      {
+                        "suggestions": [
+                          "1.00",
+                          "10.00",
+                          "100.00"
+                        ]
+                      }
+                    ]
                   }
                 },
                 "location": {
                   "file": "src/plugin.ts",
                   "line": 70,
-                  "column": 14
+                  "column": 5
+                }
+              },
+              {
+                "index": 2,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Sender",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 71,
+                  "column": 5
+                }
+              },
+              {
+                "index": 3,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 72,
+                  "column": 5
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 69,
+              "line": 64,
               "column": 3
             }
           },
@@ -114,11 +179,17 @@
               {
                 "name": "Command",
                 "arguments": [
-                  "bal"
+                  "bal [player]",
+                  {
+                    "aliases": [
+                      "balance"
+                    ],
+                    "description": "Show a player balance, optionally in raw minor units."
+                  }
                 ],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 93,
+                  "line": 89,
                   "column": 3
                 }
               }
@@ -129,20 +200,80 @@
                 "token": {
                   "kind": "token",
                   "value": {
-                    "binding": "Context",
-                    "value": "value"
+                    "binding": "Argument",
+                    "arguments": [
+                      "player",
+                      {
+                        "suggestions": [
+                          "players"
+                        ]
+                      }
+                    ]
                   }
                 },
                 "location": {
                   "file": "src/plugin.ts",
                   "line": 94,
-                  "column": 18
+                  "column": 5
+                }
+              },
+              {
+                "index": 1,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Option",
+                    "arguments": [
+                      "minor",
+                      {
+                        "aliases": [
+                          "m"
+                        ],
+                        "parser": "boolean"
+                      }
+                    ]
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 95,
+                  "column": 5
+                }
+              },
+              {
+                "index": 2,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Sender",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 96,
+                  "column": 5
+                }
+              },
+              {
+                "index": 3,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 97,
+                  "column": 5
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 93,
+              "line": 89,
               "column": 3
             }
           },
@@ -153,11 +284,76 @@
               {
                 "name": "Command",
                 "arguments": [
-                  "sell"
+                  "sell",
+                  {
+                    "description": "Atomically sell the entire stack in your main hand.",
+                    "sender": "player"
+                  }
                 ],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 107,
+                  "line": 115,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Sender",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 120,
+                  "column": 5
+                }
+              },
+              {
+                "index": 1,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "arguments": []
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 121,
+                  "column": 5
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 115,
+              "column": 3
+            }
+          },
+          {
+            "name": "prices",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "prices",
+                  {
+                    "aliases": [
+                      "shop"
+                    ],
+                    "description": "Open the protected sell-price reference.",
+                    "sender": "player"
+                  }
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 152,
                   "column": 3
                 }
               }
@@ -169,26 +365,26 @@
                   "kind": "token",
                   "value": {
                     "binding": "Context",
-                    "value": "value"
+                    "arguments": []
                   }
                 },
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 108,
-                  "column": 15
+                  "line": 157,
+                  "column": 23
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 107,
+              "line": 152,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "src/plugin.ts",
-          "line": 65,
+          "line": 60,
           "column": 1
         }
       }

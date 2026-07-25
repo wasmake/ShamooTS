@@ -77,6 +77,7 @@ describe('decorator declarations', () => {
       declarations.Argument,
       declarations.Option,
       declarations.Sender,
+      declarations.Context,
       declarations.Validate,
     ]) {
       class MemberTarget {

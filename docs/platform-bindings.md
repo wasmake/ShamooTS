@@ -26,7 +26,7 @@ Paper scheduling distinguishes server, global region, region, and entity ownersh
 
 Event maps and registries are generated from each model's `events` collection. There is no handwritten event type list. Handler generic parameters select the concrete generated event. Mutable and cancellable Paper events remain live host objects; the idiomatic context exposes mutation rather than copying the event. Velocity result objects remain their nuanced native generated types.
 
-Command results retain numbers, booleans, and Adventure components, including asynchronous results. Raw Brigadier declarations remain available for code that needs source and syntax exception behavior directly.
+Paper command routes support literals, parsed required/optional/greedy arguments, options, suggestions, aliases, permissions, sender restrictions, and compiler-bound method parameters. Command methods return `void` or `Promise<void>` and send responses explicitly because native dispatch ignores decorated method return values. `PaperCommandContext` provides promise-facing reply, inventory, item, player lookup, and atomic main-hand operations that ShamooRuntime marshals to the owning Paper or Folia scheduler. Rich text descriptors are validated and rendered into Adventure components without exposing native components to plugin code. Raw Brigadier declarations remain available for code that needs source and syntax exception behavior directly. See the [command guide](commands.md) and [Paper rich text/UI guide](paper-rich-text-ui.md).
 
 ## NMS and packets
 

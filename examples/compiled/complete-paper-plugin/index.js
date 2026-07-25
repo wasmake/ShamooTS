@@ -165,6 +165,12 @@ var init_src = __esm({
 });
 
 // ../../packages/commands/src/index.ts
+function Command2(syntax, options) {
+  return options === void 0 ? Command(syntax) : Command(syntax, options);
+}
+function Context2() {
+  return Context();
+}
 var init_src2 = __esm({
   "../../packages/commands/src/index.ts"() {
     "use strict";
@@ -16912,11 +16918,10 @@ var init_plugin = __esm({
           `[complete-paper-plugin] Observed ${String(this.joins)} ${event.type} callback(s); asynchronous=${String(event.asynchronous)}.`
         );
       }
-      status() {
-        console.info(
-          `[complete-paper-plugin] ready=${String(this.ready)} joins=${String(this.joins)} scheduledRuns=${String(this.scheduledRuns)}`
+      async status(context) {
+        await context.reply(
+          `ready=${String(this.ready)} joins=${String(this.joins)} scheduledRuns=${String(this.scheduledRuns)}`
         );
-        return true;
       }
       runImmediateTask() {
         this.scheduledRuns += 1;
@@ -16943,10 +16948,11 @@ var init_plugin = __esm({
     ], CompletePaperPlugin.prototype, "becameReady", 1);
     __decorateClass([
       OnPlayerJoinEvent(),
-      __decorateParam(0, Context())
+      __decorateParam(0, Context2())
     ], CompletePaperPlugin.prototype, "playerJoined", 1);
     __decorateClass([
-      Command("shamoo-status")
+      Command2("shamoo-status"),
+      __decorateParam(0, Context2())
     ], CompletePaperPlugin.prototype, "status", 1);
     __decorateClass([
       Scheduled()
@@ -17000,6 +17006,9 @@ function runtimeHost() {
   const registerCallback = Reflect.get(value, "registerCallback");
   if (typeof registerCallback !== "function")
     throw new TypeError("Runtime host must provide registerCallback.");
+  const unregisterCallback = Reflect.get(value, "unregisterCallback");
+  if (typeof unregisterCallback !== "function")
+    throw new TypeError("Runtime host must provide unregisterCallback.");
   return value;
 }
 function operation(host, name) {
@@ -17040,6 +17049,44 @@ function commandBoolean(value, label) {
   if (typeof value !== "boolean") throw new TypeError(`Invalid Paper command ${label}.`);
   return value;
 }
+function commandPromise(value, label, validate) {
+  if (!(value instanceof Promise)) throw new TypeError(`Invalid Paper command ${label} promise.`);
+  return value.then(validate);
+}
+function commandNumber(value, label) {
+  if (typeof value !== "number" || !Number.isSafeInteger(value))
+    throw new TypeError(`Invalid Paper command ${label}.`);
+  return value;
+}
+function commandData(value, label, depth = 0) {
+  if (depth > 32) throw new TypeError(`Invalid Paper command ${label}.`);
+  if (value === null || typeof value === "string" || typeof value === "boolean" || typeof value === "number" && Number.isFinite(value))
+    return value;
+  if (Array.isArray(value))
+    return Object.freeze(value.map((item) => commandData(item, label, depth + 1)));
+  if (typeof value !== "object" || Reflect.ownKeys(value).some((key) => typeof key !== "string"))
+    throw new TypeError(`Invalid Paper command ${label}.`);
+  const source = value;
+  return Object.freeze(
+    Object.fromEntries(
+      Object.keys(source).map((key) => [key, commandData(source[key], label, depth + 1)])
+    )
+  );
+}
+function commandValues(value, label) {
+  const record2 = commandRecord(value, label);
+  return commandData(record2, label);
+}
+function commandSender(value) {
+  const rawSender = commandRecord(value, "sender");
+  const senderKeys = Object.hasOwn(rawSender, "id") ? ["name", "kind", "id"] : ["name", "kind"];
+  commandKeys(rawSender, senderKeys, "sender");
+  const kind = rawSender.kind;
+  if (kind !== "player" && kind !== "console" && kind !== "other")
+    throw new TypeError("Invalid Paper command sender kind.");
+  const name = commandString(rawSender.name, "sender name");
+  return Object.hasOwn(rawSender, "id") ? Object.freeze({ name, kind, id: commandString(rawSender.id, "sender id") }) : Object.freeze({ name, kind });
+}
 function commandPlayer(value) {
   if (value === null) return null;
   const player = commandRecord(value, "player result");
@@ -17061,36 +17108,169 @@ function commandItem(value) {
     amount: item.amount
   });
 }
-function paperCommandContext(host, component, method2, value) {
-  const raw = commandRecord(value, "context");
-  commandKeys(raw, ["token", "sender", "alias", "arguments"], "context");
-  const token = commandString(raw.token, "token");
-  const rawSender = commandRecord(raw.sender, "sender");
-  const senderKeys = Object.hasOwn(rawSender, "id") ? ["name", "kind", "id"] : ["name", "kind"];
-  commandKeys(rawSender, senderKeys, "sender");
-  const kind = rawSender.kind;
-  if (kind !== "player" && kind !== "other")
-    throw new TypeError("Invalid Paper command sender kind.");
-  const name = commandString(rawSender.name, "sender name");
-  const sender = Object.hasOwn(rawSender, "id") ? Object.freeze({ name, kind, id: commandString(rawSender.id, "sender id") }) : Object.freeze({ name, kind });
-  if (!Array.isArray(raw.arguments) || !raw.arguments.every((argument) => typeof argument === "string"))
-    throw new TypeError("Invalid Paper command arguments.");
-  const arguments_ = Object.freeze([...raw.arguments]);
+function validateDescriptor(value, depth = 0, ancestors = /* @__PURE__ */ new Set()) {
+  if (depth > 32) throw new TypeError("Paper descriptor nesting exceeds 32.");
+  if (value === null || typeof value === "string" || typeof value === "boolean" || typeof value === "number" && Number.isFinite(value))
+    return value;
+  if (typeof value === "function") return value;
+  if (typeof value !== "object" || value instanceof Uint8Array)
+    throw new TypeError("Unsupported Paper descriptor value.");
+  if (ancestors.has(value)) throw new TypeError("Paper descriptors cannot contain cycles.");
+  const keys = Reflect.ownKeys(value);
+  if (keys.some((key) => typeof key !== "string"))
+    throw new TypeError("Paper descriptors require string keys.");
+  const nextAncestors = new Set(ancestors);
+  nextAncestors.add(value);
+  if (Array.isArray(value))
+    return value.map((item) => validateDescriptor(item, depth + 1, nextAncestors));
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype !== Object.prototype && prototype !== null)
+    throw new TypeError("Unsupported Paper descriptor object.");
+  const record2 = value;
+  return Object.fromEntries(
+    keys.map((key) => {
+      const item = record2[key];
+      if (item === void 0) throw new TypeError("Paper descriptors cannot contain undefined.");
+      return [key, validateDescriptor(item, depth + 1, nextAncestors)];
+    })
+  );
+}
+function rollbackCallbacks(host, names) {
+  for (const name of names) {
+    try {
+      host.unregisterCallback(name);
+    } catch {
+    }
+  }
+}
+function encodeDescriptor(host, component, method2, callbacks, registered, value) {
+  if (typeof value === "function") {
+    const name = `${callbackId(component.id, method2.name)}.${String(callbacks.sequence++)}`;
+    register(host, name, (...values) => {
+      if (values.length !== 1) throw new TypeError("Invalid Paper action callback arguments.");
+      return Reflect.apply(value, void 0, [
+        paperActionContext(host, component, method2, callbacks, values[0])
+      ]);
+    });
+    registered.push(name);
+    return callbackMarker(name);
+  }
+  if (value === null || typeof value !== "object") return value;
+  if (Array.isArray(value)) {
+    const entries = value;
+    return entries.map(
+      (item) => encodeDescriptor(host, component, method2, callbacks, registered, item)
+    );
+  }
+  const record2 = value;
+  return Object.fromEntries(
+    Object.entries(record2).map(([key, item]) => [
+      key,
+      encodeDescriptor(host, component, method2, callbacks, registered, item)
+    ])
+  );
+}
+function descriptorCommandPromise(host, component, method2, callbacks, value, operation_, label, validate) {
+  const descriptor = validateDescriptor(value);
+  const registered = [];
+  try {
+    return commandPromise(
+      operation_(encodeDescriptor(host, component, method2, callbacks, registered, descriptor)),
+      label,
+      validate
+    );
+  } catch (failure) {
+    rollbackCallbacks(host, registered);
+    throw failure;
+  }
+}
+function paperActionContext(host, component, method2, callbacks, value) {
+  const raw = commandRecord(value, "action context");
+  const expected = [
+    "token",
+    "sender",
+    "action",
+    ...Object.hasOwn(raw, "slot") ? ["slot"] : [],
+    ...Object.hasOwn(raw, "item") ? ["item"] : []
+  ];
+  commandKeys(raw, expected, "action context");
+  const token = commandString(raw.token, "action token");
+  const action = raw.action;
+  if (action !== "click" && action !== "left" && action !== "right")
+    throw new TypeError("Invalid Paper command action.");
+  const item = Object.hasOwn(raw, "item") ? commandItem(raw.item) : void 0;
+  if (item === null) throw new TypeError("Invalid Paper command action item.");
   return Object.freeze({
-    sender,
+    sender: commandSender(raw.sender),
+    action,
+    ...Object.hasOwn(raw, "slot") ? { slot: commandNumber(raw.slot, "action slot") } : {},
+    ...item === void 0 ? {} : { item },
+    reply: (message) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      message,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandReply", token, descriptor),
+      "reply result",
+      (result) => commandBoolean(result, "reply result")
+    )
+  });
+}
+function paperCommandContext(host, component, method2, callbacks, value) {
+  const raw = commandRecord(value, "context");
+  commandKeys(raw, ["token", "sender", "alias", "input", "arguments", "options"], "context");
+  const token = commandString(raw.token, "token");
+  return Object.freeze({
+    sender: commandSender(raw.sender),
     alias: commandString(raw.alias, "alias"),
-    arguments: arguments_,
-    reply: (message) => commandBoolean(
-      call(host, "paper", component, method2, "paperCommandReply", token, message),
-      "reply result"
+    input: commandString(raw.input, "input"),
+    arguments: commandValues(raw.arguments, "arguments"),
+    options: commandValues(raw.options, "options"),
+    reply: (message) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      message,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandReply", token, descriptor),
+      "reply result",
+      (result) => commandBoolean(result, "reply result")
     ),
-    findPlayer: (playerName) => commandPlayer(
-      call(host, "paper", component, method2, "paperCommandFindPlayer", token, playerName)
+    openInventory: (inventory) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      inventory,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandOpenInventory", token, descriptor),
+      "open-inventory result",
+      (result) => commandBoolean(result, "open-inventory result")
     ),
-    mainHand: () => commandItem(call(host, "paper", component, method2, "paperCommandMainHand", token)),
-    takeMainHand: (material, amount) => commandBoolean(
+    giveItem: (item) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      item,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandGiveItem", token, descriptor),
+      "give-item result",
+      (result) => commandBoolean(result, "give-item result")
+    ),
+    findPlayer: (playerName) => commandPromise(
+      call(host, "paper", component, method2, "paperCommandFindPlayer", token, playerName),
+      "find-player result",
+      commandPlayer
+    ),
+    mainHand: () => commandPromise(
+      call(host, "paper", component, method2, "paperCommandMainHand", token),
+      "main-hand result",
+      commandItem
+    ),
+    takeMainHand: (material, amount) => commandPromise(
       call(host, "paper", component, method2, "paperCommandTakeMainHand", token, material, amount),
-      "take-main-hand result"
+      "take-main-hand result",
+      (result) => commandBoolean(result, "take-main-hand result")
     )
   });
 }
@@ -17123,15 +17303,234 @@ function firstString(method2, fallback) {
   const value = decorator(method2)?.arguments[0];
   return typeof value === "string" ? value : fallback;
 }
+function metadataRecord(value, label) {
+  if (value === null || typeof value !== "object" || Array.isArray(value))
+    throw new TypeError(`Invalid command ${label}.`);
+  return value;
+}
+function metadataStrings(value, label) {
+  if (!Array.isArray(value) || !value.every((item) => typeof item === "string"))
+    throw new TypeError(`Invalid command ${label}.`);
+  return [...value];
+}
+function metadataString(value, fallback, label) {
+  if (value === void 0) return fallback;
+  if (typeof value !== "string") throw new TypeError(`Invalid command ${label}.`);
+  return value;
+}
+function metadataBoolean(value, fallback, label) {
+  if (value === void 0) return fallback;
+  if (typeof value !== "boolean") throw new TypeError(`Invalid command ${label}.`);
+  return value;
+}
+var commandParsers = /* @__PURE__ */ new Set(["string", "integer", "number", "boolean", "player", "material"]);
+function commandParser(value, fallback) {
+  const parser = metadataString(value, fallback, "parser");
+  if (!commandParsers.has(parser)) throw new TypeError(`Invalid command parser: ${parser}`);
+  return parser;
+}
+function commandBindings(method2) {
+  return method2.parameters.flatMap((parameter) => {
+    if (parameter.index === void 0 || parameter.token.kind !== "token" || !("value" in parameter.token))
+      return [];
+    const value = parameter.token.value;
+    if (value === null || typeof value !== "object" || Array.isArray(value)) return [];
+    const record2 = value;
+    const binding = record2.binding;
+    const arguments_ = record2.arguments;
+    if (binding !== "Argument" && binding !== "Option" && binding !== "Sender" && binding !== "Context" || !Array.isArray(arguments_))
+      return [];
+    const commandBinding = binding;
+    return [{ binding: commandBinding, arguments: arguments_, index: parameter.index }];
+  }).sort((left, right) => left.index - right.index);
+}
+function commandBindingName(binding) {
+  const name = binding.arguments[0];
+  if (typeof name !== "string" || !/^[A-Za-z][A-Za-z0-9_-]{0,63}$/.test(name))
+    throw new TypeError(`Invalid @${binding.binding} command binding name.`);
+  return name;
+}
+function commandSuggestions(value, label) {
+  const suggestions = metadataStrings(value, label);
+  if (suggestions.some((suggestion) => suggestion.trim().length === 0) || new Set(suggestions).size !== suggestions.length)
+    throw new TypeError(`Invalid command ${label}: suggestions must be unique and nonblank.`);
+  return suggestions;
+}
+function commandOptionAliases(value, occupied) {
+  const aliases = metadataStrings(value, "Option aliases").map(
+    (value2) => value2.startsWith("-") ? value2.slice(1) : value2
+  );
+  for (const alias of aliases) {
+    if (!/^[A-Za-z0-9]$/.test(alias))
+      throw new TypeError("Invalid command option alias: expected one alphanumeric character.");
+    if (occupied.has(alias)) throw new TypeError(`Duplicate command option alias: ${alias}`);
+    occupied.add(alias);
+  }
+  return aliases;
+}
+function commandParameterDescriptors(method2) {
+  const arguments_ = [];
+  const options = [];
+  const argumentNames = /* @__PURE__ */ new Set();
+  const optionNames = /* @__PURE__ */ new Set();
+  const optionAliases = /* @__PURE__ */ new Set();
+  for (const binding of commandBindings(method2)) {
+    if (binding.binding !== "Argument" && binding.binding !== "Option") continue;
+    const name = commandBindingName(binding);
+    const rawOptions = binding.arguments[1] === void 0 ? {} : metadataRecord(binding.arguments[1], `${binding.binding} options`);
+    const suggestions = rawOptions.suggestions === void 0 ? [] : commandSuggestions(rawOptions.suggestions, `${binding.binding} suggestions`);
+    if (binding.binding === "Argument") {
+      if (argumentNames.has(name)) throw new TypeError(`Duplicate command argument name: ${name}`);
+      argumentNames.add(name);
+      arguments_.push({ name, parser: commandParser(rawOptions.parser, "string"), suggestions });
+    } else {
+      if (optionNames.has(name)) throw new TypeError(`Duplicate command option name: ${name}`);
+      optionNames.add(name);
+      options.push({
+        name,
+        parser: commandParser(rawOptions.parser, "boolean"),
+        aliases: rawOptions.aliases === void 0 ? [] : commandOptionAliases(rawOptions.aliases, optionAliases),
+        suggestions,
+        required: metadataBoolean(rawOptions.required, false, "Option required state")
+      });
+    }
+  }
+  return { arguments: arguments_, options };
+}
+function commandRoot(value) {
+  const root = value.trim().toLowerCase();
+  if (!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(root))
+    throw new TypeError("Command syntax must begin with a valid literal root.");
+  return root;
+}
+function commandAliases(value) {
+  const aliases = metadataStrings(value, "command aliases").map((alias) => {
+    const normalized = alias.toLowerCase();
+    if (!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(normalized))
+      throw new TypeError(`Invalid command alias: ${alias}`);
+    return normalized;
+  });
+  if (new Set(aliases).size !== aliases.length)
+    throw new TypeError("Invalid command aliases: aliases must be unique.");
+  return aliases;
+}
+function fullCommandSyntax(value) {
+  const match = /^\s*(\S+)(?:\s+([\s\S]*?))?\s*$/.exec(value);
+  if (match?.[1] === void 0) throw new TypeError("Command syntax must not be empty.");
+  return { root: commandRoot(match[1]), syntax: match[2] ?? "" };
+}
+function validateCommandSyntax(syntax, arguments_) {
+  if (syntax.length === 0) {
+    if (arguments_.length > 0)
+      throw new TypeError("Command arguments contain names absent from syntax.");
+    return;
+  }
+  const argumentsByName = new Map(arguments_.map((argument) => [argument.name, argument]));
+  const used = /* @__PURE__ */ new Set();
+  let optional2 = false;
+  const tokens = syntax.split(/\s+/u);
+  for (const [index, token] of tokens.entries()) {
+    const required2 = token.startsWith("<") && token.endsWith(">");
+    const optionalToken = token.startsWith("[") && token.endsWith("]");
+    if (!required2 && !optionalToken) {
+      if (/[<>[\]]/u.test(token))
+        throw new TypeError(`Command syntax has malformed token: ${token}`);
+      if (optional2) throw new TypeError("Command syntax literal follows an optional argument.");
+      continue;
+    }
+    let argumentName = token.slice(1, -1);
+    const greedy = argumentName.endsWith("...");
+    if (greedy) argumentName = argumentName.slice(0, -3);
+    const argument = argumentsByName.get(argumentName);
+    if (argument === void 0 || used.has(argumentName))
+      throw new TypeError(
+        `Command syntax references an unknown or duplicate argument: ${argumentName}`
+      );
+    used.add(argumentName);
+    if (optional2 && required2)
+      throw new TypeError("Command syntax required argument follows an optional one.");
+    if (greedy && index !== tokens.length - 1)
+      throw new TypeError("Command syntax greedy argument must be last.");
+    if (greedy && argument.parser !== "string")
+      throw new TypeError("Command syntax greedy argument must use string parser.");
+    optional2 ||= optionalToken;
+  }
+  if (used.size !== argumentsByName.size)
+    throw new TypeError("Command arguments contain names absent from syntax.");
+}
+function commandRoute(method2) {
+  const declaration2 = method2.decorators.find(
+    (item) => item.name === "Command" || item.name === "Subcommand"
+  );
+  if (declaration2 === void 0)
+    throw new TypeError(`Command declaration is missing for ${method2.name}.`);
+  const first = declaration2.arguments[0];
+  if (typeof first !== "string") throw new TypeError("Command syntax must be a string.");
+  const explicitSubcommand = declaration2.name === "Subcommand" && typeof declaration2.arguments[1] === "string";
+  const parsed = explicitSubcommand ? {
+    root: commandRoot(first),
+    syntax: declaration2.arguments[1].trim()
+  } : fullCommandSyntax(first);
+  const rawOptions = explicitSubcommand ? declaration2.arguments[2] : declaration2.arguments[1];
+  const options = rawOptions === void 0 ? {} : metadataRecord(rawOptions, `${declaration2.name} options`);
+  const parameters = commandParameterDescriptors(method2);
+  validateCommandSyntax(parsed.syntax, parameters.arguments);
+  const sender = metadataString(options.sender, "any", "sender restriction");
+  if (sender !== "any" && sender !== "player" && sender !== "console")
+    throw new TypeError(`Invalid command sender restriction: ${sender}`);
+  return {
+    root: parsed.root,
+    aliases: options.aliases === void 0 ? [] : commandAliases(options.aliases),
+    descriptor: {
+      syntax: parsed.syntax,
+      description: metadataString(options.description, "", "description"),
+      permission: metadataString(options.permission, "", "permission"),
+      sender,
+      arguments: parameters.arguments,
+      options: parameters.options
+    }
+  };
+}
+function commandInvocationValues(method2, context) {
+  const bindings = commandBindings(method2);
+  if (bindings.length === 0) return [context];
+  const values = Array.from({ length: (bindings.at(-1)?.index ?? -1) + 1 });
+  for (const binding of bindings) {
+    if (binding.binding === "Argument")
+      values[binding.index] = context.arguments[commandBindingName(binding)];
+    else if (binding.binding === "Option")
+      values[binding.index] = context.options[commandBindingName(binding)];
+    else if (binding.binding === "Sender") values[binding.index] = context.sender;
+    else values[binding.index] = context;
+  }
+  return values;
+}
 function register(host, name, callback) {
   if (host !== void 0 && !host.registerCallback(name, callback))
     throw new Error(`Runtime rejected callback registration: ${name}`);
   return name;
 }
 function installRuntimeAdapter(metadata, platform, constructors) {
+  const paperRoutes = /* @__PURE__ */ new Map();
+  if (platform === "paper") {
+    const aliasesByRoot = /* @__PURE__ */ new Map();
+    for (const component of metadata.components) {
+      if (component.platform !== "common" && component.platform !== platform) continue;
+      for (const method2 of component.methods) {
+        if (method2.invocation !== "command") continue;
+        const route = commandRoute(method2);
+        const aliases = aliasesByRoot.get(route.root);
+        if (aliases !== void 0 && (aliases.length !== route.aliases.length || aliases.some((alias, index) => alias !== route.aliases[index])))
+          throw new TypeError(`Command aliases must agree for shared command root ${route.root}.`);
+        aliasesByRoot.set(route.root, route.aliases);
+        paperRoutes.set(method2, route);
+      }
+    }
+  }
   const host = runtimeHost();
   const instances = /* @__PURE__ */ new Map();
   const lifecycle2 = /* @__PURE__ */ new Map();
+  const registrations = [];
   for (const component of metadata.components) {
     if (component.platform !== "common" && component.platform !== platform) continue;
     const target = executable(component, constructors);
@@ -17147,11 +17546,20 @@ function installRuntimeAdapter(metadata, platform, constructors) {
         lifecycle2.set(method2.lifecycle, methods);
       }
       if (method2.invocation === void 0) continue;
+      const route = paperRoutes.get(method2);
       const callbackName = callbackId(component.id, method2.name);
+      const descriptorCallbacks = { sequence: 0 };
       const commandInvoke = (...values) => {
         if (values.length !== 1) throw new TypeError("Invalid Paper command callback arguments.");
         if (host === void 0) throw new TypeError("Runtime host is unavailable.");
-        return invoke(paperCommandContext(host, component, method2, values[0]));
+        const context = paperCommandContext(
+          host,
+          component,
+          method2,
+          descriptorCallbacks,
+          values[0]
+        );
+        return invoke(...commandInvocationValues(method2, context));
       };
       const callback = register(
         host,
@@ -17159,55 +17567,82 @@ function installRuntimeAdapter(metadata, platform, constructors) {
         platform === "paper" && method2.invocation === "command" && host !== void 0 ? commandInvoke : invoke
       );
       if (host === void 0) continue;
-      const declaration2 = decorator(method2);
-      if (method2.invocation === "event") {
-        const event = declaration2?.name.startsWith("On") === true && declaration2.name.endsWith("Event") ? declaration2.name.slice(2) : firstString(method2, method2.name);
-        if (platform === "paper")
+      try {
+        const declaration2 = decorator(method2);
+        if (method2.invocation === "event") {
+          const event = declaration2?.name.startsWith("On") === true && declaration2.name.endsWith("Event") ? declaration2.name.slice(2) : firstString(method2, method2.name);
+          if (platform === "paper")
+            call(
+              host,
+              platform,
+              component,
+              method2,
+              "paperSubscribeEvent",
+              event,
+              "NORMAL",
+              false,
+              callbackMarker(callback)
+            );
+          else
+            call(
+              host,
+              platform,
+              component,
+              method2,
+              "velocitySubscribeEvent",
+              event,
+              0,
+              callbackMarker(callback)
+            );
+        } else if (method2.invocation === "command") {
+          if (platform === "paper") {
+            if (route === void 0) throw new TypeError("Paper command route is unavailable.");
+            const registration = call(
+              host,
+              platform,
+              component,
+              method2,
+              "paperRegisterCommand",
+              route.root,
+              route.aliases,
+              route.descriptor,
+              callbackMarker(callback)
+            );
+            if (!(registration instanceof Promise))
+              throw new TypeError("Invalid Paper command registration promise.");
+            registrations.push(
+              registration.catch((failure) => {
+                rollbackCallbacks(host, [callback]);
+                throw failure;
+              })
+            );
+          } else {
+            call(
+              host,
+              platform,
+              component,
+              method2,
+              "velocityRegisterCommand",
+              fullCommandSyntax(firstString(method2, method2.name)).root,
+              [],
+              callbackMarker(callback)
+            );
+          }
+        } else if (method2.invocation === "task") {
           call(
             host,
             platform,
             component,
             method2,
-            "paperSubscribeEvent",
-            event,
-            "NORMAL",
-            false,
-            callbackMarker(callback)
+            platform === "paper" ? "paperScheduleGlobal" : "velocitySchedule",
+            ...platform === "paper" ? [callbackMarker(callback)] : [0, callbackMarker(callback)]
           );
-        else
-          call(
-            host,
-            platform,
-            component,
-            method2,
-            "velocitySubscribeEvent",
-            event,
-            0,
-            callbackMarker(callback)
-          );
-      } else if (method2.invocation === "command") {
-        const command = firstString(method2, method2.name);
-        call(
-          host,
-          platform,
-          component,
-          method2,
-          platform === "paper" ? "paperRegisterCommand" : "velocityRegisterCommand",
-          command,
-          [],
-          callbackMarker(callback)
-        );
-      } else if (method2.invocation === "task") {
-        call(
-          host,
-          platform,
-          component,
-          method2,
-          platform === "paper" ? "paperScheduleGlobal" : "velocitySchedule",
-          ...platform === "paper" ? [callbackMarker(callback)] : [0, callbackMarker(callback)]
-        );
-      } else if (platform === "paper") {
-        call(host, platform, component, method2, "paperSubscribePacket", callbackMarker(callback));
+        } else if (platform === "paper") {
+          call(host, platform, component, method2, "paperSubscribePacket", callbackMarker(callback));
+        }
+      } catch (failure) {
+        rollbackCallbacks(host, [callback]);
+        throw failure;
       }
     }
   }
@@ -17223,10 +17658,16 @@ function installRuntimeAdapter(metadata, platform, constructors) {
           throw new TypeError(`Missing service method ${operationName}.`);
         return Reflect.apply(method2, target, values);
       });
-      operation(host, "shamooProvideService")(service.id, service.version, callback);
+      try {
+        operation(host, "shamooProvideService")(service.id, service.version, callback);
+      } catch (failure) {
+        rollbackCallbacks(host, [callback]);
+        throw failure;
+      }
     }
   }
   const run = async (stage) => {
+    await Promise.all(registrations);
     for (const method2 of lifecycle2.get(stage) ?? []) await method2();
   };
   return Object.freeze({

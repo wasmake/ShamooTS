@@ -6,16 +6,16 @@ ready-to-run archive for each runnable example.
 
 ## Ready-to-run examples
 
-| Example                                                | Platform           | Purpose                                          |
-| ------------------------------------------------------ | ------------------ | ------------------------------------------------ |
-| [`commands`](commands)                                 | Paper              | Commands and callback-scoped command context     |
-| [`complete-paper-plugin`](complete-paper-plugin)       | Paper              | Lifecycle, events, commands, and scheduling      |
-| [`complete-velocity-plugin`](complete-velocity-plugin) | Velocity           | Lifecycle, events, and proxy commands            |
-| [`configuration`](configuration)                       | Paper              | Validated configuration decoding                 |
-| [`dual-platform-plugin`](dual-platform-plugin)         | Paper and Velocity | One common plugin with lazy platform graphs      |
-| [`economy`](economy)                                   | Paper              | In-memory balances, payments, and item selling   |
-| [`folia`](folia)                                       | Paper/Folia        | Region-owned and entity-owned scheduling helpers |
-| [`hello-world`](hello-world)                           | Paper              | Minimal lifecycle plugin                         |
+| Example                                                | Platform           | Purpose                                            |
+| ------------------------------------------------------ | ------------------ | -------------------------------------------------- |
+| [`commands`](commands)                                 | Paper              | Typed routes, rich text, protected UI, and actions |
+| [`complete-paper-plugin`](complete-paper-plugin)       | Paper              | Lifecycle, events, commands, and scheduling        |
+| [`complete-velocity-plugin`](complete-velocity-plugin) | Velocity           | Lifecycle, events, and proxy commands              |
+| [`configuration`](configuration)                       | Paper              | Validated configuration decoding                   |
+| [`dual-platform-plugin`](dual-platform-plugin)         | Paper and Velocity | One common plugin with lazy platform graphs        |
+| [`economy`](economy)                                   | Paper              | Bound economy commands, safe selling, and price UI |
+| [`folia`](folia)                                       | Paper/Folia        | Region-owned and entity-owned scheduling helpers   |
+| [`hello-world`](hello-world)                           | Paper              | Minimal lifecycle plugin                           |
 
 Download `shamoo-example-<example>-<version>.tgz` from the latest GitHub release, or use the matching
 checked-in `examples/compiled/<plugin-id>` directory. Extract or copy the complete installation into

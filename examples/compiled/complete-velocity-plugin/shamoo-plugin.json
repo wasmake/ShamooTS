@@ -1,0 +1,306 @@
+{
+  "name": "complete-velocity-plugin",
+  "displayName": "complete-velocity-plugin",
+  "version": "0.1.0",
+  "shamoo": {
+    "api": "^0.1.0",
+    "runtime": "^0.1.0",
+    "manifest": 2
+  },
+  "platforms": {
+    "paper": {
+      "enabled": false
+    },
+    "velocity": {
+      "enabled": true,
+      "velocityApi": "*"
+    }
+  },
+  "dependencies": {
+    "required": {},
+    "optional": {},
+    "loadBefore": [],
+    "loadAfter": []
+  },
+  "node": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "reload": {
+    "watch": true,
+    "debounceMs": 150,
+    "preserveState": false
+  },
+  "compiler": {
+    "version": "0.1.0-rc.1",
+    "components": [
+      {
+        "id": "src/plugin.ts#CompleteVelocityPlugin",
+        "kind": "plugin",
+        "name": "CompleteVelocityPlugin",
+        "file": "src/plugin.ts",
+        "platform": "velocity",
+        "decorators": [
+          {
+            "name": "Plugin",
+            "arguments": [
+              {
+                "name": "complete-velocity-plugin"
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 20,
+              "column": 1
+            }
+          }
+        ],
+        "constructor": [],
+        "properties": [],
+        "methods": [
+          {
+            "name": "load",
+            "lifecycle": "load",
+            "decorators": [
+              {
+                "name": "OnLoad",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 43,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 43,
+              "column": 3
+            }
+          },
+          {
+            "name": "enable",
+            "lifecycle": "enable",
+            "decorators": [
+              {
+                "name": "OnEnable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 48,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 48,
+              "column": 3
+            }
+          },
+          {
+            "name": "ready",
+            "lifecycle": "ready",
+            "decorators": [
+              {
+                "name": "OnReady",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 53,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 53,
+              "column": 3
+            }
+          },
+          {
+            "name": "drain",
+            "lifecycle": "drain",
+            "decorators": [
+              {
+                "name": "OnDrain",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 58,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 58,
+              "column": 3
+            }
+          },
+          {
+            "name": "disable",
+            "lifecycle": "disable",
+            "decorators": [
+              {
+                "name": "OnDisable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 63,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 63,
+              "column": 3
+            }
+          },
+          {
+            "name": "unload",
+            "lifecycle": "unload",
+            "decorators": [
+              {
+                "name": "OnUnload",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 69,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 69,
+              "column": 3
+            }
+          },
+          {
+            "name": "playerJoined",
+            "invocation": "event",
+            "decorators": [
+              {
+                "name": "OnPostLoginEvent",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 74,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 75,
+                  "column": 23
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 74,
+              "column": 3
+            }
+          },
+          {
+            "name": "playerDisconnected",
+            "invocation": "event",
+            "decorators": [
+              {
+                "name": "OnDisconnectEvent",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 81,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 82,
+                  "column": 29
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 81,
+              "column": 3
+            }
+          },
+          {
+            "name": "status",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "velocity-status"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 88,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 88,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "src/plugin.ts",
+          "line": 20,
+          "column": 1
+        }
+      }
+    ],
+    "modules": [],
+    "communication": {
+      "services": [],
+      "events": [],
+      "consumers": []
+    }
+  }
+}

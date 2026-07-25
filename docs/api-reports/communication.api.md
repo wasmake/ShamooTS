@@ -114,7 +114,10 @@ export function defineRemoteProcedure<I, O>(procedure: RemoteProcedure<I, O>): R
 export function defineServiceContract<T extends ServiceShape>(options: ServiceContractOptions<T>): ServiceContract<T>;
 
 // @public
-export function dependentReloadConsumers(serviceId: string, manifests: readonly CompilerManifest[]): readonly string[];
+export function dependentReloadConsumers(serviceId: string, metadata: readonly {
+    readonly name: string;
+    readonly compiler: CompilerMetadata;
+}[]): readonly string[];
 
 // @public
 export function dependentReloadOrder(provider: string, dependencies: ReadonlyMap<string, ReadonlySet<string>>, policy: 'none' | 'direct' | 'transitive'): readonly string[];
@@ -150,7 +153,7 @@ export interface JsonCodecOptions<T> {
 }
 
 // @public
-export function registerCompilerServices(manifest: CompilerManifest, loaded: LoadedRuntimeMetadata, runtime: InvocationRuntime, registry?: ServiceRegistry): readonly ServiceRegistration[];
+export function registerCompilerServices(metadata: CompilerMetadata, loaded: LoadedRuntimeMetadata, runtime: InvocationRuntime, registry?: ServiceRegistry): readonly ServiceRegistration[];
 
 // @public (undocumented)
 export interface ReloadDependencyContract {

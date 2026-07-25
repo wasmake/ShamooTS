@@ -1,7 +1,8 @@
 # @shamoo/cli
 
-Production compiler, bundler, API synchronization, development deployment,
-diagnostic, and migration commands for Shamoo plugins. See
+Production compiler, universal bundler, build watcher, API synchronization,
+diagnostic, and migration commands for Shamoo plugins. Both `shamoo build` and
+`shamooc` create the same three-file artifact. See
 [`docs/cli.md`](../../docs/cli.md) for the full command reference.
 
 ```sh

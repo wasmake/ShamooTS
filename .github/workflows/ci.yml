@@ -36,6 +36,7 @@ jobs:
       - run: pnpm build
       - run: pnpm package:check
       - run: pnpm examples:pack
+      - run: pnpm examples:check
 
   test-node:
     runs-on: ubuntu-latest

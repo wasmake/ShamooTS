@@ -9,9 +9,9 @@ and creates a Paper `CommunicationClient` over the host-owned optional proxy bri
 
 ## Runtime wiring
 
-The current bundled entrypoint context does not expose `PaperRuntimeHost` or `VelocityRuntimeHost`,
-and this example does not read the undocumented `globalThis.host` value. An embedding runtime must
-pass its public host implementation explicitly:
+The current bundled component API does not expose `PaperRuntimeHost` or `VelocityRuntimeHost`, and
+this example does not read the undocumented `globalThis.host` value. An embedding runtime must pass
+its public host implementation explicitly:
 
 ```ts
 import { createPaperRoutingClient } from './src/paper.js';
@@ -36,8 +36,8 @@ handler work but cannot remove the host registration.
 
 - `src/contracts.ts` defines the codecs and remote procedure.
 - `src/handler.ts` validates requests and creates the bounded Velocity byte handler.
-- `src/velocity.ts` registers that handler through `createVelocityHostApi`.
-- `src/paper.ts` constructs the Paper transport and typed client from an explicit host argument.
+- `src/velocity.ts` is a source graph root that exports the explicit host registration helper.
+- `src/paper.ts` is a source graph root that exports the Paper transport client helper.
 - `test/routing.test.ts` performs a real in-memory wire-protocol round trip.
 
 ## Build

@@ -8,8 +8,8 @@ import {
   type InvocationKind,
 } from '@shamoo/interceptors';
 import {
-  COMPILER_METADATA_VERSION,
-  type CompilerManifest,
+  CompilerMetadataSchema,
+  type CompilerMetadata,
   type DependencyMetadata,
   type TokenMetadata,
 } from '@shamoo/metadata';
@@ -606,14 +606,14 @@ export function loadRuntimeMetadata(
   input: unknown,
   resolver: RuntimeMetadataResolver,
 ): LoadedRuntimeMetadata {
-  if (!isCompilerManifest(input))
+  if (!isCompilerMetadata(input))
     throw new MetadataValidationError('Manifest does not match the compiler metadata schema.');
   const lifecycle: LifecycleMethod[] = [];
   const invocations: (InvocationMethod & { componentId: string })[] = [];
   const serviceMethods = new Set(
-    input.communication?.services.flatMap((service) =>
+    input.communication.services.flatMap((service) =>
       service.methods.map((method) => `${service.componentId}\u0000${method}`),
-    ) ?? [],
+    ),
   );
   for (const rawComponent of input.components) {
     assertRecord(rawComponent, 'Component');
@@ -713,213 +713,6 @@ export function loadRuntimeMetadata(
   return { lifecycle: ordered(lifecycle), invocations };
 }
 
-export function isCompilerManifest(value: unknown): value is CompilerManifest {
-  try {
-    return compilerManifest(value);
-  } catch {
-    return false;
-  }
-}
-
-function sourceLocation(value: unknown): boolean {
-  if (!record(value)) return false;
-  return (
-    typeof value.file === 'string' && positiveInteger(value.line) && positiveInteger(value.column)
-  );
-}
-function canonicalValue(value: unknown): boolean {
-  if (
-    value === null ||
-    typeof value === 'string' ||
-    typeof value === 'boolean' ||
-    (typeof value === 'number' && Number.isFinite(value))
-  )
-    return true;
-  if (Array.isArray(value)) return value.every(canonicalValue);
-  return record(value) && Object.values(value).every(canonicalValue);
-}
-function tokenMetadata(value: unknown): boolean {
-  if (!record(value)) return false;
-  if (value.kind === 'class')
-    return typeof value.name === 'string' && typeof value.module === 'string';
-  if (value.kind !== 'token') return false;
-  return (
-    ('value' in value && canonicalValue(value.value)) ||
-    (typeof value.name === 'string' && typeof value.module === 'string')
-  );
-}
-function dependencyMetadata(value: unknown, kind: 'parameter' | 'property'): boolean {
-  if (!record(value) || !tokenMetadata(value.token) || !sourceLocation(value.location))
-    return false;
-  if (kind === 'parameter' ? !nonNegativeInteger(value.index) : typeof value.property !== 'string')
-    return false;
-  return (
-    optionalBoolean(value.optional) &&
-    optionalBoolean(value.all) &&
-    optionalBoolean(value.lazy) &&
-    optionalString(value.name) &&
-    optionalString(value.qualifier)
-  );
-}
-function decoratorMetadata(value: unknown): boolean {
-  return (
-    record(value) &&
-    typeof value.name === 'string' &&
-    Array.isArray(value.arguments) &&
-    value.arguments.every(canonicalValue) &&
-    sourceLocation(value.location)
-  );
-}
-function methodMetadata(value: unknown): boolean {
-  return (
-    record(value) &&
-    typeof value.name === 'string' &&
-    optionalEnum(value.lifecycle, ['load', 'enable', 'ready', 'drain', 'disable', 'unload']) &&
-    optionalEnum(value.invocation, ['event', 'command', 'task', 'packet']) &&
-    Array.isArray(value.decorators) &&
-    value.decorators.every(decoratorMetadata) &&
-    Array.isArray(value.parameters) &&
-    value.parameters.every((item) => dependencyMetadata(item, 'parameter')) &&
-    sourceLocation(value.location)
-  );
-}
-function componentMetadata(value: unknown): boolean {
-  return (
-    record(value) &&
-    typeof value.id === 'string' &&
-    ['plugin', 'module', 'component', 'service', 'event-listener', 'command', 'task'].includes(
-      String(value.kind),
-    ) &&
-    typeof value.name === 'string' &&
-    typeof value.file === 'string' &&
-    ['common', 'paper', 'velocity'].includes(String(value.platform)) &&
-    Array.isArray(value.decorators) &&
-    value.decorators.every(decoratorMetadata) &&
-    Array.isArray(value.constructor) &&
-    value.constructor.every((item) => dependencyMetadata(item, 'parameter')) &&
-    Array.isArray(value.properties) &&
-    value.properties.every((item) => dependencyMetadata(item, 'property')) &&
-    Array.isArray(value.methods) &&
-    value.methods.every(methodMetadata) &&
-    sourceLocation(value.location)
-  );
-}
-function moduleMetadata(value: unknown): boolean {
-  return (
-    record(value) &&
-    typeof value.id === 'string' &&
-    typeof value.name === 'string' &&
-    Array.isArray(value.imports) &&
-    value.imports.every(
-      (item) => record(item) && typeof item.id === 'string' && typeof item.forwardRef === 'boolean',
-    ) &&
-    Array.isArray(value.declarations) &&
-    value.declarations.every((item) => typeof item === 'string') &&
-    Array.isArray(value.exports) &&
-    value.exports.every((item) => typeof item === 'string') &&
-    typeof value.global === 'boolean' &&
-    sourceLocation(value.location)
-  );
-}
-function entrypointMetadata(value: unknown): boolean {
-  return record(value) && typeof value.source === 'string' && typeof value.output === 'string';
-}
-function permissionsMetadata(value: unknown): boolean {
-  if (!record(value)) return false;
-  const keys = new Set([
-    'builtins',
-    'filesystem',
-    'network',
-    'workers',
-    'childProcess',
-    'nativeAddons',
-    'nms',
-    'packets',
-  ]);
-  if (Object.keys(value).some((key) => !keys.has(key))) return false;
-  const builtins = value.builtins;
-  if (
-    builtins !== undefined &&
-    (!Array.isArray(builtins) ||
-      builtins.some((item) => typeof item !== 'string' || !item.startsWith('node:')) ||
-      new Set(builtins).size !== builtins.length)
-  )
-    return false;
-  const filesystem = value.filesystem;
-  if (
-    filesystem !== undefined &&
-    (!record(filesystem) ||
-      !Array.isArray(filesystem.read) ||
-      !filesystem.read.every((item) => typeof item === 'string') ||
-      !Array.isArray(filesystem.write) ||
-      !filesystem.write.every((item) => typeof item === 'string'))
-  )
-    return false;
-  return [...keys]
-    .filter((key) => key !== 'builtins' && key !== 'filesystem')
-    .every((key) => value[key] === undefined || value[key] === true);
-}
-function compilerManifest(value: unknown): value is CompilerManifest {
-  if (!record(value) || !record(value.entrypoints)) return false;
-  return (
-    value.formatVersion === COMPILER_METADATA_VERSION &&
-    typeof value.compilerVersion === 'string' &&
-    typeof value.packageName === 'string' &&
-    Array.isArray(value.components) &&
-    value.components.every(componentMetadata) &&
-    Array.isArray(value.modules) &&
-    value.modules.every(moduleMetadata) &&
-    (value.permissions === undefined || permissionsMetadata(value.permissions)) &&
-    (value.communication === undefined || communicationMetadata(value.communication)) &&
-    (value.entrypoints.paper === undefined || entrypointMetadata(value.entrypoints.paper)) &&
-    (value.entrypoints.velocity === undefined || entrypointMetadata(value.entrypoints.velocity))
-  );
-}
-function communicationMetadata(value: unknown): boolean {
-  if (
-    !record(value) ||
-    !Array.isArray(value.services) ||
-    !Array.isArray(value.events) ||
-    !Array.isArray(value.consumers)
-  )
-    return false;
-  return (
-    value.services.every(
-      (item) =>
-        record(item) &&
-        typeof item.id === 'string' &&
-        typeof item.version === 'string' &&
-        typeof item.componentId === 'string' &&
-        Array.isArray(item.methods) &&
-        item.methods.every((method) => typeof method === 'string'),
-    ) &&
-    value.events.every(
-      (item) => record(item) && typeof item.id === 'string' && typeof item.version === 'string',
-    ) &&
-    value.consumers.every(
-      (item) =>
-        record(item) &&
-        typeof item.id === 'string' &&
-        typeof item.versionRange === 'string' &&
-        (item.dependentReload === 'keep-running' || item.dependentReload === 'reload'),
-    )
-  );
-}
-function record(value: unknown): value is Record<string, unknown> {
-  return value !== null && typeof value === 'object' && !Array.isArray(value);
-}
-function nonNegativeInteger(value: unknown): boolean {
-  return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
-}
-function positiveInteger(value: unknown): boolean {
-  return typeof value === 'number' && Number.isSafeInteger(value) && value > 0;
-}
-function optionalBoolean(value: unknown): boolean {
-  return value === undefined || typeof value === 'boolean';
-}
-function optionalString(value: unknown): boolean {
-  return value === undefined || typeof value === 'string';
-}
-function optionalEnum(value: unknown, values: readonly string[]): boolean {
-  return value === undefined || (typeof value === 'string' && values.includes(value));
+export function isCompilerMetadata(value: unknown): value is CompilerMetadata {
+  return CompilerMetadataSchema.safeParse(value).success;
 }

@@ -1,5 +1,5 @@
 {
-  "compilerVersion": "0.1.0-rc.1",
+  "version": "0.1.0-rc.1",
   "components": [
     {
       "constructor": [],
@@ -228,13 +228,6 @@
       "properties": []
     }
   ],
-  "entrypoints": {
-    "paper": {
-      "output": "paper/index.js",
-      "source": "src/plugin.ts"
-    }
-  },
-  "formatVersion": 2,
   "modules": [
     {
       "declarations": [
@@ -255,5 +248,9 @@
       "name": "FixtureModule"
     }
   ],
-  "packageName": "@fixture/plugin"
+  "communication": {
+    "services": [],
+    "events": [],
+    "consumers": []
+  }
 }

@@ -12,37 +12,23 @@ export interface BundleArtifact {
     readonly map: string;
     // (undocumented)
     readonly path: string;
-    // (undocumented)
-    readonly platform: 'paper' | 'velocity';
 }
 
 // @public
-export function bundlePlugin(request: BundleRequest): Promise<readonly BundleArtifact[]>;
+export function bundlePlugin(request: BundleRequest): Promise<BundleArtifact>;
 
 // @public (undocumented)
 export interface BundleRequest {
     // (undocumented)
+    readonly entrypoints: Readonly<Partial<Record<'paper' | 'velocity', string>>>;
+    // (undocumented)
     readonly external?: readonly string[];
     // (undocumented)
-    readonly manifest: CompilerManifest;
+    readonly metadata: CompilerMetadata;
     // (undocumented)
     readonly outputDirectory: string;
     // (undocumented)
     readonly projectRoot: string;
-}
-
-// @public (undocumented)
-export class CapabilityError extends Error {
-    constructor(importPath: string, importer: string, capability: string);
-    // (undocumented)
-    readonly code = "CAPABILITY_REQUIRED";
-}
-
-// @public (undocumented)
-export class PlatformLeakageError extends Error {
-    constructor(platform: string, importPath: string, importer: string);
-    // (undocumented)
-    readonly code = "PLATFORM_LEAK";
 }
 
 // (No @packageDocumentation comment for this package)

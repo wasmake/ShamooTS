@@ -57,7 +57,6 @@ describe('Phase 1 foundation contracts', () => {
     expect(() => {
       validateCompilationRequest({
         entrypoint: '',
-        packageName: packageName('@example/plugin'),
         platforms: [PlatformKind.PAPER],
       });
     }).toThrow(InvalidDeclarationError);

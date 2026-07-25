@@ -19,18 +19,19 @@ See [plugin communication](communication.md).
 
 ## Descriptor
 
-`parseCommonDescriptor` accepts unknown input, rejects unknown keys at every object boundary, and returns a typed descriptor. The canonical manifest v1 top-level fields are:
+`parseCommonDescriptor` accepts unknown input, rejects unknown keys at every object boundary, and returns a typed descriptor. The canonical manifest v2 top-level fields are:
 
 - `name`, `displayName`, and `version`: lowercase plugin ID, display name, and semantic plugin version.
-- `shamoo`: API/runtime npm semver ranges and manifest version `1` at `shamoo.manifest`.
-- `platforms`: strict Paper and Velocity declarations. Both are present and at least one is enabled. Enabled Paper declares its entrypoint, Minecraft range, and Paper API range; enabled Velocity declares its entrypoint and Velocity API range.
+- `shamoo`: API/runtime npm semver ranges and manifest version `2` at `shamoo.manifest`.
+- `platforms`: strict Paper and Velocity declarations. Both are present and at least one is enabled. Enabled Paper declares Minecraft and Paper API ranges plus `nms` and `packets`; enabled Velocity declares its Velocity API range. Disabled targets contain exactly `enabled: false`.
 - `dependencies`: required and optional plugin-to-range maps plus `loadBefore` and `loadAfter` plugin ID arrays.
 - `node`: builtins, relative filesystem read/write roots, and network, worker, child-process, and native-addon booleans.
 - `reload`: watch state, non-negative debounce milliseconds, and state-preservation intent.
+- `compiler`: required compiler metadata containing exactly `version`, `components`, `modules`, and `communication`.
 
-Entrypoints must be safe `.js`, `.mjs`, or `.cjs` relative paths. Filesystem roots accept values such as `./` and `./data`; absolute paths, backslashes, traversal, whitespace, and control characters are rejected. Plugin names, versions, non-empty npm ranges, duplicate dependency categories, duplicate ordering entries, self-ordering, debounce values, and unknown manifest versions are validated. Disabled platforms may omit target-specific fields, but any supplied fields are still validated. `ProtocolValidationError.issues` provides stable paths, validator codes, and messages.
+Artifact names are fixed by the Runtime protocol and are not repeated in platform targets. Filesystem roots accept values such as `./` and `./data`; absolute paths, backslashes, and traversal are rejected. Plugin names, versions, non-empty npm ranges, duplicate dependency categories, duplicate ordering entries, self-ordering, debounce values, compiler metadata, and unknown manifest versions are validated. `ProtocolValidationError.issues` provides stable paths, validator codes, and messages.
 
-`COMMON_DESCRIPTOR_JSON_SCHEMA` is the canonical draft-07 schema export. Semver refinements are additionally enforced by the runtime parser using `semver`. The checked-in `common-descriptor.golden.json` fixture is intended to be consumed unchanged by Java parity tests and round-tripped back to JSON.
+`COMMON_DESCRIPTOR_JSON_SCHEMA` is the canonical draft 2020-12 schema export. Semver refinements are additionally enforced by the runtime parser using `semver`. The checked-in `common-descriptor.golden.json` fixture is consumed unchanged by Java parity tests and round-tripped back to JSON.
 
 ## Negotiation
 

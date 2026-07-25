@@ -11,7 +11,7 @@ export interface GenerationService {
 }
 
 export const GENERATION_SERVICE = defineServiceContract<GenerationService>({
-  id: 'example/generation',
+  id: 'example.generation',
   version: '1.0.0',
   methods: ['generation'],
 });

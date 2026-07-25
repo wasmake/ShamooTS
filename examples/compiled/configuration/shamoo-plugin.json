@@ -1,0 +1,149 @@
+{
+  "name": "configuration",
+  "displayName": "Shamoo Configuration Example",
+  "version": "0.1.0",
+  "shamoo": {
+    "api": "^0.1.0",
+    "runtime": "^0.1.0",
+    "manifest": 2
+  },
+  "platforms": {
+    "paper": {
+      "enabled": true,
+      "minecraft": "*",
+      "paperApi": "*",
+      "nms": false,
+      "packets": false
+    },
+    "velocity": {
+      "enabled": false
+    }
+  },
+  "dependencies": {
+    "required": {},
+    "optional": {},
+    "loadBefore": [],
+    "loadAfter": []
+  },
+  "node": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "reload": {
+    "watch": true,
+    "debounceMs": 150,
+    "preserveState": false
+  },
+  "compiler": {
+    "version": "0.1.0-rc.1",
+    "components": [
+      {
+        "id": "src/plugin.ts#ConfigurationPlugin",
+        "kind": "plugin",
+        "name": "ConfigurationPlugin",
+        "file": "src/plugin.ts",
+        "platform": "common",
+        "decorators": [
+          {
+            "name": "Plugin",
+            "arguments": [
+              {
+                "name": "configuration"
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 12,
+              "column": 1
+            }
+          }
+        ],
+        "constructor": [],
+        "properties": [],
+        "methods": [
+          {
+            "name": "loadConfiguration",
+            "lifecycle": "load",
+            "decorators": [
+              {
+                "name": "OnLoad",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 16,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 16,
+              "column": 3
+            }
+          },
+          {
+            "name": "enabled",
+            "lifecycle": "enable",
+            "decorators": [
+              {
+                "name": "OnEnable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 25,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 25,
+              "column": 3
+            }
+          },
+          {
+            "name": "disabled",
+            "lifecycle": "disable",
+            "decorators": [
+              {
+                "name": "OnDisable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 31,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 31,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "src/plugin.ts",
+          "line": 12,
+          "column": 1
+        }
+      }
+    ],
+    "modules": [],
+    "communication": {
+      "services": [],
+      "events": [],
+      "consumers": []
+    }
+  }
+}

@@ -1,13 +1,8 @@
-export * from './plugin.js';
-
 import { CommunicationClient } from '@shamoo/communication';
-import {
-  PaperVelocityTransport,
-  definePaperEntrypoint,
-  type PaperRuntimeHost,
-} from '@shamoo/paper';
+import { PaperVelocityTransport, type PaperRuntimeHost } from '@shamoo/paper';
 
 import { routeLookup, type RouteResponse } from './contracts.js';
+import './plugin.js';
 
 export type PaperRoutingHost = Pick<PaperRuntimeHost, 'paperProxyRequest'>;
 
@@ -29,14 +24,3 @@ export function createPaperRoutingClient(host: PaperRoutingHost): PaperRoutingCl
       client.request(routeLookup, { player }, signal === undefined ? {} : { signal }),
   });
 }
-
-export const paperEntrypoint = definePaperEntrypoint({
-  enable() {
-    console.info('[proxy-routing] Paper routing client component enabled.');
-  },
-  disable() {
-    console.info('[proxy-routing] Paper routing client component disabled.');
-  },
-});
-
-export default paperEntrypoint;

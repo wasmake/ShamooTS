@@ -8,7 +8,7 @@ import {
   LifecycleOrderError,
   LifecycleTimeoutError,
   MetadataValidationError,
-  isCompilerManifest,
+  isCompilerMetadata,
   loadRuntimeMetadata,
   type InvocationRejectedError,
   type LifecycleAggregateError,
@@ -17,6 +17,7 @@ import {
 import { describe, expect, it, vi } from 'vitest';
 
 const location = { file: 'plugin.ts', line: 1, column: 1 };
+const emptyCommunication = { services: [], events: [], consumers: [] } as const;
 
 describe('LifecycleExecutor', () => {
   it('initializes eager providers once when load execution is repeated', async () => {
@@ -800,15 +801,12 @@ describe('compiler metadata adapter', () => {
   it('materializes compiler-declared service methods as task-scoped invocations', () => {
     const target = { greet: vi.fn() };
     const manifest = {
-      formatVersion: 2,
-      compilerVersion: 'test',
-      packageName: 'service-plugin',
+      version: 'test',
       modules: [],
-      entrypoints: {},
       communication: {
         services: [
           {
-            id: 'example/greeting',
+            id: 'example.greeting',
             version: '1.0.0',
             componentId: 'plugin.ts#Greeting',
             methods: ['greet'],
@@ -851,11 +849,9 @@ describe('compiler metadata adapter', () => {
     (decorator, kind) => {
       const target = { handle: vi.fn() };
       const manifest = {
-        formatVersion: 2,
-        compilerVersion: 'test',
-        packageName: '@test/generated-events',
+        version: 'test',
         modules: [],
-        entrypoints: {},
+        communication: emptyCommunication,
         components: [
           {
             id: 'plugin.ts#Listener',
@@ -891,11 +887,9 @@ describe('compiler metadata adapter', () => {
   it('loads only executable whitelisted fields and maps lifecycle, scope, context, and DI parameters', () => {
     const target = { load: vi.fn(), command: vi.fn() };
     const manifest = {
-      formatVersion: 2,
-      compilerVersion: 'test',
-      packageName: '@test/plugin',
+      version: 'test',
       modules: [],
-      entrypoints: {},
+      communication: emptyCommunication,
       components: [
         {
           id: 'plugin.ts#Plugin',
@@ -914,9 +908,6 @@ describe('compiler metadata adapter', () => {
                   name: 'OnLoad',
                   arguments: [],
                   location,
-                  arbitrary: () => {
-                    throw new Error('must not run');
-                  },
                 },
               ],
               parameters: [{ index: 0, token: { kind: 'token', value: 'dependency' }, location }],
@@ -948,8 +939,8 @@ describe('compiler metadata adapter', () => {
     expect(loaded.invocations).toMatchObject([
       { kind: 'command', method: 'command', parameters: [{ contextKey: 'sender' }] },
     ]);
-    expect(isCompilerManifest(manifest)).toBe(true);
-    expect(isCompilerManifest(null)).toBe(false);
+    expect(isCompilerMetadata(manifest)).toBe(true);
+    expect(isCompilerMetadata(null)).toBe(false);
 
     const substituted = {
       ...manifest,
@@ -971,10 +962,10 @@ describe('compiler metadata adapter', () => {
 
   it.each([
     {},
-    { formatVersion: 1, components: [], modules: [], entrypoints: {} },
-    { formatVersion: 2, components: [{}], modules: [], entrypoints: {} },
+    { version: 'test', components: [], modules: [] },
+    { version: 'test', components: [{}], modules: [], communication: emptyCommunication },
     {
-      formatVersion: 2,
+      version: 'test',
       components: [
         {
           id: 'x',
@@ -984,7 +975,7 @@ describe('compiler metadata adapter', () => {
         },
       ],
       modules: [],
-      entrypoints: {},
+      communication: emptyCommunication,
     },
   ])('rejects malformed or incompatible metadata %#', (manifest) => {
     expect(() =>
@@ -998,9 +989,7 @@ describe('compiler metadata adapter', () => {
 
   it('rejects deep schema mismatches in the manifest type guard', () => {
     const invalid = {
-      formatVersion: 2,
-      compilerVersion: 'test',
-      packageName: 'plugin',
+      version: 'test',
       components: [],
       modules: [
         {
@@ -1013,9 +1002,9 @@ describe('compiler metadata adapter', () => {
           location,
         },
       ],
-      entrypoints: {},
+      communication: emptyCommunication,
     };
-    expect(isCompilerManifest(invalid)).toBe(false);
+    expect(isCompilerMetadata(invalid)).toBe(false);
   });
 
   it('accepts rich canonical metadata and retains dependency and requester fields', () => {
@@ -1031,9 +1020,7 @@ describe('compiler metadata adapter', () => {
     };
     const target = { load: vi.fn(), task: vi.fn() };
     const manifest = {
-      formatVersion: 2,
-      compilerVersion: 'test',
-      packageName: '@test/rich-plugin',
+      version: 'test',
       components: [
         {
           id: 'plugin.ts#Plugin',
@@ -1086,10 +1073,7 @@ describe('compiler metadata adapter', () => {
           location,
         },
       ],
-      entrypoints: {
-        paper: { source: 'paper.ts', output: 'paper.js' },
-        velocity: { source: 'velocity.ts', output: 'velocity.js' },
-      },
+      communication: emptyCommunication,
     };
     const loaded = loadRuntimeMetadata(manifest, {
       resolveComponent: () => target,
@@ -1145,12 +1129,10 @@ describe('compiler metadata adapter', () => {
       location,
     };
     const manifest = {
-      formatVersion: 2,
-      compilerVersion: 'test',
-      packageName: '@test/plugin',
+      version: 'test',
       components: [component],
       modules: [],
-      entrypoints: {},
+      communication: emptyCommunication,
     };
     expect(() =>
       loadRuntimeMetadata(manifest, {
@@ -1161,7 +1143,7 @@ describe('compiler metadata adapter', () => {
     ).toThrow('Unsupported context binding Unsupported');
 
     expect(
-      isCompilerManifest({
+      isCompilerMetadata({
         ...manifest,
         components: [
           {
@@ -1172,7 +1154,7 @@ describe('compiler metadata adapter', () => {
       }),
     ).toBe(false);
     expect(
-      isCompilerManifest({
+      isCompilerMetadata({
         ...manifest,
         components: [{ ...component, methods: [{ ...method, lifecycle: 'invalid' }] }],
       }),

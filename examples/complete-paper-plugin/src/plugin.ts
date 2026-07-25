@@ -1,14 +1,27 @@
 import { Command } from '@shamoo/commands';
 import { Context, Plugin } from '@shamoo/decorators';
 import { OnDisable, OnDrain, OnEnable, OnLoad, OnReady } from '@shamoo/lifecycle';
-import { OnPlayerJoinEvent, type PlayerJoinEvent } from '@shamoo/paper-raw';
+import { OnPlayerJoinEvent } from '@shamoo/paper-raw';
 import { Scheduled } from '@shamoo/scheduler';
+
+export interface PaperRuntimeEvent {
+  readonly type: string;
+  readonly asynchronous: boolean;
+}
 
 @Plugin({ name: 'complete-paper-plugin' })
 export class CompletePaperPlugin {
   private joins = 0;
-  private heartbeats = 0;
+  private scheduledRuns = 0;
   private ready = false;
+
+  public get state(): Readonly<{ ready: boolean; joins: number; scheduledRuns: number }> {
+    return Object.freeze({
+      ready: this.ready,
+      joins: this.joins,
+      scheduledRuns: this.scheduledRuns,
+    });
+  }
 
   @OnLoad()
   public loaded(): void {
@@ -27,24 +40,25 @@ export class CompletePaperPlugin {
   }
 
   @OnPlayerJoinEvent()
-  public playerJoined(@Context() event: PlayerJoinEvent): void {
+  public playerJoined(@Context() event: PaperRuntimeEvent): void {
     this.joins += 1;
-    event.getPlayer().sendRawMessage('Welcome from the complete Shamoo example.');
-    console.info(`[complete-paper-plugin] Observed ${String(this.joins)} player join(s).`);
+    console.info(
+      `[complete-paper-plugin] Observed ${String(this.joins)} ${event.type} callback(s); asynchronous=${String(event.asynchronous)}.`,
+    );
   }
 
   @Command('shamoo-status')
   public status(): boolean {
     console.info(
-      `[complete-paper-plugin] ready=${String(this.ready)} joins=${String(this.joins)} heartbeats=${String(this.heartbeats)}`,
+      `[complete-paper-plugin] ready=${String(this.ready)} joins=${String(this.joins)} scheduledRuns=${String(this.scheduledRuns)}`,
     );
     return true;
   }
 
-  @Scheduled({ delay: 20, unit: 'ticks' })
-  public heartbeat(): void {
-    this.heartbeats += 1;
-    console.info(`[complete-paper-plugin] Heartbeat ${String(this.heartbeats)}.`);
+  @Scheduled()
+  public runImmediateTask(): void {
+    this.scheduledRuns += 1;
+    console.info('[complete-paper-plugin] Immediate global task ran.');
   }
 
   @OnDrain()
@@ -56,7 +70,7 @@ export class CompletePaperPlugin {
   @OnDisable()
   public disabled(): void {
     console.info(
-      `[complete-paper-plugin] Disabled after ${String(this.joins)} join(s) and ${String(this.heartbeats)} heartbeat(s).`,
+      `[complete-paper-plugin] Disabled after ${String(this.joins)} join callback(s) and ${String(this.scheduledRuns)} scheduled run(s).`,
     );
   }
 }

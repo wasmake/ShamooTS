@@ -94,7 +94,7 @@ export async function scaffoldPlugin(
 
   const files: Record<string, string> = {
     '.gitignore': 'dist/\nnode_modules/\n',
-    'RUNTIME.md': `# Runtime deployment\n\nShamooRuntime watches one directory containing plugin installation folders. Point \`deploy.paper\` or \`--paper\` at the Paper watched root. With the default Paper configuration this is \`<paper-server>/plugins/ShamooRuntime/plugins\` (\`plugins.directory: plugins\` relative to the ShamooRuntime data folder).\n\nPoint \`deploy.velocity\` or \`--velocity\` at the Velocity watched root. The default is \`<velocity-server>/plugins/shamooruntime/plugins\`; override it with \`-Dshamoo.plugins.directory=/absolute/watched/root\`.\n\nEach deployment creates \`<watched-root>/<plugin-id>/shamoo-plugin.json\`, platform JavaScript, its external source map, and \`shamoo.metadata.json\`. Do not target the server's general \`plugins\` directory.\n`,
+    'RUNTIME.md': `# Runtime artifact\n\n\`pnpm build\` writes exactly \`dist/index.js\`, \`dist/index.js.map\`, and \`dist/shamoo-plugin.json\`. Install that three-file directory in the ShamooRuntime watched plugin root using your server's artifact-management workflow.\n`,
     'package.json': packageJson(name, platforms, options.packageManager ?? 'pnpm'),
     'shamoo.config.json': `${JSON.stringify(
       {
@@ -139,12 +139,9 @@ export async function scaffoldPlugin(
       2,
     )}\n`,
   };
-  if (platforms.includes(PlatformKind.PAPER))
-    files['src/paper.ts'] =
-      "export * from './plugin.js';\nimport { definePaperEntrypoint } from '@shamoo/paper';\n\nexport default definePaperEntrypoint({\n  enable() {},\n});\n";
+  if (platforms.includes(PlatformKind.PAPER)) files['src/paper.ts'] = "import './plugin.js';\n";
   if (platforms.includes(PlatformKind.VELOCITY))
-    files['src/velocity.ts'] =
-      "export * from './plugin.js';\nimport { defineVelocityEntrypoint } from '@shamoo/velocity';\n\nexport default defineVelocityEntrypoint({\n  start() {},\n});\n";
+    files['src/velocity.ts'] = "import './plugin.js';\n";
 
   await mkdir(directory, { recursive: false });
   for (const [relativePath, contents] of Object.entries(files).sort(([left], [right]) =>

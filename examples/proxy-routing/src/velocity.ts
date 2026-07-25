@@ -1,12 +1,7 @@
-export * from './plugin.js';
-
-import {
-  createVelocityHostApi,
-  defineVelocityEntrypoint,
-  type VelocityRuntimeHost,
-} from '@shamoo/velocity';
+import { createVelocityHostApi, type VelocityRuntimeHost } from '@shamoo/velocity';
 
 import { createVelocityRouteEndpoint, type RoutingTable } from './handler.js';
+import './plugin.js';
 
 export interface RoutingInstallation {
   readonly callbackNamespace: string;
@@ -35,14 +30,3 @@ export function installVelocityRouting(
     },
   });
 }
-
-export const velocityEntrypoint = defineVelocityEntrypoint({
-  start() {
-    console.info('[proxy-routing] Velocity routing endpoint component started.');
-  },
-  stop() {
-    console.info('[proxy-routing] Velocity routing endpoint component stopped.');
-  },
-});
-
-export default velocityEntrypoint;

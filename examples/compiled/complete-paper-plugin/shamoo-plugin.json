@@ -1,0 +1,272 @@
+{
+  "name": "complete-paper-plugin",
+  "displayName": "Complete Shamoo Paper Plugin",
+  "version": "0.1.0",
+  "shamoo": {
+    "api": "^0.1.0",
+    "runtime": "^0.1.0",
+    "manifest": 2
+  },
+  "platforms": {
+    "paper": {
+      "enabled": true,
+      "minecraft": "*",
+      "paperApi": "*",
+      "nms": false,
+      "packets": false
+    },
+    "velocity": {
+      "enabled": false
+    }
+  },
+  "dependencies": {
+    "required": {},
+    "optional": {},
+    "loadBefore": [],
+    "loadAfter": []
+  },
+  "node": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "reload": {
+    "watch": true,
+    "debounceMs": 150,
+    "preserveState": false
+  },
+  "compiler": {
+    "version": "0.1.0-rc.1",
+    "components": [
+      {
+        "id": "src/plugin.ts#CompletePaperPlugin",
+        "kind": "plugin",
+        "name": "CompletePaperPlugin",
+        "file": "src/plugin.ts",
+        "platform": "paper",
+        "decorators": [
+          {
+            "name": "Plugin",
+            "arguments": [
+              {
+                "name": "complete-paper-plugin"
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 12,
+              "column": 1
+            }
+          }
+        ],
+        "constructor": [],
+        "properties": [],
+        "methods": [
+          {
+            "name": "loaded",
+            "lifecycle": "load",
+            "decorators": [
+              {
+                "name": "OnLoad",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 26,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 26,
+              "column": 3
+            }
+          },
+          {
+            "name": "enabled",
+            "lifecycle": "enable",
+            "decorators": [
+              {
+                "name": "OnEnable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 31,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 31,
+              "column": 3
+            }
+          },
+          {
+            "name": "becameReady",
+            "lifecycle": "ready",
+            "decorators": [
+              {
+                "name": "OnReady",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 36,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 36,
+              "column": 3
+            }
+          },
+          {
+            "name": "playerJoined",
+            "invocation": "event",
+            "decorators": [
+              {
+                "name": "OnPlayerJoinEvent",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 42,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 43,
+                  "column": 23
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 42,
+              "column": 3
+            }
+          },
+          {
+            "name": "status",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "shamoo-status"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 50,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 50,
+              "column": 3
+            }
+          },
+          {
+            "name": "runImmediateTask",
+            "invocation": "task",
+            "decorators": [
+              {
+                "name": "Scheduled",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 58,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 58,
+              "column": 3
+            }
+          },
+          {
+            "name": "draining",
+            "lifecycle": "drain",
+            "decorators": [
+              {
+                "name": "OnDrain",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 64,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 64,
+              "column": 3
+            }
+          },
+          {
+            "name": "disabled",
+            "lifecycle": "disable",
+            "decorators": [
+              {
+                "name": "OnDisable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 70,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 70,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "src/plugin.ts",
+          "line": 12,
+          "column": 1
+        }
+      }
+    ],
+    "modules": [],
+    "communication": {
+      "services": [],
+      "events": [],
+      "consumers": []
+    }
+  }
+}

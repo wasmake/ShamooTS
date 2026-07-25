@@ -1,0 +1,203 @@
+{
+  "name": "economy",
+  "displayName": "Shamoo In-Memory Economy",
+  "version": "0.1.0",
+  "shamoo": {
+    "api": "^0.1.0",
+    "runtime": "^0.1.0",
+    "manifest": 2
+  },
+  "platforms": {
+    "paper": {
+      "enabled": true,
+      "minecraft": "*",
+      "paperApi": "*",
+      "nms": false,
+      "packets": false
+    },
+    "velocity": {
+      "enabled": false
+    }
+  },
+  "dependencies": {
+    "required": {},
+    "optional": {},
+    "loadBefore": [],
+    "loadAfter": []
+  },
+  "node": {
+    "builtins": [],
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "network": false,
+    "workers": false,
+    "childProcess": false,
+    "nativeAddons": false
+  },
+  "reload": {
+    "watch": true,
+    "debounceMs": 150,
+    "preserveState": false
+  },
+  "compiler": {
+    "version": "0.1.0-rc.1",
+    "components": [
+      {
+        "id": "src/plugin.ts#EconomyPlugin",
+        "kind": "plugin",
+        "name": "EconomyPlugin",
+        "file": "src/plugin.ts",
+        "platform": "paper",
+        "decorators": [
+          {
+            "name": "Plugin",
+            "arguments": [
+              {
+                "name": "economy"
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 65,
+              "column": 1
+            }
+          }
+        ],
+        "constructor": [],
+        "properties": [],
+        "methods": [
+          {
+            "name": "pay",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "pay"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 69,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 70,
+                  "column": 14
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 69,
+              "column": 3
+            }
+          },
+          {
+            "name": "balance",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "bal"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 93,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 94,
+                  "column": 18
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 93,
+              "column": 3
+            }
+          },
+          {
+            "name": "sell",
+            "invocation": "command",
+            "decorators": [
+              {
+                "name": "Command",
+                "arguments": [
+                  "sell"
+                ],
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 107,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [
+              {
+                "index": 0,
+                "token": {
+                  "kind": "token",
+                  "value": {
+                    "binding": "Context",
+                    "value": "value"
+                  }
+                },
+                "location": {
+                  "file": "src/plugin.ts",
+                  "line": 108,
+                  "column": 15
+                }
+              }
+            ],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 107,
+              "column": 3
+            }
+          }
+        ],
+        "location": {
+          "file": "src/plugin.ts",
+          "line": 65,
+          "column": 1
+        }
+      }
+    ],
+    "modules": [],
+    "communication": {
+      "services": [],
+      "events": [],
+      "consumers": []
+    }
+  }
+}

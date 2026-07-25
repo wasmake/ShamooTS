@@ -1,14 +1,14 @@
 # Shamoo command reference
 
-The `shamoo` executable is provided by `@shamoo/cli` and requires Node.js 22 or
-newer. Commands return `0` on success and `1` for stale generated APIs, failed
-diagnostics, compilation failures, or invalid invocations.
+The `shamoo` and `shamooc` executables are provided by `@shamoo/cli` and require
+Node.js 22 or newer. `shamooc [options]` is exactly equivalent to
+`shamoo build [options]`.
 
 ## Project configuration
 
 Project commands read `shamoo.config.json` from the project root. Source,
 TypeScript configuration, and output paths must be relative and cannot escape
-that root. Development deployment targets may be absolute or project-relative.
+that root.
 
 ```json
 {
@@ -27,15 +27,13 @@ that root. Development deployment targets may be absolute or project-relative.
     "childProcess": false,
     "nativeAddons": false
   },
-  "deploy": {
-    "paper": "../paper/shamoo-plugins",
-    "velocity": "../velocity/shamoo-plugins"
-  }
+  "communication": { "services": [], "events": [], "consumers": [] }
 }
 ```
 
 `name`, `platforms`, and `entrypoint` are required. `tsconfig` defaults to
-`tsconfig.json`, and `outDir` defaults to `dist`.
+`tsconfig.json`, and `outDir` defaults to `dist`. Platform entrypoints and
+permissions are compiler inputs; they are not copied into compiler metadata.
 
 ## `shamoo create`
 
@@ -43,54 +41,38 @@ that root. Development deployment targets may be absolute or project-relative.
 shamoo create <directory> [--name <package>] [--platform paper,velocity]
 ```
 
-Creates TypeScript source, platform entrypoints, package metadata, and Shamoo
-configuration. The command refuses an existing target and does not run an
-installer or package lifecycle scripts.
+Creates TypeScript source, side-effect-only platform roots, package metadata,
+and Shamoo configuration. The command refuses an existing target and does not
+run an installer or package lifecycle scripts.
 
 ## `shamoo build`
 
 ```sh
 shamoo build [--project <directory>]
+shamooc [--project <directory>]
 ```
 
-Runs compiler discovery and diagnostics, writes `shamoo.metadata.json`, and
-creates an independent source-mapped ESM bundle for each configured platform.
+Runs compiler discovery and diagnostics, cleans `outDir`, creates one universal
+source-mapped ESM bundle, and writes the manifest last. A successful build has
+exactly three direct files:
 
-## `shamoo deploy`
+- `index.js`
+- `index.js.map`
+- `shamoo-plugin.json`
 
-```sh
-shamoo deploy [--project <directory>] [--paper <directory>] [--velocity <directory>]
-```
-
-Builds a Runtime installation directory under each configured watched plugin
-directory. Each installation contains `shamoo-plugin.json`, compiler metadata,
-and descriptor-relative platform bundle/source-map paths. These are ShamooRuntime
-watch roots, not native Paper or Velocity `plugins` directories. Command-line
-targets override `deploy` configuration.
-
-Exact default watched-root examples:
-
-- Paper: `<paper-server>/plugins/ShamooRuntime/plugins`, from
-  `plugins.directory: plugins` relative to ShamooRuntime's plugin data folder.
-- Velocity: `<velocity-server>/plugins/shamooruntime/plugins`, or the absolute
-  directory supplied with `-Dshamoo.plugins.directory=/absolute/watched/root`.
-
-`shamoo.config.json` may declare `communication.services`,
-`communication.events`, and `communication.consumers`; these declarations are
-compiled into the authoritative metadata consumed by the bundled host adapter.
-`compatibility` config supplies descriptor API, Runtime, Minecraft, Paper API,
-and Velocity API ranges rather than weakening deployed descriptors implicitly.
+The manifest contains descriptor policy and the required compiler metadata.
+Paper and Velocity source graphs are selected lazily from Runtime lifecycle
+context, so the inactive platform graph is not evaluated.
 
 ## `shamoo dev`
 
 ```sh
-shamoo dev [--project <directory>] [--paper <directory>] [--velocity <directory>]
+shamoo dev [--project <directory>]
 ```
 
-Performs an initial build and deployment, then watches `src` and
-`shamoo.config.json`. Changes are debounced, builds never overlap, and a change
-that arrives during a build schedules one follow-up build. Stop with `SIGINT` or
-`SIGTERM`.
+Performs an initial build, then watches `src` and `shamoo.config.json`. Changes
+are debounced, builds never overlap, and a change during a build schedules one
+follow-up build. It does not copy artifacts to a Runtime directory.
 
 ## API synchronization
 
@@ -100,9 +82,8 @@ shamoo velocity [sync|diff] [model|-] [output]
 ```
 
 `sync` deterministically updates generated bindings using the pinned API model,
-or a supplied model path. `diff` performs the same generation in memory and
-returns `1` when checked-in output is stale. `-` selects the pinned model. Output
-defaults to `src/generated`. `generate` is accepted as an alias for `sync`.
+or a supplied model path. `diff` returns `1` when checked-in output is stale.
+`-` selects the pinned model and output defaults to `src/generated`.
 
 ## Runtime diagnostics
 
@@ -110,10 +91,8 @@ defaults to `src/generated`. `generate` is accepted as an alias for `sync`.
 shamoo doctor [--project <directory>] [--json]
 ```
 
-Checks the Node runtime, parses and validates project configuration, verifies the
-TypeScript project and common entrypoint are readable, and reports missing
-development deployment targets as warnings. `--json` emits structured
-diagnostics for editor and CI integration.
+Checks Node, project configuration, the TypeScript project, and the common
+source entrypoint. `--json` emits structured diagnostics for editor and CI use.
 
 ## Winter migration analyzer
 
@@ -121,11 +100,8 @@ diagnostics for editor and CI integration.
 shamoo migrate winter <source-directory> [--json]
 ```
 
-Scans Java source without compiling or executing it and identifies supported
-Winter annotations/imports with their Shamoo replacement and semantic migration
-notes. Symbolic links are not followed. The report is an aid, not an automatic
-source rewrite; review [`winter-compatibility.md`](winter-compatibility.md) for
-the pinned audit and intentional differences.
+Scans Java source without compiling or executing it and reports supported
+Winter annotations with their Shamoo replacement.
 
 ## General
 

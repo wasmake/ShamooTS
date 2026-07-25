@@ -1,4 +1,4 @@
-import type { CompilerManifest, ComponentMetadata, MethodMetadata } from '@shamoo/metadata';
+import type { CompilerMetadata, ComponentMetadata, MethodMetadata } from '@shamoo/metadata';
 
 type Data =
   | null
@@ -9,12 +9,27 @@ type Data =
   | readonly Data[]
   | { readonly [key: string]: Data };
 type HostOperation = (...arguments_: readonly unknown[]) => unknown;
+type Platform = 'paper' | 'velocity';
+type LifecycleStage = 'load' | 'enable' | 'ready' | 'drain' | 'disable' | 'unload';
+type ComponentConstructor = new () => object;
+type ComponentRegistry = Readonly<Record<string, ComponentConstructor>>;
+
 interface RuntimeHost {
   readonly registerCallback: (
     name: string,
     callback: (...values: readonly Data[]) => unknown,
   ) => boolean;
 }
+export interface RuntimeLifecycleContext {
+  readonly plugin: string;
+  readonly platform: Platform;
+  readonly metadata: CompilerMetadata;
+}
+export interface PlatformRegistryModule {
+  readonly components: ComponentRegistry;
+}
+export type PlatformLoader = () => Promise<PlatformRegistryModule>;
+
 interface PaperCommandSender {
   readonly name: string;
   readonly kind: 'player' | 'other';
@@ -40,6 +55,14 @@ interface PaperCommandContext {
 }
 
 const callbackMarker = (name: string): { readonly $callback: string } => ({ $callback: name });
+const callbackEncoder = new TextEncoder();
+
+function callbackId(componentId: string, method: string): string {
+  const encoded = [...callbackEncoder.encode(`${componentId}\u0000${method}`)]
+    .map((value) => value.toString(16).padStart(2, '0'))
+    .join('');
+  return `compiled.${encoded}`;
+}
 
 function runtimeHost(): RuntimeHost | undefined {
   const value: unknown = Reflect.get(globalThis, 'host');
@@ -57,6 +80,34 @@ function operation(host: RuntimeHost, name: string): HostOperation {
   if (typeof value !== 'function')
     throw new TypeError(`Runtime host operation is unavailable: ${name}`);
   return value.bind(host) as HostOperation;
+}
+
+function operationMetadata(
+  platform: Platform,
+  typeName: string,
+  component: ComponentMetadata,
+  method: MethodMetadata,
+): object {
+  return {
+    namespace: platform,
+    typeName,
+    protocolMajor: 1,
+    protocolMinor: 0,
+    componentId: component.id,
+    method: method.name,
+    decorators: method.decorators,
+  };
+}
+
+function call(
+  host: RuntimeHost,
+  platform: Platform,
+  component: ComponentMetadata,
+  method: MethodMetadata,
+  name: string,
+  ...arguments_: readonly unknown[]
+): unknown {
+  return operation(host, name)(operationMetadata(platform, name, component, method), ...arguments_);
 }
 
 function commandRecord(value: unknown, label: string): Readonly<Record<string, unknown>> {
@@ -113,7 +164,8 @@ function commandItem(value: unknown): PaperCommandItem | null {
 
 function paperCommandContext(
   host: RuntimeHost,
-  metadata: object,
+  component: ComponentMetadata,
+  method: MethodMetadata,
   value: unknown,
 ): PaperCommandContext {
   const raw = commandRecord(value, 'context');
@@ -141,31 +193,32 @@ function paperCommandContext(
     arguments: arguments_,
     reply: (message: string) =>
       commandBoolean(
-        operation(host, 'paperCommandReply')(metadata, token, message),
+        call(host, 'paper', component, method, 'paperCommandReply', token, message),
         'reply result',
       ),
     findPlayer: (playerName: string) =>
-      commandPlayer(operation(host, 'paperCommandFindPlayer')(metadata, token, playerName)),
-    mainHand: () => commandItem(operation(host, 'paperCommandMainHand')(metadata, token)),
+      commandPlayer(
+        call(host, 'paper', component, method, 'paperCommandFindPlayer', token, playerName),
+      ),
+    mainHand: () =>
+      commandItem(call(host, 'paper', component, method, 'paperCommandMainHand', token)),
     takeMainHand: (material: string, amount: number) =>
       commandBoolean(
-        operation(host, 'paperCommandTakeMainHand')(metadata, token, material, amount),
+        call(host, 'paper', component, method, 'paperCommandTakeMainHand', token, material, amount),
         'take-main-hand result',
       ),
   });
 }
 
-function executable(
-  component: ComponentMetadata,
-  exports: Readonly<Record<string, unknown>>,
-): object | undefined {
-  const constructor = exports[component.name];
-  if (typeof constructor !== 'function') return undefined;
+function executable(component: ComponentMetadata, constructors: ComponentRegistry): object {
+  const constructor = constructors[component.id];
+  if (typeof constructor !== 'function')
+    throw new TypeError(`Compiler component constructor is unavailable: ${component.id}`);
   if (component.constructor.length > 0)
     throw new TypeError(
       `Runtime adapter cannot construct ${component.id} without generated providers.`,
     );
-  return Reflect.construct(constructor, []) as object;
+  return Reflect.construct(constructor, []);
 }
 
 function decorator(method: MethodMetadata): MethodMetadata['decorators'][number] | undefined {
@@ -191,30 +244,29 @@ function firstString(method: MethodMetadata, fallback: string): string {
   return typeof value === 'string' ? value : fallback;
 }
 
-/** Installs the compiler-authoritative metadata adapter consumed by ShamooRuntime. */
+function register(
+  host: RuntimeHost | undefined,
+  name: string,
+  callback: (...values: readonly Data[]) => unknown,
+): string {
+  if (host !== undefined && !host.registerCallback(name, callback))
+    throw new Error(`Runtime rejected callback registration: ${name}`);
+  return name;
+}
+
+/** Installs one compiler-authoritative adapter for the selected platform registry. */
 export function installRuntimeAdapter(
-  manifest: CompilerManifest,
-  platform: 'paper' | 'velocity',
-  exports: Readonly<Record<string, unknown>>,
-): Readonly<Record<string, () => Promise<void>>> {
+  metadata: CompilerMetadata,
+  platform: Platform,
+  constructors: ComponentRegistry,
+): Readonly<Record<LifecycleStage, (context: RuntimeLifecycleContext) => Promise<void>>> {
   const host = runtimeHost();
   const instances = new Map<string, object>();
-  const lifecycle = new Map<string, (() => unknown)[]>();
-  const callbacks = new Set<string>();
-  const register = (name: string, callback: (...values: readonly Data[]) => unknown): string => {
-    if (host === undefined) return name;
-    if (callbacks.has(name)) return name;
-    host.registerCallback(name, callback);
-    callbacks.add(name);
-    return name;
-  };
-  const call = (name: string, metadata: object, ...arguments_: readonly unknown[]): unknown =>
-    host === undefined ? undefined : operation(host, name)(metadata, ...arguments_);
+  const lifecycle = new Map<LifecycleStage, (() => unknown)[]>();
 
-  for (const component of manifest.components) {
+  for (const component of metadata.components) {
     if (component.platform !== 'common' && component.platform !== platform) continue;
-    const target = executable(component, exports);
-    if (target === undefined) continue;
+    const target = executable(component, constructors);
     instances.set(component.id, target);
     for (const method of component.methods) {
       const implementation: unknown = Reflect.get(target, method.name);
@@ -228,22 +280,20 @@ export function installRuntimeAdapter(
         lifecycle.set(method.lifecycle, methods);
       }
       if (method.invocation === undefined) continue;
-      const metadata = {
-        componentId: component.id,
-        method: method.name,
-        decorators: method.decorators,
-      };
+      const callbackName = callbackId(component.id, method.name);
       const commandInvoke = (...values: readonly Data[]): unknown => {
         if (values.length !== 1) throw new TypeError('Invalid Paper command callback arguments.');
         if (host === undefined) throw new TypeError('Runtime host is unavailable.');
-        return invoke(paperCommandContext(host, metadata, values[0]));
+        return invoke(paperCommandContext(host, component, method, values[0]));
       };
       const callback = register(
-        `compiled.${component.id}.${method.name}`,
+        host,
+        callbackName,
         platform === 'paper' && method.invocation === 'command' && host !== undefined
           ? commandInvoke
           : invoke,
       );
+      if (host === undefined) continue;
       const declaration = decorator(method);
       if (method.invocation === 'event') {
         const event =
@@ -251,27 +301,60 @@ export function installRuntimeAdapter(
             ? declaration.name.slice(2)
             : firstString(method, method.name);
         if (platform === 'paper')
-          call('paperSubscribeEvent', metadata, event, 'NORMAL', false, callbackMarker(callback));
-        else call('velocitySubscribeEvent', metadata, event, 0, callbackMarker(callback));
+          call(
+            host,
+            platform,
+            component,
+            method,
+            'paperSubscribeEvent',
+            event,
+            'NORMAL',
+            false,
+            callbackMarker(callback),
+          );
+        else
+          call(
+            host,
+            platform,
+            component,
+            method,
+            'velocitySubscribeEvent',
+            event,
+            0,
+            callbackMarker(callback),
+          );
       } else if (method.invocation === 'command') {
         const command = firstString(method, method.name);
-        if (platform === 'paper')
-          call('paperRegisterCommand', metadata, command, [], callbackMarker(callback));
-        else call('velocityRegisterCommand', metadata, command, [], callbackMarker(callback));
+        call(
+          host,
+          platform,
+          component,
+          method,
+          platform === 'paper' ? 'paperRegisterCommand' : 'velocityRegisterCommand',
+          command,
+          [],
+          callbackMarker(callback),
+        );
       } else if (method.invocation === 'task') {
-        if (platform === 'paper') call('paperScheduleGlobal', metadata, callbackMarker(callback));
-        else call('velocitySchedule', metadata, 0, callbackMarker(callback));
+        call(
+          host,
+          platform,
+          component,
+          method,
+          platform === 'paper' ? 'paperScheduleGlobal' : 'velocitySchedule',
+          ...(platform === 'paper' ? [callbackMarker(callback)] : [0, callbackMarker(callback)]),
+        );
       } else if (platform === 'paper') {
-        call('paperSubscribePacket', metadata, callbackMarker(callback));
+        call(host, platform, component, method, 'paperSubscribePacket', callbackMarker(callback));
       }
     }
   }
 
   if (host !== undefined) {
-    for (const service of manifest.communication?.services ?? []) {
+    for (const service of metadata.communication.services) {
       const target = instances.get(service.componentId);
       if (target === undefined) continue;
-      const callback = register(`service.${service.id}`, (operationName, values) => {
+      const callback = register(host, `service.${service.id}`, (operationName, values) => {
         if (
           typeof operationName !== 'string' ||
           !Array.isArray(values) ||
@@ -287,31 +370,74 @@ export function installRuntimeAdapter(
     }
   }
 
-  const defaultExport = exports.default;
-  const entrypoint =
-    defaultExport !== null && typeof defaultExport === 'object'
-      ? (defaultExport as Readonly<Record<string, unknown>>)
-      : exports;
-  const aliases: Readonly<Record<string, readonly string[]>> = {
-    load: ['load', 'onLoad'],
-    enable: platform === 'velocity' ? ['start', 'enable', 'onEnable'] : ['enable', 'onEnable'],
-    ready: ['ready', 'onReady'],
-    drain: ['drain', 'onDrain'],
-    disable: platform === 'velocity' ? ['stop', 'disable', 'onDisable'] : ['disable', 'onDisable'],
-    unload: ['unload', 'onUnload'],
+  const run = async (stage: LifecycleStage): Promise<void> => {
+    for (const method of lifecycle.get(stage) ?? []) await method();
   };
-  return Object.freeze(
-    Object.fromEntries(
-      Object.entries(aliases).map(([stage, names]) => [
-        stage,
-        async () => {
-          const hook = names
-            .map((name) => entrypoint[name])
-            .find((value) => typeof value === 'function');
-          if (typeof hook === 'function') await Reflect.apply(hook, defaultExport ?? exports, []);
-          for (const method of lifecycle.get(stage) ?? []) await method();
-        },
-      ]),
-    ),
-  );
+  return Object.freeze({
+    load: () => run('load'),
+    enable: () => run('enable'),
+    ready: () => run('ready'),
+    drain: () => run('drain'),
+    disable: () => run('disable'),
+    unload: () => run('unload'),
+  });
+}
+
+function lifecycleContext(value: unknown): RuntimeLifecycleContext {
+  if (value === null || typeof value !== 'object')
+    throw new TypeError('Runtime lifecycle context must be an object.');
+  const context = value as Record<string, unknown>;
+  if (
+    typeof context.plugin !== 'string' ||
+    (context.platform !== 'paper' && context.platform !== 'velocity') ||
+    context.metadata === null ||
+    typeof context.metadata !== 'object'
+  )
+    throw new TypeError('Runtime lifecycle context is invalid.');
+  return {
+    plugin: context.plugin,
+    platform: context.platform,
+    metadata: context.metadata as CompilerMetadata,
+  };
+}
+
+/** Creates lifecycle exports that initialize exactly one lazy platform adapter. */
+export function createRuntimeLifecycle(
+  loaders: Readonly<Partial<Record<Platform, PlatformLoader>>>,
+): Readonly<Record<LifecycleStage, (context: RuntimeLifecycleContext) => Promise<void>>> {
+  let initialized:
+    | (Pick<RuntimeLifecycleContext, 'plugin' | 'platform'> & {
+        readonly adapter: Promise<ReturnType<typeof installRuntimeAdapter>>;
+      })
+    | undefined;
+  const initialize = (
+    rawContext: RuntimeLifecycleContext,
+  ): Promise<ReturnType<typeof installRuntimeAdapter>> => {
+    const context = lifecycleContext(rawContext);
+    if (initialized !== undefined) {
+      if (initialized.plugin !== context.plugin || initialized.platform !== context.platform)
+        throw new TypeError('Runtime lifecycle context changed after adapter initialization.');
+      return initialized.adapter;
+    }
+    const loader = loaders[context.platform];
+    if (loader === undefined)
+      throw new TypeError(`Plugin does not target the ${context.platform} platform.`);
+    const adapter = loader().then((registry) =>
+      installRuntimeAdapter(context.metadata, context.platform, registry.components),
+    );
+    initialized = { plugin: context.plugin, platform: context.platform, adapter };
+    return adapter;
+  };
+  const run = async (stage: LifecycleStage, context: RuntimeLifecycleContext): Promise<void> => {
+    const installed = await initialize(context);
+    await installed[stage](context);
+  };
+  return Object.freeze({
+    load: (context) => run('load', context),
+    enable: (context) => run('enable', context),
+    ready: (context) => run('ready', context),
+    drain: (context) => run('drain', context),
+    disable: (context) => run('disable', context),
+    unload: (context) => run('unload', context),
+  });
 }

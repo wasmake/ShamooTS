@@ -29,7 +29,7 @@ Prices are minor units per item and are configured in `MATERIAL_PRICES` in `src/
 
 Air, invalid stacks, and materials absent from this table cannot be sold.
 
-## Build And Deploy
+## Build
 
 From this directory, or with the equivalent workspace filter from the repository root:
 
@@ -37,18 +37,17 @@ From this directory, or with the equivalent workspace filter from the repository
 pnpm test
 pnpm typecheck
 pnpm build
-pnpm deploy --paper /absolute/path/to/shamoo-runtime-watched-root
 ```
 
-`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. The deploy target is the
-ShamooRuntime watched root, not Paper's general `plugins` directory. It can instead be set as
-`deploy.paper` in `shamoo.config.json`, after which `pnpm deploy` needs no override.
+`pnpm build` writes `index.js`, `index.js.map`, and `shamoo-plugin.json` to `dist/`.
+Install that directory using the server's artifact-management workflow.
 
 All balances live only in the `EconomyPlugin` instance. They reset to zero whenever the plugin is
 disabled, unloaded, redeployed, or the server restarts. No files or database are used.
 
 ## Ready-to-run
 
-Download `shamoo-example-economy-paper-<version>.tgz` from the GitHub release and extract it into
+Use the checked-in [`examples/compiled/economy`](../compiled/economy) installation, or download
+`shamoo-example-economy-<version>.tgz` from the GitHub release. Copy or extract it into
 `<paper-server>/plugins/ShamooRuntime/plugins`. No Node.js toolchain is needed on the server. The
 example remains intentionally in-memory, so balances reset on restart or reload.

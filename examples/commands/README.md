@@ -17,6 +17,7 @@ this direct command context.
 
 ## Ready-to-run
 
-Download `shamoo-example-commands-paper-<version>.tgz` from the GitHub release and extract it into
-`<paper-server>/plugins/ShamooRuntime/plugins`. The archive is already compiled; do not place it in
-Paper's general `plugins` directory.
+Use the checked-in [`examples/compiled/commands`](../compiled/commands) installation, or download
+`shamoo-example-commands-<version>.tgz` from the GitHub release. Copy or extract the complete
+installation into `<paper-server>/plugins/ShamooRuntime/plugins`, not Paper's general `plugins`
+directory.

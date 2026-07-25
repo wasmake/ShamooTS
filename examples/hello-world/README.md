@@ -1,20 +1,20 @@
 # Hello world
 
-A minimal deployable Paper plugin using Shamoo's compiler-discovered lifecycle and
-platform entrypoint APIs. Both the Paper entrypoint and plugin component emit lifecycle
-messages so a successful load and shutdown are visible in the Runtime log.
+A minimal Paper plugin using Shamoo's compiler-discovered lifecycle. `src/plugin.ts` exports the
+plugin component, while `src/ready.ts` exports a second zero-constructor `@Component` with a distinct
+`@OnReady` stage. The import-only Paper source root includes both files in one multi-class bundle.
 
 ```sh
 pnpm typecheck
 pnpm build
 ```
 
-`pnpm build` writes the Paper bundle and compiler metadata to `dist/`. Configure a
-`deploy.paper` watched-root path in `shamoo.config.json` before running `shamoo deploy`
-or `shamoo dev`.
+`pnpm build` writes `index.js`, `index.js.map`, and `shamoo-plugin.json` to `dist/`.
+`shamoo dev` watches and rebuilds the same directory without copying it.
 
 ## Ready-to-run
 
-Download `shamoo-example-hello-world-paper-<version>.tgz` from the GitHub release and extract it
-into `<paper-server>/plugins/ShamooRuntime/plugins`. Restart the server or let ShamooRuntime's
-watcher discover the new installation directory.
+Use the checked-in [`examples/compiled/hello-world`](../compiled/hello-world) installation, or
+download `shamoo-example-hello-world-<version>.tgz` from the GitHub release. Copy or extract it into
+`<paper-server>/plugins/ShamooRuntime/plugins`. Restart the server or let ShamooRuntime's watcher
+discover the new installation directory.

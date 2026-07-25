@@ -1,16 +1,13 @@
 /** TypeScript Compiler API discovery and canonical Shamoo metadata generation. @packageDocumentation */
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
 import { dirname, relative, resolve, sep } from 'node:path';
 
 import { InvalidDeclarationError } from '@shamoo/common';
-import type { PackageName, PlatformKind } from '@shamoo/core';
+import type { PlatformKind } from '@shamoo/core';
 import {
-  COMPILER_METADATA_VERSION,
-  canonicalMetadataJson,
-  parseCompilerManifest,
+  parseCompilerMetadata,
   type CanonicalValue,
-  type CompilerManifest,
+  type CompilerMetadata,
   type ComponentMetadata,
   type CommunicationMetadata,
   type DecoratorMetadata,
@@ -28,8 +25,11 @@ export type CompilerDiagnosticCode =
   | 'TYPESCRIPT'
   | 'DECORATOR_USAGE'
   | 'DECORATOR_CONFLICT'
+  | 'EXECUTABLE_CLASS_EXPORT'
   | 'INJECTION_TOKEN_REQUIRED'
   | 'MODULE_CYCLE'
+  | 'COMMUNICATION_CONTRACT'
+  | 'METADATA_VALIDATION'
   | 'PLATFORM_LEAK'
   | 'UNSUPPORTED_IMPORT'
   | 'PERMISSION_REQUIRED';
@@ -56,17 +56,14 @@ export interface CompilerPermissions {
 export interface PluginCompilationRequest {
   readonly tsconfig?: string;
   readonly entrypoint: string;
-  readonly packageName: PackageName;
   readonly platforms: readonly PlatformKind[];
   readonly paperEntrypoint?: string;
   readonly velocityEntrypoint?: string;
-  readonly output?: string;
   readonly permissions?: CompilerPermissions;
   readonly communication?: CommunicationMetadata;
 }
 export interface CompilationResult {
-  readonly manifest?: CompilerManifest;
-  readonly metadata?: string;
+  readonly metadata?: CompilerMetadata;
   readonly diagnostics: readonly CompilerDiagnostic[];
 }
 
@@ -111,7 +108,6 @@ const memberOnly = new Set([
 const repeatable = new Set([
   'Requires',
   'Validate',
-  'Scheduled',
   'UseInterceptors',
   'UseGuards',
   'UsePipes',
@@ -591,6 +587,25 @@ function metadataPlatform(
   return paper && velocity ? 'common' : paper ? 'paper' : 'velocity';
 }
 
+function isNamedExportedTopLevelClass(checker: ts.TypeChecker, node: ts.ClassDeclaration): boolean {
+  if (node.name === undefined || !ts.isSourceFile(node.parent)) return false;
+  const module = checker.getSymbolAtLocation(node.parent);
+  if (module === undefined) return false;
+  return checker.getExportsOfModule(module).some((item) => {
+    if (item.name !== node.name?.text) return false;
+    const resolved = item.flags & ts.SymbolFlags.Alias ? checker.getAliasedSymbol(item) : item;
+    return resolved.declarations?.includes(node) === true;
+  });
+}
+
+function executableDecorator(name: string): boolean {
+  return (
+    lifecycleStages.has(name) ||
+    invocationKinds.has(name) ||
+    (name.startsWith('On') && name.endsWith('Event'))
+  );
+}
+
 function discover(
   root: string,
   program: ts.Program,
@@ -640,15 +655,9 @@ function discover(
           message: `@${duplicates} may only be declared once on this target.`,
           location: location(root, node),
         });
+      const executableNames = names.filter(executableDecorator);
       const conflictGroups = [
-        names.filter((name) =>
-          ['OnLoad', 'OnEnable', 'OnReady', 'OnDrain', 'OnDisable', 'OnUnload'].includes(name),
-        ),
-        names.filter((name) =>
-          ['EventHandler', 'Command', 'Subcommand', 'Scheduled', 'Interval', 'Timeout'].includes(
-            name,
-          ),
-        ),
+        [...new Set(executableNames)],
         names.filter((name) =>
           ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender', 'Context'].includes(name),
         ),
@@ -661,6 +670,14 @@ function discover(
           location: location(root, node),
         });
       if (ts.isClassDeclaration(node)) {
+        const exported = isNamedExportedTopLevelClass(checker, node);
+        if (nodeDecorators.length > 0 && !exported)
+          diagnostics.push({
+            code: 'EXECUTABLE_CLASS_EXPORT',
+            message:
+              'Decorated classes must be named top-level classes exported by name from their defining source file.',
+            location: location(root, node),
+          });
         const kinds = names.filter((name) => classDecorators.has(name));
         if (kinds.length > 1)
           diagnostics.push({
@@ -669,7 +686,7 @@ function discover(
             location: location(root, node),
           });
         const selected = kinds[0];
-        if (selected !== undefined && node.name !== undefined) {
+        if (selected !== undefined && node.name !== undefined && exported) {
           const constructor = node.members.find(ts.isConstructorDeclaration);
           const parameters: DependencyMetadata[] = [];
           constructor?.parameters.forEach((parameter, index) => {
@@ -690,6 +707,15 @@ function discover(
               .filter((item) => decoratorName(checker, item) !== undefined)
               .map((item) => decoratorMetadata(root, checker, item));
             if (metadata.length === 0) return [];
+            if (!ts.isIdentifier(member.name)) {
+              diagnostics.push({
+                code: 'DECORATOR_USAGE',
+                message:
+                  'Decorated methods must use a normal identifier name; string, numeric, computed, and private names are unsupported.',
+                location: location(root, member.name),
+              });
+              return [];
+            }
             const methodParameters: DependencyMetadata[] = [];
             member.parameters.forEach((parameter, index) => {
               const value = dependency(root, checker, parameter, index);
@@ -705,7 +731,7 @@ function discover(
             });
             return [
               {
-                name: member.name.getText(),
+                name: member.name.text,
                 ...(() => {
                   const lifecycle = metadata
                     .map((item) => lifecycleStages.get(item.name))
@@ -730,6 +756,17 @@ function discover(
               },
             ];
           });
+          const callbackMethods = methods.filter((method) => method.invocation !== undefined);
+          const duplicateCallback = callbackMethods.find(
+            (method, index) =>
+              callbackMethods.findIndex((candidate) => candidate.name === method.name) !== index,
+          );
+          if (duplicateCallback !== undefined)
+            diagnostics.push({
+              code: 'DECORATOR_CONFLICT',
+              message: `Callback-producing method '${duplicateCallback.name}' is declared more than once on ${node.name.text}.`,
+              location: duplicateCallback.location,
+            });
           for (const property of node.members.filter(ts.isPropertyDeclaration)) {
             if (
               decorators(property).some((item) =>
@@ -1068,7 +1105,33 @@ function checkImports(
   }
 }
 
-export async function compilePlugin(request: PluginCompilationRequest): Promise<CompilationResult> {
+function checkCommunication(
+  communication: CommunicationMetadata | undefined,
+  components: readonly ComponentMetadata[],
+  dualPlatform: boolean,
+  diagnostics: CompilerDiagnostic[],
+): void {
+  if (communication === undefined) return;
+  const byId = new Map(components.map((component) => [component.id, component]));
+  for (const service of communication.services) {
+    const component = byId.get(service.componentId);
+    if (component === undefined) {
+      diagnostics.push({
+        code: 'COMMUNICATION_CONTRACT',
+        message: `Service '${service.id}' names undiscovered component '${service.componentId}'.`,
+        suggestion: 'Use the compiler component id of an exported decorated provider class.',
+      });
+    } else if (dualPlatform && component.platform !== 'common') {
+      diagnostics.push({
+        code: 'COMMUNICATION_CONTRACT',
+        message: `Dual-platform service '${service.id}' must use a common provider; '${service.componentId}' is ${component.platform}-specific.`,
+        suggestion: 'Move the provider into the source graph shared by both platform entrypoints.',
+      });
+    }
+  }
+}
+
+function compilePluginSync(request: PluginCompilationRequest): CompilationResult {
   validateCompilationRequest(request);
   const configPath = resolve(request.tsconfig ?? 'tsconfig.json');
   const root = dirname(configPath);
@@ -1113,91 +1176,47 @@ export async function compilePlugin(request: PluginCompilationRequest): Promise<
   );
   checkModuleCycles(discovered.modules, diagnostics);
   checkImports(root, program, reachability, request, diagnostics);
+  checkCommunication(
+    request.communication,
+    discovered.components,
+    request.platforms.length > 1,
+    diagnostics,
+  );
   diagnostics.sort((left, right) =>
     `${left.location?.file ?? ''}:${String(left.location?.line ?? 0)}:${left.code}`.localeCompare(
       `${right.location?.file ?? ''}:${String(right.location?.line ?? 0)}:${right.code}`,
     ),
   );
   if (diagnostics.length > 0) return { diagnostics };
-  const platforms = new Set(request.platforms as readonly string[]);
-  const manifest: CompilerManifest = {
-    formatVersion: COMPILER_METADATA_VERSION,
-    compilerVersion: SHAMOO_COMPILER_VERSION,
-    packageName: request.packageName,
-    components: discovered.components.sort((left, right) => left.id.localeCompare(right.id)),
-    modules: discovered.modules.sort((left, right) => left.id.localeCompare(right.id)),
-    ...(request.communication === undefined ? {} : { communication: request.communication }),
-    ...(request.permissions !== undefined
-      ? {
-          permissions: {
-            ...(request.permissions.builtins === undefined
-              ? {}
-              : {
-                  builtins: [...request.permissions.builtins]
-                    .map((value) => builtinName(value) ?? value)
-                    .sort(),
-                }),
-            ...(request.permissions.filesystem === undefined
-              ? {}
-              : {
-                  filesystem: {
-                    read: [...request.permissions.filesystem.read].sort(),
-                    write: [...request.permissions.filesystem.write].sort(),
-                  },
-                }),
-            ...(request.permissions.network === true ? { network: true } : {}),
-            ...(request.permissions.workers === true ? { workers: true } : {}),
-            ...(request.permissions.childProcess === true ? { childProcess: true } : {}),
-            ...(request.permissions.nativeAddons === true ? { nativeAddons: true } : {}),
-            ...(request.permissions.nms === true ? { nms: true } : {}),
-            ...(request.permissions.packets === true ? { packets: true } : {}),
-          },
-        }
-      : {}),
-    entrypoints: {
-      ...(platforms.has('paper')
-        ? {
-            paper: {
-              source: normalized(
-                root,
-                resolve(root, request.paperEntrypoint ?? request.entrypoint),
-              ),
-              output: 'paper/index.js',
-            },
-          }
-        : {}),
-      ...(platforms.has('velocity')
-        ? {
-            velocity: {
-              source: normalized(
-                root,
-                resolve(root, request.velocityEntrypoint ?? request.entrypoint),
-              ),
-              output: 'velocity/index.js',
-            },
-          }
-        : {}),
-    },
-  };
-  const metadata = canonicalMetadataJson(manifest);
-  if (request.output !== undefined) {
-    const output = resolve(root, request.output);
-    await mkdir(dirname(output), { recursive: true });
-    await writeFile(output, metadata, 'utf8');
+  let metadata: CompilerMetadata;
+  try {
+    metadata = parseCompilerMetadata({
+      version: SHAMOO_COMPILER_VERSION,
+      components: discovered.components.sort((left, right) => left.id.localeCompare(right.id)),
+      modules: discovered.modules.sort((left, right) => left.id.localeCompare(right.id)),
+      communication: request.communication ?? { services: [], events: [], consumers: [] },
+    });
+  } catch (error) {
+    return {
+      diagnostics: [
+        {
+          code: 'METADATA_VALIDATION',
+          message: `Generated compiler metadata is invalid: ${error instanceof Error ? error.message : String(error)}`,
+        },
+      ],
+    };
   }
-  return { manifest, metadata, diagnostics: [] };
+  return { metadata, diagnostics: [] };
+}
+
+export function compilePlugin(request: PluginCompilationRequest): Promise<CompilationResult> {
+  return Promise.resolve().then(() => compilePluginSync(request));
 }
 
 export async function compilePluginOrThrow(
   request: PluginCompilationRequest,
-): Promise<CompilerManifest> {
+): Promise<CompilerMetadata> {
   const result = await compilePlugin(request);
-  if (result.manifest === undefined) throw new CompilationError(result.diagnostics);
-  return result.manifest;
-}
-
-/** Reads compiler metadata without executing plugin code. */
-export async function readCompilerManifest(path: string): Promise<CompilerManifest> {
-  const input: unknown = JSON.parse(await readFile(path, 'utf8'));
-  return parseCompilerManifest(input);
+  if (result.metadata === undefined) throw new CompilationError(result.diagnostics);
+  return result.metadata;
 }

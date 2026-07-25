@@ -1,46 +1,31 @@
 /** Production command orchestration and developer tooling for Shamoo plugins. @packageDocumentation */
 import {
   access,
-  copyFile,
   mkdir,
+  mkdtemp,
   readFile,
   readdir,
   realpath,
+  rename,
+  rm,
   stat,
   writeFile,
 } from 'node:fs/promises';
 import { constants, watch as watchFiles, type FSWatcher } from 'node:fs';
-import { dirname, isAbsolute, relative, resolve, sep } from 'node:path';
+import { basename, dirname, isAbsolute, relative, resolve, sep } from 'node:path';
 
 import { bundlePlugin, type BundleArtifact } from '@shamoo/bundler';
 import { compilePlugin, type CompilerDiagnostic } from '@shamoo/compiler';
 import { packageName, PlatformKind } from '@shamoo/core';
 import { defaultPluginName, scaffoldPlugin } from '@shamoo/create-plugin';
-import {
-  canonicalMetadataJson,
-  type CommunicationMetadata,
-  type CompilerManifest,
-} from '@shamoo/metadata';
+import type { CommunicationMetadata } from '@shamoo/metadata';
 import { diffPaperBindings, syncPaperBindings } from '@shamoo/paper-codegen';
 import { diffVelocityBindings, syncVelocityBindings } from '@shamoo/velocity-codegen';
-import {
-  MANIFEST_VERSION,
-  parseCommonDescriptor,
-  type CommonDescriptor,
-} from '@shamoo/runtime-protocol';
+import { MANIFEST_VERSION, parseCommonDescriptor } from '@shamoo/runtime-protocol';
 
 export const CLI_VERSION = '0.1.0-rc.1' as const;
 export type CliCommand =
-  | 'build'
-  | 'create'
-  | 'deploy'
-  | 'dev'
-  | 'doctor'
-  | 'help'
-  | 'migrate'
-  | 'paper'
-  | 'velocity'
-  | 'version';
+  'build' | 'create' | 'dev' | 'doctor' | 'help' | 'migrate' | 'paper' | 'velocity' | 'version';
 export type CodegenAction = 'generate' | 'sync' | 'diff';
 export interface PlatformCodegenInvocation {
   readonly platform: 'paper' | 'velocity';
@@ -78,17 +63,12 @@ export interface ShamooProjectConfig {
     readonly paperApi?: string;
     readonly velocityApi?: string;
   };
-  readonly deploy?: {
-    readonly paper?: string;
-    readonly velocity?: string;
-  };
 }
 export interface ProjectBuildResult {
   readonly root: string;
   readonly config: ShamooProjectConfig;
-  readonly artifacts: readonly BundleArtifact[];
-  readonly metadata: string;
-  readonly manifest: NonNullable<Awaited<ReturnType<typeof compilePlugin>>['manifest']>;
+  readonly artifact: BundleArtifact;
+  readonly manifestPath: string;
 }
 export interface RuntimeDiagnostic {
   readonly status: 'ok' | 'warning' | 'error';
@@ -124,7 +104,6 @@ export function parseCliCommand(argument: string | undefined): CliCommand {
   if (
     argument === 'build' ||
     argument === 'create' ||
-    argument === 'deploy' ||
     argument === 'dev' ||
     argument === 'doctor' ||
     argument === 'migrate' ||
@@ -172,6 +151,13 @@ function option(arguments_: readonly string[], name: string): string | undefined
   return value;
 }
 
+function rejectUnknownOptions(arguments_: readonly string[], allowed: readonly string[]): void {
+  const unknown = arguments_.find(
+    (argument) => argument.startsWith('--') && !allowed.includes(argument),
+  );
+  if (unknown !== undefined) throw new TypeError(`Unknown option: ${unknown}`);
+}
+
 function within(root: string, value: string, label: string): string {
   if (value.trim().length === 0 || isAbsolute(value))
     throw new TypeError(`${label} must be a non-empty path relative to the project root.`);
@@ -180,6 +166,11 @@ function within(root: string, value: string, label: string): string {
   if (path === '..' || path.startsWith(`..${sep}`) || isAbsolute(path))
     throw new TypeError(`${label} escapes the project root: ${value}`);
   return target;
+}
+
+function containsPath(directory: string, target: string): boolean {
+  const path = relative(directory, target);
+  return path === '' || (!path.startsWith(`..${sep}`) && path !== '..' && !isAbsolute(path));
 }
 
 async function assertNoSymlinkEscape(root: string, target: string, label: string): Promise<void> {
@@ -238,6 +229,10 @@ function projectPermissions(value: unknown): ShamooProjectConfig['permissions'] 
       throw new TypeError(`shamoo.config.json 'permissions.${key}' must be boolean.`);
     return permissions[key];
   };
+  for (const key of ['nms', 'packets']) {
+    if (permissions[key] !== undefined && typeof permissions[key] !== 'boolean')
+      throw new TypeError(`shamoo.config.json 'permissions.${key}' must be boolean.`);
+  }
   return {
     builtins: strings(permissions.builtins, 'permissions.builtins'),
     filesystem: {
@@ -339,13 +334,23 @@ export async function readProjectConfig(projectRoot: string): Promise<ShamooProj
     throw new TypeError(
       "shamoo.config.json 'platforms' must contain unique paper/velocity values.",
     );
-  const deployValue = value.deploy;
-  if (
-    deployValue !== undefined &&
-    (deployValue === null || typeof deployValue !== 'object' || Array.isArray(deployValue))
-  )
-    throw new TypeError("shamoo.config.json 'deploy' must be an object.");
-  const deploy = deployValue as Record<string, unknown> | undefined;
+  const allowed = new Set([
+    'name',
+    'platforms',
+    'entrypoint',
+    'paperEntrypoint',
+    'velocityEntrypoint',
+    'tsconfig',
+    'outDir',
+    'displayName',
+    'version',
+    'permissions',
+    'communication',
+    'compatibility',
+  ]);
+  const unknown = Object.keys(value).find((key) => !allowed.has(key));
+  if (unknown !== undefined)
+    throw new TypeError(`shamoo.config.json contains unsupported field '${unknown}'.`);
   const paperEntrypoint = stringProperty(value, 'paperEntrypoint');
   const velocityEntrypoint = stringProperty(value, 'velocityEntrypoint');
   const tsconfig = stringProperty(value, 'tsconfig');
@@ -355,8 +360,6 @@ export async function readProjectConfig(projectRoot: string): Promise<ShamooProj
   const permissions = projectPermissions(value.permissions);
   const communication = communicationConfig(value.communication);
   const compatibility = compatibilityConfig(value.compatibility);
-  const paperDeploy = deploy === undefined ? undefined : stringProperty(deploy, 'paper');
-  const velocityDeploy = deploy === undefined ? undefined : stringProperty(deploy, 'velocity');
   const config: ShamooProjectConfig = {
     name,
     platforms: value.platforms as ('paper' | 'velocity')[],
@@ -370,14 +373,6 @@ export async function readProjectConfig(projectRoot: string): Promise<ShamooProj
     ...(permissions === undefined ? {} : { permissions }),
     ...(communication === undefined ? {} : { communication }),
     ...(compatibility === undefined ? {} : { compatibility }),
-    ...(deploy === undefined
-      ? {}
-      : {
-          deploy: {
-            ...(paperDeploy === undefined ? {} : { paper: paperDeploy }),
-            ...(velocityDeploy === undefined ? {} : { velocity: velocityDeploy }),
-          },
-        }),
   };
   for (const [label, path] of [
     ['entrypoint', config.entrypoint],
@@ -388,9 +383,30 @@ export async function readProjectConfig(projectRoot: string): Promise<ShamooProj
   ] as const) {
     if (path !== undefined) {
       const target = within(root, path, label);
+      if (label === 'outDir' && target === root)
+        throw new TypeError('outDir must not be the project root.');
       await assertNoSymlinkEscape(root, target, label);
     }
   }
+  const outputDirectory = within(root, config.outDir ?? 'dist', 'outDir');
+  const protectedInputs = [
+    ['project config', 'shamoo.config.json'],
+    ['tsconfig', config.tsconfig ?? 'tsconfig.json'],
+    ['entrypoint', config.entrypoint],
+    ...(config.paperEntrypoint === undefined
+      ? []
+      : ([['paperEntrypoint', config.paperEntrypoint]] as const)),
+    ...(config.velocityEntrypoint === undefined
+      ? []
+      : ([['velocityEntrypoint', config.velocityEntrypoint]] as const)),
+  ] as const;
+  const contained = protectedInputs.find(([, path]) =>
+    containsPath(outputDirectory, within(root, path, 'input')),
+  );
+  if (contained !== undefined)
+    throw new TypeError(
+      `outDir must not contain the configured ${contained[0]} '${contained[1]}'.`,
+    );
   return config;
 }
 
@@ -403,11 +419,9 @@ export async function buildProject(projectRoot: string): Promise<ProjectBuildRes
   const root = resolve(projectRoot);
   const config = await readProjectConfig(root);
   const outputDirectory = within(root, config.outDir ?? 'dist', 'outDir');
-  const metadata = resolve(outputDirectory, 'shamoo.metadata.json');
   const compilation = await compilePlugin({
     tsconfig: within(root, config.tsconfig ?? 'tsconfig.json', 'tsconfig'),
     entrypoint: config.entrypoint,
-    packageName: packageName(config.name),
     platforms: config.platforms.map((platform) =>
       platform === 'paper' ? PlatformKind.PAPER : PlatformKind.VELOCITY,
     ),
@@ -415,78 +429,37 @@ export async function buildProject(projectRoot: string): Promise<ProjectBuildRes
     ...(config.velocityEntrypoint === undefined
       ? {}
       : { velocityEntrypoint: config.velocityEntrypoint }),
-    output: relative(
-      dirname(within(root, config.tsconfig ?? 'tsconfig.json', 'tsconfig')),
-      metadata,
-    ),
     ...(config.permissions === undefined ? {} : { permissions: config.permissions }),
     ...(config.communication === undefined ? {} : { communication: config.communication }),
   });
-  if (compilation.manifest === undefined)
+  if (compilation.metadata === undefined)
     throw new Error(compilation.diagnostics.map(formatCompilerDiagnostic).join('\n'));
-  const artifacts = await bundlePlugin({
-    manifest: compilation.manifest,
-    projectRoot: root,
-    outputDirectory,
-  });
-  const manifest: CompilerManifest = {
-    ...compilation.manifest,
-    sourceMaps: artifacts.map((artifact) => ({
-      generated: relative(outputDirectory, artifact.path).split(sep).join('/'),
-      map: relative(outputDirectory, artifact.map).split(sep).join('/'),
-      format: 'source-map-v3' as const,
-    })),
-  };
-  await writeFile(metadata, canonicalMetadataJson(manifest), 'utf8');
-  return { root, config, artifacts, metadata, manifest };
-}
-
-async function safeDeploymentDirectory(path: string): Promise<string> {
-  const target = resolve(path);
-  await mkdir(target, { recursive: true });
-  const information = await stat(target);
-  if (!information.isDirectory())
-    throw new TypeError(`Deployment target is not a directory: ${target}`);
-  await access(target, constants.W_OK);
-  return realpath(target);
-}
-
-function installationName(packageValue: string): string {
-  const unscoped = packageValue.split('/').at(-1) ?? packageValue;
-  const safe = unscoped.replace(/[^a-zA-Z0-9._-]/gu, '-');
-  return safe;
-}
-
-function descriptorFor(build: ProjectBuildResult, artifact: BundleArtifact): CommonDescriptor {
-  const permissions = build.config.permissions;
-  const platform = artifact.platform;
-  return parseCommonDescriptor({
-    name: installationName(build.config.name).toLowerCase(),
-    displayName: build.config.displayName ?? installationName(build.config.name),
-    version: build.config.version ?? '0.1.0',
+  const permissions = config.permissions;
+  const manifest = parseCommonDescriptor({
+    name: pluginIdentity(config.name),
+    displayName: config.displayName ?? pluginIdentity(config.name),
+    version: config.version ?? '0.1.0',
     shamoo: {
-      api: build.config.compatibility?.api ?? '^0.1.0',
-      runtime: build.config.compatibility?.runtime ?? '^0.1.0',
+      api: config.compatibility?.api ?? '^0.1.0',
+      runtime: config.compatibility?.runtime ?? '^0.1.0',
       manifest: MANIFEST_VERSION,
     },
     platforms: {
-      paper:
-        platform === 'paper'
-          ? {
-              enabled: true,
-              entrypoint: 'paper/index.js',
-              minecraft: build.config.compatibility?.minecraft ?? '*',
-              paperApi: build.config.compatibility?.paperApi ?? '*',
-            }
-          : { enabled: false },
-      velocity:
-        platform === 'velocity'
-          ? {
-              enabled: true,
-              entrypoint: 'velocity/index.js',
-              velocityApi: build.config.compatibility?.velocityApi ?? '*',
-            }
-          : { enabled: false },
+      paper: config.platforms.includes('paper')
+        ? {
+            enabled: true,
+            minecraft: config.compatibility?.minecraft ?? '*',
+            paperApi: config.compatibility?.paperApi ?? '*',
+            nms: permissions?.nms ?? false,
+            packets: permissions?.packets ?? false,
+          }
+        : { enabled: false },
+      velocity: config.platforms.includes('velocity')
+        ? {
+            enabled: true,
+            velocityApi: config.compatibility?.velocityApi ?? '*',
+          }
+        : { enabled: false },
     },
     dependencies: { required: {}, optional: {}, loadBefore: [], loadAfter: [] },
     node: {
@@ -498,44 +471,86 @@ function descriptorFor(build: ProjectBuildResult, artifact: BundleArtifact): Com
       nativeAddons: permissions?.nativeAddons ?? false,
     },
     reload: { watch: true, debounceMs: 150, preserveState: false },
+    compiler: compilation.metadata,
   });
+  const manifestJson = `${JSON.stringify(manifest, undefined, 2)}\n`;
+  const manifestBytes = new TextEncoder().encode(manifestJson).byteLength;
+  const maximumManifestBytes = 1_048_576;
+  if (manifestBytes > maximumManifestBytes)
+    throw new RangeError(
+      `shamoo-plugin.json exceeds the Runtime limit of ${maximumManifestBytes.toLocaleString('en-US')} UTF-8 bytes.`,
+    );
+
+  const outputParent = dirname(outputDirectory);
+  await mkdir(outputParent, { recursive: true });
+  const temporaryDirectory = await mkdtemp(
+    resolve(outputParent, `.${basename(outputDirectory)}-build-`),
+  );
+  const previousOutput = `${temporaryDirectory}-previous`;
+  let installed = false;
+  let previousMoved = false;
+  try {
+    const temporaryArtifact = await bundlePlugin({
+      metadata: compilation.metadata,
+      entrypoints: Object.fromEntries(
+        config.platforms.map((platform) => [
+          platform,
+          platform === 'paper'
+            ? (config.paperEntrypoint ?? config.entrypoint)
+            : (config.velocityEntrypoint ?? config.entrypoint),
+        ]),
+      ),
+      projectRoot: root,
+      outputDirectory: temporaryDirectory,
+    });
+    await writeFile(resolve(temporaryDirectory, 'shamoo-plugin.json'), manifestJson, 'utf8');
+
+    try {
+      await rename(outputDirectory, previousOutput);
+      previousMoved = true;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+    }
+    try {
+      await rename(temporaryDirectory, outputDirectory);
+      installed = true;
+    } catch (error) {
+      if (previousMoved) {
+        try {
+          await rename(previousOutput, outputDirectory);
+          previousMoved = false;
+        } catch (rollbackError) {
+          throw new AggregateError(
+            [error, rollbackError],
+            `Could not install new output or restore previous output; preserved previous files at ${previousOutput}.`,
+          );
+        }
+      }
+      throw error;
+    }
+    if (previousMoved) {
+      await rm(previousOutput, { recursive: true, force: true }).catch(() => undefined);
+      previousMoved = false;
+    }
+    const artifact: BundleArtifact = {
+      path: resolve(outputDirectory, basename(temporaryArtifact.path)),
+      map: resolve(outputDirectory, basename(temporaryArtifact.map)),
+      bytes: temporaryArtifact.bytes,
+    };
+    return {
+      root,
+      config,
+      artifact,
+      manifestPath: resolve(outputDirectory, 'shamoo-plugin.json'),
+    };
+  } finally {
+    if (!installed) await rm(temporaryDirectory, { recursive: true, force: true });
+  }
 }
 
-export async function deployProject(
-  build: ProjectBuildResult,
-  overrides: Readonly<Partial<Record<'paper' | 'velocity', string>>> = {},
-): Promise<readonly string[]> {
-  const deployed: string[] = [];
-  for (const artifact of build.artifacts) {
-    const configured = overrides[artifact.platform] ?? build.config.deploy?.[artifact.platform];
-    if (configured === undefined)
-      throw new TypeError(`No ${artifact.platform} deployment target configured.`);
-    const target = await safeDeploymentDirectory(
-      isAbsolute(configured) ? configured : resolve(build.root, configured),
-    );
-    const installation = resolve(target, installationName(build.config.name));
-    await mkdir(resolve(installation, artifact.platform), { recursive: true });
-    for (const [source, relativeOutput] of [
-      [artifact.path, `${artifact.platform}/index.js`],
-      [artifact.map, `${artifact.platform}/index.js.map`],
-      [build.metadata, 'shamoo.metadata.json'],
-    ] as const) {
-      const output = resolve(installation, relativeOutput);
-      const targetRelative = relative(target, output);
-      if (targetRelative.startsWith(`..${sep}`) || isAbsolute(targetRelative))
-        throw new Error(`Unsafe deployment output: ${output}`);
-      await copyFile(source, output);
-      deployed.push(output);
-    }
-    const descriptor = resolve(installation, 'shamoo-plugin.json');
-    await writeFile(
-      descriptor,
-      `${JSON.stringify(descriptorFor(build, artifact), undefined, 2)}\n`,
-      'utf8',
-    );
-    deployed.push(descriptor);
-  }
-  return deployed;
+function pluginIdentity(packageValue: string): string {
+  const unscoped = packageValue.split('/').at(-1) ?? packageValue;
+  return unscoped.replace(/[^a-zA-Z0-9._-]/gu, '-').toLowerCase();
 }
 
 export async function diagnoseRuntime(projectRoot: string): Promise<readonly RuntimeDiagnostic[]> {
@@ -573,33 +588,6 @@ export async function diagnoseRuntime(projectRoot: string): Promise<readonly Run
       message: readable ? `${path} is readable` : `${path} is missing or unreadable`,
     });
   }
-  for (const platform of config.platforms) {
-    const path = config.deploy?.[platform];
-    if (path !== undefined) {
-      const target = isAbsolute(path) ? path : resolve(root, path);
-      const issue = await stat(target).then(
-        async (information) => {
-          if (!information.isDirectory()) return 'is not a directory';
-          return access(target, constants.W_OK).then(
-            () => undefined,
-            () => 'is not writable',
-          );
-        },
-        () => 'does not exist',
-      );
-      diagnostics.push({
-        status: issue === undefined ? 'ok' : 'error',
-        check: `deploy:${platform}`,
-        message: issue === undefined ? `${target} is writable` : `${target} ${issue}`,
-      });
-      continue;
-    }
-    diagnostics.push({
-      status: 'warning',
-      check: `deploy:${platform}`,
-      message: `No ${platform} development deployment target configured`,
-    });
-  }
   return diagnostics;
 }
 
@@ -610,7 +598,7 @@ const winterMappings: Readonly<Record<string, readonly [string, string]>> = {
   OnDisable: ['@OnDisable', 'Use drain before disable when work must finish.'],
   OnReload: [
     'no direct equivalent',
-    'Shamoo intentionally uses rebuild/redeploy instead of hot reload.',
+    'Shamoo intentionally uses rebuild and reinstall instead of hot reload.',
   ],
   RequiresExpr: [
     '@RequiresExpression',
@@ -685,15 +673,14 @@ const commandReference = `Usage: shamoo <command> [options]
 Commands:
   create <directory> [--name <package>] [--platform paper,velocity]
   build [--project <directory>]
-  deploy [--project <directory>] [--paper <directory>] [--velocity <directory>]
-  dev [--project <directory>] [--paper <directory>] [--velocity <directory>]
+  dev [--project <directory>]
   paper [sync|diff] [paper|paper-nms|paper-packets] [model|-] [output]
   velocity [sync|diff] [model|-] [output]
   doctor [--project <directory>] [--json]
   migrate winter <source-directory> [--json]
   version
 
-dev performs an initial build/deploy, then watches source and configuration files.
+dev performs an initial build, then watches source and configuration files.
 All project paths in shamoo.config.json are confined to the project root.
 `;
 
@@ -746,7 +733,6 @@ async function runCodegen(arguments_: readonly string[], cwd: string, io: CliIo)
 
 async function watchDevelopment(
   root: string,
-  overrides: Readonly<Partial<Record<'paper' | 'velocity', string>>>,
   io: CliIo,
   signal: AbortSignal | undefined,
 ): Promise<number> {
@@ -760,9 +746,8 @@ async function watchDevelopment(
     }
     running = true;
     try {
-      const build = await buildProject(root);
-      const deployed = await deployProject(build, overrides);
-      io.stdout(`Deployed ${String(deployed.length)} development files.\n`);
+      await buildProject(root);
+      io.stdout('Built development plugin artifact.\n');
     } catch (error) {
       io.stderr(`${error instanceof Error ? error.message : String(error)}\n`);
     } finally {
@@ -861,6 +846,7 @@ export async function runCli(
     }
     return 0;
   }
+  rejectUnknownOptions(rest, command === 'doctor' ? ['--project', '--json'] : ['--project']);
   const root = resolve(cwd, option(rest, '--project') ?? '.');
   if (command === 'doctor') {
     const diagnostics = await diagnoseRuntime(root);
@@ -872,20 +858,8 @@ export async function runCli(
         );
     return diagnostics.some((item) => item.status === 'error') ? 1 : 0;
   }
-  const paperOverride = option(rest, '--paper');
-  const velocityOverride = option(rest, '--velocity');
-  const overrides: Readonly<Partial<Record<'paper' | 'velocity', string>>> = {
-    ...(paperOverride === undefined ? {} : { paper: paperOverride }),
-    ...(velocityOverride === undefined ? {} : { velocity: velocityOverride }),
-  };
-  if (command === 'dev') return watchDevelopment(root, overrides, io, options.watchSignal);
+  if (command === 'dev') return watchDevelopment(root, io, options.watchSignal);
   const build = await buildProject(root);
-  io.stdout(
-    `Built ${String(build.artifacts.length)} platform bundle(s) in ${dirname(build.metadata)}.\n`,
-  );
-  if (command === 'deploy') {
-    const deployed = await deployProject(build, overrides);
-    io.stdout(`Deployed ${String(deployed.length)} development files.\n`);
-  }
+  io.stdout(`Built plugin artifact in ${dirname(build.artifact.path)}.\n`);
   return 0;
 }

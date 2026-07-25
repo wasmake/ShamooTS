@@ -8,7 +8,7 @@ export interface EconomyService {
 }
 
 export const ECONOMY_SERVICE = defineServiceContract<EconomyService>({
-  id: 'example/economy',
+  id: 'example.economy',
   version: '1.0.0',
   methods: ['balance', 'deposit', 'withdraw', 'transfer'],
 });

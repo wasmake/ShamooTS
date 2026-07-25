@@ -4,8 +4,7 @@
 
 ```ts
 
-// @public
-export function canonicalMetadataJson(manifest: CompilerManifest): string;
+import { z } from 'zod';
 
 // @public (undocumented)
 export type CanonicalValue = null | boolean | number | string | readonly CanonicalValue[] | {
@@ -22,45 +21,20 @@ export interface CommunicationMetadata {
     readonly services: readonly ServiceContractMetadata[];
 }
 
-// @public
-export const COMPILER_METADATA_VERSION: 2;
-
 // @public (undocumented)
-export interface CompilerManifest {
+export interface CompilerMetadata {
     // (undocumented)
-    readonly communication?: CommunicationMetadata | undefined;
-    // (undocumented)
-    readonly compilerVersion: string;
+    readonly communication: CommunicationMetadata;
     // (undocumented)
     readonly components: readonly ComponentMetadata[];
     // (undocumented)
-    readonly entrypoints: {
-        readonly paper?: PlatformEntrypointMetadata | undefined;
-        readonly velocity?: PlatformEntrypointMetadata | undefined;
-    };
-    // (undocumented)
-    readonly formatVersion: 2;
-    // (undocumented)
     readonly modules: readonly ModuleMetadata[];
     // (undocumented)
-    readonly packageName: string;
-    // (undocumented)
-    readonly permissions?: {
-        readonly builtins?: readonly string[] | undefined;
-        readonly filesystem?: {
-            readonly read: readonly string[];
-            readonly write: readonly string[];
-        } | undefined;
-        readonly network?: boolean | undefined;
-        readonly workers?: boolean | undefined;
-        readonly childProcess?: boolean | undefined;
-        readonly nativeAddons?: boolean | undefined;
-        readonly nms?: boolean | undefined;
-        readonly packets?: boolean | undefined;
-    } | undefined;
-    // (undocumented)
-    readonly sourceMaps?: readonly SourceMapMetadata[] | undefined;
+    readonly version: string;
 }
+
+// @public
+export const CompilerMetadataSchema: z.ZodType<CompilerMetadata>;
 
 // @public (undocumented)
 export interface ComponentMetadata {
@@ -130,7 +104,7 @@ export interface EventContractMetadata {
     readonly version: string;
 }
 
-// @public (undocumented)
+// @public
 export type MetadataPlatform = 'common' | 'paper' | 'velocity';
 
 // @public (undocumented)
@@ -176,15 +150,7 @@ export interface ModuleMetadata {
 }
 
 // @public (undocumented)
-export function parseCompilerManifest(input: unknown): CompilerManifest;
-
-// @public (undocumented)
-export interface PlatformEntrypointMetadata {
-    // (undocumented)
-    readonly output: string;
-    // (undocumented)
-    readonly source: string;
-}
+export function parseCompilerMetadata(input: unknown): CompilerMetadata;
 
 // @public (undocumented)
 export interface ServiceConsumerMetadata {
@@ -218,16 +184,6 @@ export interface SourceLocation {
 }
 
 // @public (undocumented)
-export interface SourceMapMetadata {
-    // (undocumented)
-    readonly format: 'source-map-v3';
-    // (undocumented)
-    readonly generated: string;
-    // (undocumented)
-    readonly map: string;
-}
-
-// @public (undocumented)
 export type TokenMetadata = {
     readonly kind: 'class';
     readonly name: string;
@@ -240,5 +196,7 @@ export type TokenMetadata = {
     readonly name: string;
     readonly module: string;
 };
+
+// (No @packageDocumentation comment for this package)
 
 ```

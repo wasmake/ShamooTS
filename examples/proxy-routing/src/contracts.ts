@@ -14,7 +14,7 @@ function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
 }
 
 export const routeLookup = defineRemoteProcedure<RouteRequest, RouteResponse>({
-  id: 'example/proxy-routing',
+  id: 'example.proxy-routing',
   version: '1.0.0',
   operation: 'lookup',
   request: jsonCodec<RouteRequest>({

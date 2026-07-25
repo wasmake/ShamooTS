@@ -26,7 +26,13 @@ describe('plugin scaffolding', () => {
     expect(result.files).toContain('src/paper.ts');
     expect(result.files).toContain('src/velocity.ts');
     await expect(readFile(join(directory, 'RUNTIME.md'), 'utf8')).resolves.toContain(
-      '<paper-server>/plugins/ShamooRuntime/plugins',
+      'dist/shamoo-plugin.json',
+    );
+    await expect(readFile(join(directory, 'src/paper.ts'), 'utf8')).resolves.toBe(
+      "import './plugin.js';\n",
+    );
+    await expect(readFile(join(directory, 'src/velocity.ts'), 'utf8')).resolves.toBe(
+      "import './plugin.js';\n",
     );
     expect(JSON.parse(await readFile(join(directory, 'shamoo.config.json'), 'utf8'))).toMatchObject(
       {

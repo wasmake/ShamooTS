@@ -25,15 +25,16 @@ const canonicalDescriptor = {
   name: 'identity',
   displayName: 'Shamoo Identity',
   version: '1.0.0',
-  shamoo: { api: '^1.0.0', runtime: '^1.0.0', manifest: 1 },
+  shamoo: { api: '^1.0.0', runtime: '^1.0.0', manifest: 2 },
   platforms: {
     paper: {
       enabled: true,
-      entrypoint: 'dist/paper.mjs',
       minecraft: '1.21.x',
       paperApi: '1.21.x',
+      nms: false,
+      packets: false,
     },
-    velocity: { enabled: true, entrypoint: 'dist/velocity.mjs', velocityApi: '3.x' },
+    velocity: { enabled: true, velocityApi: '3.x' },
   },
   dependencies: { required: {}, optional: {}, loadBefore: [], loadAfter: [] },
   node: {
@@ -45,6 +46,12 @@ const canonicalDescriptor = {
     nativeAddons: false,
   },
   reload: { watch: true, debounceMs: 500, preserveState: true },
+  compiler: {
+    version: 'test',
+    components: [],
+    modules: [],
+    communication: { services: [], events: [], consumers: [] },
+  },
 } as const;
 
 async function fixture(): Promise<CommonDescriptor> {
@@ -96,7 +103,7 @@ describe('common protocol descriptor', () => {
       descriptor,
     );
     expect(descriptor.shamoo.manifest).toBe(MANIFEST_VERSION);
-    expect(COMMON_DESCRIPTOR_JSON_SCHEMA.$schema).toContain('draft-07');
+    expect(COMMON_DESCRIPTOR_JSON_SCHEMA.$schema).toContain('2020-12');
     expect(Object.isFrozen(COMMON_DESCRIPTOR_JSON_SCHEMA)).toBe(true);
   });
 
@@ -110,23 +117,21 @@ describe('common protocol descriptor', () => {
     [
       'manifest version',
       (value: Record<string, unknown>) => {
-        (value.shamoo as Record<string, unknown>).manifest = 2;
+        (value.shamoo as Record<string, unknown>).manifest = 1;
       },
     ],
     [
-      'entrypoint traversal',
+      'obsolete platform entrypoint',
       (value: Record<string, unknown>) => {
         const platforms = value.platforms as Record<string, Record<string, unknown>>;
         if (platforms.paper === undefined) throw new Error('Fixture must contain Paper.');
-        platforms.paper.entrypoint = '../plugin.mjs';
+        platforms.paper.entrypoint = 'index.js';
       },
     ],
     [
-      'entrypoint extension',
+      'obsolete compiler field',
       (value: Record<string, unknown>) => {
-        const platforms = value.platforms as Record<string, Record<string, unknown>>;
-        if (platforms.paper === undefined) throw new Error('Fixture must contain Paper.');
-        platforms.paper.entrypoint = 'dist/plugin.ts';
+        (value.compiler as Record<string, unknown>).packageName = '@example/plugin';
       },
     ],
     [
@@ -190,7 +195,7 @@ describe('common protocol descriptor', () => {
   it('requires both strict platform objects and at least one enabled platform', async () => {
     const value = structuredClone(await fixture());
     value.platforms.paper = { enabled: false };
-    value.platforms.velocity = { enabled: false, velocityApi: '3.x' };
+    value.platforms.velocity = { enabled: false };
     expect(() => parseCommonDescriptor(value)).toThrow('At least one platform must be enabled');
     expect(() =>
       parseCommonDescriptor({ ...value, platforms: { paper: value.platforms.paper } }),
@@ -234,12 +239,14 @@ describe('common protocol descriptor', () => {
     );
   });
 
-  it('accepts explicitly relative entrypoints', async () => {
+  it('requires disabled targets to contain exactly enabled=false', async () => {
     const value = structuredClone(await fixture());
-    value.platforms.paper.entrypoint = './dist/paper.mjs';
-    expect(parseCommonDescriptor(value).platforms.paper).toMatchObject({
-      entrypoint: './dist/paper.mjs',
-    });
+    expect(() =>
+      parseCommonDescriptor({
+        ...value,
+        platforms: { ...value.platforms, paper: { enabled: false, nms: false } },
+      }),
+    ).toThrow(ProtocolValidationError);
   });
 
   it.each(['', ' ', '\t\n'])('rejects empty semver range %j', async (range) => {
@@ -248,16 +255,55 @@ describe('common protocol descriptor', () => {
     expect(() => parseCommonDescriptor(value)).toThrow(ProtocolValidationError);
   });
 
-  it.each(['data dir', 'data\tfile', 'data\u0001file'])('rejects unsafe path %j', async (path) => {
+  it.each(['v1.0.0', ' 1.0.0 '])('rejects non-strict manifest version %j', async (version) => {
+    const value = structuredClone(await fixture());
+    value.version = version;
+    expect(() => parseCommonDescriptor(value)).toThrow(ProtocolValidationError);
+  });
+
+  it.each(['v1.0.0', '1.0.0 ||'])('rejects non-NPM manifest range %j', async (range) => {
+    const value = structuredClone(await fixture());
+    value.shamoo.api = range;
+    expect(() => parseCommonDescriptor(value)).toThrow(ProtocolValidationError);
+  });
+
+  it('rejects compiler components owned by a disabled platform', async () => {
+    const value = structuredClone(await fixture());
+    value.platforms.paper = { enabled: false };
+    expect(() =>
+      parseCommonDescriptor({
+        ...value,
+        compiler: {
+          ...value.compiler,
+          components: [
+            {
+              id: 'src/plugin.ts#PaperPlugin',
+              kind: 'plugin',
+              name: 'PaperPlugin',
+              file: 'src/plugin.ts',
+              platform: 'paper',
+              decorators: [],
+              constructor: [],
+              properties: [],
+              methods: [],
+              location: { file: 'src/plugin.ts', line: 1, column: 1 },
+            },
+          ],
+        },
+      }),
+    ).toThrow('requires the paper target');
+  });
+
+  it.each(['/data', '../data', 'data\\file'])('rejects unsafe path %j', async (path) => {
     const value = structuredClone(await fixture());
     value.node.filesystem.read = [path];
     expect(() => parseCommonDescriptor(value)).toThrow(ProtocolValidationError);
   });
 
-  it('rejects the shared Java/TypeScript canonical invalid-v1 cases', async () => {
+  it('rejects the shared Java/TypeScript canonical invalid-v2 cases', async () => {
     const cases = JSON.parse(
       await readFile(
-        new URL('./fixtures/common-descriptor.invalid-v1.json', import.meta.url),
+        new URL('./fixtures/common-descriptor.invalid-v2.json', import.meta.url),
         'utf8',
       ),
     ) as { name: string; pointer: string; value: unknown }[];
@@ -356,6 +402,12 @@ describe('communication wire protocol', () => {
       encodeCommunicationEnvelope({
         ...base,
         contract: { id: 'example/routing', version: 'v1.0.0' },
+      }),
+    ).toThrow(CommunicationWireError);
+    expect(() =>
+      encodeCommunicationEnvelope({
+        ...base,
+        contract: { id: 'example/routing', version: ' 1.0.0 ' },
       }),
     ).toThrow(CommunicationWireError);
     const fixtures = await golden();

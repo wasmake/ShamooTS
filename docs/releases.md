@@ -28,7 +28,7 @@ synchronized tag.
 The GitHub prerelease and retained Actions artifact contain:
 
 - One npm tarball for every public `@shamoo/*` package.
-- One ready-to-run archive for each supported platform of every deployable example.
+- One universal ready-to-run archive for each of the eight runnable examples.
 - `shamoo-v0.1.0-rc.1.spdx.json`, the SPDX JSON software bill of materials.
 - `SHA256SUMS`, covering every tarball and the SBOM.
 
@@ -38,12 +38,13 @@ attached to the workflow run as attestations rather than embedded in the
 archive. Runtime binaries are released from ShamooRuntime and are not included
 in ShamooTS artifacts. The workflow verifies that all 34 source manifests have
 one matching tarball at the candidate version and no unresolved `workspace:`
-dependency. It separately builds nine example installations before publishing all assets.
+dependency. It separately verifies eight tracked universal example installations before publishing
+all 44 assets: 34 package archives, eight example archives, one SBOM, and one checksum manifest.
 
-Example archives are named
-`shamoo-example-<example>-<paper|velocity>-<version>.tgz`. Extract one directly into the matching
-ShamooRuntime watched root; the archive contains the complete installation directory rather than a
-native Paper or Velocity plugin JAR.
+Example archives are named `shamoo-example-<example>-<version>.tgz`. Extract one directly into a
+supported ShamooRuntime watched root; the archive contains the complete universal installation
+directory rather than a native Paper or Velocity plugin JAR. The same dual-platform archive can be
+installed on either host.
 
 ## Checksum verification
 

@@ -33,7 +33,6 @@ const runtimeDeclarations = new WeakMap<object, RuntimeDecoratorDeclaration[]>()
 const repeatableDeclarations = new Set([
   'Requires',
   'Validate',
-  'Scheduled',
   'UseInterceptors',
   'UseGuards',
   'UsePipes',

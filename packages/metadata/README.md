@@ -1,3 +1,4 @@
 # @shamoo/metadata
 
-Versioned, canonical compiler metadata shared by the compiler, bundler, and runtime adapters.
+Strict compiler metadata embedded as the required `compiler` subsection of a
+Shamoo plugin manifest.

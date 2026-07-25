@@ -75,7 +75,11 @@ describe('universal platform bundler', () => {
     });
     expect(artifact.path).toBe(join(outputDirectory, 'index.js'));
     expect(await readdir(outputDirectory)).toEqual(['index.js', 'index.js.map']);
-    await expect(readFile(artifact.map, 'utf8')).resolves.toContain('sourcesContent');
+    const sourceMap = JSON.parse(await readFile(artifact.map, 'utf8')) as {
+      readonly sourcesContent?: readonly string[];
+    };
+    expect(sourceMap.sourcesContent).toBeDefined();
+    expect(sourceMap.sourcesContent?.join('\n')).not.toContain(projectRoot);
     const source = await readFile(artifact.path, 'utf8');
     expect(source).not.toContain('compiler-secret-version');
 

@@ -1,6 +1,7 @@
 /** Universal, source-mapped Shamoo plugin bundling. @packageDocumentation */
+import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, extname, resolve } from 'node:path';
+import { dirname, extname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { CompilerMetadata, MetadataPlatform } from '@shamoo/metadata';
@@ -21,10 +22,18 @@ export interface BundleArtifact {
 
 const modulePath =
   typeof __dirname === 'string' ? resolve(__dirname, 'index.cjs') : fileURLToPath(import.meta.url);
-const adapterPath = resolve(
+const expectedAdapterPath = resolve(
   dirname(modulePath),
   `runtime-adapter.${extname(modulePath) === '.ts' ? 'ts' : 'js'}`,
 );
+const adapterPath = existsSync(expectedAdapterPath)
+  ? expectedAdapterPath
+  : resolve(dirname(modulePath), 'runtime-adapter.ts');
+
+function projectImport(projectRoot: string, file: string): string {
+  const path = relative(projectRoot, resolve(projectRoot, file)).split(sep).join('/');
+  return path.startsWith('.') ? path : `./${path}`;
+}
 
 function platformRegistry(
   request: BundleRequest,
@@ -37,13 +46,13 @@ function platformRegistry(
   );
   const imports = components.map(
     (component, index) =>
-      `import { ${component.name} as component${String(index)} } from ${JSON.stringify(resolve(request.projectRoot, component.file))};`,
+      `import { ${component.name} as component${String(index)} } from ${JSON.stringify(projectImport(request.projectRoot, component.file))};`,
   );
   const registry = components.map(
     (component, index) => `${JSON.stringify(component.id)}: component${String(index)}`,
   );
   return [
-    `import ${JSON.stringify(resolve(request.projectRoot, source))};`,
+    `import ${JSON.stringify(projectImport(request.projectRoot, source))};`,
     ...imports,
     `export const components = Object.freeze({${registry.join(',')}});`,
   ].join('\n');
@@ -61,6 +70,7 @@ function universalRuntime(request: BundleRequest): Plugin {
         path: args.path.slice('shamoo:platform-'.length),
         namespace: 'shamoo-platform',
       }));
+      buildApi.onResolve({ filter: /^shamoo:runtime-adapter$/ }, () => ({ path: adapterPath }));
       buildApi.onLoad({ filter: /^runtime-entry$/, namespace: 'shamoo-runtime' }, () => {
         const loaders = (['paper', 'velocity'] as const).flatMap((platform) =>
           request.entrypoints[platform] === undefined
@@ -71,7 +81,7 @@ function universalRuntime(request: BundleRequest): Plugin {
           loader: 'ts',
           resolveDir: request.projectRoot,
           contents: `
-            import { createRuntimeLifecycle } from ${JSON.stringify(adapterPath)};
+            import { createRuntimeLifecycle } from "shamoo:runtime-adapter";
             const lifecycle = createRuntimeLifecycle({${loaders.join(',')}});
             export const load = lifecycle.load;
             export const enable = lifecycle.enable;

@@ -90,25 +90,42 @@ describe('Paper Velocity communication', () => {
     });
     expect(
       text('Explicit style', {
+        font: 'minecraft:default',
         bold: false,
         italic: false,
         underlined: false,
         strikethrough: false,
         obfuscated: false,
+        insertion: 'inserted',
+        children: [],
       }),
     ).toEqual({
       kind: 'text',
       content: 'Explicit style',
+      font: 'minecraft:default',
       bold: false,
       italic: false,
       underlined: false,
       strikethrough: false,
       obfuscated: false,
+      insertion: 'inserted',
     });
     expect(item('STONE', { actions: { right: clicked } }).actions).toEqual({
       right: clicked,
       preventDefault: true,
     });
+    expect(miniMessage('empty', { placeholders: {} })).toEqual({
+      kind: 'mini-message',
+      content: 'empty',
+    });
+    expect(inventory(1, 'Empty')).toEqual({
+      kind: 'inventory',
+      rows: 1,
+      title: 'Empty',
+      protected: true,
+      slots: [],
+    });
+    expect(inventory(1, 'Writable', { protected: false })).toMatchObject({ protected: false });
     expect(() => legacyText('invalid', '#')).toThrow('section sign');
   });
 
@@ -234,17 +251,21 @@ describe('Paper Velocity communication', () => {
       },
     });
     api.on('PlayerJoinEvent', () => undefined);
+    api.schedule(() => undefined);
+    api.packet(() => undefined);
     api.provideService('example.service', '1.0.0', () => undefined);
     api.subscribeEvent('example.event', '^1.0.0', () => undefined);
     await api.publishEvent('example.event', '1.0.0', { online: true });
     expect(calls.map((item) => item.name)).toEqual([
       'event',
+      'task',
+      'packet',
       'service',
       'contract-event',
       'publish',
     ]);
     expect(calls[0]?.values.at(-1)).toEqual({ $callback: 'paper.api.event.0' });
-    expect(callbacks.size).toBe(3);
+    expect(callbacks.size).toBe(5);
   });
 
   it('registers data-only command contexts and routes asynchronous operations', async () => {
@@ -499,6 +520,7 @@ describe('Paper Velocity communication', () => {
     });
     const command = callbacks.get('paper.api.command.0');
     if (command === undefined) throw new Error('Paper command callback was not registered.');
+    expect(() => Reflect.apply(command, undefined, [])).toThrow('callback arguments');
     invokeCallback(command, {
       token: 'token',
       sender: { name: 'Console', kind: 'console' },
@@ -515,6 +537,19 @@ describe('Paper Velocity communication', () => {
     const cyclic: { first: () => void; self?: unknown } = { first: action };
     cyclic.self = cyclic;
     expect(() => commandContext.reply(cyclic as never)).toThrow('cannot contain cycles');
+    expect(() => commandContext.reply(new Uint8Array() as never)).toThrow(
+      'Unsupported Paper descriptor',
+    );
+    expect(() => commandContext.reply({ [Symbol('invalid')]: true } as never)).toThrow(
+      'string keys',
+    );
+    let nestedDescriptor: Record<string, unknown> = {};
+    for (let depth = 0; depth < 34; depth++) nestedDescriptor = { nested: nestedDescriptor };
+    expect(() => commandContext.reply(nestedDescriptor as never)).toThrow('nesting exceeds 32');
+    const nullPrototype = Object.assign(Object.create(null) as Record<string, unknown>, {
+      content: 'plain',
+    });
+    await expect(commandContext.reply(nullPrototype as never)).resolves.toBe(true);
     expect([...callbacks.keys()]).toEqual(['paper.api.command.0']);
     expect(rollbacks).toEqual([]);
 
@@ -536,6 +571,41 @@ describe('Paper Velocity communication', () => {
     await expect(commandContext.reply({ callback: action } as never)).resolves.toBe(true);
     expect(callbacks.has('paper.api.command.0.3')).toBe(true);
     expect(rollbacks).toEqual(['paper.api.command.0.0', 'paper.api.command.0.2']);
+
+    const descriptorCallback = callbacks.get('paper.api.command.0.3');
+    if (descriptorCallback === undefined)
+      throw new Error('Paper descriptor callback was not registered.');
+    expect(() => Reflect.apply(descriptorCallback, undefined, [])).toThrow('callback arguments');
+    expect(() =>
+      invokeCallback(descriptorCallback, {
+        token: 'token',
+        sender: { name: 'Console', kind: 'console' },
+        action: 'invalid',
+      }),
+    ).toThrow('Invalid Paper command action');
+    expect(() =>
+      invokeCallback(descriptorCallback, {
+        token: 'token',
+        sender: { name: 'Console', kind: 'console' },
+        action: 'click',
+        item: null,
+      }),
+    ).toThrow('Invalid Paper command action item');
+    expect(() =>
+      invokeCallback(descriptorCallback, {
+        token: 'token',
+        sender: { name: 'Console', kind: 'console' },
+        action: 'left',
+        slot: 1.5,
+      }),
+    ).toThrow('action slot');
+    expect(
+      invokeCallback(descriptorCallback, {
+        token: 'token',
+        sender: { name: 'Console', kind: 'console' },
+        action: 'click',
+      }),
+    ).toBeUndefined();
 
     host.paperRegisterCommand = () => Promise.reject(new Error('command registration failure'));
     await expect(api.command('rejected', () => undefined)).rejects.toThrow(
@@ -561,6 +631,18 @@ describe('Paper Velocity communication', () => {
       'paper.api.event.2',
     ]);
     expect(callbacks.has('paper.api.event.2')).toBe(false);
+
+    host.unregisterCallback = () => {
+      throw new Error('rollback failure');
+    };
+    host.paperRegisterCommand = (() => true) as never;
+    expect(() => api.command('synchronous', () => undefined)).toThrow(
+      'registration result promise',
+    );
+    host.registerCallback = () => false;
+    expect(() => {
+      api.schedule(() => undefined);
+    }).toThrow('Runtime rejected callback registration');
   });
 
   it('rejects malformed command DTOs, synchronous host results, and promise values', async () => {
@@ -624,6 +706,17 @@ describe('Paper Velocity communication', () => {
       }),
     ).toThrow(TypeError);
     expect(() => invoke({ ...raw(), arguments: ['valid', 1] })).toThrow(TypeError);
+    expect(() => invoke({ ...raw(), sender: { name: 1, kind: 'console' } })).toThrow('sender name');
+    expect(() => invoke({ ...raw(), arguments: { value: Number.NaN } })).toThrow(TypeError);
+    expect(() => invoke({ ...raw(), arguments: { value: { [Symbol('invalid')]: true } } })).toThrow(
+      TypeError,
+    );
+    await expect(
+      invoke({ ...raw(), arguments: { values: [null, 'value', true, 1] } }),
+    ).rejects.toThrow('Invalid Paper command item amount');
+    let nested: Record<string, unknown> = {};
+    for (let depth = 0; depth < 34; depth++) nested = { nested };
+    expect(() => invoke({ ...raw(), arguments: nested })).toThrow(TypeError);
     await expect(invoke(raw())).rejects.toThrow('Invalid Paper command item amount');
     await expect(invoke(raw('reply'))).rejects.toThrow('Invalid Paper command reply result');
     await expect(invoke(raw('find'))).rejects.toThrow('Invalid Paper command player online state');
@@ -634,6 +727,8 @@ describe('Paper Velocity communication', () => {
     await expect(invoke(raw('reply'))).rejects.toThrow('reply result promise');
     mainHandResult = null;
     await expect(invoke(raw())).resolves.toBeUndefined();
+    host.paperCommandFindPlayer = () => Promise.resolve(null);
+    await expect(invoke(raw('find'))).resolves.toBeUndefined();
   });
 
   it('is explicitly unavailable and does not send when Paper runs standalone', async () => {

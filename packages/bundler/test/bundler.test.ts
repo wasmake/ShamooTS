@@ -411,6 +411,50 @@ describe('universal platform bundler', () => {
     });
     expect(commandContext).not.toHaveProperty('token');
     expect(Object.isFrozen(commandContext)).toBe(true);
+    expect(() => Reflect.apply(commandCallback, undefined, [])).toThrow('callback arguments');
+    expect(() => commandCallback(null)).toThrow('Invalid Paper command context');
+    expect(() =>
+      commandCallback({
+        token: 'command-token',
+        sender: { name: 1, kind: 'player', id: 'sender-id' },
+        alias: 'sample',
+        input: '',
+        arguments: {},
+        options: {},
+      }),
+    ).toThrow('sender name');
+    expect(() =>
+      commandCallback({
+        token: 'command-token',
+        sender: { name: 'Alex', kind: 'invalid' },
+        alias: 'sample',
+        input: '',
+        arguments: {},
+        options: {},
+      }),
+    ).toThrow('sender kind');
+    expect(() =>
+      commandCallback({
+        token: 'command-token',
+        sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+        alias: 'sample',
+        input: '',
+        arguments: { value: { [Symbol('invalid')]: true } },
+        options: {},
+      }),
+    ).toThrow('Invalid Paper command arguments');
+    let nestedArguments: Record<string, unknown> = {};
+    for (let depth = 0; depth < 34; depth++) nestedArguments = { nested: nestedArguments };
+    expect(() =>
+      commandCallback({
+        token: 'command-token',
+        sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+        alias: 'sample',
+        input: '',
+        arguments: nestedArguments,
+        options: {},
+      }),
+    ).toThrow('Invalid Paper command arguments');
     let actionContext: unknown;
     const action = async (value: unknown): Promise<boolean> => {
       actionContext = value;
@@ -460,6 +504,11 @@ describe('universal platform bundler', () => {
       'Paper descriptors cannot contain cycles',
     );
     expect(() => commandContext.reply(new Date())).toThrow('Unsupported Paper descriptor object');
+    expect(() => commandContext.reply(new Uint8Array())).toThrow('Unsupported Paper descriptor');
+    expect(() => commandContext.reply({ [Symbol('invalid')]: true })).toThrow('string keys');
+    let nestedDescriptor: Record<string, unknown> = {};
+    for (let depth = 0; depth < 34; depth++) nestedDescriptor = { nested: nestedDescriptor };
+    expect(() => commandContext.reply(nestedDescriptor)).toThrow('nesting exceeds 32');
     await expect(commandContext.findPlayer('Sam')).resolves.toEqual({
       id: 'player-id',
       name: 'Sam',
@@ -474,8 +523,34 @@ describe('universal platform bundler', () => {
       expect.arrayContaining([clickCallback, leftCallback, rightCallback]),
     );
     expect(leftCallback).not.toBe(rightCallback);
+    const invokeLeft = callbacks.get(leftCallback);
+    if (invokeLeft === undefined) throw new Error('Left action callback is unavailable.');
+    expect(() => Reflect.apply(invokeLeft, undefined, [])).toThrow('callback arguments');
+    expect(() =>
+      invokeLeft({
+        token: 'action-token',
+        sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+        action: 'invalid',
+      }),
+    ).toThrow('Invalid Paper command action');
+    expect(() =>
+      invokeLeft({
+        token: 'action-token',
+        sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+        action: 'left',
+        item: null,
+      }),
+    ).toThrow('Invalid Paper command action item');
+    expect(() =>
+      invokeLeft({
+        token: 'action-token',
+        sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
+        action: 'left',
+        slot: 1.5,
+      }),
+    ).toThrow('action slot');
     await expect(
-      callbacks.get(leftCallback)?.({
+      invokeLeft({
         token: 'action-token',
         sender: { name: 'Alex', kind: 'player', id: 'sender-id' },
         action: 'left',
@@ -589,7 +664,24 @@ describe('universal platform bundler', () => {
         values: [metadataFor('paperCommandReply', 'commanded'), 'action-token', 'clicked'],
       },
     ]);
+    const mutableHost = Reflect.get(globalThis, 'host') as {
+      paperCommandFindPlayer(): Promise<unknown>;
+      paperCommandMainHand(): Promise<unknown>;
+      paperCommandTakeMainHand(): Promise<unknown>;
+    };
+    mutableHost.paperCommandFindPlayer = () => Promise.resolve(null);
+    await expect(commandContext.findPlayer('Nobody')).resolves.toBeNull();
+    mutableHost.paperCommandMainHand = () => Promise.resolve(null);
+    await expect(commandContext.mainHand()).resolves.toBeNull();
+    mutableHost.paperCommandTakeMainHand = () => Promise.resolve('no');
+    await expect(commandContext.takeMainHand('DIAMOND', 1)).rejects.toThrow(
+      'take-main-hand result',
+    );
+    await expect(
+      commandContext.reply(Object.assign(Object.create(null), { content: 'plain' })),
+    ).resolves.toBe(true);
     mainHandResult = { material: 'DIAMOND', amount: 'two' };
+    mutableHost.paperCommandMainHand = () => Promise.resolve(mainHandResult);
     await expect(commandContext.mainHand()).rejects.toThrow('Invalid Paper command item amount');
     replyResult = true;
     expect(() => commandContext.reply('synchronous result')).toThrow('reply result promise');
@@ -690,6 +782,18 @@ describe('universal platform bundler', () => {
     await expect(commandContext.reply({ callback: action })).resolves.toBe(true);
     expect(callbacks.has(`${commandCallback}.3`)).toBe(true);
     expect(rollbacks).toEqual([`${commandCallback}.0`, `${commandCallback}.2`]);
+
+    const host = Reflect.get(globalThis, 'host') as {
+      unregisterCallback(name: string): boolean;
+      paperCommandReply(): Promise<boolean>;
+    };
+    host.unregisterCallback = () => {
+      throw new Error('rollback failure');
+    };
+    host.paperCommandReply = () => {
+      throw new Error('operation failure');
+    };
+    expect(() => commandContext.reply({ callback: action })).toThrow('operation failure');
   });
 
   it('skips a service provider unavailable on the selected platform', async () => {
@@ -881,6 +985,59 @@ describe('universal platform bundler', () => {
         syntax: 'sample [target>',
         parameters: [binding(0, 'Argument', ['target'])],
       },
+      { name: 'null command options', syntax: 'sample', options: null },
+      { name: 'invalid aliases value', syntax: 'sample', options: { aliases: true } },
+      { name: 'invalid description value', syntax: 'sample', options: { description: true } },
+      { name: 'invalid sender type', syntax: 'sample', options: { sender: true } },
+      { name: 'invalid sender value', syntax: 'sample', options: { sender: 'other' } },
+      {
+        name: 'invalid parser value',
+        syntax: 'sample <target>',
+        parameters: [binding(0, 'Argument', ['target', { parser: 'uuid' }])],
+      },
+      {
+        name: 'invalid required value',
+        syntax: 'sample',
+        parameters: [binding(0, 'Option', ['force', { required: 'yes' }])],
+      },
+      {
+        name: 'missing parameter index',
+        syntax: 'sample <target>',
+        parameters: [
+          {
+            token: {
+              kind: 'token',
+              value: { binding: 'Argument', arguments: ['target'] },
+            },
+            location: sourceLocation(file),
+          },
+        ],
+      },
+      {
+        name: 'null parameter binding',
+        syntax: 'sample <target>',
+        parameters: [
+          {
+            index: 0,
+            token: { kind: 'token', value: null },
+            location: sourceLocation(file),
+          },
+        ],
+      },
+      {
+        name: 'unknown parameter binding',
+        syntax: 'sample <target>',
+        parameters: [
+          {
+            index: 0,
+            token: {
+              kind: 'token',
+              value: { binding: 'Unknown', arguments: ['target'] },
+            },
+            location: sourceLocation(file),
+          },
+        ],
+      },
     ];
     let callbackRegistrations = 0;
     let commandRegistrations = 0;
@@ -953,6 +1110,57 @@ describe('universal platform bundler', () => {
     ).toThrow('aliases must agree');
     expect(callbackRegistrations).toBe(0);
     expect(commandRegistrations).toBe(0);
+
+    expect(() =>
+      installRuntimeAdapter(
+        {
+          ...commandMetadata('sample', undefined, []),
+          components: [
+            {
+              ...component(id, file, 'paper'),
+              name: 'MetadataCommands',
+              methods: [
+                {
+                  name: 'execute',
+                  invocation: 'command',
+                  decorators: [],
+                  parameters: [],
+                  location: sourceLocation(file),
+                },
+              ],
+            },
+          ],
+        },
+        'paper',
+        { [id]: MetadataCommands },
+      ),
+    ).toThrow('Command declaration is missing');
+    expect(() =>
+      installRuntimeAdapter(
+        {
+          ...commandMetadata('sample', undefined, []),
+          components: [
+            {
+              ...component(id, file, 'paper'),
+              name: 'MetadataCommands',
+              methods: [
+                {
+                  name: 'execute',
+                  invocation: 'command',
+                  decorators: [
+                    { name: 'Command', arguments: [true], location: sourceLocation(file) },
+                  ],
+                  parameters: [],
+                  location: sourceLocation(file),
+                },
+              ],
+            },
+          ],
+        },
+        'paper',
+        { [id]: MetadataCommands },
+      ),
+    ).toThrow('Command syntax must be a string');
   });
 
   it('normalizes command labels and preserves singleton magic suggestions', () => {
@@ -1033,6 +1241,91 @@ describe('universal platform bundler', () => {
         options: [expect.objectContaining({ aliases: ['m'], suggestions: ['materials'] })],
       }),
     ]);
+  });
+
+  it('rejects malformed Runtime hosts and executable component contracts', () => {
+    const empty: CompilerMetadata = {
+      version: 'test',
+      components: [],
+      modules: [],
+      communication: { services: [], events: [], consumers: [] },
+    };
+    Reflect.set(globalThis, 'host', null);
+    expect(() => installRuntimeAdapter(empty, 'paper', {})).toThrow('host must be an object');
+    Reflect.set(globalThis, 'host', {});
+    expect(() => installRuntimeAdapter(empty, 'paper', {})).toThrow('provide registerCallback');
+    Reflect.set(globalThis, 'host', { registerCallback: () => true });
+    expect(() => installRuntimeAdapter(empty, 'paper', {})).toThrow('provide unregisterCallback');
+
+    const file = 'runtime-contract.ts';
+    const id = `${file}#RuntimeContract`;
+    const eventMethod: ComponentMetadata['methods'][number] = {
+      name: 'joined',
+      invocation: 'event',
+      decorators: [{ name: 'OnPlayerJoinEvent', arguments: [], location: sourceLocation(file) }],
+      parameters: [],
+      location: sourceLocation(file),
+    };
+    const executableComponent = component(id, file, 'paper', [eventMethod]);
+    const executableMetadata: CompilerMetadata = {
+      version: 'test',
+      components: [executableComponent],
+      modules: [],
+      communication: { services: [], events: [], consumers: [] },
+    };
+    Reflect.deleteProperty(globalThis, 'host');
+    expect(() => installRuntimeAdapter(executableMetadata, 'paper', {})).toThrow(
+      'component constructor is unavailable',
+    );
+    class MissingExecutable {
+      public other(): void {
+        return;
+      }
+    }
+    expect(() =>
+      installRuntimeAdapter(executableMetadata, 'paper', { [id]: MissingExecutable }),
+    ).toThrow('Compiler executable is missing');
+    const dependencyMetadata: CompilerMetadata = {
+      ...executableMetadata,
+      components: [
+        {
+          ...executableComponent,
+          constructor: [
+            {
+              index: 0,
+              token: { kind: 'token', value: 'dependency' },
+              location: sourceLocation(file),
+            },
+          ],
+        },
+      ],
+    };
+    class RuntimeDependency {
+      public joined(): void {
+        return;
+      }
+    }
+    expect(() =>
+      installRuntimeAdapter(dependencyMetadata, 'paper', { [id]: RuntimeDependency }),
+    ).toThrow('without generated providers');
+
+    const rollbacks: string[] = [];
+    Reflect.set(globalThis, 'host', {
+      registerCallback: () => true,
+      unregisterCallback(name: string) {
+        rollbacks.push(name);
+        return true;
+      },
+    });
+    class RuntimeContract {
+      public joined(): void {
+        return;
+      }
+    }
+    expect(() =>
+      installRuntimeAdapter(executableMetadata, 'paper', { [id]: RuntimeContract }),
+    ).toThrow('paperSubscribeEvent');
+    expect(rollbacks).toEqual([callbackId(id, 'joined')]);
   });
 
   it('fails initialization when the Runtime rejects a callback registration', async () => {

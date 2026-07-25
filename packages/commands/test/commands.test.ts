@@ -67,4 +67,48 @@ describe('command declarations', () => {
       ]),
     );
   });
+
+  it('forwards every declaration overload with and without options', () => {
+    class Commands {
+      @Command('sample')
+      public execute(): void {
+        return;
+      }
+
+      @Subcommand('sample list')
+      public list(): void {
+        return;
+      }
+
+      @Subcommand('sample list', { sender: 'console' })
+      public consoleList(): void {
+        return;
+      }
+
+      @Subcommand('sample', 'list')
+      public explicitList(): void {
+        return;
+      }
+
+      public parameters(_target: unknown, _silent: unknown): void {
+        void [_target, _silent];
+      }
+    }
+    Argument('target')(Commands.prototype, 'parameters', 0);
+    Option('silent')(Commands.prototype, 'parameters', 1);
+
+    expect(getRuntimeDeclarations(Commands)).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ name: 'Command', arguments: ['sample'] }),
+        expect.objectContaining({ name: 'Argument', arguments: ['target'] }),
+        expect.objectContaining({ name: 'Option', arguments: ['silent'] }),
+        expect.objectContaining({ name: 'Subcommand', arguments: ['sample list'] }),
+        expect.objectContaining({
+          name: 'Subcommand',
+          arguments: ['sample list', { sender: 'console' }],
+        }),
+        expect.objectContaining({ name: 'Subcommand', arguments: ['sample', 'list'] }),
+      ]),
+    );
+  });
 });

@@ -10,10 +10,11 @@ pnpm typecheck
 pnpm build
 ```
 
-The `/shamoo-status` handler reports status to the Runtime log. Runtime event callbacks are
-data-only DTOs, so the join handler consumes `{ type, asynchronous }` rather than a Java event
-proxy. The argument-free `@Scheduled()` declaration registers one immediate global task with no
-timing options. Use the `folia` example for explicit scheduler ownership.
+The async `/shamoo-status` handler awaits an explicit `PaperCommandContext.reply`; its decorated
+method return value is ignored. Runtime event callbacks are data-only DTOs, so the join handler
+consumes `{ type, asynchronous }` rather than a Java event proxy. The argument-free `@Scheduled()`
+declaration registers one immediate global task with no timing options. Use the `folia` example for
+explicit scheduler ownership.
 
 ## Ready-to-run
 

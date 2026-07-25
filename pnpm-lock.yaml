@@ -533,6 +533,9 @@ importers:
 
   packages/paper:
     dependencies:
+      '@shamoo/commands':
+        specifier: workspace:^
+        version: link:../commands
       '@shamoo/communication':
         specifier: workspace:^
         version: link:../communication

@@ -1,6 +1,11 @@
 export const calls: string[] = [];
 const runtimeCalls = (globalThis as { shamooRuntimeCalls?: string[] }).shamooRuntimeCalls ?? [];
 (globalThis as { shamooRuntimeCalls?: string[] }).shamooRuntimeCalls = runtimeCalls;
+const commandInvocations =
+  (globalThis as { shamooCommandInvocations?: (readonly unknown[])[] }).shamooCommandInvocations ??
+  [];
+(globalThis as { shamooCommandInvocations?: (readonly unknown[])[] }).shamooCommandInvocations =
+  commandInvocations;
 
 export class AdapterPlugin {
   public enabled(): void {
@@ -13,9 +18,16 @@ export class AdapterPlugin {
     return value;
   }
 
-  public commanded(value: unknown): unknown {
+  public commanded(...values: readonly unknown[]): Promise<void> {
     calls.push('commanded');
-    return value;
+    commandInvocations.push(values);
+    return Promise.resolve();
+  }
+
+  public legacyCommanded(value: unknown): Promise<void> {
+    calls.push('legacy-commanded');
+    commandInvocations.push([value]);
+    return Promise.resolve();
   }
 
   public serviceMethod(value: unknown): unknown {

@@ -57,6 +57,50 @@ describe('shamooc metadata compiler', () => {
     );
   });
 
+  it('retains every command parameter decorator argument without DI diagnostics', async () => {
+    const result = await compilePlugin(request('commands'));
+    expect(result.diagnostics).toEqual([]);
+    const method = result.metadata?.components[0]?.methods[0];
+    expect(method?.decorators[0]).toMatchObject({
+      name: 'Command',
+      arguments: [
+        'sample give <target>',
+        {
+          aliases: ['example'],
+          description: 'Give an item',
+          permission: 'sample.give',
+          sender: 'player',
+        },
+      ],
+    });
+    expect(method?.parameters.map((parameter) => parameter.token)).toEqual([
+      {
+        kind: 'token',
+        value: {
+          binding: 'Argument',
+          arguments: ['target', { parser: 'player', suggestions: ['Alex', 'Steve'] }],
+        },
+      },
+      {
+        kind: 'token',
+        value: {
+          binding: 'Option',
+          arguments: [
+            'amount',
+            {
+              aliases: ['a'],
+              parser: 'integer',
+              required: true,
+              suggestions: ['1', '64'],
+            },
+          ],
+        },
+      },
+      { kind: 'token', value: { binding: 'Sender', arguments: [] } },
+      { kind: 'token', value: { binding: 'Context', arguments: [] } },
+    ]);
+  });
+
   it('serializes literal tokens and resolves local/imported token declarations by symbol', async () => {
     const result = await compilePlugin(request('tokens'));
     expect(result.diagnostics).toEqual([]);

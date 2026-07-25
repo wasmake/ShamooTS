@@ -346,6 +346,15 @@ function tokenFromInject(checker: ts.TypeChecker, node: ts.Node): TokenMetadata 
           };
     }
   }
+  if (['Argument', 'Option', 'Sender', 'Context'].includes(name)) {
+    const arguments_ = ts.isCallExpression(binding.expression)
+      ? binding.expression.arguments.map(canonicalExpression)
+      : [];
+    return {
+      kind: 'token',
+      value: { binding: name, arguments: arguments_ },
+    };
+  }
   const value = argument === undefined ? 'value' : canonicalExpression(argument);
   return {
     kind: 'token',
@@ -719,7 +728,12 @@ function discover(
             const methodParameters: DependencyMetadata[] = [];
             member.parameters.forEach((parameter, index) => {
               const value = dependency(root, checker, parameter, index);
-              if (value === undefined && parameter.type !== undefined)
+              const commandBinding = decorators(parameter).some((item) =>
+                ['Argument', 'Option', 'Sender', 'Context'].includes(
+                  decoratorName(checker, item) ?? '',
+                ),
+              );
+              if (value === undefined && parameter.type !== undefined && !commandBinding)
                 diagnostics.push({
                   code: 'INJECTION_TOKEN_REQUIRED',
                   message: `Cannot represent method dependency '${parameter.name.getText()}' on ${node.name?.text ?? 'class'}.${member.name.getText()} at runtime. Interfaces, type aliases, primitives, and type-only values require @Inject(TOKEN).`,

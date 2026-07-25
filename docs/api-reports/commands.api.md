@@ -5,30 +5,108 @@
 ```ts
 
 // @public (undocumented)
-export const Argument = member('Argument');
+export function Argument(name: string, options?: ArgumentOptions): ShamooDecorator;
 
 // @public (undocumented)
-export const Command = method('Command');
+export interface ArgumentOptions {
+    // (undocumented)
+    readonly parser?: CommandParser;
+    // (undocumented)
+    readonly suggestions?: readonly string[];
+}
+
+// @public (undocumented)
+export function Command(syntax: string, options?: CommandOptions): ShamooDecorator;
+
+// @public @deprecated (undocumented)
+export type CommandContext = Context;
+
+// @public (undocumented)
+export interface CommandOptions {
+    // (undocumented)
+    readonly aliases?: readonly string[];
+    // (undocumented)
+    readonly description?: string;
+    // (undocumented)
+    readonly permission?: string;
+    // (undocumented)
+    readonly sender?: CommandSenderKind;
+}
 
 // @public
-export interface CommandContext {
+export type CommandParser = 'string' | 'integer' | 'number' | 'boolean' | 'player' | 'material';
+
+// @public (undocumented)
+export interface CommandSender {
+    // (undocumented)
+    readonly id?: string;
+    // (undocumented)
+    readonly kind: 'player' | 'console' | 'other';
+    // (undocumented)
+    readonly name: string;
+}
+
+// @public (undocumented)
+export type CommandSenderKind = 'any' | 'player' | 'console';
+
+// @public (undocumented)
+export function Context(): ShamooDecorator;
+
+// @public (undocumented)
+export interface Context {
+    // (undocumented)
+    readonly alias: string;
     // (undocumented)
     readonly arguments: Readonly<Record<string, unknown>>;
     // (undocumented)
     readonly input: string;
     // (undocumented)
-    readonly sender: unknown;
+    readonly options: Readonly<Record<string, unknown>>;
+    // (undocumented)
+    readonly sender: CommandSender;
 }
 
 // @public (undocumented)
-const Option_2 = member('Option');
+export interface Item {
+    // (undocumented)
+    readonly amount: number;
+    // (undocumented)
+    readonly material: string;
+}
+
+// @public (undocumented)
+function Option_2(name: string, options?: OptionOptions): ShamooDecorator;
 export { Option_2 as Option }
 
 // @public (undocumented)
-export const Sender = member('Sender');
+export interface OptionOptions extends ArgumentOptions {
+    // (undocumented)
+    readonly aliases?: readonly string[];
+    // (undocumented)
+    readonly required?: boolean;
+}
 
 // @public (undocumented)
-export const Subcommand = method('Subcommand');
+export type ParserType = CommandParser;
+
+// @public (undocumented)
+export interface Player {
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly name: string;
+    // (undocumented)
+    readonly online: boolean;
+}
+
+// @public (undocumented)
+export function Sender(): ShamooDecorator;
+
+// @public (undocumented)
+export function Subcommand(syntax: string, options?: CommandOptions): ShamooDecorator;
+
+// @public (undocumented)
+export function Subcommand(root: string, syntax: string, options?: CommandOptions): ShamooDecorator;
 
 // (No @packageDocumentation comment for this package)
 

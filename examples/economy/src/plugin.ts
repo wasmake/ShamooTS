@@ -1,6 +1,6 @@
-import { Command } from '@shamoo/commands';
-import { Context, Plugin } from '@shamoo/decorators';
-import type { PaperCommandContext } from '@shamoo/paper';
+import { Argument, Command, Context, Option, Sender, type CommandSender } from '@shamoo/commands';
+import { Plugin } from '@shamoo/decorators';
+import { inventory, item, miniMessage, text, type PaperCommandContext } from '@shamoo/paper';
 
 import {
   EconomyValidationError,
@@ -32,32 +32,27 @@ interface AccountPlayer {
   readonly name: string;
 }
 
-function playerSender(context: PaperCommandContext): AccountPlayer {
-  const { sender } = context;
+function playerSender(sender: CommandSender): AccountPlayer {
   if (sender.kind !== 'player' || typeof sender.id !== 'string' || sender.id.length === 0)
     throw new CommandInputError('Only players can use this command.');
   return { id: sender.id, name: sender.name };
 }
 
-function playerNamed(context: PaperCommandContext, name: string): AccountPlayer {
-  const player = context.findPlayer(name);
+async function playerNamed(context: PaperCommandContext, name: string): Promise<AccountPlayer> {
+  const player = await context.findPlayer(name);
   if (player === null)
     throw new CommandInputError(`No exact or cached player named "${name}" was found.`);
   return player;
 }
 
-function usage(context: PaperCommandContext, syntax: string): CommandInputError {
-  return new CommandInputError(`Usage: /${context.alias} ${syntax}`.trimEnd());
-}
-
-function handleExpectedError(context: PaperCommandContext, error: unknown): true {
+async function handleExpectedError(context: PaperCommandContext, error: unknown): Promise<void> {
   if (error instanceof InsufficientFundsError) {
-    context.reply(`Insufficient funds. Your balance is ${formatMoney(error.balance)}.`);
-    return true;
+    await context.reply(`Insufficient funds. Your balance is ${formatMoney(error.balance)}.`);
+    return;
   }
   if (error instanceof CommandInputError || error instanceof EconomyValidationError) {
-    context.reply(error.message);
-    return true;
+    await context.reply(error.message);
+    return;
   }
   throw error;
 }
@@ -66,75 +61,121 @@ function handleExpectedError(context: PaperCommandContext, error: unknown): true
 export class EconomyPlugin {
   public readonly economy = new InMemoryEconomy();
 
-  @Command('pay')
-  public pay(@Context() context: PaperCommandContext): boolean {
+  @Command('pay <player> <amount>', {
+    description: 'Transfer decimal currency to an exact online or cached player.',
+    sender: 'player',
+  })
+  public async pay(
+    @Argument('player', { suggestions: ['players'] }) targetName: string,
+    @Argument('amount', { suggestions: ['1.00', '10.00', '100.00'] }) rawAmount: string,
+    @Sender() commandSender: CommandSender,
+    @Context() context: PaperCommandContext,
+  ): Promise<void> {
     try {
-      const sender = playerSender(context);
-      if (context.arguments.length !== 2) throw usage(context, '<player> <amount>');
-
-      const targetName = context.arguments[0];
-      const rawAmount = context.arguments[1];
-      if (targetName === undefined || rawAmount === undefined)
-        throw usage(context, '<player> <amount>');
-      const target = playerNamed(context, targetName);
+      const sender = playerSender(commandSender);
+      const target = await playerNamed(context, targetName);
       if (target.id === sender.id) throw new CommandInputError('You cannot pay yourself.');
 
       const amount = parseMoney(rawAmount);
       this.economy.transfer(sender.id, target.id, amount);
-      context.reply(
+      await context.reply(
         `Paid ${target.name} ${formatMoney(amount)}. Your balance is ${formatMoney(this.economy.balance(sender.id))}.`,
       );
     } catch (error) {
-      return handleExpectedError(context, error);
+      await handleExpectedError(context, error);
     }
-    return true;
   }
 
-  @Command('bal')
-  public balance(@Context() context: PaperCommandContext): boolean {
+  @Command('bal [player]', {
+    aliases: ['balance'],
+    description: 'Show a player balance, optionally in raw minor units.',
+  })
+  public async balance(
+    @Argument('player', { suggestions: ['players'] }) requestedName: string | undefined,
+    @Option('minor', { aliases: ['m'], parser: 'boolean' }) minor: boolean | undefined,
+    @Sender() sender: CommandSender,
+    @Context() context: PaperCommandContext,
+  ): Promise<void> {
     try {
-      if (context.arguments.length > 1) throw usage(context, '[player]');
-      const requestedName = context.arguments[0];
       const player =
-        requestedName === undefined ? playerSender(context) : playerNamed(context, requestedName);
-      context.reply(`${player.name}'s balance is ${formatMoney(this.economy.balance(player.id))}.`);
+        requestedName === undefined
+          ? playerSender(sender)
+          : await playerNamed(context, requestedName);
+      const balance = this.economy.balance(player.id);
+      await context.reply(
+        minor === true
+          ? `${player.name}'s balance is ${String(balance)} minor units.`
+          : `${player.name}'s balance is ${formatMoney(balance)}.`,
+      );
     } catch (error) {
-      return handleExpectedError(context, error);
+      await handleExpectedError(context, error);
     }
-    return true;
   }
 
-  @Command('sell')
-  public sell(@Context() context: PaperCommandContext): boolean {
+  @Command('sell', {
+    description: 'Atomically sell the entire stack in your main hand.',
+    sender: 'player',
+  })
+  public async sell(
+    @Sender() commandSender: CommandSender,
+    @Context() context: PaperCommandContext,
+  ): Promise<void> {
     try {
-      const sender = playerSender(context);
-      if (context.arguments.length !== 0) throw usage(context, '');
-
-      const item = context.mainHand();
-      if (item === null) throw new CommandInputError('Hold an item in your main hand to sell.');
-      const material = item.material.trim().toUpperCase();
+      const sender = playerSender(commandSender);
+      const heldItem = await context.mainHand();
+      if (heldItem === null) throw new CommandInputError('Hold an item in your main hand to sell.');
+      const material = heldItem.material.trim().toUpperCase();
       if (material === 'AIR' || material === 'CAVE_AIR' || material === 'VOID_AIR')
         throw new CommandInputError('Hold an item in your main hand to sell.');
-      if (!Number.isSafeInteger(item.amount) || item.amount <= 0)
+      if (!Number.isSafeInteger(heldItem.amount) || heldItem.amount <= 0)
         throw new CommandInputError('The held item stack is invalid.');
 
       const unitPrice = MATERIAL_PRICES[material];
       if (unitPrice === undefined)
         throw new CommandInputError(`${material} does not have a sell price.`);
-      const proceeds = unitPrice * item.amount;
+      const proceeds = unitPrice * heldItem.amount;
       const currentBalance = this.economy.balance(sender.id);
       if (!Number.isSafeInteger(proceeds) || !Number.isSafeInteger(currentBalance + proceeds))
         throw new EconomyValidationError('The sale would exceed the safe balance limit.');
 
-      if (!context.takeMainHand(item.material, item.amount))
+      if (!(await context.takeMainHand(heldItem.material, heldItem.amount)))
         throw new CommandInputError('Your held item changed before it could be sold. Try again.');
       const nextBalance = this.economy.deposit(sender.id, proceeds);
-      context.reply(
-        `Sold ${String(item.amount)} ${material} for ${formatMoney(proceeds)}. Your balance is ${formatMoney(nextBalance)}.`,
+      await context.reply(
+        `Sold ${String(heldItem.amount)} ${material} for ${formatMoney(proceeds)}. Your balance is ${formatMoney(nextBalance)}.`,
       );
     } catch (error) {
-      return handleExpectedError(context, error);
+      await handleExpectedError(context, error);
     }
-    return true;
+  }
+
+  @Command('prices', {
+    aliases: ['shop'],
+    description: 'Open the protected sell-price reference.',
+    sender: 'player',
+  })
+  public async prices(@Context() context: PaperCommandContext): Promise<void> {
+    const opened = await context.openInventory(
+      inventory(1, miniMessage('<gold><bold>Sell prices</bold></gold>'), {
+        slots: Object.entries(MATERIAL_PRICES).map(([material, unitPrice], index) => ({
+          slot: index + 1,
+          item: item(material, {
+            name: text(material.replaceAll('_', ' '), { color: 'gold', bold: true }),
+            lore: [
+              miniMessage('<gray>Each: <green><price></green></gray>', {
+                placeholders: { price: formatMoney(unitPrice) },
+              }),
+              text('Left-click to repeat the price in chat.', { color: 'gray' }),
+            ],
+            actions: {
+              left: async (action) => {
+                await action.reply(`${material} sells for ${formatMoney(unitPrice)} each.`);
+              },
+            },
+          }),
+        })),
+      }),
+    );
+    if (!opened) await context.reply('The price list could not be opened.');
   }
 }

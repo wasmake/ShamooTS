@@ -54,18 +54,18 @@ function declarationsForMetadata(metadata) {
 }
 function assertCompatible(declarations, declarationValue) {
   const sameTarget = declarations.filter(
-    (item) => item.target === declarationValue.target && item.member === declarationValue.member && item.parameterIndex === declarationValue.parameterIndex
+    (item2) => item2.target === declarationValue.target && item2.member === declarationValue.member && item2.parameterIndex === declarationValue.parameterIndex
   );
-  if (!repeatableDeclarations.has(declarationValue.name) && sameTarget.some((item) => item.name === declarationValue.name)) {
+  if (!repeatableDeclarations.has(declarationValue.name) && sameTarget.some((item2) => item2.name === declarationValue.name)) {
     throw new TypeError(
       `@${declarationValue.name} is duplicated on ${String(declarationValue.member ?? "class")}.`
     );
   }
   const conflict = conflictGroups.find(
-    (group) => group.includes(declarationValue.name) && sameTarget.some((item) => group.includes(item.name))
+    (group) => group.includes(declarationValue.name) && sameTarget.some((item2) => group.includes(item2.name))
   );
   if (conflict !== void 0) {
-    const existing = sameTarget.find((item) => conflict.includes(item.name));
+    const existing = sameTarget.find((item2) => conflict.includes(item2.name));
     throw new TypeError(
       `@${declarationValue.name} conflicts with @${existing?.name ?? "unknown"} on ${String(declarationValue.member ?? "class")}.`
     );
@@ -165,10 +165,218 @@ var init_src = __esm({
 });
 
 // ../../packages/commands/src/index.ts
+function Command2(syntax, options) {
+  return options === void 0 ? Command(syntax) : Command(syntax, options);
+}
+function Argument2(name, options) {
+  return options === void 0 ? Argument(name) : Argument(name, options);
+}
+function Option2(name, options) {
+  return options === void 0 ? Option(name) : Option(name, options);
+}
+function Sender2() {
+  return Sender();
+}
+function Context2() {
+  return Context();
+}
 var init_src2 = __esm({
   "../../packages/commands/src/index.ts"() {
     "use strict";
     init_src();
+  }
+});
+
+// ../../packages/core/src/platform.ts
+var init_platform = __esm({
+  "../../packages/core/src/platform.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/core/src/index.ts
+var init_src3 = __esm({
+  "../../packages/core/src/index.ts"() {
+    "use strict";
+    init_platform();
+  }
+});
+
+// ../../packages/platform/src/platform.ts
+var init_platform2 = __esm({
+  "../../packages/platform/src/platform.ts"() {
+    "use strict";
+    init_src3();
+  }
+});
+
+// ../../packages/platform/src/index.ts
+var init_src4 = __esm({
+  "../../packages/platform/src/index.ts"() {
+    "use strict";
+    init_platform2();
+  }
+});
+
+// ../../packages/di/src/errors.ts
+var init_errors = __esm({
+  "../../packages/di/src/errors.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/di/src/types.ts
+function createToken(description) {
+  const normalized = description.trim();
+  if (normalized.length === 0) throw new TypeError("Token description must not be empty.");
+  return Object.freeze({ description: normalized });
+}
+var init_types = __esm({
+  "../../packages/di/src/types.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/di/src/container.ts
+var scopeRank;
+var init_container = __esm({
+  "../../packages/di/src/container.ts"() {
+    "use strict";
+    init_errors();
+    init_types();
+    scopeRank = {
+      ["Singleton" /* SINGLETON */]: 100,
+      ["Plugin" /* PLUGIN */]: 90,
+      ["Module" /* MODULE */]: 80,
+      ["Player" /* PLAYER */]: 60,
+      ["World" /* WORLD */]: 60,
+      ["Region" /* REGION */]: 60,
+      ["Proxy" /* PROXY */]: 60,
+      ["Event" /* EVENT */]: 40,
+      ["Command" /* COMMAND */]: 40,
+      ["Task" /* TASK */]: 40,
+      ["Transient" /* TRANSIENT */]: 0
+    };
+  }
+});
+
+// ../../packages/di/src/module.ts
+var init_module = __esm({
+  "../../packages/di/src/module.ts"() {
+    "use strict";
+    init_errors();
+  }
+});
+
+// ../../packages/di/src/index.ts
+var init_src5 = __esm({
+  "../../packages/di/src/index.ts"() {
+    "use strict";
+    init_container();
+    init_errors();
+    init_module();
+    init_types();
+  }
+});
+
+// ../../packages/paper/src/index.ts
+function callbackBound(value, name, maximum) {
+  if (value !== void 0 && (!Number.isSafeInteger(value) || value < 1 || value > maximum))
+    throw new TypeError(`${name} must be an integer from 1 through ${String(maximum)}.`);
+}
+function clickValue(click) {
+  if (click.action === "change-page") {
+    if (!Number.isSafeInteger(click.value) || click.value < -2147483648 || click.value > 2147483647)
+      throw new TypeError("Change-page value must be a 32-bit integer.");
+  } else if (typeof click.value !== "string" || click.value.trim().length === 0 || click.value.length > 32767) {
+    throw new TypeError("Click action value must be bounded nonblank text.");
+  }
+}
+function text(content, options = {}) {
+  if (options.click?.action === "callback") {
+    callbackBound(options.click.uses, "Callback uses", 1e3);
+    callbackBound(options.click.lifetimeSeconds, "Callback lifetimeSeconds", 3600);
+  } else if (options.click !== void 0) clickValue(options.click);
+  return Object.freeze({
+    kind: "text",
+    content,
+    ...options.color === void 0 ? {} : { color: options.color },
+    ...options.font === void 0 ? {} : { font: options.font },
+    ...options.bold === void 0 ? {} : { bold: options.bold },
+    ...options.italic === void 0 ? {} : { italic: options.italic },
+    ...options.underlined === void 0 ? {} : { underlined: options.underlined },
+    ...options.strikethrough === void 0 ? {} : { strikethrough: options.strikethrough },
+    ...options.obfuscated === void 0 ? {} : { obfuscated: options.obfuscated },
+    ...options.insertion === void 0 ? {} : { insertion: options.insertion },
+    ...options.children === void 0 || options.children.length === 0 ? {} : { children: Object.freeze([...options.children]) },
+    ...options.click === void 0 ? {} : { click: Object.freeze({ ...options.click }) }
+  });
+}
+function miniMessage(content, options = {}) {
+  const placeholders = options.placeholders === void 0 ? void 0 : { ...options.placeholders };
+  if (placeholders !== void 0 && Object.keys(placeholders).some((key) => key.trim().length === 0))
+    throw new TypeError("MiniMessage placeholder keys must be nonblank.");
+  return Object.freeze({
+    kind: "mini-message",
+    content,
+    ...placeholders === void 0 || Object.keys(placeholders).length === 0 ? {} : { placeholders: Object.freeze(placeholders) },
+    ...options.miniPlaceholders === void 0 ? {} : { miniPlaceholders: options.miniPlaceholders }
+  });
+}
+function item(material, options = {}) {
+  if (material.trim().length === 0 || material.length > 32767)
+    throw new TypeError("Item material must be bounded nonblank text.");
+  const amount = options.amount ?? 1;
+  if (!Number.isSafeInteger(amount) || amount < 1 || amount > 99)
+    throw new TypeError("Item amount must be an integer from 1 through 99.");
+  const lore = options.lore ?? [];
+  if (lore.length > 256) throw new TypeError("Item lore must contain at most 256 lines.");
+  const actions = options.actions === void 0 ? void 0 : Object.freeze({
+    ...options.actions.left === void 0 ? {} : { left: options.actions.left },
+    ...options.actions.right === void 0 ? {} : { right: options.actions.right },
+    preventDefault: options.actions.preventDefault ?? true
+  });
+  return Object.freeze({
+    kind: "item",
+    material,
+    amount,
+    lore: Object.freeze([...lore]),
+    ...options.name === void 0 ? {} : { name: options.name },
+    ...actions === void 0 ? {} : { actions }
+  });
+}
+function inventory(rows, title, options = {}) {
+  if (!Number.isSafeInteger(rows) || rows < 1 || rows > 6)
+    throw new TypeError("Inventory rows must be an integer from 1 through 6.");
+  const occupied = /* @__PURE__ */ new Set();
+  const slots = (options.slots ?? []).map((entry) => {
+    if (!Number.isSafeInteger(entry.slot) || entry.slot < 0 || entry.slot >= rows * 9)
+      throw new TypeError("Inventory slot is outside the inventory.");
+    if (occupied.has(entry.slot)) throw new TypeError("Inventory slots must be unique.");
+    occupied.add(entry.slot);
+    return Object.freeze({ slot: entry.slot, item: entry.item });
+  });
+  return Object.freeze({
+    kind: "inventory",
+    rows,
+    title,
+    protected: options.protected ?? true,
+    slots: Object.freeze(slots)
+  });
+}
+var PAPER_VELOCITY_MESSAGE_BRIDGE, PAPER_VELOCITY_TRANSPORT;
+var init_src6 = __esm({
+  "../../packages/paper/src/index.ts"() {
+    "use strict";
+    init_src3();
+    init_src4();
+    init_src5();
+    PAPER_VELOCITY_MESSAGE_BRIDGE = createToken(
+      "ShamooRuntime Paper Velocity message bridge"
+    );
+    PAPER_VELOCITY_TRANSPORT = createToken(
+      "Paper Velocity request transport"
+    );
   }
 });
 
@@ -243,7 +451,7 @@ var require_re = __commonJS({
       }
       return value;
     };
-    var createToken = (name, value, isGlobal) => {
+    var createToken2 = (name, value, isGlobal) => {
       const safe = makeSafeRegex(value);
       const index = R++;
       debug(name, index, value);
@@ -253,52 +461,52 @@ var require_re = __commonJS({
       re[index] = new RegExp(value, isGlobal ? "g" : void 0);
       safeRe[index] = new RegExp(safe, isGlobal ? "g" : void 0);
     };
-    createToken("NUMERICIDENTIFIER", "0|[1-9]\\d*");
-    createToken("NUMERICIDENTIFIERLOOSE", "\\d+");
-    createToken("NONNUMERICIDENTIFIER", `\\d*[a-zA-Z-]${LETTERDASHNUMBER}*`);
-    createToken("MAINVERSION", `(${src[t.NUMERICIDENTIFIER]})\\.(${src[t.NUMERICIDENTIFIER]})\\.(${src[t.NUMERICIDENTIFIER]})`);
-    createToken("MAINVERSIONLOOSE", `(${src[t.NUMERICIDENTIFIERLOOSE]})\\.(${src[t.NUMERICIDENTIFIERLOOSE]})\\.(${src[t.NUMERICIDENTIFIERLOOSE]})`);
-    createToken("PRERELEASEIDENTIFIER", `(?:${src[t.NONNUMERICIDENTIFIER]}|${src[t.NUMERICIDENTIFIER]})`);
-    createToken("PRERELEASEIDENTIFIERLOOSE", `(?:${src[t.NONNUMERICIDENTIFIER]}|${src[t.NUMERICIDENTIFIERLOOSE]})`);
-    createToken("PRERELEASE", `(?:-(${src[t.PRERELEASEIDENTIFIER]}(?:\\.${src[t.PRERELEASEIDENTIFIER]})*))`);
-    createToken("PRERELEASELOOSE", `(?:-?(${src[t.PRERELEASEIDENTIFIERLOOSE]}(?:\\.${src[t.PRERELEASEIDENTIFIERLOOSE]})*))`);
-    createToken("BUILDIDENTIFIER", `${LETTERDASHNUMBER}+`);
-    createToken("BUILD", `(?:\\+(${src[t.BUILDIDENTIFIER]}(?:\\.${src[t.BUILDIDENTIFIER]})*))`);
-    createToken("FULLPLAIN", `v?${src[t.MAINVERSION]}${src[t.PRERELEASE]}?${src[t.BUILD]}?`);
-    createToken("FULL", `^${src[t.FULLPLAIN]}$`);
-    createToken("LOOSEPLAIN", `[v=\\s]*${src[t.MAINVERSIONLOOSE]}${src[t.PRERELEASELOOSE]}?${src[t.BUILD]}?`);
-    createToken("LOOSE", `^${src[t.LOOSEPLAIN]}$`);
-    createToken("GTLT", "((?:<|>)?=?)");
-    createToken("XRANGEIDENTIFIERLOOSE", `${src[t.NUMERICIDENTIFIERLOOSE]}|x|X|\\*`);
-    createToken("XRANGEIDENTIFIER", `${src[t.NUMERICIDENTIFIER]}|x|X|\\*`);
-    createToken("XRANGEPLAIN", `[v=\\s]*(${src[t.XRANGEIDENTIFIER]})(?:\\.(${src[t.XRANGEIDENTIFIER]})(?:\\.(${src[t.XRANGEIDENTIFIER]})(?:${src[t.PRERELEASE]})?${src[t.BUILD]}?)?)?`);
-    createToken("XRANGEPLAINLOOSE", `[v=\\s]*(${src[t.XRANGEIDENTIFIERLOOSE]})(?:\\.(${src[t.XRANGEIDENTIFIERLOOSE]})(?:\\.(${src[t.XRANGEIDENTIFIERLOOSE]})(?:${src[t.PRERELEASELOOSE]})?${src[t.BUILD]}?)?)?`);
-    createToken("XRANGE", `^${src[t.GTLT]}\\s*${src[t.XRANGEPLAIN]}$`);
-    createToken("XRANGELOOSE", `^${src[t.GTLT]}\\s*${src[t.XRANGEPLAINLOOSE]}$`);
-    createToken("COERCEPLAIN", `${"(^|[^\\d])(\\d{1,"}${MAX_SAFE_COMPONENT_LENGTH}})(?:\\.(\\d{1,${MAX_SAFE_COMPONENT_LENGTH}}))?(?:\\.(\\d{1,${MAX_SAFE_COMPONENT_LENGTH}}))?`);
-    createToken("COERCE", `${src[t.COERCEPLAIN]}(?:$|[^\\d])`);
-    createToken("COERCEFULL", src[t.COERCEPLAIN] + `(?:${src[t.PRERELEASE]})?(?:${src[t.BUILD]})?(?:$|[^\\d])`);
-    createToken("COERCERTL", src[t.COERCE], true);
-    createToken("COERCERTLFULL", src[t.COERCEFULL], true);
-    createToken("LONETILDE", "(?:~>?)");
-    createToken("TILDETRIM", `(\\s*)${src[t.LONETILDE]}\\s+`, true);
+    createToken2("NUMERICIDENTIFIER", "0|[1-9]\\d*");
+    createToken2("NUMERICIDENTIFIERLOOSE", "\\d+");
+    createToken2("NONNUMERICIDENTIFIER", `\\d*[a-zA-Z-]${LETTERDASHNUMBER}*`);
+    createToken2("MAINVERSION", `(${src[t.NUMERICIDENTIFIER]})\\.(${src[t.NUMERICIDENTIFIER]})\\.(${src[t.NUMERICIDENTIFIER]})`);
+    createToken2("MAINVERSIONLOOSE", `(${src[t.NUMERICIDENTIFIERLOOSE]})\\.(${src[t.NUMERICIDENTIFIERLOOSE]})\\.(${src[t.NUMERICIDENTIFIERLOOSE]})`);
+    createToken2("PRERELEASEIDENTIFIER", `(?:${src[t.NONNUMERICIDENTIFIER]}|${src[t.NUMERICIDENTIFIER]})`);
+    createToken2("PRERELEASEIDENTIFIERLOOSE", `(?:${src[t.NONNUMERICIDENTIFIER]}|${src[t.NUMERICIDENTIFIERLOOSE]})`);
+    createToken2("PRERELEASE", `(?:-(${src[t.PRERELEASEIDENTIFIER]}(?:\\.${src[t.PRERELEASEIDENTIFIER]})*))`);
+    createToken2("PRERELEASELOOSE", `(?:-?(${src[t.PRERELEASEIDENTIFIERLOOSE]}(?:\\.${src[t.PRERELEASEIDENTIFIERLOOSE]})*))`);
+    createToken2("BUILDIDENTIFIER", `${LETTERDASHNUMBER}+`);
+    createToken2("BUILD", `(?:\\+(${src[t.BUILDIDENTIFIER]}(?:\\.${src[t.BUILDIDENTIFIER]})*))`);
+    createToken2("FULLPLAIN", `v?${src[t.MAINVERSION]}${src[t.PRERELEASE]}?${src[t.BUILD]}?`);
+    createToken2("FULL", `^${src[t.FULLPLAIN]}$`);
+    createToken2("LOOSEPLAIN", `[v=\\s]*${src[t.MAINVERSIONLOOSE]}${src[t.PRERELEASELOOSE]}?${src[t.BUILD]}?`);
+    createToken2("LOOSE", `^${src[t.LOOSEPLAIN]}$`);
+    createToken2("GTLT", "((?:<|>)?=?)");
+    createToken2("XRANGEIDENTIFIERLOOSE", `${src[t.NUMERICIDENTIFIERLOOSE]}|x|X|\\*`);
+    createToken2("XRANGEIDENTIFIER", `${src[t.NUMERICIDENTIFIER]}|x|X|\\*`);
+    createToken2("XRANGEPLAIN", `[v=\\s]*(${src[t.XRANGEIDENTIFIER]})(?:\\.(${src[t.XRANGEIDENTIFIER]})(?:\\.(${src[t.XRANGEIDENTIFIER]})(?:${src[t.PRERELEASE]})?${src[t.BUILD]}?)?)?`);
+    createToken2("XRANGEPLAINLOOSE", `[v=\\s]*(${src[t.XRANGEIDENTIFIERLOOSE]})(?:\\.(${src[t.XRANGEIDENTIFIERLOOSE]})(?:\\.(${src[t.XRANGEIDENTIFIERLOOSE]})(?:${src[t.PRERELEASELOOSE]})?${src[t.BUILD]}?)?)?`);
+    createToken2("XRANGE", `^${src[t.GTLT]}\\s*${src[t.XRANGEPLAIN]}$`);
+    createToken2("XRANGELOOSE", `^${src[t.GTLT]}\\s*${src[t.XRANGEPLAINLOOSE]}$`);
+    createToken2("COERCEPLAIN", `${"(^|[^\\d])(\\d{1,"}${MAX_SAFE_COMPONENT_LENGTH}})(?:\\.(\\d{1,${MAX_SAFE_COMPONENT_LENGTH}}))?(?:\\.(\\d{1,${MAX_SAFE_COMPONENT_LENGTH}}))?`);
+    createToken2("COERCE", `${src[t.COERCEPLAIN]}(?:$|[^\\d])`);
+    createToken2("COERCEFULL", src[t.COERCEPLAIN] + `(?:${src[t.PRERELEASE]})?(?:${src[t.BUILD]})?(?:$|[^\\d])`);
+    createToken2("COERCERTL", src[t.COERCE], true);
+    createToken2("COERCERTLFULL", src[t.COERCEFULL], true);
+    createToken2("LONETILDE", "(?:~>?)");
+    createToken2("TILDETRIM", `(\\s*)${src[t.LONETILDE]}\\s+`, true);
     exports.tildeTrimReplace = "$1~";
-    createToken("TILDE", `^${src[t.LONETILDE]}${src[t.XRANGEPLAIN]}$`);
-    createToken("TILDELOOSE", `^${src[t.LONETILDE]}${src[t.XRANGEPLAINLOOSE]}$`);
-    createToken("LONECARET", "(?:\\^)");
-    createToken("CARETTRIM", `(\\s*)${src[t.LONECARET]}\\s+`, true);
+    createToken2("TILDE", `^${src[t.LONETILDE]}${src[t.XRANGEPLAIN]}$`);
+    createToken2("TILDELOOSE", `^${src[t.LONETILDE]}${src[t.XRANGEPLAINLOOSE]}$`);
+    createToken2("LONECARET", "(?:\\^)");
+    createToken2("CARETTRIM", `(\\s*)${src[t.LONECARET]}\\s+`, true);
     exports.caretTrimReplace = "$1^";
-    createToken("CARET", `^${src[t.LONECARET]}${src[t.XRANGEPLAIN]}$`);
-    createToken("CARETLOOSE", `^${src[t.LONECARET]}${src[t.XRANGEPLAINLOOSE]}$`);
-    createToken("COMPARATORLOOSE", `^${src[t.GTLT]}\\s*(${src[t.LOOSEPLAIN]})$|^$`);
-    createToken("COMPARATOR", `^${src[t.GTLT]}\\s*(${src[t.FULLPLAIN]})$|^$`);
-    createToken("COMPARATORTRIM", `(\\s*)${src[t.GTLT]}\\s*(${src[t.LOOSEPLAIN]}|${src[t.XRANGEPLAIN]})`, true);
+    createToken2("CARET", `^${src[t.LONECARET]}${src[t.XRANGEPLAIN]}$`);
+    createToken2("CARETLOOSE", `^${src[t.LONECARET]}${src[t.XRANGEPLAINLOOSE]}$`);
+    createToken2("COMPARATORLOOSE", `^${src[t.GTLT]}\\s*(${src[t.LOOSEPLAIN]})$|^$`);
+    createToken2("COMPARATOR", `^${src[t.GTLT]}\\s*(${src[t.FULLPLAIN]})$|^$`);
+    createToken2("COMPARATORTRIM", `(\\s*)${src[t.GTLT]}\\s*(${src[t.LOOSEPLAIN]}|${src[t.XRANGEPLAIN]})`, true);
     exports.comparatorTrimReplace = "$1$2$3";
-    createToken("HYPHENRANGE", `^\\s*(${src[t.XRANGEPLAIN]})\\s+-\\s+(${src[t.XRANGEPLAIN]})\\s*$`);
-    createToken("HYPHENRANGELOOSE", `^\\s*(${src[t.XRANGEPLAINLOOSE]})\\s+-\\s+(${src[t.XRANGEPLAINLOOSE]})\\s*$`);
-    createToken("STAR", "(<|>)?=?\\s*\\*");
-    createToken("GTE0", "^\\s*>=\\s*0\\.0\\.0\\s*$");
-    createToken("GTE0PRE", "^\\s*>=\\s*0\\.0\\.0-0\\s*$");
+    createToken2("HYPHENRANGE", `^\\s*(${src[t.XRANGEPLAIN]})\\s+-\\s+(${src[t.XRANGEPLAIN]})\\s*$`);
+    createToken2("HYPHENRANGELOOSE", `^\\s*(${src[t.XRANGEPLAINLOOSE]})\\s+-\\s+(${src[t.XRANGEPLAINLOOSE]})\\s*$`);
+    createToken2("STAR", "(<|>)?=?\\s*\\*");
+    createToken2("GTE0", "^\\s*>=\\s*0\\.0\\.0\\s*$");
+    createToken2("GTE0PRE", "^\\s*>=\\s*0\\.0\\.0-0\\s*$");
   }
 });
 
@@ -2961,7 +3169,7 @@ function prettifyError(error48) {
   return lines.join("\n");
 }
 var initializer, $ZodError, $ZodRealError;
-var init_errors = __esm({
+var init_errors2 = __esm({
   "../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/core/errors.js"() {
     init_core();
     init_util();
@@ -2991,7 +3199,7 @@ var _parse, parse, _parseAsync, parseAsync, _safeParse, safeParse, _safeParseAsy
 var init_parse = __esm({
   "../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/core/parse.js"() {
     init_core();
-    init_errors();
+    init_errors2();
     init_util();
     _parse = (_Err) => (schema, value, _ctx, _params) => {
       const ctx = _ctx ? Object.assign(_ctx, { async: false }) : { async: false };
@@ -4802,9 +5010,9 @@ var init_schemas = __esm({
         payload.value = Array(input.length);
         const proms = [];
         for (let i = 0; i < input.length; i++) {
-          const item = input[i];
+          const item2 = input[i];
           const result = def.element._zod.run({
-            value: item,
+            value: item2,
             issues: []
           }, ctx);
           if (result instanceof Promise) {
@@ -5154,7 +5362,7 @@ var init_schemas = __esm({
         }
         payload.value = [];
         const proms = [];
-        const reversedIndex = [...items].reverse().findIndex((item) => item._zod.optin !== "optional");
+        const reversedIndex = [...items].reverse().findIndex((item2) => item2._zod.optin !== "optional");
         const optStart = reversedIndex === -1 ? 0 : items.length - reversedIndex;
         if (!def.rest) {
           const tooBig = input.length > items.length;
@@ -5170,13 +5378,13 @@ var init_schemas = __esm({
           }
         }
         let i = -1;
-        for (const item of items) {
+        for (const item2 of items) {
           i++;
           if (i >= input.length) {
             if (i >= optStart)
               continue;
           }
-          const result = item._zod.run({
+          const result = item2._zod.run({
             value: input[i],
             issues: []
           }, ctx);
@@ -5360,8 +5568,8 @@ var init_schemas = __esm({
         }
         const proms = [];
         payload.value = /* @__PURE__ */ new Set();
-        for (const item of input) {
-          const result = def.valueType._zod.run({ value: item, issues: [] }, ctx);
+        for (const item2 of input) {
+          const result = def.valueType._zod.run({ value: item2, issues: [] }, ctx);
           if (result instanceof Promise) {
             proms.push(result.then((result2) => handleSetResult(result2, payload)));
           } else
@@ -8974,8 +9182,8 @@ var capitalizeFirstCharacter, error26;
 var init_lt = __esm({
   "../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/locales/lt.js"() {
     init_util();
-    capitalizeFirstCharacter = (text) => {
-      return text.charAt(0).toUpperCase() + text.slice(1);
+    capitalizeFirstCharacter = (text2) => {
+      return text2.charAt(0).toUpperCase() + text2.slice(1);
     };
     error26 = () => {
       const Sizable = {
@@ -13077,8 +13285,8 @@ function isTransforming(_schema, _ctx) {
     return false;
   }
   if (def.type === "tuple") {
-    for (const item of def.items) {
-      if (isTransforming(item, ctx))
+    for (const item2 of def.items) {
+      if (isTransforming(item2, ctx))
         return true;
     }
     if (def.rest && isTransforming(def.rest, ctx))
@@ -14035,7 +14243,7 @@ var init_core2 = __esm({
   "../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/core/index.js"() {
     init_core();
     init_parse();
-    init_errors();
+    init_errors2();
     init_schemas();
     init_checks();
     init_versions();
@@ -14141,7 +14349,7 @@ var init_iso = __esm({
 
 // ../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/classic/errors.js
 var initializer2, ZodError, ZodRealError;
-var init_errors2 = __esm({
+var init_errors3 = __esm({
   "../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/classic/errors.js"() {
     init_core2();
     init_core2();
@@ -14192,7 +14400,7 @@ var parse2, parseAsync2, safeParse2, safeParseAsync2, encode2, decode2, encodeAs
 var init_parse2 = __esm({
   "../../node_modules/.pnpm/zod@4.3.6/node_modules/zod/v4/classic/parse.js"() {
     init_core2();
-    init_errors2();
+    init_errors3();
     parse2 = _parse(ZodRealError);
     parseAsync2 = _parseAsync(ZodRealError);
     safeParse2 = _safeParse(ZodRealError);
@@ -15769,7 +15977,7 @@ function convertBaseSchema(schema, ctx) {
       const prefixItems = schema.prefixItems;
       const items = schema.items;
       if (prefixItems && Array.isArray(prefixItems)) {
-        const tupleItems = prefixItems.map((item) => convertSchema(item, ctx));
+        const tupleItems = prefixItems.map((item2) => convertSchema(item2, ctx));
         const rest = items && typeof items === "object" && !Array.isArray(items) ? convertSchema(items, ctx) : void 0;
         if (rest) {
           zodSchema = z.tuple(tupleItems).rest(rest);
@@ -15783,7 +15991,7 @@ function convertBaseSchema(schema, ctx) {
           zodSchema = zodSchema.check(z.maxLength(schema.maxItems));
         }
       } else if (Array.isArray(items)) {
-        const tupleItems = items.map((item) => convertSchema(item, ctx));
+        const tupleItems = items.map((item2) => convertSchema(item2, ctx));
         const rest = schema.additionalItems && typeof schema.additionalItems === "object" ? convertSchema(schema.additionalItems, ctx) : void 0;
         if (rest) {
           zodSchema = z.tuple(tupleItems).rest(rest);
@@ -16257,7 +16465,7 @@ var init_external = __esm({
     init_core2();
     init_schemas2();
     init_checks2();
-    init_errors2();
+    init_errors3();
     init_parse2();
     init_compat();
     init_core2();
@@ -16293,7 +16501,7 @@ function canonicalDepth(value) {
   return maximum < 0 ? 0 : maximum + 1;
 }
 var import_semver, strict, nonWhitespace, exactSemanticVersion, number4, versionIdentifier, prerelease, build, fullVersion, wildcard, partialVersion, simpleRange, rangeSet, npmSemverRange, semanticVersion, semanticRange, communicationId, uniqueStrings, locationSchema, canonicalValueSchema, tokenSchema, dependencySchema, decoratorSchema, methodSchema, communicationSchema, CompilerMetadataSchema;
-var init_src3 = __esm({
+var init_src7 = __esm({
   "../../packages/metadata/src/index.ts"() {
     "use strict";
     import_semver = __toESM(require_semver2(), 1);
@@ -16385,14 +16593,14 @@ var init_src3 = __esm({
       for (const key of ["services", "events", "consumers"]) {
         const values = communication[key];
         const seen = /* @__PURE__ */ new Set();
-        values.forEach((item, index) => {
-          if (seen.has(item.id))
+        values.forEach((item2, index) => {
+          if (seen.has(item2.id))
             context.addIssue({
               code: "custom",
               path: [key, index, "id"],
-              message: `Contract id is duplicated: ${item.id}`
+              message: `Contract id is duplicated: ${item2.id}`
             });
-          seen.add(item.id);
+          seen.add(item2.id);
         });
       }
     });
@@ -16473,10 +16681,10 @@ var init_src3 = __esm({
 
 // ../../packages/runtime-protocol/src/index.ts
 var import_semver2, PROTOCOL_VERSION, MANIFEST_VERSION, identifier, exactSemanticVersion2, number5, versionIdentifier2, prerelease2, build2, fullVersion2, wildcard2, partialVersion2, simpleRange2, rangeSet2, npmSemverRange2, safePath, strictObject2, nonEmpty, nameSchema, rangeSchema, versionSchema, pathSchema, dependencyMapSchema, ProtocolVersionSchema, enabledPaperPlatformSchema, paperPlatformSchema, enabledVelocityPlatformSchema, velocityPlatformSchema, platformsSchema, CommonDescriptorSchema, encoder, decoder, COMMON_DESCRIPTOR_JSON_SCHEMA;
-var init_src4 = __esm({
+var init_src8 = __esm({
   "../../packages/runtime-protocol/src/index.ts"() {
     "use strict";
-    init_src3();
+    init_src7();
     import_semver2 = __toESM(require_semver2(), 1);
     init_zod();
     PROTOCOL_VERSION = Object.freeze({ major: 1, minor: 0 });
@@ -16660,10 +16868,10 @@ function defineServiceContract(options) {
   return Object.freeze({ ...options, methods: Object.freeze([...options.methods]) });
 }
 var import_semver3, contractIdPattern, exactSemanticVersion3, number6, versionIdentifier3, prerelease3, build3, fullVersion3, wildcard3, partialVersion3, simpleRange3, rangeSet3, npmSemverRange3;
-var init_src5 = __esm({
+var init_src9 = __esm({
   "../../packages/communication/src/index.ts"() {
     "use strict";
-    init_src4();
+    init_src8();
     import_semver3 = __toESM(require_semver2(), 1);
     contractIdPattern = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
     exactSemanticVersion3 = /^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
@@ -16718,10 +16926,10 @@ function positiveAmount(value) {
   return value;
 }
 var ECONOMY_SERVICE, EconomyValidationError, InsufficientFundsError, DECIMAL_AMOUNT, InMemoryEconomy;
-var init_src6 = __esm({
+var init_src10 = __esm({
   "src/index.ts"() {
     "use strict";
-    init_src5();
+    init_src9();
     ECONOMY_SERVICE = defineServiceContract({
       id: "example.economy",
       version: "1.0.0",
@@ -16789,29 +16997,25 @@ var init_src6 = __esm({
 });
 
 // src/plugin.ts
-function playerSender(context) {
-  const { sender } = context;
+function playerSender(sender) {
   if (sender.kind !== "player" || typeof sender.id !== "string" || sender.id.length === 0)
     throw new CommandInputError("Only players can use this command.");
   return { id: sender.id, name: sender.name };
 }
-function playerNamed(context, name) {
-  const player = context.findPlayer(name);
+async function playerNamed(context, name) {
+  const player = await context.findPlayer(name);
   if (player === null)
     throw new CommandInputError(`No exact or cached player named "${name}" was found.`);
   return player;
 }
-function usage(context, syntax) {
-  return new CommandInputError(`Usage: /${context.alias} ${syntax}`.trimEnd());
-}
-function handleExpectedError(context, error48) {
+async function handleExpectedError(context, error48) {
   if (error48 instanceof InsufficientFundsError) {
-    context.reply(`Insufficient funds. Your balance is ${formatMoney(error48.balance)}.`);
-    return true;
+    await context.reply(`Insufficient funds. Your balance is ${formatMoney(error48.balance)}.`);
+    return;
   }
   if (error48 instanceof CommandInputError || error48 instanceof EconomyValidationError) {
-    context.reply(error48.message);
-    return true;
+    await context.reply(error48.message);
+    return;
   }
   throw error48;
 }
@@ -16822,6 +17026,7 @@ var init_plugin = __esm({
     init_src2();
     init_src();
     init_src6();
+    init_src10();
     MATERIAL_PRICES = Object.freeze({
       COBBLESTONE: 1,
       COAL: 25,
@@ -16839,79 +17044,119 @@ var init_plugin = __esm({
     };
     EconomyPlugin = class {
       economy = new InMemoryEconomy();
-      pay(context) {
+      async pay(targetName, rawAmount, commandSender2, context) {
         try {
-          const sender = playerSender(context);
-          if (context.arguments.length !== 2) throw usage(context, "<player> <amount>");
-          const targetName = context.arguments[0];
-          const rawAmount = context.arguments[1];
-          if (targetName === void 0 || rawAmount === void 0)
-            throw usage(context, "<player> <amount>");
-          const target = playerNamed(context, targetName);
+          const sender = playerSender(commandSender2);
+          const target = await playerNamed(context, targetName);
           if (target.id === sender.id) throw new CommandInputError("You cannot pay yourself.");
           const amount = parseMoney(rawAmount);
           this.economy.transfer(sender.id, target.id, amount);
-          context.reply(
+          await context.reply(
             `Paid ${target.name} ${formatMoney(amount)}. Your balance is ${formatMoney(this.economy.balance(sender.id))}.`
           );
         } catch (error48) {
-          return handleExpectedError(context, error48);
+          await handleExpectedError(context, error48);
         }
-        return true;
       }
-      balance(context) {
+      async balance(requestedName, minor, sender, context) {
         try {
-          if (context.arguments.length > 1) throw usage(context, "[player]");
-          const requestedName = context.arguments[0];
-          const player = requestedName === void 0 ? playerSender(context) : playerNamed(context, requestedName);
-          context.reply(`${player.name}'s balance is ${formatMoney(this.economy.balance(player.id))}.`);
+          const player = requestedName === void 0 ? playerSender(sender) : await playerNamed(context, requestedName);
+          const balance = this.economy.balance(player.id);
+          await context.reply(
+            minor === true ? `${player.name}'s balance is ${String(balance)} minor units.` : `${player.name}'s balance is ${formatMoney(balance)}.`
+          );
         } catch (error48) {
-          return handleExpectedError(context, error48);
+          await handleExpectedError(context, error48);
         }
-        return true;
       }
-      sell(context) {
+      async sell(commandSender2, context) {
         try {
-          const sender = playerSender(context);
-          if (context.arguments.length !== 0) throw usage(context, "");
-          const item = context.mainHand();
-          if (item === null) throw new CommandInputError("Hold an item in your main hand to sell.");
-          const material = item.material.trim().toUpperCase();
+          const sender = playerSender(commandSender2);
+          const heldItem = await context.mainHand();
+          if (heldItem === null) throw new CommandInputError("Hold an item in your main hand to sell.");
+          const material = heldItem.material.trim().toUpperCase();
           if (material === "AIR" || material === "CAVE_AIR" || material === "VOID_AIR")
             throw new CommandInputError("Hold an item in your main hand to sell.");
-          if (!Number.isSafeInteger(item.amount) || item.amount <= 0)
+          if (!Number.isSafeInteger(heldItem.amount) || heldItem.amount <= 0)
             throw new CommandInputError("The held item stack is invalid.");
           const unitPrice = MATERIAL_PRICES[material];
           if (unitPrice === void 0)
             throw new CommandInputError(`${material} does not have a sell price.`);
-          const proceeds = unitPrice * item.amount;
+          const proceeds = unitPrice * heldItem.amount;
           const currentBalance = this.economy.balance(sender.id);
           if (!Number.isSafeInteger(proceeds) || !Number.isSafeInteger(currentBalance + proceeds))
             throw new EconomyValidationError("The sale would exceed the safe balance limit.");
-          if (!context.takeMainHand(item.material, item.amount))
+          if (!await context.takeMainHand(heldItem.material, heldItem.amount))
             throw new CommandInputError("Your held item changed before it could be sold. Try again.");
           const nextBalance = this.economy.deposit(sender.id, proceeds);
-          context.reply(
-            `Sold ${String(item.amount)} ${material} for ${formatMoney(proceeds)}. Your balance is ${formatMoney(nextBalance)}.`
+          await context.reply(
+            `Sold ${String(heldItem.amount)} ${material} for ${formatMoney(proceeds)}. Your balance is ${formatMoney(nextBalance)}.`
           );
         } catch (error48) {
-          return handleExpectedError(context, error48);
+          await handleExpectedError(context, error48);
         }
-        return true;
+      }
+      async prices(context) {
+        const opened = await context.openInventory(
+          inventory(1, miniMessage("<gold><bold>Sell prices</bold></gold>"), {
+            slots: Object.entries(MATERIAL_PRICES).map(([material, unitPrice], index) => ({
+              slot: index + 1,
+              item: item(material, {
+                name: text(material.replaceAll("_", " "), { color: "gold", bold: true }),
+                lore: [
+                  miniMessage("<gray>Each: <green><price></green></gray>", {
+                    placeholders: { price: formatMoney(unitPrice) }
+                  }),
+                  text("Left-click to repeat the price in chat.", { color: "gray" })
+                ],
+                actions: {
+                  left: async (action) => {
+                    await action.reply(`${material} sells for ${formatMoney(unitPrice)} each.`);
+                  }
+                }
+              })
+            }))
+          })
+        );
+        if (!opened) await context.reply("The price list could not be opened.");
       }
     };
     __decorateClass([
-      Command("pay"),
-      __decorateParam(0, Context())
+      Command2("pay <player> <amount>", {
+        description: "Transfer decimal currency to an exact online or cached player.",
+        sender: "player"
+      }),
+      __decorateParam(0, Argument2("player", { suggestions: ["players"] })),
+      __decorateParam(1, Argument2("amount", { suggestions: ["1.00", "10.00", "100.00"] })),
+      __decorateParam(2, Sender2()),
+      __decorateParam(3, Context2())
     ], EconomyPlugin.prototype, "pay", 1);
     __decorateClass([
-      Command("bal"),
-      __decorateParam(0, Context())
+      Command2("bal [player]", {
+        aliases: ["balance"],
+        description: "Show a player balance, optionally in raw minor units."
+      }),
+      __decorateParam(0, Argument2("player", { suggestions: ["players"] })),
+      __decorateParam(1, Option2("minor", { aliases: ["m"], parser: "boolean" })),
+      __decorateParam(2, Sender2()),
+      __decorateParam(3, Context2())
     ], EconomyPlugin.prototype, "balance", 1);
     __decorateClass([
-      Command("sell"),
-      __decorateParam(0, Context())
+      Command2("sell", {
+        description: "Atomically sell the entire stack in your main hand.",
+        sender: "player"
+      }),
+      __decorateParam(0, Sender2()),
+      __decorateParam(1, Context2())
     ], EconomyPlugin.prototype, "sell", 1);
+    __decorateClass([
+      Command2("prices", {
+        aliases: ["shop"],
+        description: "Open the protected sell-price reference.",
+        sender: "player"
+      }),
+      __decorateParam(0, Context2())
+    ], EconomyPlugin.prototype, "prices", 1);
     EconomyPlugin = __decorateClass([
       Plugin({ name: "economy" })
     ], EconomyPlugin);
@@ -16955,6 +17200,9 @@ function runtimeHost() {
   const registerCallback = Reflect.get(value, "registerCallback");
   if (typeof registerCallback !== "function")
     throw new TypeError("Runtime host must provide registerCallback.");
+  const unregisterCallback = Reflect.get(value, "unregisterCallback");
+  if (typeof unregisterCallback !== "function")
+    throw new TypeError("Runtime host must provide unregisterCallback.");
   return value;
 }
 function operation(host, name) {
@@ -16995,6 +17243,44 @@ function commandBoolean(value, label) {
   if (typeof value !== "boolean") throw new TypeError(`Invalid Paper command ${label}.`);
   return value;
 }
+function commandPromise(value, label, validate) {
+  if (!(value instanceof Promise)) throw new TypeError(`Invalid Paper command ${label} promise.`);
+  return value.then(validate);
+}
+function commandNumber(value, label) {
+  if (typeof value !== "number" || !Number.isSafeInteger(value))
+    throw new TypeError(`Invalid Paper command ${label}.`);
+  return value;
+}
+function commandData(value, label, depth = 0) {
+  if (depth > 32) throw new TypeError(`Invalid Paper command ${label}.`);
+  if (value === null || typeof value === "string" || typeof value === "boolean" || typeof value === "number" && Number.isFinite(value))
+    return value;
+  if (Array.isArray(value))
+    return Object.freeze(value.map((item2) => commandData(item2, label, depth + 1)));
+  if (typeof value !== "object" || Reflect.ownKeys(value).some((key) => typeof key !== "string"))
+    throw new TypeError(`Invalid Paper command ${label}.`);
+  const source = value;
+  return Object.freeze(
+    Object.fromEntries(
+      Object.keys(source).map((key) => [key, commandData(source[key], label, depth + 1)])
+    )
+  );
+}
+function commandValues(value, label) {
+  const record2 = commandRecord(value, label);
+  return commandData(record2, label);
+}
+function commandSender(value) {
+  const rawSender = commandRecord(value, "sender");
+  const senderKeys = Object.hasOwn(rawSender, "id") ? ["name", "kind", "id"] : ["name", "kind"];
+  commandKeys(rawSender, senderKeys, "sender");
+  const kind = rawSender.kind;
+  if (kind !== "player" && kind !== "console" && kind !== "other")
+    throw new TypeError("Invalid Paper command sender kind.");
+  const name = commandString(rawSender.name, "sender name");
+  return Object.hasOwn(rawSender, "id") ? Object.freeze({ name, kind, id: commandString(rawSender.id, "sender id") }) : Object.freeze({ name, kind });
+}
 function commandPlayer(value) {
   if (value === null) return null;
   const player = commandRecord(value, "player result");
@@ -17007,45 +17293,178 @@ function commandPlayer(value) {
 }
 function commandItem(value) {
   if (value === null) return null;
-  const item = commandRecord(value, "item result");
-  commandKeys(item, ["material", "amount"], "item result");
-  if (typeof item.amount !== "number" || !Number.isInteger(item.amount))
+  const item2 = commandRecord(value, "item result");
+  commandKeys(item2, ["material", "amount"], "item result");
+  if (typeof item2.amount !== "number" || !Number.isInteger(item2.amount))
     throw new TypeError("Invalid Paper command item amount.");
   return Object.freeze({
-    material: commandString(item.material, "item material"),
-    amount: item.amount
+    material: commandString(item2.material, "item material"),
+    amount: item2.amount
   });
 }
-function paperCommandContext(host, component, method2, value) {
-  const raw = commandRecord(value, "context");
-  commandKeys(raw, ["token", "sender", "alias", "arguments"], "context");
-  const token = commandString(raw.token, "token");
-  const rawSender = commandRecord(raw.sender, "sender");
-  const senderKeys = Object.hasOwn(rawSender, "id") ? ["name", "kind", "id"] : ["name", "kind"];
-  commandKeys(rawSender, senderKeys, "sender");
-  const kind = rawSender.kind;
-  if (kind !== "player" && kind !== "other")
-    throw new TypeError("Invalid Paper command sender kind.");
-  const name = commandString(rawSender.name, "sender name");
-  const sender = Object.hasOwn(rawSender, "id") ? Object.freeze({ name, kind, id: commandString(rawSender.id, "sender id") }) : Object.freeze({ name, kind });
-  if (!Array.isArray(raw.arguments) || !raw.arguments.every((argument) => typeof argument === "string"))
-    throw new TypeError("Invalid Paper command arguments.");
-  const arguments_ = Object.freeze([...raw.arguments]);
+function validateDescriptor(value, depth = 0, ancestors = /* @__PURE__ */ new Set()) {
+  if (depth > 32) throw new TypeError("Paper descriptor nesting exceeds 32.");
+  if (value === null || typeof value === "string" || typeof value === "boolean" || typeof value === "number" && Number.isFinite(value))
+    return value;
+  if (typeof value === "function") return value;
+  if (typeof value !== "object" || value instanceof Uint8Array)
+    throw new TypeError("Unsupported Paper descriptor value.");
+  if (ancestors.has(value)) throw new TypeError("Paper descriptors cannot contain cycles.");
+  const keys = Reflect.ownKeys(value);
+  if (keys.some((key) => typeof key !== "string"))
+    throw new TypeError("Paper descriptors require string keys.");
+  const nextAncestors = new Set(ancestors);
+  nextAncestors.add(value);
+  if (Array.isArray(value))
+    return value.map((item2) => validateDescriptor(item2, depth + 1, nextAncestors));
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype !== Object.prototype && prototype !== null)
+    throw new TypeError("Unsupported Paper descriptor object.");
+  const record2 = value;
+  return Object.fromEntries(
+    keys.map((key) => {
+      const item2 = record2[key];
+      if (item2 === void 0) throw new TypeError("Paper descriptors cannot contain undefined.");
+      return [key, validateDescriptor(item2, depth + 1, nextAncestors)];
+    })
+  );
+}
+function rollbackCallbacks(host, names) {
+  for (const name of names) {
+    try {
+      host.unregisterCallback(name);
+    } catch {
+    }
+  }
+}
+function encodeDescriptor(host, component, method2, callbacks, registered, value) {
+  if (typeof value === "function") {
+    const name = `${callbackId(component.id, method2.name)}.${String(callbacks.sequence++)}`;
+    register(host, name, (...values) => {
+      if (values.length !== 1) throw new TypeError("Invalid Paper action callback arguments.");
+      return Reflect.apply(value, void 0, [
+        paperActionContext(host, component, method2, callbacks, values[0])
+      ]);
+    });
+    registered.push(name);
+    return callbackMarker(name);
+  }
+  if (value === null || typeof value !== "object") return value;
+  if (Array.isArray(value)) {
+    const entries = value;
+    return entries.map(
+      (item2) => encodeDescriptor(host, component, method2, callbacks, registered, item2)
+    );
+  }
+  const record2 = value;
+  return Object.fromEntries(
+    Object.entries(record2).map(([key, item2]) => [
+      key,
+      encodeDescriptor(host, component, method2, callbacks, registered, item2)
+    ])
+  );
+}
+function descriptorCommandPromise(host, component, method2, callbacks, value, operation_, label, validate) {
+  const descriptor = validateDescriptor(value);
+  const registered = [];
+  try {
+    return commandPromise(
+      operation_(encodeDescriptor(host, component, method2, callbacks, registered, descriptor)),
+      label,
+      validate
+    );
+  } catch (failure) {
+    rollbackCallbacks(host, registered);
+    throw failure;
+  }
+}
+function paperActionContext(host, component, method2, callbacks, value) {
+  const raw = commandRecord(value, "action context");
+  const expected = [
+    "token",
+    "sender",
+    "action",
+    ...Object.hasOwn(raw, "slot") ? ["slot"] : [],
+    ...Object.hasOwn(raw, "item") ? ["item"] : []
+  ];
+  commandKeys(raw, expected, "action context");
+  const token = commandString(raw.token, "action token");
+  const action = raw.action;
+  if (action !== "click" && action !== "left" && action !== "right")
+    throw new TypeError("Invalid Paper command action.");
+  const item2 = Object.hasOwn(raw, "item") ? commandItem(raw.item) : void 0;
+  if (item2 === null) throw new TypeError("Invalid Paper command action item.");
   return Object.freeze({
-    sender,
+    sender: commandSender(raw.sender),
+    action,
+    ...Object.hasOwn(raw, "slot") ? { slot: commandNumber(raw.slot, "action slot") } : {},
+    ...item2 === void 0 ? {} : { item: item2 },
+    reply: (message) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      message,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandReply", token, descriptor),
+      "reply result",
+      (result) => commandBoolean(result, "reply result")
+    )
+  });
+}
+function paperCommandContext(host, component, method2, callbacks, value) {
+  const raw = commandRecord(value, "context");
+  commandKeys(raw, ["token", "sender", "alias", "input", "arguments", "options"], "context");
+  const token = commandString(raw.token, "token");
+  return Object.freeze({
+    sender: commandSender(raw.sender),
     alias: commandString(raw.alias, "alias"),
-    arguments: arguments_,
-    reply: (message) => commandBoolean(
-      call(host, "paper", component, method2, "paperCommandReply", token, message),
-      "reply result"
+    input: commandString(raw.input, "input"),
+    arguments: commandValues(raw.arguments, "arguments"),
+    options: commandValues(raw.options, "options"),
+    reply: (message) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      message,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandReply", token, descriptor),
+      "reply result",
+      (result) => commandBoolean(result, "reply result")
     ),
-    findPlayer: (playerName) => commandPlayer(
-      call(host, "paper", component, method2, "paperCommandFindPlayer", token, playerName)
+    openInventory: (inventory2) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      inventory2,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandOpenInventory", token, descriptor),
+      "open-inventory result",
+      (result) => commandBoolean(result, "open-inventory result")
     ),
-    mainHand: () => commandItem(call(host, "paper", component, method2, "paperCommandMainHand", token)),
-    takeMainHand: (material, amount) => commandBoolean(
+    giveItem: (item2) => descriptorCommandPromise(
+      host,
+      component,
+      method2,
+      callbacks,
+      item2,
+      (descriptor) => call(host, "paper", component, method2, "paperCommandGiveItem", token, descriptor),
+      "give-item result",
+      (result) => commandBoolean(result, "give-item result")
+    ),
+    findPlayer: (playerName) => commandPromise(
+      call(host, "paper", component, method2, "paperCommandFindPlayer", token, playerName),
+      "find-player result",
+      commandPlayer
+    ),
+    mainHand: () => commandPromise(
+      call(host, "paper", component, method2, "paperCommandMainHand", token),
+      "main-hand result",
+      commandItem
+    ),
+    takeMainHand: (material, amount) => commandPromise(
       call(host, "paper", component, method2, "paperCommandTakeMainHand", token, material, amount),
-      "take-main-hand result"
+      "take-main-hand result",
+      (result) => commandBoolean(result, "take-main-hand result")
     )
   });
 }
@@ -17061,7 +17480,7 @@ function executable(component, constructors) {
 }
 function decorator(method2) {
   return method2.decorators.find(
-    (item) => [
+    (item2) => [
       "EventHandler",
       "Command",
       "Subcommand",
@@ -17071,12 +17490,214 @@ function decorator(method2) {
       "PacketHandler",
       "OnPacketReceive",
       "OnPacketSend"
-    ].includes(item.name) || item.name.startsWith("On") && item.name.endsWith("Event")
+    ].includes(item2.name) || item2.name.startsWith("On") && item2.name.endsWith("Event")
   );
 }
 function firstString(method2, fallback) {
   const value = decorator(method2)?.arguments[0];
   return typeof value === "string" ? value : fallback;
+}
+function metadataRecord(value, label) {
+  if (value === null || typeof value !== "object" || Array.isArray(value))
+    throw new TypeError(`Invalid command ${label}.`);
+  return value;
+}
+function metadataStrings(value, label) {
+  if (!Array.isArray(value) || !value.every((item2) => typeof item2 === "string"))
+    throw new TypeError(`Invalid command ${label}.`);
+  return [...value];
+}
+function metadataString(value, fallback, label) {
+  if (value === void 0) return fallback;
+  if (typeof value !== "string") throw new TypeError(`Invalid command ${label}.`);
+  return value;
+}
+function metadataBoolean(value, fallback, label) {
+  if (value === void 0) return fallback;
+  if (typeof value !== "boolean") throw new TypeError(`Invalid command ${label}.`);
+  return value;
+}
+var commandParsers = /* @__PURE__ */ new Set(["string", "integer", "number", "boolean", "player", "material"]);
+function commandParser(value, fallback) {
+  const parser = metadataString(value, fallback, "parser");
+  if (!commandParsers.has(parser)) throw new TypeError(`Invalid command parser: ${parser}`);
+  return parser;
+}
+function commandBindings(method2) {
+  return method2.parameters.flatMap((parameter) => {
+    if (parameter.index === void 0 || parameter.token.kind !== "token" || !("value" in parameter.token))
+      return [];
+    const value = parameter.token.value;
+    if (value === null || typeof value !== "object" || Array.isArray(value)) return [];
+    const record2 = value;
+    const binding = record2.binding;
+    const arguments_ = record2.arguments;
+    if (binding !== "Argument" && binding !== "Option" && binding !== "Sender" && binding !== "Context" || !Array.isArray(arguments_))
+      return [];
+    const commandBinding = binding;
+    return [{ binding: commandBinding, arguments: arguments_, index: parameter.index }];
+  }).sort((left, right) => left.index - right.index);
+}
+function commandBindingName(binding) {
+  const name = binding.arguments[0];
+  if (typeof name !== "string" || !/^[A-Za-z][A-Za-z0-9_-]{0,63}$/.test(name))
+    throw new TypeError(`Invalid @${binding.binding} command binding name.`);
+  return name;
+}
+function commandSuggestions(value, label) {
+  const suggestions = metadataStrings(value, label);
+  if (suggestions.some((suggestion) => suggestion.trim().length === 0) || new Set(suggestions).size !== suggestions.length)
+    throw new TypeError(`Invalid command ${label}: suggestions must be unique and nonblank.`);
+  return suggestions;
+}
+function commandOptionAliases(value, occupied) {
+  const aliases = metadataStrings(value, "Option aliases").map(
+    (value2) => value2.startsWith("-") ? value2.slice(1) : value2
+  );
+  for (const alias of aliases) {
+    if (!/^[A-Za-z0-9]$/.test(alias))
+      throw new TypeError("Invalid command option alias: expected one alphanumeric character.");
+    if (occupied.has(alias)) throw new TypeError(`Duplicate command option alias: ${alias}`);
+    occupied.add(alias);
+  }
+  return aliases;
+}
+function commandParameterDescriptors(method2) {
+  const arguments_ = [];
+  const options = [];
+  const argumentNames = /* @__PURE__ */ new Set();
+  const optionNames = /* @__PURE__ */ new Set();
+  const optionAliases = /* @__PURE__ */ new Set();
+  for (const binding of commandBindings(method2)) {
+    if (binding.binding !== "Argument" && binding.binding !== "Option") continue;
+    const name = commandBindingName(binding);
+    const rawOptions = binding.arguments[1] === void 0 ? {} : metadataRecord(binding.arguments[1], `${binding.binding} options`);
+    const suggestions = rawOptions.suggestions === void 0 ? [] : commandSuggestions(rawOptions.suggestions, `${binding.binding} suggestions`);
+    if (binding.binding === "Argument") {
+      if (argumentNames.has(name)) throw new TypeError(`Duplicate command argument name: ${name}`);
+      argumentNames.add(name);
+      arguments_.push({ name, parser: commandParser(rawOptions.parser, "string"), suggestions });
+    } else {
+      if (optionNames.has(name)) throw new TypeError(`Duplicate command option name: ${name}`);
+      optionNames.add(name);
+      options.push({
+        name,
+        parser: commandParser(rawOptions.parser, "boolean"),
+        aliases: rawOptions.aliases === void 0 ? [] : commandOptionAliases(rawOptions.aliases, optionAliases),
+        suggestions,
+        required: metadataBoolean(rawOptions.required, false, "Option required state")
+      });
+    }
+  }
+  return { arguments: arguments_, options };
+}
+function commandRoot(value) {
+  const root = value.trim().toLowerCase();
+  if (!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(root))
+    throw new TypeError("Command syntax must begin with a valid literal root.");
+  return root;
+}
+function commandAliases(value) {
+  const aliases = metadataStrings(value, "command aliases").map((alias) => {
+    const normalized = alias.toLowerCase();
+    if (!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(normalized))
+      throw new TypeError(`Invalid command alias: ${alias}`);
+    return normalized;
+  });
+  if (new Set(aliases).size !== aliases.length)
+    throw new TypeError("Invalid command aliases: aliases must be unique.");
+  return aliases;
+}
+function fullCommandSyntax(value) {
+  const match = /^\s*(\S+)(?:\s+([\s\S]*?))?\s*$/.exec(value);
+  if (match?.[1] === void 0) throw new TypeError("Command syntax must not be empty.");
+  return { root: commandRoot(match[1]), syntax: match[2] ?? "" };
+}
+function validateCommandSyntax(syntax, arguments_) {
+  if (syntax.length === 0) {
+    if (arguments_.length > 0)
+      throw new TypeError("Command arguments contain names absent from syntax.");
+    return;
+  }
+  const argumentsByName = new Map(arguments_.map((argument) => [argument.name, argument]));
+  const used = /* @__PURE__ */ new Set();
+  let optional2 = false;
+  const tokens = syntax.split(/\s+/u);
+  for (const [index, token] of tokens.entries()) {
+    const required2 = token.startsWith("<") && token.endsWith(">");
+    const optionalToken = token.startsWith("[") && token.endsWith("]");
+    if (!required2 && !optionalToken) {
+      if (/[<>[\]]/u.test(token))
+        throw new TypeError(`Command syntax has malformed token: ${token}`);
+      if (optional2) throw new TypeError("Command syntax literal follows an optional argument.");
+      continue;
+    }
+    let argumentName = token.slice(1, -1);
+    const greedy = argumentName.endsWith("...");
+    if (greedy) argumentName = argumentName.slice(0, -3);
+    const argument = argumentsByName.get(argumentName);
+    if (argument === void 0 || used.has(argumentName))
+      throw new TypeError(
+        `Command syntax references an unknown or duplicate argument: ${argumentName}`
+      );
+    used.add(argumentName);
+    if (optional2 && required2)
+      throw new TypeError("Command syntax required argument follows an optional one.");
+    if (greedy && index !== tokens.length - 1)
+      throw new TypeError("Command syntax greedy argument must be last.");
+    if (greedy && argument.parser !== "string")
+      throw new TypeError("Command syntax greedy argument must use string parser.");
+    optional2 ||= optionalToken;
+  }
+  if (used.size !== argumentsByName.size)
+    throw new TypeError("Command arguments contain names absent from syntax.");
+}
+function commandRoute(method2) {
+  const declaration2 = method2.decorators.find(
+    (item2) => item2.name === "Command" || item2.name === "Subcommand"
+  );
+  if (declaration2 === void 0)
+    throw new TypeError(`Command declaration is missing for ${method2.name}.`);
+  const first = declaration2.arguments[0];
+  if (typeof first !== "string") throw new TypeError("Command syntax must be a string.");
+  const explicitSubcommand = declaration2.name === "Subcommand" && typeof declaration2.arguments[1] === "string";
+  const parsed = explicitSubcommand ? {
+    root: commandRoot(first),
+    syntax: declaration2.arguments[1].trim()
+  } : fullCommandSyntax(first);
+  const rawOptions = explicitSubcommand ? declaration2.arguments[2] : declaration2.arguments[1];
+  const options = rawOptions === void 0 ? {} : metadataRecord(rawOptions, `${declaration2.name} options`);
+  const parameters = commandParameterDescriptors(method2);
+  validateCommandSyntax(parsed.syntax, parameters.arguments);
+  const sender = metadataString(options.sender, "any", "sender restriction");
+  if (sender !== "any" && sender !== "player" && sender !== "console")
+    throw new TypeError(`Invalid command sender restriction: ${sender}`);
+  return {
+    root: parsed.root,
+    aliases: options.aliases === void 0 ? [] : commandAliases(options.aliases),
+    descriptor: {
+      syntax: parsed.syntax,
+      description: metadataString(options.description, "", "description"),
+      permission: metadataString(options.permission, "", "permission"),
+      sender,
+      arguments: parameters.arguments,
+      options: parameters.options
+    }
+  };
+}
+function commandInvocationValues(method2, context) {
+  const bindings = commandBindings(method2);
+  if (bindings.length === 0) return [context];
+  const values = Array.from({ length: (bindings.at(-1)?.index ?? -1) + 1 });
+  for (const binding of bindings) {
+    if (binding.binding === "Argument")
+      values[binding.index] = context.arguments[commandBindingName(binding)];
+    else if (binding.binding === "Option")
+      values[binding.index] = context.options[commandBindingName(binding)];
+    else if (binding.binding === "Sender") values[binding.index] = context.sender;
+    else values[binding.index] = context;
+  }
+  return values;
 }
 function register(host, name, callback) {
   if (host !== void 0 && !host.registerCallback(name, callback))
@@ -17084,9 +17705,26 @@ function register(host, name, callback) {
   return name;
 }
 function installRuntimeAdapter(metadata, platform, constructors) {
+  const paperRoutes = /* @__PURE__ */ new Map();
+  if (platform === "paper") {
+    const aliasesByRoot = /* @__PURE__ */ new Map();
+    for (const component of metadata.components) {
+      if (component.platform !== "common" && component.platform !== platform) continue;
+      for (const method2 of component.methods) {
+        if (method2.invocation !== "command") continue;
+        const route = commandRoute(method2);
+        const aliases = aliasesByRoot.get(route.root);
+        if (aliases !== void 0 && (aliases.length !== route.aliases.length || aliases.some((alias, index) => alias !== route.aliases[index])))
+          throw new TypeError(`Command aliases must agree for shared command root ${route.root}.`);
+        aliasesByRoot.set(route.root, route.aliases);
+        paperRoutes.set(method2, route);
+      }
+    }
+  }
   const host = runtimeHost();
   const instances = /* @__PURE__ */ new Map();
   const lifecycle2 = /* @__PURE__ */ new Map();
+  const registrations = [];
   for (const component of metadata.components) {
     if (component.platform !== "common" && component.platform !== platform) continue;
     const target = executable(component, constructors);
@@ -17102,11 +17740,20 @@ function installRuntimeAdapter(metadata, platform, constructors) {
         lifecycle2.set(method2.lifecycle, methods);
       }
       if (method2.invocation === void 0) continue;
+      const route = paperRoutes.get(method2);
       const callbackName = callbackId(component.id, method2.name);
+      const descriptorCallbacks = { sequence: 0 };
       const commandInvoke = (...values) => {
         if (values.length !== 1) throw new TypeError("Invalid Paper command callback arguments.");
         if (host === void 0) throw new TypeError("Runtime host is unavailable.");
-        return invoke(paperCommandContext(host, component, method2, values[0]));
+        const context = paperCommandContext(
+          host,
+          component,
+          method2,
+          descriptorCallbacks,
+          values[0]
+        );
+        return invoke(...commandInvocationValues(method2, context));
       };
       const callback = register(
         host,
@@ -17114,55 +17761,82 @@ function installRuntimeAdapter(metadata, platform, constructors) {
         platform === "paper" && method2.invocation === "command" && host !== void 0 ? commandInvoke : invoke
       );
       if (host === void 0) continue;
-      const declaration2 = decorator(method2);
-      if (method2.invocation === "event") {
-        const event = declaration2?.name.startsWith("On") === true && declaration2.name.endsWith("Event") ? declaration2.name.slice(2) : firstString(method2, method2.name);
-        if (platform === "paper")
+      try {
+        const declaration2 = decorator(method2);
+        if (method2.invocation === "event") {
+          const event = declaration2?.name.startsWith("On") === true && declaration2.name.endsWith("Event") ? declaration2.name.slice(2) : firstString(method2, method2.name);
+          if (platform === "paper")
+            call(
+              host,
+              platform,
+              component,
+              method2,
+              "paperSubscribeEvent",
+              event,
+              "NORMAL",
+              false,
+              callbackMarker(callback)
+            );
+          else
+            call(
+              host,
+              platform,
+              component,
+              method2,
+              "velocitySubscribeEvent",
+              event,
+              0,
+              callbackMarker(callback)
+            );
+        } else if (method2.invocation === "command") {
+          if (platform === "paper") {
+            if (route === void 0) throw new TypeError("Paper command route is unavailable.");
+            const registration = call(
+              host,
+              platform,
+              component,
+              method2,
+              "paperRegisterCommand",
+              route.root,
+              route.aliases,
+              route.descriptor,
+              callbackMarker(callback)
+            );
+            if (!(registration instanceof Promise))
+              throw new TypeError("Invalid Paper command registration promise.");
+            registrations.push(
+              registration.catch((failure) => {
+                rollbackCallbacks(host, [callback]);
+                throw failure;
+              })
+            );
+          } else {
+            call(
+              host,
+              platform,
+              component,
+              method2,
+              "velocityRegisterCommand",
+              fullCommandSyntax(firstString(method2, method2.name)).root,
+              [],
+              callbackMarker(callback)
+            );
+          }
+        } else if (method2.invocation === "task") {
           call(
             host,
             platform,
             component,
             method2,
-            "paperSubscribeEvent",
-            event,
-            "NORMAL",
-            false,
-            callbackMarker(callback)
+            platform === "paper" ? "paperScheduleGlobal" : "velocitySchedule",
+            ...platform === "paper" ? [callbackMarker(callback)] : [0, callbackMarker(callback)]
           );
-        else
-          call(
-            host,
-            platform,
-            component,
-            method2,
-            "velocitySubscribeEvent",
-            event,
-            0,
-            callbackMarker(callback)
-          );
-      } else if (method2.invocation === "command") {
-        const command = firstString(method2, method2.name);
-        call(
-          host,
-          platform,
-          component,
-          method2,
-          platform === "paper" ? "paperRegisterCommand" : "velocityRegisterCommand",
-          command,
-          [],
-          callbackMarker(callback)
-        );
-      } else if (method2.invocation === "task") {
-        call(
-          host,
-          platform,
-          component,
-          method2,
-          platform === "paper" ? "paperScheduleGlobal" : "velocitySchedule",
-          ...platform === "paper" ? [callbackMarker(callback)] : [0, callbackMarker(callback)]
-        );
-      } else if (platform === "paper") {
-        call(host, platform, component, method2, "paperSubscribePacket", callbackMarker(callback));
+        } else if (platform === "paper") {
+          call(host, platform, component, method2, "paperSubscribePacket", callbackMarker(callback));
+        }
+      } catch (failure) {
+        rollbackCallbacks(host, [callback]);
+        throw failure;
       }
     }
   }
@@ -17178,10 +17852,16 @@ function installRuntimeAdapter(metadata, platform, constructors) {
           throw new TypeError(`Missing service method ${operationName}.`);
         return Reflect.apply(method2, target, values);
       });
-      operation(host, "shamooProvideService")(service.id, service.version, callback);
+      try {
+        operation(host, "shamooProvideService")(service.id, service.version, callback);
+      } catch (failure) {
+        rollbackCallbacks(host, [callback]);
+        throw failure;
+      }
     }
   }
   const run = async (stage) => {
+    await Promise.all(registrations);
     for (const method2 of lifecycle2.get(stage) ?? []) await method2();
   };
   return Object.freeze({

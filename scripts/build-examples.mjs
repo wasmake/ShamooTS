@@ -8,6 +8,7 @@ const root = resolve(import.meta.dirname, '..');
 const examplesRoot = resolve(root, 'examples');
 const outputRoot = resolve(root, process.argv[2] ?? 'examples/compiled');
 const archiveRoot = process.argv[3] === undefined ? undefined : resolve(root, process.argv[3]);
+const compiler = resolve(root, 'packages/cli/dist/shamooc.js');
 const installableExamples = [
   'commands',
   'complete-paper-plugin',
@@ -70,7 +71,7 @@ let installations = 0;
 for (const example of installableExamples) {
   const project = resolve(examplesRoot, example);
   const config = JSON.parse(await readFile(resolve(project, 'shamoo.config.json'), 'utf8'));
-  const { stdout, stderr } = await execute('pnpm', ['exec', 'shamooc', '--project', project], {
+  const { stdout, stderr } = await execute(process.execPath, [compiler, '--project', project], {
     cwd: project,
     encoding: 'utf8',
     maxBuffer: 10 * 1024 * 1024,

@@ -105,6 +105,7 @@ const memberOnly = new Set([
   'Context',
   'Validate',
 ]);
+const commandBindings = new Set(['Argument', 'Option', 'Sender', 'Context']);
 const repeatable = new Set([
   'Requires',
   'Validate',
@@ -117,6 +118,7 @@ const decoratorTargets = new Map<string, readonly string[]>([
   ...[...classDecorators.keys(), 'Global', 'Primary'].map((name) => [name, ['class']] as const),
   ...[...methodOnly].map((name) => [name, ['method']] as const),
   ...[...memberOnly].map((name) => [name, ['parameter', 'property']] as const),
+  ...[...commandBindings].map((name) => [name, ['parameter']] as const),
   ...['Requires', 'RequiresExpression', 'UseInterceptors', 'UseGuards', 'UsePipes', 'Catch'].map(
     (name) => [name, ['class', 'method']] as const,
   ),
@@ -264,6 +266,21 @@ function decoratorName(checker: ts.TypeChecker, node: ts.Decorator): string | un
   const resolved = symbol.flags & ts.SymbolFlags.Alias ? checker.getAliasedSymbol(symbol) : symbol;
   return resolved.getName();
 }
+function decoratorSource(checker: ts.TypeChecker, node: ts.Decorator): string | undefined {
+  const expression = ts.isCallExpression(node.expression)
+    ? node.expression.expression
+    : node.expression;
+  const lookup = ts.isPropertyAccessExpression(expression) ? expression.name : expression;
+  const symbol = checker.getSymbolAtLocation(lookup);
+  if (symbol === undefined) return undefined;
+  const namespaceSymbol = ts.isPropertyAccessExpression(expression)
+    ? checker.getSymbolAtLocation(expression.expression)
+    : undefined;
+  return (
+    importSourceForSymbol(symbol) ??
+    (namespaceSymbol === undefined ? undefined : importSourceForSymbol(namespaceSymbol))
+  );
+}
 function decorators(node: ts.Node): readonly ts.Decorator[] {
   return ts.canHaveDecorators(node) ? (ts.getDecorators(node) ?? []) : [];
 }
@@ -290,6 +307,340 @@ function canonicalExpression(expression: ts.Expression): CanonicalValue {
   }
   return expression.getText();
 }
+type InferredCommandParser = 'string' | 'number' | 'boolean' | 'player';
+type CommandParserInference =
+  | { readonly parser: InferredCommandParser }
+  | { readonly reason: 'array' | 'ambiguous'; readonly type: string };
+
+function commandPlayerSymbol(
+  program: ts.Program,
+  checker: ts.TypeChecker,
+  source: ts.SourceFile,
+): ts.Symbol | undefined {
+  const resolved = ts.resolveModuleName(
+    '@shamoo/commands',
+    source.fileName,
+    program.getCompilerOptions(),
+    ts.sys,
+  ).resolvedModule?.resolvedFileName;
+  if (resolved === undefined) return undefined;
+  const moduleSource =
+    program.getSourceFile(resolved) ??
+    program.getSourceFiles().find((candidate) => resolve(candidate.fileName) === resolve(resolved));
+  const moduleSymbol =
+    moduleSource === undefined ? undefined : checker.getSymbolAtLocation(moduleSource);
+  const player =
+    moduleSymbol === undefined
+      ? undefined
+      : checker.getExportsOfModule(moduleSymbol).find((symbol) => symbol.getName() === 'Player');
+  if (player === undefined) return undefined;
+  return player.flags & ts.SymbolFlags.Alias ? checker.getAliasedSymbol(player) : player;
+}
+
+function enumParser(
+  checker: ts.TypeChecker,
+  type: ts.Type,
+): Exclude<InferredCommandParser, 'boolean' | 'player'> | 'ambiguous' | undefined {
+  const symbols = [type.aliasSymbol, type.getSymbol()].filter(
+    (symbol): symbol is ts.Symbol => symbol !== undefined,
+  );
+  const declarations = new Set<ts.EnumDeclaration>();
+  for (const symbol of symbols) {
+    for (const declaration of symbol.declarations ?? []) {
+      if (ts.isEnumDeclaration(declaration)) declarations.add(declaration);
+      else if (ts.isEnumMember(declaration)) declarations.add(declaration.parent);
+    }
+  }
+  if (declarations.size === 0) return undefined;
+  const parsers = new Set<'string' | 'number'>();
+  for (const declaration of declarations) {
+    for (const member of declaration.members) {
+      const constant = checker.getConstantValue(member);
+      if (typeof constant === 'string') parsers.add('string');
+      else if (typeof constant === 'number' || member.initializer === undefined)
+        parsers.add('number');
+      else {
+        const initializer = checker.getTypeAtLocation(member.initializer);
+        if (initializer.flags & ts.TypeFlags.StringLike) parsers.add('string');
+        else if (initializer.flags & ts.TypeFlags.NumberLike) parsers.add('number');
+        else return 'ambiguous';
+      }
+    }
+  }
+  return parsers.size === 1 ? [...parsers][0] : 'ambiguous';
+}
+
+function scalarParser(
+  checker: ts.TypeChecker,
+  type: ts.Type,
+  player: ts.Symbol | undefined,
+): InferredCommandParser | undefined {
+  const symbol = type.getSymbol();
+  if (player !== undefined && symbol === player) return 'player';
+  if (type.flags & ts.TypeFlags.StringLike) return 'string';
+  if (type.flags & ts.TypeFlags.NumberLike) return 'number';
+  if (type.flags & ts.TypeFlags.BooleanLike) return 'boolean';
+  const parser = enumParser(checker, type);
+  return parser === 'ambiguous' ? undefined : parser;
+}
+
+function isArrayType(checker: ts.TypeChecker, type: ts.Type): boolean {
+  return (
+    checker.isArrayType(type) ||
+    checker.isTupleType(type) ||
+    (type.isUnion() && type.types.some((part) => isArrayType(checker, part)))
+  );
+}
+
+function inferCommandParser(
+  program: ts.Program,
+  checker: ts.TypeChecker,
+  parameter: ts.ParameterDeclaration,
+): CommandParserInference {
+  const type = checker.getTypeAtLocation(parameter);
+  const parts = (type.isUnion() ? type.types : [type]).filter(
+    (part) => (part.flags & (ts.TypeFlags.Null | ts.TypeFlags.Undefined)) === 0,
+  );
+  const typeText = parameter.type?.getText() ?? checker.typeToString(type);
+  if (parts.some((part) => isArrayType(checker, part))) return { reason: 'array', type: typeText };
+  const player = commandPlayerSymbol(program, checker, parameter.getSourceFile());
+  const parsers = new Set(parts.map((part) => scalarParser(checker, part, player)));
+  if (parts.length > 0 && parsers.size === 1) {
+    const parser = [...parsers][0];
+    if (parser !== undefined) return { parser };
+  }
+  return { reason: 'ambiguous', type: typeText };
+}
+
+function commandBindingDecorator(
+  checker: ts.TypeChecker,
+  node: ts.ParameterDeclaration | ts.PropertyDeclaration,
+): ts.Decorator | undefined {
+  return decorators(node).find((item) => {
+    const name = decoratorName(checker, item);
+    return name === 'Argument' || name === 'Option';
+  });
+}
+
+function commandMethod(checker: ts.TypeChecker, method: ts.MethodDeclaration): boolean {
+  return decorators(method).some((item) => {
+    const name = decoratorName(checker, item);
+    return name === 'Command' || name === 'Subcommand';
+  });
+}
+
+function commandBindingDecoratorForTarget(checker: ts.TypeChecker, binding: ts.Decorator): boolean {
+  const name = decoratorName(checker, binding);
+  if (name === 'Argument' || name === 'Option' || name === 'Sender') return true;
+  if (name !== 'Context') return false;
+  if (decoratorSource(checker, binding) === '@shamoo/commands') return true;
+  const parameter = binding.parent;
+  return (
+    ts.isParameter(parameter) &&
+    ts.isMethodDeclaration(parameter.parent) &&
+    commandMethod(checker, parameter.parent)
+  );
+}
+
+function unwrappedExpression(expression: ts.Expression): ts.Expression {
+  let value = expression;
+  while (
+    ts.isParenthesizedExpression(value) ||
+    ts.isAsExpression(value) ||
+    ts.isTypeAssertionExpression(value) ||
+    ts.isSatisfiesExpression(value) ||
+    ts.isNonNullExpression(value)
+  )
+    value = value.expression;
+  return value;
+}
+
+function staticString(
+  checker: ts.TypeChecker,
+  expression: ts.Expression,
+  seen: Set<ts.Symbol> = new Set<ts.Symbol>(),
+): string | undefined {
+  const value = unwrappedExpression(expression);
+  if (ts.isStringLiteralLike(value)) return value.text;
+  if (!ts.isIdentifier(value) && !ts.isPropertyAccessExpression(value)) return undefined;
+  const symbol = resolvedSymbol(checker, value);
+  return symbol === undefined ? undefined : staticStringFromSymbol(checker, symbol, seen);
+}
+
+function staticStringFromSymbol(
+  checker: ts.TypeChecker,
+  symbol: ts.Symbol,
+  seen: Set<ts.Symbol>,
+): string | undefined {
+  if (seen.has(symbol)) return undefined;
+  seen.add(symbol);
+  const declaration = symbol.valueDeclaration ?? symbol.declarations?.[0];
+  if (declaration !== undefined && ts.isEnumMember(declaration)) {
+    const constant = checker.getConstantValue(declaration);
+    return typeof constant === 'string' ? constant : undefined;
+  }
+  if (
+    declaration === undefined ||
+    !ts.isVariableDeclaration(declaration) ||
+    declaration.initializer === undefined ||
+    (declaration.parent.flags & ts.NodeFlags.Const) === 0
+  )
+    return undefined;
+  return staticString(checker, declaration.initializer, seen);
+}
+
+type CommandOptionsAnalysis =
+  | { readonly kind: 'omitted' }
+  | {
+      readonly kind: 'static';
+      readonly options: Readonly<Record<string, CanonicalValue>>;
+      readonly parser: boolean;
+    }
+  | { readonly kind: 'unsupported'; readonly node: ts.Node; readonly reason: string };
+
+function commandOptions(checker: ts.TypeChecker, binding: ts.Decorator): CommandOptionsAnalysis {
+  if (!ts.isCallExpression(binding.expression))
+    return {
+      kind: 'unsupported',
+      node: binding,
+      reason: 'the decorator must be called',
+    };
+  const options = binding.expression.arguments[1];
+  if (options === undefined) return { kind: 'omitted' };
+  if (!ts.isObjectLiteralExpression(options))
+    return {
+      kind: 'unsupported',
+      node: options,
+      reason: 'options constants and expressions can hide an explicit parser',
+    };
+  const entries: [string, CanonicalValue][] = [];
+  let parser = false;
+  for (const property of options.properties) {
+    if (ts.isSpreadAssignment(property))
+      return {
+        kind: 'unsupported',
+        node: property,
+        reason: 'spread properties can hide or replace an explicit parser',
+      };
+    if ('name' in property && ts.isComputedPropertyName(property.name))
+      return {
+        kind: 'unsupported',
+        node: property.name,
+        reason: 'computed option keys can hide an explicit parser',
+      };
+    if (ts.isShorthandPropertyAssignment(property)) {
+      if (property.name.text !== 'parser' || property.objectAssignmentInitializer !== undefined)
+        return {
+          kind: 'unsupported',
+          node: property,
+          reason: `shorthand option '${property.name.text}' is not statically supported`,
+        };
+      const symbol = checker.getShorthandAssignmentValueSymbol(property);
+      const value =
+        symbol === undefined
+          ? undefined
+          : staticStringFromSymbol(checker, symbol, new Set<ts.Symbol>());
+      if (value === undefined)
+        return {
+          kind: 'unsupported',
+          node: property,
+          reason: 'parser shorthand must reference a const string literal',
+        };
+      entries.push(['parser', value]);
+      parser = true;
+      continue;
+    }
+    if (!ts.isPropertyAssignment(property))
+      return {
+        kind: 'unsupported',
+        node: property,
+        reason: 'option accessors and methods are not statically supported',
+      };
+    const name =
+      ts.isIdentifier(property.name) || ts.isStringLiteralLike(property.name)
+        ? property.name.text
+        : property.name.getText();
+    if (name === 'parser') {
+      const value = staticString(checker, property.initializer);
+      if (value === undefined)
+        return {
+          kind: 'unsupported',
+          node: property.initializer,
+          reason: 'parser must be a statically resolvable string literal',
+        };
+      entries.push([name, value]);
+      parser = true;
+    } else entries.push([name, canonicalExpression(property.initializer)]);
+  }
+  return {
+    kind: 'static',
+    options: Object.fromEntries(entries.sort(([left], [right]) => left.localeCompare(right))),
+    parser,
+  };
+}
+
+function inferredParserForBinding(
+  root: string,
+  program: ts.Program,
+  checker: ts.TypeChecker,
+  parameter: ts.ParameterDeclaration,
+  diagnostics: CompilerDiagnostic[],
+): InferredCommandParser | undefined {
+  const binding = commandBindingDecorator(checker, parameter);
+  if (binding === undefined) return undefined;
+  const name = decoratorName(checker, binding) ?? 'Argument';
+  const options = commandOptions(checker, binding);
+  if (options.kind === 'unsupported') {
+    diagnostics.push({
+      code: 'DECORATOR_USAGE',
+      message: `@${name} options are not statically analyzable: ${options.reason}.`,
+      location: location(root, options.node),
+      suggestion:
+        'Use one inline object literal with non-computed keys; parser must be a string literal or a const shorthand initialized from one.',
+    });
+    return undefined;
+  }
+  if (options.kind === 'static' && options.parser) return undefined;
+  const inference = inferCommandParser(program, checker, parameter);
+  if ('parser' in inference) return inference.parser;
+  const parameterName = parameter.name.getText();
+  diagnostics.push({
+    code: 'DECORATOR_USAGE',
+    message:
+      inference.reason === 'array'
+        ? `Cannot infer a command parser for @${name} parameter '${parameterName}' from array type '${inference.type}'. Command bindings do not have a bounded array route representation.`
+        : `Cannot infer a command parser for @${name} parameter '${parameterName}' from type '${inference.type}'. The non-nullish type must have one unambiguous supported scalar parser.`,
+    location: location(root, parameter),
+    suggestion:
+      inference.reason === 'array'
+        ? 'Bind a supported scalar value with an explicit parser and perform collection handling in the method.'
+        : 'Specify parser explicitly or change the parameter to string, number, boolean, a homogeneous primitive literal union or enum, or @shamoo/commands Player.',
+  });
+  return undefined;
+}
+
+function commandArguments(
+  checker: ts.TypeChecker,
+  binding: ts.Decorator,
+  parser: InferredCommandParser | undefined,
+): readonly CanonicalValue[] {
+  if (!ts.isCallExpression(binding.expression)) return [];
+  const arguments_ = binding.expression.arguments.map(canonicalExpression);
+  const analysis = commandOptions(checker, binding);
+  if (analysis.kind === 'unsupported') return arguments_;
+  if (analysis.kind === 'omitted' && parser === undefined) return arguments_;
+  const options: Readonly<Record<string, CanonicalValue>> =
+    analysis.kind === 'static' ? analysis.options : {};
+  const emittedOptions =
+    parser === undefined
+      ? options
+      : Object.fromEntries(
+          ([...Object.entries(options), ['parser', parser]] as [string, CanonicalValue][]).sort(
+            ([left], [right]) => left.localeCompare(right),
+          ),
+        );
+  return [arguments_[0] ?? '', emittedOptions, ...arguments_.slice(2)];
+}
 function decoratorMetadata(
   root: string,
   checker: ts.TypeChecker,
@@ -308,7 +659,11 @@ function resolvedSymbol(checker: ts.TypeChecker, expression: ts.Expression): ts.
   if (symbol === undefined) return undefined;
   return symbol.flags & ts.SymbolFlags.Alias ? checker.getAliasedSymbol(symbol) : symbol;
 }
-function tokenFromInject(checker: ts.TypeChecker, node: ts.Node): TokenMetadata | undefined {
+function tokenFromInject(
+  checker: ts.TypeChecker,
+  node: ts.Node,
+  inferredCommandParser?: InferredCommandParser,
+): TokenMetadata | undefined {
   const binding = decorators(node).find((item) =>
     ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender', 'Context'].includes(
       decoratorName(checker, item) ?? '',
@@ -347,9 +702,12 @@ function tokenFromInject(checker: ts.TypeChecker, node: ts.Node): TokenMetadata 
     }
   }
   if (['Argument', 'Option', 'Sender', 'Context'].includes(name)) {
-    const arguments_ = ts.isCallExpression(binding.expression)
-      ? binding.expression.arguments.map(canonicalExpression)
-      : [];
+    const arguments_ =
+      name === 'Argument' || name === 'Option'
+        ? commandArguments(checker, binding, inferredCommandParser)
+        : ts.isCallExpression(binding.expression)
+          ? binding.expression.arguments.map(canonicalExpression)
+          : [];
     return {
       kind: 'token',
       value: { binding: name, arguments: arguments_ },
@@ -364,8 +722,9 @@ function tokenFromInject(checker: ts.TypeChecker, node: ts.Node): TokenMetadata 
 function inferredToken(
   checker: ts.TypeChecker,
   node: ts.ParameterDeclaration | ts.PropertyDeclaration,
+  inferredCommandParser?: InferredCommandParser,
 ): TokenMetadata | undefined {
-  const explicit = tokenFromInject(checker, node);
+  const explicit = tokenFromInject(checker, node, inferredCommandParser);
   if (explicit !== undefined) return explicit;
   if (node.type === undefined) return undefined;
   const typeSymbol = ts.isTypeReferenceNode(node.type)
@@ -406,8 +765,9 @@ function dependency(
   checker: ts.TypeChecker,
   node: ts.ParameterDeclaration | ts.PropertyDeclaration,
   index?: number,
+  inferredCommandParser?: InferredCommandParser,
 ): DependencyMetadata | undefined {
-  const token = inferredToken(checker, node);
+  const token = inferredToken(checker, node, inferredCommandParser);
   if (token === undefined) return undefined;
   const names = new Set(decorators(node).map((item) => decoratorName(checker, item)));
   const named = decoratorArgument(checker, node, 'Named');
@@ -655,6 +1015,29 @@ function discover(
             location: location(root, node),
           });
       }
+      if (ts.isParameter(node)) {
+        for (const binding of nodeDecorators.filter((item) =>
+          commandBindingDecoratorForTarget(checker, item),
+        )) {
+          const name = decoratorName(checker, binding) ?? 'Command binding';
+          const parent = node.parent;
+          const invalidTarget = ts.isConstructorDeclaration(parent)
+            ? ts.isParameterPropertyDeclaration(node, parent)
+              ? 'a parameter property'
+              : 'a constructor parameter'
+            : ts.isMethodDeclaration(parent) && !commandMethod(checker, parent)
+              ? `a parameter of non-command method '${parent.name.getText()}'`
+              : !ts.isMethodDeclaration(parent)
+                ? 'a non-method parameter'
+                : undefined;
+          if (invalidTarget !== undefined)
+            diagnostics.push({
+              code: 'DECORATOR_USAGE',
+              message: `@${name} cannot decorate ${invalidTarget}; command bindings are only valid on parameters of @Command or @Subcommand methods.`,
+              location: location(root, binding),
+            });
+        }
+      }
       const duplicates = names.find(
         (name, index) => !repeatable.has(name) && names.indexOf(name) !== index,
       );
@@ -726,8 +1109,12 @@ function discover(
               return [];
             }
             const methodParameters: DependencyMetadata[] = [];
+            const command = commandMethod(checker, member);
             member.parameters.forEach((parameter, index) => {
-              const value = dependency(root, checker, parameter, index);
+              const inferredCommandParser = command
+                ? inferredParserForBinding(root, program, checker, parameter, diagnostics)
+                : undefined;
+              const value = dependency(root, checker, parameter, index, inferredCommandParser);
               const commandBinding = decorators(parameter).some((item) =>
                 ['Argument', 'Option', 'Sender', 'Context'].includes(
                   decoratorName(checker, item) ?? '',
@@ -782,11 +1169,11 @@ function discover(
               location: duplicateCallback.location,
             });
           for (const property of node.members.filter(ts.isPropertyDeclaration)) {
-            if (
-              decorators(property).some((item) =>
-                memberOnly.has(decoratorName(checker, item) ?? ''),
-              )
-            ) {
+            const propertyDecoratorNames = decorators(property).map((item) =>
+              decoratorName(checker, item),
+            );
+            if (propertyDecoratorNames.some((name) => commandBindings.has(name ?? ''))) continue;
+            if (propertyDecoratorNames.some((name) => memberOnly.has(name ?? ''))) {
               const value = dependency(root, checker, property);
               if (value === undefined)
                 diagnostics.push({

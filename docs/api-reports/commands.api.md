@@ -4,12 +4,11 @@
 
 ```ts
 
-// @public (undocumented)
+// @public
 export function Argument(name: string, options?: ArgumentOptions): ShamooDecorator;
 
 // @public (undocumented)
 export interface ArgumentOptions {
-    // (undocumented)
     readonly parser?: CommandParser;
     // (undocumented)
     readonly suggestions?: readonly string[];
@@ -49,7 +48,7 @@ export interface CommandSender {
 // @public (undocumented)
 export type CommandSenderKind = 'any' | 'player' | 'console';
 
-// @public (undocumented)
+// @public
 export function Context(): ShamooDecorator;
 
 // @public (undocumented)
@@ -74,7 +73,7 @@ export interface Item {
     readonly material: string;
 }
 
-// @public (undocumented)
+// @public
 function Option_2(name: string, options?: OptionOptions): ShamooDecorator;
 export { Option_2 as Option }
 
@@ -89,7 +88,7 @@ export interface OptionOptions extends ArgumentOptions {
 // @public (undocumented)
 export type ParserType = CommandParser;
 
-// @public (undocumented)
+// @public
 export interface Player {
     // (undocumented)
     readonly id: string;
@@ -99,7 +98,7 @@ export interface Player {
     readonly online: boolean;
 }
 
-// @public (undocumented)
+// @public
 export function Sender(): ShamooDecorator;
 
 // @public (undocumented)

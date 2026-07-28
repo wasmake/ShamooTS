@@ -3,6 +3,8 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { compilePlugin } from '@shamoo/compiler';
+import { PlatformKind } from '@shamoo/core';
 import type { CanonicalValue, CompilerMetadata, ComponentMetadata } from '@shamoo/metadata';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -101,6 +103,68 @@ describe('universal platform bundler', () => {
         metadata,
       }),
     ).rejects.toThrow('changed after adapter initialization');
+  });
+
+  it('packs compiler-inferred parsers into runtime command descriptors', async () => {
+    const fixture = join(projectRoot, '../../compiler/test/fixtures/commands');
+    const compilation = await compilePlugin({
+      tsconfig: join(fixture, 'tsconfig.json'),
+      entrypoint: 'src/plugin.ts',
+      platforms: [PlatformKind.PAPER],
+    });
+    expect(compilation.diagnostics).toEqual([]);
+    if (compilation.metadata === undefined) throw new Error('Command fixture compilation failed.');
+
+    const registrations: unknown[][] = [];
+    Reflect.set(globalThis, 'host', {
+      registerCallback: () => true,
+      unregisterCallback: () => true,
+      paperRegisterCommand(...values: unknown[]) {
+        registrations.push(values);
+        return Promise.resolve(true);
+      },
+    });
+    const outputDirectory = await mkdtemp(join(tmpdir(), 'shamoo-bundle-parser-inference-'));
+    const artifact = await bundlePlugin({
+      metadata: compilation.metadata,
+      entrypoints: { paper: 'src/plugin.ts' },
+      projectRoot: fixture,
+      outputDirectory,
+    });
+    const module = (await import(`${artifact.path}?parsers=${String(Date.now())}`)) as {
+      enable(context: object): Promise<void>;
+    };
+    await module.enable({
+      plugin: 'parser-fixture',
+      platform: 'paper',
+      metadata: compilation.metadata,
+    });
+
+    const routes = new Map(registrations.map((registration) => [registration[1], registration[3]]));
+    expect(routes.get('sample')).toMatchObject({
+      arguments: [{ name: 'target', parser: 'player' }],
+      options: [{ name: 'amount', parser: 'integer' }],
+    });
+    expect(routes.get('infer')).toMatchObject({
+      arguments: [
+        { name: 'count', parser: 'number' },
+        { name: 'enabled', parser: 'boolean' },
+        { name: 'target', parser: 'player' },
+        { name: 'mode', parser: 'string' },
+        { name: 'level', parser: 'number' },
+        { name: 'direction', parser: 'string' },
+        { name: 'rank', parser: 'number' },
+        { name: 'material', parser: 'material' },
+        { name: 'shorthand', parser: 'integer' },
+        { name: 'optional', parser: 'number' },
+        { name: 'nullableTarget', parser: 'player' },
+      ],
+      options: [
+        { name: 'label', parser: 'string' },
+        { name: 'ratio', parser: 'number' },
+        { name: 'verbose', parser: 'boolean' },
+      ],
+    });
   });
 
   it('registers each compiled callback once with complete operation metadata', async () => {

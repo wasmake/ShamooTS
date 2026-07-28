@@ -21,6 +21,10 @@ export interface CommandOptions {
 }
 
 export interface ArgumentOptions {
+  /**
+   * Overrides the parser inferred by `shamooc` from the decorated method parameter type.
+   * Explicit parsers always take precedence.
+   */
   readonly parser?: CommandParser;
   readonly suggestions?: readonly string[];
 }
@@ -36,6 +40,7 @@ export interface CommandSender {
   readonly id?: string;
 }
 
+/** Data-only player identity recognized exactly by compiler command parser inference. */
 export interface Player {
   readonly id: string;
   readonly name: string;
@@ -79,18 +84,22 @@ export function Subcommand(
     : declareSubcommand(rootOrSyntax, syntaxOrOptions);
 }
 
+/** Binds one command method parameter. Command bindings on properties are compiler errors. */
 export function Argument(name: string, options?: ArgumentOptions): ShamooDecorator {
   return options === undefined ? declareArgument(name) : declareArgument(name, options);
 }
 
+/** Binds one command method parameter. Command bindings on properties are compiler errors. */
 export function Option(name: string, options?: OptionOptions): ShamooDecorator {
   return options === undefined ? declareOption(name) : declareOption(name, options);
 }
 
+/** Binds command sender data to one method parameter; property binding is unsupported. */
 export function Sender(): ShamooDecorator {
   return declareSender();
 }
 
+/** Binds the command context to one method parameter; property binding is unsupported. */
 export function Context(): ShamooDecorator {
   return declareContext();
 }

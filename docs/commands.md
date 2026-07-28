@@ -66,21 +66,21 @@ from `@shamoo/decorators`.
 
 ### `ArgumentOptions`
 
-| Property      | Type                | Default    | Behavior                                 |
-| ------------- | ------------------- | ---------- | ---------------------------------------- |
-| `parser`      | `CommandParser`     | `'string'` | Parser applied before method invocation. |
-| `suggestions` | `readonly string[]` | `[]`       | Static or magic completion source.       |
+| Property      | Type                | Default  | Behavior                                                   |
+| ------------- | ------------------- | -------- | ---------------------------------------------------------- |
+| `parser`      | `CommandParser`     | Inferred | Explicit parser override applied before method invocation. |
+| `suggestions` | `readonly string[]` | `[]`     | Static or magic completion source.                         |
 
 Declare a positional binding with `@Argument(name, options)`.
 
 ### `OptionOptions`
 
-| Property      | Type                | Default     | Behavior                                                  |
-| ------------- | ------------------- | ----------- | --------------------------------------------------------- |
-| `parser`      | `CommandParser`     | `'boolean'` | Parser applied to the option value.                       |
-| `suggestions` | `readonly string[]` | `[]`        | Static or magic completion source.                        |
-| `aliases`     | `readonly string[]` | `[]`        | One-character short names such as `['v']` for `-v`.       |
-| `required`    | `boolean`           | `false`     | Rejects the route match when the option was not supplied. |
+| Property      | Type                | Default  | Behavior                                                  |
+| ------------- | ------------------- | -------- | --------------------------------------------------------- |
+| `parser`      | `CommandParser`     | Inferred | Explicit parser override applied to the option value.     |
+| `suggestions` | `readonly string[]` | `[]`     | Static or magic completion source.                        |
+| `aliases`     | `readonly string[]` | `[]`     | One-character short names such as `['v']` for `-v`.       |
+| `required`    | `boolean`           | `false`  | Rejects the route match when the option was not supplied. |
 
 Declare an option binding with `@Option(name, options)`. Long and short forms can occur among the
 positional tokens:
@@ -112,6 +112,33 @@ before the sentinel is still rejected rather than treated as a positional value.
 Decorate every command method parameter. Parameter order is independent from command input order;
 the decorator name performs the lookup. `PaperCommandContext` also contains the selected `alias`, the
 raw post-root `input`, and immutable `arguments` and `options` records.
+
+`@Argument`, `@Option`, `@Sender`, and `@Context` are method-parameter bindings. Using one on a
+property is a compile error; Shamoo does not perform hidden command property assignment.
+
+## Parser inference
+
+When `parser` is omitted, `shamooc` resolves the decorated method parameter's TypeScript type and
+writes the inferred parser into compiler metadata. Runtime reflection is not involved. It first
+removes `undefined` and `null`, so optional bindings infer from their remaining type.
+
+| TypeScript parameter type                                  | Emitted parser |
+| ---------------------------------------------------------- | -------------- |
+| `string`                                                   | `string`       |
+| `number`                                                   | `number`       |
+| `boolean`                                                  | `boolean`      |
+| Exact `Player` identity exported by `@shamoo/commands`     | `player`       |
+| Homogeneous string primitive literal union or string enum  | `string`       |
+| Homogeneous number primitive literal union or numeric enum | `number`       |
+
+Literal unions and enums select a base parser; they do not restrict accepted input to declared
+members. Validate that domain rule in the handler. An explicit `parser` always takes precedence, so
+`integer` and `material` overrides continue to work for number and string parameters.
+
+Omitting `parser` for an array, mixed primitive union, structural lookalike of `Player`, or another
+unsupported/ambiguous type is a compile error. Arrays have no bounded route representation. Bind one
+supported scalar value with an explicit parser and perform collection or domain conversion in the
+method instead.
 
 ## Parsers
 
@@ -170,10 +197,10 @@ export class WelcomePlugin {
     sender: 'player',
   })
   public async welcome(
-    @Argument('player', { parser: 'player', suggestions: ['players'] })
+    @Argument('player', { suggestions: ['players'] })
     player: Player | undefined,
     @Argument('message') message: string | undefined,
-    @Option('loud', { aliases: ['l'], parser: 'boolean' }) loud: boolean | undefined,
+    @Option('loud', { aliases: ['l'] }) loud: boolean | undefined,
     @Sender() sender: CommandSender,
     @Context() context: PaperCommandContext,
   ): Promise<void> {

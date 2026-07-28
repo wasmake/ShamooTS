@@ -17,9 +17,9 @@ import type { PaperCommandContext } from '@shamoo/paper';
 class GreetingCommands {
   @Command('greet [player]')
   public async greet(
-    @Argument('player', { parser: 'player', suggestions: ['players'] })
+    @Argument('player', { suggestions: ['players'] })
     player: Player | undefined,
-    @Option('loud', { aliases: ['l'], parser: 'boolean' }) loud: boolean | undefined,
+    @Option('loud', { aliases: ['l'] }) loud: boolean | undefined,
     @Sender() sender: CommandSender,
     @Context() context: PaperCommandContext,
   ): Promise<void> {
@@ -32,6 +32,13 @@ The package provides `Command`, `Subcommand`, `Argument`, `Option`, `Sender`, an
 data-only sender/player/item contracts. Paper supports literal routes, required/optional/trailing
 greedy arguments, typed parsers, static and dynamic suggestions, options, aliases, descriptions,
 permissions, and sender restrictions.
+
+`shamooc` infers omitted argument and option parsers from method parameter types: `string`, `number`,
+`boolean`, and the exact exported `Player` identity map to their corresponding parsers after
+`null`/`undefined` are removed. Homogeneous primitive literal unions and enums use their string or
+number base. An explicit parser such as `integer` or `material` always wins. Arrays and ambiguous
+unions require a scalar binding and explicit handling. Command bindings are valid only on method
+parameters, not properties.
 
 Paper command methods return `void` or `Promise<void>`. Native dispatch ignores decorated method
 return values, so replies and UI effects must be explicit. Context host operations are

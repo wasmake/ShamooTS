@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/commands",
+  "name": "commands",
   "displayName": "Shamoo Commands Example",
   "version": "0.1.0",
   "platforms": ["paper"],

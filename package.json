@@ -14,6 +14,7 @@
     "api:check": "node scripts/check-packages.mjs && node scripts/extract-api.mjs",
     "build": "pnpm clean && pnpm --filter './packages/**' --if-present build",
     "changeset": "changeset",
+    "changeset:publish:rc": "changeset publish --tag rc",
     "changeset:version": "changeset version",
     "check": "pnpm format:check && pnpm lint && pnpm codegen:check && pnpm typecheck && pnpm test && pnpm build && pnpm api:check",
     "clean": "node scripts/clean.mjs",

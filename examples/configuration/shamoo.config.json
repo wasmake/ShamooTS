@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/configuration",
+  "name": "configuration",
   "displayName": "Shamoo Configuration Example",
   "version": "0.1.0",
   "platforms": ["paper"],

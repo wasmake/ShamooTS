@@ -37,6 +37,21 @@ const packages = [
   ['reflection', '@shamoo/reflection'],
   ['bundler', '@shamoo/bundler'],
 ];
+const examples = [
+  'commands',
+  'complete-paper-plugin',
+  'complete-velocity-plugin',
+  'configuration',
+  'cross-plugin-services',
+  'custom-events',
+  'dual-platform-plugin',
+  'economy',
+  'folia',
+  'hello-world',
+  'hot-reload',
+  'proxy-routing',
+  'testing',
+];
 
 let releaseVersion;
 for (const [directory, expectedName] of packages) {
@@ -87,6 +102,22 @@ for (const [directory, expectedName] of packages) {
     );
 }
 
+for (const example of examples) {
+  const manifest = JSON.parse(
+    await readFile(new URL(`../examples/${example}/package.json`, import.meta.url), 'utf8'),
+  );
+  if (
+    manifest.name !== `@shamoo/example-${example}` ||
+    manifest.version !== releaseVersion ||
+    manifest.private === true ||
+    !manifest.files?.includes('src') ||
+    manifest.publishConfig?.access !== 'public' ||
+    manifest.publishConfig?.registry !== 'https://shamoof.com/npm/'
+  ) {
+    throw new Error(`Invalid public example manifest: @shamoo/example-${example}`);
+  }
+}
+
 process.stdout.write(
-  `Validated ${packages.length} public packages at ${releaseVersion}, declarations, and runtime/type export parity.\n`,
+  `Validated ${packages.length} libraries and ${examples.length} examples at ${releaseVersion}.\n`,
 );

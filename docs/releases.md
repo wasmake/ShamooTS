@@ -1,8 +1,8 @@
 # Releases
 
 ShamooTS and ShamooRuntime release candidates use one synchronized tag. All
-public `@shamoo/*` packages also use one version, enforced by Changesets and the
-release checks.
+public `@shamoo/*` libraries and `@shamoo/example-*` source examples also use
+one version, enforced by Changesets and the release checks.
 
 ## Runtime-first release order
 
@@ -96,13 +96,38 @@ After installation, remove unneeded direct packages from the test project's
 manifest only after confirming its package manager retains the required
 transitive tarball resolutions.
 
-## npm registry status
+## npm registry publication
 
-The release-candidate workflow does not publish to npm. GitHub prerelease
-tarballs are the canonical `0.1.0-rc.1` candidate artifacts unless a separate,
-deliberate registry publication has occurred. Check a package explicitly before
-requesting it from the registry:
+The release-candidate workflow does not publish to npm. Registry publication is
+a separate deliberate operation using `SHAMOO_NPM_TOKEN`. Use a temporary npm
+configuration so the credential is neither committed nor written to a user-level
+configuration file. The explicit registry environment variable also ensures
+Changesets does not fall back to npmjs.org for packages without a package-level
+registry setting:
 
 ```sh
-npm view @shamoo/core@0.1.0-rc.1 version
+test -n "${SHAMOO_NPM_TOKEN:-}"
+umask 077
+export NPM_CONFIG_USERCONFIG="$(mktemp)"
+trap 'rm -f "$NPM_CONFIG_USERCONFIG"' EXIT
+printf '%s\n' \
+  '@shamoo:registry=https://shamoof.com/npm/' \
+  "//shamoof.com/npm/:_authToken=$SHAMOO_NPM_TOKEN" \
+  'always-auth=true' >"$NPM_CONFIG_USERCONFIG"
+npm_config_registry=https://shamoof.com/npm/ pnpm changeset:publish:rc
+```
+
+The command publishes release candidates under the `rc` dist-tag. Check a package
+explicitly before requesting it:
+
+```sh
+npm view @shamoo/core@0.1.0-rc.1 version --registry=https://shamoof.com/npm
+npm view @shamoo/example-hello-world@0.1.0-rc.1 version --registry=https://shamoof.com/npm
+```
+
+Consumers must route the `@shamoo` scope to the same registry, for example in
+their project `.npmrc`:
+
+```ini
+@shamoo:registry=https://shamoof.com/npm/
 ```

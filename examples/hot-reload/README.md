@@ -13,8 +13,8 @@ finishes draining provides a clean handoff, and the old generation's registratio
 remove the new provider.
 
 ```sh
-pnpm --filter @shamoo-examples/hot-reload typecheck
-pnpm --filter @shamoo-examples/hot-reload test
+pnpm --filter @shamoo/example-hot-reload typecheck
+pnpm --filter @shamoo/example-hot-reload test
 ```
 
 For Runtime development, `shamoo dev` performs build-only watching. It should not be described as

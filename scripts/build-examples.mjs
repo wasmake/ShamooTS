@@ -34,7 +34,9 @@ function assertWithinRoot(path, label) {
 }
 
 function installationName(packageName) {
-  return (packageName.split('/').at(-1) ?? packageName).replace(/[^a-zA-Z0-9._-]/gu, '-');
+  const unscoped = packageName.split('/').at(-1) ?? packageName;
+  const name = unscoped.startsWith('example-') ? unscoped.slice('example-'.length) : unscoped;
+  return name.replace(/[^a-zA-Z0-9._-]/gu, '-');
 }
 
 async function assertInstallation(directory, label) {

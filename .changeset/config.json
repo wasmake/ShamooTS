@@ -38,7 +38,20 @@
       "@shamoo/validation",
       "@shamoo/velocity",
       "@shamoo/velocity-codegen",
-      "@shamoo/velocity-raw"
+      "@shamoo/velocity-raw",
+      "@shamoo/example-commands",
+      "@shamoo/example-complete-paper-plugin",
+      "@shamoo/example-complete-velocity-plugin",
+      "@shamoo/example-configuration",
+      "@shamoo/example-cross-plugin-services",
+      "@shamoo/example-custom-events",
+      "@shamoo/example-dual-platform-plugin",
+      "@shamoo/example-economy",
+      "@shamoo/example-folia",
+      "@shamoo/example-hello-world",
+      "@shamoo/example-hot-reload",
+      "@shamoo/example-proxy-routing",
+      "@shamoo/example-testing"
     ]
   ],
   "ignore": [],

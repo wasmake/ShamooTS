@@ -1,8 +1,17 @@
 {
-  "name": "@shamoo-examples/testing",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@shamoo/example-testing",
+  "version": "0.1.0-rc.1",
   "type": "module",
+  "files": [
+    "src",
+    "README.md",
+    "tsconfig.json",
+    "vitest.config.ts"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://shamoof.com/npm/"
+  },
   "scripts": {
     "test": "vitest run --config vitest.config.ts",
     "typecheck": "tsc --project tsconfig.json --pretty false"

@@ -23,6 +23,8 @@ import type {
   ScheduledTask,
 } from '@shamoo/paper-raw';
 
+export * from './managed-lobby.js';
+
 export interface PaperEntrypoint {
   enable(context: PaperEntrypointContext): void | Promise<void>;
   disable?(context: PaperEntrypointContext): void | Promise<void>;

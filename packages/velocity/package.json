@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/velocity",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Velocity entrypoint declarations for Shamoo plugins.",
   "license": "Apache-2.0",
   "type": "module",

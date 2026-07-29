@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/reflection",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Safe access to explicit Shamoo decorator declarations.",
   "license": "Apache-2.0",
   "type": "module",

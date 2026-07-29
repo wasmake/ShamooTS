@@ -67,8 +67,8 @@ describe('plugin scaffolding', () => {
       expect(
         Object.keys(packageValue.dependencies).some((name) => name.endsWith(directoryName)),
       ).toBe(true);
-      expect(new Set(Object.values(packageValue.dependencies))).toEqual(new Set(['^0.1.0-rc.1']));
-      expect(packageValue.devDependencies['@shamoo/cli']).toBe('^0.1.0-rc.1');
+      expect(new Set(Object.values(packageValue.dependencies))).toEqual(new Set(['^0.1.0-rc.2']));
+      expect(packageValue.devDependencies['@shamoo/cli']).toBe('^0.1.0-rc.2');
     },
   );
 

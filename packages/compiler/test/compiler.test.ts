@@ -512,7 +512,7 @@ describe('shamooc metadata compiler', () => {
       });
     }).toThrow('unique');
     await expect(compilePluginOrThrow(request('valid'))).resolves.toMatchObject({
-      version: '0.1.0-rc.1',
+      version: '0.1.0-rc.2',
       communication: { services: [], events: [], consumers: [] },
     });
     await expect(compilePluginOrThrow(request('interface-token'))).rejects.toBeInstanceOf(

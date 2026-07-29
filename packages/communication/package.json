@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/communication",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Versioned cross-plugin service, event, reload, and transport contracts.",
   "license": "Apache-2.0",
   "type": "module",

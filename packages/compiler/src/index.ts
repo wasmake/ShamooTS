@@ -20,7 +20,7 @@ import {
 } from '@shamoo/metadata';
 import * as ts from 'typescript';
 
-export const SHAMOO_COMPILER_VERSION = '0.1.0-rc.1';
+export const SHAMOO_COMPILER_VERSION = '0.1.0-rc.2';
 export type CompilerDiagnosticCode =
   | 'TYPESCRIPT'
   | 'DECORATOR_USAGE'

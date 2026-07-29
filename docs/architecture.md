@@ -25,7 +25,7 @@ See [compiler](compiler.md) and [ADR 0003](adr/0003-compiler-owned-metadata.md).
 
 ## Build and release
 
-All public packages share version `0.1.0-rc.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
+All public packages share version `0.1.0-rc.2`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
 
 Release-candidate tags run the complete repository check before packaging. The
 workflow creates package tarballs, an SPDX JSON SBOM, and SHA-256 checksums,

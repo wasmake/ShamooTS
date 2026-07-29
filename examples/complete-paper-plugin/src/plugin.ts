@@ -1,5 +1,5 @@
-import { Command, Context } from '@shamoo/commands';
-import { Plugin } from '@shamoo/decorators';
+import { Command, Context as CommandContext } from '@shamoo/commands';
+import { Context, Plugin } from '@shamoo/decorators';
 import { OnDisable, OnDrain, OnEnable, OnLoad, OnReady } from '@shamoo/lifecycle';
 import type { PaperCommandContext } from '@shamoo/paper';
 import { OnPlayerJoinEvent, type PaperHandle, type PlayerJoinEvent } from '@shamoo/paper-raw';
@@ -44,7 +44,7 @@ export class CompletePaperPlugin {
   }
 
   @Command('shamoo-status')
-  public async status(@Context() context: PaperCommandContext): Promise<void> {
+  public async status(@CommandContext() context: PaperCommandContext): Promise<void> {
     await context.reply(
       `ready=${String(this.ready)} joins=${String(this.joins)} scheduledRuns=${String(this.scheduledRuns)}`,
     );

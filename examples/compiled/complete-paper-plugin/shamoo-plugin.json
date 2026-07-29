@@ -60,7 +60,7 @@
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 13,
+              "line": 8,
               "column": 1
             }
           }
@@ -77,6 +77,27 @@
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
+                  "line": 22,
+                  "column": 3
+                }
+              }
+            ],
+            "parameters": [],
+            "location": {
+              "file": "src/plugin.ts",
+              "line": 22,
+              "column": 3
+            }
+          },
+          {
+            "name": "enabled",
+            "lifecycle": "enable",
+            "decorators": [
+              {
+                "name": "OnEnable",
+                "arguments": [],
+                "location": {
+                  "file": "src/plugin.ts",
                   "line": 27,
                   "column": 3
                 }
@@ -90,11 +111,11 @@
             }
           },
           {
-            "name": "enabled",
-            "lifecycle": "enable",
+            "name": "becameReady",
+            "lifecycle": "ready",
             "decorators": [
               {
-                "name": "OnEnable",
+                "name": "OnReady",
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
@@ -111,27 +132,6 @@
             }
           },
           {
-            "name": "becameReady",
-            "lifecycle": "ready",
-            "decorators": [
-              {
-                "name": "OnReady",
-                "arguments": [],
-                "location": {
-                  "file": "src/plugin.ts",
-                  "line": 37,
-                  "column": 3
-                }
-              }
-            ],
-            "parameters": [],
-            "location": {
-              "file": "src/plugin.ts",
-              "line": 37,
-              "column": 3
-            }
-          },
-          {
             "name": "playerJoined",
             "invocation": "event",
             "decorators": [
@@ -140,7 +140,7 @@
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 43,
+                  "line": 38,
                   "column": 3
                 }
               }
@@ -157,14 +157,14 @@
                 },
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 44,
+                  "line": 39,
                   "column": 23
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 43,
+              "line": 38,
               "column": 3
             }
           },
@@ -179,7 +179,7 @@
                 ],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 51,
+                  "line": 46,
                   "column": 3
                 }
               }
@@ -196,14 +196,14 @@
                 },
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 52,
+                  "line": 47,
                   "column": 23
                 }
               }
             ],
             "location": {
               "file": "src/plugin.ts",
-              "line": 51,
+              "line": 46,
               "column": 3
             }
           },
@@ -216,7 +216,7 @@
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 58,
+                  "line": 53,
                   "column": 3
                 }
               }
@@ -224,7 +224,7 @@
             "parameters": [],
             "location": {
               "file": "src/plugin.ts",
-              "line": 58,
+              "line": 53,
               "column": 3
             }
           },
@@ -237,7 +237,7 @@
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 64,
+                  "line": 59,
                   "column": 3
                 }
               }
@@ -245,7 +245,7 @@
             "parameters": [],
             "location": {
               "file": "src/plugin.ts",
-              "line": 64,
+              "line": 59,
               "column": 3
             }
           },
@@ -258,7 +258,7 @@
                 "arguments": [],
                 "location": {
                   "file": "src/plugin.ts",
-                  "line": 70,
+                  "line": 65,
                   "column": 3
                 }
               }
@@ -266,14 +266,14 @@
             "parameters": [],
             "location": {
               "file": "src/plugin.ts",
-              "line": 70,
+              "line": 65,
               "column": 3
             }
           }
         ],
         "location": {
           "file": "src/plugin.ts",
-          "line": 13,
+          "line": 8,
           "column": 1
         }
       }

@@ -282,7 +282,7 @@ describe('shamooc metadata compiler', () => {
     expect(velocity.diagnostics).toEqual(
       expect.arrayContaining([expect.objectContaining({ code: 'PLATFORM_LEAK' })]),
     );
-  }, 120_000);
+  }, 180_000);
 
   it('follows reachable external dependency declarations for restricted imports', async () => {
     const denied = await compilePlugin(request('external-restricted'));

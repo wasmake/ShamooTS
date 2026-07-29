@@ -98,6 +98,7 @@
                     "arguments": [
                       "player",
                       {
+                        "parser": "string",
                         "suggestions": [
                           "players"
                         ]
@@ -120,6 +121,7 @@
                     "arguments": [
                       "amount",
                       {
+                        "parser": "string",
                         "suggestions": [
                           "1.00",
                           "10.00",
@@ -204,6 +206,7 @@
                     "arguments": [
                       "player",
                       {
+                        "parser": "string",
                         "suggestions": [
                           "players"
                         ]

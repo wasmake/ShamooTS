@@ -202,7 +202,10 @@
                   "value": {
                     "binding": "Argument",
                     "arguments": [
-                      "message"
+                      "message",
+                      {
+                        "parser": "string"
+                      }
                     ]
                   }
                 },

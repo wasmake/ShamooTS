@@ -114,11 +114,15 @@ printf '%s\n' \
   '@shamoo:registry=https://shamoof.com/npm/' \
   "//shamoof.com/npm/:_authToken=$SHAMOO_NPM_TOKEN" \
   'always-auth=true' >"$NPM_CONFIG_USERCONFIG"
-npm_config_registry=https://shamoof.com/npm/ pnpm changeset:publish:rc
+npm_config_registry=https://shamoof.com/npm/ pnpm changeset:publish
 ```
 
-The command publishes release candidates under the `rc` dist-tag. Check a package
-explicitly before requesting it:
+Do not pass `--tag` while Changesets prerelease mode is active; Changesets rejects
+custom tags in that mode. Changesets uses the prerelease tag except when a package
+has only prerelease versions, which it deliberately publishes under `latest`. The
+Shamoof registry currently does not implement npm's separate dist-tag mutation
+endpoint, so consumers and verification commands must use exact prerelease versions.
+Check packages explicitly before requesting them:
 
 ```sh
 npm view @shamoo/core@0.1.0-rc.1 version --registry=https://shamoof.com/npm

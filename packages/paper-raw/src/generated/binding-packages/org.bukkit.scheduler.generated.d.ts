@@ -26,7 +26,6 @@ export interface BukkitRunnableMembers {
 }
 export type BukkitRunnable = BukkitRunnableMembers & JavaRunnable;
 export interface BukkitRunnableStatics {
-  new(): BukkitRunnable;
 }
 
 /** JVM interface org.bukkit.scheduler.BukkitScheduler. */

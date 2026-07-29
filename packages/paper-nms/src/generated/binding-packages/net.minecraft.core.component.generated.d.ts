@@ -35,7 +35,6 @@ export interface DataComponentExactPredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   isEmpty(): boolean;
-  test(arg0: object): boolean;
   test(arg0: DataComponentGetter): boolean;
   toString(): string;
 }
@@ -108,7 +107,7 @@ export interface DataComponentMapStatics {
 export interface DataComponentMap_BuilderMembers {
   addAll(arg0: DataComponentMap): DataComponentMap_Builder;
   build(): DataComponentMap;
-  set<T>(arg0: DataComponentType<T>, arg1: T | null): DataComponentMap_Builder | null;
+  set<T>(arg0: DataComponentType<T>, arg1: T | null): DataComponentMap_Builder;
 }
 export type DataComponentMap_Builder = DataComponentMap_BuilderMembers;
 export interface DataComponentMap_BuilderStatics {

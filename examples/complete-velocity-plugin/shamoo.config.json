@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/complete-velocity-plugin",
+  "name": "complete-velocity-plugin",
   "platforms": ["velocity"],
   "entrypoint": "src/plugin.ts",
   "velocityEntrypoint": "src/velocity.ts",

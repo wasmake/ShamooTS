@@ -51,7 +51,7 @@ export interface PreLookupProfileEventMembers {
   getProfileProperties(): JavaSet<j_com_destroystokyo_paper_profile.ProfileProperty>;
   getUUID(): JavaOpaque<"java.util.UUID"> | null;
   setProfileProperties(arg0: JavaSet<j_com_destroystokyo_paper_profile.ProfileProperty>): void;
-  setUUID(arg0: JavaOpaque<"java.util.UUID">): void | null;
+  setUUID(arg0: JavaOpaque<"java.util.UUID"> | null): void;
 }
 export type PreLookupProfileEvent = PreLookupProfileEventMembers & j_org_bukkit_event.Event;
 export interface PreLookupProfileEventStatics {
@@ -69,12 +69,12 @@ export interface ProfileWhitelistVerifyEventMembers {
   isWhitelistEnabled(): boolean;
   isWhitelisted(): boolean;
   kickMessage(): j_net_kyori_adventure_text.Component | null;
-  kickMessage(arg0: j_net_kyori_adventure_text.Component): void | null;
-  setKickMessage(arg0: string): void | null;
+  kickMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setKickMessage(arg0: string | null): void;
   setWhitelisted(arg0: boolean): void;
 }
 export type ProfileWhitelistVerifyEvent = ProfileWhitelistVerifyEventMembers & j_org_bukkit_event.Event;
 export interface ProfileWhitelistVerifyEventStatics {
-  new(arg0: j_com_destroystokyo_paper_profile.PlayerProfile, arg1: boolean, arg2: boolean, arg3: boolean, arg4: j_net_kyori_adventure_text.Component): ProfileWhitelistVerifyEvent;
+  new(arg0: j_com_destroystokyo_paper_profile.PlayerProfile, arg1: boolean, arg2: boolean, arg3: boolean, arg4: j_net_kyori_adventure_text.Component | null): ProfileWhitelistVerifyEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

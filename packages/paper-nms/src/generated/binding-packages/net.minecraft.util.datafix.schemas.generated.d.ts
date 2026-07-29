@@ -163,10 +163,7 @@ export interface V1451_6Members {
 export type V1451_6 = V1451_6Members & NamespacedSchema;
 export interface V1451_6Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V1451_6;
-  readonly REPACK_OBJECTIVE_ID: JavaOpaque<"com.mojang.datafixers.types.templates.Hook$HookFunction">;
   readonly SPECIAL_OBJECTIVE_MARKER: "_special";
-  readonly UNPACK_OBJECTIVE_ID: JavaOpaque<"com.mojang.datafixers.types.templates.Hook$HookFunction">;
-  createCriterionTypes(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>;
   packNamespacedWithDot(arg0: string): string;
 }
 
@@ -193,8 +190,6 @@ export interface V1460Members {
 export type V1460 = V1460Members & NamespacedSchema;
 export interface V1460Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V1460;
-  registerInventory(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
-  registerMob(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V1466. */
@@ -216,7 +211,6 @@ export interface V1470Members {
 export type V1470 = V1470Members & NamespacedSchema;
 export interface V1470Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V1470;
-  registerMob(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V1481. */
@@ -307,7 +301,6 @@ export interface V1906Members {
 export type V1906 = V1906Members & NamespacedSchema;
 export interface V1906Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V1906;
-  registerInventory(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V1909. */
@@ -328,7 +321,6 @@ export interface V1920Members {
 export type V1920 = V1920Members & NamespacedSchema;
 export interface V1920Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V1920;
-  registerInventory(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V1928. */
@@ -339,7 +331,6 @@ export interface V1928Members {
 export type V1928 = V1928Members & NamespacedSchema;
 export interface V1928Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V1928;
-  registerMob(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V1929. */
@@ -371,7 +362,6 @@ export interface V2100Members {
 export type V2100 = V2100Members & NamespacedSchema;
 export interface V2100Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V2100;
-  registerMob(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V2501. */
@@ -574,7 +564,6 @@ export interface V3078Members {
 export type V3078 = V3078Members & NamespacedSchema;
 export interface V3078Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V3078;
-  registerMob(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V3081. */
@@ -746,7 +735,6 @@ export interface V3685Members {
 export type V3685 = V3685Members & NamespacedSchema;
 export interface V3685Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V3685;
-  abstractArrow(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V3689. */
@@ -889,7 +877,6 @@ export interface V3938Members {
 export type V3938 = V3938Members & NamespacedSchema;
 export interface V3938Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V3938;
-  abstractArrow(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V4059. */
@@ -1095,8 +1082,6 @@ export interface V704Members {
 export type V704 = V704Members & JavaOpaque<"com.mojang.datafixers.schemas.Schema">;
 export interface V704Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V704;
-  readonly ADD_NAMES: JavaOpaque<"com.mojang.datafixers.types.templates.Hook$HookFunction">;
-  readonly ITEM_TO_BLOCKENTITY: JavaMap<string, string>;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V705. */
@@ -1108,9 +1093,6 @@ export interface V705Members {
 export type V705 = V705Members & NamespacedSchema;
 export interface V705Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V705;
-  readonly ADD_NAMES: JavaOpaque<"com.mojang.datafixers.types.templates.Hook$HookFunction">;
-  registerMob(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
-  registerThrowableProjectile(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V808. */
@@ -1121,7 +1103,6 @@ export interface V808Members {
 export type V808 = V808Members & NamespacedSchema;
 export interface V808Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V808;
-  registerInventory(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
 }
 
 /** JVM class net.minecraft.util.datafix.schemas.V99. */
@@ -1134,12 +1115,7 @@ export interface V99Members {
 export type V99 = V99Members & JavaOpaque<"com.mojang.datafixers.schemas.Schema">;
 export interface V99Statics {
   new(arg0: number, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): V99;
-  readonly ADD_NAMES: JavaOpaque<"com.mojang.datafixers.types.templates.Hook$HookFunction">;
   readonly ITEM_TO_ENTITY: JavaMap<string, string>;
-  addNames<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>, arg1: JavaMap<string, string>, arg2: JavaMap<string, string>): T;
   itemStackTag(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">;
-  registerInventory(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
-  registerMinecart(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
-  registerThrowableProjectile(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaMap<string, JavaSupplier<JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">>>, arg2: string): void;
   sign(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): JavaOpaque<"com.mojang.datafixers.types.templates.TypeTemplate">;
 }

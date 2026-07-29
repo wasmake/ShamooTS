@@ -31,7 +31,6 @@ export interface BlockSourceStatics {
 export interface BoatDispenseItemBehaviorMembers {
   readonly __javaSupertypes?: readonly [DefaultDispenseItemBehavior];
   execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  playSound(arg0: BlockSource): void;
 }
 export type BoatDispenseItemBehavior = BoatDispenseItemBehaviorMembers & DefaultDispenseItemBehavior;
 export interface BoatDispenseItemBehaviorStatics {
@@ -41,11 +40,7 @@ export interface BoatDispenseItemBehaviorStatics {
 /** JVM class net.minecraft.core.dispenser.DefaultDispenseItemBehavior. */
 export interface DefaultDispenseItemBehaviorMembers {
   readonly __javaSupertypes?: readonly [DispenseItemBehavior];
-  consumeWithRemainder(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
   dispense(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  playAnimation(arg0: BlockSource, arg1: j_net_minecraft_core.Direction): void;
-  playSound(arg0: BlockSource): void;
 }
 export type DefaultDispenseItemBehavior = DefaultDispenseItemBehaviorMembers & DispenseItemBehavior;
 export interface DefaultDispenseItemBehaviorStatics {
@@ -68,21 +63,19 @@ export interface DispenseItemBehaviorStatics {
 /** JVM class net.minecraft.core.dispenser.EquipmentDispenseItemBehavior. */
 export interface EquipmentDispenseItemBehaviorMembers {
   readonly __javaSupertypes?: readonly [DefaultDispenseItemBehavior];
-  execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
 }
 export type EquipmentDispenseItemBehavior = EquipmentDispenseItemBehaviorMembers & DefaultDispenseItemBehavior;
 export interface EquipmentDispenseItemBehaviorStatics {
   new(): EquipmentDispenseItemBehavior;
   readonly INSTANCE: EquipmentDispenseItemBehavior;
   dispenseEquipment(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): boolean;
-  dispenseEquipment(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack, arg2: DispenseItemBehavior | null): boolean | null;
+  dispenseEquipment(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack, arg2: DispenseItemBehavior | null): boolean;
 }
 
 /** JVM class net.minecraft.core.dispenser.MinecartDispenseItemBehavior. */
 export interface MinecartDispenseItemBehaviorMembers {
   readonly __javaSupertypes?: readonly [DefaultDispenseItemBehavior];
   execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  playSound(arg0: BlockSource): void;
 }
 export type MinecartDispenseItemBehavior = MinecartDispenseItemBehaviorMembers & DefaultDispenseItemBehavior;
 export interface MinecartDispenseItemBehaviorStatics {
@@ -93,19 +86,16 @@ export interface MinecartDispenseItemBehaviorStatics {
 export interface OptionalDispenseItemBehaviorMembers {
   readonly __javaSupertypes?: readonly [DefaultDispenseItemBehavior];
   isSuccess(): boolean;
-  playSound(arg0: BlockSource): void;
   setSuccess(arg0: boolean): void;
 }
 export type OptionalDispenseItemBehavior = OptionalDispenseItemBehaviorMembers & DefaultDispenseItemBehavior;
 export interface OptionalDispenseItemBehaviorStatics {
-  new(): OptionalDispenseItemBehavior;
 }
 
 /** JVM class net.minecraft.core.dispenser.ProjectileDispenseBehavior. */
 export interface ProjectileDispenseBehaviorMembers {
   readonly __javaSupertypes?: readonly [DefaultDispenseItemBehavior];
   execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  playSound(arg0: BlockSource): void;
 }
 export type ProjectileDispenseBehavior = ProjectileDispenseBehaviorMembers & DefaultDispenseItemBehavior;
 export interface ProjectileDispenseBehaviorStatics {
@@ -115,7 +105,6 @@ export interface ProjectileDispenseBehaviorStatics {
 /** JVM class net.minecraft.core.dispenser.ShearsDispenseItemBehavior. */
 export interface ShearsDispenseItemBehaviorMembers {
   readonly __javaSupertypes?: readonly [OptionalDispenseItemBehavior];
-  execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
 }
 export type ShearsDispenseItemBehavior = ShearsDispenseItemBehaviorMembers & OptionalDispenseItemBehavior;
 export interface ShearsDispenseItemBehaviorStatics {
@@ -125,7 +114,6 @@ export interface ShearsDispenseItemBehaviorStatics {
 /** JVM class net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior. */
 export interface ShulkerBoxDispenseBehaviorMembers {
   readonly __javaSupertypes?: readonly [OptionalDispenseItemBehavior];
-  execute(arg0: BlockSource, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
 }
 export type ShulkerBoxDispenseBehavior = ShulkerBoxDispenseBehaviorMembers & OptionalDispenseItemBehavior;
 export interface ShulkerBoxDispenseBehaviorStatics {

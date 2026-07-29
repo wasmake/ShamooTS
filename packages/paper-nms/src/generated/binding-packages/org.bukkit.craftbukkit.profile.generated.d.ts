@@ -8,11 +8,7 @@ export interface CraftPlayerProfileMembers {
   buildGameProfile(): JavaOpaque<"com.mojang.authlib.GameProfile">;
   buildResolvableProfile(): j_net_minecraft_world_item_component.ResolvableProfile;
   clearProperties(): void;
-  clone(): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): CraftPlayerProfile;
-  clone(): JavaOpaque<"org.bukkit.profile.PlayerProfile">;
   complete(arg0: boolean): boolean;
   complete(arg0: boolean, arg1: boolean): boolean;
   completeFromCache(): boolean;
@@ -24,7 +20,6 @@ export interface CraftPlayerProfileMembers {
   getProperties(): JavaSet<JavaOpaque<"com.destroystokyo.paper.profile.ProfileProperty">>;
   getProperty(arg0: string): JavaOpaque<"com.mojang.authlib.properties.Property"> | null;
   getTextures(): CraftPlayerTextures;
-  getTextures(): JavaOpaque<"org.bukkit.profile.PlayerTextures">;
   getUniqueId(): JavaOpaque<"java.util.UUID"> | null;
   hasProperty(arg0: string): boolean;
   hashCode(): number;
@@ -35,15 +30,15 @@ export interface CraftPlayerProfileMembers {
   setName(arg0: string): string;
   setProperties(arg0: JavaCollection<JavaOpaque<"com.destroystokyo.paper.profile.ProfileProperty">>): void;
   setProperty(arg0: JavaOpaque<"com.destroystokyo.paper.profile.ProfileProperty">): void;
-  setProperty(arg0: string, arg1: JavaOpaque<"com.mojang.authlib.properties.Property">): void | null;
-  setTextures(arg0: JavaOpaque<"org.bukkit.profile.PlayerTextures">): void | null;
+  setProperty(arg0: string, arg1: JavaOpaque<"com.mojang.authlib.properties.Property"> | null): void;
+  setTextures(arg0: JavaOpaque<"org.bukkit.profile.PlayerTextures"> | null): void;
   toString(): string;
   update(): PromiseLike<object>;
 }
 export type CraftPlayerProfile = CraftPlayerProfileMembers & JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile"> & JavaOpaque<"com.destroystokyo.paper.profile.SharedPlayerProfile"> & JavaOpaque<"org.bukkit.profile.PlayerProfile">;
 export interface CraftPlayerProfileStatics {
   new(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): CraftPlayerProfile;
-  new(arg0: JavaOpaque<"java.util.UUID">, arg1: string): CraftPlayerProfile;
+  new(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string | null): CraftPlayerProfile;
   new(arg0: j_net_minecraft_world_item_component.ResolvableProfile): CraftPlayerProfile;
   deserialize(arg0: JavaMap<string, object>): CraftPlayerProfile;
   getProperty(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">, arg1: string): JavaOpaque<"com.mojang.authlib.properties.Property"> | null;
@@ -66,9 +61,9 @@ export interface CraftPlayerTexturesMembers {
   isEmpty(): boolean;
   isSigned(): boolean;
   rebuildPropertyIfDirty(): void;
-  setCape(arg0: JavaOpaque<"java.net.URL">): void | null;
-  setSkin(arg0: JavaOpaque<"java.net.URL">): void | null;
-  setSkin(arg0: JavaOpaque<"java.net.URL">, arg1: JavaOpaque<"org.bukkit.profile.PlayerTextures$SkinModel">): void | null;
+  setCape(arg0: JavaOpaque<"java.net.URL"> | null): void;
+  setSkin(arg0: JavaOpaque<"java.net.URL"> | null): void;
+  setSkin(arg0: JavaOpaque<"java.net.URL"> | null, arg1: JavaOpaque<"org.bukkit.profile.PlayerTextures$SkinModel"> | null): void;
   toString(): string;
 }
 export type CraftPlayerTextures = CraftPlayerTexturesMembers & JavaOpaque<"org.bukkit.profile.PlayerTextures">;
@@ -84,7 +79,7 @@ export interface CraftProfilePropertyStatics {
   decodePropertyValue(arg0: string): JavaOpaque<"com.google.gson.JsonObject"> | null;
   deserialize(arg0: JavaMap<object, object>): JavaOpaque<"com.mojang.authlib.properties.Property">;
   encodePropertyValue(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: CraftProfileProperty_JsonFormatter): string;
-  equals(arg0: JavaOpaque<"com.mojang.authlib.properties.Property">, arg1: JavaOpaque<"com.mojang.authlib.properties.Property">): boolean | null;
+  equals(arg0: JavaOpaque<"com.mojang.authlib.properties.Property"> | null, arg1: JavaOpaque<"com.mojang.authlib.properties.Property"> | null): boolean;
   hasValidSignature(arg0: JavaOpaque<"com.mojang.authlib.properties.Property">): boolean;
   hashCode(arg0: JavaOpaque<"com.mojang.authlib.properties.Property">): number;
   serialize(arg0: JavaOpaque<"com.mojang.authlib.properties.Property">): JavaMap<string, object>;

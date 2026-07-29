@@ -77,7 +77,6 @@ export interface ClickTypeStatics {
 export interface CraftItemEventMembers {
   readonly __javaSupertypes?: readonly [InventoryClickEvent];
   getInventory(): j_org_bukkit_inventory.CraftingInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getRecipe(): j_org_bukkit_inventory.Recipe;
 }
 export type CraftItemEvent = CraftItemEventMembers & InventoryClickEvent;
@@ -159,7 +158,7 @@ export interface HopperInventorySearchEventMembers {
   getHandlers(): j_org_bukkit_event.HandlerList;
   getInventory(): j_org_bukkit_inventory.Inventory | null;
   getSearchBlock(): j_org_bukkit_block.Block;
-  setInventory(arg0: j_org_bukkit_inventory.Inventory | null): void | null;
+  setInventory(arg0: j_org_bukkit_inventory.Inventory | null): void;
 }
 export type HopperInventorySearchEvent = HopperInventorySearchEventMembers & j_org_bukkit_event_block.BlockEvent;
 export interface HopperInventorySearchEventStatics {
@@ -228,8 +227,8 @@ export interface InventoryClickEventMembers {
   isLeftClick(): boolean;
   isRightClick(): boolean;
   isShiftClick(): boolean;
-  setCurrentItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
-  setCursor(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setCurrentItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setCursor(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type InventoryClickEvent = InventoryClickEventMembers & InventoryInteractEvent;
 export interface InventoryClickEventStatics {
@@ -291,7 +290,7 @@ export interface InventoryDragEventMembers {
   getOldCursor(): j_org_bukkit_inventory.ItemStack;
   getRawSlots(): JavaSet<number>;
   getType(): DragType;
-  setCursor(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setCursor(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type InventoryDragEvent = InventoryDragEventMembers & InventoryInteractEvent;
 export interface InventoryDragEventStatics {
@@ -306,7 +305,6 @@ export interface InventoryEventMembers {
   getInventory(): j_org_bukkit_inventory.Inventory;
   getView(): j_org_bukkit_inventory.InventoryView;
   getViewers(): JavaList<j_org_bukkit_entity.HumanEntity>;
-  transaction: j_org_bukkit_inventory.InventoryView;
 }
 export type InventoryEvent = InventoryEventMembers & j_org_bukkit_event.Event;
 export interface InventoryEventStatics {
@@ -325,7 +323,6 @@ export interface InventoryInteractEventMembers {
 }
 export type InventoryInteractEvent = InventoryInteractEventMembers & InventoryEvent & j_org_bukkit_event.Cancellable;
 export interface InventoryInteractEventStatics {
-  new(arg0: j_org_bukkit_inventory.InventoryView): InventoryInteractEvent;
 }
 
 /** JVM class org.bukkit.event.inventory.InventoryMoveItemEvent. */
@@ -354,7 +351,7 @@ export interface InventoryOpenEventMembers {
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
   titleOverride(): j_net_kyori_adventure_text.Component | null;
-  titleOverride(arg0: j_net_kyori_adventure_text.Component | null): void | null;
+  titleOverride(arg0: j_net_kyori_adventure_text.Component | null): void;
 }
 export type InventoryOpenEvent = InventoryOpenEventMembers & InventoryEvent & j_org_bukkit_event.Cancellable;
 export interface InventoryOpenEventStatics {
@@ -442,10 +439,8 @@ export interface InventoryType_SlotTypeStatics {
 export interface PrepareAnvilEventMembers {
   readonly __javaSupertypes?: readonly [j_com_destroystokyo_paper_event_inventory.PrepareResultEvent];
   getInventory(): j_org_bukkit_inventory.AnvilInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
-  getView(): j_org_bukkit_inventory.InventoryView;
   getView(): j_org_bukkit_inventory_view.AnvilView;
-  setResult(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setResult(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PrepareAnvilEvent = PrepareAnvilEventMembers & j_com_destroystokyo_paper_event_inventory.PrepareResultEvent;
 export interface PrepareAnvilEventStatics {
@@ -456,7 +451,6 @@ export interface PrepareAnvilEventStatics {
 export interface PrepareGrindstoneEvent_2Members {
   readonly __javaSupertypes?: readonly [j_com_destroystokyo_paper_event_inventory.PrepareGrindstoneEvent];
   getInventory(): j_org_bukkit_inventory.GrindstoneInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
 }
 export type PrepareGrindstoneEvent_2 = PrepareGrindstoneEvent_2Members & j_com_destroystokyo_paper_event_inventory.PrepareGrindstoneEvent;
 export interface PrepareGrindstoneEvent_2Statics {
@@ -468,7 +462,7 @@ export interface PrepareInventoryResultEventMembers {
   readonly __javaSupertypes?: readonly [InventoryEvent];
   getHandlers(): j_org_bukkit_event.HandlerList;
   getResult(): j_org_bukkit_inventory.ItemStack | null;
-  setResult(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setResult(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PrepareInventoryResultEvent = PrepareInventoryResultEventMembers & InventoryEvent;
 export interface PrepareInventoryResultEventStatics {
@@ -481,7 +475,6 @@ export interface PrepareItemCraftEventMembers {
   readonly __javaSupertypes?: readonly [InventoryEvent];
   getHandlers(): j_org_bukkit_event.HandlerList;
   getInventory(): j_org_bukkit_inventory.CraftingInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getRecipe(): j_org_bukkit_inventory.Recipe | null;
   isRepair(): boolean;
 }
@@ -494,7 +487,6 @@ export interface PrepareItemCraftEventStatics {
 /** JVM class org.bukkit.event.inventory.PrepareSmithingEvent. */
 export interface PrepareSmithingEventMembers {
   readonly __javaSupertypes?: readonly [j_com_destroystokyo_paper_event_inventory.PrepareResultEvent];
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getInventory(): j_org_bukkit_inventory.SmithingInventory;
 }
 export type PrepareSmithingEvent = PrepareSmithingEventMembers & j_com_destroystokyo_paper_event_inventory.PrepareResultEvent;
@@ -505,7 +497,6 @@ export interface PrepareSmithingEventStatics {
 /** JVM class org.bukkit.event.inventory.SmithItemEvent. */
 export interface SmithItemEventMembers {
   readonly __javaSupertypes?: readonly [InventoryClickEvent];
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getInventory(): j_org_bukkit_inventory.SmithingInventory;
 }
 export type SmithItemEvent = SmithItemEventMembers & InventoryClickEvent;
@@ -519,10 +510,8 @@ export interface TradeSelectEventMembers {
   readonly __javaSupertypes?: readonly [InventoryInteractEvent];
   getHandlers(): j_org_bukkit_event.HandlerList;
   getIndex(): number;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getInventory(): j_org_bukkit_inventory.MerchantInventory;
   getMerchant(): j_org_bukkit_inventory.Merchant;
-  getView(): j_org_bukkit_inventory.InventoryView;
   getView(): j_org_bukkit_inventory_view.MerchantView;
 }
 export type TradeSelectEvent = TradeSelectEventMembers & InventoryInteractEvent;

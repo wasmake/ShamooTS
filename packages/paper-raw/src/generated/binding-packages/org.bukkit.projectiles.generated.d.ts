@@ -16,8 +16,8 @@ export interface BlockProjectileSourceStatics {
 /** JVM interface org.bukkit.projectiles.ProjectileSource. */
 export interface ProjectileSourceMembers {
   launchProjectile<T /* extends j_org_bukkit_entity.Projectile */>(arg0: JavaClass<T>): T;
-  launchProjectile<T /* extends j_org_bukkit_entity.Projectile */>(arg0: JavaClass<T>, arg1: j_org_bukkit_util.Vector | null): T | null;
-  launchProjectile<T /* extends j_org_bukkit_entity.Projectile */>(arg0: JavaClass<T>, arg1: j_org_bukkit_util.Vector | null, arg2: JavaConsumer<T>): T | null;
+  launchProjectile<T /* extends j_org_bukkit_entity.Projectile */>(arg0: JavaClass<T>, arg1: j_org_bukkit_util.Vector | null): T;
+  launchProjectile<T /* extends j_org_bukkit_entity.Projectile */>(arg0: JavaClass<T>, arg1: j_org_bukkit_util.Vector | null, arg2: JavaConsumer<T> | null): T;
 }
 export type ProjectileSource = ProjectileSourceMembers;
 export interface ProjectileSourceStatics {

@@ -34,7 +34,7 @@ export interface FlyingMoveControlStatics {
 /** JVM class net.minecraft.world.entity.ai.control.JumpControl. */
 export interface JumpControlMembers {
   readonly __javaSupertypes?: readonly [Control_2];
-  jump: (boolean) & { (): void };
+  jump(): void;
   tick(): void;
 }
 export type JumpControl = JumpControlMembers & Control_2;
@@ -45,27 +45,16 @@ export interface JumpControlStatics {
 /** JVM class net.minecraft.world.entity.ai.control.LookControl. */
 export interface LookControlMembers {
   readonly __javaSupertypes?: readonly [Control_2];
-  clampHeadRotationToBody(): void;
   getWantedX(): number;
   getWantedY(): number;
   getWantedZ(): number;
-  getXRotD(): JavaOptional<number>;
-  getYRotD(): JavaOptional<number>;
   isLookingAtTarget(): boolean;
-  lookAtCooldown: number;
-  readonly mob: j_net_minecraft_world_entity.Mob;
-  resetXRotOnTick(): boolean;
   setLookAt(arg0: number, arg1: number, arg2: number): void;
   setLookAt(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): void;
   setLookAt(arg0: j_net_minecraft_world_entity.Entity): void;
   setLookAt(arg0: j_net_minecraft_world_entity.Entity, arg1: number, arg2: number): void;
   setLookAt(arg0: j_net_minecraft_world_phys.Vec3): void;
   tick(): void;
-  wantedX: number;
-  wantedY: number;
-  wantedZ: number;
-  xMaxRotAngle: number;
-  yMaxRotSpeed: number;
 }
 export type LookControl = LookControlMembers & Control_2;
 export interface LookControlStatics {
@@ -80,24 +69,14 @@ export interface MoveControlMembers {
   getWantedY(): number;
   getWantedZ(): number;
   hasWanted(): boolean;
-  readonly mob: j_net_minecraft_world_entity.Mob;
-  operation: MoveControl_Operation;
-  rotlerp(arg0: number, arg1: number, arg2: number): number;
   setWait(): void;
   setWantedPosition(arg0: number, arg1: number, arg2: number, arg3: number): void;
-  speedModifier: number;
   strafe(arg0: number, arg1: number): void;
-  strafeForwards: number;
-  strafeRight: number;
   tick(): void;
-  wantedX: number;
-  wantedY: number;
-  wantedZ: number;
 }
 export type MoveControl = MoveControlMembers & Control_2;
 export interface MoveControlStatics {
   new(arg0: j_net_minecraft_world_entity.Mob): MoveControl;
-  readonly MAX_TURN: 90;
   readonly MIN_SPEED: 0.0005;
   readonly MIN_SPEED_SQR: 2.5000003e-7;
 }

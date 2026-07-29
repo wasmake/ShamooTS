@@ -37,7 +37,7 @@ export interface EntityAccessMembers {
   isAlwaysTicking(): boolean;
   setLevelCallback(arg0: EntityInLevelCallback): void;
   setRemoved(arg0: j_net_minecraft_world_entity.Entity_RemovalReason): void;
-  setRemoved(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  setRemoved(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   shouldBeSaved(): boolean;
 }
 export type EntityAccess = EntityAccessMembers & UniquelyIdentifyable;

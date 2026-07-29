@@ -43,8 +43,6 @@ export interface AngleArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [AngleArgument_SingleAngle]>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): AngleArgument_SingleAngle;
 }
 export type AngleArgument = AngleArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [AngleArgument_SingleAngle]>;
@@ -111,8 +109,6 @@ export interface ColorArgumentMembers {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft.ChatFormatting;
 }
 export type ColorArgument = ColorArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft.ChatFormatting]>;
@@ -134,7 +130,7 @@ export interface ComponentArgumentStatics {
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   getResolvedComponent(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [j_net_minecraft_commands.CommandSourceStack]>, arg1: string): j_net_minecraft_network_chat.Component;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  getResolvedComponent(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [j_net_minecraft_commands.CommandSourceStack]>, arg1: string, arg2: j_net_minecraft_world_entity.Entity | null): j_net_minecraft_network_chat.Component | null;
+  getResolvedComponent(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [j_net_minecraft_commands.CommandSourceStack]>, arg1: string, arg2: j_net_minecraft_world_entity.Entity | null): j_net_minecraft_network_chat.Component;
   textComponent(arg0: j_net_minecraft_commands.CommandBuildContext): ComponentArgument;
 }
 
@@ -142,8 +138,6 @@ export interface ComponentArgumentStatics {
 export interface CompoundTagArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_nbt.CompoundTag]>];
   getExamples(): JavaCollection<string>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_nbt.CompoundTag;
 }
@@ -158,8 +152,6 @@ export interface DimensionArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_resources.ResourceLocation]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_resources.ResourceLocation;
 }
@@ -177,8 +169,6 @@ export interface EntityAnchorArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [EntityAnchorArgument_Anchor]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): EntityAnchorArgument_Anchor;
 }
@@ -209,11 +199,7 @@ export interface EntityArgumentMembers {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_commands_arguments_selector.EntitySelector;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: object): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse<S>(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: S): j_net_minecraft_commands_arguments_selector.EntitySelector;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
@@ -221,7 +207,6 @@ export interface EntityArgumentMembers {
 }
 export type EntityArgument = EntityArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_commands_arguments_selector.EntitySelector]>;
 export interface EntityArgumentStatics {
-  new(arg0: boolean, arg1: boolean): EntityArgument;
   readonly ERROR_NOT_SINGLE_ENTITY: JavaOpaque<"com.mojang.brigadier.exceptions.SimpleCommandExceptionType">;
   readonly ERROR_NOT_SINGLE_PLAYER: JavaOpaque<"com.mojang.brigadier.exceptions.SimpleCommandExceptionType">;
   readonly ERROR_ONLY_PLAYERS_ALLOWED: JavaOpaque<"com.mojang.brigadier.exceptions.SimpleCommandExceptionType">;
@@ -250,12 +235,8 @@ export interface EntityArgumentStatics {
 export interface EntityArgument_InfoMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<EntityArgument, EntityArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): EntityArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: EntityArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: EntityArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: EntityArgument): EntityArgument_Info_Template;
 }
 export type EntityArgument_Info = EntityArgument_InfoMembers & j_net_minecraft_commands_synchronization.ArgumentTypeInfo<EntityArgument, EntityArgument_Info_Template>;
@@ -266,7 +247,6 @@ export interface EntityArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.EntityArgument$Info$Template. */
 export interface EntityArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<EntityArgument>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): EntityArgument;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<EntityArgument, object>;
 }
@@ -279,8 +259,6 @@ export interface GameModeArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_world_level.GameType]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_world_level.GameType;
 }
@@ -298,11 +276,7 @@ export interface GameProfileArgumentMembers {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): GameProfileArgument_Result;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: object): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse<S>(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: S): GameProfileArgument_Result;
 }
@@ -338,7 +312,6 @@ export interface GameProfileArgument_SelectorResultStatics {
 /** JVM class net.minecraft.commands.arguments.HeightmapTypeArgument. */
 export interface HeightmapTypeArgumentMembers {
   readonly __javaSupertypes?: readonly [StringRepresentableArgument<j_net_minecraft_world_level_levelgen.Heightmap_Types>];
-  convertId(arg0: string): string;
 }
 export type HeightmapTypeArgument = HeightmapTypeArgumentMembers & StringRepresentableArgument<j_net_minecraft_world_level_levelgen.Heightmap_Types>;
 export interface HeightmapTypeArgumentStatics {
@@ -353,8 +326,6 @@ export interface HexColorArgumentMembers {
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): number;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
 }
 export type HexColorArgument = HexColorArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [number]>;
 export interface HexColorArgumentStatics {
@@ -368,13 +339,9 @@ export interface MessageArgumentMembers {
   readonly __javaSupertypes?: readonly [SignedArgument<MessageArgument_Message>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): MessageArgument_Message;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: object | null): object | null;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse<S>(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: S | null): MessageArgument_Message | null;
+  parse<S>(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: S | null): MessageArgument_Message;
 }
 export type MessageArgument = MessageArgumentMembers & SignedArgument<MessageArgument_Message>;
 export interface MessageArgumentStatics {
@@ -427,8 +394,6 @@ export interface MessageArgument_PartStatics {
 export interface NbtPathArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [NbtPathArgument_NbtPath]>];
   getExamples(): JavaCollection<string>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): NbtPathArgument_NbtPath;
 }
@@ -483,8 +448,6 @@ export interface ObjectiveArgumentMembers {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): string;
 }
 export type ObjectiveArgument = ObjectiveArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [string]>;
@@ -504,8 +467,6 @@ export interface ObjectiveCriteriaArgumentMembers {
   getName<T>(arg0: j_net_minecraft_stats.StatType<T>, arg1: object): string;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_world_scores_criteria.ObjectiveCriteria;
 }
 export type ObjectiveCriteriaArgument = ObjectiveCriteriaArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_world_scores_criteria.ObjectiveCriteria]>;
@@ -520,8 +481,6 @@ export interface OperationArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [OperationArgument_Operation]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): OperationArgument_Operation;
 }
@@ -546,8 +505,6 @@ export interface ParticleArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_core_particles.ParticleOptions]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_core_particles.ParticleOptions;
 }
@@ -577,8 +534,6 @@ export interface RangeArgument_FloatsMembers {
   readonly __javaSupertypes?: readonly [RangeArgument<j_net_minecraft_advancements_critereon.MinMaxBounds_Doubles>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_advancements_critereon.MinMaxBounds_Doubles;
 }
 export type RangeArgument_Floats = RangeArgument_FloatsMembers & RangeArgument<j_net_minecraft_advancements_critereon.MinMaxBounds_Doubles>;
@@ -591,8 +546,6 @@ export interface RangeArgument_FloatsStatics {
 export interface RangeArgument_IntsMembers {
   readonly __javaSupertypes?: readonly [RangeArgument<j_net_minecraft_advancements_critereon.MinMaxBounds_Ints>];
   getExamples(): JavaCollection<string>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_advancements_critereon.MinMaxBounds_Ints;
 }
@@ -607,8 +560,6 @@ export interface ResourceArgumentMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_core.Holder_Reference<T>]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_core.Holder_Reference<T>;
 }
@@ -640,13 +591,9 @@ export interface ResourceArgumentStatics {
 export interface ResourceArgument_InfoMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceArgument<T>, ResourceArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ResourceArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: ResourceArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: ResourceArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
   unpack(arg0: ResourceArgument<ResourceArgument_Info_Template>): ResourceArgument_Info_Template;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: ResourceArgument<T>): ResourceArgument_Info_Template;
 }
 export type ResourceArgument_Info<T = unknown> = ResourceArgument_InfoMembers<T>;
@@ -657,7 +604,6 @@ export interface ResourceArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceArgument$Info$Template. */
 export interface ResourceArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<ResourceArgument<JavaOpaque<"T">>>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceArgument<JavaOpaque<"T">>;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceArgument<JavaOpaque<"T">>, object>;
 }
@@ -670,8 +616,6 @@ export interface ResourceKeyArgumentMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_resources.ResourceKey<T>]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_resources.ResourceKey<T>;
 }
@@ -697,13 +641,9 @@ export interface ResourceKeyArgumentStatics {
 export interface ResourceKeyArgument_InfoMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceKeyArgument<T>, ResourceKeyArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ResourceKeyArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: ResourceKeyArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: ResourceKeyArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
   unpack(arg0: ResourceKeyArgument<ResourceKeyArgument_Info_Template>): ResourceKeyArgument_Info_Template;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: ResourceKeyArgument<T>): ResourceKeyArgument_Info_Template;
 }
 export type ResourceKeyArgument_Info<T = unknown> = ResourceKeyArgument_InfoMembers<T>;
@@ -714,7 +654,6 @@ export interface ResourceKeyArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceKeyArgument$Info$Template. */
 export interface ResourceKeyArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<ResourceKeyArgument<JavaOpaque<"T">>>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceKeyArgument<JavaOpaque<"T">>;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceKeyArgument<JavaOpaque<"T">>, object>;
 }
@@ -726,8 +665,6 @@ export interface ResourceKeyArgument_Info_TemplateStatics {
 export interface ResourceLocationArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_resources.ResourceLocation]>];
   getExamples(): JavaCollection<string>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_resources.ResourceLocation;
 }
@@ -744,13 +681,10 @@ export interface ResourceOrIdArgumentMembers<T = unknown> {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object | null;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_core.Holder<T> | null;
 }
 export type ResourceOrIdArgument<T = unknown> = ResourceOrIdArgumentMembers<T> & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_core.Holder<T>]>;
 export interface ResourceOrIdArgumentStatics {
-  new<T>(arg0: j_net_minecraft_commands.CommandBuildContext, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: JavaOpaque<"com.mojang.serialization.Codec", [T]>): ResourceOrIdArgument<T>;
   readonly ERROR_FAILED_TO_PARSE: JavaOpaque<"com.mojang.brigadier.exceptions.DynamicCommandExceptionType">;
   readonly ERROR_NO_SUCH_ELEMENT: JavaOpaque<"com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType">;
   readonly OPS: JavaOpaque<"com.mojang.serialization.DynamicOps", [j_net_minecraft_nbt.Tag]>;
@@ -769,12 +703,9 @@ export interface ResourceOrIdArgumentStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceOrIdArgument$DialogArgument. */
 export interface ResourceOrIdArgument_DialogArgumentMembers {
   readonly __javaSupertypes?: readonly [ResourceOrIdArgument<j_net_minecraft_server_dialog.Dialog>];
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object | null;
 }
 export type ResourceOrIdArgument_DialogArgument = ResourceOrIdArgument_DialogArgumentMembers & ResourceOrIdArgument<j_net_minecraft_server_dialog.Dialog>;
 export interface ResourceOrIdArgument_DialogArgumentStatics {
-  new(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceOrIdArgument_DialogArgument;
 }
 
 /** JVM record net.minecraft.commands.arguments.ResourceOrIdArgument$InlineResult. */
@@ -795,34 +726,25 @@ export interface ResourceOrIdArgument_InlineResultStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceOrIdArgument$LootModifierArgument. */
 export interface ResourceOrIdArgument_LootModifierArgumentMembers {
   readonly __javaSupertypes?: readonly [ResourceOrIdArgument<j_net_minecraft_world_level_storage_loot_functions.LootItemFunction>];
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object | null;
 }
 export type ResourceOrIdArgument_LootModifierArgument = ResourceOrIdArgument_LootModifierArgumentMembers & ResourceOrIdArgument<j_net_minecraft_world_level_storage_loot_functions.LootItemFunction>;
 export interface ResourceOrIdArgument_LootModifierArgumentStatics {
-  new(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceOrIdArgument_LootModifierArgument;
 }
 
 /** JVM class net.minecraft.commands.arguments.ResourceOrIdArgument$LootPredicateArgument. */
 export interface ResourceOrIdArgument_LootPredicateArgumentMembers {
   readonly __javaSupertypes?: readonly [ResourceOrIdArgument<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>];
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object | null;
 }
 export type ResourceOrIdArgument_LootPredicateArgument = ResourceOrIdArgument_LootPredicateArgumentMembers & ResourceOrIdArgument<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
 export interface ResourceOrIdArgument_LootPredicateArgumentStatics {
-  new(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceOrIdArgument_LootPredicateArgument;
 }
 
 /** JVM class net.minecraft.commands.arguments.ResourceOrIdArgument$LootTableArgument. */
 export interface ResourceOrIdArgument_LootTableArgumentMembers {
   readonly __javaSupertypes?: readonly [ResourceOrIdArgument<j_net_minecraft_world_level_storage_loot.LootTable>];
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object | null;
 }
 export type ResourceOrIdArgument_LootTableArgument = ResourceOrIdArgument_LootTableArgumentMembers & ResourceOrIdArgument<j_net_minecraft_world_level_storage_loot.LootTable>;
 export interface ResourceOrIdArgument_LootTableArgumentStatics {
-  new(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceOrIdArgument_LootTableArgument;
 }
 
 /** JVM record net.minecraft.commands.arguments.ResourceOrIdArgument$ReferenceResult. */
@@ -855,8 +777,6 @@ export interface ResourceOrTagArgumentMembers<T = unknown> {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): ResourceOrTagArgument_Result<T>;
 }
 export type ResourceOrTagArgument<T = unknown> = ResourceOrTagArgumentMembers<T> & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [ResourceOrTagArgument_Result<T>]>;
@@ -871,13 +791,9 @@ export interface ResourceOrTagArgumentStatics {
 export interface ResourceOrTagArgument_InfoMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceOrTagArgument<T>, ResourceOrTagArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ResourceOrTagArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: ResourceOrTagArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: ResourceOrTagArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
   unpack(arg0: ResourceOrTagArgument<ResourceOrTagArgument_Info_Template>): ResourceOrTagArgument_Info_Template;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: ResourceOrTagArgument<T>): ResourceOrTagArgument_Info_Template;
 }
 export type ResourceOrTagArgument_Info<T = unknown> = ResourceOrTagArgument_InfoMembers<T>;
@@ -888,7 +804,6 @@ export interface ResourceOrTagArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceOrTagArgument$Info$Template. */
 export interface ResourceOrTagArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<ResourceOrTagArgument<JavaOpaque<"T">>>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceOrTagArgument<JavaOpaque<"T">>;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceOrTagArgument<JavaOpaque<"T">>, object>;
 }
@@ -913,8 +828,6 @@ export interface ResourceOrTagKeyArgumentMembers<T = unknown> {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): ResourceOrTagKeyArgument_Result<T>;
 }
 export type ResourceOrTagKeyArgument<T = unknown> = ResourceOrTagKeyArgumentMembers<T> & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [ResourceOrTagKeyArgument_Result<T>]>;
@@ -929,13 +842,9 @@ export interface ResourceOrTagKeyArgumentStatics {
 export interface ResourceOrTagKeyArgument_InfoMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceOrTagKeyArgument<T>, ResourceOrTagKeyArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ResourceOrTagKeyArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: ResourceOrTagKeyArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: ResourceOrTagKeyArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
   unpack(arg0: ResourceOrTagKeyArgument<ResourceOrTagKeyArgument_Info_Template>): ResourceOrTagKeyArgument_Info_Template;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: ResourceOrTagKeyArgument<T>): ResourceOrTagKeyArgument_Info_Template;
 }
 export type ResourceOrTagKeyArgument_Info<T = unknown> = ResourceOrTagKeyArgument_InfoMembers<T>;
@@ -946,7 +855,6 @@ export interface ResourceOrTagKeyArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceOrTagKeyArgument$Info$Template. */
 export interface ResourceOrTagKeyArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<ResourceOrTagKeyArgument<JavaOpaque<"T">>>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceOrTagKeyArgument<JavaOpaque<"T">>;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceOrTagKeyArgument<JavaOpaque<"T">>, object>;
 }
@@ -971,8 +879,6 @@ export interface ResourceSelectorArgumentMembers<T = unknown> {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): JavaCollection<j_net_minecraft_core.Holder_Reference<T>>;
 }
 export type ResourceSelectorArgument<T = unknown> = ResourceSelectorArgumentMembers<T> & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [JavaCollection<j_net_minecraft_core.Holder_Reference<T>>]>;
@@ -987,13 +893,9 @@ export interface ResourceSelectorArgumentStatics {
 export interface ResourceSelectorArgument_InfoMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceSelectorArgument<T>, ResourceSelectorArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ResourceSelectorArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: ResourceSelectorArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: ResourceSelectorArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
   unpack(arg0: ResourceSelectorArgument<ResourceSelectorArgument_Info_Template>): ResourceSelectorArgument_Info_Template;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: ResourceSelectorArgument<T>): ResourceSelectorArgument_Info_Template;
 }
 export type ResourceSelectorArgument_Info<T = unknown> = ResourceSelectorArgument_InfoMembers<T>;
@@ -1004,7 +906,6 @@ export interface ResourceSelectorArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.ResourceSelectorArgument$Info$Template. */
 export interface ResourceSelectorArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<ResourceSelectorArgument<JavaOpaque<"T">>>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): ResourceSelectorArgument<JavaOpaque<"T">>;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ResourceSelectorArgument<JavaOpaque<"T">>, object>;
 }
@@ -1017,8 +918,6 @@ export interface ScoreboardSlotArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_world_scores.DisplaySlot]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_world_scores.DisplaySlot;
 }
@@ -1034,11 +933,7 @@ export interface ScoreHolderArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [ScoreHolderArgument_Result]>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): ScoreHolderArgument_Result;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: object): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse<S>(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: S): ScoreHolderArgument_Result;
 }
@@ -1062,12 +957,8 @@ export interface ScoreHolderArgumentStatics {
 export interface ScoreHolderArgument_InfoMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ScoreHolderArgument, ScoreHolderArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ScoreHolderArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: ScoreHolderArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: ScoreHolderArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: ScoreHolderArgument): ScoreHolderArgument_Info_Template;
 }
 export type ScoreHolderArgument_Info = ScoreHolderArgument_InfoMembers & j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ScoreHolderArgument, ScoreHolderArgument_Info_Template>;
@@ -1078,7 +969,6 @@ export interface ScoreHolderArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.ScoreHolderArgument$Info$Template. */
 export interface ScoreHolderArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<ScoreHolderArgument>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): ScoreHolderArgument;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<ScoreHolderArgument, object>;
 }
@@ -1121,8 +1011,6 @@ export interface SlotArgumentMembers {
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): number;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
 }
 export type SlotArgument = SlotArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [number]>;
 export interface SlotArgumentStatics {
@@ -1137,8 +1025,6 @@ export interface SlotsArgumentMembers {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): j_net_minecraft_world_inventory.SlotRange;
 }
 export type SlotsArgument = SlotsArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [j_net_minecraft_world_inventory.SlotRange]>;
@@ -1151,17 +1037,13 @@ export interface SlotsArgumentStatics {
 /** JVM class net.minecraft.commands.arguments.StringRepresentableArgument. */
 export interface StringRepresentableArgumentMembers<T /* extends j_net_minecraft_util.StringRepresentable */ = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [T]>];
-  convertId(arg0: string): string;
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): T;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
 }
 export type StringRepresentableArgument<T /* extends j_net_minecraft_util.StringRepresentable */ = unknown> = StringRepresentableArgumentMembers<T> & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [T]>;
 export interface StringRepresentableArgumentStatics {
-  new<T /* extends j_net_minecraft_util.StringRepresentable */>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg1: JavaSupplier<Array<T>>): StringRepresentableArgument<T>;
 }
 
 /** JVM class net.minecraft.commands.arguments.StyleArgument. */
@@ -1181,8 +1063,6 @@ export interface TeamArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [string]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): string;
 }
@@ -1221,8 +1101,6 @@ export interface TimeArgumentMembers {
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): number;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
 }
 export type TimeArgument = TimeArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [number]>;
 export interface TimeArgumentStatics {
@@ -1234,12 +1112,8 @@ export interface TimeArgumentStatics {
 export interface TimeArgument_InfoMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo<TimeArgument, TimeArgument_Info_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): TimeArgument_Info_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   serializeToJson(arg0: TimeArgument_Info_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: TimeArgument_Info_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template;
   unpack(arg0: TimeArgument): TimeArgument_Info_Template;
 }
 export type TimeArgument_Info = TimeArgument_InfoMembers & j_net_minecraft_commands_synchronization.ArgumentTypeInfo<TimeArgument, TimeArgument_Info_Template>;
@@ -1250,7 +1124,6 @@ export interface TimeArgument_InfoStatics {
 /** JVM class net.minecraft.commands.arguments.TimeArgument$Info$Template. */
 export interface TimeArgument_Info_TemplateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_synchronization.ArgumentTypeInfo_Template<TimeArgument>];
-  instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">;
   instantiate(arg0: j_net_minecraft_commands.CommandBuildContext): TimeArgument;
   type(): j_net_minecraft_commands_synchronization.ArgumentTypeInfo<TimeArgument, object>;
 }
@@ -1262,8 +1135,6 @@ export interface TimeArgument_Info_TemplateStatics {
 export interface UuidArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [JavaOpaque<"java.util.UUID">]>];
   getExamples(): JavaCollection<string>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): JavaOpaque<"java.util.UUID">;
 }

@@ -7,8 +7,8 @@ export interface CommandBlockHolderMembers {
   getCommand(): string;
   getSuccessCount(): number;
   lastOutput(): j_net_kyori_adventure_text.Component;
-  lastOutput(arg0: j_net_kyori_adventure_text.Component): void | null;
-  setCommand(arg0: string): void | null;
+  lastOutput(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setCommand(arg0: string | null): void;
   setSuccessCount(arg0: number): void;
 }
 export type CommandBlockHolder = CommandBlockHolderMembers;

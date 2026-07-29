@@ -138,7 +138,7 @@ export interface BlockPredicate_BuilderStatics {
 export interface BredAnimalsTriggerMembers {
   readonly __javaSupertypes?: readonly [SimpleCriterionTrigger<BredAnimalsTrigger_TriggerInstance>];
   codec(): JavaOpaque<"com.mojang.serialization.Codec", [BredAnimalsTrigger_TriggerInstance]>;
-  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_entity_animal.Animal, arg2: j_net_minecraft_world_entity_animal.Animal, arg3: j_net_minecraft_world_entity.AgeableMob | null): void | null;
+  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_entity_animal.Animal, arg2: j_net_minecraft_world_entity_animal.Animal, arg3: j_net_minecraft_world_entity.AgeableMob | null): void;
 }
 export type BredAnimalsTrigger = BredAnimalsTriggerMembers & SimpleCriterionTrigger<BredAnimalsTrigger_TriggerInstance>;
 export interface BredAnimalsTriggerStatics {
@@ -151,7 +151,7 @@ export interface BredAnimalsTrigger_TriggerInstanceMembers {
   child(): JavaOptional<ContextAwarePredicate>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_world_level_storage_loot.LootContext, arg1: j_net_minecraft_world_level_storage_loot.LootContext, arg2: j_net_minecraft_world_level_storage_loot.LootContext | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_level_storage_loot.LootContext, arg1: j_net_minecraft_world_level_storage_loot.LootContext, arg2: j_net_minecraft_world_level_storage_loot.LootContext | null): boolean;
   parent(): JavaOptional<ContextAwarePredicate>;
   partner(): JavaOptional<ContextAwarePredicate>;
   player(): JavaOptional<ContextAwarePredicate>;
@@ -274,7 +274,6 @@ export interface CollectionContentsPredicate_MultipleMembers<T = unknown, P /* e
   equals(arg0: object): boolean;
   hashCode(): number;
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   tests(): JavaList<P>;
   toString(): string;
   unpack(): JavaList<P>;
@@ -291,7 +290,6 @@ export interface CollectionContentsPredicate_SingleMembers<T = unknown, P /* ext
   hashCode(): number;
   test(): P;
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   toString(): string;
   unpack(): JavaList<P>;
 }
@@ -304,7 +302,6 @@ export interface CollectionContentsPredicate_SingleStatics {
 export interface CollectionContentsPredicate_ZeroMembers<T = unknown, P /* extends JavaPredicate<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [CollectionContentsPredicate<T, P>];
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   unpack(): JavaList<P>;
 }
 export type CollectionContentsPredicate_Zero<T = unknown, P /* extends JavaPredicate<T> */ = unknown> = CollectionContentsPredicate_ZeroMembers<T, P> & CollectionContentsPredicate<T, P>;
@@ -347,7 +344,6 @@ export interface CollectionCountsPredicate_MultipleMembers<T = unknown, P /* ext
   equals(arg0: object): boolean;
   hashCode(): number;
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   toString(): string;
   unpack(): JavaList<CollectionCountsPredicate_Entry<T, P>>;
 }
@@ -363,7 +359,6 @@ export interface CollectionCountsPredicate_SingleMembers<T = unknown, P /* exten
   equals(arg0: object): boolean;
   hashCode(): number;
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   toString(): string;
   unpack(): JavaList<CollectionCountsPredicate_Entry<T, P>>;
 }
@@ -376,7 +371,6 @@ export interface CollectionCountsPredicate_SingleStatics {
 export interface CollectionCountsPredicate_ZeroMembers<T = unknown, P /* extends JavaPredicate<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [CollectionCountsPredicate<T, P>];
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   unpack(): JavaList<CollectionCountsPredicate_Entry<T, P>>;
 }
 export type CollectionCountsPredicate_Zero<T = unknown, P /* extends JavaPredicate<T> */ = unknown> = CollectionCountsPredicate_ZeroMembers<T, P> & CollectionCountsPredicate<T, P>;
@@ -393,7 +387,6 @@ export interface CollectionPredicateMembers<T = unknown, P /* extends JavaPredic
   hashCode(): number;
   size(): JavaOptional<MinMaxBounds_Ints>;
   test(arg0: Iterable<T>): boolean;
-  test(arg0: object): boolean;
   toString(): string;
 }
 export type CollectionPredicate<T = unknown, P /* extends JavaPredicate<T> */ = unknown> = CollectionPredicateMembers<T, P> & JavaOpaque<"java.lang.Record"> & JavaPredicate<Iterable<T>>;
@@ -591,7 +584,6 @@ export interface DataComponentMatchersMembers {
   hashCode(): number;
   isEmpty(): boolean;
   partial(): JavaMap<j_net_minecraft_core_component_predicates.DataComponentPredicate_Type<object>, j_net_minecraft_core_component_predicates.DataComponentPredicate>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_core_component.DataComponentGetter): boolean;
   toString(): string;
 }
@@ -699,7 +691,7 @@ export interface DistanceTrigger_TriggerInstanceStatics {
 export interface EffectsChangedTriggerMembers {
   readonly __javaSupertypes?: readonly [SimpleCriterionTrigger<EffectsChangedTrigger_TriggerInstance>];
   codec(): JavaOpaque<"com.mojang.serialization.Codec", [EffectsChangedTrigger_TriggerInstance]>;
-  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_entity.Entity | null): void | null;
+  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_entity.Entity | null): void;
 }
 export type EffectsChangedTrigger = EffectsChangedTriggerMembers & SimpleCriterionTrigger<EffectsChangedTrigger_TriggerInstance>;
 export interface EffectsChangedTriggerStatics {
@@ -712,7 +704,7 @@ export interface EffectsChangedTrigger_TriggerInstanceMembers {
   effects(): JavaOptional<MobEffectsPredicate>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_level_storage_loot.LootContext | null): boolean | null;
+  matches(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_level_storage_loot.LootContext | null): boolean;
   player(): JavaOptional<ContextAwarePredicate>;
   source(): JavaOptional<ContextAwarePredicate>;
   toString(): string;
@@ -813,7 +805,7 @@ export interface EntityEquipmentPredicateMembers {
   head(): JavaOptional<ItemPredicate>;
   legs(): JavaOptional<ItemPredicate>;
   mainhand(): JavaOptional<ItemPredicate>;
-  matches(arg0: j_net_minecraft_world_entity.Entity | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity | null): boolean;
   offhand(): JavaOptional<ItemPredicate>;
   toString(): string;
 }
@@ -921,8 +913,8 @@ export interface EntityPredicateMembers {
   flags(): JavaOptional<EntityFlagsPredicate>;
   hashCode(): number;
   location(): EntityPredicate_LocationWrapper;
-  matches(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3 | null, arg2: j_net_minecraft_world_entity.Entity | null): boolean | null;
-  matches(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_entity.Entity | null): boolean | null;
+  matches(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3 | null, arg2: j_net_minecraft_world_entity.Entity | null): boolean;
+  matches(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_entity.Entity | null): boolean;
   movement(): JavaOptional<MovementPredicate>;
   nbt(): JavaOptional<NbtPredicate>;
   passenger(): JavaOptional<EntityPredicate>;
@@ -996,7 +988,7 @@ export interface EntityPredicate_LocationWrapperStatics {
 /** JVM interface net.minecraft.advancements.critereon.EntitySubPredicate. */
 export interface EntitySubPredicateMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EntitySubPredicate]>;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
 }
 export type EntitySubPredicate = EntitySubPredicateMembers;
 export interface EntitySubPredicateStatics {
@@ -1039,7 +1031,7 @@ export interface EntityTypePredicateStatics {
 export interface FallAfterExplosionTriggerMembers {
   readonly __javaSupertypes?: readonly [SimpleCriterionTrigger<FallAfterExplosionTrigger_TriggerInstance>];
   codec(): JavaOpaque<"com.mojang.serialization.Codec", [FallAfterExplosionTrigger_TriggerInstance]>;
-  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_entity.Entity | null): void | null;
+  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_entity.Entity | null): void;
 }
 export type FallAfterExplosionTrigger = FallAfterExplosionTriggerMembers & SimpleCriterionTrigger<FallAfterExplosionTrigger_TriggerInstance>;
 export interface FallAfterExplosionTriggerStatics {
@@ -1053,7 +1045,7 @@ export interface FallAfterExplosionTrigger_TriggerInstanceMembers {
   distance(): JavaOptional<DistancePredicate>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: j_net_minecraft_world_level_storage_loot.LootContext | null): boolean | null;
+  matches(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: j_net_minecraft_world_level_storage_loot.LootContext | null): boolean;
   player(): JavaOptional<ContextAwarePredicate>;
   startPosition(): JavaOptional<LocationPredicate>;
   toString(): string;
@@ -1101,7 +1093,7 @@ export interface FishingHookPredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   inOpenWater(): JavaOptional<boolean>;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
   toString(): string;
 }
 export type FishingHookPredicate = FishingHookPredicateMembers & JavaOpaque<"java.lang.Record"> & EntitySubPredicate;
@@ -1325,7 +1317,6 @@ export interface ItemPredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   items(): JavaOptional<j_net_minecraft_core.HolderSet<j_net_minecraft_world_item.Item>>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   toString(): string;
 }
@@ -1389,7 +1380,7 @@ export interface ItemUsedOnLocationTrigger_TriggerInstanceStatics {
 export interface KilledByArrowTriggerMembers {
   readonly __javaSupertypes?: readonly [SimpleCriterionTrigger<KilledByArrowTrigger_TriggerInstance>];
   codec(): JavaOpaque<"com.mojang.serialization.Codec", [KilledByArrowTrigger_TriggerInstance]>;
-  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: JavaCollection<j_net_minecraft_world_entity.Entity>, arg2: j_net_minecraft_world_item.ItemStack | null): void | null;
+  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: JavaCollection<j_net_minecraft_world_entity.Entity>, arg2: j_net_minecraft_world_item.ItemStack | null): void;
 }
 export type KilledByArrowTrigger = KilledByArrowTriggerMembers & SimpleCriterionTrigger<KilledByArrowTrigger_TriggerInstance>;
 export interface KilledByArrowTriggerStatics {
@@ -1402,7 +1393,7 @@ export interface KilledByArrowTrigger_TriggerInstanceMembers {
   equals(arg0: object): boolean;
   firedFromWeapon(): JavaOptional<ItemPredicate>;
   hashCode(): number;
-  matches(arg0: JavaCollection<j_net_minecraft_world_level_storage_loot.LootContext>, arg1: number, arg2: j_net_minecraft_world_item.ItemStack | null): boolean | null;
+  matches(arg0: JavaCollection<j_net_minecraft_world_level_storage_loot.LootContext>, arg1: number, arg2: j_net_minecraft_world_item.ItemStack | null): boolean;
   player(): JavaOptional<ContextAwarePredicate>;
   toString(): string;
   uniqueEntityTypes(): MinMaxBounds_Ints;
@@ -1498,7 +1489,7 @@ export interface LightningBoltPredicateMembers {
   entityStruck(): JavaOptional<EntityPredicate>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
   toString(): string;
 }
 export type LightningBoltPredicate = LightningBoltPredicateMembers & JavaOpaque<"java.lang.Record"> & EntitySubPredicate;
@@ -1769,7 +1760,7 @@ export interface MobEffectsPredicate_MobEffectInstancePredicateMembers {
   duration(): MinMaxBounds_Ints;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_world_effect.MobEffectInstance | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_effect.MobEffectInstance | null): boolean;
   toString(): string;
   visible(): JavaOptional<boolean>;
 }
@@ -1811,7 +1802,7 @@ export interface NbtPredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   matches(arg0: j_net_minecraft_core_component.DataComponentGetter): boolean;
-  matches(arg0: j_net_minecraft_nbt.Tag | null): boolean | null;
+  matches(arg0: j_net_minecraft_nbt.Tag | null): boolean;
   matches(arg0: j_net_minecraft_world_entity.Entity): boolean;
   tag(): j_net_minecraft_nbt.CompoundTag;
   toString(): string;
@@ -1829,7 +1820,7 @@ export interface NbtPredicateStatics {
 export interface PickedUpItemTriggerMembers {
   readonly __javaSupertypes?: readonly [SimpleCriterionTrigger<PickedUpItemTrigger_TriggerInstance>];
   codec(): JavaOpaque<"com.mojang.serialization.Codec", [PickedUpItemTrigger_TriggerInstance]>;
-  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_entity.Entity | null): void | null;
+  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_entity.Entity | null): void;
 }
 export type PickedUpItemTrigger = PickedUpItemTriggerMembers & SimpleCriterionTrigger<PickedUpItemTrigger_TriggerInstance>;
 export interface PickedUpItemTriggerStatics {
@@ -1935,7 +1926,7 @@ export interface PlayerPredicateMembers {
   input(): JavaOptional<InputPredicate>;
   level(): MinMaxBounds_Ints;
   lookingAt(): JavaOptional<EntityPredicate>;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
   recipes(): JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2BooleanMap", [j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.Recipe<object>>]>;
   stats(): JavaList<JavaOpaque<"net.minecraft.advancements.critereon.PlayerPredicate$StatMatcher", [object]>>;
   toString(): string;
@@ -2006,7 +1997,7 @@ export interface RaiderPredicateMembers {
   hasRaid(): boolean;
   hashCode(): number;
   isCaptain(): boolean;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
   toString(): string;
 }
 export type RaiderPredicate = RaiderPredicateMembers & JavaOpaque<"java.lang.Record"> & EntitySubPredicate;
@@ -2080,7 +2071,7 @@ export interface SheepPredicateMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SheepPredicate]>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
   sheared(): JavaOptional<boolean>;
   toString(): string;
 }
@@ -2126,11 +2117,9 @@ export interface SimpleCriterionTriggerMembers<T /* extends SimpleCriterionTrigg
   addPlayerListener(arg0: j_net_minecraft_server.PlayerAdvancements, arg1: j_net_minecraft_advancements.CriterionTrigger_Listener<T>): void;
   removePlayerListener(arg0: j_net_minecraft_server.PlayerAdvancements, arg1: j_net_minecraft_advancements.CriterionTrigger_Listener<T>): void;
   removePlayerListeners(arg0: j_net_minecraft_server.PlayerAdvancements): void;
-  trigger(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: JavaPredicate<T>): void;
 }
 export type SimpleCriterionTrigger<T /* extends SimpleCriterionTrigger_SimpleInstance */ = unknown> = SimpleCriterionTriggerMembers<T> & j_net_minecraft_advancements.CriterionTrigger<T>;
 export interface SimpleCriterionTriggerStatics {
-  new<T /* extends SimpleCriterionTrigger_SimpleInstance */>(): SimpleCriterionTrigger<T>;
 }
 
 /** JVM interface net.minecraft.advancements.critereon.SimpleCriterionTrigger$SimpleInstance. */
@@ -2189,7 +2178,7 @@ export interface SlimePredicateMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SlimePredicate]>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean | null;
+  matches(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_phys.Vec3 | null): boolean;
   size(): MinMaxBounds_Ints;
   toString(): string;
 }
@@ -2516,7 +2505,7 @@ export interface WrappedMinMaxBoundsStatics {
   atMost(arg0: number): WrappedMinMaxBounds;
   between(arg0: number, arg1: number): WrappedMinMaxBounds;
   exactly(arg0: number): WrappedMinMaxBounds;
-  fromJson(arg0: JavaOpaque<"com.google.gson.JsonElement"> | null): WrappedMinMaxBounds | null;
+  fromJson(arg0: JavaOpaque<"com.google.gson.JsonElement"> | null): WrappedMinMaxBounds;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   fromReader(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">, arg1: boolean): WrappedMinMaxBounds;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */

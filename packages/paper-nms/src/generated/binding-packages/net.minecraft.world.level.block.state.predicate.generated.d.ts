@@ -7,8 +7,7 @@ import type * as j_net_minecraft_world_level_block_state_properties from './net.
 /** JVM class net.minecraft.world.level.block.state.predicate.BlockPredicate. */
 export interface BlockPredicate_2Members {
   readonly __javaSupertypes?: readonly [JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>];
-  test(arg0: object | null): boolean | null;
-  test(arg0: j_net_minecraft_world_level_block_state.BlockState | null): boolean | null;
+  test(arg0: j_net_minecraft_world_level_block_state.BlockState | null): boolean;
 }
 export type BlockPredicate_2 = BlockPredicate_2Members & JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>;
 export interface BlockPredicate_2Statics {
@@ -19,9 +18,7 @@ export interface BlockPredicate_2Statics {
 /** JVM class net.minecraft.world.level.block.state.predicate.BlockStatePredicate. */
 export interface BlockStatePredicateMembers {
   readonly __javaSupertypes?: readonly [JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>];
-  applies<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */>(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state_properties.Property<T>, arg2: JavaPredicate<object>): boolean;
-  test(arg0: object | null): boolean | null;
-  test(arg0: j_net_minecraft_world_level_block_state.BlockState | null): boolean | null;
+  test(arg0: j_net_minecraft_world_level_block_state.BlockState | null): boolean;
   where<V /* extends JavaOpaque<"java.lang.Comparable", [V]> */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<V>, arg1: JavaPredicate<object>): BlockStatePredicate;
 }
 export type BlockStatePredicate = BlockStatePredicateMembers & JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>;

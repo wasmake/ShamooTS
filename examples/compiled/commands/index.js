@@ -263,6 +263,632 @@ var init_src5 = __esm({
   }
 });
 
+// ../../packages/paper-raw/src/generated/bindings.generated.ts
+var init_bindings_generated = __esm({
+  "../../packages/paper-raw/src/generated/bindings.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.block.generated.ts
+var init_com_destroystokyo_paper_event_block_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.block.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.brigadier.generated.ts
+var init_com_destroystokyo_paper_event_brigadier_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.brigadier.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.entity.generated.ts
+var init_com_destroystokyo_paper_event_entity_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.entity.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.inventory.generated.ts
+var init_com_destroystokyo_paper_event_inventory_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.inventory.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.player.generated.ts
+var init_com_destroystokyo_paper_event_player_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.player.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.profile.generated.ts
+var init_com_destroystokyo_paper_event_profile_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.profile.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.server.generated.ts
+var init_com_destroystokyo_paper_event_server_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.event.server.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.loottable.generated.ts
+var init_com_destroystokyo_paper_loottable_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/com.destroystokyo.paper.loottable.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.block.generated.ts
+var init_io_papermc_paper_event_block_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.block.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.connection.generated.ts
+var init_io_papermc_paper_event_connection_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.connection.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.connection.configuration.generated.ts
+var init_io_papermc_paper_event_connection_configuration_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.connection.configuration.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.entity.generated.ts
+var init_io_papermc_paper_event_entity_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.entity.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.packet.generated.ts
+var init_io_papermc_paper_event_packet_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.packet.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.player.generated.ts
+var init_io_papermc_paper_event_player_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.player.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.server.generated.ts
+var init_io_papermc_paper_event_server_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.server.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.world.generated.ts
+var init_io_papermc_paper_event_world_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.world.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.world.border.generated.ts
+var init_io_papermc_paper_event_world_border_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.event.world.border.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.threadedregions.generated.ts
+var init_io_papermc_paper_threadedregions_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/io.papermc.paper.threadedregions.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.block.generated.ts
+var init_org_bukkit_event_block_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.block.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.command.generated.ts
+var init_org_bukkit_event_command_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.command.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.enchantment.generated.ts
+var init_org_bukkit_event_enchantment_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.enchantment.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.entity.generated.ts
+var init_org_bukkit_event_entity_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.entity.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.hanging.generated.ts
+var init_org_bukkit_event_hanging_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.hanging.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.inventory.generated.ts
+var init_org_bukkit_event_inventory_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.inventory.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.player.generated.ts
+var init_org_bukkit_event_player_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.player.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.raid.generated.ts
+var init_org_bukkit_event_raid_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.raid.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.server.generated.ts
+var init_org_bukkit_event_server_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.server.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.vehicle.generated.ts
+var init_org_bukkit_event_vehicle_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.vehicle.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.weather.generated.ts
+var init_org_bukkit_event_weather_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.weather.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.world.generated.ts
+var init_org_bukkit_event_world_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.bukkit.event.world.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/event-packages/org.spigotmc.event.player.generated.ts
+var init_org_spigotmc_event_player_generated = __esm({
+  "../../packages/paper-raw/src/generated/event-packages/org.spigotmc.event.player.generated.ts"() {
+    "use strict";
+  }
+});
+
+// ../../packages/paper-raw/src/generated/events.generated.ts
+var init_events_generated = __esm({
+  "../../packages/paper-raw/src/generated/events.generated.ts"() {
+    "use strict";
+    init_com_destroystokyo_paper_event_block_generated();
+    init_com_destroystokyo_paper_event_brigadier_generated();
+    init_com_destroystokyo_paper_event_entity_generated();
+    init_com_destroystokyo_paper_event_inventory_generated();
+    init_com_destroystokyo_paper_event_player_generated();
+    init_com_destroystokyo_paper_event_profile_generated();
+    init_com_destroystokyo_paper_event_server_generated();
+    init_com_destroystokyo_paper_loottable_generated();
+    init_io_papermc_paper_event_block_generated();
+    init_io_papermc_paper_event_connection_generated();
+    init_io_papermc_paper_event_connection_configuration_generated();
+    init_io_papermc_paper_event_entity_generated();
+    init_io_papermc_paper_event_packet_generated();
+    init_io_papermc_paper_event_player_generated();
+    init_io_papermc_paper_event_server_generated();
+    init_io_papermc_paper_event_world_generated();
+    init_io_papermc_paper_event_world_border_generated();
+    init_io_papermc_paper_threadedregions_generated();
+    init_org_bukkit_event_block_generated();
+    init_org_bukkit_event_command_generated();
+    init_org_bukkit_event_enchantment_generated();
+    init_org_bukkit_event_entity_generated();
+    init_org_bukkit_event_hanging_generated();
+    init_org_bukkit_event_inventory_generated();
+    init_org_bukkit_event_player_generated();
+    init_org_bukkit_event_raid_generated();
+    init_org_bukkit_event_server_generated();
+    init_org_bukkit_event_vehicle_generated();
+    init_org_bukkit_event_weather_generated();
+    init_org_bukkit_event_world_generated();
+    init_org_spigotmc_event_player_generated();
+  }
+});
+
+// ../../packages/paper-raw/src/bridge.ts
+function host() {
+  const value = Reflect.get(globalThis, "host");
+  if (value === null || typeof value !== "object")
+    throw new TypeError("ShamooRuntime Paper host is unavailable.");
+  if (typeof Reflect.get(value, "paperJava") !== "function" || typeof Reflect.get(value, "registerCallback") !== "function" || typeof Reflect.get(value, "unregisterCallback") !== "function")
+    throw new TypeError("ShamooRuntime does not provide executable Paper bindings.");
+  return value;
+}
+function marker(value) {
+  if (value === null || typeof value !== "object") return void 0;
+  const retained = rawHandles.get(value);
+  if (retained !== void 0) return retained;
+  const id = Reflect.get(value, "$paperHandle");
+  const type = Reflect.get(value, "type");
+  const identity = Reflect.get(value, "$paperObject");
+  const frame = Reflect.get(value, "$paperFrame");
+  if (typeof id !== "string" || typeof type !== "string" || typeof identity !== "string")
+    return void 0;
+  if (frame !== void 0 && typeof frame !== "string")
+    throw new TypeError("Runtime returned an invalid Paper frame.");
+  return {
+    $paperHandle: id,
+    $paperObject: identity,
+    type,
+    ...frame === void 0 ? {} : { $paperFrame: frame }
+  };
+}
+function currentFrame() {
+  const context = Reflect.get(globalThis, FRAME_CONTEXT);
+  const frame = context?.getStore();
+  return typeof frame === "string" ? frame : fallbackFrames.at(-1);
+}
+function request(value) {
+  const runtime = host();
+  const target = marker(value.target);
+  const frame = target === void 0 ? currentFrame() : void 0;
+  const payload = frame === void 0 ? value : { ...value, frame };
+  const registrations = [];
+  try {
+    const result = runtime.paperJava(
+      marshal(payload, 0, /* @__PURE__ */ new Set(), registrations)
+    );
+    return Promise.resolve(result).then(
+      (resolved) => hydrate(resolved),
+      (error) => {
+        rollbackCallbacks2(registrations, runtime);
+        throw error;
+      }
+    );
+  } catch (error) {
+    rollbackCallbacks2(registrations, runtime);
+    return Promise.reject(error instanceof Error ? error : new Error(String(error)));
+  }
+}
+function marshal(value, depth = 0, ancestors = /* @__PURE__ */ new Set(), registrations) {
+  if (depth > MAXIMUM_DEPTH) throw new TypeError("Paper argument nesting is too deep.");
+  if (value === null || typeof value === "string" || typeof value === "boolean" || typeof value === "number" && Number.isFinite(value))
+    return value;
+  if (typeof value === "bigint") return { $paperLong: value.toString() };
+  if (typeof value === "function") {
+    const registered = callback(value);
+    registrations?.push(registered.$callback);
+    return registered;
+  }
+  if (typeof value !== "object")
+    throw new TypeError("Paper arguments must be data, handles, or callbacks.");
+  const raw = rawHandles.get(value);
+  if (raw !== void 0) return raw;
+  if (ancestors.has(value)) throw new TypeError("Paper arguments must not contain cycles.");
+  ancestors.add(value);
+  try {
+    if (value instanceof Uint8Array) return value;
+    if (Array.isArray(value))
+      return value.map((item2) => marshal(item2, depth + 1, ancestors, registrations));
+    if (value instanceof Map)
+      return {
+        $paperMap: [...value].map(([key, item2]) => [
+          marshal(key, depth + 1, ancestors, registrations),
+          marshal(item2, depth + 1, ancestors, registrations)
+        ])
+      };
+    const prototype = Object.getPrototypeOf(value);
+    if (prototype !== Object.prototype && prototype !== null)
+      throw new TypeError("Paper arguments must use plain objects.");
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item2]) => [
+        key,
+        marshal(item2, depth + 1, ancestors, registrations)
+      ])
+    );
+  } finally {
+    ancestors.delete(value);
+  }
+}
+function rollbackCallbacks2(registrations, runtime = host()) {
+  if (registrations.length === 0) return;
+  for (const name of registrations)
+    try {
+      runtime.unregisterCallback(name);
+    } catch {
+    }
+}
+function callback(value) {
+  const runtime = host();
+  const name = `paper.raw.${String(++callbackSequence)}`;
+  const registered = runtime.registerCallback(name, (...incoming) => {
+    const envelope = incoming.length === 1 ? incoming[0] : void 0;
+    const isEnvelope = envelope !== null && typeof envelope === "object" && Reflect.get(envelope, "$paperCallback") === true;
+    const frame = isEnvelope ? Reflect.get(envelope, "$paperFrame") : void 0;
+    const callbackArguments = isEnvelope ? Reflect.get(envelope, "arguments") : incoming;
+    return withFrame(
+      typeof frame === "string" ? frame : void 0,
+      () => Promise.resolve(value(...callbackArguments.map((item2) => hydrate(item2)))).then((result) => {
+        if (result === void 0) return null;
+        const registrations = [];
+        try {
+          return marshal(result, 0, /* @__PURE__ */ new Set(), registrations);
+        } catch (error) {
+          rollbackCallbacks2(registrations, runtime);
+          throw error;
+        }
+      })
+    );
+  });
+  if (!registered) throw new Error(`Runtime rejected Paper callback registration: ${name}`);
+  return Object.freeze({ $callback: name });
+}
+function withFrame(frame, action) {
+  if (frame === void 0) return action();
+  const context = Reflect.get(globalThis, FRAME_CONTEXT);
+  if (context !== void 0) return context.run(frame, action);
+  fallbackFrames.push(frame);
+  try {
+    const result = action();
+    if (result instanceof Promise)
+      return result.finally(() => {
+        const index = fallbackFrames.lastIndexOf(frame);
+        if (index >= 0) fallbackFrames.splice(index, 1);
+      });
+    fallbackFrames.pop();
+    return result;
+  } catch (error) {
+    fallbackFrames.pop();
+    throw error;
+  }
+}
+function hydrateHandle(value) {
+  const existing = handles.get(value.$paperHandle);
+  const retained = existing?.deref();
+  if (retained !== void 0) return retained;
+  if (existing !== void 0) handles.delete(value.$paperHandle);
+  const target = /* @__PURE__ */ Object.create(null);
+  const proxy = new Proxy(target, {
+    get(_raw, property) {
+      if (property === "then") return void 0;
+      if (property === "$type") return value.type;
+      if (property === "$identity") return value.$paperObject;
+      if (property === "$release")
+        return async () => {
+          const released = await request({ operation: "release", handle: value.$paperHandle });
+          handles.delete(value.$paperHandle);
+          handleFinalizer.unregister(proxy);
+          return released === true;
+        };
+      if (property === "$get")
+        return (name, descriptor) => request({
+          operation: "get",
+          type: value.type,
+          name,
+          target: value,
+          ...descriptor === void 0 ? {} : { descriptor }
+        });
+      if (property === "$set")
+        return (name, item2, descriptor) => request({
+          operation: "set",
+          type: value.type,
+          name,
+          target: value,
+          value: item2,
+          ...descriptor === void 0 ? {} : { descriptor }
+        }).then(() => void 0);
+      if (property === "$invoke")
+        return (name, descriptor, ...arguments_) => request({
+          operation: "invoke",
+          type: value.type,
+          name,
+          target: value,
+          arguments: arguments_,
+          ...descriptor === void 0 ? {} : { descriptor }
+        });
+      if (typeof property !== "string") return void 0;
+      return (...arguments_) => request({
+        operation: "invoke",
+        type: value.type,
+        name: property,
+        target: value,
+        arguments: arguments_
+      });
+    }
+  });
+  rawHandles.set(proxy, Object.freeze({ ...value }));
+  const reference = new WeakRef(proxy);
+  handles.set(value.$paperHandle, reference);
+  handleFinalizer.register(proxy, { id: value.$paperHandle, reference }, proxy);
+  return proxy;
+}
+function hydrate(value, depth = 0) {
+  if (depth > MAXIMUM_DEPTH) throw new TypeError("Paper return value nesting is too deep.");
+  const handle = marker(value);
+  if (handle !== void 0) return hydrateHandle(handle);
+  if (Array.isArray(value)) return Object.freeze(value.map((item2) => hydrate(item2, depth + 1)));
+  if (value !== null && typeof value === "object") {
+    if (Reflect.get(value, "$paperLong") !== void 0)
+      return BigInt(String(Reflect.get(value, "$paperLong")));
+    if (Reflect.get(value, "$paperEnum") !== void 0) return Object.freeze({ ...value });
+    const mapEntries = Reflect.get(value, "$paperMap");
+    if (Array.isArray(mapEntries))
+      return new Map(
+        mapEntries.map((entry) => {
+          if (!Array.isArray(entry) || entry.length !== 2)
+            throw new TypeError("Runtime returned an invalid Paper map entry.");
+          return [hydrate(entry[0], depth + 1), hydrate(entry[1], depth + 1)];
+        })
+      );
+    return Object.freeze(
+      Object.fromEntries(
+        Object.entries(value).map(([key, item2]) => [key, hydrate(item2, depth + 1)])
+      )
+    );
+  }
+  return value;
+}
+function resolve(descriptor) {
+  const existing = types.get(descriptor.javaName);
+  if (existing !== void 0) return existing;
+  const target = /* @__PURE__ */ Object.create(null);
+  const proxy = new Proxy(target, {
+    get(_raw, property) {
+      if (property === "then") return void 0;
+      if (property === "$type") return descriptor.javaName;
+      if (property === "$new")
+        return (jvmDescriptor, ...arguments_) => request({
+          operation: "construct",
+          type: descriptor.javaName,
+          arguments: arguments_,
+          ...jvmDescriptor === void 0 ? {} : { descriptor: jvmDescriptor }
+        });
+      if (property === "$get")
+        return (name, jvmDescriptor) => request({
+          operation: "get",
+          type: descriptor.javaName,
+          name,
+          ...jvmDescriptor === void 0 ? {} : { descriptor: jvmDescriptor }
+        });
+      if (property === "$set")
+        return (name, value, jvmDescriptor) => request({
+          operation: "set",
+          type: descriptor.javaName,
+          name,
+          value,
+          ...jvmDescriptor === void 0 ? {} : { descriptor: jvmDescriptor }
+        }).then(() => void 0);
+      if (property === "$invoke")
+        return (name, jvmDescriptor, ...arguments_) => request({
+          operation: "invoke",
+          type: descriptor.javaName,
+          name,
+          arguments: arguments_,
+          ...jvmDescriptor === void 0 ? {} : { descriptor: jvmDescriptor }
+        });
+      if (typeof property !== "string") return void 0;
+      return (...arguments_) => request({
+        operation: "invoke",
+        type: descriptor.javaName,
+        name: property,
+        arguments: arguments_
+      });
+    }
+  });
+  types.set(descriptor.javaName, proxy);
+  return proxy;
+}
+function construct(descriptor, jvmDescriptor, ...arguments_) {
+  return request({
+    operation: "construct",
+    type: descriptor.javaName,
+    descriptor: jvmDescriptor,
+    arguments: arguments_
+  });
+}
+function invoke(target, owner, name, jvmDescriptor, ...arguments_) {
+  return request({
+    operation: "invoke",
+    type: owner.javaName,
+    name,
+    descriptor: jvmDescriptor,
+    target,
+    arguments: arguments_
+  });
+}
+function invokeStatic(owner, name, jvmDescriptor, ...arguments_) {
+  return request({
+    operation: "invoke",
+    type: owner.javaName,
+    name,
+    descriptor: jvmDescriptor,
+    arguments: arguments_
+  });
+}
+function same(left, right) {
+  return left.$identity === right.$identity;
+}
+function invokePaperCallback(callback2, values) {
+  const first = marker(values[0]);
+  return withFrame(first?.$paperFrame, () => callback2(...values.map((item2) => hydrate(item2))));
+}
+var CALLBACK_HOOK, FRAME_CONTEXT, MAXIMUM_DEPTH, callbackSequence, fallbackFrames, handles, rawHandles, types, handleFinalizer, paperJava;
+var init_bridge = __esm({
+  "../../packages/paper-raw/src/bridge.ts"() {
+    "use strict";
+    CALLBACK_HOOK = /* @__PURE__ */ Symbol.for("shamoo.paper.callback");
+    FRAME_CONTEXT = /* @__PURE__ */ Symbol.for("shamoo.paper.frame-context");
+    MAXIMUM_DEPTH = 32;
+    callbackSequence = 0;
+    fallbackFrames = [];
+    handles = /* @__PURE__ */ new Map();
+    rawHandles = /* @__PURE__ */ new WeakMap();
+    types = /* @__PURE__ */ new Map();
+    handleFinalizer = new FinalizationRegistry(({ id, reference }) => {
+      if (handles.get(id) === reference) handles.delete(id);
+      try {
+        void Promise.resolve(host().paperJava({ operation: "release", handle: id })).catch(
+          () => void 0
+        );
+      } catch {
+      }
+    });
+    paperJava = Object.freeze({
+      plugin: Object.freeze({ $paper: "plugin" }),
+      resolve,
+      construct,
+      invoke,
+      invokeStatic,
+      same,
+      describe: () => request({ operation: "describe" })
+    });
+    Reflect.defineProperty(globalThis, CALLBACK_HOOK, {
+      configurable: true,
+      value: invokePaperCallback
+    });
+  }
+});
+
+// ../../packages/paper-raw/src/index.ts
+var init_src6 = __esm({
+  "../../packages/paper-raw/src/index.ts"() {
+    "use strict";
+    init_bindings_generated();
+    init_events_generated();
+    init_bridge();
+  }
+});
+
 // ../../packages/paper/src/index.ts
 function callbackBound(value, name, maximum) {
   if (value !== void 0 && (!Number.isSafeInteger(value) || value < 1 || value > maximum))
@@ -354,12 +980,13 @@ function inventory(rows, title, options = {}) {
   });
 }
 var PAPER_VELOCITY_MESSAGE_BRIDGE, PAPER_VELOCITY_TRANSPORT;
-var init_src6 = __esm({
+var init_src7 = __esm({
   "../../packages/paper/src/index.ts"() {
     "use strict";
     init_src3();
     init_src4();
     init_src5();
+    init_src6();
     PAPER_VELOCITY_MESSAGE_BRIDGE = createToken(
       "ShamooRuntime Paper Velocity message bridge"
     );
@@ -376,7 +1003,7 @@ var init_plugin = __esm({
     "use strict";
     init_src2();
     init_src();
-    init_src6();
+    init_src7();
     CommandsPlugin = class {
       enabled() {
         console.info("[commands] Registered ping, greet, and the interactive showcase.");
@@ -584,6 +1211,7 @@ var init_paper2 = __esm({
 // ../../packages/bundler/dist/runtime-adapter.js
 var callbackMarker = (name) => ({ $callback: name });
 var callbackEncoder = new TextEncoder();
+var paperCallbackHook = /* @__PURE__ */ Symbol.for("shamoo.paper.callback");
 function callbackId(componentId, method2) {
   const encoded = [...callbackEncoder.encode(`${componentId}\0${method2}`)].map((value) => value.toString(16).padStart(2, "0")).join("");
   return `compiled.${encoded}`;
@@ -601,11 +1229,11 @@ function runtimeHost() {
     throw new TypeError("Runtime host must provide unregisterCallback.");
   return value;
 }
-function operation(host, name) {
-  const value = Reflect.get(host, name);
+function operation(host2, name) {
+  const value = Reflect.get(host2, name);
   if (typeof value !== "function")
     throw new TypeError(`Runtime host operation is unavailable: ${name}`);
-  return value.bind(host);
+  return value.bind(host2);
 }
 function operationMetadata(platform, typeName, component, method2) {
   return {
@@ -618,8 +1246,8 @@ function operationMetadata(platform, typeName, component, method2) {
     decorators: method2.decorators
   };
 }
-function call(host, platform, component, method2, name, ...arguments_) {
-  return operation(host, name)(operationMetadata(platform, name, component, method2), ...arguments_);
+function call(host2, platform, component, method2, name, ...arguments_) {
+  return operation(host2, name)(operationMetadata(platform, name, component, method2), ...arguments_);
 }
 function commandRecord(value, label) {
   if (value === null || typeof value !== "object" || Array.isArray(value))
@@ -725,21 +1353,21 @@ function validateDescriptor(value, depth = 0, ancestors = /* @__PURE__ */ new Se
     })
   );
 }
-function rollbackCallbacks(host, names) {
+function rollbackCallbacks(host2, names) {
   for (const name of names) {
     try {
-      host.unregisterCallback(name);
+      host2.unregisterCallback(name);
     } catch {
     }
   }
 }
-function encodeDescriptor(host, component, method2, callbacks, registered, value) {
+function encodeDescriptor(host2, component, method2, callbacks, registered, value) {
   if (typeof value === "function") {
     const name = `${callbackId(component.id, method2.name)}.${String(callbacks.sequence++)}`;
-    register(host, name, (...values) => {
+    register(host2, name, (...values) => {
       if (values.length !== 1) throw new TypeError("Invalid Paper action callback arguments.");
       return Reflect.apply(value, void 0, [
-        paperActionContext(host, component, method2, callbacks, values[0])
+        paperActionContext(host2, component, method2, callbacks, values[0])
       ]);
     });
     registered.push(name);
@@ -749,32 +1377,32 @@ function encodeDescriptor(host, component, method2, callbacks, registered, value
   if (Array.isArray(value)) {
     const entries = value;
     return entries.map(
-      (item2) => encodeDescriptor(host, component, method2, callbacks, registered, item2)
+      (item2) => encodeDescriptor(host2, component, method2, callbacks, registered, item2)
     );
   }
   const record = value;
   return Object.fromEntries(
     Object.entries(record).map(([key, item2]) => [
       key,
-      encodeDescriptor(host, component, method2, callbacks, registered, item2)
+      encodeDescriptor(host2, component, method2, callbacks, registered, item2)
     ])
   );
 }
-function descriptorCommandPromise(host, component, method2, callbacks, value, operation_, label, validate) {
+function descriptorCommandPromise(host2, component, method2, callbacks, value, operation_, label, validate) {
   const descriptor = validateDescriptor(value);
   const registered = [];
   try {
     return commandPromise(
-      operation_(encodeDescriptor(host, component, method2, callbacks, registered, descriptor)),
+      operation_(encodeDescriptor(host2, component, method2, callbacks, registered, descriptor)),
       label,
       validate
     );
   } catch (failure) {
-    rollbackCallbacks(host, registered);
+    rollbackCallbacks(host2, registered);
     throw failure;
   }
 }
-function paperActionContext(host, component, method2, callbacks, value) {
+function paperActionContext(host2, component, method2, callbacks, value) {
   const raw = commandRecord(value, "action context");
   const expected = [
     "token",
@@ -796,18 +1424,18 @@ function paperActionContext(host, component, method2, callbacks, value) {
     ...Object.hasOwn(raw, "slot") ? { slot: commandNumber(raw.slot, "action slot") } : {},
     ...item2 === void 0 ? {} : { item: item2 },
     reply: (message) => descriptorCommandPromise(
-      host,
+      host2,
       component,
       method2,
       callbacks,
       message,
-      (descriptor) => call(host, "paper", component, method2, "paperCommandReply", token, descriptor),
+      (descriptor) => call(host2, "paper", component, method2, "paperCommandReply", token, descriptor),
       "reply result",
       (result) => commandBoolean(result, "reply result")
     )
   });
 }
-function paperCommandContext(host, component, method2, callbacks, value) {
+function paperCommandContext(host2, component, method2, callbacks, value) {
   const raw = commandRecord(value, "context");
   commandKeys(raw, ["token", "sender", "alias", "input", "arguments", "options"], "context");
   const token = commandString(raw.token, "token");
@@ -818,47 +1446,47 @@ function paperCommandContext(host, component, method2, callbacks, value) {
     arguments: commandValues(raw.arguments, "arguments"),
     options: commandValues(raw.options, "options"),
     reply: (message) => descriptorCommandPromise(
-      host,
+      host2,
       component,
       method2,
       callbacks,
       message,
-      (descriptor) => call(host, "paper", component, method2, "paperCommandReply", token, descriptor),
+      (descriptor) => call(host2, "paper", component, method2, "paperCommandReply", token, descriptor),
       "reply result",
       (result) => commandBoolean(result, "reply result")
     ),
     openInventory: (inventory2) => descriptorCommandPromise(
-      host,
+      host2,
       component,
       method2,
       callbacks,
       inventory2,
-      (descriptor) => call(host, "paper", component, method2, "paperCommandOpenInventory", token, descriptor),
+      (descriptor) => call(host2, "paper", component, method2, "paperCommandOpenInventory", token, descriptor),
       "open-inventory result",
       (result) => commandBoolean(result, "open-inventory result")
     ),
     giveItem: (item2) => descriptorCommandPromise(
-      host,
+      host2,
       component,
       method2,
       callbacks,
       item2,
-      (descriptor) => call(host, "paper", component, method2, "paperCommandGiveItem", token, descriptor),
+      (descriptor) => call(host2, "paper", component, method2, "paperCommandGiveItem", token, descriptor),
       "give-item result",
       (result) => commandBoolean(result, "give-item result")
     ),
     findPlayer: (playerName) => commandPromise(
-      call(host, "paper", component, method2, "paperCommandFindPlayer", token, playerName),
+      call(host2, "paper", component, method2, "paperCommandFindPlayer", token, playerName),
       "find-player result",
       commandPlayer
     ),
     mainHand: () => commandPromise(
-      call(host, "paper", component, method2, "paperCommandMainHand", token),
+      call(host2, "paper", component, method2, "paperCommandMainHand", token),
       "main-hand result",
       commandItem
     ),
     takeMainHand: (material, amount) => commandPromise(
-      call(host, "paper", component, method2, "paperCommandTakeMainHand", token, material, amount),
+      call(host2, "paper", component, method2, "paperCommandTakeMainHand", token, material, amount),
       "take-main-hand result",
       (result) => commandBoolean(result, "take-main-hand result")
     )
@@ -874,6 +1502,9 @@ function executable(component, constructors) {
     );
   return Reflect.construct(constructor, []);
 }
+function generatedEventName(decoratorName) {
+  return /^On(.+Event(?:_\d+)?)$/.exec(decoratorName)?.[1];
+}
 function decorator(method2) {
   return method2.decorators.find(
     (item2) => [
@@ -886,7 +1517,12 @@ function decorator(method2) {
       "PacketHandler",
       "OnPacketReceive",
       "OnPacketSend"
-    ].includes(item2.name) || item2.name.startsWith("On") && item2.name.endsWith("Event")
+    ].includes(item2.name) || generatedEventName(item2.name) !== void 0
+  );
+}
+function eventDecorators(method2) {
+  return method2.decorators.filter(
+    (item2) => item2.name === "EventHandler" || generatedEventName(item2.name) !== void 0
   );
 }
 function firstString(method2, fallback) {
@@ -1095,8 +1731,8 @@ function commandInvocationValues(method2, context) {
   }
   return values;
 }
-function register(host, name, callback) {
-  if (host !== void 0 && !host.registerCallback(name, callback))
+function register(host2, name, callback2) {
+  if (host2 !== void 0 && !host2.registerCallback(name, callback2))
     throw new Error(`Runtime rejected callback registration: ${name}`);
   return name;
 }
@@ -1117,7 +1753,7 @@ function installRuntimeAdapter(metadata, platform, constructors) {
       }
     }
   }
-  const host = runtimeHost();
+  const host2 = runtimeHost();
   const instances = /* @__PURE__ */ new Map();
   const lifecycle2 = /* @__PURE__ */ new Map();
   const registrations = [];
@@ -1129,10 +1765,10 @@ function installRuntimeAdapter(metadata, platform, constructors) {
       const implementation = Reflect.get(target, method2.name);
       if (typeof implementation !== "function")
         throw new TypeError(`Compiler executable is missing: ${component.id}.${method2.name}`);
-      const invoke = (...values) => Reflect.apply(implementation, target, values);
+      const invoke2 = (...values) => Reflect.apply(implementation, target, values);
       if (method2.lifecycle !== void 0) {
         const methods = lifecycle2.get(method2.lifecycle) ?? [];
-        methods.push(() => invoke());
+        methods.push(() => invoke2());
         lifecycle2.set(method2.lifecycle, methods);
       }
       if (method2.invocation === void 0) continue;
@@ -1141,54 +1777,64 @@ function installRuntimeAdapter(metadata, platform, constructors) {
       const descriptorCallbacks = { sequence: 0 };
       const commandInvoke = (...values) => {
         if (values.length !== 1) throw new TypeError("Invalid Paper command callback arguments.");
-        if (host === void 0) throw new TypeError("Runtime host is unavailable.");
+        if (host2 === void 0) throw new TypeError("Runtime host is unavailable.");
         const context = paperCommandContext(
-          host,
+          host2,
           component,
           method2,
           descriptorCallbacks,
           values[0]
         );
-        return invoke(...commandInvocationValues(method2, context));
+        return invoke2(...commandInvocationValues(method2, context));
       };
-      const callback = register(
-        host,
+      const eventInvoke = (...values) => {
+        const hook = Reflect.get(globalThis, paperCallbackHook);
+        return typeof hook === "function" ? Reflect.apply(hook, void 0, [invoke2, values]) : invoke2(...values);
+      };
+      const callback2 = register(
+        host2,
         callbackName,
-        platform === "paper" && method2.invocation === "command" && host !== void 0 ? commandInvoke : invoke
+        platform === "paper" && method2.invocation === "command" && host2 !== void 0 ? commandInvoke : platform === "paper" && method2.invocation === "event" ? eventInvoke : invoke2
       );
-      if (host === void 0) continue;
+      if (host2 === void 0) continue;
       try {
-        const declaration2 = decorator(method2);
         if (method2.invocation === "event") {
-          const event = declaration2?.name.startsWith("On") === true && declaration2.name.endsWith("Event") ? declaration2.name.slice(2) : firstString(method2, method2.name);
-          if (platform === "paper")
-            call(
-              host,
-              platform,
-              component,
-              method2,
-              "paperSubscribeEvent",
-              event,
-              "NORMAL",
-              false,
-              callbackMarker(callback)
-            );
-          else
-            call(
-              host,
-              platform,
-              component,
-              method2,
-              "velocitySubscribeEvent",
-              event,
-              0,
-              callbackMarker(callback)
-            );
+          for (const eventDeclaration of eventDecorators(method2)) {
+            const generated = generatedEventName(eventDeclaration.name);
+            const event = generated ?? (typeof eventDeclaration.arguments[0] === "string" ? eventDeclaration.arguments[0] : method2.name);
+            const priorityValue = eventDeclaration.arguments[generated === void 0 ? 1 : 0];
+            const receiveCancelledValue = eventDeclaration.arguments[generated === void 0 ? 2 : 1];
+            const priority = typeof priorityValue === "string" ? priorityValue : "NORMAL";
+            const receiveCancelled = typeof receiveCancelledValue === "boolean" ? receiveCancelledValue : false;
+            if (platform === "paper")
+              call(
+                host2,
+                platform,
+                component,
+                method2,
+                "paperSubscribeEvent",
+                event,
+                priority,
+                receiveCancelled,
+                callbackMarker(callback2)
+              );
+            else
+              call(
+                host2,
+                platform,
+                component,
+                method2,
+                "velocitySubscribeEvent",
+                event,
+                0,
+                callbackMarker(callback2)
+              );
+          }
         } else if (method2.invocation === "command") {
           if (platform === "paper") {
             if (route === void 0) throw new TypeError("Paper command route is unavailable.");
             const registration = call(
-              host,
+              host2,
               platform,
               component,
               method2,
@@ -1196,51 +1842,51 @@ function installRuntimeAdapter(metadata, platform, constructors) {
               route.root,
               route.aliases,
               route.descriptor,
-              callbackMarker(callback)
+              callbackMarker(callback2)
             );
             if (!(registration instanceof Promise))
               throw new TypeError("Invalid Paper command registration promise.");
             registrations.push(
               registration.catch((failure) => {
-                rollbackCallbacks(host, [callback]);
+                rollbackCallbacks(host2, [callback2]);
                 throw failure;
               })
             );
           } else {
             call(
-              host,
+              host2,
               platform,
               component,
               method2,
               "velocityRegisterCommand",
               fullCommandSyntax(firstString(method2, method2.name)).root,
               [],
-              callbackMarker(callback)
+              callbackMarker(callback2)
             );
           }
         } else if (method2.invocation === "task") {
           call(
-            host,
+            host2,
             platform,
             component,
             method2,
             platform === "paper" ? "paperScheduleGlobal" : "velocitySchedule",
-            ...platform === "paper" ? [callbackMarker(callback)] : [0, callbackMarker(callback)]
+            ...platform === "paper" ? [callbackMarker(callback2)] : [0, callbackMarker(callback2)]
           );
         } else if (platform === "paper") {
-          call(host, platform, component, method2, "paperSubscribePacket", callbackMarker(callback));
+          call(host2, platform, component, method2, "paperSubscribePacket", callbackMarker(callback2));
         }
       } catch (failure) {
-        rollbackCallbacks(host, [callback]);
+        rollbackCallbacks(host2, [callback2]);
         throw failure;
       }
     }
   }
-  if (host !== void 0) {
+  if (host2 !== void 0) {
     for (const service of metadata.communication.services) {
       const target = instances.get(service.componentId);
       if (target === void 0) continue;
-      const callback = register(host, `service.${service.id}`, (operationName, values) => {
+      const callback2 = register(host2, `service.${service.id}`, (operationName, values) => {
         if (typeof operationName !== "string" || !Array.isArray(values) || !service.methods.includes(operationName))
           throw new TypeError(`Invalid service operation for ${service.id}.`);
         const method2 = Reflect.get(target, operationName);
@@ -1249,9 +1895,9 @@ function installRuntimeAdapter(metadata, platform, constructors) {
         return Reflect.apply(method2, target, values);
       });
       try {
-        operation(host, "shamooProvideService")(service.id, service.version, callback);
+        operation(host2, "shamooProvideService")(service.id, service.version, callback2);
       } catch (failure) {
-        rollbackCallbacks(host, [callback]);
+        rollbackCallbacks(host2, [callback2]);
         throw failure;
       }
     }

@@ -41,7 +41,6 @@ export interface PrepareItemEnchantEventMembers {
   getHandlers(): j_org_bukkit_event.HandlerList;
   getItem(): j_org_bukkit_inventory.ItemStack;
   getOffers(): Array<j_org_bukkit_enchantments.EnchantmentOffer> | null;
-  getView(): j_org_bukkit_inventory.InventoryView;
   getView(): j_org_bukkit_inventory_view.EnchantmentView;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;

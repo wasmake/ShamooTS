@@ -11,7 +11,6 @@ import type * as j_net_minecraft_network_protocol_ping from './net.minecraft.net
 export interface ClientboundStatusResponsePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientStatusPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientStatusPacketListener): void;
   hashCode(): number;
   status(): ServerStatus;
@@ -37,7 +36,6 @@ export interface ClientStatusPacketListenerStatics {
 /** JVM class net.minecraft.network.protocol.status.ServerboundStatusRequestPacket. */
 export interface ServerboundStatusRequestPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ServerStatusPacketListener>];
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerStatusPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ServerboundStatusRequestPacket>;
 }

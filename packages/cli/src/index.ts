@@ -23,7 +23,7 @@ import { diffPaperBindings, syncPaperBindings } from '@shamoo/paper-codegen';
 import { diffVelocityBindings, syncVelocityBindings } from '@shamoo/velocity-codegen';
 import { MANIFEST_VERSION, parseCommonDescriptor } from '@shamoo/runtime-protocol';
 
-export const CLI_VERSION = '0.1.0-rc.1' as const;
+export const CLI_VERSION = '0.1.0-rc.2' as const;
 export type CliCommand =
   'build' | 'create' | 'dev' | 'doctor' | 'help' | 'migrate' | 'paper' | 'velocity' | 'version';
 export type CodegenAction = 'generate' | 'sync' | 'diff';

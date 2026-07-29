@@ -4,7 +4,7 @@
 
 Shamoo is a framework foundation for TypeScript-authored Minecraft plugins. Phase 1 models Paper and Velocity hosts without claiming that Node.js can load a JVM plugin or that bridge generation exists. Public helper functions validate declarations and have no server side effects.
 
-The dependency direction is `common/core -> platform and protocol -> paper/velocity -> compiler declarations`. Raw packages hold opaque branded host values so TypeScript code cannot accidentally treat arbitrary objects as Paper or Velocity handles. `@shamoo/di` is an isolated runtime package; `@shamoo/config` remains contract-only.
+The dependency direction is `common/core -> platform and protocol -> paper/velocity -> compiler declarations`. Raw packages hold opaque branded host values so TypeScript code cannot accidentally treat arbitrary objects as Paper or Velocity handles. `@shamoo/di` is an isolated runtime package; `@shamoo/config` also exposes policy-confined persistent text files supplied by Runtime.
 
 Cross-plugin communication follows `runtime-protocol -> communication -> paper/velocity`. The neutral layer owns semver service/event contracts, reload policy, codecs, stable rebinding proxies, and transport errors. Platform packages only adapt host messaging. Paper can run without Velocity and exposes that state explicitly rather than silently dropping requests.
 
@@ -25,7 +25,7 @@ See [compiler](compiler.md) and [ADR 0003](adr/0003-compiler-owned-metadata.md).
 
 ## Build and release
 
-All public packages share version `0.1.0-rc.1`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
+All public packages share version `0.1.0-rc.2`, export only generated `dist` artifacts, and build ESM, CommonJS, source maps, and declarations. Strict TypeScript, type-aware ESLint, Vitest, Prettier, package validation, and TypeDoc run from the root. Private packages under `internal/` contain tooling only.
 
 Release-candidate tags run the complete repository check before packaging. The
 workflow creates package tarballs, an SPDX JSON SBOM, and SHA-256 checksums,

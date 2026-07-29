@@ -46,11 +46,7 @@ export interface MangroveRootPlacementStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer. */
 export interface MangroveRootPlacerMembers {
   readonly __javaSupertypes?: readonly [RootPlacer];
-  canPlaceRoot(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos): boolean;
-  placeRoot(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): void;
   placeRoots(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): boolean;
-  potentialRootPositions(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos): JavaList<j_net_minecraft_core.BlockPos>;
-  type(): RootPlacerType<object>;
 }
 export type MangroveRootPlacer = MangroveRootPlacerMembers & RootPlacer;
 export interface MangroveRootPlacerStatics {
@@ -62,21 +58,12 @@ export interface MangroveRootPlacerStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer. */
 export interface RootPlacerMembers {
-  readonly aboveRootPlacement: JavaOptional<AboveRootPlacement>;
-  canPlaceRoot(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos): boolean;
-  getPotentiallyWaterloggedState(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
   getTrunkOrigin(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_util.RandomSource): j_net_minecraft_core.BlockPos;
-  placeRoot(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): void;
   placeRoots(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): boolean;
-  readonly rootProvider: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider;
-  readonly trunkOffsetY: j_net_minecraft_util_valueproviders.IntProvider;
-  type(): RootPlacerType<object>;
 }
 export type RootPlacer = RootPlacerMembers;
 export interface RootPlacerStatics {
-  new(arg0: j_net_minecraft_util_valueproviders.IntProvider, arg1: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider, arg2: JavaOptional<AboveRootPlacement>): RootPlacer;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [RootPlacer]>;
-  rootPlacerParts<P /* extends RootPlacer */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P3", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, j_net_minecraft_util_valueproviders.IntProvider, j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider, JavaOptional<AboveRootPlacement>]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType. */

@@ -22,7 +22,6 @@ export interface DedicatedPlayerListMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_server_players.PlayerList];
   canBypassPlayerLimit(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): boolean;
   deop(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): void;
-  getServer(): j_net_minecraft_server.MinecraftServer;
   getServer(): DedicatedServer;
   isWhiteListed(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): boolean;
   loadAndSaveFiles(): void;
@@ -39,7 +38,6 @@ export interface DedicatedPlayerListStatics {
 export interface DedicatedServerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_server.MinecraftServer, j_net_minecraft_server.ServerInterface];
   acceptsTransfers(): boolean;
-  convertOldUsers(): boolean;
   createTextFilterForPlayer(arg0: j_net_minecraft_server_level.ServerPlayer): j_net_minecraft_server_network.TextFilter;
   /** @throws java.io.IOException */
   dumpServerProperties(arg0: JavaOpaque<"java.nio.file.Path">): void;
@@ -58,7 +56,6 @@ export interface DedicatedServerMembers {
   getMaxTickLength(): bigint;
   getOperatorUserPermissionLevel(): number;
   getPlayerList(): DedicatedPlayerList;
-  getPlayerList(): j_net_minecraft_server_players.PlayerList;
   getPluginNames(): string;
   getPluginsFolder(): JavaOpaque<"java.io.File">;
   getProperties(): DedicatedServerProperties;
@@ -118,7 +115,6 @@ export interface DedicatedServerPropertiesMembers {
   readonly broadcastConsoleToOps: boolean;
   readonly broadcastRconToOps: boolean;
   readonly bugReportLink: string;
-  cloneProperties(): JavaOpaque<"java.util.Properties">;
   createDimensions(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_level_levelgen.WorldDimensions;
   readonly debug: boolean;
   readonly difficulty: j_net_minecraft_world.Difficulty;
@@ -133,21 +129,6 @@ export interface DedicatedServerPropertiesMembers {
   readonly forceGameMode: boolean;
   readonly functionPermissionLevel: number;
   readonly gamemode: j_net_minecraft_world_level.GameType;
-  get(arg0: string, arg1: number): number;
-  get(arg0: string, arg1: bigint): bigint;
-  get(arg0: string, arg1: string): string;
-  get<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: V): V;
-  get<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: JavaFunction<V, string>, arg3: V): V;
-  get<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: JavaOpaque<"java.util.function.UnaryOperator", [V]>, arg3: JavaFunction<V, string>, arg4: V): V;
-  get(arg0: string, arg1: JavaOpaque<"java.util.function.UnaryOperator", [number]>, arg2: number): number;
-  get(arg0: string, arg1: boolean): boolean;
-  getLegacy<V>(arg0: string, arg1: JavaFunction<string, V>): V | null;
-  getLegacyBoolean(arg0: string): boolean | null;
-  getLegacyString(arg0: string): string | null;
-  getMutable(arg0: string, arg1: number): Settings_MutableValue<number>;
-  getMutable<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: V): Settings_MutableValue<V>;
-  getMutable<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: JavaFunction<V, string>, arg3: V): Settings_MutableValue<V>;
-  getMutable(arg0: string, arg1: boolean): Settings_MutableValue<boolean>;
   getStringRaw(arg0: string): string | null;
   readonly hardcore: boolean;
   readonly hideOnlinePlayers: boolean;
@@ -174,7 +155,6 @@ export interface DedicatedServerPropertiesMembers {
   readonly rconPort: number;
   readonly regionFileComression: string;
   reload(arg0: j_net_minecraft_core.RegistryAccess, arg1: JavaOpaque<"java.util.Properties">, arg2: JavaOpaque<"joptsimple.OptionSet">): DedicatedServerProperties;
-  reload(arg0: j_net_minecraft_core.RegistryAccess, arg1: JavaOpaque<"java.util.Properties">, arg2: JavaOpaque<"joptsimple.OptionSet">): Settings;
   readonly serverIp: string;
   readonly serverPort: number;
   readonly serverResourcePackInfo: JavaOptional<j_net_minecraft_server.MinecraftServer_ServerResourcePackInfo>;
@@ -235,31 +215,12 @@ export interface ServerWatchdogStatics {
 
 /** JVM abstract net.minecraft.server.dedicated.Settings. */
 export interface SettingsMembers<T /* extends Settings<T> */ = unknown> {
-  cloneProperties(): JavaOpaque<"java.util.Properties">;
-  get(arg0: string, arg1: number): number;
-  get(arg0: string, arg1: bigint): bigint;
-  get(arg0: string, arg1: string): string;
-  get<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: V): V;
-  get<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: JavaFunction<V, string>, arg3: V): V;
-  get<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: JavaOpaque<"java.util.function.UnaryOperator", [V]>, arg3: JavaFunction<V, string>, arg4: V): V;
-  get(arg0: string, arg1: JavaOpaque<"java.util.function.UnaryOperator", [number]>, arg2: number): number;
-  get(arg0: string, arg1: boolean): boolean;
-  getLegacy<V>(arg0: string, arg1: JavaFunction<string, V>): V | null;
-  getLegacyBoolean(arg0: string): boolean | null;
-  getLegacyString(arg0: string): string | null;
-  getMutable(arg0: string, arg1: number): Settings_MutableValue<number>;
-  getMutable<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: V): Settings_MutableValue<V>;
-  getMutable<V>(arg0: string, arg1: JavaFunction<string, V>, arg2: JavaFunction<V, string>, arg3: V): Settings_MutableValue<V>;
-  getMutable(arg0: string, arg1: boolean): Settings_MutableValue<boolean>;
   getStringRaw(arg0: string): string | null;
   readonly properties: JavaOpaque<"java.util.Properties">;
-  reload(arg0: j_net_minecraft_core.RegistryAccess, arg1: JavaOpaque<"java.util.Properties">, arg2: JavaOpaque<"joptsimple.OptionSet">): T;
   store(arg0: JavaOpaque<"java.nio.file.Path">): void;
 }
 export type Settings<T /* extends Settings<T> */ = unknown> = SettingsMembers<T>;
 export interface SettingsStatics {
-  new<T /* extends Settings<T> */>(arg0: JavaOpaque<"java.util.Properties">, arg1: JavaOpaque<"joptsimple.OptionSet">): Settings<T>;
-  dispatchNumberOrString<V>(arg0: JavaOpaque<"java.util.function.IntFunction", [V]>, arg1: JavaFunction<string, V>): JavaFunction<string, V>;
   loadFromFile(arg0: JavaOpaque<"java.nio.file.Path">): JavaOpaque<"java.util.Properties">;
 }
 

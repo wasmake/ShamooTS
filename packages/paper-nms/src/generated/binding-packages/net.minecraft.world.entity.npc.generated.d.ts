@@ -2,11 +2,9 @@
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_core_component from './net.minecraft.core.component.generated.js';
-import type * as j_net_minecraft_core_particles from './net.minecraft.core.particles.generated.js';
 import type * as j_net_minecraft_network from './net.minecraft.network.generated.js';
 import type * as j_net_minecraft_network_chat from './net.minecraft.network.chat.generated.js';
 import type * as j_net_minecraft_network_codec from './net.minecraft.network.codec.generated.js';
-import type * as j_net_minecraft_network_syncher from './net.minecraft.network.syncher.generated.js';
 import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
@@ -36,20 +34,15 @@ import type * as j_org_bukkit_craftbukkit_inventory from './org.bukkit.craftbukk
 /** JVM abstract net.minecraft.world.entity.npc.AbstractVillager. */
 export interface AbstractVillagerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.AgeableMob, InventoryCarrier, Npc, j_net_minecraft_world_item_trading.Merchant];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addOffersFromItemListings(arg0: j_net_minecraft_world_item_trading.MerchantOffers, arg1: Array<VillagerTrades_ItemListing>, arg2: number): void;
-  addParticlesAroundSelf(arg0: j_net_minecraft_core_particles.ParticleOptions): void;
   canBeLeashed(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   getCraftMerchant(): j_org_bukkit_craftbukkit_inventory.CraftMerchant;
   getInventory(): j_net_minecraft_world.SimpleContainer;
   getNotifyTradeSound(): j_net_minecraft_sounds.SoundEvent;
   getOffers(): j_net_minecraft_world_item_trading.MerchantOffers;
   getRopeHoldPosition(arg0: number): j_net_minecraft_world_phys.Vec3;
   getSlot(arg0: number): j_net_minecraft_world_entity.SlotAccess;
-  getTradeUpdatedSound(arg0: boolean): j_net_minecraft_sounds.SoundEvent;
   getTradingPlayer(): j_net_minecraft_world_entity_player.Player | null;
   getUnhappyCounter(): number;
   getVillagerXp(): number;
@@ -57,25 +50,19 @@ export interface AbstractVillagerMembers {
   isTrading(): boolean;
   notifyTrade(arg0: j_net_minecraft_world_item_trading.MerchantOffer): void;
   notifyTradeUpdated(arg0: j_net_minecraft_world_item.ItemStack): void;
-  offers: j_net_minecraft_world_item_trading.MerchantOffers | null;
-  overrideOffers(arg0: j_net_minecraft_world_item_trading.MerchantOffers | null): void | null;
+  overrideOffers(arg0: j_net_minecraft_world_item_trading.MerchantOffers | null): void;
   overrideXp(arg0: number): void;
   playCelebrateSound(): void;
-  processTrade(arg0: j_net_minecraft_world_item_trading.MerchantOffer, arg1: JavaOpaque<"io.papermc.paper.event.player.PlayerPurchaseEvent"> | null): void | null;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
+  processTrade(arg0: j_net_minecraft_world_item_trading.MerchantOffer, arg1: JavaOpaque<"io.papermc.paper.event.player.PlayerPurchaseEvent"> | null): void;
   resetOffers(): void;
-  rewardTradeXp(arg0: j_net_minecraft_world_item_trading.MerchantOffer): void;
-  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
+  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void;
   setUnhappyCounter(arg0: number): void;
   showProgressBar(): boolean;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
-  stopTrading(): void;
   teleport(arg0: j_net_minecraft_world_level_portal.TeleportTransition): j_net_minecraft_world_entity.Entity | null;
-  updateTrades(): void;
 }
 export type AbstractVillager = AbstractVillagerMembers & j_net_minecraft_world_entity.AgeableMob & InventoryCarrier & Npc & j_net_minecraft_world_item_trading.Merchant;
 export interface AbstractVillagerStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractVillager>, arg1: j_net_minecraft_world_level.Level): AbstractVillager;
   readonly VILLAGER_SLOT_OFFSET: 300;
 }
 
@@ -102,7 +89,7 @@ export interface ClientSideMerchantMembers {
   notifyTradeUpdated(arg0: j_net_minecraft_world_item.ItemStack): void;
   overrideOffers(arg0: j_net_minecraft_world_item_trading.MerchantOffers): void;
   overrideXp(arg0: number): void;
-  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
+  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void;
   showProgressBar(): boolean;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
 }
@@ -133,30 +120,20 @@ export interface NpcStatics {
 /** JVM class net.minecraft.world.entity.npc.Villager. */
 export interface VillagerMembers {
   readonly __javaSupertypes?: readonly [AbstractVillager, j_net_minecraft_world_entity.ReputationEventHandler, VillagerDataHolder];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  ageBoundaryReached(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   assignProfessionWhenSpawned(): boolean;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Villager>;
   canBreed(): boolean;
   canRestock(): boolean;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel, arg1: boolean): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   eatAndDigestFood(): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getBrain(): j_net_minecraft_world_entity_ai.Brain<Villager>;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Villager | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getGossips(): j_net_minecraft_world_entity_ai_gossip.GossipContainer;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getPlayerReputation(arg0: j_net_minecraft_world_entity_player.Player): number;
-  getTypeName(): j_net_minecraft_network_chat.Component;
   getVillagerData(): VillagerData;
   getVillagerXp(): number;
   gossip(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Villager, arg2: bigint): void;
@@ -165,24 +142,19 @@ export interface VillagerMembers {
   hasFarmSeeds(): boolean;
   inactiveTick(): void;
   increaseMerchantCareer(): void;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   numberOfRestocksToday: number;
   onReputationEventFrom(arg0: j_net_minecraft_world_entity_ai_village.ReputationEventType, arg1: j_net_minecraft_world_entity.Entity): void;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
   playWorkSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   refreshBrain(arg0: j_net_minecraft_server_level.ServerLevel): void;
   releaseAllPois(): void;
   releasePoi(arg0: j_net_minecraft_world_entity_ai_memory.MemoryModuleType<j_net_minecraft_core.GlobalPos>): void;
   removeWhenFarAway(arg0: number): boolean;
   restock(): void;
-  rewardTradeXp(arg0: j_net_minecraft_world_item_trading.MerchantOffer): void;
-  sendDebugPackets(): void;
   setGossips(arg0: j_net_minecraft_world_entity_ai_gossip.GossipContainer): void;
-  setLastHurtByMob(arg0: j_net_minecraft_world_entity.LivingEntity | null): void | null;
+  setLastHurtByMob(arg0: j_net_minecraft_world_entity.LivingEntity | null): void;
   setOffers(arg0: j_net_minecraft_world_item_trading.MerchantOffers): void;
-  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
+  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void;
   setUnhappy(): void;
   setVillagerData(arg0: VillagerData): void;
   setVillagerXp(arg0: number): void;
@@ -190,11 +162,9 @@ export interface VillagerMembers {
   spawnGolemIfNeeded(arg0: j_net_minecraft_server_level.ServerLevel, arg1: bigint, arg2: number): void;
   startSleeping(arg0: j_net_minecraft_core.BlockPos): void;
   stopSleeping(): void;
-  stopTrading(): void;
   thunderHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LightningBolt): void;
   tick(): void;
   updateDemand(): void;
-  updateTrades(): void;
   updateTrades(arg0: number): boolean;
   wantsMoreFood(): boolean;
   wantsToPickUp(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): boolean;
@@ -325,7 +295,6 @@ export interface VillagerTypeStatics {
 /** JVM class net.minecraft.world.entity.npc.WanderingTrader. */
 export interface WanderingTraderMembers {
   readonly __javaSupertypes?: readonly [AbstractVillager, j_net_minecraft_world_item_component.Consumable_OverrideConsumeSound];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   canDrinkMilk: boolean;
   canDrinkPotion: boolean;
@@ -336,17 +305,12 @@ export interface WanderingTraderMembers {
   getDespawnDelay(): number;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getNotifyTradeSound(): j_net_minecraft_sounds.SoundEvent;
-  getTradeUpdatedSound(arg0: boolean): j_net_minecraft_sounds.SoundEvent;
   getWanderTarget(): j_net_minecraft_core.BlockPos | null;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
-  rewardTradeXp(arg0: j_net_minecraft_world_item_trading.MerchantOffer): void;
   setDespawnDelay(arg0: number): void;
-  setWanderTarget(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  setWanderTarget(arg0: j_net_minecraft_core.BlockPos | null): void;
   showProgressBar(): boolean;
-  updateTrades(): void;
 }
 export type WanderingTrader = WanderingTraderMembers & AbstractVillager & j_net_minecraft_world_item_component.Consumable_OverrideConsumeSound;
 export interface WanderingTraderStatics {

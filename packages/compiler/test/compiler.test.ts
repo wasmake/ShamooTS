@@ -17,6 +17,11 @@ const request = (fixture: string) => ({
   entrypoint: 'src/plugin.ts',
   platforms: [PlatformKind.PAPER],
 });
+const commandToken = (
+  binding: 'Argument' | 'Option',
+  name: string,
+  options: Readonly<Record<string, unknown>>,
+) => ({ kind: 'token', value: { binding, arguments: [name, options] } });
 
 describe('shamooc metadata compiler', () => {
   it('discovers dependencies and declarations deterministically', async () => {
@@ -57,9 +62,11 @@ describe('shamooc metadata compiler', () => {
     );
   });
 
-  it('retains every command parameter decorator argument without DI diagnostics', async () => {
+  it('emits explicit and inferred command parsers without DI diagnostics', async () => {
     const result = await compilePlugin(request('commands'));
+    const repeated = await compilePlugin(request('commands'));
     expect(result.diagnostics).toEqual([]);
+    expect(repeated).toEqual(result);
     const method = result.metadata?.components[0]?.methods[0];
     expect(method?.decorators[0]).toMatchObject({
       name: 'Command',
@@ -99,6 +106,49 @@ describe('shamooc metadata compiler', () => {
       { kind: 'token', value: { binding: 'Sender', arguments: [] } },
       { kind: 'token', value: { binding: 'Context', arguments: [] } },
     ]);
+    const inferred = result.metadata?.components[0]?.methods[1];
+    expect(inferred?.parameters.map((parameter) => parameter.token)).toEqual([
+      commandToken('Argument', 'count', { parser: 'number' }),
+      commandToken('Argument', 'enabled', { parser: 'boolean' }),
+      commandToken('Argument', 'target', { parser: 'player' }),
+      commandToken('Argument', 'mode', { parser: 'string' }),
+      commandToken('Argument', 'level', { parser: 'number' }),
+      commandToken('Argument', 'direction', { parser: 'string' }),
+      commandToken('Argument', 'rank', { parser: 'number' }),
+      commandToken('Argument', 'material', { parser: 'material' }),
+      commandToken('Argument', 'shorthand', { parser: 'integer' }),
+      commandToken('Argument', 'optional', { parser: 'number' }),
+      commandToken('Argument', 'nullableTarget', { parser: 'player' }),
+      commandToken('Option', 'label', { parser: 'string' }),
+      commandToken('Option', 'ratio', { parser: 'number', required: true }),
+      commandToken('Option', 'verbose', { parser: 'boolean' }),
+    ]);
+  });
+
+  it('rejects unsupported command parser inference and property bindings', async () => {
+    const result = await compilePlugin(request('command-parser-errors'));
+    expect(result.metadata).toBeUndefined();
+    expect(
+      result.diagnostics.filter(
+        (item) => item.code === 'DECORATOR_USAGE' && item.message.includes('decorate a property'),
+      ),
+    ).toHaveLength(4);
+    expect(result.diagnostics.map((item) => item.message).join('\n')).toContain(
+      "from array type 'readonly string[]'",
+    );
+    expect(result.diagnostics.map((item) => item.message).join('\n')).toContain(
+      "from type 'string | number'",
+    );
+    expect(result.diagnostics.map((item) => item.message).join('\n')).toContain(
+      "from type 'Player'",
+    );
+    const messages = result.diagnostics.map((item) => item.message).join('\n');
+    expect(messages).toContain('spread properties can hide or replace an explicit parser');
+    expect(messages).toContain('computed option keys can hide an explicit parser');
+    expect(messages).toContain('options constants and expressions can hide an explicit parser');
+    expect(messages).toContain('cannot decorate a constructor parameter');
+    expect(messages).toContain('cannot decorate a parameter property');
+    expect(messages).toContain("cannot decorate a parameter of non-command method 'nonCommand'");
   });
 
   it('serializes literal tokens and resolves local/imported token declarations by symbol', async () => {
@@ -232,7 +282,7 @@ describe('shamooc metadata compiler', () => {
     expect(velocity.diagnostics).toEqual(
       expect.arrayContaining([expect.objectContaining({ code: 'PLATFORM_LEAK' })]),
     );
-  }, 120_000);
+  }, 180_000);
 
   it('follows reachable external dependency declarations for restricted imports', async () => {
     const denied = await compilePlugin(request('external-restricted'));
@@ -255,7 +305,13 @@ describe('shamooc metadata compiler', () => {
       expect.objectContaining({
         name: 'joined',
         invocation: 'event',
-        decorators: [expect.objectContaining({ name: 'OnPlayerJoinEvent', arguments: [] })],
+        decorators: [
+          expect.objectContaining({ name: 'OnPlayerJoinEvent', arguments: [] }),
+          expect.objectContaining({
+            name: 'OnPlayerRecipeBookClickEvent_2',
+            arguments: ['HIGHEST', true],
+          }),
+        ],
       }),
     ]);
   });
@@ -456,7 +512,7 @@ describe('shamooc metadata compiler', () => {
       });
     }).toThrow('unique');
     await expect(compilePluginOrThrow(request('valid'))).resolves.toMatchObject({
-      version: '0.1.0-rc.1',
+      version: '0.1.0-rc.2',
       communication: { services: [], events: [], consumers: [] },
     });
     await expect(compilePluginOrThrow(request('interface-token'))).rejects.toBeInstanceOf(

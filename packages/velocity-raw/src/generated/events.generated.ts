@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 export * from './event-packages/com.velocitypowered.api.event.command.generated.js';
 export * from './event-packages/com.velocitypowered.api.event.connection.generated.js';
 export * from './event-packages/com.velocitypowered.api.event.permission.generated.js';

@@ -47,8 +47,8 @@ export interface Advancement_BuilderMembers {
   addCriterion(arg0: string, arg1: Criterion<object>): Advancement_Builder;
   build(arg0: j_net_minecraft_resources.ResourceLocation): AdvancementHolder;
   display(arg0: DisplayInfo): Advancement_Builder;
-  display(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_network_chat.Component, arg2: j_net_minecraft_network_chat.Component, arg3: j_net_minecraft_resources.ResourceLocation | null, arg4: AdvancementType, arg5: boolean, arg6: boolean, arg7: boolean): Advancement_Builder | null;
-  display(arg0: j_net_minecraft_world_level.ItemLike, arg1: j_net_minecraft_network_chat.Component, arg2: j_net_minecraft_network_chat.Component, arg3: j_net_minecraft_resources.ResourceLocation | null, arg4: AdvancementType, arg5: boolean, arg6: boolean, arg7: boolean): Advancement_Builder | null;
+  display(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_network_chat.Component, arg2: j_net_minecraft_network_chat.Component, arg3: j_net_minecraft_resources.ResourceLocation | null, arg4: AdvancementType, arg5: boolean, arg6: boolean, arg7: boolean): Advancement_Builder;
+  display(arg0: j_net_minecraft_world_level.ItemLike, arg1: j_net_minecraft_network_chat.Component, arg2: j_net_minecraft_network_chat.Component, arg3: j_net_minecraft_resources.ResourceLocation | null, arg4: AdvancementType, arg5: boolean, arg6: boolean, arg7: boolean): Advancement_Builder;
   parent(arg0: AdvancementHolder): Advancement_Builder;
   parent(arg0: j_net_minecraft_resources.ResourceLocation): Advancement_Builder;
   requirements(arg0: AdvancementRequirements_Strategy): Advancement_Builder;
@@ -103,7 +103,6 @@ export interface AdvancementNodeStatics {
 /** JVM class net.minecraft.advancements.AdvancementProgress. */
 export interface AdvancementProgressMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [AdvancementProgress]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: AdvancementProgress): number;
   getCompletedCriteria(): Iterable<string>;
   getCriterion(arg0: string): CriterionProgress | null;
@@ -206,7 +205,7 @@ export interface AdvancementTreeMembers {
   nodes(): JavaCollection<AdvancementNode>;
   remove(arg0: JavaSet<j_net_minecraft_resources.ResourceLocation>): void;
   roots(): Iterable<AdvancementNode>;
-  setListener(arg0: AdvancementTree_Listener | null): void | null;
+  setListener(arg0: AdvancementTree_Listener | null): void;
 }
 export type AdvancementTree = AdvancementTreeMembers;
 export interface AdvancementTreeStatics {

@@ -2,7 +2,6 @@
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_network_chat from './net.minecraft.network.chat.generated.js';
 import type * as j_net_minecraft_network_codec from './net.minecraft.network.codec.generated.js';
-import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_server_packs from './net.minecraft.server.packs.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
 import type * as j_net_minecraft_world_flag from './net.minecraft.world.flag.generated.js';
@@ -12,21 +11,14 @@ import type * as j_net_minecraft_world_level_validation from './net.minecraft.wo
 /** JVM abstract net.minecraft.server.packs.repository.BuiltInPackSource. */
 export interface BuiltInPackSourceMembers {
   readonly __javaSupertypes?: readonly [RepositorySource];
-  createBuiltinPack(arg0: string, arg1: Pack_ResourcesSupplier, arg2: j_net_minecraft_network_chat.Component): Pack | null;
-  createVanillaPack(arg0: j_net_minecraft_server_packs.PackResources): Pack | null;
-  discoverPacksInPath(arg0: JavaOpaque<"java.nio.file.Path"> | null, arg1: JavaBiConsumer<string, JavaFunction<string, Pack>>): void | null;
-  getPackTitle(arg0: string): j_net_minecraft_network_chat.Component;
   getVanillaPack(): j_net_minecraft_server_packs.VanillaPackResources;
   loadPacks(arg0: JavaConsumer<Pack>): void;
-  populatePackList(arg0: JavaBiConsumer<string, JavaFunction<string, Pack>>): void;
 }
 export type BuiltInPackSource = BuiltInPackSourceMembers & RepositorySource;
 export interface BuiltInPackSourceStatics {
-  new(arg0: j_net_minecraft_server_packs.PackType, arg1: j_net_minecraft_server_packs.VanillaPackResources, arg2: j_net_minecraft_resources.ResourceLocation, arg3: j_net_minecraft_world_level_validation.DirectoryValidator): BuiltInPackSource;
   readonly CORE_PACK_INFO: KnownPack;
   readonly TESTS_ID: "tests";
   readonly VANILLA_ID: "vanilla";
-  fixedResources(arg0: j_net_minecraft_server_packs.PackResources): Pack_ResourcesSupplier;
 }
 
 /** JVM class net.minecraft.server.packs.repository.FolderRepositorySource. */
@@ -44,12 +36,6 @@ export interface FolderRepositorySourceStatics {
 /** JVM class net.minecraft.server.packs.repository.FolderRepositorySource$FolderPackDetector. */
 export interface FolderRepositorySource_FolderPackDetectorMembers {
   readonly __javaSupertypes?: readonly [PackDetector<Pack_ResourcesSupplier>];
-  /** @throws java.io.IOException */
-  createDirectoryPack(arg0: JavaOpaque<"java.nio.file.Path">): object;
-  createDirectoryPack(arg0: JavaOpaque<"java.nio.file.Path">): Pack_ResourcesSupplier;
-  /** @throws java.io.IOException */
-  createZipPack(arg0: JavaOpaque<"java.nio.file.Path">): object | null;
-  createZipPack(arg0: JavaOpaque<"java.nio.file.Path">): Pack_ResourcesSupplier | null;
 }
 export type FolderRepositorySource_FolderPackDetector = FolderRepositorySource_FolderPackDetectorMembers & PackDetector<Pack_ResourcesSupplier>;
 export interface FolderRepositorySource_FolderPackDetectorStatics {
@@ -158,15 +144,10 @@ export interface PackCompatibilityStatics {
 /** JVM abstract net.minecraft.server.packs.repository.PackDetector. */
 export interface PackDetectorMembers<T = unknown> {
   /** @throws java.io.IOException */
-  createDirectoryPack(arg0: JavaOpaque<"java.nio.file.Path">): T | null;
-  /** @throws java.io.IOException */
-  createZipPack(arg0: JavaOpaque<"java.nio.file.Path">): T | null;
-  /** @throws java.io.IOException */
   detectPackResources(arg0: JavaOpaque<"java.nio.file.Path">, arg1: JavaList<j_net_minecraft_world_level_validation.ForbiddenSymlinkInfo>): T | null;
 }
 export type PackDetector<T = unknown> = PackDetectorMembers<T>;
 export interface PackDetectorStatics {
-  new<T>(arg0: j_net_minecraft_world_level_validation.DirectoryValidator): PackDetector<T>;
 }
 
 /** JVM class net.minecraft.server.packs.repository.PackRepository. */
@@ -219,9 +200,6 @@ export interface RepositorySourceStatics {
 /** JVM class net.minecraft.server.packs.repository.ServerPacksSource. */
 export interface ServerPacksSourceMembers {
   readonly __javaSupertypes?: readonly [BuiltInPackSource];
-  createBuiltinPack(arg0: string, arg1: Pack_ResourcesSupplier, arg2: j_net_minecraft_network_chat.Component): Pack | null;
-  createVanillaPack(arg0: j_net_minecraft_server_packs.PackResources): Pack | null;
-  getPackTitle(arg0: string): j_net_minecraft_network_chat.Component;
 }
 export type ServerPacksSource = ServerPacksSourceMembers & BuiltInPackSource;
 export interface ServerPacksSourceStatics {

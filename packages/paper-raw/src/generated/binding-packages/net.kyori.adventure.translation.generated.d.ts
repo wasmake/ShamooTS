@@ -20,24 +20,20 @@ export interface AbstractTranslationStoreMembers<T = unknown> {
   registerAll(arg0: JavaOpaque<"java.util.Locale">, arg1: JavaMap<string, T>): void;
   registerAll(arg0: JavaOpaque<"java.util.Locale">, arg1: JavaSet<string>, arg2: JavaFunction<string, T>): void;
   toString(): string;
-  translationValue(arg0: string, arg1: JavaOpaque<"java.util.Locale">): T | null;
   unregister(arg0: string): void;
 }
 export type AbstractTranslationStore<T = unknown> = AbstractTranslationStoreMembers<T> & JavaOpaque<"net.kyori.examination.Examinable"> & TranslationStore<T>;
 export interface AbstractTranslationStoreStatics {
-  new<T>(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): AbstractTranslationStore<T>;
 }
 
 /** JVM abstract net.kyori.adventure.translation.AbstractTranslationStore$StringBased. */
 export interface AbstractTranslationStore_StringBasedMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [AbstractTranslationStore<T>, TranslationStore_StringBased<T>];
-  parse(arg0: string, arg1: JavaOpaque<"java.util.Locale">): T;
   registerAll(arg0: JavaOpaque<"java.util.Locale">, arg1: JavaOpaque<"java.nio.file.Path">, arg2: boolean): void;
   registerAll(arg0: JavaOpaque<"java.util.Locale">, arg1: JavaOpaque<"java.util.ResourceBundle">, arg2: boolean): void;
 }
 export type AbstractTranslationStore_StringBased<T = unknown> = AbstractTranslationStore_StringBasedMembers<T> & AbstractTranslationStore<T> & TranslationStore_StringBased<T>;
 export interface AbstractTranslationStore_StringBasedStatics {
-  new<T>(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): AbstractTranslationStore_StringBased<T>;
 }
 
 /** JVM interface net.kyori.adventure.translation.GlobalTranslator. */
@@ -68,7 +64,6 @@ export interface TranslationRegistryMembers {
   readonly __javaSupertypes?: readonly [Translator, TranslationStore_StringBased<JavaOpaque<"java.text.MessageFormat">>];
   contains(arg0: string): boolean;
   defaultLocale(arg0: JavaOpaque<"java.util.Locale">): void;
-  register(arg0: string, arg1: JavaOpaque<"java.util.Locale">, arg2: object): void;
   register(arg0: string, arg1: JavaOpaque<"java.util.Locale">, arg2: JavaOpaque<"java.text.MessageFormat">): void;
   registerAll(arg0: JavaOpaque<"java.util.Locale">, arg1: JavaOpaque<"java.nio.file.Path">, arg2: boolean): void;
   registerAll(arg0: JavaOpaque<"java.util.Locale">, arg1: JavaMap<string, JavaOpaque<"java.text.MessageFormat">>): void;

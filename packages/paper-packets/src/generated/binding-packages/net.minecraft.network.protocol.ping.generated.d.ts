@@ -5,7 +5,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 export interface ClientboundPongResponsePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.ping.ClientPongPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.ping.ClientPongPacketListener">): void;
   hashCode(): number;
   time(): bigint;
@@ -22,7 +21,6 @@ export interface ClientboundPongResponsePacketStatics {
 export interface ServerboundPingRequestPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.ping.ServerPingPacketListener">]>];
   getTime(): bigint;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.ping.ServerPingPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundPingRequestPacket]>;
 }

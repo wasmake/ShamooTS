@@ -27,81 +27,18 @@ import type * as j_org_bukkit_craftbukkit_block_data from './org.bukkit.craftbuk
 /** JVM abstract net.minecraft.world.level.block.state.BlockBehaviour. */
 export interface BlockBehaviourMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_flag.FeatureElement];
-  affectNeighborsAfterRemoval(arg0: BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  asBlock(): j_net_minecraft_world_level_block.Block;
   asItem(): j_net_minecraft_world_item.Item;
-  attack(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player): void;
-  canBeReplaced(arg0: BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canBeReplaced(arg0: BlockState, arg1: j_net_minecraft_world_level_material.Fluid): boolean;
-  canSurvive(arg0: BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_block.Block]>;
   defaultDestroyTime(): number;
   defaultMapColor(): j_net_minecraft_world_level_material.MapColor;
-  readonly descriptionId: string;
-  readonly drops: JavaOptional<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>>;
-  readonly dynamicShape: boolean;
-  entityInside(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  readonly explosionResistance: number;
-  readonly friction: number;
-  getAnalogOutputSignal(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getBlockSupportShape(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getCollisionShape(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getDescriptionId(): string;
-  getDestroyProgress(arg0: BlockState, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world_level.BlockGetter, arg3: j_net_minecraft_core.BlockPos): number;
-  getDirectSignal(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getDrops(arg0: BlockState, arg1: j_net_minecraft_world_level_storage_loot.LootParams_Builder): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getEntityInsideCollisionShape(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getFluidState(arg0: BlockState): j_net_minecraft_world_level_material.FluidState;
-  getInteractionShape(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getLightBlock(arg0: BlockState): number;
   getLootTable(): JavaOptional<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>>;
-  getMaxHorizontalOffset(): number;
-  getMaxVerticalOffset(): number;
   getMenuProvider(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  getOcclusionShape(arg0: BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getRenderShape(arg0: BlockState): j_net_minecraft_world_level_block.RenderShape;
-  getSeed(arg0: BlockState, arg1: j_net_minecraft_core.BlockPos): bigint;
-  getShadeBrightness(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getSoundType(arg0: BlockState): j_net_minecraft_world_level_block.SoundType;
-  getVisualShape(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  hasAnalogOutputSignal(arg0: BlockState): boolean;
   readonly hasCollision: boolean;
-  isCollisionShapeFullBlock(arg0: BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  isPathfindable(arg0: BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  readonly isRandomlyTicking: (boolean) & { (arg0: BlockState): boolean };
-  isSignalSource(arg0: BlockState): boolean;
-  readonly jumpFactor: number;
-  mirror(arg0: BlockState, arg1: j_net_minecraft_world_level_block.Mirror): BlockState;
-  neighborChanged(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block.Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onExplosionHit(arg0: BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  onPlace(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: BlockState, arg4: boolean): void;
-  onPlace(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: BlockState, arg4: boolean, arg5: j_net_minecraft_world_item_context.UseOnContext | null): void | null;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
-  propagatesSkylightDown(arg0: BlockState): boolean;
-  readonly properties: (BlockBehaviour_Properties) & { (): BlockBehaviour_Properties };
-  randomTick(arg0: BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  readonly requiredFeatures: (j_net_minecraft_world_flag.FeatureFlagSet) & { (): j_net_minecraft_world_flag.FeatureFlagSet };
-  rotate(arg0: BlockState, arg1: j_net_minecraft_world_level_block.Rotation): BlockState;
-  skipRendering(arg0: BlockState, arg1: BlockState, arg2: j_net_minecraft_core.Direction): boolean;
-  readonly soundType: j_net_minecraft_world_level_block.SoundType;
-  spawnAfterBreak(arg0: BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
-  readonly speedFactor: number;
-  tick(arg0: BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  triggerEvent(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: number): boolean;
-  updateIndirectNeighbourShapes(arg0: BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: number): void;
-  updateShape(arg0: BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: BlockState, arg7: j_net_minecraft_util.RandomSource): BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useShapeForLightOcclusion(arg0: BlockState): boolean;
-  useWithoutItem(arg0: BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
+  properties(): BlockBehaviour_Properties;
+  requiredFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
 }
 export type BlockBehaviour = BlockBehaviourMembers & j_net_minecraft_world_flag.FeatureElement;
 export interface BlockBehaviourStatics {
-  new(arg0: BlockBehaviour_Properties): BlockBehaviour;
-  readonly UPDATE_SHAPE_ORDER: Array<j_net_minecraft_core.Direction>;
-  propertiesCodec<B /* extends j_net_minecraft_world_level_block.Block */>(): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [B, BlockBehaviour_Properties]>;
   simpleCodec<B /* extends j_net_minecraft_world_level_block.Block */>(arg0: JavaFunction<BlockBehaviour_Properties, B>): JavaOpaque<"com.mojang.serialization.MapCodec", [B]>;
 }
 
@@ -109,7 +46,6 @@ export interface BlockBehaviourStatics {
 export interface BlockBehaviour_BlockStateBaseMembers {
   readonly __javaSupertypes?: readonly [StateHolder<j_net_minecraft_world_level_block.Block, BlockState>, JavaOpaque<"ca.spottedleaf.moonrise.patches.starlight.blockstate.StarlightAbstractBlockState">, JavaOpaque<"ca.spottedleaf.moonrise.patches.collisions.block.CollisionBlockState">];
   affectNeighborsAfterRemoval(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: boolean): void;
-  asState(): BlockState;
   attack(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): void;
   blocksMotion(): boolean;
   canBeReplaced(): boolean;
@@ -162,7 +98,7 @@ export interface BlockBehaviour_BlockStateBaseMembers {
   getValueOrElse<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: T): T;
   getValues(): JavaMap<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>;
   getVisualShape(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  handleNeighborChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: j_net_minecraft_world_level_redstone.Orientation | null, arg4: boolean): void | null;
+  handleNeighborChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: j_net_minecraft_world_level_redstone.Orientation | null, arg4: boolean): void;
   hasAnalogOutputSignal(): boolean;
   hasBlockEntity(): boolean;
   hasLargeCollisionShape(): boolean;
@@ -205,23 +141,18 @@ export interface BlockBehaviour_BlockStateBaseMembers {
   moonrise$uniqueId2(): number;
   onExplosionHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level.Explosion, arg3: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
   onPlace(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean): void;
-  onPlace(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean, arg4: j_net_minecraft_world_item_context.UseOnContext | null): void | null;
+  onPlace(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean, arg4: j_net_minecraft_world_item_context.UseOnContext | null): void;
   onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
-  optimisedTable: JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.util.ZeroCollidingReferenceStateTable", [j_net_minecraft_world_level_block.Block, BlockState]>;
-  readonly owner: j_net_minecraft_world_level_block.Block;
   populateNeighbours(arg0: JavaMap<JavaMap<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>, BlockState>): void;
   propagatesSkylightDown(): boolean;
-  readonly propertiesCodec: JavaOpaque<"com.mojang.serialization.MapCodec", [BlockState]>;
   randomTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
   requiresCorrectToolForDrops(): boolean;
   rotate(arg0: j_net_minecraft_world_level_block.Rotation): BlockState;
   setValue<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */, V /* extends T */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: V): BlockState;
-  shapeExceedsCube: boolean;
   shouldSpawnTerrainParticles(): boolean;
   skipRendering(arg0: BlockState, arg1: j_net_minecraft_core.Direction): boolean;
   spawnAfterBreak(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_item.ItemStack, arg3: boolean): void;
   starlight$isConditionallyFullOpaque(): boolean;
-  readonly tableIndex: bigint;
   tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
   toString(): string;
   triggerEvent(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: number): boolean;
@@ -237,7 +168,6 @@ export interface BlockBehaviour_BlockStateBaseMembers {
 }
 export type BlockBehaviour_BlockStateBase = BlockBehaviour_BlockStateBaseMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.starlight.blockstate.StarlightAbstractBlockState"> & JavaOpaque<"ca.spottedleaf.moonrise.patches.collisions.block.CollisionBlockState">;
 export interface BlockBehaviour_BlockStateBaseStatics {
-  new(arg0: j_net_minecraft_world_level_block.Block, arg1: JavaOpaque<"it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap", [j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>]>, arg2: JavaOpaque<"com.mojang.serialization.MapCodec", [BlockState]>): BlockBehaviour_BlockStateBase;
 }
 
 /** JVM interface net.minecraft.world.level.block.state.BlockBehaviour$OffsetFunction. */
@@ -265,8 +195,6 @@ export interface BlockBehaviour_PropertiesMembers {
   air(): BlockBehaviour_Properties;
   destroyTime(arg0: number): BlockBehaviour_Properties;
   dynamicShape(): BlockBehaviour_Properties;
-  effectiveDescriptionId(): string;
-  effectiveDrops(): JavaOptional<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>>;
   emissiveRendering(arg0: BlockBehaviour_StatePredicate): BlockBehaviour_Properties;
   explosionResistance(arg0: number): BlockBehaviour_Properties;
   forceSolidOff(): BlockBehaviour_Properties;
@@ -332,7 +260,6 @@ export interface BlockBehaviour_StatePredicateStatics {
 export interface BlockStateMembers {
   readonly __javaSupertypes?: readonly [BlockBehaviour_BlockStateBase];
   affectNeighborsAfterRemoval(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: boolean): void;
-  asState(): BlockState;
   attack(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): void;
   blocksMotion(): boolean;
   canBeReplaced(): boolean;
@@ -386,7 +313,7 @@ export interface BlockStateMembers {
   getValueOrElse<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: T): T;
   getValues(): JavaMap<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>;
   getVisualShape(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  handleNeighborChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: j_net_minecraft_world_level_redstone.Orientation | null, arg4: boolean): void | null;
+  handleNeighborChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: j_net_minecraft_world_level_redstone.Orientation | null, arg4: boolean): void;
   hasAnalogOutputSignal(): boolean;
   hasBlockEntity(): boolean;
   hasLargeCollisionShape(): boolean;
@@ -429,23 +356,18 @@ export interface BlockStateMembers {
   moonrise$uniqueId2(): number;
   onExplosionHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level.Explosion, arg3: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
   onPlace(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean): void;
-  onPlace(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean, arg4: j_net_minecraft_world_item_context.UseOnContext | null): void | null;
+  onPlace(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: BlockState, arg3: boolean, arg4: j_net_minecraft_world_item_context.UseOnContext | null): void;
   onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
-  optimisedTable: JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.util.ZeroCollidingReferenceStateTable", [j_net_minecraft_world_level_block.Block, BlockState]>;
-  readonly owner: j_net_minecraft_world_level_block.Block;
   populateNeighbours(arg0: JavaMap<JavaMap<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>, BlockState>): void;
   propagatesSkylightDown(): boolean;
-  readonly propertiesCodec: JavaOpaque<"com.mojang.serialization.MapCodec", [BlockState]>;
   randomTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
   requiresCorrectToolForDrops(): boolean;
   rotate(arg0: j_net_minecraft_world_level_block.Rotation): BlockState;
   setValue<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */, V /* extends T */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: V): BlockState;
-  shapeExceedsCube: boolean;
   shouldSpawnTerrainParticles(): boolean;
   skipRendering(arg0: BlockState, arg1: j_net_minecraft_core.Direction): boolean;
   spawnAfterBreak(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_item.ItemStack, arg3: boolean): void;
   starlight$isConditionallyFullOpaque(): boolean;
-  readonly tableIndex: bigint;
   tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
   toString(): string;
   triggerEvent(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: number): boolean;
@@ -476,7 +398,6 @@ export interface StateDefinitionMembers<O = unknown, S /* extends StateHolder<O,
 }
 export type StateDefinition<O = unknown, S /* extends StateHolder<O, S> */ = unknown> = StateDefinitionMembers<O, S>;
 export interface StateDefinitionStatics {
-  new<O, S /* extends StateHolder<O, S> */>(arg0: JavaFunction<O, S>, arg1: O, arg2: StateDefinition_Factory<O, S>, arg3: JavaMap<string, j_net_minecraft_world_level_block_state_properties.Property<object>>): StateDefinition<O, S>;
 }
 
 /** JVM class net.minecraft.world.level.block.state.StateDefinition$Builder. */
@@ -510,21 +431,14 @@ export interface StateHolderMembers<O = unknown, S = unknown> {
   hasProperty(arg0: j_net_minecraft_world_level_block_state_properties.Property<object>): boolean;
   hashCode(): number;
   moonrise$getTableIndex(): bigint;
-  optimisedTable: JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.util.ZeroCollidingReferenceStateTable", [O, S]>;
-  readonly owner: O;
   populateNeighbours(arg0: JavaMap<JavaMap<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>, S>): void;
-  readonly propertiesCodec: JavaOpaque<"com.mojang.serialization.MapCodec", [S]>;
   setValue<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */, V /* extends T */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: V): S;
-  readonly tableIndex: bigint;
   toString(): string;
   trySetValue<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */, V /* extends T */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: V): S;
 }
 export type StateHolder<O = unknown, S = unknown> = StateHolderMembers<O, S> & JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccessStateHolder">;
 export interface StateHolderStatics {
-  new<O, S>(arg0: O, arg1: JavaOpaque<"it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap", [j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>]>, arg2: JavaOpaque<"com.mojang.serialization.MapCodec", [S]>): StateHolder<O, S>;
   readonly NAME_TAG: "Name";
   readonly PROPERTIES_TAG: "Properties";
   readonly PROPERTY_ENTRY_TO_STRING_FUNCTION: JavaFunction<JavaMapEntry<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>, string>;
-  codec<O, S /* extends StateHolder<O, S> */>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [O]>, arg1: JavaFunction<O, S>): JavaOpaque<"com.mojang.serialization.Codec", [S]>;
-  findNextInCollection<T>(arg0: JavaList<T>, arg1: T): T;
 }

@@ -10,10 +10,7 @@ import type * as j_net_minecraft_world_level_levelgen_feature_configurations fro
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer. */
 export interface AcaciaFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type AcaciaFoliagePlacer = AcaciaFoliagePlacerMembers & FoliagePlacer;
 export interface AcaciaFoliagePlacerStatics {
@@ -24,25 +21,17 @@ export interface AcaciaFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer. */
 export interface BlobFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  readonly height: number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type BlobFoliagePlacer = BlobFoliagePlacerMembers & FoliagePlacer;
 export interface BlobFoliagePlacerStatics {
   new(arg0: j_net_minecraft_util_valueproviders.IntProvider, arg1: j_net_minecraft_util_valueproviders.IntProvider, arg2: number): BlobFoliagePlacer;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BlobFoliagePlacer]>;
-  blobParts<P /* extends BlobFoliagePlacer */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P3", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, j_net_minecraft_util_valueproviders.IntProvider, j_net_minecraft_util_valueproviders.IntProvider, number]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer. */
 export interface BushFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [BlobFoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type BushFoliagePlacer = BushFoliagePlacerMembers & BlobFoliagePlacer;
 export interface BushFoliagePlacerStatics {
@@ -53,10 +42,7 @@ export interface BushFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer. */
 export interface CherryFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type CherryFoliagePlacer = CherryFoliagePlacerMembers & FoliagePlacer;
 export interface CherryFoliagePlacerStatics {
@@ -67,11 +53,7 @@ export interface CherryFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer. */
 export interface DarkOakFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  shouldSkipLocationSigned(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type DarkOakFoliagePlacer = DarkOakFoliagePlacerMembers & FoliagePlacer;
 export interface DarkOakFoliagePlacerStatics {
@@ -82,9 +64,6 @@ export interface DarkOakFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer. */
 export interface FancyFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [BlobFoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type FancyFoliagePlacer = FancyFoliagePlacerMembers & BlobFoliagePlacer;
 export interface FancyFoliagePlacerStatics {
@@ -95,23 +74,12 @@ export interface FancyFoliagePlacerStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer. */
 export interface FoliagePlacerMembers {
   createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number): void;
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
   foliageRadius(arg0: j_net_minecraft_util.RandomSource, arg1: number): number;
-  readonly offset: j_net_minecraft_util_valueproviders.IntProvider;
-  placeLeavesRow(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: j_net_minecraft_core.BlockPos, arg5: number, arg6: number, arg7: boolean): void;
-  placeLeavesRowWithHangingLeavesBelow(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: j_net_minecraft_core.BlockPos, arg5: number, arg6: number, arg7: boolean, arg8: number, arg9: number): void;
-  readonly radius: j_net_minecraft_util_valueproviders.IntProvider;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  shouldSkipLocationSigned(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type FoliagePlacer = FoliagePlacerMembers;
 export interface FoliagePlacerStatics {
-  new(arg0: j_net_minecraft_util_valueproviders.IntProvider, arg1: j_net_minecraft_util_valueproviders.IntProvider): FoliagePlacer;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [FoliagePlacer]>;
-  foliagePlacerParts<P /* extends FoliagePlacer */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P2", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, j_net_minecraft_util_valueproviders.IntProvider, j_net_minecraft_util_valueproviders.IntProvider]>;
-  tryPlaceLeaf(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: j_net_minecraft_core.BlockPos): boolean;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer$FoliageAttachment. */
@@ -156,11 +124,7 @@ export interface FoliagePlacerTypeStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer. */
 export interface MegaJungleFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  readonly height: number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type MegaJungleFoliagePlacer = MegaJungleFoliagePlacerMembers & FoliagePlacer;
 export interface MegaJungleFoliagePlacerStatics {
@@ -171,10 +135,7 @@ export interface MegaJungleFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer. */
 export interface MegaPineFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type MegaPineFoliagePlacer = MegaPineFoliagePlacerMembers & FoliagePlacer;
 export interface MegaPineFoliagePlacerStatics {
@@ -185,11 +146,8 @@ export interface MegaPineFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.PineFoliagePlacer. */
 export interface PineFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
   foliageRadius(arg0: j_net_minecraft_util.RandomSource, arg1: number): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type PineFoliagePlacer = PineFoliagePlacerMembers & FoliagePlacer;
 export interface PineFoliagePlacerStatics {
@@ -200,10 +158,7 @@ export interface PineFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer. */
 export interface RandomSpreadFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type RandomSpreadFoliagePlacer = RandomSpreadFoliagePlacerMembers & FoliagePlacer;
 export interface RandomSpreadFoliagePlacerStatics {
@@ -214,10 +169,7 @@ export interface RandomSpreadFoliagePlacerStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer. */
 export interface SpruceFoliagePlacerMembers {
   readonly __javaSupertypes?: readonly [FoliagePlacer];
-  createFoliage(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: FoliagePlacer_FoliageSetter, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg4: number, arg5: FoliagePlacer_FoliageAttachment, arg6: number, arg7: number, arg8: number): void;
   foliageHeight(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): number;
-  shouldSkipLocation(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): boolean;
-  type(): FoliagePlacerType<object>;
 }
 export type SpruceFoliagePlacer = SpruceFoliagePlacerMembers & FoliagePlacer;
 export interface SpruceFoliagePlacerStatics {

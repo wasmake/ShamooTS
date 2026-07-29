@@ -15,14 +15,12 @@ export interface CraftAsyncSchedulerStatics {
 /** JVM class org.bukkit.craftbukkit.scheduler.CraftScheduler. */
 export interface CraftSchedulerMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.scheduler.BukkitScheduler">];
-  addTask(arg0: CraftTask): void;
   callSyncMethod<T>(arg0: JavaOpaque<"org.bukkit.plugin.Plugin">, arg1: JavaOpaque<"java.util.concurrent.Callable", [T]>): PromiseLike<T>;
   cancelTask(arg0: number): void;
   cancelTasks(arg0: JavaOpaque<"org.bukkit.plugin.Plugin">): void;
   getActiveWorkers(): JavaList<JavaOpaque<"org.bukkit.scheduler.BukkitWorker">>;
   getMainThreadExecutor(arg0: JavaOpaque<"org.bukkit.plugin.Plugin">): JavaOpaque<"java.util.concurrent.Executor">;
   getPendingTasks(): JavaList<JavaOpaque<"org.bukkit.scheduler.BukkitTask">>;
-  handle(arg0: CraftTask, arg1: bigint): CraftTask;
   isCurrentlyRunning(arg0: number): boolean;
   isQueued(arg0: number): boolean;
   mainThreadHeartbeat(): void;

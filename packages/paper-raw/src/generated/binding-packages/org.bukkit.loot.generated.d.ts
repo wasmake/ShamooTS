@@ -10,8 +10,8 @@ export interface LootableMembers {
   getLootTable(): LootTable | null;
   getSeed(): bigint;
   hasLootTable(): boolean;
-  setLootTable(arg0: LootTable | null): void | null;
-  setLootTable(arg0: LootTable | null, arg1: bigint): void | null;
+  setLootTable(arg0: LootTable | null): void;
+  setLootTable(arg0: LootTable | null, arg1: bigint): void;
   setSeed(arg0: bigint): void;
 }
 export type Lootable = LootableMembers;
@@ -34,8 +34,8 @@ export interface LootContextStatics {
 /** JVM class org.bukkit.loot.LootContext$Builder. */
 export interface LootContext_BuilderMembers {
   build(): LootContext;
-  killer(arg0: j_org_bukkit_entity.HumanEntity | null): LootContext_Builder | null;
-  lootedEntity(arg0: j_org_bukkit_entity.Entity | null): LootContext_Builder | null;
+  killer(arg0: j_org_bukkit_entity.HumanEntity | null): LootContext_Builder;
+  lootedEntity(arg0: j_org_bukkit_entity.Entity | null): LootContext_Builder;
   lootingModifier(arg0: number): LootContext_Builder;
   luck(arg0: number): LootContext_Builder;
 }
@@ -47,8 +47,8 @@ export interface LootContext_BuilderStatics {
 /** JVM interface org.bukkit.loot.LootTable. */
 export interface LootTableMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit.Keyed];
-  fillInventory(arg0: j_org_bukkit_inventory.Inventory, arg1: JavaOpaque<"java.util.Random"> | null, arg2: LootContext): void | null;
-  populateLoot(arg0: JavaOpaque<"java.util.Random"> | null, arg1: LootContext): JavaCollection<j_org_bukkit_inventory.ItemStack> | null;
+  fillInventory(arg0: j_org_bukkit_inventory.Inventory, arg1: JavaOpaque<"java.util.Random"> | null, arg2: LootContext): void;
+  populateLoot(arg0: JavaOpaque<"java.util.Random"> | null, arg1: LootContext): JavaCollection<j_org_bukkit_inventory.ItemStack>;
 }
 export type LootTable = LootTableMembers & j_org_bukkit.Keyed;
 export interface LootTableStatics {

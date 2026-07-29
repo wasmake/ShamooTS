@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/paper-codegen",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Deterministic Paper, Mojang-mapped NMS, and packet TypeScript binding generator.",
   "license": "Apache-2.0",
   "type": "module",

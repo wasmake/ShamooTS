@@ -23,22 +23,18 @@ import type * as j_net_minecraft_world_level from './net.minecraft.world.level.g
 import type * as j_net_minecraft_world_level_block from './net.minecraft.world.level.block.generated.js';
 import type * as j_net_minecraft_world_level_material from './net.minecraft.world.level.material.generated.js';
 import type * as j_net_minecraft_world_level_saveddata_maps from './net.minecraft.world.level.saveddata.maps.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.decoration.ArmorStand. */
 export interface ArmorStandMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.LivingEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   attackable(): boolean;
   canBeSeenByAnyone(): boolean;
   canMove: boolean;
   canTick: boolean;
   canTickSetByAPI: boolean;
   canUseSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   disabledSlots: number;
-  doPush(arg0: j_net_minecraft_world_entity.Entity): void;
   getArmorStandPose(): ArmorStand_ArmorStandPose;
   getBodyPose(): j_net_minecraft_core.Rotations;
   getBukkitYaw(): number;
@@ -69,13 +65,11 @@ export interface ArmorStandMembers {
   isPickable(): boolean;
   isSmall(): boolean;
   kill(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  kill(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource | null): void | null;
-  kill(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: boolean): void | null;
+  kill(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource | null): void;
+  kill(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: boolean): void;
   lastHit: bigint;
   move(arg0: j_net_minecraft_world_entity.MoverType, arg1: j_net_minecraft_world_phys.Vec3): void;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  pushEntities(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   refreshDimensions(): void;
   setArmorStandPose(arg0: ArmorStand_ArmorStandPose): void;
   setBodyPose(arg0: j_net_minecraft_core.Rotations): void;
@@ -98,9 +92,7 @@ export interface ArmorStandMembers {
   skipAttackInteraction(arg0: j_net_minecraft_world_entity.Entity): boolean;
   thunderHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LightningBolt): void;
   tick(): void;
-  tickHeadTurn(arg0: number): void;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
-  updateInvisibilityStatus(): void;
 }
 export type ArmorStand = ArmorStandMembers & j_net_minecraft_world_entity.LivingEntity;
 export interface ArmorStandStatics {
@@ -152,21 +144,15 @@ export interface ArmorStand_ArmorStandPoseStatics {
 /** JVM abstract net.minecraft.world.entity.decoration.BlockAttachedEntity. */
 export interface BlockAttachedEntityMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: boolean): void;
-  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void | null;
+  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void;
   getPos(): j_net_minecraft_core.BlockPos;
   hurtClient(arg0: j_net_minecraft_world_damagesource.DamageSource): boolean;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   ignoreExplosion(arg0: j_net_minecraft_world_level.Explosion): boolean;
   isPickable(): boolean;
   move(arg0: j_net_minecraft_world_entity.MoverType, arg1: j_net_minecraft_world_phys.Vec3): void;
-  pos: j_net_minecraft_core.BlockPos;
-  push(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_world_entity.Entity | null): void | null;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  recalculateBoundingBox(): void;
+  push(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_world_entity.Entity | null): void;
   refreshDimensions(): void;
-  repositionEntityAfterLoad(): boolean;
   setPos(arg0: number, arg1: number, arg2: number): void;
   skipAttackInteraction(arg0: j_net_minecraft_world_entity.Entity): boolean;
   survives(): boolean;
@@ -175,8 +161,6 @@ export interface BlockAttachedEntityMembers {
 }
 export type BlockAttachedEntity = BlockAttachedEntityMembers & j_net_minecraft_world_entity.Entity;
 export interface BlockAttachedEntityStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<BlockAttachedEntity>, arg1: j_net_minecraft_world_level.Level): BlockAttachedEntity;
-  new(arg0: j_net_minecraft_world_entity.EntityType<BlockAttachedEntity>, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): BlockAttachedEntity;
 }
 
 /** JVM class net.minecraft.world.entity.decoration.GlowItemFrame. */
@@ -184,7 +168,6 @@ export interface GlowItemFrameMembers {
   readonly __javaSupertypes?: readonly [ItemFrame];
   getAddItemSound(): j_net_minecraft_sounds.SoundEvent;
   getBreakSound(): j_net_minecraft_sounds.SoundEvent;
-  getFrameItemStack(): j_net_minecraft_world_item.ItemStack;
   getPlaceSound(): j_net_minecraft_sounds.SoundEvent;
   getRemoveItemSound(): j_net_minecraft_sounds.SoundEvent;
   getRotateItemSound(): j_net_minecraft_sounds.SoundEvent;
@@ -198,42 +181,30 @@ export interface GlowItemFrameStatics {
 /** JVM abstract net.minecraft.world.entity.decoration.HangingEntity. */
 export interface HangingEntityMembers {
   readonly __javaSupertypes?: readonly [BlockAttachedEntity];
-  calculateBoundingBox(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction): j_net_minecraft_world_phys.AABB;
-  calculateSupportBox(): j_net_minecraft_world_phys.AABB;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getDirection(): j_net_minecraft_core.Direction;
   mirror(arg0: j_net_minecraft_world_level_block.Mirror): number;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playPlacementSound(): void;
-  recalculateBoundingBox(): void;
   rotate(arg0: j_net_minecraft_world_level_block.Rotation): number;
   setDirection(arg0: j_net_minecraft_core.Direction): void;
-  setDirectionRaw(arg0: j_net_minecraft_core.Direction): void;
   spawnAtLocation(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack, arg2: number): j_net_minecraft_world_entity_item.ItemEntity;
   survives(): boolean;
 }
 export type HangingEntity = HangingEntityMembers & BlockAttachedEntity;
 export interface HangingEntityStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<HangingEntity>, arg1: j_net_minecraft_world_level.Level): HangingEntity;
-  new(arg0: j_net_minecraft_world_entity.EntityType<HangingEntity>, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): HangingEntity;
-  readonly HANGING_ENTITY: JavaPredicate<j_net_minecraft_world_entity.Entity>;
 }
 
 /** JVM class net.minecraft.world.entity.decoration.ItemFrame. */
 export interface ItemFrameMembers {
   readonly __javaSupertypes?: readonly [HangingEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   cachedMapId: j_net_minecraft_world_level_saveddata_maps.MapId | null;
-  calculateBoundingBox(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction): j_net_minecraft_world_phys.AABB;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   dropChance: number;
-  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void | null;
+  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void;
   fixed: boolean;
   getAddEntityPacket(arg0: j_net_minecraft_server_level.ServerEntity): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>;
   getAddItemSound(): j_net_minecraft_sounds.SoundEvent;
   getAnalogOutput(): number;
   getBreakSound(): j_net_minecraft_sounds.SoundEvent;
-  getFrameItemStack(): j_net_minecraft_world_item.ItemStack;
   getFramedMapId(arg0: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_level_saveddata_maps.MapId | null;
   getItem(): j_net_minecraft_world_item.ItemStack;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
@@ -251,9 +222,7 @@ export interface ItemFrameMembers {
   move(arg0: j_net_minecraft_world_entity.MoverType, arg1: j_net_minecraft_world_phys.Vec3): void;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playPlacementSound(): void;
-  push(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_world_entity.Entity | null): void | null;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  recalculateBoundingBox(): void;
+  push(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_world_entity.Entity | null): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
   setDirection(arg0: j_net_minecraft_core.Direction): void;
   setItem(arg0: j_net_minecraft_world_item.ItemStack): void;
@@ -278,17 +247,13 @@ export interface ItemFrameStatics {
 /** JVM class net.minecraft.world.entity.decoration.LeashFenceKnotEntity. */
 export interface LeashFenceKnotEntityMembers {
   readonly __javaSupertypes?: readonly [BlockAttachedEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void | null;
+  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void;
   getAddEntityPacket(arg0: j_net_minecraft_server_level.ServerEntity): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   getRopeHoldPosition(arg0: number): j_net_minecraft_world_phys.Vec3;
   interact(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   notifyLeasheeRemoved(arg0: j_net_minecraft_world_entity.Leashable): void;
   playPlacementSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  recalculateBoundingBox(): void;
   shouldRenderAtSqrDistance(arg0: number): boolean;
   survives(): boolean;
 }
@@ -298,25 +263,19 @@ export interface LeashFenceKnotEntityStatics {
   new(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): LeashFenceKnotEntity;
   readonly OFFSET_Y: 0.375;
   getOrCreateKnot(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): LeashFenceKnotEntity;
-  getOrCreateKnot(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.apache.commons.lang3.mutable.MutableBoolean"> | null): LeashFenceKnotEntity | null;
+  getOrCreateKnot(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.apache.commons.lang3.mutable.MutableBoolean"> | null): LeashFenceKnotEntity;
 }
 
 /** JVM class net.minecraft.world.entity.decoration.Painting. */
 export interface PaintingMembers {
   readonly __javaSupertypes?: readonly [HangingEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  calculateBoundingBox(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction): j_net_minecraft_world_phys.AABB;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void | null;
+  dropItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null): void;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAddEntityPacket(arg0: j_net_minecraft_server_level.ServerEntity): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   getVariant(): j_net_minecraft_core.Holder<PaintingVariant>;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playPlacementSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
   setVariant(arg0: j_net_minecraft_core.Holder<PaintingVariant>): void;
   snapTo(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): void;

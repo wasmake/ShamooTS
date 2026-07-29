@@ -81,18 +81,14 @@ export interface NormalNoise_NoiseParametersStatics {
 
 /** JVM class net.minecraft.world.level.levelgen.synth.PerlinNoise. */
 export interface PerlinNoiseMembers {
-  amplitudes(): JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">;
-  firstOctave(): number;
   getOctaveNoise(arg0: number): ImprovedNoise | null;
   getValue(arg0: number, arg1: number, arg2: number): number;
   getValue(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): number;
   maxBrokenValue(arg0: number): number;
-  maxValue(): number;
   parityConfigString(arg0: JavaOpaque<"java.lang.StringBuilder">): void;
 }
 export type PerlinNoise = PerlinNoiseMembers;
 export interface PerlinNoiseStatics {
-  new(arg0: j_net_minecraft_util.RandomSource, arg1: JavaOpaque<"com.mojang.datafixers.util.Pair", [number, JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">]>, arg2: boolean): PerlinNoise;
   create(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, ...arg3: Array<number>): PerlinNoise;
   create(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">): PerlinNoise;
   create(arg0: j_net_minecraft_util.RandomSource, arg1: JavaList<number>): PerlinNoise;
@@ -122,6 +118,4 @@ export interface SimplexNoiseMembers {
 export type SimplexNoise = SimplexNoiseMembers;
 export interface SimplexNoiseStatics {
   new(arg0: j_net_minecraft_util.RandomSource): SimplexNoise;
-  readonly GRADIENT: Array<Array<number>>;
-  dot(arg0: Array<number>, arg1: number, arg2: number, arg3: number): number;
 }

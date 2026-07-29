@@ -1,8 +1,19 @@
 {
-  "name": "@shamoo-examples/complete-velocity-plugin",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@shamoo/example-complete-velocity-plugin",
+  "version": "0.1.0-rc.2",
   "type": "module",
+  "files": [
+    "src",
+    "README.md",
+    "RUNTIME.md",
+    "shamoo.config.json",
+    "tsconfig.json",
+    "vitest.config.ts"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://shamoof.com/npm/"
+  },
   "scripts": {
     "build": "shamooc",
     "doctor": "shamoo doctor",

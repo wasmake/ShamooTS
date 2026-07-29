@@ -102,9 +102,8 @@ export interface PercentilesStatics {
 
 /** JVM class net.minecraft.util.profiling.jfr.SummaryReporter. */
 export interface SummaryReporterMembers {
-  recordingStopped(arg0: JavaOpaque<"java.nio.file.Path"> | null): void | null;
+  recordingStopped(arg0: JavaOpaque<"java.nio.file.Path"> | null): void;
 }
 export type SummaryReporter = SummaryReporterMembers;
 export interface SummaryReporterStatics {
-  new(arg0: JavaRunnable): SummaryReporter;
 }

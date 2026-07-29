@@ -35,7 +35,6 @@ export interface MetricSamplerMembers {
 }
 export type MetricSampler = MetricSamplerMembers;
 export interface MetricSamplerStatics {
-  new(arg0: string, arg1: MetricCategory, arg2: JavaOpaque<"java.util.function.DoubleSupplier">, arg3: JavaRunnable | null, arg4: MetricSampler_ThresholdTest | null): MetricSampler;
   builder<T>(arg0: string, arg1: MetricCategory, arg2: JavaOpaque<"java.util.function.ToDoubleFunction", [T]>, arg3: T): MetricSampler_MetricSamplerBuilder<T>;
   create<T>(arg0: string, arg1: MetricCategory, arg2: T, arg3: JavaOpaque<"java.util.function.ToDoubleFunction", [T]>): MetricSampler;
   create(arg0: string, arg1: MetricCategory, arg2: JavaOpaque<"java.util.function.DoubleSupplier">): MetricSampler;

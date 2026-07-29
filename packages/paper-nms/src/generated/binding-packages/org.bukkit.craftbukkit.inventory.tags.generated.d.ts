@@ -4,11 +4,9 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 /** JVM class org.bukkit.craftbukkit.inventory.tags.DeprecatedContainerTagType. */
 export interface DeprecatedContainerTagTypeMembers<C = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.persistence.PersistentDataType", [JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">, C]>];
-  fromPrimitive(arg0: object, arg1: JavaOpaque<"org.bukkit.persistence.PersistentDataAdapterContext">): object;
   fromPrimitive(arg0: JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">, arg1: JavaOpaque<"org.bukkit.persistence.PersistentDataAdapterContext">): C;
   getComplexType(): JavaClass<C>;
   getPrimitiveType(): JavaClass<JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">>;
-  toPrimitive(arg0: object, arg1: JavaOpaque<"org.bukkit.persistence.PersistentDataAdapterContext">): object;
   toPrimitive(arg0: C, arg1: JavaOpaque<"org.bukkit.persistence.PersistentDataAdapterContext">): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
 }
 export type DeprecatedContainerTagType<C = unknown> = DeprecatedContainerTagTypeMembers<C> & JavaOpaque<"org.bukkit.persistence.PersistentDataType", [JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">, C]>;

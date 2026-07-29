@@ -11,7 +11,7 @@ import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.gen
 /** JVM class net.minecraft.world.level.portal.PortalForcer. */
 export interface PortalForcerMembers {
   createPortal(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction_Axis): JavaOptional<j_net_minecraft.BlockUtil_FoundRectangle>;
-  createPortal(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction_Axis, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): JavaOptional<j_net_minecraft.BlockUtil_FoundRectangle> | null;
+  createPortal(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction_Axis, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): JavaOptional<j_net_minecraft.BlockUtil_FoundRectangle>;
   findClosestPortalPosition(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_border.WorldBorder, arg2: number): JavaOptional<j_net_minecraft_core.BlockPos>;
   findClosestPortalPosition(arg0: j_net_minecraft_core.BlockPos, arg1: boolean, arg2: j_net_minecraft_world_level_border.WorldBorder): JavaOptional<j_net_minecraft_core.BlockPos>;
 }

@@ -25,7 +25,6 @@ export interface VehicleCollisionEventMembers {
 }
 export type VehicleCollisionEvent = VehicleCollisionEventMembers & VehicleEvent;
 export interface VehicleCollisionEventStatics {
-  new(arg0: j_org_bukkit_entity.Vehicle): VehicleCollisionEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -106,11 +105,9 @@ export interface VehicleEntityCollisionEventStatics {
 export interface VehicleEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event.Event];
   getVehicle(): j_org_bukkit_entity.Vehicle;
-  vehicle: j_org_bukkit_entity.Vehicle;
 }
 export type VehicleEvent = VehicleEventMembers & j_org_bukkit_event.Event;
 export interface VehicleEventStatics {
-  new(arg0: j_org_bukkit_entity.Vehicle): VehicleEvent;
 }
 
 /** JVM class org.bukkit.event.vehicle.VehicleExitEvent. */

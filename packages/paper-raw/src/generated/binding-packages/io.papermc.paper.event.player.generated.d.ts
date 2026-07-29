@@ -46,11 +46,9 @@ export interface AbstractRespawnEventMembers {
   isAnchorSpawn(): boolean;
   isBedSpawn(): boolean;
   isMissingRespawnBlock(): boolean;
-  respawnLocation: j_org_bukkit.Location;
 }
 export type AbstractRespawnEvent = AbstractRespawnEventMembers & j_org_bukkit_event_player.PlayerEvent;
 export interface AbstractRespawnEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_org_bukkit.Location, arg2: boolean, arg3: boolean, arg4: boolean, arg5: j_org_bukkit_event_player.PlayerRespawnEvent_RespawnReason): AbstractRespawnEvent;
 }
 
 /** JVM class io.papermc.paper.event.player.AsyncChatCommandDecorateEvent. */
@@ -60,7 +58,7 @@ export interface AsyncChatCommandDecorateEventMembers {
 }
 export type AsyncChatCommandDecorateEvent = AsyncChatCommandDecorateEventMembers & AsyncChatDecorateEvent;
 export interface AsyncChatCommandDecorateEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_net_kyori_adventure_text.Component): AsyncChatCommandDecorateEvent;
+  new(arg0: j_org_bukkit_entity.Player | null, arg1: j_net_kyori_adventure_text.Component): AsyncChatCommandDecorateEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -77,7 +75,7 @@ export interface AsyncChatDecorateEventMembers {
 }
 export type AsyncChatDecorateEvent = AsyncChatDecorateEventMembers & j_org_bukkit_event_server.ServerEvent & j_org_bukkit_event.Cancellable;
 export interface AsyncChatDecorateEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_net_kyori_adventure_text.Component): AsyncChatDecorateEvent;
+  new(arg0: j_org_bukkit_entity.Player | null, arg1: j_net_kyori_adventure_text.Component): AsyncChatDecorateEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -96,7 +94,6 @@ export interface AsyncChatEventStatics {
 export interface CartographyItemEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_inventory.InventoryClickEvent];
   getInventory(): j_org_bukkit_inventory.CartographyInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
 }
 export type CartographyItemEvent = CartographyItemEventMembers & j_org_bukkit_event_inventory.InventoryClickEvent;
 export interface CartographyItemEventStatics {
@@ -135,12 +132,12 @@ export interface PlayerBedFailEnterEventMembers {
   getWillExplode(): boolean;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setMessage(arg0: j_net_kyori_adventure_text.Component): void | null;
+  setMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
   setWillExplode(arg0: boolean): void;
 }
 export type PlayerBedFailEnterEvent = PlayerBedFailEnterEventMembers & j_org_bukkit_event_player.PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerBedFailEnterEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: PlayerBedFailEnterEvent_FailReason, arg2: j_org_bukkit_block.Block, arg3: boolean, arg4: j_net_kyori_adventure_text.Component): PlayerBedFailEnterEvent;
+  new(arg0: j_org_bukkit_entity.Player, arg1: PlayerBedFailEnterEvent_FailReason, arg2: j_org_bukkit_block.Block, arg3: boolean, arg4: j_net_kyori_adventure_text.Component | null): PlayerBedFailEnterEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -169,13 +166,13 @@ export interface PlayerChangeBeaconEffectEventMembers {
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
   setConsumeItem(arg0: boolean): void;
-  setPrimary(arg0: j_org_bukkit_potion.PotionEffectType): void | null;
-  setSecondary(arg0: j_org_bukkit_potion.PotionEffectType): void | null;
+  setPrimary(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
+  setSecondary(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
   willConsumeItem(): boolean;
 }
 export type PlayerChangeBeaconEffectEvent = PlayerChangeBeaconEffectEventMembers & j_org_bukkit_event_player.PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerChangeBeaconEffectEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_org_bukkit_potion.PotionEffectType, arg2: j_org_bukkit_potion.PotionEffectType, arg3: j_org_bukkit_block.Block): PlayerChangeBeaconEffectEvent;
+  new(arg0: j_org_bukkit_entity.Player, arg1: j_org_bukkit_potion.PotionEffectType | null, arg2: j_org_bukkit_potion.PotionEffectType | null, arg3: j_org_bukkit_block.Block): PlayerChangeBeaconEffectEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -202,7 +199,6 @@ export interface PlayerCustomClickEventMembers {
 }
 export type PlayerCustomClickEvent = PlayerCustomClickEventMembers & j_org_bukkit_event.Event;
 export interface PlayerCustomClickEventStatics {
-  new(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: j_io_papermc_paper_connection.PlayerCommonConnection): PlayerCustomClickEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -319,7 +315,7 @@ export interface PlayerItemFrameChangeEventMembers {
   getItemStack(): j_org_bukkit_inventory.ItemStack;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setItemStack(arg0: j_org_bukkit_inventory.ItemStack): void | null;
+  setItemStack(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PlayerItemFrameChangeEvent = PlayerItemFrameChangeEventMembers & j_org_bukkit_event_player.PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerItemFrameChangeEventStatics {
@@ -425,7 +421,7 @@ export interface PlayerNameEntityEventMembers {
   isPersistent(): boolean;
   setCancelled(arg0: boolean): void;
   setEntity(arg0: j_org_bukkit_entity.LivingEntity): void;
-  setName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  setName(arg0: j_net_kyori_adventure_text.Component | null): void;
   setPersistent(arg0: boolean): void;
 }
 export type PlayerNameEntityEvent = PlayerNameEntityEventMembers & j_org_bukkit_event_player.PlayerEvent & j_org_bukkit_event.Cancellable;
@@ -497,7 +493,6 @@ export interface PlayerPickItemEventMembers {
 }
 export type PlayerPickItemEvent = PlayerPickItemEventMembers & j_org_bukkit_event_player.PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerPickItemEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: boolean, arg2: number, arg3: number): PlayerPickItemEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 

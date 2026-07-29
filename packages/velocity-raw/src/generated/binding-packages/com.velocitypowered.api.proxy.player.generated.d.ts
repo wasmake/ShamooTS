@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_com_velocitypowered_api_proxy_crypto from './com.velocitypowered.api.proxy.crypto.generated.js';
 import type * as j_com_velocitypowered_api_util from './com.velocitypowered.api.util.generated.js';
@@ -85,9 +85,9 @@ export interface ResourcePackInfoStatics {
 /** JVM interface com.velocitypowered.api.proxy.player.ResourcePackInfo$Builder. */
 export interface ResourcePackInfo_BuilderMembers {
   build(): ResourcePackInfo;
-  setHash(arg0: Array<number>): ResourcePackInfo_Builder | null;
+  setHash(arg0: Array<number> | null): ResourcePackInfo_Builder;
   setId(arg0: JavaOpaque<"java.util.UUID">): ResourcePackInfo_Builder;
-  setPrompt(arg0: j_net_kyori_adventure_text.Component): ResourcePackInfo_Builder | null;
+  setPrompt(arg0: j_net_kyori_adventure_text.Component | null): ResourcePackInfo_Builder;
   setShouldForce(arg0: boolean): ResourcePackInfo_Builder;
 }
 export type ResourcePackInfo_Builder = ResourcePackInfo_BuilderMembers;
@@ -107,7 +107,7 @@ export interface ResourcePackInfo_OriginStatics {
 
 /** JVM class com.velocitypowered.api.proxy.player.SkinParts. */
 export interface SkinPartsMembers {
-  equals(arg0: object): boolean | null;
+  equals(arg0: object | null): boolean;
   hasCape(): boolean;
   hasHat(): boolean;
   hasJacket(): boolean;
@@ -127,12 +127,12 @@ export interface TabListMembers {
   addEntries(arg0: Iterable<TabListEntry>): void;
   addEntries(...arg0: Array<TabListEntry>): void;
   addEntry(arg0: TabListEntry): void;
-  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number): TabListEntry | null;
-  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: j_com_velocitypowered_api_proxy_crypto.IdentifiedKey): TabListEntry | null;
-  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: ChatSession): TabListEntry | null;
-  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: ChatSession, arg5: boolean): TabListEntry | null;
-  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: ChatSession, arg5: boolean, arg6: number): TabListEntry | null;
-  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: ChatSession, arg5: boolean, arg6: number, arg7: boolean): TabListEntry | null;
+  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: number): TabListEntry;
+  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: number, arg4: j_com_velocitypowered_api_proxy_crypto.IdentifiedKey | null): TabListEntry;
+  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: number, arg4: ChatSession | null): TabListEntry;
+  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: number, arg4: ChatSession | null, arg5: boolean): TabListEntry;
+  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: number, arg4: ChatSession | null, arg5: boolean, arg6: number): TabListEntry;
+  buildEntry(arg0: j_com_velocitypowered_api_util.GameProfile, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: number, arg4: ChatSession | null, arg5: boolean, arg6: number, arg7: boolean): TabListEntry;
   clearAll(): void;
   clearHeaderAndFooter(): void;
   containsEntry(arg0: JavaOpaque<"java.util.UUID">): boolean;
@@ -158,7 +158,7 @@ export interface TabListEntryMembers {
   getTabList(): TabList;
   isListed(): boolean;
   isShowHat(): boolean;
-  setDisplayName(arg0: j_net_kyori_adventure_text.Component): TabListEntry | null;
+  setDisplayName(arg0: j_net_kyori_adventure_text.Component | null): TabListEntry;
   setGameMode(arg0: number): TabListEntry;
   setLatency(arg0: number): TabListEntry;
   setListOrder(arg0: number): TabListEntry;
@@ -174,7 +174,7 @@ export interface TabListEntryStatics {
 export interface TabListEntry_BuilderMembers {
   build(): TabListEntry;
   chatSession(arg0: ChatSession): TabListEntry_Builder;
-  displayName(arg0: j_net_kyori_adventure_text.Component): TabListEntry_Builder | null;
+  displayName(arg0: j_net_kyori_adventure_text.Component | null): TabListEntry_Builder;
   gameMode(arg0: number): TabListEntry_Builder;
   latency(arg0: number): TabListEntry_Builder;
   listOrder(arg0: number): TabListEntry_Builder;

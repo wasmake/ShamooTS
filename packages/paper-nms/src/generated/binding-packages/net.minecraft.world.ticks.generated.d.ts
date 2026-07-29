@@ -60,7 +60,7 @@ export interface LevelChunkTicksMembers<T = unknown> {
   poll(): ScheduledTick<T> | null;
   removeIf(arg0: JavaPredicate<ScheduledTick<T>>): void;
   schedule(arg0: ScheduledTick<T>): void;
-  setOnTickAdded(arg0: JavaBiConsumer<LevelChunkTicks<T>, ScheduledTick<T>> | null): void | null;
+  setOnTickAdded(arg0: JavaBiConsumer<LevelChunkTicks<T>, ScheduledTick<T>> | null): void;
   unpack(arg0: bigint): void;
 }
 export type LevelChunkTicks<T = unknown> = LevelChunkTicksMembers<T> & SerializableTickContainer<T> & TickContainerAccess<T> & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.ticks.ChunkSystemLevelChunkTicks">;

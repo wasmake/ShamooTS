@@ -16,7 +16,6 @@ export interface IpBanListStatics {
 export interface ProfileBanListMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit.BanList<j_com_destroystokyo_paper_profile.PlayerProfile>];
   addBan(arg0: j_com_destroystokyo_paper_profile.PlayerProfile, arg1: string | null, arg2: JavaOpaque<"java.util.Date"> | null, arg3: string | null): j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> | null;
-  addBan(arg0: object, arg1: string | null, arg2: JavaOpaque<"java.util.Date"> | null, arg3: string | null): j_org_bukkit.BanEntry | null;
   addBan<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: j_org_bukkit_profile.PlayerProfile_2, arg1: string | null, arg2: JavaOpaque<"java.time.Duration"> | null, arg3: string | null): E | null;
   addBan<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: j_org_bukkit_profile.PlayerProfile_2, arg1: string | null, arg2: JavaOpaque<"java.time.Instant"> | null, arg3: string | null): E | null;
   addBan<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: j_org_bukkit_profile.PlayerProfile_2, arg1: string | null, arg2: JavaOpaque<"java.util.Date"> | null, arg3: string | null): E | null;

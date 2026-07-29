@@ -21,8 +21,6 @@ import type * as j_net_minecraft_world_level_levelgen_structure_structures from 
 import type * as j_net_minecraft_world_level_levelgen_structure_templatesystem from './net.minecraft.world.level.levelgen.structure.templatesystem.generated.js';
 import type * as j_net_minecraft_world_level_saveddata from './net.minecraft.world.level.saveddata.generated.js';
 import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
-import type * as j_net_minecraft_world_level_storage_loot from './net.minecraft.world.level.storage.loot.generated.js';
-import type * as j_org_bukkit_craftbukkit_block from './org.bukkit.craftbukkit.block.generated.js';
 import type * as j_org_bukkit_craftbukkit_persistence from './org.bukkit.craftbukkit.persistence.generated.js';
 
 /** JVM class net.minecraft.world.level.levelgen.structure.BoundingBox. */
@@ -143,15 +141,13 @@ export interface LegacyStructureDataHandlerMembers {
 export type LegacyStructureDataHandler = LegacyStructureDataHandlerMembers;
 export interface LegacyStructureDataHandlerStatics {
   new(arg0: j_net_minecraft_world_level_storage.DimensionDataStorage | null, arg1: JavaList<string>, arg2: JavaList<string>): LegacyStructureDataHandler;
-  getLegacyStructureHandler(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_dimension.LevelStem>, arg1: j_net_minecraft_world_level_storage.DimensionDataStorage | null): LegacyStructureDataHandler | null;
+  getLegacyStructureHandler(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_dimension.LevelStem>, arg1: j_net_minecraft_world_level_storage.DimensionDataStorage | null): LegacyStructureDataHandler;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece. */
 export interface PoolElementStructurePieceMembers {
   readonly __javaSupertypes?: readonly [StructurePiece];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceSerializationContext, arg1: j_net_minecraft_nbt.CompoundTag): void;
   addJunction(arg0: j_net_minecraft_world_level_levelgen_structure_pools.JigsawJunction): void;
-  readonly element: j_net_minecraft_world_level_levelgen_structure_pools.StructurePoolElement;
   getElement(): j_net_minecraft_world_level_levelgen_structure_pools.StructurePoolElement;
   getGroundLevelDelta(): number;
   getJunctions(): JavaList<j_net_minecraft_world_level_levelgen_structure_pools.JigsawJunction>;
@@ -159,9 +155,7 @@ export interface PoolElementStructurePieceMembers {
   getRotation(): j_net_minecraft_world_level_block.Rotation;
   move(arg0: number, arg1: number, arg2: number): void;
   place(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: BoundingBox, arg5: j_net_minecraft_core.BlockPos, arg6: boolean): void;
-  position: j_net_minecraft_core.BlockPos;
   postProcess(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: BoundingBox, arg5: j_net_minecraft_world_level.ChunkPos, arg6: j_net_minecraft_core.BlockPos): void;
-  readonly rotation: j_net_minecraft_world_level_block.Rotation;
   toString(): string;
 }
 export type PoolElementStructurePiece = PoolElementStructurePieceMembers & StructurePiece;
@@ -182,18 +176,9 @@ export interface PostPlacementProcessorStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.structure.ScatteredFeaturePiece. */
 export interface ScatteredFeaturePieceMembers {
   readonly __javaSupertypes?: readonly [StructurePiece];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceSerializationContext, arg1: j_net_minecraft_nbt.CompoundTag): void;
-  readonly depth: number;
-  readonly height: number;
-  heightPosition: number;
-  updateAverageGroundHeight(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: BoundingBox, arg2: number): boolean;
-  updateHeightPositionToLowestGroundHeight(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: number): boolean;
-  readonly width: number;
 }
 export type ScatteredFeaturePiece = ScatteredFeaturePieceMembers & StructurePiece;
 export interface ScatteredFeaturePieceStatics {
-  new(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: j_net_minecraft_core.Direction): ScatteredFeaturePiece;
-  new(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType, arg1: j_net_minecraft_nbt.CompoundTag): ScatteredFeaturePiece;
 }
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.SinglePieceStructure. */
@@ -203,7 +188,6 @@ export interface SinglePieceStructureMembers {
 }
 export type SinglePieceStructure = SinglePieceStructureMembers & Structure;
 export interface SinglePieceStructureStatics {
-  new(arg0: SinglePieceStructure_PieceConstructor, arg1: number, arg2: number, arg3: Structure_StructureSettings): SinglePieceStructure;
 }
 
 /** JVM interface net.minecraft.world.level.levelgen.structure.SinglePieceStructure$PieceConstructor. */
@@ -219,11 +203,8 @@ export interface StructureMembers {
   adjustBoundingBox(arg0: BoundingBox): BoundingBox;
   afterPlace(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: BoundingBox, arg5: j_net_minecraft_world_level.ChunkPos, arg6: j_net_minecraft_world_level_levelgen_structure_pieces.PiecesContainer): void;
   biomes(): j_net_minecraft_core.HolderSet<j_net_minecraft_world_level_biome.Biome>;
-  findGenerationPoint(arg0: Structure_GenerationContext): JavaOptional<Structure_GenerationStub>;
   findValidGenerationPoint(arg0: Structure_GenerationContext): JavaOptional<Structure_GenerationStub>;
   generate(arg0: j_net_minecraft_core.Holder<Structure>, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level.Level>, arg2: j_net_minecraft_core.RegistryAccess, arg3: j_net_minecraft_world_level_chunk.ChunkGenerator, arg4: j_net_minecraft_world_level_biome.BiomeSource, arg5: j_net_minecraft_world_level_levelgen.RandomState, arg6: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg7: bigint, arg8: j_net_minecraft_world_level.ChunkPos, arg9: number, arg10: j_net_minecraft_world_level.LevelHeightAccessor, arg11: JavaPredicate<j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>): StructureStart;
-  getLowestYIn5by5BoxOffset7Blocks(arg0: Structure_GenerationContext, arg1: j_net_minecraft_world_level_block.Rotation): j_net_minecraft_core.BlockPos;
-  readonly settings: Structure_StructureSettings;
   spawnOverrides(): JavaMap<j_net_minecraft_world_entity.MobCategory, StructureSpawnOverride>;
   step(): j_net_minecraft_world_level_levelgen.GenerationStep_Decoration;
   terrainAdaptation(): TerrainAdjustment;
@@ -231,13 +212,9 @@ export interface StructureMembers {
 }
 export type Structure = StructureMembers;
 export interface StructureStatics {
-  new(arg0: Structure_StructureSettings): Structure;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.Holder<Structure>]>;
   readonly DIRECT_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [Structure]>;
-  getLowestY(arg0: Structure_GenerationContext, arg1: number, arg2: number): number;
-  getLowestY(arg0: Structure_GenerationContext, arg1: number, arg2: number, arg3: number, arg4: number): number;
   getMeanFirstOccupiedHeight(arg0: Structure_GenerationContext, arg1: number, arg2: number, arg3: number, arg4: number): number;
-  onTopOfChunkCenter(arg0: Structure_GenerationContext, arg1: j_net_minecraft_world_level_levelgen.Heightmap_Types, arg2: JavaConsumer<j_net_minecraft_world_level_levelgen_structure_pieces.StructurePiecesBuilder>): JavaOptional<Structure_GenerationStub>;
   settingsCodec<S /* extends Structure */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [S]>): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [S, Structure_StructureSettings]>;
   simpleCodec<S /* extends Structure */>(arg0: JavaFunction<Structure_StructureSettings, S>): JavaOpaque<"com.mojang.serialization.MapCodec", [S]>;
 }
@@ -352,24 +329,8 @@ export interface StructureFeatureIndexSavedDataStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.StructurePiece. */
 export interface StructurePieceMembers {
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceSerializationContext, arg1: j_net_minecraft_nbt.CompoundTag): void;
   addChildren(arg0: StructurePiece, arg1: StructurePieceAccessor, arg2: j_net_minecraft_util.RandomSource): void;
-  boundingBox: BoundingBox;
-  canBeReplaced(arg0: j_net_minecraft_world_level.LevelReader, arg1: number, arg2: number, arg3: number, arg4: BoundingBox): boolean;
-  createChest(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: BoundingBox, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg5: j_net_minecraft_world_level_block_state.BlockState | null): boolean | null;
-  createChest(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: number, arg5: number, arg6: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>): boolean;
-  createDispenser(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: number, arg5: number, arg6: j_net_minecraft_core.Direction, arg7: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>): boolean;
   createTag(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceSerializationContext): j_net_minecraft_nbt.CompoundTag;
-  fillColumnDown(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: number, arg3: number, arg4: number, arg5: BoundingBox): void;
-  genDepth: number;
-  generateAirBox(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number): void;
-  generateBox(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: j_net_minecraft_world_level_block_state.BlockState, arg9: j_net_minecraft_world_level_block_state.BlockState, arg10: boolean): void;
-  generateBox(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: boolean, arg9: j_net_minecraft_util.RandomSource, arg10: StructurePiece_BlockSelector): void;
-  generateBox(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: BoundingBox, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_state.BlockState, arg5: boolean): void;
-  generateBox(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: BoundingBox, arg3: boolean, arg4: j_net_minecraft_util.RandomSource, arg5: StructurePiece_BlockSelector): void;
-  generateMaybeBox(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: j_net_minecraft_world_level_block_state.BlockState, arg11: j_net_minecraft_world_level_block_state.BlockState, arg12: boolean, arg13: boolean): void;
-  generateUpperHalfSphere(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: j_net_minecraft_world_level_block_state.BlockState, arg9: boolean): void;
-  getBlock(arg0: j_net_minecraft_world_level.BlockGetter, arg1: number, arg2: number, arg3: number, arg4: BoundingBox): j_net_minecraft_world_level_block_state.BlockState;
   getBoundingBox(): BoundingBox;
   getGenDepth(): number;
   getLocatorPosition(): j_net_minecraft_core.BlockPos;
@@ -377,44 +338,27 @@ export interface StructurePieceMembers {
   getOrientation(): j_net_minecraft_core.Direction | null;
   getRotation(): j_net_minecraft_world_level_block.Rotation;
   getType(): j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType;
-  getWorldPos(arg0: number, arg1: number, arg2: number): j_net_minecraft_core.BlockPos_MutableBlockPos;
-  getWorldX(arg0: number, arg1: number): number;
-  getWorldY(arg0: number): number;
-  getWorldZ(arg0: number, arg1: number): number;
   isCloseToChunk(arg0: j_net_minecraft_world_level.ChunkPos, arg1: number): boolean;
-  isInterior(arg0: j_net_minecraft_world_level.LevelReader, arg1: number, arg2: number, arg3: number, arg4: BoundingBox): boolean;
-  isReplaceableByStructures(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  maybeGenerateBlock(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: BoundingBox, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: number, arg5: number, arg6: number, arg7: j_net_minecraft_world_level_block_state.BlockState): void;
   move(arg0: number, arg1: number, arg2: number): void;
-  placeBlock(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: number, arg3: number, arg4: number, arg5: BoundingBox): void;
-  placeCraftBlockEntity(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_org_bukkit_craftbukkit_block.CraftBlockEntityState<object>, arg3: number): boolean;
-  placeCraftSpawner(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.bukkit.entity.EntityType">, arg3: number): void;
   postProcess(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: BoundingBox, arg5: j_net_minecraft_world_level.ChunkPos, arg6: j_net_minecraft_core.BlockPos): void;
-  setCraftLootTable(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>): void;
   setGenDepth(arg0: number): void;
-  setOrientation(arg0: j_net_minecraft_core.Direction | null): void | null;
+  setOrientation(arg0: j_net_minecraft_core.Direction | null): void;
 }
 export type StructurePiece = StructurePieceMembers;
 export interface StructurePieceStatics {
-  new(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType, arg1: number, arg2: BoundingBox): StructurePiece;
-  new(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType, arg1: j_net_minecraft_nbt.CompoundTag): StructurePiece;
-  readonly CAVE_AIR: j_net_minecraft_world_level_block_state.BlockState;
   readonly SHAPE_CHECK_BLOCKS: JavaSet<j_net_minecraft_world_level_block.Block>;
   createBoundingBox(arg0: JavaOpaque<"java.util.stream.Stream", [StructurePiece]>): BoundingBox;
   findCollisionPiece(arg0: JavaList<StructurePiece>, arg1: BoundingBox): StructurePiece | null;
-  getRandomHorizontalDirection(arg0: j_net_minecraft_util.RandomSource): j_net_minecraft_core.Direction;
-  makeBoundingBox(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_core.Direction, arg4: number, arg5: number, arg6: number): BoundingBox;
   reorient(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
 }
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.StructurePiece$BlockSelector. */
 export interface StructurePiece_BlockSelectorMembers {
   getNext(): j_net_minecraft_world_level_block_state.BlockState;
-  next: (j_net_minecraft_world_level_block_state.BlockState) & { (arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: boolean): void };
+  next(arg0: j_net_minecraft_util.RandomSource, arg1: number, arg2: number, arg3: number, arg4: boolean): void;
 }
 export type StructurePiece_BlockSelector = StructurePiece_BlockSelectorMembers;
 export interface StructurePiece_BlockSelectorStatics {
-  new(): StructurePiece_BlockSelector;
 }
 
 /** JVM interface net.minecraft.world.level.levelgen.structure.StructurePieceAccessor. */
@@ -496,7 +440,6 @@ export interface StructureStartMembers {
   generationEventCause: JavaOpaque<"org.bukkit.event.world.AsyncStructureGenerateEvent$Cause">;
   getBoundingBox(): BoundingBox;
   getChunkPos(): j_net_minecraft_world_level.ChunkPos;
-  getMaxReferences(): number;
   getPieces(): JavaList<StructurePiece>;
   getReferences(): number;
   getStructure(): Structure;
@@ -539,21 +482,15 @@ export interface StructureTypeStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.structure.TemplateStructurePiece. */
 export interface TemplateStructurePieceMembers {
   readonly __javaSupertypes?: readonly [StructurePiece];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceSerializationContext, arg1: j_net_minecraft_nbt.CompoundTag): void;
   getRotation(): j_net_minecraft_world_level_block.Rotation;
-  handleDataMarker(arg0: string, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level.ServerLevelAccessor, arg3: j_net_minecraft_util.RandomSource, arg4: BoundingBox): void;
-  makeTemplateLocation(): j_net_minecraft_resources.ResourceLocation;
   move(arg0: number, arg1: number, arg2: number): void;
-  placeSettings: (j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings) & { (): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings };
+  placeSettings(): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings;
   postProcess(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: BoundingBox, arg5: j_net_minecraft_world_level.ChunkPos, arg6: j_net_minecraft_core.BlockPos): void;
-  template: (j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate) & { (): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate };
-  readonly templateName: string;
-  templatePosition: (j_net_minecraft_core.BlockPos) & { (): j_net_minecraft_core.BlockPos };
+  template(): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate;
+  templatePosition(): j_net_minecraft_core.BlockPos;
 }
 export type TemplateStructurePiece = TemplateStructurePieceMembers & StructurePiece;
 export interface TemplateStructurePieceStatics {
-  new(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType, arg1: number, arg2: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg3: j_net_minecraft_resources.ResourceLocation, arg4: string, arg5: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings, arg6: j_net_minecraft_core.BlockPos): TemplateStructurePiece;
-  new(arg0: j_net_minecraft_world_level_levelgen_structure_pieces.StructurePieceType, arg1: j_net_minecraft_nbt.CompoundTag, arg2: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg3: JavaFunction<j_net_minecraft_resources.ResourceLocation, j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings>): TemplateStructurePiece;
 }
 
 /** Live JVM enum net.minecraft.world.level.levelgen.structure.TerrainAdjustment; constants are host handles, not strings. */

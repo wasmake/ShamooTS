@@ -261,7 +261,6 @@ export interface SlotDisplay_ItemSlotDisplayStatics {
 /** JVM class net.minecraft.world.item.crafting.display.SlotDisplay$ItemStackContentsFactory. */
 export interface SlotDisplay_ItemStackContentsFactoryMembers {
   readonly __javaSupertypes?: readonly [DisplayContentsFactory_ForStacks<j_net_minecraft_world_item.ItemStack>];
-  forStack(arg0: j_net_minecraft_world_item.ItemStack): object;
   forStack(arg0: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
 }
 export type SlotDisplay_ItemStackContentsFactory = SlotDisplay_ItemStackContentsFactoryMembers & DisplayContentsFactory_ForStacks<j_net_minecraft_world_item.ItemStack>;

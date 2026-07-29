@@ -271,14 +271,10 @@ export interface BlockStatePropertiesStatics {
 export interface BooleanPropertyMembers {
   readonly __javaSupertypes?: readonly [Property<boolean>, JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [boolean]>];
   getInternalIndex(arg0: boolean): number;
-  getInternalIndex(arg0: JavaOpaque<"java.lang.Comparable">): number;
   getName(arg0: boolean): string;
-  getName(arg0: JavaOpaque<"java.lang.Comparable">): string;
   getPossibleValues(): JavaList<boolean>;
   getValue(arg0: string): JavaOptional<boolean>;
   moonrise$getIdFor(arg0: boolean): number;
-  moonrise$getIdFor(arg0: JavaOpaque<"java.lang.Comparable">): number;
-  moonrise$getIdFor(arg0: object): number;
 }
 export type BooleanProperty = BooleanPropertyMembers & Property<boolean> & JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [boolean]>;
 export interface BooleanPropertyStatics {
@@ -375,15 +371,11 @@ export interface EnumPropertyMembers<T /* extends j_net_minecraft_util.StringRep
   readonly __javaSupertypes?: readonly [Property<T>, JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [T]>];
   equals_unused(arg0: object): boolean;
   generateHashCode(): number;
-  getInternalIndex(arg0: JavaOpaque<"java.lang.Comparable">): number;
   getInternalIndex(arg0: T): number;
-  getName(arg0: JavaOpaque<"java.lang.Comparable">): string;
   getName(arg0: T): string;
   getPossibleValues(): JavaList<T>;
   getValue(arg0: string): JavaOptional<T>;
-  moonrise$getIdFor(arg0: JavaOpaque<"java.lang.Comparable">): number;
   moonrise$getIdFor(arg0: T): number;
-  moonrise$getIdFor(arg0: object): number;
 }
 export type EnumProperty<T /* extends j_net_minecraft_util.StringRepresentable */ = unknown> = EnumPropertyMembers<T> & Property<T> & JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [T]>;
 export interface EnumPropertyStatics {
@@ -411,17 +403,13 @@ export interface IntegerPropertyMembers {
   readonly __javaSupertypes?: readonly [Property<number>, JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [number]>];
   equals_unused(arg0: object): boolean;
   generateHashCode(): number;
-  getInternalIndex(arg0: JavaOpaque<"java.lang.Comparable">): number;
   getInternalIndex(arg0: number): number;
-  getName(arg0: JavaOpaque<"java.lang.Comparable">): string;
   getName(arg0: number): string;
   getPossibleValues(): JavaList<number>;
   getValue(arg0: string): JavaOptional<number>;
   readonly max: number;
   readonly min: number;
-  moonrise$getIdFor(arg0: JavaOpaque<"java.lang.Comparable">): number;
   moonrise$getIdFor(arg0: number): number;
-  moonrise$getIdFor(arg0: object): number;
 }
 export type IntegerProperty = IntegerPropertyMembers & Property<number> & JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [number]>;
 export interface IntegerPropertyStatics {
@@ -493,12 +481,9 @@ export interface PropertyMembers<T /* extends JavaOpaque<"java.lang.Comparable",
   getValueClass(): JavaClass<T>;
   hashCode(): number;
   moonrise$getById(arg0: number): T;
-  moonrise$getById(arg0: number): object;
   moonrise$getId(): number;
   moonrise$getIdFor(arg0: T): number;
-  moonrise$getIdFor(arg0: object): number;
   moonrise$setById(arg0: Array<T>): void;
-  moonrise$setById(arg0: Array<object>): void;
   parseValue<U, S /* extends j_net_minecraft_world_level_block_state.StateHolder<object, S> */>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [U]>, arg1: S, arg2: U): JavaOpaque<"com.mojang.serialization.DataResult", [S]>;
   toString(): string;
   value(arg0: T): Property_Value<T>;
@@ -507,7 +492,6 @@ export interface PropertyMembers<T /* extends JavaOpaque<"java.lang.Comparable",
 }
 export type Property<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */ = unknown> = PropertyMembers<T> & JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccess", [T]>;
 export interface PropertyStatics {
-  new<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */>(arg0: string, arg1: JavaClass<T>): Property<T>;
 }
 
 /** JVM record net.minecraft.world.level.block.state.properties.Property$Value. */

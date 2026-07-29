@@ -4,12 +4,10 @@ import type * as j_net_minecraft_advancements_critereon from './net.minecraft.ad
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_util_context from './net.minecraft.util.context.generated.js';
-import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
 import type * as j_net_minecraft_world_item_enchantment from './net.minecraft.world.item.enchantment.generated.js';
 import type * as j_net_minecraft_world_level_block from './net.minecraft.world.level.block.generated.js';
 import type * as j_net_minecraft_world_level_storage_loot from './net.minecraft.world.level.storage.loot.generated.js';
 import type * as j_net_minecraft_world_level_storage_loot_providers_number from './net.minecraft.world.level.storage.loot.providers.number.generated.js';
-import type * as j_net_minecraft_world_scores from './net.minecraft.world.scores.generated.js';
 
 /** JVM class net.minecraft.world.level.storage.loot.predicates.AllOfCondition. */
 export interface AllOfConditionMembers {
@@ -28,7 +26,6 @@ export interface AllOfConditionStatics {
 export interface AllOfCondition_BuilderMembers {
   readonly __javaSupertypes?: readonly [CompositeLootItemCondition_Builder];
   and(arg0: LootItemCondition_Builder): AllOfCondition_Builder;
-  create(arg0: JavaList<LootItemCondition>): LootItemCondition;
 }
 export type AllOfCondition_Builder = AllOfCondition_BuilderMembers & CompositeLootItemCondition_Builder;
 export interface AllOfCondition_BuilderStatics {
@@ -49,7 +46,6 @@ export interface AnyOfConditionStatics {
 /** JVM class net.minecraft.world.level.storage.loot.predicates.AnyOfCondition$Builder. */
 export interface AnyOfCondition_BuilderMembers {
   readonly __javaSupertypes?: readonly [CompositeLootItemCondition_Builder];
-  create(arg0: JavaList<LootItemCondition>): LootItemCondition;
   or(arg0: LootItemCondition_Builder): AnyOfCondition_Builder;
 }
 export type AnyOfCondition_Builder = AnyOfCondition_BuilderMembers & CompositeLootItemCondition_Builder;
@@ -65,7 +61,6 @@ export interface BonusLevelTableConditionMembers {
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemConditionType;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
   values(): JavaList<number>;
@@ -80,16 +75,11 @@ export interface BonusLevelTableConditionStatics {
 /** JVM abstract net.minecraft.world.level.storage.loot.predicates.CompositeLootItemCondition. */
 export interface CompositeLootItemConditionMembers {
   readonly __javaSupertypes?: readonly [LootItemCondition];
-  readonly terms: JavaList<LootItemCondition>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   validate(arg0: j_net_minecraft_world_level_storage_loot.ValidationContext): void;
 }
 export type CompositeLootItemCondition = CompositeLootItemConditionMembers & LootItemCondition;
 export interface CompositeLootItemConditionStatics {
-  new(arg0: JavaList<LootItemCondition>, arg1: JavaPredicate<j_net_minecraft_world_level_storage_loot.LootContext>): CompositeLootItemCondition;
-  createCodec<T /* extends CompositeLootItemCondition */>(arg0: JavaFunction<JavaList<LootItemCondition>, T>): JavaOpaque<"com.mojang.serialization.MapCodec", [T]>;
-  createInlineCodec<T /* extends CompositeLootItemCondition */>(arg0: JavaFunction<JavaList<LootItemCondition>, T>): JavaOpaque<"com.mojang.serialization.Codec", [T]>;
 }
 
 /** JVM abstract net.minecraft.world.level.storage.loot.predicates.CompositeLootItemCondition$Builder. */
@@ -97,11 +87,9 @@ export interface CompositeLootItemCondition_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemCondition_Builder];
   addTerm(arg0: LootItemCondition_Builder): void;
   build(): LootItemCondition;
-  create(arg0: JavaList<LootItemCondition>): LootItemCondition;
 }
 export type CompositeLootItemCondition_Builder = CompositeLootItemCondition_BuilderMembers & LootItemCondition_Builder;
 export interface CompositeLootItemCondition_BuilderStatics {
-  new(...arg0: Array<LootItemCondition_Builder>): CompositeLootItemCondition_Builder;
 }
 
 /** JVM record net.minecraft.world.level.storage.loot.predicates.ConditionReference. */
@@ -111,7 +99,6 @@ export interface ConditionReferenceMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   name(): j_net_minecraft_resources.ResourceKey<LootItemCondition>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
   validate(arg0: j_net_minecraft_world_level_storage_loot.ValidationContext): void;
@@ -141,7 +128,6 @@ export interface DamageSourceConditionMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   predicate(): JavaOptional<j_net_minecraft_advancements_critereon.DamageSourcePredicate>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -160,7 +146,6 @@ export interface EnchantmentActiveCheckMembers {
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemConditionType;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -179,10 +164,8 @@ export interface EntityHasScoreConditionMembers {
   equals(arg0: object): boolean;
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemConditionType;
-  hasScore(arg0: j_net_minecraft_world_level_storage_loot.LootContext, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_world_scores.Scoreboard, arg3: string, arg4: j_net_minecraft_world_level_storage_loot.IntRange): boolean;
   hashCode(): number;
   scores(): JavaMap<string, j_net_minecraft_world_level_storage_loot.IntRange>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -209,7 +192,6 @@ export interface ExplosionConditionMembers {
   readonly __javaSupertypes?: readonly [LootItemCondition];
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemConditionType;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
 }
 export type ExplosionCondition = ExplosionConditionMembers & LootItemCondition;
@@ -226,7 +208,6 @@ export interface InvertedLootItemConditionMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   term(): LootItemCondition;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
   validate(arg0: j_net_minecraft_world_level_storage_loot.ValidationContext): void;
@@ -247,7 +228,6 @@ export interface LocationCheckMembers {
   hashCode(): number;
   offset(): j_net_minecraft_core.BlockPos;
   predicate(): JavaOptional<j_net_minecraft_advancements_critereon.LocationPredicate>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -268,7 +248,6 @@ export interface LootItemBlockStatePropertyConditionMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   properties(): JavaOptional<j_net_minecraft_advancements_critereon.StatePropertiesPredicate>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -362,7 +341,6 @@ export interface LootItemEntityPropertyConditionMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   predicate(): JavaOptional<j_net_minecraft_advancements_critereon.EntityPredicate>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -380,7 +358,6 @@ export interface LootItemKilledByPlayerConditionMembers {
   readonly __javaSupertypes?: readonly [LootItemCondition];
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemConditionType;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
 }
 export type LootItemKilledByPlayerCondition = LootItemKilledByPlayerConditionMembers & LootItemCondition;
@@ -396,7 +373,6 @@ export interface LootItemRandomChanceConditionMembers {
   equals(arg0: object): boolean;
   getType(): LootItemConditionType;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -417,7 +393,6 @@ export interface LootItemRandomChanceWithEnchantedBonusConditionMembers {
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemConditionType;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
   unenchantedChance(): number;
@@ -437,7 +412,6 @@ export interface MatchToolMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   predicate(): JavaOptional<j_net_minecraft_advancements_critereon.ItemPredicate>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -456,7 +430,6 @@ export interface TimeCheckMembers {
   getType(): LootItemConditionType;
   hashCode(): number;
   period(): JavaOptional<bigint>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
   value(): j_net_minecraft_world_level_storage_loot.IntRange;
@@ -471,7 +444,6 @@ export interface TimeCheckStatics {
 /** JVM class net.minecraft.world.level.storage.loot.predicates.TimeCheck$Builder. */
 export interface TimeCheck_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemCondition_Builder];
-  build(): LootItemCondition;
   build(): TimeCheck;
   setPeriod(arg0: bigint): TimeCheck_Builder;
 }
@@ -489,7 +461,6 @@ export interface ValueCheckConditionMembers {
   hashCode(): number;
   provider(): j_net_minecraft_world_level_storage_loot_providers_number.NumberProvider;
   range(): j_net_minecraft_world_level_storage_loot.IntRange;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -508,7 +479,6 @@ export interface WeatherCheckMembers {
   hashCode(): number;
   isRaining(): JavaOptional<boolean>;
   isThundering(): JavaOptional<boolean>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_level_storage_loot.LootContext): boolean;
   toString(): string;
 }
@@ -522,7 +492,6 @@ export interface WeatherCheckStatics {
 /** JVM class net.minecraft.world.level.storage.loot.predicates.WeatherCheck$Builder. */
 export interface WeatherCheck_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemCondition_Builder];
-  build(): LootItemCondition;
   build(): WeatherCheck;
   setRaining(arg0: boolean): WeatherCheck_Builder;
   setThundering(arg0: boolean): WeatherCheck_Builder;

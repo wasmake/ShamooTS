@@ -14,7 +14,6 @@ import type * as j_net_minecraft_world_level_levelgen_heightproviders from './ne
 /** JVM class net.minecraft.world.level.levelgen.placement.BiomeFilter. */
 export interface BiomeFilterMembers {
   readonly __javaSupertypes?: readonly [PlacementFilter];
-  shouldPlace(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): boolean;
   type(): PlacementModifierType<object>;
 }
 export type BiomeFilter = BiomeFilterMembers & PlacementFilter;
@@ -26,7 +25,6 @@ export interface BiomeFilterStatics {
 /** JVM class net.minecraft.world.level.levelgen.placement.BlockPredicateFilter. */
 export interface BlockPredicateFilterMembers {
   readonly __javaSupertypes?: readonly [PlacementFilter];
-  shouldPlace(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): boolean;
   type(): PlacementModifierType<object>;
 }
 export type BlockPredicateFilter = BlockPredicateFilterMembers & PlacementFilter;
@@ -66,7 +64,6 @@ export interface CountOnEveryLayerPlacementStatics {
 /** JVM class net.minecraft.world.level.levelgen.placement.CountPlacement. */
 export interface CountPlacementMembers {
   readonly __javaSupertypes?: readonly [RepeatingPlacement];
-  count(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): number;
   type(): PlacementModifierType<object>;
 }
 export type CountPlacement = CountPlacementMembers & RepeatingPlacement;
@@ -143,7 +140,6 @@ export interface InSquarePlacementStatics {
 /** JVM class net.minecraft.world.level.levelgen.placement.NoiseBasedCountPlacement. */
 export interface NoiseBasedCountPlacementMembers {
   readonly __javaSupertypes?: readonly [RepeatingPlacement];
-  count(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): number;
   type(): PlacementModifierType<object>;
 }
 export type NoiseBasedCountPlacement = NoiseBasedCountPlacementMembers & RepeatingPlacement;
@@ -155,7 +151,6 @@ export interface NoiseBasedCountPlacementStatics {
 /** JVM class net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement. */
 export interface NoiseThresholdCountPlacementMembers {
   readonly __javaSupertypes?: readonly [RepeatingPlacement];
-  count(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): number;
   type(): PlacementModifierType<object>;
 }
 export type NoiseThresholdCountPlacement = NoiseThresholdCountPlacementMembers & RepeatingPlacement;
@@ -205,11 +200,9 @@ export interface PlacementContextStatics {
 export interface PlacementFilterMembers {
   readonly __javaSupertypes?: readonly [PlacementModifier];
   getPositions(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.BlockPos]>;
-  shouldPlace(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type PlacementFilter = PlacementFilterMembers & PlacementModifier;
 export interface PlacementFilterStatics {
-  new(): PlacementFilter;
 }
 
 /** JVM abstract net.minecraft.world.level.levelgen.placement.PlacementModifier. */
@@ -219,7 +212,6 @@ export interface PlacementModifierMembers {
 }
 export type PlacementModifier = PlacementModifierMembers;
 export interface PlacementModifierStatics {
-  new(): PlacementModifier;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [PlacementModifier]>;
 }
 
@@ -263,7 +255,6 @@ export interface RandomOffsetPlacementStatics {
 /** JVM class net.minecraft.world.level.levelgen.placement.RarityFilter. */
 export interface RarityFilterMembers {
   readonly __javaSupertypes?: readonly [PlacementFilter];
-  shouldPlace(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): boolean;
   type(): PlacementModifierType<object>;
 }
 export type RarityFilter = RarityFilterMembers & PlacementFilter;
@@ -275,18 +266,15 @@ export interface RarityFilterStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.placement.RepeatingPlacement. */
 export interface RepeatingPlacementMembers {
   readonly __javaSupertypes?: readonly [PlacementModifier];
-  count(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): number;
   getPositions(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.BlockPos]>;
 }
 export type RepeatingPlacement = RepeatingPlacementMembers & PlacementModifier;
 export interface RepeatingPlacementStatics {
-  new(): RepeatingPlacement;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter. */
 export interface SurfaceRelativeThresholdFilterMembers {
   readonly __javaSupertypes?: readonly [PlacementFilter];
-  shouldPlace(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): boolean;
   type(): PlacementModifierType<object>;
 }
 export type SurfaceRelativeThresholdFilter = SurfaceRelativeThresholdFilterMembers & PlacementFilter;
@@ -298,7 +286,6 @@ export interface SurfaceRelativeThresholdFilterStatics {
 /** JVM class net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter. */
 export interface SurfaceWaterDepthFilterMembers {
   readonly __javaSupertypes?: readonly [PlacementFilter];
-  shouldPlace(arg0: PlacementContext, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos): boolean;
   type(): PlacementModifierType<object>;
 }
 export type SurfaceWaterDepthFilter = SurfaceWaterDepthFilterMembers & PlacementFilter;

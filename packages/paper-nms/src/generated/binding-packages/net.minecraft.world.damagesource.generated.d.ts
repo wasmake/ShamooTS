@@ -107,7 +107,7 @@ export interface DamageSourceMembers {
   causingBlockSnapshot(arg0: JavaOpaque<"org.bukkit.block.BlockState">): DamageSource;
   critical(): DamageSource;
   eventBlockDamager(): JavaOpaque<"org.bukkit.block.Block"> | null;
-  eventBlockDamager(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos | null): DamageSource | null;
+  eventBlockDamager(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos | null): DamageSource;
   eventEntityDamager(): j_net_minecraft_world_entity.Entity | null;
   eventEntityDamager(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
   getDirectEntity(): j_net_minecraft_world_entity.Entity | null;
@@ -142,7 +142,7 @@ export interface DamageSourceStatics {
 /** JVM class net.minecraft.world.damagesource.DamageSources. */
 export interface DamageSourcesMembers {
   anvil(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
-  arrow(arg0: j_net_minecraft_world_entity_projectile.AbstractArrow, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
+  arrow(arg0: j_net_minecraft_world_entity_projectile.AbstractArrow, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
   badRespawnPointExplosion(arg0: j_net_minecraft_world_phys.Vec3): DamageSource;
   cactus(): DamageSource;
   campfire(): DamageSource;
@@ -151,14 +151,14 @@ export interface DamageSourcesMembers {
   drown(): DamageSource;
   dryOut(): DamageSource;
   enderPearl(): DamageSource;
-  explosion(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
-  explosion(arg0: j_net_minecraft_world_level.Explosion | null): DamageSource | null;
+  explosion(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
+  explosion(arg0: j_net_minecraft_world_level.Explosion | null): DamageSource;
   fall(): DamageSource;
   fallingBlock(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
   fallingStalactite(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
   fellOutOfWorld(): DamageSource;
-  fireball(arg0: j_net_minecraft_world_entity_projectile.Fireball, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
-  fireworks(arg0: j_net_minecraft_world_entity_projectile.FireworkRocketEntity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
+  fireball(arg0: j_net_minecraft_world_entity_projectile.Fireball, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
+  fireworks(arg0: j_net_minecraft_world_entity_projectile.FireworkRocketEntity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
   flyIntoWall(): DamageSource;
   freeze(): DamageSource;
   generic(): DamageSource;
@@ -166,27 +166,27 @@ export interface DamageSourcesMembers {
   hotFloor(): DamageSource;
   inFire(): DamageSource;
   inWall(): DamageSource;
-  indirectMagic(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
+  indirectMagic(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
   lava(): DamageSource;
   lightningBolt(): DamageSource;
   mace(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
   magic(): DamageSource;
   mobAttack(arg0: j_net_minecraft_world_entity.LivingEntity): DamageSource;
-  mobProjectile(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.LivingEntity | null): DamageSource | null;
+  mobProjectile(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.LivingEntity | null): DamageSource;
   noAggroMobAttack(arg0: j_net_minecraft_world_entity.LivingEntity): DamageSource;
   onFire(): DamageSource;
   outOfBorder(): DamageSource;
   playerAttack(arg0: j_net_minecraft_world_entity_player.Player): DamageSource;
   sonicBoom(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
-  spit(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.LivingEntity | null): DamageSource | null;
+  spit(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.LivingEntity | null): DamageSource;
   stalagmite(): DamageSource;
   starve(): DamageSource;
   sting(arg0: j_net_minecraft_world_entity.LivingEntity): DamageSource;
   sweetBerryBush(): DamageSource;
   thorns(arg0: j_net_minecraft_world_entity.Entity): DamageSource;
-  thrown(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
-  trident(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource | null;
-  windCharge(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.LivingEntity | null): DamageSource | null;
+  thrown(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
+  trident(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity | null): DamageSource;
+  windCharge(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.LivingEntity | null): DamageSource;
   wither(): DamageSource;
   witherSkull(arg0: j_net_minecraft_world_entity_projectile.WitherSkull, arg1: j_net_minecraft_world_entity.Entity): DamageSource;
 }

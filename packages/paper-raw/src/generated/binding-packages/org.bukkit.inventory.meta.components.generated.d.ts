@@ -33,15 +33,15 @@ export interface EquippableComponentMembers {
   isDispensable(): boolean;
   isEquipOnInteract(): boolean;
   isSwappable(): boolean;
-  setAllowedEntities(arg0: JavaCollection<j_org_bukkit_entity.EntityType> | null): void | null;
-  setAllowedEntities(arg0: j_org_bukkit.Tag_2<j_org_bukkit_entity.EntityType> | null): void | null;
-  setAllowedEntities(arg0: j_org_bukkit_entity.EntityType | null): void | null;
-  setCameraOverlay(arg0: j_org_bukkit.NamespacedKey | null): void | null;
+  setAllowedEntities(arg0: JavaCollection<j_org_bukkit_entity.EntityType> | null): void;
+  setAllowedEntities(arg0: j_org_bukkit.Tag_3<j_org_bukkit_entity.EntityType> | null): void;
+  setAllowedEntities(arg0: j_org_bukkit_entity.EntityType | null): void;
+  setCameraOverlay(arg0: j_org_bukkit.NamespacedKey | null): void;
   setDamageOnHurt(arg0: boolean): void;
   setDispensable(arg0: boolean): void;
   setEquipOnInteract(arg0: boolean): void;
-  setEquipSound(arg0: j_org_bukkit.Sound_2 | null): void | null;
-  setModel(arg0: j_org_bukkit.NamespacedKey | null): void | null;
+  setEquipSound(arg0: j_org_bukkit.Sound_2 | null): void;
+  setModel(arg0: j_org_bukkit.NamespacedKey | null): void;
   setSlot(arg0: j_org_bukkit_inventory.EquipmentSlot): void;
   setSwappable(arg0: boolean): void;
 }
@@ -80,9 +80,9 @@ export interface JukeboxPlayableComponentStatics {
 /** JVM interface org.bukkit.inventory.meta.components.ToolComponent. */
 export interface ToolComponentMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_configuration_serialization.ConfigurationSerializable];
-  addRule(arg0: JavaCollection<j_org_bukkit.Material>, arg1: number | null, arg2: boolean | null): ToolComponent_ToolRule | null;
-  addRule(arg0: j_org_bukkit.Material, arg1: number | null, arg2: boolean | null): ToolComponent_ToolRule | null;
-  addRule(arg0: j_org_bukkit.Tag_2<j_org_bukkit.Material>, arg1: number | null, arg2: boolean | null): ToolComponent_ToolRule | null;
+  addRule(arg0: JavaCollection<j_org_bukkit.Material>, arg1: number | null, arg2: boolean | null): ToolComponent_ToolRule;
+  addRule(arg0: j_org_bukkit.Material, arg1: number | null, arg2: boolean | null): ToolComponent_ToolRule;
+  addRule(arg0: j_org_bukkit.Tag_3<j_org_bukkit.Material>, arg1: number | null, arg2: boolean | null): ToolComponent_ToolRule;
   getDamagePerBlock(): number;
   getDefaultMiningSpeed(): number;
   getRules(): JavaList<ToolComponent_ToolRule>;
@@ -103,9 +103,9 @@ export interface ToolComponent_ToolRuleMembers {
   isCorrectForDrops(): boolean | null;
   setBlocks(arg0: JavaCollection<j_org_bukkit.Material>): void;
   setBlocks(arg0: j_org_bukkit.Material): void;
-  setBlocks(arg0: j_org_bukkit.Tag_2<j_org_bukkit.Material>): void;
-  setCorrectForDrops(arg0: boolean | null): void | null;
-  setSpeed(arg0: number | null): void | null;
+  setBlocks(arg0: j_org_bukkit.Tag_3<j_org_bukkit.Material>): void;
+  setCorrectForDrops(arg0: boolean | null): void;
+  setSpeed(arg0: number | null): void;
 }
 export type ToolComponent_ToolRule = ToolComponent_ToolRuleMembers & j_org_bukkit_configuration_serialization.ConfigurationSerializable;
 export interface ToolComponent_ToolRuleStatics {
@@ -116,7 +116,7 @@ export interface UseCooldownComponentMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_configuration_serialization.ConfigurationSerializable];
   getCooldownGroup(): j_org_bukkit.NamespacedKey | null;
   getCooldownSeconds(): number;
-  setCooldownGroup(arg0: j_org_bukkit.NamespacedKey | null): void | null;
+  setCooldownGroup(arg0: j_org_bukkit.NamespacedKey | null): void;
   setCooldownSeconds(arg0: number): void;
 }
 export type UseCooldownComponent = UseCooldownComponentMembers & j_org_bukkit_configuration_serialization.ConfigurationSerializable;

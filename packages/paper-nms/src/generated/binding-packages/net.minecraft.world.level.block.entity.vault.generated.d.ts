@@ -14,7 +14,6 @@ import type * as j_net_minecraft_world_level from './net.minecraft.world.level.g
 import type * as j_net_minecraft_world_level_block_entity from './net.minecraft.world.level.block.entity.generated.js';
 import type * as j_net_minecraft_world_level_block_entity_trialspawner from './net.minecraft.world.level.block.entity.trialspawner.generated.js';
 import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_level_storage_loot from './net.minecraft.world.level.storage.loot.generated.js';
 
 /** JVM class net.minecraft.world.level.block.entity.vault.VaultBlockEntity. */
@@ -26,8 +25,6 @@ export interface VaultBlockEntityMembers {
   getSharedData(): VaultSharedData;
   getUpdatePacket(): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener> | null;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   readonly serverData: VaultServerData;
   setConfig(arg0: VaultConfig): void;
 }
@@ -118,8 +115,6 @@ export type VaultState = JavaEnum<"net.minecraft.world.level.block.entity.vault.
 export interface VaultStateMembers {
   getSerializedName(): string;
   lightLevel(): number;
-  onEnter(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: VaultConfig, arg3: VaultSharedData, arg4: boolean): void;
-  onExit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: VaultConfig, arg3: VaultSharedData): void;
   onTransition(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: VaultState, arg3: VaultConfig, arg4: VaultSharedData, arg5: boolean): void;
   tickAndGetNext(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: VaultConfig, arg3: VaultServerData, arg4: VaultSharedData): VaultState;
 }

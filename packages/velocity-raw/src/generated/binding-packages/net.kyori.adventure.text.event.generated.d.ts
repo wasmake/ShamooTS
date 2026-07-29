@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_audience from './net.kyori.adventure.audience.generated.js';
 import type * as j_net_kyori_adventure_builder from './net.kyori.adventure.builder.generated.js';
@@ -13,16 +13,16 @@ import type * as j_net_kyori_adventure_util from './net.kyori.adventure.util.gen
 export interface ClickCallbackMembers<T /* extends j_net_kyori_adventure_audience.Audience */ = unknown> {
   accept(arg0: T): void;
   filter(arg0: JavaPredicate<T>): ClickCallback<T>;
-  filter(arg0: JavaPredicate<T>, arg1: JavaConsumer<j_net_kyori_adventure_audience.Audience> | null): ClickCallback<T> | null;
+  filter(arg0: JavaPredicate<T>, arg1: JavaConsumer<j_net_kyori_adventure_audience.Audience> | null): ClickCallback<T>;
   requiringPermission(arg0: string): ClickCallback<T>;
-  requiringPermission(arg0: string, arg1: JavaConsumer<j_net_kyori_adventure_audience.Audience> | null): ClickCallback<T> | null;
+  requiringPermission(arg0: string, arg1: JavaConsumer<j_net_kyori_adventure_audience.Audience> | null): ClickCallback<T>;
 }
 export type ClickCallback<T /* extends j_net_kyori_adventure_audience.Audience */ = unknown> = ClickCallbackMembers<T>;
 export interface ClickCallbackStatics {
   readonly DEFAULT_LIFETIME: JavaOpaque<"java.time.Duration">;
   readonly UNLIMITED_USES: -1;
   widen<W /* extends j_net_kyori_adventure_audience.Audience */, N /* extends W */>(arg0: ClickCallback<N>, arg1: JavaClass<N>): ClickCallback<W>;
-  widen<W /* extends j_net_kyori_adventure_audience.Audience */, N /* extends W */>(arg0: ClickCallback<N>, arg1: JavaClass<N>, arg2: JavaConsumer<j_net_kyori_adventure_audience.Audience> | null): ClickCallback<W> | null;
+  widen<W /* extends j_net_kyori_adventure_audience.Audience */, N /* extends W */>(arg0: ClickCallback<N>, arg1: JavaClass<N>, arg2: JavaConsumer<j_net_kyori_adventure_audience.Audience> | null): ClickCallback<W>;
 }
 
 /** JVM interface net.kyori.adventure.text.event.ClickCallback$Options. */
@@ -59,7 +59,7 @@ export interface ClickCallback_ProviderStatics {
 export interface ClickEventMembers {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_text_format.StyleBuilderApplicable, JavaOpaque<"net.kyori.examination.Examinable">];
   action(): ClickEvent_Action;
-  equals(arg0: object | null): boolean | null;
+  equals(arg0: object | null): boolean;
   examinableProperties(): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"net.kyori.examination.ExaminableProperty">]>;
   hashCode(): number;
   payload(): ClickEvent_Payload;
@@ -221,7 +221,7 @@ export interface HoverEventMembers<V = unknown> {
   action(): HoverEvent_Action<V>;
   asHoverEvent(): HoverEvent<V>;
   asHoverEvent(arg0: JavaOpaque<"java.util.function.UnaryOperator", [V]>): HoverEvent<V>;
-  equals(arg0: object | null): boolean | null;
+  equals(arg0: object | null): boolean;
   examinableProperties(): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"net.kyori.examination.ExaminableProperty">]>;
   hashCode(): number;
   styleApply(arg0: j_net_kyori_adventure_text_format.Style_Builder): void;
@@ -235,15 +235,15 @@ export interface HoverEventStatics {
   hoverEvent<V>(arg0: HoverEvent_Action<V>, arg1: V): HoverEvent<V>;
   showAchievement(arg0: string): HoverEvent<string>;
   showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">): HoverEvent<HoverEvent_ShowEntity>;
-  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent<HoverEvent_ShowEntity> | null;
+  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent<HoverEvent_ShowEntity>;
   showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">): HoverEvent<HoverEvent_ShowEntity>;
-  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent<HoverEvent_ShowEntity> | null;
+  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent<HoverEvent_ShowEntity>;
   showEntity(arg0: HoverEvent_ShowEntity): HoverEvent<HoverEvent_ShowEntity>;
   showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number): HoverEvent<HoverEvent_ShowItem>;
-  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent<HoverEvent_ShowItem> | null;
+  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent<HoverEvent_ShowItem>;
   showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number): HoverEvent<HoverEvent_ShowItem>;
   showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: JavaMap<JavaOpaque<"net.kyori.adventure.key.Key">, DataComponentValue>): HoverEvent<HoverEvent_ShowItem>;
-  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent<HoverEvent_ShowItem> | null;
+  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent<HoverEvent_ShowItem>;
   showItem(arg0: HoverEvent_ShowItem): HoverEvent<HoverEvent_ShowItem>;
   showText(arg0: j_net_kyori_adventure_text.Component): HoverEvent<j_net_kyori_adventure_text.Component>;
   showText(arg0: j_net_kyori_adventure_text.ComponentLike): HoverEvent<j_net_kyori_adventure_text.Component>;
@@ -267,13 +267,13 @@ export interface HoverEvent_ActionStatics {
 /** JVM class net.kyori.adventure.text.event.HoverEvent$ShowEntity. */
 export interface HoverEvent_ShowEntityMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.kyori.examination.Examinable">];
-  equals(arg0: object | null): boolean | null;
+  equals(arg0: object | null): boolean;
   examinableProperties(): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"net.kyori.examination.ExaminableProperty">]>;
   hashCode(): number;
   id(): JavaOpaque<"java.util.UUID">;
   id(arg0: JavaOpaque<"java.util.UUID">): HoverEvent_ShowEntity;
   name(): j_net_kyori_adventure_text.Component | null;
-  name(arg0: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity | null;
+  name(arg0: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity;
   toString(): string;
   type(): JavaOpaque<"net.kyori.adventure.key.Key">;
   type(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): HoverEvent_ShowEntity;
@@ -282,13 +282,13 @@ export interface HoverEvent_ShowEntityMembers {
 export type HoverEvent_ShowEntity = HoverEvent_ShowEntityMembers & JavaOpaque<"net.kyori.examination.Examinable">;
 export interface HoverEvent_ShowEntityStatics {
   of(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">): HoverEvent_ShowEntity;
-  of(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity | null;
+  of(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity;
   of(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">): HoverEvent_ShowEntity;
-  of(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity | null;
+  of(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity;
   showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">): HoverEvent_ShowEntity;
-  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity | null;
+  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity;
   showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">): HoverEvent_ShowEntity;
-  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity | null;
+  showEntity(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: JavaOpaque<"java.util.UUID">, arg2: j_net_kyori_adventure_text.Component | null): HoverEvent_ShowEntity;
 }
 
 /** JVM class net.kyori.adventure.text.event.HoverEvent$ShowItem. */
@@ -299,26 +299,26 @@ export interface HoverEvent_ShowItemMembers {
   dataComponents(): JavaMap<JavaOpaque<"net.kyori.adventure.key.Key">, DataComponentValue>;
   dataComponents(arg0: JavaMap<JavaOpaque<"net.kyori.adventure.key.Key">, DataComponentValue>): HoverEvent_ShowItem;
   dataComponentsAs<V /* extends DataComponentValue */>(arg0: JavaClass<V>): JavaMap<JavaOpaque<"net.kyori.adventure.key.Key">, V>;
-  equals(arg0: object | null): boolean | null;
+  equals(arg0: object | null): boolean;
   examinableProperties(): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"net.kyori.examination.ExaminableProperty">]>;
   hashCode(): number;
   item(): JavaOpaque<"net.kyori.adventure.key.Key">;
   item(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): HoverEvent_ShowItem;
   nbt(): j_net_kyori_adventure_nbt_api.BinaryTagHolder | null;
-  nbt(arg0: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem | null;
+  nbt(arg0: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem;
   toString(): string;
 }
 export type HoverEvent_ShowItem = HoverEvent_ShowItemMembers & JavaOpaque<"net.kyori.examination.Examinable">;
 export interface HoverEvent_ShowItemStatics {
   of(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number): HoverEvent_ShowItem;
-  of(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem | null;
+  of(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem;
   of(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number): HoverEvent_ShowItem;
-  of(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem | null;
+  of(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem;
   showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number): HoverEvent_ShowItem;
-  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem | null;
+  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem;
   showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number): HoverEvent_ShowItem;
   showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: JavaMap<JavaOpaque<"net.kyori.adventure.key.Key">, DataComponentValue>): HoverEvent_ShowItem;
-  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem | null;
+  showItem(arg0: JavaOpaque<"net.kyori.adventure.key.Keyed">, arg1: number, arg2: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): HoverEvent_ShowItem;
 }
 
 /** JVM interface net.kyori.adventure.text.event.HoverEventSource. */

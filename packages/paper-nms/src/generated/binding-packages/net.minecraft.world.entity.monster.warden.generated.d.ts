@@ -11,13 +11,10 @@ import type * as j_net_minecraft_world_damagesource from './net.minecraft.world.
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
 import type * as j_net_minecraft_world_entity_ai from './net.minecraft.world.entity.ai.generated.js';
 import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraft.world.entity.ai.attributes.generated.js';
-import type * as j_net_minecraft_world_entity_ai_navigation from './net.minecraft.world.entity.ai.navigation.generated.js';
 import type * as j_net_minecraft_world_entity_monster from './net.minecraft.world.entity.monster.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
 import type * as j_net_minecraft_world_level_gameevent from './net.minecraft.world.level.gameevent.generated.js';
 import type * as j_net_minecraft_world_level_gameevent_vibrations from './net.minecraft.world.level.gameevent.vibrations.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** Live JVM enum net.minecraft.world.entity.monster.warden.AngerLevel; constants are host handles, not strings. */
@@ -39,20 +36,15 @@ export interface AngerLevelStatics {
 
 /** JVM class net.minecraft.world.entity.monster.warden.AngerManagement. */
 export interface AngerManagementMembers {
-  readonly angerBySuspect: JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2IntMap", [j_net_minecraft_world_entity.Entity]>;
-  readonly angerByUuid: JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2IntMap", [JavaOpaque<"java.util.UUID">]>;
   clearAnger(arg0: j_net_minecraft_world_entity.Entity): void;
-  getActiveAnger(arg0: j_net_minecraft_world_entity.Entity | null): number | null;
+  getActiveAnger(arg0: j_net_minecraft_world_entity.Entity | null): number;
   getActiveEntity(): JavaOptional<j_net_minecraft_world_entity.LivingEntity>;
   increaseAnger(arg0: j_net_minecraft_world_entity.Entity, arg1: number): number;
-  readonly suspects: JavaOpaque<"java.util.ArrayList", [j_net_minecraft_world_entity.Entity]>;
   tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: JavaPredicate<j_net_minecraft_world_entity.Entity>): void;
 }
 export type AngerManagement = AngerManagementMembers;
 export interface AngerManagementStatics {
   new(arg0: JavaPredicate<j_net_minecraft_world_entity.Entity>, arg1: JavaList<JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"java.util.UUID">, number]>>): AngerManagement;
-  readonly CONVERSION_DELAY: 2;
-  readonly MAX_ANGER: 150;
   codec(arg0: JavaPredicate<j_net_minecraft_world_entity.Entity>): JavaOpaque<"com.mojang.serialization.Codec", [AngerManagement]>;
 }
 
@@ -60,7 +52,6 @@ export interface AngerManagementStatics {
 export interface AngerManagement_SorterMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"java.util.Comparator", [j_net_minecraft_world_entity.Entity]>];
   angerManagement(): AngerManagement;
-  compare(arg0: object, arg1: object): number;
   compare(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity): number;
   equals(arg0: object): boolean;
   hashCode(): number;
@@ -68,25 +59,18 @@ export interface AngerManagement_SorterMembers {
 }
 export type AngerManagement_Sorter = AngerManagement_SorterMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"java.util.Comparator", [j_net_minecraft_world_entity.Entity]>;
 export interface AngerManagement_SorterStatics {
-  new(arg0: AngerManagement): AngerManagement_Sorter;
 }
 
 /** JVM class net.minecraft.world.entity.monster.warden.Warden. */
 export interface WardenMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_monster.Monster, j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   attackAnimationState: j_net_minecraft_world_entity.AnimationState;
-  canRide(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  canTargetEntity(arg0: j_net_minecraft_world_entity.Entity | null): boolean | null;
+  canTargetEntity(arg0: j_net_minecraft_world_entity.Entity | null): boolean;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
   clearAnger(arg0: j_net_minecraft_world_entity.Entity): void;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
   dampensVibrations(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   diggingAnimationState: j_net_minecraft_world_entity.AnimationState;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
-  doPush(arg0: j_net_minecraft_world_entity.Entity): void;
   emergeAnimationState: j_net_minecraft_world_entity.AnimationState;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAddEntityPacket(arg0: j_net_minecraft_server_level.ServerEntity): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>;
@@ -110,19 +94,14 @@ export interface WardenMembers {
   handleEntityEvent(arg0: number): void;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   ignoreExplosion(arg0: j_net_minecraft_world_level.Explosion): boolean;
-  increaseAngerAt(arg0: j_net_minecraft_world_entity.Entity | null): void | null;
-  increaseAngerAt(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: boolean): void | null;
+  increaseAngerAt(arg0: j_net_minecraft_world_entity.Entity | null): void;
+  increaseAngerAt(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: boolean): void;
   isInvulnerableTo(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): boolean;
   isPushable(): boolean;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
-  nextStep(): number;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
   removeWhenFarAway(arg0: number): boolean;
   roarAnimationState: j_net_minecraft_world_entity.AnimationState;
-  sendDebugPackets(): void;
   setAttackTarget(arg0: j_net_minecraft_world_entity.LivingEntity): void;
   sniffAnimationState: j_net_minecraft_world_entity.AnimationState;
   sonicBoomAnimationState: j_net_minecraft_world_entity.AnimationState;
@@ -132,7 +111,7 @@ export interface WardenMembers {
 export type Warden = WardenMembers & j_net_minecraft_world_entity_monster.Monster & j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem;
 export interface WardenStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<j_net_minecraft_world_entity_monster.Monster>, arg1: j_net_minecraft_world_level.Level): Warden;
-  applyDarknessAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): void | null;
+  applyDarknessAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): void;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
 
@@ -145,7 +124,6 @@ export interface WardenAiStatics {
   readonly DIGGING_COOLDOWN: 1200;
   readonly EMERGE_DURATION: number;
   readonly ROAR_DURATION: number;
-  makeBrain(arg0: Warden, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   setDigCooldown(arg0: j_net_minecraft_world_entity.LivingEntity): void;
   setDisturbanceLocation(arg0: Warden, arg1: j_net_minecraft_core.BlockPos): void;
   updateActivity(arg0: Warden): void;

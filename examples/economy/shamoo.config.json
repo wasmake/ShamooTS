@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/economy",
+  "name": "economy",
   "displayName": "Shamoo In-Memory Economy",
   "version": "0.1.0",
   "platforms": ["paper"],

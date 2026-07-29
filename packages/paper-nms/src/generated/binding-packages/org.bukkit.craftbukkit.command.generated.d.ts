@@ -5,7 +5,6 @@ import type * as j_net_minecraft_server_dedicated from './net.minecraft.server.d
 import type * as j_net_minecraft_server_rcon from './net.minecraft.server.rcon.generated.js';
 import type * as j_net_minecraft_world_level_block_entity from './net.minecraft.world.level.block.entity.generated.js';
 import type * as j_org_bukkit_craftbukkit from './org.bukkit.craftbukkit.generated.js';
-import type * as j_org_bukkit_craftbukkit_conversations from './org.bukkit.craftbukkit.conversations.generated.js';
 
 /** JVM class org.bukkit.craftbukkit.command.BukkitCommandWrapper. */
 export interface BukkitCommandWrapperMembers {
@@ -15,7 +14,6 @@ export interface BukkitCommandWrapperMembers {
   register(arg0: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [j_net_minecraft_commands.CommandSourceStack]>, arg1: string): JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [j_net_minecraft_commands.CommandSourceStack]>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   run(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [j_net_minecraft_commands.CommandSourceStack]>): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_commands.CommandSourceStack): boolean;
 }
 export type BukkitCommandWrapper = BukkitCommandWrapperMembers & JavaOpaque<"com.mojang.brigadier.Command", [j_net_minecraft_commands.CommandSourceStack]> & JavaPredicate<j_net_minecraft_commands.CommandSourceStack> & JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionProvider", [j_net_minecraft_commands.CommandSourceStack]> & JavaOpaque<"com.destroystokyo.paper.brigadier.BukkitBrigadierCommand", [j_net_minecraft_commands.CommandSourceStack]>;
@@ -68,7 +66,6 @@ export interface CraftConsoleCommandSenderMembers {
   abandonConversation(arg0: JavaOpaque<"org.bukkit.conversations.Conversation">, arg1: JavaOpaque<"org.bukkit.conversations.ConversationAbandonedEvent">): void;
   acceptConversationInput(arg0: string): void;
   beginConversation(arg0: JavaOpaque<"org.bukkit.conversations.Conversation">): boolean;
-  readonly conversationTracker: j_org_bukkit_craftbukkit_conversations.ConversationTracker;
   getName(): string;
   hasPermission(arg0: string): boolean;
   hasPermission(arg0: JavaOpaque<"org.bukkit.permissions.Permission">): boolean;
@@ -84,7 +81,6 @@ export interface CraftConsoleCommandSenderMembers {
 }
 export type CraftConsoleCommandSender = CraftConsoleCommandSenderMembers & ServerCommandSender & JavaOpaque<"org.bukkit.command.ConsoleCommandSender">;
 export interface CraftConsoleCommandSenderStatics {
-  new(): CraftConsoleCommandSender;
 }
 
 /** JVM class org.bukkit.craftbukkit.command.CraftRemoteConsoleCommandSender. */
@@ -163,8 +159,6 @@ export interface ServerCommandSenderMembers {
 }
 export type ServerCommandSender = ServerCommandSenderMembers & JavaOpaque<"org.bukkit.command.CommandSender">;
 export interface ServerCommandSenderStatics {
-  new(): ServerCommandSender;
-  new(arg0: JavaOpaque<"org.bukkit.permissions.PermissibleBase">): ServerCommandSender;
 }
 
 /** JVM class org.bukkit.craftbukkit.command.VanillaCommandWrapper. */

@@ -1,6 +1,6 @@
 ## Generated API Reference for "@shamoo/paper-raw"
 
-Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
+Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,215 declarations.
 
 ### ClientOption
 
@@ -53,10 +53,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: java.util.function.Predicate<org.bukkit.Material>)`
 - Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material)`
-- Method: `getAllPossibleValues(): java.util.Set<org.bukkit.Material>`
-- Method: `getName(arg0: org.bukkit.Keyed): java.lang.String`
-- Method: `getName(arg0: org.bukkit.Material): java.lang.String`
-- Method: `isTagged(arg0: org.bukkit.Keyed): boolean`
 - Method: `isTagged(arg0: org.bukkit.Material): boolean`
 - Method: `isTagged(arg0: org.bukkit.block.Block): boolean`
 - Method: `isTagged(arg0: org.bukkit.block.BlockState): boolean`
@@ -195,7 +191,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Particle)`
 - Method: `allPlayers(): com.destroystokyo.paper.ParticleBuilder`
 - Method: `clone(): com.destroystokyo.paper.ParticleBuilder`
-- Method: `clone(): java.lang.Object`
 - Method: `color(arg0: int): com.destroystokyo.paper.ParticleBuilder`
 - Method: `color(arg0: int, arg1: int, arg2: int): com.destroystokyo.paper.ParticleBuilder`
 - Method: `color(arg0: int, arg1: int, arg2: int, arg3: int): com.destroystokyo.paper.ParticleBuilder`
@@ -663,7 +658,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getInventory(): org.bukkit.inventory.AnvilInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `isBreaking(): boolean`
 - Method: `isCancelled(): boolean`
 - Method: `setBreaking(arg0: boolean): void`
@@ -787,7 +781,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Creeper, arg1: boolean)`
 - Method: `getEntity(): org.bukkit.entity.Creeper`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `isCancelled(): boolean`
@@ -802,7 +795,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.DragonFireball, arg1: java.util.Collection<org.bukkit.entity.LivingEntity>, arg2: org.bukkit.entity.AreaEffectCloud)`
 - Method: `getAreaEffectCloud(): org.bukkit.entity.AreaEffectCloud`
 - Method: `getEntity(): org.bukkit.entity.DragonFireball`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getTargets(): java.util.Collection<org.bukkit.entity.LivingEntity>`
@@ -816,7 +808,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.EnderDragon, arg1: org.bukkit.entity.AreaEffectCloud)`
 - Method: `getAreaEffectCloud(): org.bukkit.entity.AreaEffectCloud`
 - Method: `getEntity(): org.bukkit.entity.EnderDragon`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `isCancelled(): boolean`
@@ -828,7 +819,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.EnderDragon, arg1: org.bukkit.entity.DragonFireball)`
 - Method: `getEntity(): org.bukkit.entity.EnderDragon`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getFireball(): org.bukkit.entity.DragonFireball`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -841,7 +831,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Enderman, arg1: org.bukkit.entity.Player)`
 - Method: `getEntity(): org.bukkit.entity.Enderman`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getPlayer(): org.bukkit.entity.Player`
@@ -854,7 +843,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Enderman, arg1: com.destroystokyo.paper.event.entity.EndermanEscapeEvent$Reason)`
 - Method: `getEntity(): org.bukkit.entity.Enderman`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getReason(): com.destroystokyo.paper.event.entity.EndermanEscapeEvent$Reason`
@@ -887,7 +875,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.EntityJumpEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -899,7 +886,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.EntityKnockbackByEntityEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.entity.Entity, arg2: io.papermc.paper.event.entity.EntityKnockbackEvent$Cause, arg3: float, arg4: org.bukkit.util.Vector)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHitBy(): org.bukkit.entity.Entity`
 - Method: `getKnockbackStrength(): float`
@@ -1004,7 +990,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Projectile, arg1: org.bukkit.entity.Entity)`
 - Method: `getCollidedWith(): org.bukkit.entity.Entity`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Projectile`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1017,7 +1002,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.SkeletonHorse, arg1: java.util.List<org.bukkit.entity.HumanEntity>)`
 - Method: `getEligibleHumans(): java.util.List<org.bukkit.entity.HumanEntity>`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.SkeletonHorse`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1037,7 +1021,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.SlimePathfindEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Slime)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Slime`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1083,7 +1066,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.TurtleGoHomeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Turtle)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Turtle`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1096,7 +1078,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Turtle, arg1: org.bukkit.Location, arg2: int)`
 - Method: `getEggCount(): int`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Turtle`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1110,7 +1091,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.TurtleStartDiggingEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Turtle, arg1: org.bukkit.Location)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Turtle`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1123,7 +1103,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.WitchConsumePotionEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Witch, arg1: org.bukkit.inventory.ItemStack)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Witch`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1137,7 +1116,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.WitchReadyPotionEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Witch, arg1: org.bukkit.inventory.ItemStack)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Witch`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1151,7 +1129,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.entity.WitchThrowPotionEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Witch, arg1: org.bukkit.entity.LivingEntity, arg2: org.bukkit.inventory.ItemStack)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Witch`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -1167,7 +1144,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.inventory.ItemStack)`
 - Method: `getInventory(): org.bukkit.inventory.GrindstoneInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 
 ### PrepareResultEvent
 
@@ -1633,12 +1609,10 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.event.server.PaperServerListPingEvent`
 - Kind: `class`
 - Constructor: `(arg0: com.destroystokyo.paper.network.StatusClient, arg1: net.kyori.adventure.text.Component, arg2: int, arg3: int, arg4: java.lang.String, arg5: int, arg6: org.bukkit.util.CachedServerIcon)`
-- Method: `getBukkitPlayer(arg0: java.lang.Object): org.bukkit.entity.Player`
 - Method: `getClient(): com.destroystokyo.paper.network.StatusClient`
 - Method: `getListedPlayers(): java.util.List<com.destroystokyo.paper.event.server.PaperServerListPingEvent$ListedPlayerInfo>`
 - Method: `getMaxPlayers(): int`
 - Method: `getNumPlayers(): int`
-- Method: `getOnlinePlayers(): java.lang.Object[]`
 - Method: `getPlayerSample(): java.util.List<com.destroystokyo.paper.profile.PlayerProfile>`
 - Method: `getProtocolVersion(): int`
 - Method: `getServerIcon(): org.bukkit.util.CachedServerIcon`
@@ -1707,7 +1681,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerCommandException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.command.Command, arg3: org.bukkit.command.CommandSender, arg4: java.lang.String[])`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.command.Command, arg5: org.bukkit.command.CommandSender, arg6: java.lang.String[])`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.command.Command, arg2: org.bukkit.command.CommandSender, arg3: java.lang.String[])`
 - Method: `getArguments(): java.lang.String[]`
 - Method: `getCommand(): org.bukkit.command.Command`
@@ -1718,7 +1691,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerEventException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.plugin.Plugin, arg3: org.bukkit.event.Listener, arg4: org.bukkit.event.Event)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.plugin.Plugin, arg5: org.bukkit.event.Listener, arg6: org.bukkit.event.Event)`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.plugin.Plugin, arg2: org.bukkit.event.Listener, arg3: org.bukkit.event.Event)`
 - Method: `getEvent(): org.bukkit.event.Event`
 - Method: `getListener(): org.bukkit.event.Listener`
@@ -1729,7 +1701,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String)`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean)`
 - Constructor: `(arg0: java.lang.Throwable)`
 
 ### ServerInternalException
@@ -1738,7 +1709,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String)`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean)`
 - Constructor: `(arg0: java.lang.Throwable)`
 - Method: `reportInternalException(arg0: java.lang.Throwable): void`
 
@@ -1747,7 +1717,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerPluginEnableDisableException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.plugin.Plugin)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.plugin.Plugin)`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.plugin.Plugin)`
 
 ### ServerPluginException
@@ -1755,7 +1724,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerPluginException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.plugin.Plugin)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.plugin.Plugin)`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.plugin.Plugin)`
 - Method: `getResponsiblePlugin(): org.bukkit.plugin.Plugin`
 
@@ -1764,7 +1732,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerPluginMessageException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.plugin.Plugin, arg3: org.bukkit.entity.Player, arg4: java.lang.String, arg5: byte[])`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.plugin.Plugin, arg5: org.bukkit.entity.Player, arg6: java.lang.String, arg7: byte[])`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.plugin.Plugin, arg2: org.bukkit.entity.Player, arg3: java.lang.String, arg4: byte[])`
 - Method: `getChannel(): java.lang.String`
 - Method: `getData(): byte[]`
@@ -1775,7 +1742,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerSchedulerException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.scheduler.BukkitTask)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.scheduler.BukkitTask)`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.scheduler.BukkitTask)`
 - Method: `getTask(): org.bukkit.scheduler.BukkitTask`
 
@@ -1784,7 +1750,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `com.destroystokyo.paper.exception.ServerTabCompleteException`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: org.bukkit.command.Command, arg3: org.bukkit.command.CommandSender, arg4: java.lang.String[])`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: boolean, arg3: boolean, arg4: org.bukkit.command.Command, arg5: org.bukkit.command.CommandSender, arg6: java.lang.String[])`
 - Constructor: `(arg0: java.lang.Throwable, arg1: org.bukkit.command.Command, arg2: org.bukkit.command.CommandSender, arg3: java.lang.String[])`
 
 ### ArmorStandMeta
@@ -1863,7 +1828,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `clearProperties(): void`
 - Method: `clone(): com.destroystokyo.paper.profile.PlayerProfile`
-- Method: `clone(): org.bukkit.profile.PlayerProfile`
 - Method: `complete(): boolean`
 - Method: `complete(arg0: boolean): boolean`
 - Method: `complete(arg0: boolean, arg1: boolean): boolean`
@@ -3745,7 +3709,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.ElderGuardian, arg1: org.bukkit.entity.Player)`
 - Method: `getAffectedPlayer(): org.bukkit.entity.Player`
 - Method: `getEntity(): org.bukkit.entity.ElderGuardian`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `isCancelled(): boolean`
@@ -3769,7 +3732,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.EntityAttemptSpinAttackEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.entity.LivingEntity)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -3818,7 +3780,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.potion.PotionEffectType, arg2: int)`
 - Method: `getAmplifier(): int`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -3831,7 +3792,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.EntityEquipmentChangedEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: java.util.Map<org.bukkit.inventory.EquipmentSlot, io.papermc.paper.event.entity.EntityEquipmentChangedEvent$EquipmentChange>)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getEquipmentChanges(): java.util.Map<org.bukkit.inventory.EquipmentSlot, io.papermc.paper.event.entity.EntityEquipmentChangedEvent$EquipmentChange>`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -3851,7 +3811,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.entity.LivingEntity, arg2: org.bukkit.entity.Player, arg3: org.bukkit.inventory.ItemStack, arg4: int)`
 - Method: `getBredWith(): org.bukkit.inventory.ItemStack`
 - Method: `getBreeder(): org.bukkit.entity.Player`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getExperience(): int`
 - Method: `getFather(): org.bukkit.entity.LivingEntity`
@@ -3878,7 +3837,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.EntityKnockbackEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Entity, arg1: io.papermc.paper.event.entity.EntityKnockbackEvent$Cause, arg2: org.bukkit.util.Vector)`
-- Field: `knockback: org.bukkit.util.Vector`
 - Method: `getCause(): io.papermc.paper.event.entity.EntityKnockbackEvent$Cause`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -3907,7 +3865,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.inventory.ItemStack, arg2: org.bukkit.inventory.EquipmentSlot)`
 - Method: `getCrossbow(): org.bukkit.inventory.ItemStack`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHand(): org.bukkit.inventory.EquipmentSlot`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -3922,7 +3879,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.EntityMoveEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.Location, arg2: org.bukkit.Location)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getFrom(): org.bukkit.Location`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -3978,7 +3934,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.FishHookStateChangeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.FishHook, arg1: org.bukkit.entity.FishHook$HookState)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.FishHook`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -3989,7 +3944,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.PufferFishStateChangeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.PufferFish, arg1: int)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.PufferFish`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -4004,7 +3958,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.ShulkerDuplicateEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Shulker, arg1: org.bukkit.entity.Shulker)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Shulker`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -4019,7 +3972,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.Tameable, arg1: net.kyori.adventure.text.Component)`
 - Method: `deathMessage(): net.kyori.adventure.text.Component`
 - Method: `deathMessage(arg0: net.kyori.adventure.text.Component): void`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Tameable`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -4031,7 +3983,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `io.papermc.paper.event.entity.WardenAngerChangeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Warden, arg1: org.bukkit.entity.Entity, arg2: int, arg3: int)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Warden`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -4119,8 +4070,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `io.papermc.paper.event.player.AbstractRespawnEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.Location, arg2: boolean, arg3: boolean, arg4: boolean, arg5: org.bukkit.event.player.PlayerRespawnEvent$RespawnReason)`
-- Field: `respawnLocation: org.bukkit.Location`
 - Method: `getRespawnFlags(): java.util.Set<org.bukkit.event.player.PlayerRespawnEvent$RespawnFlag>`
 - Method: `getRespawnLocation(): org.bukkit.Location`
 - Method: `getRespawnReason(): org.bukkit.event.player.PlayerRespawnEvent$RespawnReason`
@@ -4165,7 +4114,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.event.inventory.InventoryType$SlotType, arg2: int, arg3: org.bukkit.event.inventory.ClickType, arg4: org.bukkit.event.inventory.InventoryAction)`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.event.inventory.InventoryType$SlotType, arg2: int, arg3: org.bukkit.event.inventory.ClickType, arg4: org.bukkit.event.inventory.InventoryAction, arg5: int)`
 - Method: `getInventory(): org.bukkit.inventory.CartographyInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 
 ### ChatEvent
 
@@ -4241,7 +4189,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `io.papermc.paper.event.player.PlayerCustomClickEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: net.kyori.adventure.key.Key, arg1: io.papermc.paper.connection.PlayerCommonConnection)`
 - Method: `getCommonConnection(): io.papermc.paper.connection.PlayerCommonConnection`
 - Method: `getDialogResponseView(): io.papermc.paper.dialog.DialogResponseView`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -4477,7 +4424,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `io.papermc.paper.event.player.PlayerPickItemEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: boolean, arg2: int, arg3: int)`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getSourceSlot(): int`
@@ -4749,8 +4695,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `io.papermc.paper.event.world.border.WorldBorderEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.World, arg1: org.bukkit.WorldBorder)`
-- Field: `worldBorder: org.bukkit.WorldBorder`
 - Method: `getWorldBorder(): org.bukkit.WorldBorder`
 
 ### GeneratedFrom
@@ -4799,7 +4743,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `isFine(): boolean`
 - Method: `offset(arg0: double, arg1: double, arg2: double): io.papermc.paper.math.FinePosition`
 - Method: `offset(arg0: int, arg1: int, arg2: int): io.papermc.paper.math.BlockPosition`
-- Method: `offset(arg0: int, arg1: int, arg2: int): io.papermc.paper.math.Position`
 - Method: `offset(arg0: org.bukkit.Axis, arg1: int): io.papermc.paper.math.BlockPosition`
 - Method: `offset(arg0: org.bukkit.block.BlockFace): io.papermc.paper.math.BlockPosition`
 - Method: `offset(arg0: org.bukkit.block.BlockFace, arg1: int): io.papermc.paper.math.BlockPosition`
@@ -4819,7 +4762,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `isFine(): boolean`
 - Method: `offset(arg0: double, arg1: double, arg2: double): io.papermc.paper.math.FinePosition`
 - Method: `offset(arg0: int, arg1: int, arg2: int): io.papermc.paper.math.FinePosition`
-- Method: `offset(arg0: int, arg1: int, arg2: int): io.papermc.paper.math.Position`
 - Method: `toBlock(): io.papermc.paper.math.BlockPosition`
 
 ### Position
@@ -5985,9 +5927,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `filter(arg0: io.papermc.paper.registry.TypedKey<T>): io.papermc.paper.registry.event.type.RegistryEntryAddConfiguration<T>`
 - Method: `filter(arg0: java.util.function.Predicate<io.papermc.paper.registry.TypedKey<T>>): io.papermc.paper.registry.event.type.RegistryEntryAddConfiguration<T>`
-- Method: `monitor(): io.papermc.paper.plugin.lifecycle.event.handler.configuration.PrioritizedLifecycleEventHandlerConfiguration`
 - Method: `monitor(): io.papermc.paper.registry.event.type.RegistryEntryAddConfiguration<T>`
-- Method: `priority(arg0: int): io.papermc.paper.plugin.lifecycle.event.handler.configuration.PrioritizedLifecycleEventHandlerConfiguration`
 - Method: `priority(arg0: int): io.papermc.paper.registry.event.type.RegistryEntryAddConfiguration<T>`
 
 ### RegistryEntryAddEventType
@@ -11904,12 +11844,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `io.papermc.paper.tag.BaseTag`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.Class<T>, arg1: org.bukkit.NamespacedKey, arg2: java.util.Collection<T>)`
-- Constructor: `(arg0: java.lang.Class<T>, arg1: org.bukkit.NamespacedKey, arg2: java.util.Collection<T>, arg3: java.util.function.Predicate<T>)`
-- Constructor: `(arg0: java.lang.Class<T>, arg1: org.bukkit.NamespacedKey, arg2: java.util.function.Predicate<T>)`
-- Constructor: `(arg0: java.lang.Class<T>, arg1: org.bukkit.NamespacedKey, arg2: T)`
-- Field: `key: org.bukkit.NamespacedKey`
-- Field: `tagged: java.util.Set<T>`
 - Method: `add(arg0: java.util.Collection<T>): C`
 - Method: `add(arg0: java.util.function.Predicate<T>): C`
 - Method: `add(arg0: T): C`
@@ -11917,9 +11851,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `contains(arg0: java.lang.String): C`
 - Method: `endsWith(arg0: java.lang.String): C`
 - Method: `ensureSize(arg0: java.lang.String, arg1: int): C`
-- Method: `getAllPossibleValues(): java.util.Set<T>`
 - Method: `getKey(): org.bukkit.NamespacedKey`
-- Method: `getName(arg0: T): java.lang.String`
 - Method: `getValues(): java.util.Set<T>`
 - Method: `isLocked(): boolean`
 - Method: `isTagged(arg0: T): boolean`
@@ -11941,9 +11873,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: java.util.Collection<org.bukkit.entity.EntityType>, arg2: java.util.function.Predicate<org.bukkit.entity.EntityType>)`
 - Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: java.util.function.Predicate<org.bukkit.entity.EntityType>)`
 - Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: org.bukkit.entity.EntityType)`
-- Method: `getAllPossibleValues(): java.util.Set<org.bukkit.entity.EntityType>`
-- Method: `getName(arg0: org.bukkit.Keyed): java.lang.String`
-- Method: `getName(arg0: org.bukkit.entity.EntityType): java.lang.String`
 
 ### EntityTags
 
@@ -12588,7 +12517,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `title(): net.kyori.adventure.text.Component`
 - Method: `title(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book`
 - Method: `toBuilder(): net.kyori.adventure.inventory.Book$Builder`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 
 ### Book_Builder
 
@@ -12596,7 +12524,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `addPage(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
 - Method: `author(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
-- Method: `build(): java.lang.Object`
 - Method: `build(): net.kyori.adventure.inventory.Book`
 - Method: `pages(arg0: java.util.Collection<net.kyori.adventure.text.Component>): net.kyori.adventure.inventory.Book$Builder`
 - Method: `pages(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
@@ -12619,7 +12546,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Field: `POINTER: net.kyori.adventure.pointer.Pointer<net.kyori.adventure.permission.PermissionChecker>`
 - Method: `always(arg0: net.kyori.adventure.util.TriState): net.kyori.adventure.permission.PermissionChecker`
-- Method: `test(arg0: java.lang.Object): boolean`
 - Method: `test(arg0: java.lang.String): boolean`
 - Method: `value(arg0: java.lang.String): net.kyori.adventure.util.TriState`
 
@@ -12699,7 +12625,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `net.kyori.adventure.resource.ResourcePackInfo$Builder`
 - Kind: `interface`
 - Method: `asResourcePackInfo(): net.kyori.adventure.resource.ResourcePackInfo`
-- Method: `build(): java.lang.Object`
 - Method: `build(): net.kyori.adventure.resource.ResourcePackInfo`
 - Method: `computeHashAndBuild(): java.util.concurrent.CompletableFuture<net.kyori.adventure.resource.ResourcePackInfo>`
 - Method: `computeHashAndBuild(arg0: java.util.concurrent.Executor): java.util.concurrent.CompletableFuture<net.kyori.adventure.resource.ResourcePackInfo>`
@@ -12854,9 +12779,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `net.kyori.adventure.text.AbstractComponent`
 - Kind: `abstract`
-- Constructor: `(arg0: java.util.List<? extends net.kyori.adventure.text.ComponentLike>, arg1: net.kyori.adventure.text.format.Style)`
-- Field: `children: java.util.List<net.kyori.adventure.text.Component>`
-- Field: `style: net.kyori.adventure.text.format.Style`
 - Method: `children(): java.util.List<net.kyori.adventure.text.Component>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `hashCode(): int`
@@ -12937,7 +12859,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `net.kyori.adventure.text.BuildableComponent`
 - Kind: `interface`
 - Method: `toBuilder(): B`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 
 ### Component
 
@@ -12966,28 +12887,20 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `children(arg0: java.util.List<? extends net.kyori.adventure.text.ComponentLike>): net.kyori.adventure.text.Component`
 - Method: `clickEvent(): net.kyori.adventure.text.event.ClickEvent`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.Component`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.Component`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.Component`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `compact(): net.kyori.adventure.text.Component`
 - Method: `componentBuilderApply(arg0: net.kyori.adventure.text.ComponentBuilder<?, ?>): void`
 - Method: `contains(arg0: net.kyori.adventure.text.Component): boolean`
 - Method: `contains(arg0: net.kyori.adventure.text.Component, arg1: java.util.function.BiPredicate<? super net.kyori.adventure.text.Component, ? super net.kyori.adventure.text.Component>): boolean`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.Component`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.TextDecoration$State`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.Component`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.Component`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.Component`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(): java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): net.kyori.adventure.text.Component`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `detectCycle(arg0: net.kyori.adventure.text.Component): void`
 - Method: `empty(): net.kyori.adventure.text.TextComponent`
 - Method: `entityNBT(): net.kyori.adventure.text.EntityNBTComponent$Builder`
@@ -12996,15 +12909,12 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `examinableProperties(): java.util.stream.Stream<? extends net.kyori.examination.ExaminableProperty>`
 - Method: `font(): net.kyori.adventure.key.Key`
 - Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.Component`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hasDecoration(arg0: net.kyori.adventure.text.format.TextDecoration): boolean`
 - Method: `hasStyling(): boolean`
 - Method: `hoverEvent(): net.kyori.adventure.text.event.HoverEvent<?>`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): net.kyori.adventure.text.Component`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(): java.lang.String`
 - Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.Component`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `iterable(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: java.util.Set<net.kyori.adventure.text.ComponentIteratorFlag>): java.lang.Iterable<net.kyori.adventure.text.Component>`
 - Method: `iterable(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: net.kyori.adventure.text.ComponentIteratorFlag): java.lang.Iterable<net.kyori.adventure.text.Component>`
 - Method: `iterator(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: java.util.Set<net.kyori.adventure.text.ComponentIteratorFlag>): java.util.Iterator<net.kyori.adventure.text.Component>`
@@ -13051,9 +12961,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `selector(arg0: java.util.function.Consumer<? super net.kyori.adventure.text.SelectorComponent$Builder>): net.kyori.adventure.text.SelectorComponent`
 - Method: `shadowColor(): net.kyori.adventure.text.format.ShadowColor`
 - Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.Component`
-- Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.Component`
-- Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `space(): net.kyori.adventure.text.TextComponent`
 - Method: `spliterator(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: java.util.Set<net.kyori.adventure.text.ComponentIteratorFlag>): java.util.Spliterator<net.kyori.adventure.text.Component>`
 - Method: `spliterator(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: net.kyori.adventure.text.ComponentIteratorFlag): java.util.Spliterator<net.kyori.adventure.text.Component>`
@@ -13178,39 +13086,22 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `apply(arg0: java.util.function.Consumer<? super net.kyori.adventure.text.ComponentBuilder<?, ?>>): B`
 - Method: `applyDeep(arg0: java.util.function.Consumer<? super net.kyori.adventure.text.ComponentBuilder<?, ?>>): B`
 - Method: `asComponent(): net.kyori.adventure.text.Component`
-- Method: `build(): java.lang.Object`
 - Method: `build(): C`
 - Method: `children(): java.util.List<net.kyori.adventure.text.Component>`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): B`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): B`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): B`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `componentBuilderApply(arg0: net.kyori.adventure.text.ComponentBuilder<?, ?>): void`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): B`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): B`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.MutableStyleSetter`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): B`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): B`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): B`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): B`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.MutableStyleSetter`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Set<net.kyori.adventure.text.format.TextDecoration>, arg1: boolean): B`
-- Method: `decorations(arg0: java.util.Set, arg1: boolean): net.kyori.adventure.text.format.MutableStyleSetter`
-- Method: `decorations(arg0: java.util.Set, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `font(arg0: net.kyori.adventure.key.Key): B`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): B`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(arg0: java.lang.String): B`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `mapChildren(arg0: java.util.function.Function<net.kyori.adventure.text.BuildableComponent<?, ?>, ? extends net.kyori.adventure.text.BuildableComponent<?, ?>>): B`
 - Method: `mapChildrenDeep(arg0: java.util.function.Function<net.kyori.adventure.text.BuildableComponent<?, ?>, ? extends net.kyori.adventure.text.BuildableComponent<?, ?>>): B`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component): B`
@@ -13375,34 +13266,21 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `asComponent(): C`
 - Method: `children(arg0: java.util.List<? extends net.kyori.adventure.text.ComponentLike>): C`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): C`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): C`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): C`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): C`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): C`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): C`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): C`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): C`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `font(arg0: net.kyori.adventure.key.Key): C`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): C`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(arg0: java.lang.String): C`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component): C`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component, arg1: java.util.Set<net.kyori.adventure.text.format.Style$Merge>): C`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component, arg1: net.kyori.adventure.text.format.Style$Merge): C`
 - Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): C`
-- Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): C`
-- Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `style(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>): C`
 - Method: `style(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>, arg1: net.kyori.adventure.text.format.Style$Merge$Strategy): C`
 - Method: `style(arg0: net.kyori.adventure.text.format.Style$Builder): C`
@@ -13863,11 +13741,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `net.kyori.adventure.text.format.MutableStyleSetter`
 - Kind: `interface`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): T`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): T`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Set<net.kyori.adventure.text.format.TextDecoration>, arg1: boolean): T`
-- Method: `decorations(arg0: java.util.Set, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 
 ### NamedTextColor
 
@@ -13924,37 +13799,26 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Field: `DEFAULT_FONT: net.kyori.adventure.key.Key`
 - Method: `clickEvent(): net.kyori.adventure.text.event.ClickEvent`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.Style`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.TextDecoration$State`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.Style`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(): java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): net.kyori.adventure.text.format.Style`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `edit(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>): net.kyori.adventure.text.format.Style`
 - Method: `edit(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>, arg1: net.kyori.adventure.text.format.Style$Merge$Strategy): net.kyori.adventure.text.format.Style`
 - Method: `empty(): net.kyori.adventure.text.format.Style`
 - Method: `font(): net.kyori.adventure.key.Key`
 - Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.Style`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hasDecoration(arg0: net.kyori.adventure.text.format.TextDecoration): boolean`
 - Method: `hoverEvent(): net.kyori.adventure.text.event.HoverEvent<?>`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): net.kyori.adventure.text.format.Style`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(): java.lang.String`
 - Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.Style`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `isEmpty(): boolean`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.format.Style`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style, arg1: java.util.Set<net.kyori.adventure.text.format.Style$Merge>): net.kyori.adventure.text.format.Style`
@@ -13973,7 +13837,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `style(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style`
 - Method: `style(arg0: net.kyori.adventure.text.format.StyleBuilderApplicable): net.kyori.adventure.text.format.Style`
 - Method: `toBuilder(): net.kyori.adventure.text.format.Style$Builder`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 - Method: `unmerge(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.format.Style`
 
 ### Style_Builder
@@ -13981,34 +13844,19 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `net.kyori.adventure.text.format.Style$Builder`
 - Kind: `interface`
 - Method: `apply(arg0: net.kyori.adventure.text.format.StyleBuilderApplicable): net.kyori.adventure.text.format.Style$Builder`
-- Method: `build(): java.lang.Object`
 - Method: `build(): net.kyori.adventure.text.format.Style`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.Style$Builder`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style$Builder`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style$Builder`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.MutableStyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.MutableStyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.Style$Builder`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): net.kyori.adventure.text.format.Style$Builder`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.Style$Builder`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.format.Style$Builder`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style, arg1: java.util.Set<net.kyori.adventure.text.format.Style$Merge>): net.kyori.adventure.text.format.Style$Builder`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style, arg1: net.kyori.adventure.text.format.Style$Merge$Strategy): net.kyori.adventure.text.format.Style$Builder`
@@ -14097,7 +13945,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `color(arg0: int, arg1: int, arg2: int): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.util.HSVLike): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.util.RGBLike): net.kyori.adventure.text.format.TextColor`
-- Method: `compareTo(arg0: java.lang.Object): int`
 - Method: `compareTo(arg0: net.kyori.adventure.text.format.TextColor): int`
 - Method: `examinableProperties(): java.util.stream.Stream<? extends net.kyori.examination.ExaminableProperty>`
 - Method: `fromCSSHexString(arg0: java.lang.String): net.kyori.adventure.text.format.TextColor`
@@ -14157,21 +14004,516 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `net.kyori.adventure.text.format.TextFormat`
 - Kind: `interface`
 
+### Context
+
+- Java: `net.kyori.adventure.text.minimessage.Context`
+- Kind: `interface`
+- Method: `deserialize(arg0: java.lang.String): net.kyori.adventure.text.Component`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.Component`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.Component`
+- Method: `emitVirtuals(): boolean`
+- Method: `newException(arg0: java.lang.String): net.kyori.adventure.text.minimessage.ParsingException`
+- Method: `newException(arg0: java.lang.String, arg1: java.lang.Throwable, arg2: net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue): net.kyori.adventure.text.minimessage.ParsingException`
+- Method: `newException(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue): net.kyori.adventure.text.minimessage.ParsingException`
+- Method: `target(): net.kyori.adventure.pointer.Pointered`
+- Method: `targetAsType(arg0: java.lang.Class<T>): T`
+- Method: `targetOrThrow(): net.kyori.adventure.pointer.Pointered`
+
+### MiniMessage
+
+- Java: `net.kyori.adventure.text.minimessage.MiniMessage`
+- Kind: `interface`
+- Method: `builder(): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.pointer.Pointered): net.kyori.adventure.text.Component`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.pointer.Pointered, arg2: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.Component`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.pointer.Pointered, arg2: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.Component`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.Component`
+- Method: `deserialize(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.Component`
+- Method: `deserializeToTree(arg0: java.lang.String): net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Method: `deserializeToTree(arg0: java.lang.String, arg1: net.kyori.adventure.pointer.Pointered): net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Method: `deserializeToTree(arg0: java.lang.String, arg1: net.kyori.adventure.pointer.Pointered, arg2: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Method: `deserializeToTree(arg0: java.lang.String, arg1: net.kyori.adventure.pointer.Pointered, arg2: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Method: `deserializeToTree(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Method: `deserializeToTree(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Method: `escapeTags(arg0: java.lang.String): java.lang.String`
+- Method: `escapeTags(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): java.lang.String`
+- Method: `escapeTags(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): java.lang.String`
+- Method: `miniMessage(): net.kyori.adventure.text.minimessage.MiniMessage`
+- Method: `strict(): boolean`
+- Method: `stripTags(arg0: java.lang.String): java.lang.String`
+- Method: `stripTags(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): java.lang.String`
+- Method: `stripTags(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): java.lang.String`
+- Method: `tags(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+
+### MiniMessage_Builder
+
+- Java: `net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Kind: `interface`
+- Method: `build(): net.kyori.adventure.text.minimessage.MiniMessage`
+- Method: `debug(arg0: java.util.function.Consumer<java.lang.String>): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `editTags(arg0: java.util.function.Consumer<net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder>): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `emitVirtuals(arg0: boolean): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `postProcessor(arg0: java.util.function.UnaryOperator<net.kyori.adventure.text.Component>): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `preProcessor(arg0: java.util.function.UnaryOperator<java.lang.String>): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `strict(arg0: boolean): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+- Method: `tags(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.MiniMessage$Builder`
+
+### MiniMessage_Provider
+
+- Java: `net.kyori.adventure.text.minimessage.MiniMessage$Provider`
+- Kind: `interface`
+- Method: `builder(): java.util.function.Consumer<net.kyori.adventure.text.minimessage.MiniMessage$Builder>`
+- Method: `miniMessage(): net.kyori.adventure.text.minimessage.MiniMessage`
+
+### ParsingException
+
+- Java: `net.kyori.adventure.text.minimessage.ParsingException`
+- Kind: `abstract`
+- Field: `LOCATION_UNKNOWN: int`
+- Method: `detailMessage(): java.lang.String`
+- Method: `endIndex(): int`
+- Method: `originalText(): java.lang.String`
+- Method: `startIndex(): int`
+
+### TagInternals
+
+- Java: `net.kyori.adventure.text.minimessage.internal.TagInternals`
+- Kind: `class`
+- Field: `TAG_NAME_REGEX: java.lang.String`
+- Method: `assertValidTagName(arg0: java.lang.String): void`
+- Method: `sanitizeAndAssertValidTagName(arg0: java.lang.String): void`
+- Method: `sanitizeAndCheckValidTagName(arg0: java.lang.String): boolean`
+
+### ParsingExceptionImpl
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.ParsingExceptionImpl`
+- Kind: `class`
+- Constructor: `(arg0: java.lang.String, arg1: java.lang.String, arg2: java.lang.Throwable, arg3: boolean, arg4: net.kyori.adventure.text.minimessage.internal.parser.Token)`
+- Constructor: `(arg0: java.lang.String, arg1: java.lang.String, arg2: net.kyori.adventure.text.minimessage.internal.parser.Token)`
+- Method: `detailMessage(): java.lang.String`
+- Method: `endIndex(): int`
+- Method: `getMessage(): java.lang.String`
+- Method: `originalText(): java.lang.String`
+- Method: `startIndex(): int`
+- Method: `tokens(): net.kyori.adventure.text.minimessage.internal.parser.Token[]`
+- Method: `tokens(arg0: net.kyori.adventure.text.minimessage.internal.parser.Token[]): void`
+
+### Token
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.Token`
+- Kind: `class`
+- Constructor: `(arg0: int, arg1: int, arg2: net.kyori.adventure.text.minimessage.internal.parser.TokenType)`
+- Method: `childTokens(): java.util.List<net.kyori.adventure.text.minimessage.internal.parser.Token>`
+- Method: `childTokens(arg0: java.util.List<net.kyori.adventure.text.minimessage.internal.parser.Token>): void`
+- Method: `endIndex(): int`
+- Method: `equals(arg0: java.lang.Object): boolean`
+- Method: `examinableProperties(): java.util.stream.Stream<? extends net.kyori.examination.ExaminableProperty>`
+- Method: `get(arg0: java.lang.CharSequence): java.lang.CharSequence`
+- Method: `hashCode(): int`
+- Method: `startIndex(): int`
+- Method: `toString(): java.lang.String`
+- Method: `type(): net.kyori.adventure.text.minimessage.internal.parser.TokenType`
+
+### TokenParser
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.TokenParser`
+- Kind: `class`
+- Field: `CLOSE_TAG: char`
+- Field: `ESCAPE: char`
+- Field: `SEPARATOR: char`
+- Field: `TAG_END: char`
+- Field: `TAG_START: char`
+- Method: `parse(arg0: net.kyori.adventure.text.minimessage.internal.parser.TokenParser$TagProvider, arg1: java.util.function.Predicate<java.lang.String>, arg2: java.lang.String, arg3: java.lang.String, arg4: boolean): net.kyori.adventure.text.minimessage.internal.parser.node.RootNode`
+- Method: `parseString(arg0: java.lang.String, arg1: boolean, arg2: net.kyori.adventure.text.minimessage.internal.parser.match.MatchedTokenConsumer<?>): void`
+- Method: `resolvePreProcessTags(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.internal.parser.TokenParser$TagProvider): java.lang.String`
+- Method: `tokenize(arg0: java.lang.String, arg1: boolean): java.util.List<net.kyori.adventure.text.minimessage.internal.parser.Token>`
+- Method: `unescape(arg0: java.lang.String, arg1: int, arg2: int, arg3: java.util.function.IntPredicate): java.lang.String`
+
+### TokenParser_TagProvider
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.TokenParser$TagProvider`
+- Kind: `interface`
+- Method: `resolve(arg0: java.lang.String): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `resolve(arg0: java.lang.String, arg1: java.util.List<? extends net.kyori.adventure.text.minimessage.tag.Tag$Argument>, arg2: net.kyori.adventure.text.minimessage.internal.parser.Token): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `resolve(arg0: net.kyori.adventure.text.minimessage.internal.parser.node.TagNode): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `sanitizePlaceholderName(arg0: java.lang.String): java.lang.String`
+
+### TokenType
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.TokenType`
+- Kind: `enum`
+- Method: `valueOf(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.parser.TokenType`
+- Method: `values(): net.kyori.adventure.text.minimessage.internal.parser.TokenType[]`
+- Enum: `CLOSE_TAG`
+- Enum: `OPEN_CLOSE_TAG`
+- Enum: `OPEN_TAG`
+- Enum: `TAG_VALUE`
+- Enum: `TEXT`
+
+### MatchedTokenConsumer
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.match.MatchedTokenConsumer`
+- Kind: `abstract`
+- Method: `accept(arg0: int, arg1: int, arg2: net.kyori.adventure.text.minimessage.internal.parser.TokenType): void`
+- Method: `lastEndIndex(): int`
+- Method: `result(): T`
+
+### StringResolvingMatchedTokenConsumer
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.match.StringResolvingMatchedTokenConsumer`
+- Kind: `class`
+- Constructor: `(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.internal.parser.TokenParser$TagProvider)`
+- Method: `accept(arg0: int, arg1: int, arg2: net.kyori.adventure.text.minimessage.internal.parser.TokenType): void`
+- Method: `result(): java.lang.String`
+
+### TokenListProducingMatchedTokenConsumer
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.match.TokenListProducingMatchedTokenConsumer`
+- Kind: `class`
+- Constructor: `(arg0: java.lang.String)`
+- Method: `accept(arg0: int, arg1: int, arg2: net.kyori.adventure.text.minimessage.internal.parser.TokenType): void`
+- Method: `result(): java.util.List<net.kyori.adventure.text.minimessage.internal.parser.Token>`
+
+### ElementNode
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode`
+- Kind: `class`
+- Method: `addChild(arg0: net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode): void`
+- Method: `buildToString(arg0: java.lang.StringBuilder, arg1: int): java.lang.StringBuilder`
+- Method: `children(): java.util.List<net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode>`
+- Method: `parent(): net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode`
+- Method: `sourceMessage(): java.lang.String`
+- Method: `toString(): java.lang.String`
+- Method: `token(): net.kyori.adventure.text.minimessage.internal.parser.Token`
+- Method: `unsafeChildren(): java.util.List<net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode>`
+
+### RootNode
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.node.RootNode`
+- Kind: `class`
+- Constructor: `(arg0: java.lang.String, arg1: java.lang.String)`
+- Method: `input(): java.lang.String`
+
+### TagNode
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.node.TagNode`
+- Kind: `class`
+- Constructor: `(arg0: net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode, arg1: net.kyori.adventure.text.minimessage.internal.parser.Token, arg2: java.lang.String, arg3: net.kyori.adventure.text.minimessage.internal.parser.TokenParser$TagProvider)`
+- Method: `buildToString(arg0: java.lang.StringBuilder, arg1: int): java.lang.StringBuilder`
+- Method: `name(): java.lang.String`
+- Method: `parts(): java.util.List<net.kyori.adventure.text.minimessage.internal.parser.node.TagPart>`
+- Method: `tag(): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `tag(arg0: net.kyori.adventure.text.minimessage.tag.Tag): void`
+- Method: `token(): net.kyori.adventure.text.minimessage.internal.parser.Token`
+
+### TagPart
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.node.TagPart`
+- Kind: `class`
+- Constructor: `(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.internal.parser.Token, arg2: net.kyori.adventure.text.minimessage.internal.parser.TokenParser$TagProvider)`
+- Method: `toString(): java.lang.String`
+- Method: `token(): net.kyori.adventure.text.minimessage.internal.parser.Token`
+- Method: `unquoteAndEscape(arg0: java.lang.String, arg1: int, arg2: int): java.lang.String`
+- Method: `value(): java.lang.String`
+
+### TextNode
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.node.TextNode`
+- Kind: `class`
+- Constructor: `(arg0: net.kyori.adventure.text.minimessage.internal.parser.node.ElementNode, arg1: net.kyori.adventure.text.minimessage.internal.parser.Token, arg2: java.lang.String)`
+
+### ValueNode
+
+- Java: `net.kyori.adventure.text.minimessage.internal.parser.node.ValueNode`
+- Kind: `abstract`
+- Method: `buildToString(arg0: java.lang.StringBuilder, arg1: int): java.lang.StringBuilder`
+- Method: `token(): net.kyori.adventure.text.minimessage.internal.parser.Token`
+- Method: `value(): java.lang.String`
+
+### ClaimConsumer
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.ClaimConsumer`
+- Kind: `interface`
+- Method: `component(arg0: net.kyori.adventure.text.minimessage.internal.serializer.Emitable): boolean`
+- Method: `componentClaimed(): boolean`
+- Method: `style(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.internal.serializer.Emitable): void`
+- Method: `styleClaimed(arg0: java.lang.String): boolean`
+
+### Emitable
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.Emitable`
+- Kind: `interface`
+- Method: `emit(arg0: net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter): void`
+- Method: `substitute(): net.kyori.adventure.text.Component`
+
+### QuotingOverride
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.QuotingOverride`
+- Kind: `enum`
+- Method: `valueOf(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.serializer.QuotingOverride`
+- Method: `values(): net.kyori.adventure.text.minimessage.internal.serializer.QuotingOverride[]`
+- Enum: `QUOTED`
+- Enum: `UNQUOTED`
+
+### SerializableResolver
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.SerializableResolver`
+- Kind: `interface`
+- Method: `claimingComponent(arg0: java.lang.String, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>, arg2: java.util.function.Function<net.kyori.adventure.text.Component, net.kyori.adventure.text.minimessage.internal.serializer.Emitable>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `claimingComponent(arg0: java.util.Set<java.lang.String>, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>, arg2: java.util.function.Function<net.kyori.adventure.text.Component, net.kyori.adventure.text.minimessage.internal.serializer.Emitable>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `claimingStyle(arg0: java.lang.String, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>, arg2: net.kyori.adventure.text.minimessage.internal.serializer.StyleClaim<?>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `claimingStyle(arg0: java.util.Set<java.lang.String>, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>, arg2: net.kyori.adventure.text.minimessage.internal.serializer.StyleClaim<?>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `handle(arg0: net.kyori.adventure.text.Component, arg1: net.kyori.adventure.text.minimessage.internal.serializer.ClaimConsumer): void`
+
+### SerializableResolver_Single
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.SerializableResolver$Single`
+- Kind: `interface`
+- Method: `claimComponent(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.text.minimessage.internal.serializer.Emitable`
+- Method: `claimStyle(): net.kyori.adventure.text.minimessage.internal.serializer.StyleClaim<?>`
+- Method: `handle(arg0: net.kyori.adventure.text.Component, arg1: net.kyori.adventure.text.minimessage.internal.serializer.ClaimConsumer): void`
+
+### StyleClaim
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.StyleClaim`
+- Kind: `interface`
+- Method: `apply(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.minimessage.internal.serializer.Emitable`
+- Method: `claim(arg0: java.lang.String, arg1: java.util.function.Function<net.kyori.adventure.text.format.Style, T>, arg2: java.util.function.BiConsumer<T, net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter>): net.kyori.adventure.text.minimessage.internal.serializer.StyleClaim<T>`
+- Method: `claim(arg0: java.lang.String, arg1: java.util.function.Function<net.kyori.adventure.text.format.Style, T>, arg2: java.util.function.Predicate<T>, arg3: java.util.function.BiConsumer<T, net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter>): net.kyori.adventure.text.minimessage.internal.serializer.StyleClaim<T>`
+- Method: `claimKey(): java.lang.String`
+
+### TokenEmitter
+
+- Java: `net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Kind: `interface`
+- Method: `argument(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `argument(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.internal.serializer.QuotingOverride): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `argument(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `arguments(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `pop(): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `selfClosingTag(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `tag(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+- Method: `text(arg0: java.lang.String): net.kyori.adventure.text.minimessage.internal.serializer.TokenEmitter`
+
+### Inserting
+
+- Java: `net.kyori.adventure.text.minimessage.tag.Inserting`
+- Kind: `interface`
+- Method: `allowsChildren(): boolean`
+- Method: `value(): net.kyori.adventure.text.Component`
+
+### Modifying
+
+- Java: `net.kyori.adventure.text.minimessage.tag.Modifying`
+- Kind: `interface`
+- Method: `apply(arg0: net.kyori.adventure.text.Component, arg1: int): net.kyori.adventure.text.Component`
+- Method: `postVisit(): void`
+- Method: `visit(arg0: net.kyori.adventure.text.minimessage.tree.Node, arg1: int): void`
+
+### ParserDirective
+
+- Java: `net.kyori.adventure.text.minimessage.tag.ParserDirective`
+- Kind: `interface`
+- Field: `RESET: net.kyori.adventure.text.minimessage.tag.Tag`
+
+### PreProcess
+
+- Java: `net.kyori.adventure.text.minimessage.tag.PreProcess`
+- Kind: `interface`
+- Method: `value(): java.lang.String`
+
+### Tag_2
+
+- Java: `net.kyori.adventure.text.minimessage.tag.Tag`
+- Kind: `interface`
+- Method: `inserting(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `inserting(arg0: net.kyori.adventure.text.ComponentLike): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `preProcessParsed(arg0: java.lang.String): net.kyori.adventure.text.minimessage.tag.PreProcess`
+- Method: `selfClosingInserting(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `selfClosingInserting(arg0: net.kyori.adventure.text.ComponentLike): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `styling(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `styling(arg0: net.kyori.adventure.text.format.StyleBuilderApplicable): net.kyori.adventure.text.minimessage.tag.Tag`
+
+### Tag_Argument
+
+- Java: `net.kyori.adventure.text.minimessage.tag.Tag$Argument`
+- Kind: `interface`
+- Method: `asDouble(): java.util.OptionalDouble`
+- Method: `asInt(): java.util.OptionalInt`
+- Method: `isFalse(): boolean`
+- Method: `isTrue(): boolean`
+- Method: `lowerValue(): java.lang.String`
+- Method: `value(): java.lang.String`
+
+### TagPattern
+
+- Java: `net.kyori.adventure.text.minimessage.tag.TagPattern`
+- Kind: `interface`
+
+### ArgumentQueue
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue`
+- Kind: `interface`
+- Method: `hasNext(): boolean`
+- Method: `peek(): net.kyori.adventure.text.minimessage.tag.Tag$Argument`
+- Method: `pop(): net.kyori.adventure.text.minimessage.tag.Tag$Argument`
+- Method: `popOr(arg0: java.lang.String): net.kyori.adventure.text.minimessage.tag.Tag$Argument`
+- Method: `popOr(arg0: java.util.function.Supplier<java.lang.String>): net.kyori.adventure.text.minimessage.tag.Tag$Argument`
+- Method: `reset(): void`
+
+### Formatter
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.Formatter`
+- Kind: `class`
+- Method: `booleanChoice(arg0: java.lang.String, arg1: boolean): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `choice(arg0: java.lang.String, arg1: java.lang.Number): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `date(arg0: java.lang.String, arg1: java.time.temporal.TemporalAccessor): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `joining(arg0: java.lang.String, arg1: java.lang.Iterable<? extends net.kyori.adventure.text.ComponentLike>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `joining(arg0: java.lang.String, arg1: net.kyori.adventure.text.ComponentLike): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `number(arg0: java.lang.String, arg1: java.lang.Number): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+
+### Placeholder
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.Placeholder`
+- Kind: `class`
+- Method: `component(arg0: java.lang.String, arg1: net.kyori.adventure.text.ComponentLike): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Single`
+- Method: `parsed(arg0: java.lang.String, arg1: java.lang.String): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Single`
+- Method: `styling(arg0: java.lang.String, arg1: net.kyori.adventure.text.format.StyleBuilderApplicable): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Single`
+- Method: `unparsed(arg0: java.lang.String, arg1: java.lang.String): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Single`
+
+### TagResolver
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Kind: `interface`
+- Method: `builder(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `caching(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$WithoutArguments): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `empty(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `has(arg0: java.lang.String): boolean`
+- Method: `resolve(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, arg2: net.kyori.adventure.text.minimessage.Context): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `resolver(arg0: java.lang.Iterable<? extends net.kyori.adventure.text.minimessage.tag.resolver.TagResolver>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `resolver(arg0: java.lang.String, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `resolver(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.Tag): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Single`
+- Method: `resolver(arg0: java.util.Set<java.lang.String>, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `resolver(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `standard(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `toTagResolver(): java.util.stream.Collector<net.kyori.adventure.text.minimessage.tag.resolver.TagResolver, ?, net.kyori.adventure.text.minimessage.tag.resolver.TagResolver>`
+
+### TagResolver_Builder
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Kind: `interface`
+- Method: `build(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `caching(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$WithoutArguments): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `resolver(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `resolvers(arg0: java.lang.Iterable<? extends net.kyori.adventure.text.minimessage.tag.resolver.TagResolver>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `resolvers(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `tag(arg0: java.lang.String, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `tag(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.Tag): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+- Method: `tag(arg0: java.util.Set<java.lang.String>, arg1: java.util.function.BiFunction<net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, net.kyori.adventure.text.minimessage.Context, net.kyori.adventure.text.minimessage.tag.Tag>): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Builder`
+
+### TagResolver_Single
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$Single`
+- Kind: `interface`
+- Method: `has(arg0: java.lang.String): boolean`
+- Method: `key(): java.lang.String`
+- Method: `resolve(arg0: java.lang.String): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `tag(): net.kyori.adventure.text.minimessage.tag.Tag`
+
+### TagResolver_WithoutArguments
+
+- Java: `net.kyori.adventure.text.minimessage.tag.resolver.TagResolver$WithoutArguments`
+- Kind: `interface`
+- Method: `has(arg0: java.lang.String): boolean`
+- Method: `resolve(arg0: java.lang.String): net.kyori.adventure.text.minimessage.tag.Tag`
+- Method: `resolve(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue, arg2: net.kyori.adventure.text.minimessage.Context): net.kyori.adventure.text.minimessage.tag.Tag`
+
+### StandardTags
+
+- Java: `net.kyori.adventure.text.minimessage.tag.standard.StandardTags`
+- Kind: `class`
+- Method: `clickEvent(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `color(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `decorations(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `decorations(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `defaults(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `font(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `gradient(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `hoverEvent(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `insertion(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `keybind(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `nbt(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `newline(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `pride(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `rainbow(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `reset(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `score(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `selector(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `shadowColor(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `transition(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `translatable(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+- Method: `translatableFallback(): net.kyori.adventure.text.minimessage.tag.resolver.TagResolver`
+
+### TransitionTag
+
+- Java: `net.kyori.adventure.text.minimessage.tag.standard.TransitionTag`
+- Kind: `class`
+- Field: `TRANSITION: java.lang.String`
+- Method: `equals(arg0: java.lang.Object): boolean`
+- Method: `examinableProperties(): java.util.stream.Stream<? extends net.kyori.examination.ExaminableProperty>`
+- Method: `hashCode(): int`
+- Method: `value(): net.kyori.adventure.text.Component`
+
+### Argument
+
+- Java: `net.kyori.adventure.text.minimessage.translation.Argument`
+- Kind: `class`
+- Method: `argument(arg0: java.lang.String, arg1: net.kyori.adventure.text.TranslationArgument): net.kyori.adventure.text.ComponentLike`
+- Method: `argument(arg0: java.lang.String, arg1: net.kyori.adventure.text.TranslationArgumentLike): net.kyori.adventure.text.ComponentLike`
+- Method: `bool(arg0: java.lang.String, arg1: boolean): net.kyori.adventure.text.ComponentLike`
+- Method: `component(arg0: java.lang.String, arg1: net.kyori.adventure.text.ComponentLike): net.kyori.adventure.text.ComponentLike`
+- Method: `numeric(arg0: java.lang.String, arg1: java.lang.Number): net.kyori.adventure.text.ComponentLike`
+- Method: `numeric(arg0: java.lang.String, arg1: java.lang.String): net.kyori.adventure.text.ComponentLike`
+- Method: `string(arg0: java.lang.String, arg1: java.lang.String): net.kyori.adventure.text.ComponentLike`
+- Method: `tag(arg0: java.lang.String, arg1: net.kyori.adventure.text.minimessage.tag.Tag): net.kyori.adventure.text.ComponentLike`
+- Method: `tagResolver(arg0: java.lang.Iterable<net.kyori.adventure.text.minimessage.tag.resolver.TagResolver>): net.kyori.adventure.text.ComponentLike`
+- Method: `tagResolver(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.ComponentLike`
+- Method: `tagResolver(arg0: net.kyori.adventure.text.minimessage.tag.resolver.TagResolver): net.kyori.adventure.text.ComponentLike`
+- Method: `target(arg0: net.kyori.adventure.pointer.Pointered): net.kyori.adventure.text.ComponentLike`
+
+### MiniMessageTranslationStore
+
+- Java: `net.kyori.adventure.text.minimessage.translation.MiniMessageTranslationStore`
+- Kind: `interface`
+- Method: `create(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.minimessage.translation.MiniMessageTranslationStore`
+- Method: `create(arg0: net.kyori.adventure.key.Key, arg1: net.kyori.adventure.text.minimessage.MiniMessage): net.kyori.adventure.text.minimessage.translation.MiniMessageTranslationStore`
+
+### MiniMessageTranslator
+
+- Java: `net.kyori.adventure.text.minimessage.translation.MiniMessageTranslator`
+- Kind: `abstract`
+- Method: `translate(arg0: java.lang.String, arg1: java.util.Locale): java.text.MessageFormat`
+- Method: `translate(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: java.util.Locale): net.kyori.adventure.text.Component`
+
+### Node
+
+- Java: `net.kyori.adventure.text.minimessage.tree.Node`
+- Kind: `interface`
+- Method: `children(): java.util.List<? extends net.kyori.adventure.text.minimessage.tree.Node>`
+- Method: `parent(): net.kyori.adventure.text.minimessage.tree.Node`
+- Method: `toString(): java.lang.String`
+
+### Node_Root
+
+- Java: `net.kyori.adventure.text.minimessage.tree.Node$Root`
+- Kind: `interface`
+- Method: `input(): java.lang.String`
+
 ### AbstractComponentRenderer
 
 - Java: `net.kyori.adventure.text.renderer.AbstractComponentRenderer`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `render(arg0: net.kyori.adventure.text.Component, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderBlockNbt(arg0: net.kyori.adventure.text.BlockNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderEntityNbt(arg0: net.kyori.adventure.text.EntityNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderKeybind(arg0: net.kyori.adventure.text.KeybindComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderScore(arg0: net.kyori.adventure.text.ScoreComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderSelector(arg0: net.kyori.adventure.text.SelectorComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderStorageNbt(arg0: net.kyori.adventure.text.StorageNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderText(arg0: net.kyori.adventure.text.TextComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderTranslatable(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderVirtual(arg0: net.kyori.adventure.text.VirtualComponent, arg1: C): net.kyori.adventure.text.Component`
 
 ### ComponentRenderer
 
@@ -14184,23 +14526,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `net.kyori.adventure.text.renderer.TranslatableComponentRenderer`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `mergeStyle(arg0: net.kyori.adventure.text.Component, arg1: B, arg2: C): void`
-- Method: `mergeStyleAndOptionallyDeepRender(arg0: net.kyori.adventure.text.Component, arg1: B, arg2: C): O`
-- Method: `nbt(arg0: C, arg1: B, arg2: O): B`
-- Method: `optionallyRenderChildrenAndStyle(arg0: net.kyori.adventure.text.Component, arg1: C): net.kyori.adventure.text.Component`
-- Method: `optionallyRenderChildrenAppendAndBuild(arg0: java.util.List<net.kyori.adventure.text.Component>, arg1: B, arg2: C): O`
-- Method: `renderBlockNbt(arg0: net.kyori.adventure.text.BlockNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderEntityNbt(arg0: net.kyori.adventure.text.EntityNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderKeybind(arg0: net.kyori.adventure.text.KeybindComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderScore(arg0: net.kyori.adventure.text.ScoreComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderSelector(arg0: net.kyori.adventure.text.SelectorComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderStorageNbt(arg0: net.kyori.adventure.text.StorageNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderText(arg0: net.kyori.adventure.text.TextComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderTranslatable(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderTranslatableInner(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `translate(arg0: java.lang.String, arg1: C): java.text.MessageFormat`
-- Method: `translate(arg0: java.lang.String, arg1: java.lang.String, arg2: C): java.text.MessageFormat`
 - Method: `usingTranslationSource(arg0: net.kyori.adventure.translation.Translator): net.kyori.adventure.text.renderer.TranslatableComponentRenderer<java.util.Locale>`
 
 ### ComponentDecoder
@@ -14266,7 +14591,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `net.kyori.adventure.translation.AbstractTranslationStore`
 - Kind: `abstract`
-- Constructor: `(arg0: net.kyori.adventure.key.Key)`
 - Method: `canTranslate(arg0: java.lang.String, arg1: java.util.Locale): boolean`
 - Method: `contains(arg0: java.lang.String): boolean`
 - Method: `contains(arg0: java.lang.String, arg1: java.util.Locale): boolean`
@@ -14280,15 +14604,12 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.Map<java.lang.String, T>): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.Set<java.lang.String>, arg2: java.util.function.Function<java.lang.String, T>): void`
 - Method: `toString(): java.lang.String`
-- Method: `translationValue(arg0: java.lang.String, arg1: java.util.Locale): T`
 - Method: `unregister(arg0: java.lang.String): void`
 
 ### AbstractTranslationStore_StringBased
 
 - Java: `net.kyori.adventure.translation.AbstractTranslationStore$StringBased`
 - Kind: `abstract`
-- Constructor: `(arg0: net.kyori.adventure.key.Key)`
-- Method: `parse(arg0: java.lang.String, arg1: java.util.Locale): T`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.nio.file.Path, arg2: boolean): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.ResourceBundle, arg2: boolean): void`
 
@@ -14318,7 +14639,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `contains(arg0: java.lang.String): boolean`
 - Method: `create(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.translation.TranslationRegistry`
 - Method: `defaultLocale(arg0: java.util.Locale): void`
-- Method: `register(arg0: java.lang.String, arg1: java.util.Locale, arg2: java.lang.Object): void`
 - Method: `register(arg0: java.lang.String, arg1: java.util.Locale, arg2: java.text.MessageFormat): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.nio.file.Path, arg2: boolean): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.Map<java.lang.String, java.text.MessageFormat>): void`
@@ -14478,10 +14798,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `net.kyori.adventure.util.Listenable`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `addListener0(arg0: L): void`
-- Method: `forEachListener(arg0: java.util.function.Consumer<L>): void`
-- Method: `removeListener0(arg0: L): void`
 
 ### MonkeyBars
 
@@ -14496,7 +14812,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `net.kyori.adventure.util.Nag`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.String)`
 - Method: `print(arg0: net.kyori.adventure.util.Nag): void`
 
 ### PlatformAPI
@@ -15464,7 +15779,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.GameEvent`
 - Kind: `abstract`
-- Constructor: `()`
 - Field: `BLOCK_ACTIVATE: org.bukkit.GameEvent`
 - Field: `BLOCK_ATTACH: org.bukkit.GameEvent`
 - Field: `BLOCK_CHANGE: org.bukkit.GameEvent`
@@ -15750,7 +16064,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `addRotation(arg0: float, arg1: float): org.bukkit.Location`
 - Method: `addRotation(arg0: io.papermc.paper.math.Rotation): org.bukkit.Location`
 - Method: `checkFinite(): void`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.Location`
 - Method: `createExplosion(arg0: float): boolean`
 - Method: `createExplosion(arg0: float, arg1: boolean): boolean`
@@ -17946,7 +18259,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.MusicInstrument`
 - Kind: `abstract`
-- Constructor: `()`
 - Field: `ADMIRE_GOAT_HORN: org.bukkit.MusicInstrument`
 - Field: `CALL_GOAT_HORN: org.bukkit.MusicInstrument`
 - Field: `DREAM_GOAT_HORN: org.bukkit.MusicInstrument`
@@ -18400,7 +18712,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.Registry$NotARegistry`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `getKey(arg0: A): org.bukkit.NamespacedKey`
 - Method: `getTag(arg0: io.papermc.paper.registry.tag.TagKey<A>): io.papermc.paper.registry.tag.Tag<A>`
 - Method: `getTags(): java.util.Collection<io.papermc.paper.registry.tag.Tag<A>>`
@@ -18413,10 +18724,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.Registry$SimpleRegistry`
 - Kind: `class`
-- Constructor: `(arg0: java.lang.Class<T>)`
-- Constructor: `(arg0: java.lang.Class<T>, arg1: java.util.function.Predicate<T>)`
 - Method: `get(arg0: org.bukkit.NamespacedKey): T`
-- Method: `get(arg0: org.bukkit.NamespacedKey): org.bukkit.Keyed`
 - Method: `getType(): java.lang.Class<T>`
 - Method: `iterator(): java.util.Iterator<T>`
 - Method: `keyStream(): java.util.stream.Stream<org.bukkit.NamespacedKey>`
@@ -20672,7 +20980,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
 
-### Tag_2
+### Tag_3
 
 - Java: `org.bukkit.Tag`
 - Kind: `interface`
@@ -21615,7 +21923,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.World$ChunkLoadCallback`
 - Kind: `interface`
-- Method: `accept(arg0: java.lang.Object): void`
 - Method: `accept(arg0: org.bukkit.Chunk): void`
 - Method: `onLoad(arg0: org.bukkit.Chunk): void`
 
@@ -21905,7 +22212,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.ban.ProfileBanList`
 - Kind: `interface`
 - Method: `addBan(arg0: com.destroystokyo.paper.profile.PlayerProfile, arg1: java.lang.String, arg2: java.util.Date, arg3: java.lang.String): org.bukkit.BanEntry<com.destroystokyo.paper.profile.PlayerProfile>`
-- Method: `addBan(arg0: java.lang.Object, arg1: java.lang.String, arg2: java.util.Date, arg3: java.lang.String): org.bukkit.BanEntry`
 - Method: `addBan(arg0: org.bukkit.profile.PlayerProfile, arg1: java.lang.String, arg2: java.time.Duration, arg3: java.lang.String): E`
 - Method: `addBan(arg0: org.bukkit.profile.PlayerProfile, arg1: java.lang.String, arg2: java.time.Instant, arg3: java.lang.String): E`
 - Method: `addBan(arg0: org.bukkit.profile.PlayerProfile, arg1: java.lang.String, arg2: java.util.Date, arg3: java.lang.String): E`
@@ -23357,10 +23663,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getBrewingTime(): int`
 - Method: `getFuelLevel(): int`
 - Method: `getInventory(): org.bukkit.inventory.BrewerInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getRecipeBrewTime(): int`
 - Method: `getSnapshotInventory(): org.bukkit.inventory.BrewerInventory`
-- Method: `getSnapshotInventory(): org.bukkit.inventory.Inventory`
 - Method: `setBrewingTime(arg0: int): void`
 - Method: `setFuelLevel(arg0: int): void`
 - Method: `setRecipeBrewTime(arg0: int): void`
@@ -23406,11 +23710,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.block.ChiseledBookshelf`
 - Kind: `interface`
 - Method: `getInventory(): org.bukkit.inventory.ChiseledBookshelfInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getLastInteractedSlot(): int`
 - Method: `getSlot(arg0: org.bukkit.util.Vector): int`
 - Method: `getSnapshotInventory(): org.bukkit.inventory.ChiseledBookshelfInventory`
-- Method: `getSnapshotInventory(): org.bukkit.inventory.Inventory`
 - Method: `setLastInteractedSlot(arg0: int): void`
 
 ### CommandBlock
@@ -23481,12 +23783,10 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.block.DecoratedPot`
 - Kind: `interface`
 - Method: `getInventory(): org.bukkit.inventory.DecoratedPotInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getShards(): java.util.List<org.bukkit.Material>`
 - Method: `getSherd(arg0: org.bukkit.block.DecoratedPot$Side): org.bukkit.Material`
 - Method: `getSherds(): java.util.Map<org.bukkit.block.DecoratedPot$Side, org.bukkit.Material>`
 - Method: `getSnapshotInventory(): org.bukkit.inventory.DecoratedPotInventory`
-- Method: `getSnapshotInventory(): org.bukkit.inventory.Inventory`
 - Method: `setSherd(arg0: org.bukkit.block.DecoratedPot$Side, arg1: org.bukkit.Material): void`
 
 ### DecoratedPot_Side
@@ -23572,11 +23872,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getCookTime(): short`
 - Method: `getCookTimeTotal(): int`
 - Method: `getInventory(): org.bukkit.inventory.FurnaceInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getRecipeUsedCount(arg0: org.bukkit.NamespacedKey): int`
 - Method: `getRecipesUsed(): java.util.Map<org.bukkit.inventory.CookingRecipe<?>, java.lang.Integer>`
 - Method: `getSnapshotInventory(): org.bukkit.inventory.FurnaceInventory`
-- Method: `getSnapshotInventory(): org.bukkit.inventory.Inventory`
 - Method: `hasRecipeUsedCount(arg0: org.bukkit.NamespacedKey): boolean`
 - Method: `setBurnTime(arg0: short): void`
 - Method: `setCookSpeedMultiplier(arg0: double): void`
@@ -23607,11 +23905,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.block.Jukebox`
 - Kind: `interface`
 - Method: `eject(): boolean`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getInventory(): org.bukkit.inventory.JukeboxInventory`
 - Method: `getPlaying(): org.bukkit.Material`
 - Method: `getRecord(): org.bukkit.inventory.ItemStack`
-- Method: `getSnapshotInventory(): org.bukkit.inventory.Inventory`
 - Method: `getSnapshotInventory(): org.bukkit.inventory.JukeboxInventory`
 - Method: `hasRecord(): boolean`
 - Method: `isPlaying(): boolean`
@@ -23812,7 +24108,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.block.TileState`
 - Kind: `interface`
-- Method: `getPersistentDataContainer(): io.papermc.paper.persistence.PersistentDataContainerView`
 - Method: `getPersistentDataContainer(): org.bukkit.persistence.PersistentDataContainer`
 - Method: `isSnapshot(): boolean`
 
@@ -25101,7 +25396,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.block.spawner.SpawnRule`
 - Kind: `class`
 - Constructor: `(arg0: int, arg1: int, arg2: int, arg3: int)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.block.spawner.SpawnRule`
 - Method: `deserialize(arg0: java.util.Map<java.lang.String, java.lang.Object>): org.bukkit.block.spawner.SpawnRule`
 - Method: `equals(arg0: java.lang.Object): boolean`
@@ -25290,11 +25584,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.command.Command`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.String)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.String, arg2: java.lang.String, arg3: java.util.List<java.lang.String>)`
-- Field: `description: java.lang.String`
 - Field: `timings: co.aikar.timings.Timing`
-- Field: `usageMessage: java.lang.String`
 - Method: `broadcastCommandMessage(arg0: org.bukkit.command.CommandSender, arg1: java.lang.String): void`
 - Method: `broadcastCommandMessage(arg0: org.bukkit.command.CommandSender, arg1: java.lang.String, arg2: boolean): void`
 - Method: `broadcastCommandMessage(arg0: org.bukkit.command.CommandSender, arg1: net.kyori.adventure.text.Component): void`
@@ -25476,7 +25766,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.command.SimpleCommandMap`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Server, arg1: java.util.Map<java.lang.String, org.bukkit.command.Command>)`
-- Field: `knownCommands: java.util.Map<java.lang.String, org.bukkit.command.Command>`
 - Method: `clearCommands(): void`
 - Method: `dispatch(arg0: org.bukkit.command.CommandSender, arg1: java.lang.String): boolean`
 - Method: `getCommand(arg0: java.lang.String): org.bukkit.command.Command`
@@ -25505,17 +25794,13 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.command.defaults.BukkitCommand`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.String)`
-- Constructor: `(arg0: java.lang.String, arg1: java.lang.String, arg2: java.lang.String, arg3: java.util.List<java.lang.String>)`
 
 ### HelpCommand
 
 - Java: `org.bukkit.command.defaults.HelpCommand`
 - Kind: `class`
 - Constructor: `()`
-- Method: `damerauLevenshteinDistance(arg0: java.lang.String, arg1: java.lang.String): int`
 - Method: `execute(arg0: org.bukkit.command.CommandSender, arg1: java.lang.String, arg2: java.lang.String[]): boolean`
-- Method: `findPossibleMatches(arg0: java.lang.String): org.bukkit.help.HelpTopic`
 - Method: `tabComplete(arg0: org.bukkit.command.CommandSender, arg1: java.lang.String, arg2: java.lang.String[]): java.util.List<java.lang.String>`
 
 ### PluginsCommand
@@ -25558,7 +25843,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.configuration.ConfigurationOptions`
 - Kind: `class`
-- Constructor: `(arg0: org.bukkit.configuration.Configuration)`
 - Method: `configuration(): org.bukkit.configuration.Configuration`
 - Method: `copyDefaults(): boolean`
 - Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.ConfigurationOptions`
@@ -25660,14 +25944,11 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.configuration.Configuration)`
-- Field: `defaults: org.bukkit.configuration.Configuration`
-- Field: `options: org.bukkit.configuration.MemoryConfigurationOptions`
 - Method: `addDefault(arg0: java.lang.String, arg1: java.lang.Object): void`
 - Method: `addDefaults(arg0: java.util.Map<java.lang.String, java.lang.Object>): void`
 - Method: `addDefaults(arg0: org.bukkit.configuration.Configuration): void`
 - Method: `getDefaults(): org.bukkit.configuration.Configuration`
 - Method: `getParent(): org.bukkit.configuration.ConfigurationSection`
-- Method: `options(): org.bukkit.configuration.ConfigurationOptions`
 - Method: `options(): org.bukkit.configuration.MemoryConfigurationOptions`
 - Method: `setDefaults(arg0: org.bukkit.configuration.Configuration): void`
 
@@ -25675,21 +25956,14 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.configuration.MemoryConfigurationOptions`
 - Kind: `class`
-- Constructor: `(arg0: org.bukkit.configuration.MemoryConfiguration)`
-- Method: `configuration(): org.bukkit.configuration.Configuration`
 - Method: `configuration(): org.bukkit.configuration.MemoryConfiguration`
-- Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.ConfigurationOptions`
 - Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.MemoryConfigurationOptions`
-- Method: `pathSeparator(arg0: char): org.bukkit.configuration.ConfigurationOptions`
 - Method: `pathSeparator(arg0: char): org.bukkit.configuration.MemoryConfigurationOptions`
 
 ### MemorySection
 
 - Java: `org.bukkit.configuration.MemorySection`
 - Kind: `class`
-- Constructor: `()`
-- Constructor: `(arg0: org.bukkit.configuration.ConfigurationSection, arg1: java.lang.String)`
-- Field: `map: java.util.Map<java.lang.String, org.bukkit.configuration.SectionPathData>`
 - Method: `addDefault(arg0: java.lang.String, arg1: java.lang.Object): void`
 - Method: `contains(arg0: java.lang.String): boolean`
 - Method: `contains(arg0: java.lang.String, arg1: boolean): boolean`
@@ -25709,7 +25983,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getComments(arg0: java.lang.String): java.util.List<java.lang.String>`
 - Method: `getConfigurationSection(arg0: java.lang.String): org.bukkit.configuration.ConfigurationSection`
 - Method: `getCurrentPath(): java.lang.String`
-- Method: `getDefault(arg0: java.lang.String): java.lang.Object`
 - Method: `getDefaultSection(): org.bukkit.configuration.ConfigurationSection`
 - Method: `getDouble(arg0: java.lang.String): double`
 - Method: `getDouble(arg0: java.lang.String, arg1: double): double`
@@ -25756,12 +26029,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `isLocation(arg0: java.lang.String): boolean`
 - Method: `isLong(arg0: java.lang.String): boolean`
 - Method: `isOfflinePlayer(arg0: java.lang.String): boolean`
-- Method: `isPrimitiveWrapper(arg0: java.lang.Object): boolean`
 - Method: `isSet(arg0: java.lang.String): boolean`
 - Method: `isString(arg0: java.lang.String): boolean`
 - Method: `isVector(arg0: java.lang.String): boolean`
-- Method: `mapChildrenKeys(arg0: java.util.Set<java.lang.String>, arg1: org.bukkit.configuration.ConfigurationSection, arg2: boolean): void`
-- Method: `mapChildrenValues(arg0: java.util.Map<java.lang.String, java.lang.Object>, arg1: org.bukkit.configuration.ConfigurationSection, arg2: boolean): void`
 - Method: `set(arg0: java.lang.String, arg1: java.lang.Object): void`
 - Method: `setComments(arg0: java.lang.String, arg1: java.util.List<java.lang.String>): void`
 - Method: `setInlineComments(arg0: java.lang.String, arg1: java.util.List<java.lang.String>): void`
@@ -25771,15 +26041,10 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.configuration.file.FileConfiguration`
 - Kind: `abstract`
-- Constructor: `()`
-- Constructor: `(arg0: org.bukkit.configuration.Configuration)`
-- Method: `buildHeader(): java.lang.String`
 - Method: `load(arg0: java.io.File): void`
 - Method: `load(arg0: java.io.Reader): void`
 - Method: `load(arg0: java.lang.String): void`
 - Method: `loadFromString(arg0: java.lang.String): void`
-- Method: `options(): org.bukkit.configuration.ConfigurationOptions`
-- Method: `options(): org.bukkit.configuration.MemoryConfigurationOptions`
 - Method: `options(): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `save(arg0: java.io.File): void`
 - Method: `save(arg0: java.lang.String): void`
@@ -25789,12 +26054,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.configuration.file.FileConfigurationOptions`
 - Kind: `class`
-- Constructor: `(arg0: org.bukkit.configuration.MemoryConfiguration)`
-- Method: `configuration(): org.bukkit.configuration.Configuration`
-- Method: `configuration(): org.bukkit.configuration.MemoryConfiguration`
 - Method: `configuration(): org.bukkit.configuration.file.FileConfiguration`
-- Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.ConfigurationOptions`
-- Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.MemoryConfigurationOptions`
 - Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `copyHeader(): boolean`
 - Method: `copyHeader(arg0: boolean): org.bukkit.configuration.file.FileConfigurationOptions`
@@ -25804,8 +26064,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `header(arg0: java.lang.String): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `parseComments(): boolean`
 - Method: `parseComments(arg0: boolean): org.bukkit.configuration.MemoryConfigurationOptions`
-- Method: `pathSeparator(arg0: char): org.bukkit.configuration.ConfigurationOptions`
-- Method: `pathSeparator(arg0: char): org.bukkit.configuration.MemoryConfigurationOptions`
 - Method: `pathSeparator(arg0: char): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `setFooter(arg0: java.util.List<java.lang.String>): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `setHeader(arg0: java.util.List<java.lang.String>): org.bukkit.configuration.file.FileConfigurationOptions`
@@ -25815,14 +26073,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.configuration.file.YamlConfiguration`
 - Kind: `class`
 - Constructor: `()`
-- Field: `BLANK_CONFIG: java.lang.String`
-- Field: `COMMENT_PREFIX: java.lang.String`
 - Method: `loadConfiguration(arg0: java.io.File): org.bukkit.configuration.file.YamlConfiguration`
 - Method: `loadConfiguration(arg0: java.io.Reader): org.bukkit.configuration.file.YamlConfiguration`
 - Method: `loadFromString(arg0: java.lang.String): void`
-- Method: `options(): org.bukkit.configuration.ConfigurationOptions`
-- Method: `options(): org.bukkit.configuration.MemoryConfigurationOptions`
-- Method: `options(): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `options(): org.bukkit.configuration.file.YamlConfigurationOptions`
 - Method: `saveToString(): java.lang.String`
 
@@ -25830,32 +26083,17 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.configuration.file.YamlConfigurationOptions`
 - Kind: `class`
-- Constructor: `(arg0: org.bukkit.configuration.file.YamlConfiguration)`
 - Method: `codePointLimit(): int`
 - Method: `codePointLimit(arg0: int): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `configuration(): org.bukkit.configuration.Configuration`
-- Method: `configuration(): org.bukkit.configuration.MemoryConfiguration`
-- Method: `configuration(): org.bukkit.configuration.file.FileConfiguration`
 - Method: `configuration(): org.bukkit.configuration.file.YamlConfiguration`
-- Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.ConfigurationOptions`
-- Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.MemoryConfigurationOptions`
-- Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `copyDefaults(arg0: boolean): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `copyHeader(arg0: boolean): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `copyHeader(arg0: boolean): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `header(arg0: java.lang.String): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `header(arg0: java.lang.String): org.bukkit.configuration.file.YamlConfigurationOptions`
 - Method: `indent(): int`
 - Method: `indent(arg0: int): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `parseComments(arg0: boolean): org.bukkit.configuration.MemoryConfigurationOptions`
 - Method: `parseComments(arg0: boolean): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `pathSeparator(arg0: char): org.bukkit.configuration.ConfigurationOptions`
-- Method: `pathSeparator(arg0: char): org.bukkit.configuration.MemoryConfigurationOptions`
-- Method: `pathSeparator(arg0: char): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `pathSeparator(arg0: char): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `setFooter(arg0: java.util.List): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `setFooter(arg0: java.util.List<java.lang.String>): org.bukkit.configuration.file.YamlConfigurationOptions`
-- Method: `setHeader(arg0: java.util.List): org.bukkit.configuration.file.FileConfigurationOptions`
 - Method: `setHeader(arg0: java.util.List<java.lang.String>): org.bukkit.configuration.file.YamlConfigurationOptions`
 - Method: `width(): int`
 - Method: `width(arg0: int): org.bukkit.configuration.file.YamlConfigurationOptions`
@@ -25886,17 +26124,12 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.configuration.serialization.ConfigurationSerialization`
 - Kind: `class`
-- Constructor: `(arg0: java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>)`
 - Field: `SERIALIZED_TYPE_KEY: java.lang.String`
 - Method: `deserialize(arg0: java.util.Map<java.lang.String, ?>): org.bukkit.configuration.serialization.ConfigurationSerializable`
 - Method: `deserializeObject(arg0: java.util.Map<java.lang.String, ?>): org.bukkit.configuration.serialization.ConfigurationSerializable`
 - Method: `deserializeObject(arg0: java.util.Map<java.lang.String, ?>, arg1: java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>): org.bukkit.configuration.serialization.ConfigurationSerializable`
-- Method: `deserializeViaCtor(arg0: java.lang.reflect.Constructor<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>, arg1: java.util.Map<java.lang.String, ?>): org.bukkit.configuration.serialization.ConfigurationSerializable`
-- Method: `deserializeViaMethod(arg0: java.lang.reflect.Method, arg1: java.util.Map<java.lang.String, ?>): org.bukkit.configuration.serialization.ConfigurationSerializable`
 - Method: `getAlias(arg0: java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>): java.lang.String`
 - Method: `getClassByAlias(arg0: java.lang.String): java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>`
-- Method: `getConstructor(): java.lang.reflect.Constructor<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>`
-- Method: `getMethod(arg0: java.lang.String, arg1: boolean): java.lang.reflect.Method`
 - Method: `registerClass(arg0: java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>): void`
 - Method: `registerClass(arg0: java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>, arg1: java.lang.String): void`
 - Method: `unregisterClass(arg0: java.lang.Class<? extends org.bukkit.configuration.serialization.ConfigurationSerializable>): void`
@@ -25918,10 +26151,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.conversations.BooleanPrompt`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): org.bukkit.conversations.Prompt`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: boolean): org.bukkit.conversations.Prompt`
-- Method: `isInputValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
 
 ### Conversable
 
@@ -25941,13 +26170,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin, arg1: org.bukkit.conversations.Conversable, arg2: org.bukkit.conversations.Prompt)`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin, arg1: org.bukkit.conversations.Conversable, arg2: org.bukkit.conversations.Prompt, arg3: java.util.Map<java.lang.Object, java.lang.Object>)`
-- Field: `abandonedListeners: java.util.List<org.bukkit.conversations.ConversationAbandonedListener>`
-- Field: `cancellers: java.util.List<org.bukkit.conversations.ConversationCanceller>`
-- Field: `context: org.bukkit.conversations.ConversationContext`
-- Field: `currentPrompt: org.bukkit.conversations.Prompt`
-- Field: `localEchoEnabled: boolean`
-- Field: `modal: boolean`
-- Field: `prefix: org.bukkit.conversations.ConversationPrefix`
 - Method: `abandon(): void`
 - Method: `abandon(arg0: org.bukkit.conversations.ConversationAbandonedEvent): void`
 - Method: `acceptInput(arg0: java.lang.String): void`
@@ -26014,15 +26236,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.conversations.ConversationFactory`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin)`
-- Field: `abandonedListeners: java.util.List<org.bukkit.conversations.ConversationAbandonedListener>`
-- Field: `cancellers: java.util.List<org.bukkit.conversations.ConversationCanceller>`
-- Field: `firstPrompt: org.bukkit.conversations.Prompt`
-- Field: `initialSessionData: java.util.Map<java.lang.Object, java.lang.Object>`
-- Field: `isModal: boolean`
-- Field: `localEchoEnabled: boolean`
-- Field: `playerOnlyMessage: java.lang.String`
-- Field: `plugin: org.bukkit.plugin.Plugin`
-- Field: `prefix: org.bukkit.conversations.ConversationPrefix`
 - Method: `addConversationAbandonedListener(arg0: org.bukkit.conversations.ConversationAbandonedListener): org.bukkit.conversations.ConversationFactory`
 - Method: `buildConversation(arg0: org.bukkit.conversations.Conversable): org.bukkit.conversations.Conversation`
 - Method: `thatExcludesNonPlayersWithMessage(arg0: java.lang.String): org.bukkit.conversations.ConversationFactory`
@@ -26047,7 +26260,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String)`
 - Method: `cancelBasedOnInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.conversations.ConversationCanceller`
 - Method: `setConversation(arg0: org.bukkit.conversations.Conversation): void`
 
@@ -26055,22 +26267,13 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.conversations.FixedSetPrompt`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.String)`
-- Field: `fixedSet: java.util.List<java.lang.String>`
-- Method: `formatFixedSet(): java.lang.String`
-- Method: `isInputValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
 
 ### InactivityConversationCanceller
 
 - Java: `org.bukkit.conversations.InactivityConversationCanceller`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin, arg1: int)`
-- Field: `conversation: org.bukkit.conversations.Conversation`
-- Field: `plugin: org.bukkit.plugin.Plugin`
-- Field: `timeoutSeconds: int`
 - Method: `cancelBasedOnInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
-- Method: `cancelling(arg0: org.bukkit.conversations.Conversation): void`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.conversations.ConversationCanceller`
 - Method: `setConversation(arg0: org.bukkit.conversations.Conversation): void`
 
@@ -26080,7 +26283,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `()`
 - Method: `cancelBasedOnInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.conversations.ConversationCanceller`
 - Method: `setConversation(arg0: org.bukkit.conversations.Conversation): void`
 
@@ -26088,10 +26290,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.conversations.MessagePrompt`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `acceptInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): org.bukkit.conversations.Prompt`
 - Method: `blocksForInput(arg0: org.bukkit.conversations.ConversationContext): boolean`
-- Method: `getNextPrompt(arg0: org.bukkit.conversations.ConversationContext): org.bukkit.conversations.Prompt`
 
 ### NullConversationPrefix
 
@@ -26104,23 +26304,11 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.conversations.NumericPrompt`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.Number): org.bukkit.conversations.Prompt`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): org.bukkit.conversations.Prompt`
-- Method: `getFailedValidationText(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.Number): java.lang.String`
-- Method: `getFailedValidationText(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): java.lang.String`
-- Method: `getInputNotNumericText(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): java.lang.String`
-- Method: `isInputValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
-- Method: `isNumberValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.Number): boolean`
 
 ### PlayerNamePrompt
 
 - Java: `org.bukkit.conversations.PlayerNamePrompt`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.plugin.Plugin)`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): org.bukkit.conversations.Prompt`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: org.bukkit.entity.Player): org.bukkit.conversations.Prompt`
-- Method: `isInputValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
 
 ### PluginNameConversationPrefix
 
@@ -26128,9 +26316,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin)`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin, arg1: java.lang.String, arg2: org.bukkit.ChatColor)`
-- Field: `plugin: org.bukkit.plugin.Plugin`
-- Field: `prefixColor: org.bukkit.ChatColor`
-- Field: `separator: java.lang.String`
 - Method: `getPrefix(arg0: org.bukkit.conversations.ConversationContext): java.lang.String`
 
 ### Prompt
@@ -26146,27 +26331,19 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.conversations.RegexPrompt`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.String)`
-- Constructor: `(arg0: java.util.regex.Pattern)`
-- Method: `isInputValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
 
 ### StringPrompt
 
 - Java: `org.bukkit.conversations.StringPrompt`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `blocksForInput(arg0: org.bukkit.conversations.ConversationContext): boolean`
 
 ### ValidatingPrompt
 
 - Java: `org.bukkit.conversations.ValidatingPrompt`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `acceptInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): org.bukkit.conversations.Prompt`
-- Method: `acceptValidatedInput(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): org.bukkit.conversations.Prompt`
 - Method: `blocksForInput(arg0: org.bukkit.conversations.ConversationContext): boolean`
-- Method: `getFailedValidationText(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): java.lang.String`
-- Method: `isInputValid(arg0: org.bukkit.conversations.ConversationContext, arg1: java.lang.String): boolean`
 
 ### DamageEffect
 
@@ -26286,7 +26463,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.enchantments.Enchantment`
 - Kind: `abstract`
-- Constructor: `()`
 - Field: `AQUA_AFFINITY: org.bukkit.enchantments.Enchantment`
 - Field: `BANE_OF_ARTHROPODS: org.bukkit.enchantments.Enchantment`
 - Field: `BINDING_CURSE: org.bukkit.enchantments.Enchantment`
@@ -26398,7 +26574,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.enchantments.EnchantmentWrapper`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `displayName(arg0: int): net.kyori.adventure.text.Component`
 - Method: `getActiveSlots(): java.util.Set<org.bukkit.inventory.EquipmentSlot>`
 - Method: `getDamageIncrease(arg0: int, arg1: org.bukkit.entity.EntityCategory): float`
@@ -26474,7 +26649,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `getDomestication(): int`
 - Method: `getInventory(): org.bukkit.inventory.AbstractHorseInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getJumpStrength(): double`
 - Method: `getMaxDomestication(): int`
 - Method: `getVariant(): org.bukkit.entity.Horse$Variant`
@@ -27150,7 +27324,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.entity.EnderDragonPart`
 - Kind: `interface`
-- Method: `getParent(): org.bukkit.entity.ComplexLivingEntity`
 - Method: `getParent(): org.bukkit.entity.EnderDragon`
 
 ### EnderPearl
@@ -27326,7 +27499,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `setVisualFire(arg0: boolean): void`
 - Method: `spawnAt(arg0: org.bukkit.Location): boolean`
 - Method: `spawnAt(arg0: org.bukkit.Location, arg1: org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason): boolean`
-- Method: `spigot(): org.bukkit.command.CommandSender$Spigot`
 - Method: `spigot(): org.bukkit.entity.Entity$Spigot`
 - Method: `teamDisplayName(): net.kyori.adventure.text.Component`
 - Method: `teleport(arg0: org.bukkit.Location): boolean`
@@ -27868,9 +28040,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.entity.Horse`
 - Kind: `interface`
 - Method: `getColor(): org.bukkit.entity.Horse$Color`
-- Method: `getInventory(): org.bukkit.inventory.AbstractHorseInventory`
 - Method: `getInventory(): org.bukkit.inventory.HorseInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getStyle(): org.bukkit.entity.Horse$Style`
 - Method: `isCarryingChest(): boolean`
 - Method: `setCarryingChest(arg0: boolean): void`
@@ -27949,7 +28119,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getFishHook(): org.bukkit.entity.FishHook`
 - Method: `getFoodLevel(): int`
 - Method: `getGameMode(): org.bukkit.GameMode`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getInventory(): org.bukkit.inventory.PlayerInventory`
 - Method: `getItemInHand(): org.bukkit.inventory.ItemStack`
 - Method: `getItemOnCursor(): org.bukkit.inventory.ItemStack`
@@ -28145,8 +28314,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `setFlashCount(arg0: int): void`
 - Method: `setFlashes(arg0: int): void`
 - Method: `setLifeTicks(arg0: int): void`
-- Method: `spigot(): org.bukkit.command.CommandSender$Spigot`
-- Method: `spigot(): org.bukkit.entity.Entity$Spigot`
 - Method: `spigot(): org.bukkit.entity.LightningStrike$Spigot`
 
 ### LightningStrike_Spigot
@@ -28308,8 +28475,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getCaravanHead(): org.bukkit.entity.Llama`
 - Method: `getCaravanTail(): org.bukkit.entity.Llama`
 - Method: `getColor(): org.bukkit.entity.Llama$Color`
-- Method: `getInventory(): org.bukkit.inventory.AbstractHorseInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getInventory(): org.bukkit.inventory.LlamaInventory`
 - Method: `getStrength(): int`
 - Method: `hasCaravanTail(): boolean`
@@ -28908,8 +29073,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `spawnParticle(arg0: org.bukkit.Particle, arg1: org.bukkit.Location, arg2: int, arg3: double, arg4: double, arg5: double, arg6: double, arg7: T, arg8: boolean): void`
 - Method: `spawnParticle(arg0: org.bukkit.Particle, arg1: org.bukkit.Location, arg2: int, arg3: double, arg4: double, arg5: double, arg6: T): void`
 - Method: `spawnParticle(arg0: org.bukkit.Particle, arg1: org.bukkit.Location, arg2: int, arg3: T): void`
-- Method: `spigot(): org.bukkit.command.CommandSender$Spigot`
-- Method: `spigot(): org.bukkit.entity.Entity$Spigot`
 - Method: `spigot(): org.bukkit.entity.Player$Spigot`
 - Method: `stopAllSounds(): void`
 - Method: `stopSound(arg0: java.lang.String): void`
@@ -29941,8 +30104,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.Event`
 - Kind: `abstract`
-- Constructor: `()`
-- Constructor: `(arg0: boolean)`
 - Method: `callEvent(): boolean`
 - Method: `getEventName(): java.lang.String`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -30078,8 +30239,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.block.data.BlockData, arg2: boolean)`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.entity.Player, arg2: org.bukkit.block.data.BlockData, arg3: boolean)`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.entity.Player, arg2: org.bukkit.block.data.BlockData, arg3: boolean, arg4: org.bukkit.inventory.EquipmentSlot)`
-- Field: `blockData: org.bukkit.block.data.BlockData`
-- Field: `buildable: boolean`
 - Method: `getBlockData(): org.bukkit.block.data.BlockData`
 - Method: `getHand(): org.bukkit.inventory.EquipmentSlot`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -30182,8 +30341,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.block.BlockEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.block.Block)`
-- Field: `block: org.bukkit.block.Block`
 - Method: `getBlock(): org.bukkit.block.Block`
 
 ### BlockExpEvent
@@ -30248,9 +30405,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.block.Block)`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.block.BlockFace)`
-- Field: `cancelled: boolean`
-- Field: `face: org.bukkit.block.BlockFace`
-- Field: `to: org.bukkit.block.Block`
 - Method: `getFace(): org.bukkit.block.BlockFace`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -30327,7 +30481,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.block.BlockPistonEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.block.BlockFace)`
 - Method: `getDirection(): org.bukkit.block.BlockFace`
 - Method: `isCancelled(): boolean`
 - Method: `isSticky(): boolean`
@@ -30360,13 +30513,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.block.BlockState, arg2: org.bukkit.block.Block, arg3: org.bukkit.inventory.ItemStack, arg4: org.bukkit.entity.Player, arg5: boolean)`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.block.BlockState, arg2: org.bukkit.block.Block, arg3: org.bukkit.inventory.ItemStack, arg4: org.bukkit.entity.Player, arg5: boolean, arg6: org.bukkit.inventory.EquipmentSlot)`
-- Field: `canBuild: boolean`
-- Field: `cancelled: boolean`
-- Field: `hand: org.bukkit.inventory.EquipmentSlot`
-- Field: `itemInHand: org.bukkit.inventory.ItemStack`
-- Field: `placedAgainst: org.bukkit.block.Block`
-- Field: `player: org.bukkit.entity.Player`
-- Field: `replacedBlockState: org.bukkit.block.BlockState`
 - Method: `canBuild(): boolean`
 - Method: `getBlockAgainst(): org.bukkit.block.Block`
 - Method: `getBlockPlaced(): org.bukkit.block.Block`
@@ -30518,7 +30664,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.block.InventoryBlockStartEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.block.Block, arg1: org.bukkit.inventory.ItemStack)`
-- Field: `source: org.bukkit.inventory.ItemStack`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getSource(): org.bukkit.inventory.ItemStack`
@@ -30688,7 +30833,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getItem(): org.bukkit.inventory.ItemStack`
 - Method: `getOffers(): org.bukkit.enchantments.EnchantmentOffer[]`
-- Method: `getView(): org.bukkit.inventory.InventoryView`
 - Method: `getView(): org.bukkit.inventory.view.EnchantmentView`
 - Method: `isCancelled(): boolean`
 - Method: `setCancelled(arg0: boolean): void`
@@ -30700,7 +30844,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.AreaEffectCloud, arg1: java.util.List<org.bukkit.entity.LivingEntity>)`
 - Method: `getAffectedEntities(): java.util.List<org.bukkit.entity.LivingEntity>`
 - Method: `getEntity(): org.bukkit.entity.AreaEffectCloud`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `isCancelled(): boolean`
@@ -30711,7 +30854,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.ArrowBodyCountChangeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: int, arg2: int, arg3: boolean)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -30738,7 +30880,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.CreatureSpawnEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getSpawnReason(): org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason`
 
@@ -30802,7 +30943,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.Creeper, arg1: org.bukkit.event.entity.CreeperPowerEvent$PowerCause)`
 - Method: `getCause(): org.bukkit.event.entity.CreeperPowerEvent$PowerCause`
 - Method: `getEntity(): org.bukkit.entity.Creeper`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getLightning(): org.bukkit.entity.LightningStrike`
@@ -30826,7 +30966,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.EnderDragon, arg1: org.bukkit.entity.EnderDragon$Phase, arg2: org.bukkit.entity.EnderDragon$Phase)`
 - Method: `getCurrentPhase(): org.bukkit.entity.EnderDragon$Phase`
 - Method: `getEntity(): org.bukkit.entity.EnderDragon`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getNewPhase(): org.bukkit.entity.EnderDragon$Phase`
@@ -30851,7 +30990,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntityBreakDoorEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.block.Block, arg2: org.bukkit.block.data.BlockData)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 
 ### EntityBreedEvent
@@ -30861,7 +30999,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.entity.LivingEntity, arg2: org.bukkit.entity.LivingEntity, arg3: org.bukkit.entity.LivingEntity, arg4: org.bukkit.inventory.ItemStack, arg5: int)`
 - Method: `getBredWith(): org.bukkit.inventory.ItemStack`
 - Method: `getBreeder(): org.bukkit.entity.LivingEntity`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getExperience(): int`
 - Method: `getFather(): org.bukkit.entity.LivingEntity`
@@ -30921,7 +31058,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: java.util.List<org.bukkit.block.BlockState>, arg2: org.bukkit.PortalType)`
 - Method: `getBlocks(): java.util.List<org.bukkit.block.BlockState>`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31044,7 +31180,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getDeathSoundVolume(): float`
 - Method: `getDroppedExp(): int`
 - Method: `getDrops(): java.util.List<org.bukkit.inventory.ItemStack>`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31101,7 +31236,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Animals, arg1: org.bukkit.entity.HumanEntity, arg2: int)`
 - Method: `getEntity(): org.bukkit.entity.Animals`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getHumanEntity(): org.bukkit.entity.HumanEntity`
@@ -31114,8 +31248,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.entity.EntityEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Entity)`
-- Field: `entity: org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntityType(): org.bukkit.entity.EntityType`
 
@@ -31124,7 +31256,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntityExhaustionEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.HumanEntity, arg1: org.bukkit.event.entity.EntityExhaustionEvent$ExhaustionReason, arg2: float)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.HumanEntity`
 - Method: `getExhaustion(): float`
 - Method: `getExhaustionReason(): org.bukkit.event.entity.EntityExhaustionEvent$ExhaustionReason`
@@ -31175,7 +31306,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntityInteractEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Entity, arg1: org.bukkit.block.Block)`
-- Field: `block: org.bukkit.block.Block`
 - Method: `getBlock(): org.bukkit.block.Block`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31195,7 +31325,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.event.entity.EntityKnockbackEvent$KnockbackCause, arg2: double, arg3: org.bukkit.util.Vector, arg4: org.bukkit.util.Vector)`
 - Method: `getCause(): org.bukkit.event.entity.EntityKnockbackEvent$KnockbackCause`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getFinalKnockback(): org.bukkit.util.Vector`
 - Method: `getForce(): double`
@@ -31235,7 +31364,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntityPickupItemEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.entity.Item, arg2: int)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31439,7 +31567,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity)`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.inventory.EquipmentSlot)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHand(): org.bukkit.inventory.EquipmentSlot`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -31458,7 +31585,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getBow(): org.bukkit.inventory.ItemStack`
 - Method: `getConsumable(): org.bukkit.inventory.ItemStack`
 - Method: `getConsumeArrow(): boolean`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getForce(): float`
 - Method: `getHand(): org.bukkit.inventory.EquipmentSlot`
@@ -31488,7 +31614,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntitySpellCastEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Spellcaster, arg1: org.bukkit.entity.Spellcaster$Spell)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Spellcaster`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31501,7 +31626,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntityTameEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: org.bukkit.entity.AnimalTamer)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31553,7 +31677,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.EntityTargetLivingEntityEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Entity, arg1: org.bukkit.entity.LivingEntity, arg2: org.bukkit.event.entity.EntityTargetEvent$TargetReason)`
-- Method: `getTarget(): org.bukkit.entity.Entity`
 - Method: `getTarget(): org.bukkit.entity.LivingEntity`
 - Method: `setTarget(arg0: org.bukkit.entity.Entity): void`
 
@@ -31654,8 +31777,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.ThrownExpBottle, arg1: int)`
 - Constructor: `(arg0: org.bukkit.entity.ThrownExpBottle, arg1: org.bukkit.entity.Entity, arg2: org.bukkit.block.Block, arg3: org.bukkit.block.BlockFace, arg4: int)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
-- Method: `getEntity(): org.bukkit.entity.Projectile`
 - Method: `getEntity(): org.bukkit.entity.ThrownExpBottle`
 - Method: `getExperience(): int`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -31684,7 +31805,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.FireworkExplodeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Firework)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Firework`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31697,7 +31817,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.HumanEntity, arg1: int)`
 - Constructor: `(arg0: org.bukkit.entity.HumanEntity, arg1: int, arg2: org.bukkit.inventory.ItemStack)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.HumanEntity`
 - Method: `getFoodLevel(): int`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -31713,7 +31832,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.AbstractHorse, arg1: float)`
 - Method: `getEntity(): org.bukkit.entity.AbstractHorse`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getPower(): float`
@@ -31726,7 +31844,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.ItemDespawnEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Item, arg1: org.bukkit.Location)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Item`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31739,7 +31856,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.ItemMergeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Item, arg1: org.bukkit.entity.Item)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Item`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31753,7 +31869,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Item)`
 - Constructor: `(arg0: org.bukkit.entity.Item, arg1: org.bukkit.Location)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Item`
 
 ### LingeringPotionSplashEvent
@@ -31765,8 +31880,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `allowsEmptyCreation(): boolean`
 - Method: `allowsEmptyCreation(arg0: boolean): void`
 - Method: `getAreaEffectCloud(): org.bukkit.entity.AreaEffectCloud`
-- Method: `getEntity(): org.bukkit.entity.Entity`
-- Method: `getEntity(): org.bukkit.entity.Projectile`
 - Method: `getEntity(): org.bukkit.entity.ThrownPotion`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31778,7 +31891,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.PigZapEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Pig, arg1: org.bukkit.entity.LightningStrike, arg2: org.bukkit.entity.PigZombie)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Pig`
 - Method: `getLightning(): org.bukkit.entity.LightningStrike`
 - Method: `getPigZombie(): org.bukkit.entity.PigZombie`
@@ -31790,7 +31902,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.PigZombieAngerEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.PigZombie, arg1: org.bukkit.entity.Entity, arg2: int)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.PigZombie`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31805,7 +31916,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.PiglinBarterEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Piglin, arg1: org.bukkit.inventory.ItemStack, arg2: java.util.List<org.bukkit.inventory.ItemStack>)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Piglin`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31831,8 +31941,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `deathScreenMessageOverride(): net.kyori.adventure.text.Component`
 - Method: `deathScreenMessageOverride(arg0: net.kyori.adventure.text.Component): void`
 - Method: `getDeathMessage(): java.lang.String`
-- Method: `getEntity(): org.bukkit.entity.Entity`
-- Method: `getEntity(): org.bukkit.entity.LivingEntity`
 - Method: `getEntity(): org.bukkit.entity.Player`
 - Method: `getItemsToKeep(): java.util.List<org.bukkit.inventory.ItemStack>`
 - Method: `getKeepInventory(): boolean`
@@ -31873,10 +31981,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.ThrownPotion, arg1: java.util.Map<org.bukkit.entity.LivingEntity, java.lang.Double>)`
 - Constructor: `(arg0: org.bukkit.entity.ThrownPotion, arg1: org.bukkit.entity.Entity, arg2: org.bukkit.block.Block, arg3: org.bukkit.block.BlockFace, arg4: java.util.Map<org.bukkit.entity.LivingEntity, java.lang.Double>)`
-- Field: `affectedEntities: java.util.Map<org.bukkit.entity.LivingEntity, java.lang.Double>`
 - Method: `getAffectedEntities(): java.util.Collection<org.bukkit.entity.LivingEntity>`
-- Method: `getEntity(): org.bukkit.entity.Entity`
-- Method: `getEntity(): org.bukkit.entity.Projectile`
 - Method: `getEntity(): org.bukkit.entity.ThrownPotion`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31895,7 +32000,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.Projectile, arg1: org.bukkit.entity.Entity)`
 - Constructor: `(arg0: org.bukkit.entity.Projectile, arg1: org.bukkit.entity.Entity, arg2: org.bukkit.block.Block)`
 - Constructor: `(arg0: org.bukkit.entity.Projectile, arg1: org.bukkit.entity.Entity, arg2: org.bukkit.block.Block, arg3: org.bukkit.block.BlockFace)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Projectile`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31910,7 +32014,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.ProjectileLaunchEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Entity)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Projectile`
 - Method: `isCancelled(): boolean`
 - Method: `setCancelled(arg0: boolean): void`
@@ -31921,7 +32024,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Sheep, arg1: org.bukkit.DyeColor)`
 - Constructor: `(arg0: org.bukkit.entity.Sheep, arg1: org.bukkit.DyeColor, arg2: org.bukkit.entity.Player)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Sheep`
 
 ### SheepRegrowWoolEvent
@@ -31929,7 +32031,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.SheepRegrowWoolEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Sheep)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Sheep`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31942,7 +32043,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Slime, arg1: int)`
 - Method: `getCount(): int`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Slime`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31962,7 +32062,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.StriderTemperatureChangeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Strider, arg1: boolean)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Strider`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -31983,7 +32082,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.AbstractVillager, arg1: org.bukkit.inventory.MerchantRecipe)`
 - Method: `getEntity(): org.bukkit.entity.AbstractVillager`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getRecipe(): org.bukkit.inventory.MerchantRecipe`
@@ -31996,7 +32094,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.entity.VillagerCareerChangeEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Villager, arg1: org.bukkit.entity.Villager$Profession, arg2: org.bukkit.event.entity.VillagerCareerChangeEvent$ChangeReason)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Villager`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -32022,7 +32119,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.AbstractVillager, arg1: org.bukkit.inventory.MerchantRecipe)`
 - Method: `getBonus(): int`
 - Method: `getEntity(): org.bukkit.entity.AbstractVillager`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getRecipe(): org.bukkit.inventory.MerchantRecipe`
@@ -32066,8 +32162,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.hanging.HangingEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Hanging)`
-- Field: `hanging: org.bukkit.entity.Hanging`
 - Method: `getEntity(): org.bukkit.entity.Hanging`
 
 ### HangingPlaceEvent
@@ -32148,7 +32242,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.inventory.Recipe, arg1: org.bukkit.inventory.InventoryView, arg2: org.bukkit.event.inventory.InventoryType$SlotType, arg3: int, arg4: org.bukkit.event.inventory.ClickType, arg5: org.bukkit.event.inventory.InventoryAction)`
 - Constructor: `(arg0: org.bukkit.inventory.Recipe, arg1: org.bukkit.inventory.InventoryView, arg2: org.bukkit.event.inventory.InventoryType$SlotType, arg3: int, arg4: org.bukkit.event.inventory.ClickType, arg5: org.bukkit.event.inventory.InventoryAction, arg6: int)`
 - Method: `getInventory(): org.bukkit.inventory.CraftingInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getRecipe(): org.bukkit.inventory.Recipe`
 
 ### DragType
@@ -32334,7 +32427,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.inventory.InventoryEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView)`
-- Field: `transaction: org.bukkit.inventory.InventoryView`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getInventory(): org.bukkit.inventory.Inventory`
@@ -32345,7 +32437,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.inventory.InventoryInteractEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.inventory.InventoryView)`
 - Method: `getResult(): org.bukkit.event.Event$Result`
 - Method: `getWhoClicked(): org.bukkit.entity.HumanEntity`
 - Method: `isCancelled(): boolean`
@@ -32455,8 +32546,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.inventory.view.AnvilView, arg1: org.bukkit.inventory.ItemStack)`
 - Method: `getInventory(): org.bukkit.inventory.AnvilInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
-- Method: `getView(): org.bukkit.inventory.InventoryView`
 - Method: `getView(): org.bukkit.inventory.view.AnvilView`
 - Method: `setResult(arg0: org.bukkit.inventory.ItemStack): void`
 
@@ -32466,7 +32555,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.inventory.ItemStack)`
 - Method: `getInventory(): org.bukkit.inventory.GrindstoneInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 
 ### PrepareInventoryResultEvent
 
@@ -32486,7 +32574,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getInventory(): org.bukkit.inventory.CraftingInventory`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getRecipe(): org.bukkit.inventory.Recipe`
 - Method: `isRepair(): boolean`
 
@@ -32495,7 +32582,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.inventory.PrepareSmithingEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.inventory.ItemStack)`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getInventory(): org.bukkit.inventory.SmithingInventory`
 
 ### SmithItemEvent
@@ -32504,7 +32590,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.event.inventory.InventoryType$SlotType, arg2: int, arg3: org.bukkit.event.inventory.ClickType, arg4: org.bukkit.event.inventory.InventoryAction)`
 - Constructor: `(arg0: org.bukkit.inventory.InventoryView, arg1: org.bukkit.event.inventory.InventoryType$SlotType, arg2: int, arg3: org.bukkit.event.inventory.ClickType, arg4: org.bukkit.event.inventory.InventoryAction, arg5: int)`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getInventory(): org.bukkit.inventory.SmithingInventory`
 
 ### TradeSelectEvent
@@ -32515,10 +32600,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getIndex(): int`
-- Method: `getInventory(): org.bukkit.inventory.Inventory`
 - Method: `getInventory(): org.bukkit.inventory.MerchantInventory`
 - Method: `getMerchant(): org.bukkit.inventory.Merchant`
-- Method: `getView(): org.bukkit.inventory.InventoryView`
 - Method: `getView(): org.bukkit.inventory.view.MerchantView`
 
 ### AsyncPlayerChatEvent
@@ -32636,7 +32719,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 - Method: `getPlayerItem(): org.bukkit.inventory.ItemStack`
 - Method: `getRightClicked(): org.bukkit.entity.ArmorStand`
-- Method: `getRightClicked(): org.bukkit.entity.Entity`
 - Method: `getSlot(): org.bukkit.inventory.EquipmentSlot`
 
 ### PlayerAttemptPickupItemEvent
@@ -32711,7 +32793,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.player.PlayerBucketEntityEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.entity.Entity, arg2: org.bukkit.inventory.ItemStack, arg3: org.bukkit.inventory.ItemStack, arg4: org.bukkit.inventory.EquipmentSlot)`
-- Field: `entity: org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntityBucket(): org.bukkit.inventory.ItemStack`
 - Method: `getHand(): org.bukkit.inventory.EquipmentSlot`
@@ -32725,9 +32806,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.player.PlayerBucketEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.block.Block, arg2: org.bukkit.block.Block, arg3: org.bukkit.block.BlockFace, arg4: org.bukkit.Material, arg5: org.bukkit.inventory.ItemStack)`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.block.Block, arg2: org.bukkit.block.Block, arg3: org.bukkit.block.BlockFace, arg4: org.bukkit.Material, arg5: org.bukkit.inventory.ItemStack, arg6: org.bukkit.inventory.EquipmentSlot)`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.block.Block, arg2: org.bukkit.block.BlockFace, arg3: org.bukkit.Material, arg4: org.bukkit.inventory.ItemStack)`
 - Method: `getBlock(): org.bukkit.block.Block`
 - Method: `getBlockClicked(): org.bukkit.block.Block`
 - Method: `getBlockFace(): org.bukkit.block.BlockFace`
@@ -32753,7 +32831,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.event.player.PlayerBucketFishEvent`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.entity.Fish, arg2: org.bukkit.inventory.ItemStack, arg3: org.bukkit.inventory.ItemStack, arg4: org.bukkit.inventory.EquipmentSlot)`
-- Method: `getEntity(): org.bukkit.entity.Entity`
 - Method: `getEntity(): org.bukkit.entity.Fish`
 - Method: `getFishBucket(): org.bukkit.inventory.ItemStack`
 - Method: `getWaterBucket(): org.bukkit.inventory.ItemStack`
@@ -32781,7 +32858,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.player.PlayerChannelEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: java.lang.String)`
 - Method: `getChannel(): java.lang.String`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -32884,9 +32960,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.player.PlayerEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Player)`
-- Constructor: `(arg0: org.bukkit.entity.Player, arg1: boolean)`
-- Field: `player: org.bukkit.entity.Player`
 - Method: `getPlayer(): org.bukkit.entity.Player`
 
 ### PlayerExpChangeEvent
@@ -33028,7 +33101,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.entity.Entity)`
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.entity.Entity, arg2: org.bukkit.inventory.EquipmentSlot)`
-- Field: `clickedEntity: org.bukkit.entity.Entity`
 - Method: `getHand(): org.bukkit.inventory.EquipmentSlot`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -33597,7 +33669,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.Statistic, arg2: int, arg3: int)`
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.Statistic, arg2: int, arg3: int, arg4: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.Statistic, arg2: int, arg3: int, arg4: org.bukkit.entity.EntityType)`
-- Field: `statistic: org.bukkit.Statistic`
 - Method: `getEntityType(): org.bukkit.entity.EntityType`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
@@ -33733,7 +33804,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.raid.RaidEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.Raid, arg1: org.bukkit.World)`
 - Method: `getRaid(): org.bukkit.Raid`
 
 ### RaidFinishEvent
@@ -33834,7 +33904,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.server.PluginEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.plugin.Plugin)`
 - Method: `getPlugin(): org.bukkit.plugin.Plugin`
 
 ### RemoteServerCommandEvent
@@ -33862,18 +33931,13 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.server.ServerEvent`
 - Kind: `abstract`
-- Constructor: `()`
-- Constructor: `(arg0: boolean)`
 
 ### ServerListPingEvent
 
 - Java: `org.bukkit.event.server.ServerListPingEvent`
 - Kind: `class`
-- Constructor: `(arg0: java.lang.String, arg1: java.net.InetAddress, arg2: java.lang.String, arg3: int)`
 - Constructor: `(arg0: java.lang.String, arg1: java.net.InetAddress, arg2: java.lang.String, arg3: int, arg4: int)`
-- Constructor: `(arg0: java.lang.String, arg1: java.net.InetAddress, arg2: net.kyori.adventure.text.Component, arg3: int)`
 - Constructor: `(arg0: java.lang.String, arg1: java.net.InetAddress, arg2: net.kyori.adventure.text.Component, arg3: int, arg4: int)`
-- Constructor: `(arg0: java.net.InetAddress, arg1: net.kyori.adventure.text.Component, arg2: int)`
 - Constructor: `(arg0: java.net.InetAddress, arg1: net.kyori.adventure.text.Component, arg2: int, arg3: int)`
 - Method: `getAddress(): java.net.InetAddress`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
@@ -33912,7 +33976,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.server.ServiceEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.plugin.RegisteredServiceProvider<?>)`
 - Method: `getProvider(): org.bukkit.plugin.RegisteredServiceProvider<?>`
 
 ### ServiceRegisterEvent
@@ -33961,7 +34024,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.vehicle.VehicleCollisionEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Vehicle)`
 - Method: `getHandlerList(): org.bukkit.event.HandlerList`
 - Method: `getHandlers(): org.bukkit.event.HandlerList`
 
@@ -34027,8 +34089,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.vehicle.VehicleEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.entity.Vehicle)`
-- Field: `vehicle: org.bukkit.entity.Vehicle`
 - Method: `getVehicle(): org.bukkit.entity.Vehicle`
 
 ### VehicleExitEvent
@@ -34144,8 +34204,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.weather.WeatherEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.World)`
-- Field: `world: org.bukkit.World`
 - Method: `getWorld(): org.bukkit.World`
 
 ### AsyncStructureGenerateEvent
@@ -34199,8 +34257,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.world.ChunkEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.Chunk)`
-- Field: `chunk: org.bukkit.Chunk`
 - Method: `getChunk(): org.bukkit.Chunk`
 
 ### ChunkLoadEvent
@@ -34356,9 +34412,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.event.world.WorldEvent`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.World)`
-- Constructor: `(arg0: org.bukkit.World, arg1: boolean)`
-- Field: `world: org.bukkit.World`
 - Method: `getWorld(): org.bukkit.World`
 
 ### WorldInitEvent
@@ -34422,7 +34475,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.generator.BiomeProvider`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `getBiome(arg0: org.bukkit.generator.WorldInfo, arg1: int, arg2: int, arg3: int): org.bukkit.block.Biome`
 - Method: `getBiome(arg0: org.bukkit.generator.WorldInfo, arg1: int, arg2: int, arg3: int, arg4: org.bukkit.generator.BiomeParameterPoint): org.bukkit.block.Biome`
 - Method: `getBiomes(arg0: org.bukkit.generator.WorldInfo): java.util.List<org.bukkit.block.Biome>`
@@ -34431,7 +34483,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.generator.BlockPopulator`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `populate(arg0: org.bukkit.World, arg1: java.util.Random, arg2: org.bukkit.Chunk): void`
 - Method: `populate(arg0: org.bukkit.generator.WorldInfo, arg1: java.util.Random, arg2: int, arg3: int, arg4: org.bukkit.generator.LimitedRegion): void`
 
@@ -34439,9 +34490,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.generator.ChunkGenerator`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `canSpawn(arg0: org.bukkit.World, arg1: int, arg2: int): boolean`
-- Method: `createChunkData(arg0: org.bukkit.World): org.bukkit.generator.ChunkGenerator$ChunkData`
 - Method: `generateBedrock(arg0: org.bukkit.generator.WorldInfo, arg1: java.util.Random, arg2: int, arg3: int, arg4: org.bukkit.generator.ChunkGenerator$ChunkData): void`
 - Method: `generateCaves(arg0: org.bukkit.generator.WorldInfo, arg1: java.util.Random, arg2: int, arg3: int, arg4: org.bukkit.generator.ChunkGenerator$ChunkData): void`
 - Method: `generateChunkData(arg0: org.bukkit.World, arg1: java.util.Random, arg2: int, arg3: int, arg4: org.bukkit.generator.ChunkGenerator$BiomeGrid): org.bukkit.generator.ChunkGenerator$ChunkData`
@@ -34541,7 +34590,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.generator.structure.Structure`
 - Kind: `abstract`
-- Constructor: `()`
 - Field: `ANCIENT_CITY: org.bukkit.generator.structure.Structure`
 - Field: `BASTION_REMNANT: org.bukkit.generator.structure.Structure`
 - Field: `BURIED_TREASURE: org.bukkit.generator.structure.Structure`
@@ -34590,7 +34638,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.generator.structure.StructureType`
 - Kind: `abstract`
-- Constructor: `()`
 - Field: `BURIED_TREASURE: org.bukkit.generator.structure.StructureType`
 - Field: `DESERT_PYRAMID: org.bukkit.generator.structure.StructureType`
 - Field: `END_CITY: org.bukkit.generator.structure.StructureType`
@@ -34613,7 +34660,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.help.GenericCommandHelpTopic`
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.command.Command)`
-- Field: `command: org.bukkit.command.Command`
 - Method: `canSee(arg0: org.bukkit.command.CommandSender): boolean`
 
 ### HelpMap
@@ -34631,14 +34677,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.help.HelpTopic`
 - Kind: `abstract`
-- Constructor: `()`
-- Field: `amendedPermission: java.lang.String`
-- Field: `fullText: java.lang.String`
-- Field: `name: java.lang.String`
-- Field: `shortText: java.lang.String`
 - Method: `amendCanSee(arg0: java.lang.String): void`
 - Method: `amendTopic(arg0: java.lang.String, arg1: java.lang.String): void`
-- Method: `applyAmendment(arg0: java.lang.String, arg1: java.lang.String): java.lang.String`
 - Method: `canSee(arg0: org.bukkit.command.CommandSender): boolean`
 - Method: `getFullText(arg0: org.bukkit.command.CommandSender): java.lang.String`
 - Method: `getName(): java.lang.String`
@@ -34648,7 +34688,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.help.HelpTopicComparator`
 - Kind: `class`
-- Method: `compare(arg0: java.lang.Object, arg1: java.lang.Object): int`
 - Method: `compare(arg0: org.bukkit.help.HelpTopic, arg1: org.bukkit.help.HelpTopic): int`
 - Method: `helpTopicComparatorInstance(): org.bukkit.help.HelpTopicComparator`
 - Method: `topicNameComparatorInstance(): org.bukkit.help.HelpTopicComparator$TopicNameComparator`
@@ -34657,7 +34696,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.help.HelpTopicComparator$TopicNameComparator`
 - Kind: `class`
-- Method: `compare(arg0: java.lang.Object, arg1: java.lang.Object): int`
 - Method: `compare(arg0: java.lang.String, arg1: java.lang.String): int`
 
 ### HelpTopicFactory
@@ -34672,15 +34710,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.String, arg2: java.lang.String, arg3: java.util.Collection<org.bukkit.help.HelpTopic>)`
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.String, arg2: java.lang.String, arg3: java.util.Collection<org.bukkit.help.HelpTopic>, arg4: java.lang.String)`
-- Field: `allTopics: java.util.Collection<org.bukkit.help.HelpTopic>`
-- Field: `permission: java.lang.String`
-- Field: `preamble: java.lang.String`
 - Method: `amendCanSee(arg0: java.lang.String): void`
-- Method: `buildIndexLine(arg0: org.bukkit.command.CommandSender, arg1: org.bukkit.help.HelpTopic): java.lang.String`
-- Method: `buildPreamble(arg0: org.bukkit.command.CommandSender): java.lang.String`
 - Method: `canSee(arg0: org.bukkit.command.CommandSender): boolean`
 - Method: `getFullText(arg0: org.bukkit.command.CommandSender): java.lang.String`
-- Method: `setTopicsCollection(arg0: java.util.Collection<org.bukkit.help.HelpTopic>): void`
 
 ### AbstractHorseInventory
 
@@ -34740,7 +34772,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `getFuel(): org.bukkit.inventory.ItemStack`
 - Method: `getHolder(): org.bukkit.block.BrewingStand`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `getIngredient(): org.bukkit.inventory.ItemStack`
 - Method: `setFuel(arg0: org.bukkit.inventory.ItemStack): void`
 - Method: `setIngredient(arg0: org.bukkit.inventory.ItemStack): void`
@@ -34764,7 +34795,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.ChiseledBookshelfInventory`
 - Kind: `interface`
 - Method: `getHolder(): org.bukkit.block.ChiseledBookshelf`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 
 ### ComplexRecipe
 
@@ -34775,8 +34805,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.CookingRecipe`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: org.bukkit.inventory.ItemStack, arg2: org.bukkit.Material, arg3: float, arg4: int)`
-- Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: org.bukkit.inventory.ItemStack, arg2: org.bukkit.inventory.RecipeChoice, arg3: float, arg4: int)`
 - Method: `getCategory(): org.bukkit.inventory.recipe.CookingBookCategory`
 - Method: `getCookingTime(): int`
 - Method: `getExperience(): float`
@@ -34811,8 +34839,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.CraftingRecipe`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.NamespacedKey, arg1: org.bukkit.inventory.ItemStack)`
-- Method: `checkResult(arg0: org.bukkit.inventory.ItemStack): org.bukkit.inventory.ItemStack`
 - Method: `getCategory(): org.bukkit.inventory.recipe.CraftingBookCategory`
 - Method: `getGroup(): java.lang.String`
 - Method: `getKey(): org.bukkit.NamespacedKey`
@@ -34842,7 +34868,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.DecoratedPotInventory`
 - Kind: `interface`
 - Method: `getHolder(): org.bukkit.block.DecoratedPot`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `getItem(): org.bukkit.inventory.ItemStack`
 - Method: `setItem(arg0: org.bukkit.inventory.ItemStack): void`
 
@@ -34851,7 +34876,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.DoubleChestInventory`
 - Kind: `interface`
 - Method: `getHolder(): org.bukkit.block.DoubleChest`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `getLeftSide(): org.bukkit.inventory.Inventory`
 - Method: `getRightSide(): org.bukkit.inventory.Inventory`
 
@@ -34948,7 +34972,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Field: `SADDLE: org.bukkit.inventory.EquipmentSlotGroup`
 - Method: `getByName(arg0: java.lang.String): org.bukkit.inventory.EquipmentSlotGroup`
 - Method: `getExample(): org.bukkit.inventory.EquipmentSlot`
-- Method: `test(arg0: java.lang.Object): boolean`
 - Method: `test(arg0: org.bukkit.inventory.EquipmentSlot): boolean`
 - Method: `toString(): java.lang.String`
 
@@ -34959,7 +34982,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `canSmelt(arg0: org.bukkit.inventory.ItemStack): boolean`
 - Method: `getFuel(): org.bukkit.inventory.ItemStack`
 - Method: `getHolder(): org.bukkit.block.Furnace`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `getResult(): org.bukkit.inventory.ItemStack`
 - Method: `getSmelting(): org.bukkit.inventory.ItemStack`
 - Method: `isFuel(arg0: org.bukkit.inventory.ItemStack): boolean`
@@ -34978,11 +35000,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.inventory.ItemStack, arg1: org.bukkit.Material, arg2: int)`
 - Constructor: `(arg0: org.bukkit.inventory.ItemStack, arg1: org.bukkit.material.MaterialData)`
 - Constructor: `(arg0: org.bukkit.inventory.ItemStack, arg1: org.bukkit.material.MaterialData, arg2: float)`
-- Method: `setInput(arg0: org.bukkit.Material): org.bukkit.inventory.CookingRecipe`
 - Method: `setInput(arg0: org.bukkit.Material): org.bukkit.inventory.FurnaceRecipe`
 - Method: `setInput(arg0: org.bukkit.Material, arg1: int): org.bukkit.inventory.FurnaceRecipe`
 - Method: `setInput(arg0: org.bukkit.material.MaterialData): org.bukkit.inventory.FurnaceRecipe`
-- Method: `setInputChoice(arg0: org.bukkit.inventory.RecipeChoice): org.bukkit.inventory.CookingRecipe`
 - Method: `setInputChoice(arg0: org.bukkit.inventory.RecipeChoice): org.bukkit.inventory.FurnaceRecipe`
 
 ### GrindstoneInventory
@@ -35030,7 +35050,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getType(): org.bukkit.event.inventory.InventoryType`
 - Method: `getViewers(): java.util.List<org.bukkit.entity.HumanEntity>`
 - Method: `isEmpty(): boolean`
-- Method: `iterator(): java.util.Iterator`
 - Method: `iterator(): java.util.ListIterator<org.bukkit.inventory.ItemStack>`
 - Method: `iterator(arg0: int): java.util.ListIterator<org.bukkit.inventory.ItemStack>`
 - Method: `remove(arg0: org.bukkit.Material): void`
@@ -35172,7 +35191,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.ItemStack`
 - Kind: `class`
-- Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: int)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: int, arg2: short)`
@@ -35189,7 +35207,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `asOne(): org.bukkit.inventory.ItemStack`
 - Method: `asQuantity(arg0: int): org.bukkit.inventory.ItemStack`
 - Method: `canRepair(arg0: org.bukkit.inventory.ItemStack): boolean`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.inventory.ItemStack`
 - Method: `computeTooltipLines(arg0: io.papermc.paper.inventory.tooltip.TooltipContext, arg1: org.bukkit.entity.Player): java.util.List<net.kyori.adventure.text.Component>`
 - Method: `containsEnchantment(arg0: org.bukkit.enchantments.Enchantment): boolean`
@@ -36725,7 +36742,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.JukeboxInventory`
 - Kind: `interface`
 - Method: `getHolder(): org.bukkit.block.Jukebox`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `getRecord(): org.bukkit.inventory.ItemStack`
 - Method: `setRecord(arg0: org.bukkit.inventory.ItemStack): void`
 
@@ -36735,7 +36751,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `getBook(): org.bukkit.inventory.ItemStack`
 - Method: `getHolder(): org.bukkit.block.Lectern`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `setBook(arg0: org.bukkit.inventory.ItemStack): void`
 
 ### LlamaInventory
@@ -36868,7 +36883,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getHeldItemSlot(): int`
 - Method: `getHelmet(): org.bukkit.inventory.ItemStack`
 - Method: `getHolder(): org.bukkit.entity.HumanEntity`
-- Method: `getHolder(): org.bukkit.inventory.InventoryHolder`
 - Method: `getItem(arg0: org.bukkit.inventory.EquipmentSlot): org.bukkit.inventory.ItemStack`
 - Method: `getItemInHand(): org.bukkit.inventory.ItemStack`
 - Method: `getItemInMainHand(): org.bukkit.inventory.ItemStack`
@@ -36900,7 +36914,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `clone(): org.bukkit.inventory.RecipeChoice`
 - Method: `empty(): org.bukkit.inventory.RecipeChoice`
 - Method: `getItemStack(): org.bukkit.inventory.ItemStack`
-- Method: `test(arg0: java.lang.Object): boolean`
 - Method: `test(arg0: org.bukkit.inventory.ItemStack): boolean`
 - Method: `validate(arg0: boolean): org.bukkit.inventory.RecipeChoice`
 
@@ -36911,14 +36924,11 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: java.util.List<org.bukkit.inventory.ItemStack>)`
 - Constructor: `(arg0: org.bukkit.inventory.ItemStack)`
 - Constructor: `(arg0: org.bukkit.inventory.ItemStack)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.inventory.RecipeChoice$ExactChoice`
-- Method: `clone(): org.bukkit.inventory.RecipeChoice`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getChoices(): java.util.List<org.bukkit.inventory.ItemStack>`
 - Method: `getItemStack(): org.bukkit.inventory.ItemStack`
 - Method: `hashCode(): int`
-- Method: `test(arg0: java.lang.Object): boolean`
 - Method: `test(arg0: org.bukkit.inventory.ItemStack): boolean`
 - Method: `toString(): java.lang.String`
 - Method: `validate(arg0: boolean): org.bukkit.inventory.RecipeChoice`
@@ -36931,14 +36941,11 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Tag<org.bukkit.Material>)`
 - Constructor: `(arg0: org.bukkit.Material)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.inventory.RecipeChoice$MaterialChoice`
-- Method: `clone(): org.bukkit.inventory.RecipeChoice`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getChoices(): java.util.List<org.bukkit.Material>`
 - Method: `getItemStack(): org.bukkit.inventory.ItemStack`
 - Method: `hashCode(): int`
-- Method: `test(arg0: java.lang.Object): boolean`
 - Method: `test(arg0: org.bukkit.inventory.ItemStack): boolean`
 - Method: `toString(): java.lang.String`
 - Method: `validate(arg0: boolean): org.bukkit.inventory.RecipeChoice`
@@ -37081,7 +37088,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.meta.ArmorMeta`
 - Kind: `interface`
 - Method: `clone(): org.bukkit.inventory.meta.ArmorMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getTrim(): org.bukkit.inventory.meta.trim.ArmorTrim`
 - Method: `hasTrim(): boolean`
 - Method: `setTrim(arg0: org.bukkit.inventory.meta.trim.ArmorTrim): void`
@@ -37091,7 +37097,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.meta.AxolotlBucketMeta`
 - Kind: `interface`
 - Method: `clone(): org.bukkit.inventory.meta.AxolotlBucketMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getVariant(): org.bukkit.entity.Axolotl$Variant`
 - Method: `hasVariant(): boolean`
 - Method: `setVariant(arg0: org.bukkit.entity.Axolotl$Variant): void`
@@ -37132,11 +37137,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `addPage(arg0: java.lang.String): void`
 - Method: `addPages(arg0: net.kyori.adventure.text.Component): void`
 - Method: `author(): net.kyori.adventure.text.Component`
-- Method: `author(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book`
 - Method: `author(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.meta.BookMeta`
 - Method: `clone(): org.bukkit.inventory.meta.BookMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
-- Method: `clone(): org.bukkit.inventory.meta.WritableBookMeta`
 - Method: `getAuthor(): java.lang.String`
 - Method: `getGeneration(): org.bukkit.inventory.meta.BookMeta$Generation`
 - Method: `getPage(arg0: int): java.lang.String`
@@ -37155,28 +37157,18 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `setTitle(arg0: java.lang.String): boolean`
 - Method: `spigot(): org.bukkit.inventory.meta.BookMeta$Spigot`
 - Method: `title(): net.kyori.adventure.text.Component`
-- Method: `title(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book`
 - Method: `title(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.meta.BookMeta`
-- Method: `toBuilder(): net.kyori.adventure.inventory.Book$Builder`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 - Method: `toBuilder(): org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
 
 ### BookMeta_BookMetaBuilder
 
 - Java: `org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
 - Kind: `interface`
-- Method: `addPage(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
 - Method: `addPage(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
-- Method: `author(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
 - Method: `author(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
-- Method: `build(): java.lang.Object`
-- Method: `build(): net.kyori.adventure.inventory.Book`
 - Method: `build(): org.bukkit.inventory.meta.BookMeta`
-- Method: `pages(arg0: java.util.Collection): net.kyori.adventure.inventory.Book$Builder`
 - Method: `pages(arg0: java.util.Collection<net.kyori.adventure.text.Component>): org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
-- Method: `pages(arg0: net.kyori.adventure.text.Component[]): net.kyori.adventure.inventory.Book$Builder`
 - Method: `pages(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
-- Method: `title(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
 - Method: `title(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.meta.BookMeta$BookMetaBuilder`
 
 ### BookMeta_Generation
@@ -37215,10 +37207,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.ColorableArmorMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ArmorMeta`
 - Method: `clone(): org.bukkit.inventory.meta.ColorableArmorMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
-- Method: `clone(): org.bukkit.inventory.meta.LeatherArmorMeta`
 
 ### CompassMeta
 
@@ -37226,7 +37215,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `clearLodestone(): void`
 - Method: `clone(): org.bukkit.inventory.meta.CompassMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getLodestone(): org.bukkit.Location`
 - Method: `hasLodestone(): boolean`
 - Method: `isLodestoneCompass(): boolean`
@@ -37248,7 +37236,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.meta.Damageable`
 - Kind: `interface`
 - Method: `clone(): org.bukkit.inventory.meta.Damageable`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getDamage(): int`
 - Method: `getMaxDamage(): int`
 - Method: `hasDamage(): boolean`
@@ -37264,7 +37251,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `addStoredEnchant(arg0: org.bukkit.enchantments.Enchantment, arg1: int, arg2: boolean): boolean`
 - Method: `clone(): org.bukkit.inventory.meta.EnchantmentStorageMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getStoredEnchantLevel(arg0: org.bukkit.enchantments.Enchantment): int`
 - Method: `getStoredEnchants(): java.util.Map<org.bukkit.enchantments.Enchantment, java.lang.Integer>`
 - Method: `hasConflictingStoredEnchant(arg0: org.bukkit.enchantments.Enchantment): boolean`
@@ -37277,7 +37263,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.meta.FireworkEffectMeta`
 - Kind: `interface`
 - Method: `clone(): org.bukkit.inventory.meta.FireworkEffectMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getEffect(): org.bukkit.FireworkEffect`
 - Method: `hasEffect(): boolean`
 - Method: `setEffect(arg0: org.bukkit.FireworkEffect): void`
@@ -37291,7 +37276,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `addEffects(arg0: org.bukkit.FireworkEffect): void`
 - Method: `clearEffects(): void`
 - Method: `clone(): org.bukkit.inventory.meta.FireworkMeta`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `getEffects(): java.util.List<org.bukkit.FireworkEffect>`
 - Method: `getEffectsSize(): int`
 - Method: `getPower(): int`
@@ -37424,7 +37408,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.meta.KnowledgeBookMeta`
 - Kind: `interface`
 - Method: `addRecipe(arg0: org.bukkit.NamespacedKey): void`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.KnowledgeBookMeta`
 - Method: `getRecipes(): java.util.List<org.bukkit.NamespacedKey>`
 - Method: `hasRecipes(): boolean`
@@ -37434,7 +37417,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.LeatherArmorMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.LeatherArmorMeta`
 - Method: `getColor(): org.bukkit.Color`
 - Method: `isDyed(): boolean`
@@ -37444,7 +37426,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.MapMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.MapMeta`
 - Method: `getColor(): org.bukkit.Color`
 - Method: `getLocationName(): java.lang.String`
@@ -37465,7 +37446,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.MusicInstrumentMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.MusicInstrumentMeta`
 - Method: `getInstrument(): org.bukkit.MusicInstrument`
 - Method: `setInstrument(arg0: org.bukkit.MusicInstrument): void`
@@ -37474,7 +37454,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.OminousBottleMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.OminousBottleMeta`
 - Method: `getAmplifier(): int`
 - Method: `hasAmplifier(): boolean`
@@ -37486,7 +37465,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `addCustomEffect(arg0: org.bukkit.potion.PotionEffect, arg1: boolean): boolean`
 - Method: `clearCustomEffects(): boolean`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.PotionMeta`
 - Method: `computeEffectiveColor(): org.bukkit.Color`
 - Method: `getAllEffects(): java.util.List<org.bukkit.potion.PotionEffect>`
@@ -37514,7 +37492,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.Repairable`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.Repairable`
 - Method: `getRepairCost(): int`
 - Method: `hasRepairCost(): boolean`
@@ -37531,7 +37508,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.SkullMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.SkullMeta`
 - Method: `getNoteBlockSound(): org.bukkit.NamespacedKey`
 - Method: `getOwner(): java.lang.String`
@@ -37549,7 +37525,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.SpawnEggMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.SpawnEggMeta`
 - Method: `getCustomSpawnedType(): org.bukkit.entity.EntityType`
 - Method: `getSpawnedEntity(): org.bukkit.entity.EntitySnapshot`
@@ -37565,7 +37540,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `addCustomEffect(arg0: io.papermc.paper.potion.SuspiciousEffectEntry, arg1: boolean): boolean`
 - Method: `addCustomEffect(arg0: org.bukkit.potion.PotionEffect, arg1: boolean): boolean`
 - Method: `clearCustomEffects(): boolean`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.SuspiciousStewMeta`
 - Method: `getCustomEffects(): java.util.List<org.bukkit.potion.PotionEffect>`
 - Method: `hasCustomEffect(arg0: org.bukkit.potion.PotionEffectType): boolean`
@@ -37576,7 +37550,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.inventory.meta.TropicalFishBucketMeta`
 - Kind: `interface`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.TropicalFishBucketMeta`
 - Method: `getBodyColor(): org.bukkit.DyeColor`
 - Method: `getPattern(): org.bukkit.entity.TropicalFish$Pattern`
@@ -37591,7 +37564,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.meta.WritableBookMeta`
 - Kind: `interface`
 - Method: `addPage(arg0: java.lang.String): void`
-- Method: `clone(): org.bukkit.inventory.meta.ItemMeta`
 - Method: `clone(): org.bukkit.inventory.meta.WritableBookMeta`
 - Method: `getPage(arg0: int): java.lang.String`
 - Method: `getPageCount(): int`
@@ -37833,7 +37805,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getRepairCost(): int`
 - Method: `getRepairItemCountCost(): int`
 - Method: `getTopInventory(): org.bukkit.inventory.AnvilInventory`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `setMaximumRepairCost(arg0: int): void`
 - Method: `setRepairCost(arg0: int): void`
 - Method: `setRepairItemCountCost(arg0: int): void`
@@ -37846,7 +37817,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getSecondaryEffect(): org.bukkit.potion.PotionEffectType`
 - Method: `getTier(): int`
 - Method: `getTopInventory(): org.bukkit.inventory.BeaconInventory`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `setPrimaryEffect(arg0: org.bukkit.potion.PotionEffectType): void`
 - Method: `setSecondaryEffect(arg0: org.bukkit.potion.PotionEffectType): void`
 
@@ -37858,7 +37828,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getFuelLevel(): int`
 - Method: `getRecipeBrewTime(): int`
 - Method: `getTopInventory(): org.bukkit.inventory.BrewerInventory`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `setBrewingTicks(arg0: int): void`
 - Method: `setFuelLevel(arg0: int): void`
 - Method: `setRecipeBrewTime(arg0: int): void`
@@ -37868,7 +37837,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.view.CrafterView`
 - Kind: `interface`
 - Method: `getTopInventory(): org.bukkit.inventory.CrafterInventory`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `isPowered(): boolean`
 - Method: `isSlotDisabled(arg0: int): boolean`
 - Method: `setSlotDisabled(arg0: int, arg1: boolean): void`
@@ -37880,7 +37848,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getEnchantmentSeed(): int`
 - Method: `getOffers(): org.bukkit.enchantments.EnchantmentOffer[]`
 - Method: `getTopInventory(): org.bukkit.inventory.EnchantingInventory`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `setEnchantmentSeed(arg0: int): void`
 - Method: `setOffers(arg0: org.bukkit.enchantments.EnchantmentOffer[]): void`
 
@@ -37891,7 +37858,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getBurnTime(): float`
 - Method: `getCookTime(): float`
 - Method: `getTopInventory(): org.bukkit.inventory.FurnaceInventory`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `isBurning(): boolean`
 - Method: `setBurnTime(arg0: int, arg1: int): void`
 - Method: `setCookTime(arg0: int, arg1: int): void`
@@ -37901,7 +37867,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.view.LecternView`
 - Kind: `interface`
 - Method: `getPage(): int`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `getTopInventory(): org.bukkit.inventory.LecternInventory`
 - Method: `setPage(arg0: int): void`
 
@@ -37911,7 +37876,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `interface`
 - Method: `getSelectablePatterns(): java.util.List<org.bukkit.block.banner.PatternType>`
 - Method: `getSelectedPatternIndex(): int`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `getTopInventory(): org.bukkit.inventory.LoomInventory`
 
 ### MerchantView
@@ -37919,7 +37883,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.view.MerchantView`
 - Kind: `interface`
 - Method: `getMerchant(): org.bukkit.inventory.Merchant`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `getTopInventory(): org.bukkit.inventory.MerchantInventory`
 
 ### StonecutterView
@@ -37929,7 +37892,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getRecipeAmount(): int`
 - Method: `getRecipes(): java.util.List<org.bukkit.inventory.StonecuttingRecipe>`
 - Method: `getSelectedRecipeIndex(): int`
-- Method: `getTopInventory(): org.bukkit.inventory.Inventory`
 - Method: `getTopInventory(): org.bukkit.inventory.StonecutterInventory`
 
 ### InventoryViewBuilder
@@ -37945,10 +37907,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.view.builder.LocationInventoryViewBuilder`
 - Kind: `interface`
 - Method: `checkReachable(arg0: boolean): org.bukkit.inventory.view.builder.LocationInventoryViewBuilder<V>`
-- Method: `copy(): org.bukkit.inventory.view.builder.InventoryViewBuilder`
 - Method: `copy(): org.bukkit.inventory.view.builder.LocationInventoryViewBuilder<V>`
 - Method: `location(arg0: org.bukkit.Location): org.bukkit.inventory.view.builder.LocationInventoryViewBuilder<V>`
-- Method: `title(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.view.builder.InventoryViewBuilder`
 - Method: `title(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.view.builder.LocationInventoryViewBuilder<V>`
 
 ### MerchantInventoryViewBuilder
@@ -37956,10 +37916,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.inventory.view.builder.MerchantInventoryViewBuilder`
 - Kind: `interface`
 - Method: `checkReachable(arg0: boolean): org.bukkit.inventory.view.builder.MerchantInventoryViewBuilder<V>`
-- Method: `copy(): org.bukkit.inventory.view.builder.InventoryViewBuilder`
 - Method: `copy(): org.bukkit.inventory.view.builder.MerchantInventoryViewBuilder<V>`
 - Method: `merchant(arg0: org.bukkit.inventory.Merchant): org.bukkit.inventory.view.builder.MerchantInventoryViewBuilder<V>`
-- Method: `title(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.view.builder.InventoryViewBuilder`
 - Method: `title(arg0: net.kyori.adventure.text.Component): org.bukkit.inventory.view.builder.MerchantInventoryViewBuilder<V>`
 
 ### LootContext
@@ -38331,7 +38289,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.map.MapFont`
 - Kind: `class`
 - Constructor: `()`
-- Field: `malleable: boolean`
 - Method: `getChar(arg0: char): org.bukkit.map.MapFont$CharacterSprite`
 - Method: `getHeight(): int`
 - Method: `getWidth(arg0: java.lang.String): int`
@@ -38383,8 +38340,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.map.MapRenderer`
 - Kind: `abstract`
-- Constructor: `()`
-- Constructor: `(arg0: boolean)`
 - Method: `initialize(arg0: org.bukkit.map.MapView): void`
 - Method: `isContextual(): boolean`
 - Method: `render(arg0: org.bukkit.map.MapView, arg1: org.bukkit.map.MapCanvas, arg2: org.bukkit.entity.Player): void`
@@ -38447,9 +38402,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Banner`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isWallBanner(): boolean`
@@ -38464,9 +38417,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Bed`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isHeadOfBed(): boolean`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
@@ -38480,10 +38431,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Button`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `isPowered(): boolean`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
@@ -38497,9 +38445,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Cake`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getSlicesEaten(): int`
 - Method: `getSlicesRemaining(): int`
 - Method: `setSlicesEaten(arg0: int): void`
@@ -38513,9 +38459,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: byte)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Cauldron`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `isEmpty(): boolean`
 - Method: `isFull(): boolean`
 - Method: `toString(): java.lang.String`
@@ -38528,10 +38472,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Chest`
-- Method: `clone(): org.bukkit.material.DirectionalContainer`
-- Method: `clone(): org.bukkit.material.MaterialData`
 
 ### Coal
 
@@ -38541,9 +38482,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.CoalType)`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Coal`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getType(): org.bukkit.CoalType`
 - Method: `setType(arg0: org.bukkit.CoalType): void`
 - Method: `toString(): java.lang.String`
@@ -38556,9 +38495,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.material.CocoaPlant$CocoaPlantSize)`
 - Constructor: `(arg0: org.bukkit.material.CocoaPlant$CocoaPlantSize, arg1: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.CocoaPlant`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `getSize(): org.bukkit.material.CocoaPlant$CocoaPlantSize`
@@ -38590,9 +38527,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Command`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `isPowered(): boolean`
 - Method: `setPowered(arg0: boolean): void`
 - Method: `toString(): java.lang.String`
@@ -38607,12 +38542,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace, arg1: boolean)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace, arg1: boolean, arg2: boolean)`
-- Field: `DEFAULT_DIRECTION: org.bukkit.block.BlockFace`
-- Field: `DEFAULT_STATE: boolean`
-- Field: `DEFAULT_SUBTRACTION_MODE: boolean`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Comparator`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isBeingPowered(): boolean`
 - Method: `isPowered(): boolean`
@@ -38630,11 +38560,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.CropState)`
-- Field: `DEFAULT_STATE: org.bukkit.CropState`
-- Field: `DEFAULT_TYPE: org.bukkit.Material`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Crops`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getState(): org.bukkit.CropState`
 - Method: `setState(arg0: org.bukkit.CropState): void`
 - Method: `toString(): java.lang.String`
@@ -38646,11 +38572,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.DetectorRail`
-- Method: `clone(): org.bukkit.material.ExtendedRails`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.Rails`
 - Method: `isPressed(): boolean`
 - Method: `setPressed(arg0: boolean): void`
 
@@ -38664,12 +38586,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace, arg1: int)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace, arg1: int, arg2: boolean)`
-- Field: `DEFAULT_DELAY: int`
-- Field: `DEFAULT_DIRECTION: org.bukkit.block.BlockFace`
-- Field: `DEFAULT_STATE: boolean`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Diode`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getDelay(): int`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isPowered(): boolean`
@@ -38690,9 +38607,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.DirectionalContainer`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
 - Method: `toString(): java.lang.String`
@@ -38705,11 +38620,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.DirectionalContainer`
 - Method: `clone(): org.bukkit.material.Dispenser`
-- Method: `clone(): org.bukkit.material.FurnaceAndDispenser`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
 
@@ -38726,9 +38637,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: org.bukkit.block.BlockFace)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: org.bukkit.block.BlockFace, arg2: boolean)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: boolean)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Door`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `getHinge(): boolean`
 - Method: `getHingeCorner(): org.bukkit.block.BlockFace`
@@ -38749,9 +38658,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.DyeColor)`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Dye`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getColor(): org.bukkit.DyeColor`
 - Method: `setColor(arg0: org.bukkit.DyeColor): void`
 - Method: `toString(): java.lang.String`
@@ -38764,10 +38671,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.DirectionalContainer`
 - Method: `clone(): org.bukkit.material.EnderChest`
-- Method: `clone(): org.bukkit.material.MaterialData`
 
 ### ExtendedRails
 
@@ -38775,11 +38679,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.ExtendedRails`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.Rails`
-- Method: `getConvertedData(): byte`
 - Method: `isCurve(): boolean`
 - Method: `setDirection(arg0: org.bukkit.block.BlockFace, arg1: boolean): void`
 
@@ -38790,9 +38690,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.FlowerPot`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getContents(): org.bukkit.material.MaterialData`
 - Method: `setContents(arg0: org.bukkit.material.MaterialData): void`
 - Method: `toString(): java.lang.String`
@@ -38805,11 +38703,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.DirectionalContainer`
 - Method: `clone(): org.bukkit.material.Furnace`
-- Method: `clone(): org.bukkit.material.FurnaceAndDispenser`
-- Method: `clone(): org.bukkit.material.MaterialData`
 
 ### FurnaceAndDispenser
 
@@ -38817,10 +38711,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.DirectionalContainer`
 - Method: `clone(): org.bukkit.material.FurnaceAndDispenser`
-- Method: `clone(): org.bukkit.material.MaterialData`
 
 ### Gate_2
 
@@ -38829,9 +38720,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: byte)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Gate`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isOpen(): boolean`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
@@ -38847,11 +38736,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace, arg1: boolean)`
-- Field: `DEFAULT_ACTIVE: boolean`
-- Field: `DEFAULT_DIRECTION: org.bukkit.block.BlockFace`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Hopper`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isActive(): boolean`
 - Method: `isPowered(): boolean`
@@ -38866,10 +38751,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Ladder`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
 
@@ -38884,12 +38766,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.TreeSpecies, arg2: boolean)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: boolean)`
-- Field: `DEFAULT_DECAYABLE: boolean`
-- Field: `DEFAULT_TYPE: org.bukkit.Material`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Leaves`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.Wood`
 - Method: `isDecayable(): boolean`
 - Method: `isDecaying(): boolean`
 - Method: `setDecayable(arg0: boolean): void`
@@ -38903,10 +38780,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.Lever`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `isPowered(): boolean`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
@@ -38921,9 +38795,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.GrassSpecies)`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.LongGrass`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `getSpecies(): org.bukkit.GrassSpecies`
 - Method: `setSpecies(arg0: org.bukkit.GrassSpecies): void`
 - Method: `toString(): java.lang.String`
@@ -38934,7 +38806,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getData(): byte`
@@ -38952,10 +38823,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.MonsterEggs`
-- Method: `clone(): org.bukkit.material.TexturedMaterial`
 - Method: `getTextures(): java.util.List<org.bukkit.Material>`
 
 ### Mushroom
@@ -38966,8 +38834,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.block.BlockFace)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.material.types.MushroomBlockTexture)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Mushroom`
 - Method: `getBlockTexture(): org.bukkit.material.types.MushroomBlockTexture`
 - Method: `getPaintedFaces(): java.util.Set<org.bukkit.block.BlockFace>`
@@ -38986,8 +38852,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.NetherWartsState)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.NetherWarts`
 - Method: `getState(): org.bukkit.NetherWartsState`
 - Method: `setState(arg0: org.bukkit.NetherWartsState): void`
@@ -39001,8 +38865,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Observer`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isPowered(): boolean`
@@ -39022,8 +38884,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.PistonBaseMaterial`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isPowered(): boolean`
@@ -39037,8 +38897,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.PistonExtensionMaterial`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
@@ -39053,11 +38911,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.ExtendedRails`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.PoweredRail`
-- Method: `clone(): org.bukkit.material.Rails`
 - Method: `isPowered(): boolean`
 - Method: `setPowered(arg0: boolean): void`
 
@@ -39068,8 +38922,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.PressurePlate`
 - Method: `isPressed(): boolean`
 - Method: `toString(): java.lang.String`
@@ -39088,8 +38940,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Pumpkin`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `isLit(): boolean`
@@ -39103,10 +38953,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Rails`
-- Method: `getConvertedData(): byte`
 - Method: `getDirection(): org.bukkit.block.BlockFace`
 - Method: `isCurve(): boolean`
 - Method: `isOnSlope(): boolean`
@@ -39126,11 +38973,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.RedstoneTorch`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
-- Method: `clone(): org.bukkit.material.Torch`
 - Method: `isPowered(): boolean`
 - Method: `toString(): java.lang.String`
 
@@ -39141,8 +38984,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.RedstoneWire`
 - Method: `isPowered(): boolean`
 - Method: `toString(): java.lang.String`
@@ -39155,8 +38996,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.SandstoneType)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Sandstone`
 - Method: `getType(): org.bukkit.SandstoneType`
 - Method: `setType(arg0: org.bukkit.SandstoneType): void`
@@ -39173,10 +39012,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.TreeSpecies, arg2: boolean)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: boolean)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Sapling`
-- Method: `clone(): org.bukkit.material.Wood`
 - Method: `isInstantGrowable(): boolean`
 - Method: `setIsInstantGrowable(arg0: boolean): void`
 - Method: `toString(): java.lang.String`
@@ -39188,8 +39024,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Sign`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
@@ -39201,11 +39035,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.material.SimpleAttachableMaterialData`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.Material)`
-- Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `toString(): java.lang.String`
@@ -39218,8 +39047,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Skull`
 - Method: `getFacing(): org.bukkit.block.BlockFace`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
@@ -39232,10 +39059,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.SmoothBrick`
-- Method: `clone(): org.bukkit.material.TexturedMaterial`
 - Method: `getTextures(): java.util.List<org.bukkit.Material>`
 
 ### SpawnEgg
@@ -39246,8 +39070,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: byte)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.entity.EntityType)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.SpawnEgg`
 - Method: `getSpawnedType(): org.bukkit.entity.EntityType`
 - Method: `setSpawnedType(arg0: org.bukkit.entity.EntityType): void`
@@ -39259,8 +39081,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Stairs`
 - Method: `getAscendingDirection(): org.bukkit.block.BlockFace`
 - Method: `getDescendingDirection(): org.bukkit.block.BlockFace`
@@ -39277,31 +39097,20 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Step`
-- Method: `clone(): org.bukkit.material.TexturedMaterial`
-- Method: `getTextureIndex(): int`
 - Method: `getTextures(): java.util.List<org.bukkit.Material>`
 - Method: `isInverted(): boolean`
 - Method: `setInverted(arg0: boolean): void`
-- Method: `setTextureIndex(arg0: int): void`
 - Method: `toString(): java.lang.String`
 
 ### TexturedMaterial
 
 - Java: `org.bukkit.material.TexturedMaterial`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.Material)`
-- Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.TexturedMaterial`
 - Method: `getMaterial(): org.bukkit.Material`
-- Method: `getTextureIndex(): int`
 - Method: `getTextures(): java.util.List<org.bukkit.Material>`
 - Method: `setMaterial(arg0: org.bukkit.Material): void`
-- Method: `setTextureIndex(arg0: int): void`
 - Method: `toString(): java.lang.String`
 
 ### Torch
@@ -39311,9 +39120,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `clone(): org.bukkit.material.Torch`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `setFacingDirection(arg0: org.bukkit.block.BlockFace): void`
@@ -39325,9 +39131,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `clone(): org.bukkit.material.TrapDoor`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `isInverted(): boolean`
@@ -39348,12 +39151,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.TreeSpecies, arg2: org.bukkit.block.BlockFace)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: org.bukkit.block.BlockFace)`
-- Field: `DEFAULT_DIRECTION: org.bukkit.block.BlockFace`
-- Field: `DEFAULT_TYPE: org.bukkit.Material`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Tree`
-- Method: `clone(): org.bukkit.material.Wood`
 - Method: `getDirection(): org.bukkit.block.BlockFace`
 - Method: `setDirection(arg0: org.bukkit.block.BlockFace): void`
 - Method: `toString(): java.lang.String`
@@ -39364,8 +39162,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Tripwire`
 - Method: `isActivated(): boolean`
 - Method: `isObjectTriggering(): boolean`
@@ -39380,9 +39176,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `()`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.SimpleAttachableMaterialData`
 - Method: `clone(): org.bukkit.material.TripwireHook`
 - Method: `getAttachedFace(): org.bukkit.block.BlockFace`
 - Method: `isActivated(): boolean`
@@ -39402,8 +39195,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: java.util.EnumSet<org.bukkit.block.BlockFace>)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.block.BlockFace)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Vine`
 - Method: `isOnFace(arg0: org.bukkit.block.BlockFace): boolean`
 - Method: `putOnFace(arg0: org.bukkit.block.BlockFace): void`
@@ -39419,10 +39210,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: org.bukkit.TreeSpecies)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies)`
-- Field: `DEFAULT_SPECIES: org.bukkit.TreeSpecies`
-- Field: `DEFAULT_TYPE: org.bukkit.Material`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Wood`
 - Method: `getSpecies(): org.bukkit.TreeSpecies`
 - Method: `setSpecies(arg0: org.bukkit.TreeSpecies): void`
@@ -39436,11 +39223,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies)`
 - Constructor: `(arg0: org.bukkit.TreeSpecies, arg1: boolean)`
-- Field: `DEFAULT_INVERTED: boolean`
-- Field: `DEFAULT_TYPE: org.bukkit.Material`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
-- Method: `clone(): org.bukkit.material.Wood`
 - Method: `clone(): org.bukkit.material.WoodenStep`
 - Method: `isInverted(): boolean`
 - Method: `setInverted(arg0: boolean): void`
@@ -39454,8 +39236,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.DyeColor)`
 - Constructor: `(arg0: org.bukkit.Material)`
 - Constructor: `(arg0: org.bukkit.Material, arg1: byte)`
-- Method: `clone(): java.lang.Object`
-- Method: `clone(): org.bukkit.material.MaterialData`
 - Method: `clone(): org.bukkit.material.Wool`
 - Method: `getColor(): org.bukkit.DyeColor`
 - Method: `setColor(arg0: org.bukkit.DyeColor): void`
@@ -39497,7 +39277,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.metadata.LazyMetadataValue`
 - Kind: `class`
-- Constructor: `(arg0: org.bukkit.plugin.Plugin)`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin, arg1: java.util.concurrent.Callable<java.lang.Object>)`
 - Constructor: `(arg0: org.bukkit.plugin.Plugin, arg1: org.bukkit.metadata.LazyMetadataValue$CacheStrategy, arg2: java.util.concurrent.Callable<java.lang.Object>)`
 - Method: `invalidate(): void`
@@ -39537,8 +39316,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.metadata.MetadataStoreBase`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `disambiguate(arg0: T, arg1: java.lang.String): java.lang.String`
 - Method: `getMetadata(arg0: T, arg1: java.lang.String): java.util.List<org.bukkit.metadata.MetadataValue>`
 - Method: `hasMetadata(arg0: T, arg1: java.lang.String): boolean`
 - Method: `invalidateAll(arg0: org.bukkit.plugin.Plugin): void`
@@ -39566,8 +39343,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.metadata.MetadataValueAdapter`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.plugin.Plugin)`
-- Field: `owningPlugin: java.lang.ref.WeakReference<org.bukkit.plugin.Plugin>`
 - Method: `asBoolean(): boolean`
 - Method: `asByte(): byte`
 - Method: `asDouble(): double`
@@ -39808,7 +39583,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.persistence.PersistentDataHolder`
 - Kind: `interface`
-- Method: `getPersistentDataContainer(): io.papermc.paper.persistence.PersistentDataContainerView`
 - Method: `getPersistentDataContainer(): org.bukkit.persistence.PersistentDataContainer`
 
 ### PersistentDataType
@@ -39840,11 +39614,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `()`
 - Method: `fromPrimitive(arg0: java.lang.Byte, arg1: org.bukkit.persistence.PersistentDataAdapterContext): java.lang.Boolean`
-- Method: `fromPrimitive(arg0: java.lang.Object, arg1: org.bukkit.persistence.PersistentDataAdapterContext): java.lang.Object`
 - Method: `getComplexType(): java.lang.Class<java.lang.Boolean>`
 - Method: `getPrimitiveType(): java.lang.Class<java.lang.Byte>`
 - Method: `toPrimitive(arg0: java.lang.Boolean, arg1: org.bukkit.persistence.PersistentDataAdapterContext): java.lang.Byte`
-- Method: `toPrimitive(arg0: java.lang.Object, arg1: org.bukkit.persistence.PersistentDataAdapterContext): java.lang.Object`
 
 ### PersistentDataType_PrimitivePersistentDataType
 
@@ -39942,7 +39714,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.plugin.PluginBase`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getName(): java.lang.String`
 - Method: `hashCode(): int`
@@ -40070,7 +39841,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.plugin.RegisteredServiceProvider`
 - Kind: `class`
 - Constructor: `(arg0: java.lang.Class<T>, arg1: T, arg2: org.bukkit.plugin.ServicePriority, arg3: org.bukkit.plugin.Plugin)`
-- Method: `compareTo(arg0: java.lang.Object): int`
 - Method: `compareTo(arg0: org.bukkit.plugin.RegisteredServiceProvider<?>): int`
 - Method: `getPlugin(): org.bukkit.plugin.Plugin`
 - Method: `getPriority(): org.bukkit.plugin.ServicePriority`
@@ -40159,10 +39929,8 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Java: `org.bukkit.plugin.SimpleServicesManager`
 - Kind: `class`
 - Constructor: `()`
-- Method: `getKnownServices(): java.util.Collection`
 - Method: `getKnownServices(): java.util.Set<java.lang.Class<?>>`
 - Method: `getRegistration(arg0: java.lang.Class<T>): org.bukkit.plugin.RegisteredServiceProvider<T>`
-- Method: `getRegistrations(arg0: java.lang.Class): java.util.Collection`
 - Method: `getRegistrations(arg0: java.lang.Class<T>): java.util.List<org.bukkit.plugin.RegisteredServiceProvider<T>>`
 - Method: `getRegistrations(arg0: org.bukkit.plugin.Plugin): java.util.List<org.bukkit.plugin.RegisteredServiceProvider<?>>`
 - Method: `isProvidedFor(arg0: java.lang.Class<T>): boolean`
@@ -40198,16 +39966,12 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.plugin.java.JavaPlugin`
 - Kind: `abstract`
-- Constructor: `()`
-- Constructor: `(arg0: org.bukkit.plugin.java.JavaPluginLoader, arg1: org.bukkit.plugin.PluginDescriptionFile, arg2: java.io.File, arg3: java.io.File)`
-- Method: `getClassLoader(): java.lang.ClassLoader`
 - Method: `getCommand(arg0: java.lang.String): org.bukkit.command.PluginCommand`
 - Method: `getConfig(): org.bukkit.configuration.file.FileConfiguration`
 - Method: `getDataFolder(): java.io.File`
 - Method: `getDefaultBiomeProvider(arg0: java.lang.String, arg1: java.lang.String): org.bukkit.generator.BiomeProvider`
 - Method: `getDefaultWorldGenerator(arg0: java.lang.String, arg1: java.lang.String): org.bukkit.generator.ChunkGenerator`
 - Method: `getDescription(): org.bukkit.plugin.PluginDescriptionFile`
-- Method: `getFile(): java.io.File`
 - Method: `getLifecycleManager(): io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager<org.bukkit.plugin.Plugin>`
 - Method: `getLogger(): java.util.logging.Logger`
 - Method: `getPlugin(arg0: java.lang.Class<T>): T`
@@ -40216,7 +39980,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getProvidingPlugin(arg0: java.lang.Class<?>): org.bukkit.plugin.java.JavaPlugin`
 - Method: `getResource(arg0: java.lang.String): java.io.InputStream`
 - Method: `getServer(): org.bukkit.Server`
-- Method: `getTextResource(arg0: java.lang.String): java.io.Reader`
 - Method: `init(arg0: org.bukkit.Server, arg1: org.bukkit.plugin.PluginDescriptionFile, arg2: java.io.File, arg3: java.io.File, arg4: java.lang.ClassLoader, arg5: io.papermc.paper.plugin.configuration.PluginMeta, arg6: java.util.logging.Logger): void`
 - Method: `init(arg0: org.bukkit.plugin.PluginLoader, arg1: org.bukkit.Server, arg2: org.bukkit.plugin.PluginDescriptionFile, arg3: java.io.File, arg4: java.io.File, arg5: java.lang.ClassLoader): void`
 - Method: `isEnabled(): boolean`
@@ -40267,7 +40030,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: java.lang.ClassLoader, arg1: org.bukkit.plugin.PluginDescriptionFile, arg2: java.io.File, arg3: java.io.File, arg4: java.lang.ClassLoader, arg5: java.util.jar.JarFile, arg6: io.papermc.paper.plugin.provider.entrypoint.DependencyContext)`
 - Field: `dependencyContext: io.papermc.paper.plugin.provider.entrypoint.DependencyContext`
 - Method: `close(): void`
-- Method: `findClass(arg0: java.lang.String): java.lang.Class<?>`
 - Method: `getConfiguration(): io.papermc.paper.plugin.configuration.PluginMeta`
 - Method: `getGroup(): io.papermc.paper.plugin.provider.classloader.PluginClassLoaderGroup`
 - Method: `getPlugin(): org.bukkit.plugin.java.JavaPlugin`
@@ -40275,7 +40037,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `getResources(arg0: java.lang.String): java.util.Enumeration<java.net.URL>`
 - Method: `init(arg0: org.bukkit.plugin.java.JavaPlugin): void`
 - Method: `initialize(arg0: org.bukkit.plugin.java.JavaPlugin): void`
-- Method: `loadClass(arg0: java.lang.String, arg1: boolean): java.lang.Class<?>`
 - Method: `loadClass(arg0: java.lang.String, arg1: boolean, arg2: boolean, arg3: boolean): java.lang.Class<?>`
 - Method: `toString(): java.lang.String`
 
@@ -40460,7 +40221,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.potion.PotionEffectType`
 - Kind: `abstract`
-- Constructor: `()`
 - Field: `ABSORPTION: org.bukkit.potion.PotionEffectType`
 - Field: `BAD_OMEN: org.bukkit.potion.PotionEffectType`
 - Field: `BLINDNESS: org.bukkit.potion.PotionEffectType`
@@ -40540,7 +40300,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.potion.PotionEffectTypeWrapper`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `getAttributeModifierAmount(arg0: org.bukkit.attribute.Attribute, arg1: int): double`
 - Method: `getColor(): org.bukkit.Color`
 - Method: `getEffectAttributes(): java.util.Map<org.bukkit.attribute.Attribute, org.bukkit.attribute.AttributeModifier>`
@@ -40676,7 +40435,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.scheduler.BukkitRunnable`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `cancel(): void`
 - Method: `getTaskId(): int`
 - Method: `isCancelled(): boolean`
@@ -41175,7 +40933,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity)`
 - Constructor: `(arg0: org.bukkit.entity.LivingEntity, arg1: int)`
 - Method: `hasNext(): boolean`
-- Method: `next(): java.lang.Object`
 - Method: `next(): org.bukkit.block.Block`
 - Method: `remove(): void`
 
@@ -41201,9 +40958,7 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: float, arg1: float, arg2: float)`
 - Constructor: `(arg0: int, arg1: int, arg2: int)`
 - Constructor: `(arg0: org.bukkit.util.Vector)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.util.BlockVector`
-- Method: `clone(): org.bukkit.util.Vector`
 - Method: `deserialize(arg0: java.util.Map<java.lang.String, java.lang.Object>): org.bukkit.util.BlockVector`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `hashCode(): int`
@@ -41214,7 +40969,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Kind: `class`
 - Constructor: `()`
 - Constructor: `(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double)`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.util.BoundingBox`
 - Method: `contains(arg0: double, arg1: double, arg2: double): boolean`
 - Method: `contains(arg0: org.bukkit.util.BoundingBox): boolean`
@@ -41360,7 +41114,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.util.OldEnum`
 - Kind: `interface`
-- Method: `compareTo(arg0: java.lang.Object): int`
 - Method: `compareTo(arg0: T): int`
 - Method: `name(): java.lang.String`
 - Method: `ordinal(): int`
@@ -41419,13 +41172,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Constructor: `(arg0: double, arg1: double, arg2: double)`
 - Constructor: `(arg0: float, arg1: float, arg2: float)`
 - Constructor: `(arg0: int, arg1: int, arg2: int)`
-- Field: `x: double`
-- Field: `y: double`
-- Field: `z: double`
 - Method: `add(arg0: org.bukkit.util.Vector): org.bukkit.util.Vector`
 - Method: `angle(arg0: org.bukkit.util.Vector): float`
 - Method: `checkFinite(): void`
-- Method: `clone(): java.lang.Object`
 - Method: `clone(): org.bukkit.util.Vector`
 - Method: `copy(arg0: org.bukkit.util.Vector): org.bukkit.util.Vector`
 - Method: `crossProduct(arg0: org.bukkit.util.Vector): org.bukkit.util.Vector`
@@ -41503,31 +41252,19 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.util.io.BukkitObjectInputStream`
 - Kind: `class`
-- Constructor: `()`
 - Constructor: `(arg0: java.io.InputStream)`
-- Method: `resolveObject(arg0: java.lang.Object): java.lang.Object`
 
 ### BukkitObjectOutputStream
 
 - Java: `org.bukkit.util.io.BukkitObjectOutputStream`
 - Kind: `class`
-- Constructor: `()`
 - Constructor: `(arg0: java.io.OutputStream)`
-- Method: `replaceObject(arg0: java.lang.Object): java.lang.Object`
 
 ### NoiseGenerator
 
 - Java: `org.bukkit.util.noise.NoiseGenerator`
 - Kind: `abstract`
-- Constructor: `()`
-- Field: `offsetX: double`
-- Field: `offsetY: double`
-- Field: `offsetZ: double`
-- Field: `perm: int[]`
-- Method: `fade(arg0: double): double`
 - Method: `floor(arg0: double): int`
-- Method: `grad(arg0: int, arg1: double, arg2: double, arg3: double): double`
-- Method: `lerp(arg0: double, arg1: double, arg2: double): double`
 - Method: `noise(arg0: double): double`
 - Method: `noise(arg0: double, arg1: double): double`
 - Method: `noise(arg0: double, arg1: double, arg2: double): double`
@@ -41542,11 +41279,6 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.util.noise.OctaveGenerator`
 - Kind: `abstract`
-- Constructor: `(arg0: org.bukkit.util.noise.NoiseGenerator[])`
-- Field: `octaves: org.bukkit.util.noise.NoiseGenerator[]`
-- Field: `xScale: double`
-- Field: `yScale: double`
-- Field: `zScale: double`
 - Method: `getOctaves(): org.bukkit.util.noise.NoiseGenerator[]`
 - Method: `getXScale(): double`
 - Method: `getYScale(): double`
@@ -41566,11 +41298,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.util.noise.PerlinNoiseGenerator`
 - Kind: `class`
-- Constructor: `()`
 - Constructor: `(arg0: long)`
 - Constructor: `(arg0: java.util.Random)`
 - Constructor: `(arg0: org.bukkit.World)`
-- Field: `grad3: int[][]`
 - Method: `getInstance(): org.bukkit.util.noise.PerlinNoiseGenerator`
 - Method: `getNoise(arg0: double): double`
 - Method: `getNoise(arg0: double, arg1: double): double`
@@ -41592,28 +41322,9 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 
 - Java: `org.bukkit.util.noise.SimplexNoiseGenerator`
 - Kind: `class`
-- Constructor: `()`
 - Constructor: `(arg0: long)`
 - Constructor: `(arg0: java.util.Random)`
 - Constructor: `(arg0: org.bukkit.World)`
-- Field: `F2: double`
-- Field: `F3: double`
-- Field: `F4: double`
-- Field: `G22: double`
-- Field: `G2: double`
-- Field: `G3: double`
-- Field: `G42: double`
-- Field: `G43: double`
-- Field: `G44: double`
-- Field: `G4: double`
-- Field: `SQRT_3: double`
-- Field: `SQRT_5: double`
-- Field: `grad4: int[][]`
-- Field: `offsetW: double`
-- Field: `simplex: int[][]`
-- Method: `dot(arg0: int[], arg1: double, arg2: double): double`
-- Method: `dot(arg0: int[], arg1: double, arg2: double, arg3: double): double`
-- Method: `dot(arg0: int[], arg1: double, arg2: double, arg3: double, arg4: double): double`
 - Method: `getInstance(): org.bukkit.util.noise.SimplexNoiseGenerator`
 - Method: `getNoise(arg0: double): double`
 - Method: `getNoise(arg0: double, arg1: double): double`
@@ -41662,6 +41373,24 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - Method: `registerPermission(arg0: org.bukkit.permissions.Permission): org.bukkit.permissions.Permission`
 - Method: `registerPermission(arg0: org.bukkit.permissions.Permission, arg1: org.bukkit.permissions.Permission): org.bukkit.permissions.Permission`
 - Method: `registerPermission(arg0: org.bukkit.permissions.Permission, arg1: boolean): org.bukkit.permissions.Permission`
+
+### CustomTimingsHandler
+
+- Java: `org.spigotmc.CustomTimingsHandler`
+- Kind: `class`
+- Constructor: `(arg0: java.lang.String)`
+- Method: `startTiming(): void`
+- Method: `stopTiming(): void`
+
+### PlayerSpawnLocationEvent
+
+- Java: `org.spigotmc.event.player.PlayerSpawnLocationEvent`
+- Kind: `class`
+- Constructor: `(arg0: org.bukkit.entity.Player, arg1: org.bukkit.Location)`
+- Method: `getHandlerList(): org.bukkit.event.HandlerList`
+- Method: `getHandlers(): org.bukkit.event.HandlerList`
+- Method: `getSpawnLocation(): org.bukkit.Location`
+- Method: `setSpawnLocation(arg0: org.bukkit.Location): void`
 
 ## Events
 
@@ -42087,3 +41816,4 @@ Canonical paper 1.21.8-R0.1-20250906.215025-55; 2,165 declarations.
 - `WorldLoadEvent`: `org.bukkit.event.world.WorldLoadEvent` (cancellable: false)
 - `WorldSaveEvent`: `org.bukkit.event.world.WorldSaveEvent` (cancellable: false)
 - `WorldUnloadEvent`: `org.bukkit.event.world.WorldUnloadEvent` (cancellable: true)
+- `PlayerSpawnLocationEvent`: `org.spigotmc.event.player.PlayerSpawnLocationEvent` (cancellable: false)

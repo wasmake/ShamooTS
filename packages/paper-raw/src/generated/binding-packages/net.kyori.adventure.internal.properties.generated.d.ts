@@ -11,8 +11,8 @@ export interface AdventurePropertiesStatics {
   readonly DEFAULT_TRANSLATION_LOCALE: AdventureProperties_Property<string>;
   readonly SERVICE_LOAD_FAILURES_ARE_FATAL: AdventureProperties_Property<boolean>;
   readonly TEXT_WARN_WHEN_LEGACY_FORMATTING_DETECTED: AdventureProperties_Property<boolean>;
-  property<T>(arg0: string, arg1: JavaFunction<string, T>, arg2: T | null): AdventureProperties_Property<T> | null;
-  property<T>(arg0: string, arg1: JavaFunction<string, T>, arg2: T | null, arg3: boolean): AdventureProperties_Property<T> | null;
+  property<T>(arg0: string, arg1: JavaFunction<string, T>, arg2: T | null): AdventureProperties_Property<T>;
+  property<T>(arg0: string, arg1: JavaFunction<string, T>, arg2: T | null, arg3: boolean): AdventureProperties_Property<T>;
 }
 
 /** JVM interface net.kyori.adventure.internal.properties.AdventureProperties$DefaultOverrideProvider. */

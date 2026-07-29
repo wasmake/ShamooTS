@@ -19,7 +19,6 @@ export interface CollectFieldsStatics {
 /** JVM class net.minecraft.nbt.visitors.CollectToTag. */
 export interface CollectToTagMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_nbt.StreamTagVisitor];
-  depth(): number;
   getResult(): j_net_minecraft_nbt.Tag | null;
   visit(arg0: number): j_net_minecraft_nbt.StreamTagVisitor_ValueResult;
   visit(arg0: number): j_net_minecraft_nbt.StreamTagVisitor_ValueResult;

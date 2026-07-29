@@ -8,7 +8,7 @@ import type * as j_net_minecraft_world_level_storage_loot from './net.minecraft.
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.AppendLoot. */
 export interface AppendLootMembers {
   readonly __javaSupertypes?: readonly [RuleBlockEntityModifier];
-  apply(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag | null;
+  apply(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag;
   getType(): RuleBlockEntityModifierType<object>;
 }
 export type AppendLoot = AppendLootMembers & RuleBlockEntityModifier;
@@ -20,7 +20,7 @@ export interface AppendLootStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.AppendStatic. */
 export interface AppendStaticMembers {
   readonly __javaSupertypes?: readonly [RuleBlockEntityModifier];
-  apply(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag | null;
+  apply(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag;
   getType(): RuleBlockEntityModifierType<object>;
 }
 export type AppendStatic = AppendStaticMembers & RuleBlockEntityModifier;
@@ -32,7 +32,7 @@ export interface AppendStaticStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.Clear. */
 export interface ClearMembers {
   readonly __javaSupertypes?: readonly [RuleBlockEntityModifier];
-  apply(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag | null;
+  apply(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag;
   getType(): RuleBlockEntityModifierType<object>;
 }
 export type Clear = ClearMembers & RuleBlockEntityModifier;

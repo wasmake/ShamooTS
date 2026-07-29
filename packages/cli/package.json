@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/cli",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Production CLI and developer tooling for Shamoo plugins.",
   "license": "Apache-2.0",
   "type": "module",

@@ -2,23 +2,23 @@
   "platform": "paper",
   "apiVersion": "1.21.8-R0.1-20250906.215025-55",
   "declarations": {
-    "expected": 2165,
-    "emitted": 2165,
+    "expected": 2215,
+    "emitted": 2215,
     "percent": 100
   },
   "members": {
-    "expected": 30836,
-    "emitted": 30836,
+    "expected": 30315,
+    "emitted": 30315,
     "percent": 100
   },
   "events": {
-    "expected": 422,
-    "emitted": 422,
+    "expected": 423,
+    "emitted": 423,
     "percent": 100
   },
   "exceptions": {
-    "expected": 378,
-    "emitted": 378,
+    "expected": 301,
+    "emitted": 301,
     "percent": 100
   },
   "packets": {
@@ -37,8 +37,8 @@
     "percent": 100
   },
   "declarationIndex": {
-    "expected": 2165,
-    "emitted": 2165,
+    "expected": 2215,
+    "emitted": 2215,
     "percent": 100
   },
   "opaqueMappings": [
@@ -159,7 +159,7 @@
     },
     {
       "javaName": "java.io.File",
-      "occurrences": 40,
+      "occurrences": 37,
       "reason": "not-in-scanner-model"
     },
     {
@@ -184,7 +184,7 @@
     },
     {
       "javaName": "java.io.Reader",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -194,12 +194,12 @@
     },
     {
       "javaName": "java.lang.annotation.Annotation",
-      "occurrences": 10,
+      "occurrences": 11,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.lang.ClassLoader",
-      "occurrences": 11,
+      "occurrences": 10,
       "reason": "not-in-scanner-model"
     },
     {
@@ -214,7 +214,7 @@
     },
     {
       "javaName": "java.lang.Enum",
-      "occurrences": 264,
+      "occurrences": 266,
       "reason": "not-in-scanner-model"
     },
     {
@@ -228,23 +228,18 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "java.lang.ref.WeakReference",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "java.lang.reflect.Constructor",
+      "javaName": "java.lang.reflect.Method",
       "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "java.lang.reflect.Method",
-      "occurrences": 4,
+      "javaName": "java.lang.RuntimeException",
+      "occurrences": 13,
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "java.lang.RuntimeException",
-      "occurrences": 12,
+      "javaName": "java.lang.StringBuilder",
+      "occurrences": 6,
       "reason": "not-in-scanner-model"
     },
     {
@@ -254,12 +249,12 @@
     },
     {
       "javaName": "java.lang.Throwable",
-      "occurrences": 51,
+      "occurrences": 44,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.net.InetAddress",
-      "occurrences": 41,
+      "occurrences": 38,
       "reason": "not-in-scanner-model"
     },
     {
@@ -294,7 +289,7 @@
     },
     {
       "javaName": "java.text.MessageFormat",
-      "occurrences": 9,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
@@ -310,6 +305,11 @@
     {
       "javaName": "java.time.temporal.Temporal",
       "occurrences": 3,
+      "reason": "not-in-scanner-model"
+    },
+    {
+      "javaName": "java.time.temporal.TemporalAccessor",
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -359,7 +359,7 @@
     },
     {
       "javaName": "java.util.Date",
-      "occurrences": 22,
+      "occurrences": 21,
       "reason": "not-in-scanner-model"
     },
     {
@@ -398,13 +398,18 @@
       "reason": "not-in-scanner-model"
     },
     {
+      "javaName": "java.util.function.IntPredicate",
+      "occurrences": 1,
+      "reason": "not-in-scanner-model"
+    },
+    {
       "javaName": "java.util.function.IntUnaryOperator",
       "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.function.UnaryOperator",
-      "occurrences": 7,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
@@ -414,7 +419,7 @@
     },
     {
       "javaName": "java.util.Iterator",
-      "occurrences": 18,
+      "occurrences": 17,
       "reason": "not-in-scanner-model"
     },
     {
@@ -434,7 +439,7 @@
     },
     {
       "javaName": "java.util.Locale",
-      "occurrences": 37,
+      "occurrences": 36,
       "reason": "not-in-scanner-model"
     },
     {
@@ -464,7 +469,7 @@
     },
     {
       "javaName": "java.util.regex.Pattern",
-      "occurrences": 10,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
@@ -484,12 +489,12 @@
     },
     {
       "javaName": "java.util.stream.Collector",
-      "occurrences": 3,
+      "occurrences": 4,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.stream.Stream",
-      "occurrences": 31,
+      "occurrences": 33,
       "reason": "not-in-scanner-model"
     },
     {
@@ -499,7 +504,7 @@
     },
     {
       "javaName": "net.kyori.adventure.key.Key",
-      "occurrences": 173,
+      "occurrences": 167,
       "reason": "not-in-scanner-model"
     },
     {
@@ -514,11 +519,6 @@
     },
     {
       "javaName": "net.kyori.adventure.text.logger.slf4j.ComponentLogger",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "net.kyori.adventure.text.minimessage.tag.resolver.TagResolver",
       "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
@@ -544,12 +544,12 @@
     },
     {
       "javaName": "net.kyori.examination.Examinable",
-      "occurrences": 36,
+      "occurrences": 38,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "net.kyori.examination.ExaminableProperty",
-      "occurrences": 26,
+      "occurrences": 28,
       "reason": "not-in-scanner-model"
     },
     {
@@ -574,11 +574,6 @@
     },
     {
       "javaName": "org.apache.logging.log4j.Logger",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "org.bukkit.configuration.SectionPathData",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
     },

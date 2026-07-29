@@ -74,7 +74,6 @@ export interface ChunkStatusMembers {
 }
 export type ChunkStatus = ChunkStatusMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemChunkStatus">;
 export interface ChunkStatusStatics {
-  new(arg0: ChunkStatus | null, arg1: JavaOpaque<"java.util.EnumSet", [j_net_minecraft_world_level_levelgen.Heightmap_Types]>, arg2: ChunkType): ChunkStatus;
   readonly BIOMES: ChunkStatus;
   readonly CARVERS: ChunkStatus;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [ChunkStatus]>;
@@ -142,8 +141,6 @@ export interface ChunkStep_BuilderMembers {
 }
 export type ChunkStep_Builder = ChunkStep_BuilderMembers;
 export interface ChunkStep_BuilderStatics {
-  new(arg0: ChunkStatus): ChunkStep_Builder;
-  new(arg0: ChunkStatus, arg1: ChunkStep): ChunkStep_Builder;
 }
 
 /** Live JVM enum net.minecraft.world.level.chunk.status.ChunkType; constants are host handles, not strings. */

@@ -8,8 +8,8 @@ provider's generation-aware registration cannot unregister the replacement.
 > ready-to-run release archives.
 
 ```sh
-pnpm --filter @shamoo-examples/cross-plugin-services typecheck
-pnpm --filter @shamoo-examples/cross-plugin-services test
+pnpm --filter @shamoo/example-cross-plugin-services typecheck
+pnpm --filter @shamoo/example-cross-plugin-services test
 ```
 
 `ServiceRegistry` is the executable, platform-neutral service boundary. The current Paper and

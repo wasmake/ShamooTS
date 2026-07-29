@@ -58,7 +58,7 @@ export interface PermissionMembers {
   getPermissibles(): JavaSet<Permissible>;
   recalculatePermissibles(): void;
   setDefault(arg0: PermissionDefault): void;
-  setDescription(arg0: string | null): void | null;
+  setDescription(arg0: string | null): void;
 }
 export type Permission = PermissionMembers;
 export interface PermissionStatics {
@@ -72,8 +72,8 @@ export interface PermissionStatics {
   new(arg0: string, arg1: PermissionDefault | null, arg2: JavaMap<string, boolean> | null): Permission;
   readonly DEFAULT_PERMISSION: PermissionDefault;
   loadPermission(arg0: string, arg1: JavaMap<string, object>): Permission;
-  loadPermission(arg0: string, arg1: JavaMap<object, object>, arg2: PermissionDefault | null, arg3: JavaList<Permission> | null): Permission | null;
-  loadPermissions(arg0: JavaMap<object, object>, arg1: string, arg2: PermissionDefault | null): JavaList<Permission> | null;
+  loadPermission(arg0: string, arg1: JavaMap<object, object>, arg2: PermissionDefault | null, arg3: JavaList<Permission> | null): Permission;
+  loadPermissions(arg0: JavaMap<object, object>, arg1: string, arg2: PermissionDefault | null): JavaList<Permission>;
 }
 
 /** JVM class org.bukkit.permissions.PermissionAttachment. */
@@ -85,7 +85,7 @@ export interface PermissionAttachmentMembers {
   remove(): boolean;
   setPermission(arg0: string, arg1: boolean): void;
   setPermission(arg0: Permission, arg1: boolean): void;
-  setRemovalCallback(arg0: PermissionRemovedExecutor | null): void | null;
+  setRemovalCallback(arg0: PermissionRemovedExecutor | null): void;
   unsetPermission(arg0: string): void;
   unsetPermission(arg0: Permission): void;
 }

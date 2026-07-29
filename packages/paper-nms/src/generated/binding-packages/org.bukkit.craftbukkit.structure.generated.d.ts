@@ -24,7 +24,6 @@ export interface CraftStructure_2Members {
   getHandle(): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate;
   getPaletteCount(): number;
   getPalettes(): JavaList<JavaOpaque<"org.bukkit.structure.Palette">>;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getSize(): JavaOpaque<"org.bukkit.util.BlockVector">;
   place(arg0: JavaOpaque<"org.bukkit.Location">, arg1: boolean, arg2: JavaOpaque<"org.bukkit.block.structure.StructureRotation">, arg3: JavaOpaque<"org.bukkit.block.structure.Mirror">, arg4: number, arg5: number, arg6: JavaOpaque<"java.util.Random">): void;

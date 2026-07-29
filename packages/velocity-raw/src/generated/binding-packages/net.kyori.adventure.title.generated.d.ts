@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
 
@@ -15,7 +15,7 @@ export interface TitleStatics {
   readonly DEFAULT_TIMES: Title_Times;
   title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component): Title;
   title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: number): Title;
-  title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: Title_Times | null): Title | null;
+  title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: Title_Times | null): Title;
 }
 
 /** JVM interface net.kyori.adventure.title.Title$Times. */

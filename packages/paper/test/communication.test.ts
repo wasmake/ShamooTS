@@ -11,12 +11,13 @@ import {
   legacyText,
   miniMessage,
   paperCommunicationProviders,
+  paperHostCommunicationProviders,
   text,
   type PaperActionContext,
   type PaperCommandContext,
   type PaperRuntimeHost,
 } from '@shamoo/paper';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 function invokeCallback(
   callback: (...values: readonly unknown[]) => unknown,
@@ -250,7 +251,10 @@ describe('Paper Velocity communication', () => {
         return Promise.resolve(true);
       },
     });
-    api.on('PlayerJoinEvent', () => undefined);
+    let eventValue: unknown;
+    api.on('PlayerJoinEvent', (value) => {
+      eventValue = value;
+    });
     api.schedule(() => undefined);
     api.packet(() => undefined);
     api.provideService('example.service', '1.0.0', () => undefined);
@@ -266,6 +270,17 @@ describe('Paper Velocity communication', () => {
     ]);
     expect(calls[0]?.values.at(-1)).toEqual({ $callback: 'paper.api.event.0' });
     expect(callbacks.size).toBe(5);
+    const eventCallback = callbacks.get('paper.api.event.0');
+    if (eventCallback === undefined) throw new Error('Paper event callback was not registered.');
+    invokeCallback(eventCallback, {
+      $paperHandle: 'event',
+      $paperObject: 'event-object',
+      $paperFrame: 'event-frame',
+      type: 'org.bukkit.event.player.PlayerJoinEvent',
+    });
+    expect(Reflect.get(eventValue as object, '$type')).toBe(
+      'org.bukkit.event.player.PlayerJoinEvent',
+    );
   });
 
   it('registers data-only command contexts and routes asynchronous operations', async () => {
@@ -540,6 +555,9 @@ describe('Paper Velocity communication', () => {
     expect(() => commandContext.reply(new Uint8Array() as never)).toThrow(
       'Unsupported Paper descriptor',
     );
+    expect(() => commandContext.reply(new Date() as never)).toThrow(
+      'Unsupported Paper descriptor object',
+    );
     expect(() => commandContext.reply({ [Symbol('invalid')]: true } as never)).toThrow(
       'string keys',
     );
@@ -707,6 +725,9 @@ describe('Paper Velocity communication', () => {
     ).toThrow(TypeError);
     expect(() => invoke({ ...raw(), arguments: ['valid', 1] })).toThrow(TypeError);
     expect(() => invoke({ ...raw(), sender: { name: 1, kind: 'console' } })).toThrow('sender name');
+    expect(() =>
+      invoke({ ...raw(), sender: { name: 'Console', kind: 'console', extra: true } }),
+    ).toThrow('Invalid Paper command sender');
     expect(() => invoke({ ...raw(), arguments: { value: Number.NaN } })).toThrow(TypeError);
     expect(() => invoke({ ...raw(), arguments: { value: { [Symbol('invalid')]: true } } })).toThrow(
       TypeError,
@@ -807,7 +828,7 @@ describe('Paper Velocity communication', () => {
     ).rejects.toThrow('Shamoo Velocity transport is unavailable');
   });
 
-  it('injects the host capability when present and remains standalone when absent', () => {
+  it('injects the host capability when present and remains standalone when absent', async () => {
     const standalone = new Container({ providers: paperCommunicationProviders() });
     expect(standalone.resolve(PAPER_VELOCITY_TRANSPORT).availability().available).toBe(false);
     const hosted = new Container({
@@ -823,5 +844,19 @@ describe('Paper Velocity communication', () => {
       ],
     });
     expect(hosted.resolve(PAPER_VELOCITY_TRANSPORT).availability()).toEqual({ available: true });
+
+    const hostRequest = vi
+      .fn()
+      .mockResolvedValue({ available: true, payload: Uint8Array.of(7), error: null });
+    const host = new Container({
+      providers: paperHostCommunicationProviders({ paperProxyRequest: hostRequest } as never),
+    });
+    await expect(
+      host.resolve(PAPER_VELOCITY_TRANSPORT).request(Uint8Array.of(1), {
+        timeoutMs: 10,
+        signal: new AbortController().signal,
+      }),
+    ).resolves.toEqual(Uint8Array.of(7));
+    expect(hostRequest).toHaveBeenCalledWith({ source: 'api' }, Uint8Array.of(1));
   });
 });

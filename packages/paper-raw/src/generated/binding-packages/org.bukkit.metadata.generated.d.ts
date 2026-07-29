@@ -21,7 +21,6 @@ export interface LazyMetadataValueMembers {
 }
 export type LazyMetadataValue = LazyMetadataValueMembers & MetadataValueAdapter;
 export interface LazyMetadataValueStatics {
-  new(arg0: j_org_bukkit_plugin.Plugin): LazyMetadataValue;
   new(arg0: j_org_bukkit_plugin.Plugin, arg1: JavaOpaque<"java.util.concurrent.Callable", [object]>): LazyMetadataValue;
   new(arg0: j_org_bukkit_plugin.Plugin, arg1: LazyMetadataValue_CacheStrategy, arg2: JavaOpaque<"java.util.concurrent.Callable", [object]>): LazyMetadataValue;
 }
@@ -79,7 +78,6 @@ export interface MetadataStoreStatics {
 
 /** JVM abstract org.bukkit.metadata.MetadataStoreBase. */
 export interface MetadataStoreBaseMembers<T = unknown> {
-  disambiguate(arg0: T, arg1: string): string;
   getMetadata(arg0: T, arg1: string): JavaList<MetadataValue>;
   hasMetadata(arg0: T, arg1: string): boolean;
   invalidateAll(arg0: j_org_bukkit_plugin.Plugin): void;
@@ -89,7 +87,6 @@ export interface MetadataStoreBaseMembers<T = unknown> {
 }
 export type MetadataStoreBase<T = unknown> = MetadataStoreBaseMembers<T>;
 export interface MetadataStoreBaseStatics {
-  new<T>(): MetadataStoreBase<T>;
 }
 
 /** JVM interface org.bukkit.metadata.MetadataValue. */
@@ -122,9 +119,7 @@ export interface MetadataValueAdapterMembers {
   asShort(): number;
   asString(): string;
   getOwningPlugin(): j_org_bukkit_plugin.Plugin | null;
-  readonly owningPlugin: JavaOpaque<"java.lang.ref.WeakReference", [j_org_bukkit_plugin.Plugin]>;
 }
 export type MetadataValueAdapter = MetadataValueAdapterMembers & MetadataValue;
 export interface MetadataValueAdapterStatics {
-  new(arg0: j_org_bukkit_plugin.Plugin): MetadataValueAdapter;
 }

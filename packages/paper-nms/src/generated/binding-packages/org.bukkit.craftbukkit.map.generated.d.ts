@@ -11,20 +11,16 @@ export interface CraftMapCanvasMembers {
   drawText(arg0: number, arg1: number, arg2: JavaOpaque<"org.bukkit.map.MapFont">, arg3: string): void;
   getBasePixel(arg0: number, arg1: number): number;
   getBasePixelColor(arg0: number, arg1: number): JavaOpaque<"java.awt.Color">;
-  getBuffer(): Array<number>;
   getCursors(): JavaOpaque<"org.bukkit.map.MapCursorCollection">;
   getMapView(): CraftMapView;
-  getMapView(): JavaOpaque<"org.bukkit.map.MapView">;
   getPixel(arg0: number, arg1: number): number;
   getPixelColor(arg0: number, arg1: number): JavaOpaque<"java.awt.Color">;
-  setBase(arg0: Array<number>): void;
   setCursors(arg0: JavaOpaque<"org.bukkit.map.MapCursorCollection">): void;
   setPixel(arg0: number, arg1: number, arg2: number): void;
   setPixelColor(arg0: number, arg1: number, arg2: JavaOpaque<"java.awt.Color">): void;
 }
 export type CraftMapCanvas = CraftMapCanvasMembers & JavaOpaque<"org.bukkit.map.MapCanvas">;
 export interface CraftMapCanvasStatics {
-  new(arg0: CraftMapView): CraftMapCanvas;
 }
 
 /** JVM class org.bukkit.craftbukkit.map.CraftMapColorCache. */

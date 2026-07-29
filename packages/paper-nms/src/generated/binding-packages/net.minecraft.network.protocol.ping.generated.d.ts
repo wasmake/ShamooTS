@@ -8,7 +8,6 @@ import type * as j_net_minecraft_network_protocol from './net.minecraft.network.
 export interface ClientboundPongResponsePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientPongPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientPongPacketListener): void;
   hashCode(): number;
   time(): bigint;
@@ -44,7 +43,6 @@ export interface PingPacketTypesStatics {
 export interface ServerboundPingRequestPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ServerPingPacketListener>];
   getTime(): bigint;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerPingPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ServerboundPingRequestPacket>;
 }

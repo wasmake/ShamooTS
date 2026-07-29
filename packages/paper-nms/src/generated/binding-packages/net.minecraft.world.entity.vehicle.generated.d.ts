@@ -8,7 +8,6 @@ import type * as j_net_minecraft_network_protocol_game from './net.minecraft.net
 import type * as j_net_minecraft_network_syncher from './net.minecraft.network.syncher.generated.js';
 import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
-import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
 import type * as j_net_minecraft_world from './net.minecraft.world.generated.js';
 import type * as j_net_minecraft_world_damagesource from './net.minecraft.world.damagesource.generated.js';
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
@@ -29,34 +28,23 @@ import type * as j_org_bukkit_craftbukkit_entity from './org.bukkit.craftbukkit.
 /** JVM abstract net.minecraft.world.entity.vehicle.AbstractBoat. */
 export interface AbstractBoatMembers {
   readonly __javaSupertypes?: readonly [VehicleEntity, j_net_minecraft_world_entity.Leashable];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   animateHurt(arg0: number): void;
-  canAddPassenger(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  canBeCollidedWith(arg0: j_net_minecraft_world_entity.Entity | null): boolean | null;
+  canBeCollidedWith(arg0: j_net_minecraft_world_entity.Entity | null): boolean;
   canCollideWith(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  clampRotation(arg0: j_net_minecraft_world_entity.Entity): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getBubbleAngle(arg0: number): number;
   getControllingPassenger(): j_net_minecraft_world_entity.LivingEntity | null;
-  getDefaultGravity(): number;
   getDismountLocationForPassenger(arg0: j_net_minecraft_world_entity.LivingEntity): j_net_minecraft_world_phys.Vec3;
   getDropItem(): j_net_minecraft_world_item.Item;
   getGroundFriction(): number;
   getInterpolation(): j_net_minecraft_world_entity.InterpolationHandler;
   getLeashData(): j_net_minecraft_world_entity.Leashable_LeashData | null;
   getLeashOffset(): j_net_minecraft_world_phys.Vec3;
-  getMaxPassengers(): number;
   getMotionDirection(): j_net_minecraft_core.Direction;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
-  getPaddleSound(): j_net_minecraft_sounds.SoundEvent | null;
   getPaddleState(arg0: number): boolean;
-  getPassengerAttachmentPoint(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.EntityDimensions, arg2: number): j_net_minecraft_world_phys.Vec3;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   getQuadLeashOffsets(): Array<j_net_minecraft_world_phys.Vec3>;
   getRelativePortalPosition(arg0: j_net_minecraft_core.Direction_Axis, arg1: j_net_minecraft.BlockUtil_FoundRectangle): j_net_minecraft_world_phys.Vec3;
   getRowingTime(arg0: number, arg1: number): number;
-  getSinglePassengerXOffset(): number;
   getStatus(): AbstractBoat_Status;
   getWaterLevelAbove(): number;
   hasEnoughSpaceFor(arg0: j_net_minecraft_world_entity.Entity): boolean;
@@ -69,14 +57,11 @@ export interface AbstractBoatMembers {
   occupiedDeceleration: number;
   onAboveBubbleColumn(arg0: boolean, arg1: j_net_minecraft_core.BlockPos): void;
   onPassengerTurned(arg0: j_net_minecraft_world_entity.Entity): void;
-  positionRider(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity_MoveFunction): void;
   push(arg0: j_net_minecraft_world_entity.Entity): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
-  rideHeight(arg0: j_net_minecraft_world_entity.EntityDimensions): number;
+  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   setInitialPos(arg0: number, arg1: number, arg2: number): void;
   setInput(arg0: boolean, arg1: boolean, arg2: boolean, arg3: boolean): void;
-  setLeashData(arg0: j_net_minecraft_world_entity.Leashable_LeashData | null): void | null;
+  setLeashData(arg0: j_net_minecraft_world_entity.Leashable_LeashData | null): void;
   setPaddleState(arg0: boolean, arg1: boolean): void;
   status: AbstractBoat_Status;
   supportQuadLeash(): boolean;
@@ -85,7 +70,6 @@ export interface AbstractBoatMembers {
 }
 export type AbstractBoat = AbstractBoatMembers & VehicleEntity & j_net_minecraft_world_entity.Leashable;
 export interface AbstractBoatStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractBoat>, arg1: j_net_minecraft_world_level.Level, arg2: JavaSupplier<j_net_minecraft_world_item.Item>): AbstractBoat;
   readonly BUBBLE_TIME: 60;
   readonly PADDLE_LEFT: 0;
   readonly PADDLE_RIGHT: 1;
@@ -110,7 +94,6 @@ export interface AbstractBoat_StatusStatics {
 /** JVM abstract net.minecraft.world.entity.vehicle.AbstractChestBoat. */
 export interface AbstractChestBoatMembers {
   readonly __javaSupertypes?: readonly [AbstractBoat, j_net_minecraft_world_entity.HasCustomInventoryScreen, ContainerEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   clearContent(): void;
   clearItemStacks(): void;
   createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_inventory.AbstractContainerMenu | null;
@@ -122,10 +105,8 @@ export interface AbstractChestBoatMembers {
   getItem(arg0: number): j_net_minecraft_world_item.ItemStack;
   getItemStacks(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getLocation(): JavaOpaque<"org.bukkit.Location">;
-  getMaxPassengers(): number;
   getMaxStackSize(): number;
   getOwner(): JavaOpaque<"org.bukkit.inventory.InventoryHolder"> | null;
-  getSinglePassengerXOffset(): number;
   getSlot(arg0: number): j_net_minecraft_world_entity.SlotAccess;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
   interact(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
@@ -133,44 +114,36 @@ export interface AbstractChestBoatMembers {
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   openCustomInventoryScreen(arg0: j_net_minecraft_world_entity_player.Player): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   removeItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
   removeItemNoUpdate(arg0: number): j_net_minecraft_world_item.ItemStack;
   setChanged(): void;
-  setContainerLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void | null;
+  setContainerLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void;
   setContainerLootTableSeed(arg0: bigint): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
   setMaxStackSize(arg0: number): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   stopOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
   transaction: JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
-  unpackLootTable(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
+  unpackLootTable(arg0: j_net_minecraft_world_entity_player.Player | null): void;
 }
 export type AbstractChestBoat = AbstractChestBoatMembers & AbstractBoat & j_net_minecraft_world_entity.HasCustomInventoryScreen & ContainerEntity;
 export interface AbstractChestBoatStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractChestBoat>, arg1: j_net_minecraft_world_level.Level, arg2: JavaSupplier<j_net_minecraft_world_item.Item>): AbstractChestBoat;
 }
 
 /** JVM abstract net.minecraft.world.entity.vehicle.AbstractMinecart. */
 export interface AbstractMinecartMembers {
   readonly __javaSupertypes?: readonly [VehicleEntity];
   activateMinecart(arg0: number, arg1: number, arg2: number, arg3: boolean): void;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   animateHurt(arg0: number): void;
   applyEffectsFromBlocks(): void;
   applyGravity(): void;
-  applyNaturalSlowdown(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
   canCollideWith(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  comeOffTrack(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   frictionState: JavaOpaque<"net.kyori.adventure.util.TriState">;
   getBehavior(): MinecartBehavior;
-  getBlockSpeedFactor(): number;
   getCurrentBlockPosOrRailBelow(): j_net_minecraft_core.BlockPos;
   getDefaultDisplayBlockState(): j_net_minecraft_world_level_block_state.BlockState;
   getDefaultDisplayOffset(): number;
-  getDefaultGravity(): number;
   getDerailedVelocityMod(): JavaOpaque<"org.bukkit.util.Vector">;
   getDismountLocationForPassenger(arg0: j_net_minecraft_world_entity.LivingEntity): j_net_minecraft_world_phys.Vec3;
   getDisplayBlockState(): j_net_minecraft_world_level_block_state.BlockState;
@@ -178,10 +151,7 @@ export interface AbstractMinecartMembers {
   getFlyingVelocityMod(): JavaOpaque<"org.bukkit.util.Vector">;
   getInterpolation(): j_net_minecraft_world_entity.InterpolationHandler;
   getKnownMovement(): j_net_minecraft_world_phys.Vec3;
-  getMaxSpeed(arg0: j_net_minecraft_server_level.ServerLevel): number;
   getMotionDirection(): j_net_minecraft_core.Direction;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
-  getPassengerAttachmentPoint(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.EntityDimensions, arg2: number): j_net_minecraft_world_phys.Vec3;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   getRedstoneDirection(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys.Vec3;
   getRelativePortalPosition(arg0: j_net_minecraft_core.Direction_Axis, arg1: j_net_minecraft.BlockUtil_FoundRectangle): j_net_minecraft_world_phys.Vec3;
@@ -195,12 +165,9 @@ export interface AbstractMinecartMembers {
   isRideable(): boolean;
   lerpMotion(arg0: number, arg1: number, arg2: number): void;
   lerpPositionAndRotationStep(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): void;
-  makeStepAlongTrack(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state_properties.RailShape, arg2: number): number;
   maxSpeed: number | null;
   move(arg0: j_net_minecraft_world_entity.MoverType, arg1: j_net_minecraft_world_phys.Vec3): void;
-  moveAlongTrack(arg0: j_net_minecraft_server_level.ServerLevel): void;
   push(arg0: j_net_minecraft_world_entity.Entity): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   reapplyPosition(): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
   setCustomDisplayBlockState(arg0: JavaOptional<j_net_minecraft_world_level_block_state.BlockState>): void;
@@ -216,9 +183,6 @@ export interface AbstractMinecartMembers {
 }
 export type AbstractMinecart = AbstractMinecartMembers & VehicleEntity;
 export interface AbstractMinecartStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_world_level.Level): AbstractMinecart;
-  new(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_world_level.Level, arg2: number, arg3: number, arg4: number): AbstractMinecart;
-  readonly WATER_SLOWDOWN_FACTOR: 0.95;
   createMinecart<T /* extends AbstractMinecart */>(arg0: j_net_minecraft_world_level.Level, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_world_entity.EntityType<T>, arg5: j_net_minecraft_world_entity.EntitySpawnReason, arg6: j_net_minecraft_world_item.ItemStack, arg7: j_net_minecraft_world_entity_player.Player | null): T | null;
   exits(arg0: j_net_minecraft_world_level_block_state_properties.RailShape): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.Vec3i, j_net_minecraft_core.Vec3i]>;
   useExperimentalMovement(arg0: j_net_minecraft_world_level.Level): boolean;
@@ -227,11 +191,8 @@ export interface AbstractMinecartStatics {
 /** JVM abstract net.minecraft.world.entity.vehicle.AbstractMinecartContainer. */
 export interface AbstractMinecartContainerMembers {
   readonly __javaSupertypes?: readonly [AbstractMinecart, ContainerEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyNaturalSlowdown(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
   clearContent(): void;
   clearItemStacks(): void;
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_inventory.AbstractContainerMenu | null;
   destroy(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): void;
   getContainerLootTable(): j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null;
@@ -250,12 +211,11 @@ export interface AbstractMinecartContainerMembers {
   lootableData(): JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableInventoryData">;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   removeItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
   removeItemNoUpdate(arg0: number): j_net_minecraft_world_item.ItemStack;
   setChanged(): void;
-  setContainerLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void | null;
+  setContainerLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void;
   setContainerLootTableSeed(arg0: bigint): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
   setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg1: bigint): void;
@@ -265,13 +225,11 @@ export interface AbstractMinecartContainerMembers {
 }
 export type AbstractMinecartContainer = AbstractMinecartContainerMembers & AbstractMinecart & ContainerEntity;
 export interface AbstractMinecartContainerStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_world_level.Level): AbstractMinecartContainer;
 }
 
 /** JVM class net.minecraft.world.entity.vehicle.Boat. */
 export interface BoatMembers {
   readonly __javaSupertypes?: readonly [AbstractBoat];
-  rideHeight(arg0: j_net_minecraft_world_entity.EntityDimensions): number;
 }
 export type Boat = BoatMembers & AbstractBoat;
 export interface BoatStatics {
@@ -281,7 +239,6 @@ export interface BoatStatics {
 /** JVM class net.minecraft.world.entity.vehicle.ChestBoat. */
 export interface ChestBoatMembers {
   readonly __javaSupertypes?: readonly [AbstractChestBoat];
-  rideHeight(arg0: j_net_minecraft_world_entity.EntityDimensions): number;
 }
 export type ChestBoat = ChestBoatMembers & AbstractChestBoat;
 export interface ChestBoatStatics {
@@ -291,7 +248,6 @@ export interface ChestBoatStatics {
 /** JVM class net.minecraft.world.entity.vehicle.ChestRaft. */
 export interface ChestRaftMembers {
   readonly __javaSupertypes?: readonly [AbstractChestBoat];
-  rideHeight(arg0: j_net_minecraft_world_entity.EntityDimensions): number;
 }
 export type ChestRaft = ChestRaftMembers & AbstractChestBoat;
 export interface ChestRaftStatics {
@@ -324,9 +280,9 @@ export interface ContainerEntityMembers {
   removeChestVehicleItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
   removeChestVehicleItemNoUpdate(arg0: number): j_net_minecraft_world_item.ItemStack;
   setChestVehicleItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setContainerLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void | null;
+  setContainerLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void;
   setContainerLootTableSeed(arg0: bigint): void;
-  unpackChestVehicleLootTable(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
+  unpackChestVehicleLootTable(arg0: j_net_minecraft_world_entity_player.Player | null): void;
 }
 export type ContainerEntity = ContainerEntityMembers & j_net_minecraft_world.Container & j_net_minecraft_world.MenuProvider;
 export interface ContainerEntityStatics {
@@ -355,7 +311,6 @@ export interface MinecartMembers {
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   interact(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   isRideable(): boolean;
-  positionRider(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity_MoveFunction): void;
   tick(): void;
 }
 export type Minecart = MinecartMembers & AbstractMinecart;
@@ -378,7 +333,6 @@ export interface MinecartBehaviorMembers {
   getZ(): number;
   lerpMotion(arg0: number, arg1: number, arg2: number): void;
   level(): j_net_minecraft_world_level.Level;
-  readonly minecart: AbstractMinecart;
   moveAlongTrack(arg0: j_net_minecraft_server_level.ServerLevel): void;
   position(): j_net_minecraft_world_phys.Vec3;
   pushAndPickupEntities(): boolean;
@@ -393,7 +347,6 @@ export interface MinecartBehaviorMembers {
 }
 export type MinecartBehavior = MinecartBehaviorMembers;
 export interface MinecartBehaviorStatics {
-  new(arg0: AbstractMinecart): MinecartBehavior;
 }
 
 /** JVM class net.minecraft.world.entity.vehicle.MinecartChest. */
@@ -417,15 +370,12 @@ export interface MinecartChestStatics {
 export interface MinecartCommandBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractMinecart];
   activateMinecart(arg0: number, arg1: number, arg2: number, arg3: boolean): void;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getCommandBlock(): j_net_minecraft_world_level.BaseCommandBlock;
   getDefaultDisplayBlockState(): j_net_minecraft_world_level_block_state.BlockState;
   getDropItem(): j_net_minecraft_world_item.Item;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   interact(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
 }
 export type MinecartCommandBlock = MinecartCommandBlockMembers & AbstractMinecart;
 export interface MinecartCommandBlockStatics {
@@ -452,20 +402,13 @@ export interface MinecartCommandBlock_MinecartCommandBaseStatics {
 /** JVM class net.minecraft.world.entity.vehicle.MinecartFurnace. */
 export interface MinecartFurnaceMembers {
   readonly __javaSupertypes?: readonly [AbstractMinecart];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyNaturalSlowdown(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   fuel: number;
   getDefaultDisplayBlockState(): j_net_minecraft_world_level_block_state.BlockState;
   getDropItem(): j_net_minecraft_world_item.Item;
-  getMaxSpeed(arg0: j_net_minecraft_server_level.ServerLevel): number;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
-  hasFuel(): boolean;
   interact(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   isFurnace(): boolean;
   push: j_net_minecraft_world_phys.Vec3;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  setHasFuel(arg0: boolean): void;
   tick(): void;
 }
 export type MinecartFurnace = MinecartFurnaceMembers & AbstractMinecart;
@@ -477,7 +420,6 @@ export interface MinecartFurnaceStatics {
 export interface MinecartHopperMembers {
   readonly __javaSupertypes?: readonly [AbstractMinecartContainer, j_net_minecraft_world_level_block_entity.Hopper];
   activateMinecart(arg0: number, arg1: number, arg2: number, arg3: boolean): void;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   getContainerSize(): number;
   getDefaultDisplayBlockState(): j_net_minecraft_world_level_block_state.BlockState;
@@ -490,8 +432,6 @@ export interface MinecartHopperMembers {
   immunize(): void;
   isEnabled(): boolean;
   isGridAligned(): boolean;
-  makeStepAlongTrack(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state_properties.RailShape, arg2: number): number;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setEnabled(arg0: boolean): void;
   suckInItems(): boolean;
   tick(): void;
@@ -504,13 +444,11 @@ export interface MinecartHopperStatics {
 /** JVM class net.minecraft.world.entity.vehicle.MinecartSpawner. */
 export interface MinecartSpawnerMembers {
   readonly __javaSupertypes?: readonly [AbstractMinecart];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   getDefaultDisplayBlockState(): j_net_minecraft_world_level_block_state.BlockState;
   getDropItem(): j_net_minecraft_world_item.Item;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   getSpawner(): j_net_minecraft_world_level.BaseSpawner;
   handleEntityEvent(arg0: number): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   tick(): void;
 }
 export type MinecartSpawner = MinecartSpawnerMembers & AbstractMinecart;
@@ -522,11 +460,9 @@ export interface MinecartSpawnerStatics {
 export interface MinecartTNTMembers {
   readonly __javaSupertypes?: readonly [AbstractMinecart];
   activateMinecart(arg0: number, arg1: number, arg2: number, arg3: boolean): void;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   causeFallDamage(arg0: number, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): boolean;
   destroy(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): void;
   explode(arg0: number): void;
-  explode(arg0: j_net_minecraft_world_damagesource.DamageSource | null, arg1: number): void | null;
   explosionPowerBase: number;
   explosionSpeedFactor: number;
   fuse: number;
@@ -539,8 +475,7 @@ export interface MinecartTNTMembers {
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isIncendiary: boolean;
   isPrimed(): boolean;
-  primeFuse(arg0: j_net_minecraft_world_damagesource.DamageSource | null): void | null;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
+  primeFuse(arg0: j_net_minecraft_world_damagesource.DamageSource | null): void;
   shouldBlockExplode(arg0: j_net_minecraft_world_level.Explosion, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: number): boolean;
   tick(): void;
 }
@@ -624,7 +559,6 @@ export interface OldMinecartBehaviorStatics {
 /** JVM class net.minecraft.world.entity.vehicle.Raft. */
 export interface RaftMembers {
   readonly __javaSupertypes?: readonly [AbstractBoat];
-  rideHeight(arg0: j_net_minecraft_world_entity.EntityDimensions): number;
 }
 export type Raft = RaftMembers & AbstractBoat;
 export interface RaftStatics {
@@ -634,8 +568,6 @@ export interface RaftStatics {
 /** JVM abstract net.minecraft.world.entity.vehicle.VehicleEntity. */
 export interface VehicleEntityMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Entity];
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  destroy(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): void;
   destroy(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.Item): void;
   getDamage(): number;
   getDimensionChangingDelay(): number;
@@ -651,8 +583,4 @@ export interface VehicleEntityMembers {
 }
 export type VehicleEntity = VehicleEntityMembers & j_net_minecraft_world_entity.Entity;
 export interface VehicleEntityStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_world_level.Level): VehicleEntity;
-  readonly DATA_ID_DAMAGE: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
-  readonly DATA_ID_HURT: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
-  readonly DATA_ID_HURTDIR: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
 }

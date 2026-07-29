@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_com_velocitypowered_api_command from './com.velocitypowered.api.command.generated.js';
 import type * as j_com_velocitypowered_api_event from './com.velocitypowered.api.event.generated.js';
@@ -10,9 +10,7 @@ export interface CommandExecuteEventMembers {
   getCommand(): string;
   getCommandSource(): j_com_velocitypowered_api_command.CommandSource;
   getInvocationInfo(): CommandExecuteEvent_InvocationInfo;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): CommandExecuteEvent_CommandResult;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: CommandExecuteEvent_CommandResult): void;
   toString(): string;
 }

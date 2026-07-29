@@ -30,8 +30,8 @@ export interface AsyncTabCompleteEventMembers {
 }
 export type AsyncTabCompleteEvent = AsyncTabCompleteEventMembers & j_org_bukkit_event.Event & j_org_bukkit_event.Cancellable;
 export interface AsyncTabCompleteEventStatics {
-  new(arg0: j_org_bukkit_command.CommandSender, arg1: string, arg2: boolean, arg3: j_org_bukkit.Location): AsyncTabCompleteEvent;
-  new(arg0: j_org_bukkit_command.CommandSender, arg1: JavaList<string>, arg2: string, arg3: boolean, arg4: j_org_bukkit.Location): AsyncTabCompleteEvent;
+  new(arg0: j_org_bukkit_command.CommandSender, arg1: string, arg2: boolean, arg3: j_org_bukkit.Location | null): AsyncTabCompleteEvent;
+  new(arg0: j_org_bukkit_command.CommandSender, arg1: JavaList<string>, arg2: string, arg3: boolean, arg4: j_org_bukkit.Location | null): AsyncTabCompleteEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -45,7 +45,7 @@ export interface AsyncTabCompleteEvent_CompletionMembers {
 export type AsyncTabCompleteEvent_Completion = AsyncTabCompleteEvent_CompletionMembers & JavaOpaque<"net.kyori.examination.Examinable">;
 export interface AsyncTabCompleteEvent_CompletionStatics {
   completion(arg0: string): AsyncTabCompleteEvent_Completion;
-  completion(arg0: string, arg1: j_net_kyori_adventure_text.Component): AsyncTabCompleteEvent_Completion | null;
+  completion(arg0: string, arg1: j_net_kyori_adventure_text.Component | null): AsyncTabCompleteEvent_Completion;
 }
 
 /** JVM class com.destroystokyo.paper.event.server.GS4QueryEvent. */
@@ -131,12 +131,10 @@ export interface GS4QueryEvent_QueryTypeStatics {
 /** JVM class com.destroystokyo.paper.event.server.PaperServerListPingEvent. */
 export interface PaperServerListPingEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_server.ServerListPingEvent, j_org_bukkit_event.Cancellable];
-  getBukkitPlayer(arg0: object): j_org_bukkit_entity.Player;
   getClient(): j_com_destroystokyo_paper_network.StatusClient;
   getListedPlayers(): JavaList<PaperServerListPingEvent_ListedPlayerInfo>;
   getMaxPlayers(): number;
   getNumPlayers(): number;
-  getOnlinePlayers(): Array<object>;
   getPlayerSample(): JavaList<j_com_destroystokyo_paper_profile.PlayerProfile>;
   getProtocolVersion(): number;
   getServerIcon(): j_org_bukkit_util.CachedServerIcon | null;
@@ -147,7 +145,7 @@ export interface PaperServerListPingEventMembers {
   setHidePlayers(arg0: boolean): void;
   setNumPlayers(arg0: number): void;
   setProtocolVersion(arg0: number): void;
-  setServerIcon(arg0: j_org_bukkit_util.CachedServerIcon | null): void | null;
+  setServerIcon(arg0: j_org_bukkit_util.CachedServerIcon | null): void;
   setVersion(arg0: string): void;
   shouldHidePlayers(): boolean;
 }

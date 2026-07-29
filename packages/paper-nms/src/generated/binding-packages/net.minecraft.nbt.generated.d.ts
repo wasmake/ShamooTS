@@ -22,13 +22,11 @@ export interface ByteArrayTagMembers {
   copy(): Tag;
   equals(arg0: object): boolean;
   get(arg0: number): ByteTag;
-  get(arg0: number): Tag;
   getAsByteArray(): Array<number>;
   getId(): number;
   getType(): TagType<ByteArrayTag>;
   hashCode(): number;
   remove(arg0: number): ByteTag;
-  remove(arg0: number): Tag;
   setTag(arg0: number, arg1: Tag): boolean;
   size(): number;
   sizeInBytes(): number;
@@ -50,7 +48,6 @@ export interface ByteTagMembers {
   box(): number;
   byteValue(): number;
   copy(): ByteTag;
-  copy(): Tag;
   doubleValue(): number;
   equals(arg0: object): boolean;
   floatValue(): number;
@@ -101,7 +98,6 @@ export interface CompoundTagMembers {
   asCompound(): JavaOptional<CompoundTag>;
   contains(arg0: string): boolean;
   copy(): CompoundTag;
-  copy(): Tag;
   entrySet(): JavaSet<JavaMapEntry<string, Tag>>;
   equals(arg0: object): boolean;
   forEach(arg0: JavaBiConsumer<string, Tag>): void;
@@ -156,15 +152,14 @@ export interface CompoundTagMembers {
   readQuiet<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>): JavaOptional<T>;
   readQuiet<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: JavaOpaque<"com.mojang.serialization.DynamicOps", [Tag]>): JavaOptional<T>;
   remove(arg0: string): void;
-  shallowCopy(): CompoundTag;
   size(): number;
   sizeInBytes(): number;
   store<T>(arg0: JavaOpaque<"com.mojang.serialization.MapCodec", [T]>, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps", [Tag]>, arg2: T): void;
   store<T>(arg0: JavaOpaque<"com.mojang.serialization.MapCodec", [T]>, arg1: T): void;
   store<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: JavaOpaque<"com.mojang.serialization.DynamicOps", [Tag]>, arg3: T): void;
   store<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T): void;
-  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: JavaOpaque<"com.mojang.serialization.DynamicOps", [Tag]>, arg3: T | null): void | null;
-  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T | null): void | null;
+  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: JavaOpaque<"com.mojang.serialization.DynamicOps", [Tag]>, arg3: T | null): void;
+  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T | null): void;
   toString(): string;
   values(): JavaCollection<Tag>;
   /** @throws java.io.IOException */
@@ -185,7 +180,6 @@ export interface DoubleTagMembers {
   box(): number;
   byteValue(): number;
   copy(): DoubleTag;
-  copy(): Tag;
   doubleValue(): number;
   equals(arg0: object): boolean;
   floatValue(): number;
@@ -215,7 +209,6 @@ export interface EndTagMembers {
   accept(arg0: StreamTagVisitor): StreamTagVisitor_ValueResult;
   accept(arg0: TagVisitor): void;
   copy(): EndTag;
-  copy(): Tag;
   getId(): number;
   getType(): TagType<EndTag>;
   sizeInBytes(): number;
@@ -237,7 +230,6 @@ export interface FloatTagMembers {
   box(): number;
   byteValue(): number;
   copy(): FloatTag;
-  copy(): Tag;
   doubleValue(): number;
   equals(arg0: object): boolean;
   floatValue(): number;
@@ -270,16 +262,13 @@ export interface IntArrayTagMembers {
   asIntArray(): JavaOptional<Array<number>>;
   clear(): void;
   copy(): IntArrayTag;
-  copy(): Tag;
   equals(arg0: object): boolean;
   get(arg0: number): IntTag;
-  get(arg0: number): Tag;
   getAsIntArray(): Array<number>;
   getId(): number;
   getType(): TagType<IntArrayTag>;
   hashCode(): number;
   remove(arg0: number): IntTag;
-  remove(arg0: number): Tag;
   setTag(arg0: number, arg1: Tag): boolean;
   size(): number;
   sizeInBytes(): number;
@@ -301,7 +290,6 @@ export interface IntTagMembers {
   box(): number;
   byteValue(): number;
   copy(): IntTag;
-  copy(): Tag;
   doubleValue(): number;
   equals(arg0: object): boolean;
   floatValue(): number;
@@ -329,7 +317,6 @@ export interface ListTagMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.AbstractList", [Tag]>, CollectionTag];
   accept(arg0: StreamTagVisitor): StreamTagVisitor_ValueResult;
   accept(arg0: TagVisitor): void;
-  add(arg0: number, arg1: object): void;
   add(arg0: number, arg1: Tag): void;
   addAndUnwrap(arg0: Tag): void;
   addTag(arg0: number, arg1: Tag): boolean;
@@ -337,9 +324,7 @@ export interface ListTagMembers {
   clear(): void;
   compoundStream(): JavaOpaque<"java.util.stream.Stream", [CompoundTag]>;
   copy(): ListTag;
-  copy(): Tag;
   equals(arg0: object): boolean;
-  get(arg0: number): object;
   get(arg0: number): Tag;
   getCompound(arg0: number): JavaOptional<CompoundTag>;
   getCompoundOrEmpty(arg0: number): CompoundTag;
@@ -362,9 +347,7 @@ export interface ListTagMembers {
   hashCode(): number;
   identifyRawElementType(): number;
   isEmpty(): boolean;
-  remove(arg0: number): object;
   remove(arg0: number): Tag;
-  set(arg0: number, arg1: object): object;
   set(arg0: number, arg1: Tag): Tag;
   setTag(arg0: number, arg1: Tag): boolean;
   size(): number;
@@ -390,16 +373,13 @@ export interface LongArrayTagMembers {
   asLongArray(): JavaOptional<Array<bigint>>;
   clear(): void;
   copy(): LongArrayTag;
-  copy(): Tag;
   equals(arg0: object): boolean;
   get(arg0: number): LongTag;
-  get(arg0: number): Tag;
   getAsLongArray(): Array<bigint>;
   getId(): number;
   getType(): TagType<LongArrayTag>;
   hashCode(): number;
   remove(arg0: number): LongTag;
-  remove(arg0: number): Tag;
   setTag(arg0: number, arg1: Tag): boolean;
   size(): number;
   sizeInBytes(): number;
@@ -421,7 +401,6 @@ export interface LongTagMembers {
   box(): number;
   byteValue(): number;
   copy(): LongTag;
-  copy(): Tag;
   doubleValue(): number;
   equals(arg0: object): boolean;
   floatValue(): number;
@@ -543,70 +522,38 @@ export interface NbtIo_StringFallbackDataOutputStatics {
 /** JVM class net.minecraft.nbt.NbtOps. */
 export interface NbtOpsMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.DynamicOps", [Tag]>];
-  convertTo(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg1: object): object;
   convertTo<U>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [U]>, arg1: Tag): U;
-  createBoolean(arg0: boolean): object;
   createBoolean(arg0: boolean): Tag;
-  createByte(arg0: number): object;
   createByte(arg0: number): Tag;
-  createByteList(arg0: JavaOpaque<"java.nio.ByteBuffer">): object;
   createByteList(arg0: JavaOpaque<"java.nio.ByteBuffer">): Tag;
-  createDouble(arg0: number): object;
   createDouble(arg0: number): Tag;
-  createFloat(arg0: number): object;
   createFloat(arg0: number): Tag;
-  createInt(arg0: number): object;
   createInt(arg0: number): Tag;
-  createIntList(arg0: JavaOpaque<"java.util.stream.IntStream">): object;
   createIntList(arg0: JavaOpaque<"java.util.stream.IntStream">): Tag;
-  createList(arg0: JavaOpaque<"java.util.stream.Stream">): object;
   createList(arg0: JavaOpaque<"java.util.stream.Stream", [Tag]>): Tag;
-  createLong(arg0: bigint): object;
   createLong(arg0: bigint): Tag;
-  createLongList(arg0: JavaOpaque<"java.util.stream.LongStream">): object;
   createLongList(arg0: JavaOpaque<"java.util.stream.LongStream">): Tag;
-  createMap(arg0: JavaOpaque<"java.util.stream.Stream">): object;
   createMap(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.datafixers.util.Pair", [Tag, Tag]>]>): Tag;
-  createNumeric(arg0: number): object;
   createNumeric(arg0: number): Tag;
-  createShort(arg0: number): object;
   createShort(arg0: number): Tag;
-  createString(arg0: string): object;
   createString(arg0: string): Tag;
-  empty(): object;
   empty(): Tag;
-  getByteBuffer(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getByteBuffer(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.nio.ByteBuffer">]>;
-  getIntStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getIntStream(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.IntStream">]>;
-  getList(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getList(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaConsumer<JavaConsumer<Tag>>]>;
-  getLongStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getLongStream(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.LongStream">]>;
-  getMap(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMap(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.serialization.MapLike", [Tag]>]>;
-  getMapEntries(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMapEntries(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaConsumer<JavaBiConsumer<Tag, Tag>>]>;
-  getMapValues(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMapValues(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.datafixers.util.Pair", [Tag, Tag]>]>]>;
-  getNumberValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getNumberValue(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [number]>;
-  getStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getStream(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.Stream", [Tag]>]>;
-  getStringValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getStringValue(arg0: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [string]>;
   mapBuilder(): JavaOpaque<"com.mojang.serialization.RecordBuilder", [Tag]>;
-  mergeToList(arg0: object, arg1: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToList(arg0: object, arg1: JavaList<object>): JavaOpaque<"com.mojang.serialization.DataResult">;
   mergeToList(arg0: Tag, arg1: JavaList<Tag>): JavaOpaque<"com.mojang.serialization.DataResult", [Tag]>;
   mergeToList(arg0: Tag, arg1: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [Tag]>;
-  mergeToMap(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.MapLike">): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToMap(arg0: object, arg1: object, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToMap(arg0: object, arg1: JavaMap<object>): JavaOpaque<"com.mojang.serialization.DataResult">;
   mergeToMap(arg0: Tag, arg1: JavaOpaque<"com.mojang.serialization.MapLike", [Tag]>): JavaOpaque<"com.mojang.serialization.DataResult", [Tag]>;
   mergeToMap(arg0: Tag, arg1: JavaMap<Tag, Tag>): JavaOpaque<"com.mojang.serialization.DataResult", [Tag]>;
   mergeToMap(arg0: Tag, arg1: Tag, arg2: Tag): JavaOpaque<"com.mojang.serialization.DataResult", [Tag]>;
-  remove(arg0: object, arg1: string): object;
   remove(arg0: Tag, arg1: string): Tag;
   toString(): string;
 }
@@ -625,7 +572,7 @@ export interface NbtUtilsStatics {
   addCurrentDataVersion(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   addDataVersion(arg0: CompoundTag, arg1: number): CompoundTag;
   addDataVersion(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: number): void;
-  compareNbt(arg0: Tag | null, arg1: Tag | null, arg2: boolean): boolean | null;
+  compareNbt(arg0: Tag | null, arg1: Tag | null, arg2: boolean): boolean;
   getDataVersion(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: number): number;
   getDataVersion(arg0: CompoundTag, arg1: number): number;
   prettyPrint(arg0: JavaOpaque<"java.lang.StringBuilder">, arg1: Tag, arg2: number, arg3: boolean): JavaOpaque<"java.lang.StringBuilder">;
@@ -689,7 +636,6 @@ export interface ShortTagMembers {
   box(): number;
   byteValue(): number;
   copy(): ShortTag;
-  copy(): Tag;
   doubleValue(): number;
   equals(arg0: object): boolean;
   floatValue(): number;
@@ -759,7 +705,6 @@ export interface SnbtOperations_BuiltinOperationStatics {
 /** JVM class net.minecraft.nbt.SnbtPrinterTagVisitor. */
 export interface SnbtPrinterTagVisitorMembers {
   readonly __javaSupertypes?: readonly [TagVisitor];
-  getKeys(arg0: CompoundTag): JavaList<string>;
   pathString(): string;
   visit(arg0: Tag): string;
   visitByte(arg0: ByteTag): void;
@@ -780,7 +725,6 @@ export type SnbtPrinterTagVisitor = SnbtPrinterTagVisitorMembers & TagVisitor;
 export interface SnbtPrinterTagVisitorStatics {
   new(): SnbtPrinterTagVisitor;
   new(arg0: string, arg1: number, arg2: JavaList<string>): SnbtPrinterTagVisitor;
-  handleEscapePretty(arg0: string): string;
 }
 
 /** JVM interface net.minecraft.nbt.StreamTagVisitor. */
@@ -839,7 +783,6 @@ export interface StringTagMembers {
   accept(arg0: TagVisitor): void;
   asString(): JavaOptional<string>;
   copy(): StringTag;
-  copy(): Tag;
   equals(arg0: object): boolean;
   getId(): number;
   getType(): TagType<StringTag>;
@@ -1053,5 +996,4 @@ export interface TextComponentTagVisitorMembers {
 export type TextComponentTagVisitor = TextComponentTagVisitorMembers & TagVisitor;
 export interface TextComponentTagVisitorStatics {
   new(arg0: string): TextComponentTagVisitor;
-  handleEscapePretty(arg0: string): j_net_minecraft_network_chat.Component;
 }

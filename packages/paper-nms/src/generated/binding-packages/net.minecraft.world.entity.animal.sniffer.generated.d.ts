@@ -14,20 +14,16 @@ import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.animal.sniffer.Sniffer. */
 export interface SnifferMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Animal];
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Sniffer>;
   calculateDigPosition(): JavaOptional<j_net_minecraft_core.BlockPos>;
   canDig(): boolean;
   canMate(arg0: j_net_minecraft_world_entity_animal.Animal): boolean;
   canPlayDiggingSound(): boolean;
   canSniff(): boolean;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   readonly diggingAnimationState: j_net_minecraft_world_entity.AnimationState;
   readonly feelingHappyAnimationState: j_net_minecraft_world_entity.AnimationState;
@@ -45,17 +41,13 @@ export interface SnifferMembers {
   isSearching(): boolean;
   isTempted(): boolean;
   jumpFromGround(): void;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   onDiggingComplete(arg0: boolean): Sniffer;
   onPathfindingDone(): void;
   onPathfindingStart(): void;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playEatingSound(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
   readonly risingAnimationState: j_net_minecraft_world_entity.AnimationState;
   readonly scentingAnimationState: j_net_minecraft_world_entity.AnimationState;
-  sendDebugPackets(): void;
   setBaby(arg0: boolean): void;
   readonly sniffingAnimationState: j_net_minecraft_world_entity.AnimationState;
   spawnChildFromBreeding(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal.Animal): void;
@@ -96,5 +88,4 @@ export type SnifferAi = SnifferAiMembers;
 export interface SnifferAiStatics {
   new(): SnifferAi;
   getTemptations(): JavaPredicate<j_net_minecraft_world_item.ItemStack>;
-  makeBrain(arg0: j_net_minecraft_world_entity_ai.Brain<Sniffer>): j_net_minecraft_world_entity_ai.Brain<object>;
 }

@@ -20,8 +20,6 @@ export interface EventMembers {
 }
 export type Event = EventMembers;
 export interface EventStatics {
-  new(): Event;
-  new(arg0: boolean): Event;
 }
 
 /** Live JVM enum org.bukkit.event.Event$Result; constants are host handles, not strings. */

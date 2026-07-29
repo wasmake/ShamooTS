@@ -22,3 +22,8 @@ See the repository [Paper rich text/UI guide](../../docs/paper-rich-text-ui.md) 
 [command guide](../../docs/commands.md). `paperHostCommunicationProviders` injects the optional host
 Paper-Velocity transport; standalone operation remains explicit and sends nothing. One-to-one
 generated Java declarations remain available from `@shamoo/paper-raw`.
+
+Executable one-to-one Paper access is exported by `@shamoo/paper-raw` as `paperJava`. Every operation
+is asynchronous, selected from the generated public-member catalog, and routed through the appropriate
+Paper scheduler or synchronous event frame. Runtime-owned Java values remain opaque generation-scoped
+handles; arbitrary Javet reflection is not enabled.

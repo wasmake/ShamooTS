@@ -17,32 +17,19 @@ import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity
 import type * as j_net_minecraft_world_entity_ai from './net.minecraft.world.entity.ai.generated.js';
 import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraft.world.entity.ai.attributes.generated.js';
 import type * as j_net_minecraft_world_entity_ai_behavior from './net.minecraft.world.entity.ai.behavior.generated.js';
-import type * as j_net_minecraft_world_entity_ai_memory from './net.minecraft.world.entity.ai.memory.generated.js';
-import type * as j_net_minecraft_world_entity_ai_navigation from './net.minecraft.world.entity.ai.navigation.generated.js';
-import type * as j_net_minecraft_world_entity_ai_sensing from './net.minecraft.world.entity.ai.sensing.generated.js';
 import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world.entity.animal.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
 import type * as j_net_minecraft_world_entity_variant from './net.minecraft.world.entity.variant.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.animal.frog.Frog. */
 export interface FrogMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Frog>;
-  calculateFallDamage(arg0: number, arg1: number): number;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
   readonly croakAnimationState: j_net_minecraft_world_entity.AnimationState;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   eraseTongueTarget(): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getBrain(): j_net_minecraft_world_entity_ai.Brain<Frog>;
@@ -58,12 +45,8 @@ export interface FrogMembers {
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isPushedByFluid(): boolean;
   readonly jumpAnimationState: j_net_minecraft_world_entity.AnimationState;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playEatingSound(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  sendDebugPackets(): void;
   setBaby(arg0: boolean): void;
   setTongueTarget(arg0: j_net_minecraft_world_entity.Entity): void;
   setVariant(arg0: j_net_minecraft_core.Holder<FrogVariant>): void;
@@ -72,13 +55,10 @@ export interface FrogMembers {
   tick(): void;
   readonly tongueAnimationState: j_net_minecraft_world_entity.AnimationState;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
-  updateWalkAnimation(arg0: number): void;
 }
 export type Frog = FrogMembers & j_net_minecraft_world_entity_animal.Animal;
 export interface FrogStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<j_net_minecraft_world_entity_animal.Animal>, arg1: j_net_minecraft_world_level.Level): Frog;
-  readonly MEMORY_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>]>;
-  readonly SENSOR_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_sensing.SensorType<j_net_minecraft_world_entity_ai_sensing.Sensor<Frog>>]>;
   canEat(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
   checkFrogSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<j_net_minecraft_world_entity_animal.Animal>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
@@ -91,8 +71,6 @@ export type FrogAi = FrogAiMembers;
 export interface FrogAiStatics {
   new(): FrogAi;
   getTemptations(): JavaPredicate<j_net_minecraft_world_item.ItemStack>;
-  initMemories(arg0: Frog, arg1: j_net_minecraft_util.RandomSource): void;
-  makeBrain(arg0: j_net_minecraft_world_entity_ai.Brain<Frog>): j_net_minecraft_world_entity_ai.Brain<object>;
   updateActivity(arg0: Frog): void;
 }
 
@@ -129,16 +107,6 @@ export interface FrogVariantsStatics {
 /** JVM class net.minecraft.world.entity.animal.frog.ShootTongue. */
 export interface ShootTongueMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Frog>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Frog, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Frog): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Frog, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Frog, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Frog, arg2: bigint): void;
 }
 export type ShootTongue = ShootTongueMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Frog>;
 export interface ShootTongueStatics {
@@ -153,27 +121,19 @@ export interface ShootTongueStatics {
 /** JVM class net.minecraft.world.entity.animal.frog.Tadpole. */
 export interface TadpoleMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.AbstractFish];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   age: number;
   ageLocked: boolean;
   aiStep(): void;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Tadpole>;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
   fromBucket(): boolean;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getBrain(): j_net_minecraft_world_entity_ai.Brain<Tadpole>;
   getBucketItemStack(): j_net_minecraft_world_item.ItemStack;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent | null;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent | null;
   getPickupSound(): j_net_minecraft_sounds.SoundEvent;
   loadFromBucketTag(arg0: j_net_minecraft_nbt.CompoundTag): void;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   saveToBucketTag(arg0: j_net_minecraft_world_item.ItemStack): void;
-  sendDebugPackets(): void;
   setFromBucket(arg0: boolean): void;
   shouldDropExperience(): boolean;
 }
@@ -182,8 +142,6 @@ export interface TadpoleStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<j_net_minecraft_world_entity_animal.AbstractFish>, arg1: j_net_minecraft_world_level.Level): Tadpole;
   readonly HITBOX_HEIGHT: 0.3;
   readonly HITBOX_WIDTH: 0.4;
-  readonly MEMORY_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>]>;
-  readonly SENSOR_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_sensing.SensorType<j_net_minecraft_world_entity_ai_sensing.Sensor<Tadpole>>]>;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
   readonly ticksToBeFrog: number;
 }
@@ -194,6 +152,5 @@ export interface TadpoleAiMembers {
 export type TadpoleAi = TadpoleAiMembers;
 export interface TadpoleAiStatics {
   new(): TadpoleAi;
-  makeBrain(arg0: j_net_minecraft_world_entity_ai.Brain<Tadpole>): j_net_minecraft_world_entity_ai.Brain<object>;
   updateActivity(arg0: Tadpole): void;
 }

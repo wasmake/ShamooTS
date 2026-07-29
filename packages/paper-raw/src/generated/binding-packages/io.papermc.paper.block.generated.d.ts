@@ -17,7 +17,7 @@ export interface BlockPredicateStatics {
 
 /** JVM interface io.papermc.paper.block.BlockPredicate$Builder. */
 export interface BlockPredicate_BuilderMembers {
-  blocks(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_block.BlockType>): BlockPredicate_Builder | null;
+  blocks(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_block.BlockType> | null): BlockPredicate_Builder;
   build(): BlockPredicate;
 }
 export type BlockPredicate_Builder = BlockPredicate_BuilderMembers;

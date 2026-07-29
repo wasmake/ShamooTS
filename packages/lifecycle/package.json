@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/lifecycle",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Shamoo lifecycle and scoped invocation runtime.",
   "license": "Apache-2.0",
   "type": "module",

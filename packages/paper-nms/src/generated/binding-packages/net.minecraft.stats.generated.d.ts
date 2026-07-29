@@ -18,7 +18,6 @@ import type * as j_net_minecraft_world_scores_criteria from './net.minecraft.wor
 
 /** JVM class net.minecraft.stats.RecipeBook. */
 export interface RecipeBookMembers {
-  readonly bookSettings: RecipeBookSettings;
   getBookSettings(): RecipeBookSettings;
   isFiltering(arg0: j_net_minecraft_world_inventory.RecipeBookType): boolean;
   isOpen(arg0: j_net_minecraft_world_inventory.RecipeBookType): boolean;
@@ -78,7 +77,6 @@ export interface ServerRecipeBookMembers {
   addRecipes(arg0: JavaCollection<j_net_minecraft_world_item_crafting.RecipeHolder<object>>, arg1: j_net_minecraft_server_level.ServerPlayer): number;
   contains(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.Recipe<object>>): boolean;
   copyOverData(arg0: ServerRecipeBook): void;
-  readonly highlight: JavaSet<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.Recipe<object>>>;
   readonly known: JavaSet<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.Recipe<object>>>;
   loadUntrusted(arg0: ServerRecipeBook_Packed, arg1: JavaPredicate<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.Recipe<object>>>): void;
   pack(): ServerRecipeBook_Packed;
@@ -125,7 +123,6 @@ export interface ServerStatsCounterMembers {
   save(): void;
   sendStats(arg0: j_net_minecraft_server_level.ServerPlayer): void;
   setValue(arg0: j_net_minecraft_world_entity_player.Player, arg1: Stat<object>, arg2: number): void;
-  toJson(): string;
 }
 export type ServerStatsCounter = ServerStatsCounterMembers & StatsCounter;
 export interface ServerStatsCounterStatics {
@@ -144,7 +141,6 @@ export interface StatMembers<T = unknown> {
 }
 export type Stat<T = unknown> = StatMembers<T> & j_net_minecraft_world_scores_criteria.ObjectiveCriteria;
 export interface StatStatics {
-  new<T>(arg0: StatType<T>, arg1: T, arg2: StatFormatter): Stat<T>;
   readonly STREAM_CODEC: j_net_minecraft_network_codec.StreamCodec<j_net_minecraft_network.RegistryFriendlyByteBuf, Stat<object>>;
   buildName<T>(arg0: StatType<T>, arg1: T): string;
 }
@@ -261,7 +257,6 @@ export interface StatsCounterMembers {
   getValue<T>(arg0: StatType<T>, arg1: T): number;
   increment(arg0: j_net_minecraft_world_entity_player.Player, arg1: Stat<object>, arg2: number): void;
   setValue(arg0: j_net_minecraft_world_entity_player.Player, arg1: Stat<object>, arg2: number): void;
-  readonly stats: JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2IntMap", [Stat<object>]>;
 }
 export type StatsCounter = StatsCounterMembers;
 export interface StatsCounterStatics {

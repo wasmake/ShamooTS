@@ -1,14 +1,14 @@
 {
   "platform": "velocity",
-  "apiVersion": "3.4.0-20260121.190037-118",
+  "apiVersion": "3.4.0",
   "declarations": {
     "expected": 358,
     "emitted": 358,
     "percent": 100
   },
   "members": {
-    "expected": 2664,
-    "emitted": 2664,
+    "expected": 2512,
+    "emitted": 2512,
     "percent": 100
   },
   "events": {
@@ -179,7 +179,7 @@
     },
     {
       "javaName": "java.text.MessageFormat",
-      "occurrences": 9,
+      "occurrences": 7,
       "reason": "not-in-scanner-model"
     },
     {
@@ -239,7 +239,7 @@
     },
     {
       "javaName": "java.util.Locale",
-      "occurrences": 38,
+      "occurrences": 35,
       "reason": "not-in-scanner-model"
     },
     {
@@ -309,7 +309,7 @@
     },
     {
       "javaName": "net.kyori.adventure.key.Key",
-      "occurrences": 94,
+      "occurrences": 87,
       "reason": "not-in-scanner-model"
     },
     {

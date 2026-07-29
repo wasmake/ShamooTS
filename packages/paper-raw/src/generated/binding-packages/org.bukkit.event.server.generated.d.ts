@@ -71,7 +71,6 @@ export interface PluginEventMembers {
 }
 export type PluginEvent = PluginEventMembers & ServerEvent;
 export interface PluginEventStatics {
-  new(arg0: j_org_bukkit_plugin.Plugin): PluginEvent;
 }
 
 /** JVM class org.bukkit.event.server.RemoteServerCommandEvent. */
@@ -107,8 +106,6 @@ export interface ServerEventMembers {
 }
 export type ServerEvent = ServerEventMembers & j_org_bukkit_event.Event;
 export interface ServerEventStatics {
-  new(): ServerEvent;
-  new(arg0: boolean): ServerEvent;
 }
 
 /** JVM class org.bukkit.event.server.ServerListPingEvent. */
@@ -132,11 +129,8 @@ export interface ServerListPingEventMembers {
 }
 export type ServerListPingEvent = ServerListPingEventMembers & ServerEvent & Iterable<j_org_bukkit_entity.Player>;
 export interface ServerListPingEventStatics {
-  new(arg0: string, arg1: JavaOpaque<"java.net.InetAddress">, arg2: string, arg3: number): ServerListPingEvent;
   new(arg0: string, arg1: JavaOpaque<"java.net.InetAddress">, arg2: string, arg3: number, arg4: number): ServerListPingEvent;
-  new(arg0: string, arg1: JavaOpaque<"java.net.InetAddress">, arg2: j_net_kyori_adventure_text.Component, arg3: number): ServerListPingEvent;
   new(arg0: string, arg1: JavaOpaque<"java.net.InetAddress">, arg2: j_net_kyori_adventure_text.Component, arg3: number, arg4: number): ServerListPingEvent;
-  new(arg0: JavaOpaque<"java.net.InetAddress">, arg1: j_net_kyori_adventure_text.Component, arg2: number): ServerListPingEvent;
   new(arg0: JavaOpaque<"java.net.InetAddress">, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number): ServerListPingEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
@@ -171,7 +165,6 @@ export interface ServiceEventMembers {
 }
 export type ServiceEvent = ServiceEventMembers & ServerEvent;
 export interface ServiceEventStatics {
-  new(arg0: j_org_bukkit_plugin.RegisteredServiceProvider<object>): ServiceEvent;
 }
 
 /** JVM class org.bukkit.event.server.ServiceRegisterEvent. */

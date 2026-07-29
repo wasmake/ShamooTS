@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_com_velocitypowered_api_event from './com.velocitypowered.api.event.generated.js';
 import type * as j_com_velocitypowered_api_network from './com.velocitypowered.api.network.generated.js';
@@ -42,10 +42,8 @@ export interface ProxyPingEventMembers {
   getConnection(): j_com_velocitypowered_api_proxy.InboundConnection;
   getPing(): j_com_velocitypowered_api_proxy_server.ServerPing;
   getResult(): j_com_velocitypowered_api_event.ResultedEvent_GenericResult;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   setPing(arg0: j_com_velocitypowered_api_proxy_server.ServerPing): void;
   setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_GenericResult): void;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   toString(): string;
 }
 export type ProxyPingEvent = ProxyPingEventMembers & j_com_velocitypowered_api_event.ResultedEvent<j_com_velocitypowered_api_event.ResultedEvent_GenericResult>;

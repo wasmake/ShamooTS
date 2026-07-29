@@ -16,7 +16,6 @@ export interface AnvilDamagedEventMembers {
   getDamageState(): AnvilDamagedEvent_DamageState;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getInventory(): j_org_bukkit_inventory.AnvilInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   isBreaking(): boolean;
   isCancelled(): boolean;
   setBreaking(arg0: boolean): void;
@@ -25,7 +24,7 @@ export interface AnvilDamagedEventMembers {
 }
 export type AnvilDamagedEvent = AnvilDamagedEventMembers & j_org_bukkit_event_inventory.InventoryEvent & j_org_bukkit_event.Cancellable;
 export interface AnvilDamagedEventStatics {
-  new(arg0: j_org_bukkit_inventory.InventoryView, arg1: j_org_bukkit_block_data.BlockData): AnvilDamagedEvent;
+  new(arg0: j_org_bukkit_inventory.InventoryView, arg1: j_org_bukkit_block_data.BlockData | null): AnvilDamagedEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -39,8 +38,8 @@ export interface AnvilDamagedEvent_DamageStateStatics {
   readonly CHIPPED: AnvilDamagedEvent_DamageState;
   readonly DAMAGED: AnvilDamagedEvent_DamageState;
   readonly FULL: AnvilDamagedEvent_DamageState;
-  getState(arg0: j_org_bukkit.Material): AnvilDamagedEvent_DamageState | null;
-  getState(arg0: j_org_bukkit_block_data.BlockData): AnvilDamagedEvent_DamageState | null;
+  getState(arg0: j_org_bukkit.Material | null): AnvilDamagedEvent_DamageState;
+  getState(arg0: j_org_bukkit_block_data.BlockData | null): AnvilDamagedEvent_DamageState;
   valueOf(arg0: string): AnvilDamagedEvent_DamageState;
   values(): Array<AnvilDamagedEvent_DamageState>;
 }

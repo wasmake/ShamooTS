@@ -13,7 +13,6 @@ export interface CraftAnvilViewMembers {
   getRenameText(): string | null;
   getRepairCost(): number;
   getRepairItemCountCost(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.AnvilInventory">;
   setMaximumRepairCost(arg0: number): void;
   setRepairCost(arg0: number): void;
   setRepairItemCountCost(arg0: number): void;
@@ -30,9 +29,8 @@ export interface CraftBeaconViewMembers {
   getPrimaryEffect(): JavaOpaque<"org.bukkit.potion.PotionEffectType"> | null;
   getSecondaryEffect(): JavaOpaque<"org.bukkit.potion.PotionEffectType"> | null;
   getTier(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.BeaconInventory">;
-  setPrimaryEffect(arg0: JavaOpaque<"org.bukkit.potion.PotionEffectType"> | null): void | null;
-  setSecondaryEffect(arg0: JavaOpaque<"org.bukkit.potion.PotionEffectType"> | null): void | null;
+  setPrimaryEffect(arg0: JavaOpaque<"org.bukkit.potion.PotionEffectType"> | null): void;
+  setSecondaryEffect(arg0: JavaOpaque<"org.bukkit.potion.PotionEffectType"> | null): void;
 }
 export type CraftBeaconView = CraftBeaconViewMembers & j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.BeaconMenu, JavaOpaque<"org.bukkit.inventory.BeaconInventory">> & JavaOpaque<"org.bukkit.inventory.view.BeaconView">;
 export interface CraftBeaconViewStatics {
@@ -45,7 +43,6 @@ export interface CraftBrewingStandViewMembers {
   getBrewingTicks(): number;
   getFuelLevel(): number;
   getRecipeBrewTime(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.BrewerInventory">;
   setBrewingTicks(arg0: number): void;
   setFuelLevel(arg0: number): void;
   setRecipeBrewTime(arg0: number): void;
@@ -58,7 +55,6 @@ export interface CraftBrewingStandViewStatics {
 /** JVM class org.bukkit.craftbukkit.inventory.view.CraftCrafterView. */
 export interface CraftCrafterViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.CrafterMenu, JavaOpaque<"org.bukkit.inventory.CrafterInventory">>, JavaOpaque<"org.bukkit.inventory.view.CrafterView">];
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.CrafterInventory">;
   isPowered(): boolean;
   isSlotDisabled(arg0: number): boolean;
   setSlotDisabled(arg0: number, arg1: boolean): void;
@@ -73,7 +69,6 @@ export interface CraftEnchantmentViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.EnchantmentMenu, JavaOpaque<"org.bukkit.inventory.EnchantingInventory">>, JavaOpaque<"org.bukkit.inventory.view.EnchantmentView">];
   getEnchantmentSeed(): number;
   getOffers(): Array<JavaOpaque<"org.bukkit.enchantments.EnchantmentOffer">>;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.EnchantingInventory">;
   setEnchantmentSeed(arg0: number): void;
   setOffers(arg0: Array<JavaOpaque<"org.bukkit.enchantments.EnchantmentOffer">>): void;
 }
@@ -87,7 +82,6 @@ export interface CraftFurnaceViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.AbstractFurnaceMenu, JavaOpaque<"org.bukkit.inventory.FurnaceInventory">>, JavaOpaque<"org.bukkit.inventory.view.FurnaceView">];
   getBurnTime(): number;
   getCookTime(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.FurnaceInventory">;
   isBurning(): boolean;
   setBurnTime(arg0: number, arg1: number): void;
   setCookTime(arg0: number, arg1: number): void;
@@ -101,7 +95,6 @@ export interface CraftFurnaceViewStatics {
 export interface CraftLecternViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.LecternMenu, JavaOpaque<"org.bukkit.inventory.LecternInventory">>, JavaOpaque<"org.bukkit.inventory.view.LecternView">];
   getPage(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.LecternInventory">;
   setPage(arg0: number): void;
 }
 export type CraftLecternView = CraftLecternViewMembers & j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.LecternMenu, JavaOpaque<"org.bukkit.inventory.LecternInventory">> & JavaOpaque<"org.bukkit.inventory.view.LecternView">;
@@ -114,7 +107,6 @@ export interface CraftLoomViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.LoomMenu, JavaOpaque<"org.bukkit.inventory.LoomInventory">>, JavaOpaque<"org.bukkit.inventory.view.LoomView">];
   getSelectablePatterns(): JavaList<JavaOpaque<"org.bukkit.block.banner.PatternType">>;
   getSelectedPatternIndex(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.LoomInventory">;
 }
 export type CraftLoomView = CraftLoomViewMembers & j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.LoomMenu, JavaOpaque<"org.bukkit.inventory.LoomInventory">> & JavaOpaque<"org.bukkit.inventory.view.LoomView">;
 export interface CraftLoomViewStatics {
@@ -125,7 +117,6 @@ export interface CraftLoomViewStatics {
 export interface CraftMerchantViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.MerchantMenu, JavaOpaque<"org.bukkit.inventory.MerchantInventory">>, JavaOpaque<"org.bukkit.inventory.view.MerchantView">];
   getMerchant(): JavaOpaque<"org.bukkit.inventory.Merchant">;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.MerchantInventory">;
 }
 export type CraftMerchantView = CraftMerchantViewMembers & j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.MerchantMenu, JavaOpaque<"org.bukkit.inventory.MerchantInventory">> & JavaOpaque<"org.bukkit.inventory.view.MerchantView">;
 export interface CraftMerchantViewStatics {
@@ -138,7 +129,6 @@ export interface CraftStonecutterViewMembers {
   getRecipeAmount(): number;
   getRecipes(): JavaList<JavaOpaque<"org.bukkit.inventory.StonecuttingRecipe">>;
   getSelectedRecipeIndex(): number;
-  getTopInventory(): JavaOpaque<"org.bukkit.inventory.StonecutterInventory">;
 }
 export type CraftStonecutterView = CraftStonecutterViewMembers & j_org_bukkit_craftbukkit_inventory.CraftInventoryView<j_net_minecraft_world_inventory.StonecutterMenu, JavaOpaque<"org.bukkit.inventory.StonecutterInventory">> & JavaOpaque<"org.bukkit.inventory.view.StonecutterView">;
 export interface CraftStonecutterViewStatics {

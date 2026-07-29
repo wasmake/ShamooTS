@@ -50,9 +50,9 @@ export const PINNED_PAPER_MODELS = {
   'paper-packets': join(modelDirectory, 'paper-packets.model.json'),
 } as const;
 const pinnedChecksums = {
-  paper: 'c060c1ccff10fdfeecef7ca1985a4a2d41a261a7bc755df060dd0a1f9e9f7661',
-  'paper-nms': '4c637abd6fc3ecdb23ba975580894e8265568bddb7056f542a251e3e3c49c6d4',
-  'paper-packets': '695238525bdaccdff3aaee4136787fcbe53387a96a5b3b921f0f602b75cac0e6',
+  paper: '32d665f5796b9e621e83487ff0c0b215ee491004dae9803cf8bc7c320aebea19',
+  'paper-nms': '69c4679b537bc86ac9509e297fe0e4db6f793eed0e26b6923454802d1264d8bf',
+  'paper-packets': 'efef7272e33bf35bf213dc465b4b50783594dac8dd71ea85e2cb4ea0779c0138',
 } as const;
 async function model(value: string | JvmApiModel): Promise<JvmApiModel> {
   return typeof value === 'string'

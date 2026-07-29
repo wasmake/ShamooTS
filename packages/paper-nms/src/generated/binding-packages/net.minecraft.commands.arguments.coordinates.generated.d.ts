@@ -11,8 +11,6 @@ export interface BlockPosArgumentMembers {
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): Coordinates;
 }
 export type BlockPosArgument = BlockPosArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [Coordinates]>;
@@ -36,8 +34,6 @@ export interface ColumnPosArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [Coordinates]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): Coordinates;
 }
@@ -86,8 +82,6 @@ export interface RotationArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [Coordinates]>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): Coordinates;
 }
 export type RotationArgument = RotationArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [Coordinates]>;
@@ -103,8 +97,6 @@ export interface SwizzleArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [JavaOpaque<"java.util.EnumSet", [j_net_minecraft_core.Direction_Axis]>]>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): JavaOpaque<"java.util.EnumSet", [j_net_minecraft_core.Direction_Axis]>;
 }
 export type SwizzleArgument = SwizzleArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [JavaOpaque<"java.util.EnumSet", [j_net_minecraft_core.Direction_Axis]>]>;
@@ -119,8 +111,6 @@ export interface Vec2ArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [Coordinates]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): Coordinates;
 }
@@ -138,8 +128,6 @@ export interface Vec3ArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [Coordinates]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): Coordinates;
 }

@@ -237,7 +237,7 @@ export interface ExecuteCommand_2Statics {
   new(): ExecuteCommand_2;
   readonly ERROR_FUNCTION_CONDITION_INSTANTATION_FAILURE: JavaOpaque<"com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType">;
   register(arg0: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [j_net_minecraft_commands.CommandSourceStack]>, arg1: j_net_minecraft_commands.CommandBuildContext): void;
-  scheduleFunctionConditionsAndTest<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */>(arg0: T, arg1: JavaList<T>, arg2: JavaFunction<T, T>, arg3: JavaOpaque<"java.util.function.IntPredicate">, arg4: JavaOpaque<"com.mojang.brigadier.context.ContextChain", [T]>, arg5: j_net_minecraft_nbt.CompoundTag | null, arg6: j_net_minecraft_commands_execution.ExecutionControl<T>, arg7: InCommandFunction<JavaOpaque<"com.mojang.brigadier.context.CommandContext", [T]>, JavaCollection<j_net_minecraft_commands_functions.CommandFunction<T>>>, arg8: j_net_minecraft_commands_execution.ChainModifiers): void | null;
+  scheduleFunctionConditionsAndTest<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */>(arg0: T, arg1: JavaList<T>, arg2: JavaFunction<T, T>, arg3: JavaOpaque<"java.util.function.IntPredicate">, arg4: JavaOpaque<"com.mojang.brigadier.context.ContextChain", [T]>, arg5: j_net_minecraft_nbt.CompoundTag | null, arg6: j_net_minecraft_commands_execution.ExecutionControl<T>, arg7: InCommandFunction<JavaOpaque<"com.mojang.brigadier.context.CommandContext", [T]>, JavaCollection<j_net_minecraft_commands_functions.CommandFunction<T>>>, arg8: j_net_minecraft_commands_execution.ChainModifiers): void;
 }
 
 /** JVM class net.minecraft.server.commands.ExperienceCommand. */
@@ -307,7 +307,7 @@ export interface FunctionCommandStatics {
   readonly SUGGEST_FUNCTION: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionProvider", [j_net_minecraft_commands.CommandSourceStack]>;
   modifySenderForExecution(arg0: j_net_minecraft_commands.CommandSourceStack): j_net_minecraft_commands.CommandSourceStack;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  queueFunctions<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */>(arg0: JavaCollection<j_net_minecraft_commands_functions.CommandFunction<T>>, arg1: j_net_minecraft_nbt.CompoundTag | null, arg2: T, arg3: T, arg4: j_net_minecraft_commands_execution.ExecutionControl<T>, arg5: FunctionCommand_Callbacks<T>, arg6: j_net_minecraft_commands_execution.ChainModifiers): void | null;
+  queueFunctions<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */>(arg0: JavaCollection<j_net_minecraft_commands_functions.CommandFunction<T>>, arg1: j_net_minecraft_nbt.CompoundTag | null, arg2: T, arg3: T, arg4: j_net_minecraft_commands_execution.ExecutionControl<T>, arg5: FunctionCommand_Callbacks<T>, arg6: j_net_minecraft_commands_execution.ChainModifiers): void;
   register(arg0: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [j_net_minecraft_commands.CommandSourceStack]>): void;
 }
 
@@ -689,7 +689,7 @@ export interface ScoreboardCommandStatics {
 /** JVM interface net.minecraft.server.commands.ScoreboardCommand$NumberFormatCommandExecutor. */
 export interface ScoreboardCommand_NumberFormatCommandExecutorMembers {
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  run(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [j_net_minecraft_commands.CommandSourceStack]>, arg1: j_net_minecraft_network_chat_numbers.NumberFormat | null): number | null;
+  run(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [j_net_minecraft_commands.CommandSourceStack]>, arg1: j_net_minecraft_network_chat_numbers.NumberFormat | null): number;
 }
 export type ScoreboardCommand_NumberFormatCommandExecutor = ScoreboardCommand_NumberFormatCommandExecutorMembers;
 export interface ScoreboardCommand_NumberFormatCommandExecutorStatics {

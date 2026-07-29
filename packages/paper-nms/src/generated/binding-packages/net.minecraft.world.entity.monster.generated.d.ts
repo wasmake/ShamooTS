@@ -2,7 +2,6 @@
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_core_component from './net.minecraft.core.component.generated.js';
-import type * as j_net_minecraft_core_particles from './net.minecraft.core.particles.generated.js';
 import type * as j_net_minecraft_network_chat from './net.minecraft.network.chat.generated.js';
 import type * as j_net_minecraft_network_protocol_game from './net.minecraft.network.protocol.game.generated.js';
 import type * as j_net_minecraft_network_syncher from './net.minecraft.network.syncher.generated.js';
@@ -19,37 +18,27 @@ import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraf
 import type * as j_net_minecraft_world_entity_ai_control from './net.minecraft.world.entity.ai.control.generated.js';
 import type * as j_net_minecraft_world_entity_ai_goal from './net.minecraft.world.entity.ai.goal.generated.js';
 import type * as j_net_minecraft_world_entity_ai_gossip from './net.minecraft.world.entity.ai.gossip.generated.js';
-import type * as j_net_minecraft_world_entity_ai_memory from './net.minecraft.world.entity.ai.memory.generated.js';
-import type * as j_net_minecraft_world_entity_ai_navigation from './net.minecraft.world.entity.ai.navigation.generated.js';
-import type * as j_net_minecraft_world_entity_ai_sensing from './net.minecraft.world.entity.ai.sensing.generated.js';
 import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world.entity.animal.generated.js';
 import type * as j_net_minecraft_world_entity_animal_sheep from './net.minecraft.world.entity.animal.sheep.generated.js';
-import type * as j_net_minecraft_world_entity_item from './net.minecraft.world.entity.item.generated.js';
 import type * as j_net_minecraft_world_entity_monster_hoglin from './net.minecraft.world.entity.monster.hoglin.generated.js';
 import type * as j_net_minecraft_world_entity_npc from './net.minecraft.world.entity.npc.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
-import type * as j_net_minecraft_world_entity_projectile from './net.minecraft.world.entity.projectile.generated.js';
 import type * as j_net_minecraft_world_entity_raid from './net.minecraft.world.entity.raid.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
-import type * as j_net_minecraft_world_item_equipment from './net.minecraft.world.item.equipment.generated.js';
 import type * as j_net_minecraft_world_item_trading from './net.minecraft.world.item.trading.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
 import type * as j_net_minecraft_world_level_material from './net.minecraft.world.level.material.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM abstract net.minecraft.world.entity.monster.AbstractIllager. */
 export interface AbstractIllagerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_raid.Raider];
   canAttack(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
-  considersEntityAsAlly(arg0: j_net_minecraft_world_entity.Entity): boolean;
   getArmPose(): AbstractIllager_IllagerArmPose;
-  registerGoals(): void;
 }
 export type AbstractIllager = AbstractIllagerMembers & j_net_minecraft_world_entity_raid.Raider;
 export interface AbstractIllagerStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractIllager>, arg1: j_net_minecraft_world_level.Level): AbstractIllager;
 }
 
 /** Live JVM enum net.minecraft.world.entity.monster.AbstractIllager$IllagerArmPose; constants are host handles, not strings. */
@@ -82,29 +71,20 @@ export interface AbstractIllager_RaiderOpenDoorGoalStatics {
 /** JVM abstract net.minecraft.world.entity.monster.AbstractSkeleton. */
 export interface AbstractSkeletonMembers {
   readonly __javaSupertypes?: readonly [Monster, RangedAttackMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   canFireProjectileWeapon(arg0: j_net_minecraft_world_item.ProjectileWeaponItem): boolean;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
-  getArrow(arg0: j_net_minecraft_world_item.ItemStack, arg1: number, arg2: j_net_minecraft_world_item.ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow | null;
-  getAttackInterval(): number;
-  getHardAttackInterval(): number;
   getPreferredWeaponType(): j_net_minecraft_tags.TagKey<j_net_minecraft_world_item.Item>;
   isShaking(): boolean;
   onEquipItem(arg0: j_net_minecraft_world_entity.EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item.ItemStack, arg3: boolean): void;
   performRangedAttack(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   reassessWeaponGoal(): void;
-  registerGoals(): void;
   rideTick(): void;
   setShouldBurnInDay(arg0: boolean): void;
   shouldBurnInDay(): boolean;
 }
 export type AbstractSkeleton = AbstractSkeletonMembers & Monster & RangedAttackMob;
 export interface AbstractSkeletonStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractSkeleton>, arg1: j_net_minecraft_world_level.Level): AbstractSkeleton;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
 
@@ -112,15 +92,12 @@ export interface AbstractSkeletonStatics {
 export interface BlazeMembers {
   readonly __javaSupertypes?: readonly [Monster];
   aiStep(): void;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getLightLevelDependentMagicValue(): number;
   isOnFire(): boolean;
   isSensitiveToWater(): boolean;
-  registerGoals(): void;
 }
 export type Blaze = BlazeMembers & Monster;
 export interface BlazeStatics {
@@ -131,19 +108,11 @@ export interface BlazeStatics {
 /** JVM class net.minecraft.world.entity.monster.Bogged. */
 export interface BoggedMembers {
   readonly __javaSupertypes?: readonly [AbstractSkeleton, j_net_minecraft_world_entity.Shearable];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   generateDefaultDrops(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): JavaList<j_net_minecraft_world_item.ItemStack>;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getArrow(arg0: j_net_minecraft_world_item.ItemStack, arg1: number, arg2: j_net_minecraft_world_item.ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow | null;
-  getAttackInterval(): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getHardAttackInterval(): number;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getStepSound(): j_net_minecraft_sounds.SoundEvent;
   isSheared(): boolean;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   readyForShearing(): boolean;
   setSheared(arg0: boolean): void;
   shear(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_sounds.SoundSource, arg2: j_net_minecraft_world_item.ItemStack): void;
@@ -171,12 +140,9 @@ export interface CaveSpiderStatics {
 /** JVM class net.minecraft.world.entity.monster.Creeper. */
 export interface CreeperMembers {
   readonly __javaSupertypes?: readonly [Monster];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   canDropMobsSkull(): boolean;
   causeFallDamage(arg0: number, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
   entityIgniter: j_net_minecraft_world_entity.Entity | null;
   explodeCreeper(): void;
   explosionRadius: number;
@@ -190,13 +156,10 @@ export interface CreeperMembers {
   isIgnited(): boolean;
   isPowered(): boolean;
   maxSwell: number;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setIgnited(arg0: boolean): void;
   setPowered(arg0: boolean): void;
   setSwellDir(arg0: number): void;
-  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean | null;
+  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean;
   swell: number;
   thunderHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LightningBolt): void;
   tick(): void;
@@ -222,26 +185,17 @@ export interface CrossbowAttackMobStatics {
 /** JVM class net.minecraft.world.entity.monster.Drowned. */
 export interface DrownedMembers {
   readonly __javaSupertypes?: readonly [Zombie, RangedAttackMob];
-  addBehaviourGoals(): void;
-  canReplaceCurrentItem(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_entity.EquipmentSlot): boolean;
-  canSpawnInLiquids(): boolean;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
-  closeToNextPos(): boolean;
-  convertsInWater(): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getPreferredWeaponType(): j_net_minecraft_tags.TagKey<j_net_minecraft_world_item.Item>;
-  getSkull(): j_net_minecraft_world_item.ItemStack;
-  getStepSound(): j_net_minecraft_sounds.SoundEvent;
   getSwimSound(): j_net_minecraft_sounds.SoundEvent;
   isPushedByFluid(): boolean;
   isVisuallySwimming(): boolean;
-  okTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null): boolean | null;
+  okTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null): boolean;
   performRangedAttack(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
   setSearchingForLand(arg0: boolean): void;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
   updateSwimming(): void;
@@ -257,11 +211,9 @@ export interface DrownedStatics {
 /** JVM class net.minecraft.world.entity.monster.ElderGuardian. */
 export interface ElderGuardianMembers {
   readonly __javaSupertypes?: readonly [Guardian];
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getAttackDuration(): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
 }
 export type ElderGuardian = ElderGuardianMembers & Guardian;
@@ -274,11 +226,7 @@ export interface ElderGuardianStatics {
 /** JVM class net.minecraft.world.entity.monster.EnderMan. */
 export interface EnderManMembers {
   readonly __javaSupertypes?: readonly [Monster, j_net_minecraft_world_entity.NeutralMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getCarriedBlock(): j_net_minecraft_world_level_block_state.BlockState | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -291,16 +239,14 @@ export interface EnderManMembers {
   isSensitiveToWater(): boolean;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playStareSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   requiresCustomPersistence(): boolean;
   setBeingStaredAt(): void;
-  setCarriedBlock(arg0: j_net_minecraft_world_level_block_state.BlockState | null): void | null;
+  setCarriedBlock(arg0: j_net_minecraft_world_level_block_state.BlockState | null): void;
   setCreepy(arg0: boolean): void;
   setHasBeenStaredAt(arg0: boolean): void;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setRemainingPersistentAngerTime(arg0: number): void;
-  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean | null;
+  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean;
   startPersistentAngerTimer(): void;
   teleport(): boolean;
   teleportTowards(arg0: j_net_minecraft_world_entity.Entity): boolean;
@@ -314,16 +260,11 @@ export interface EnderManStatics {
 /** JVM class net.minecraft.world.entity.monster.Endermite. */
 export interface EndermiteMembers {
   readonly __javaSupertypes?: readonly [Monster];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   life: number;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setYBodyRot(arg0: number): void;
   tick(): void;
 }
@@ -351,15 +292,12 @@ export interface EnemyStatics {
 export interface EvokerMembers {
   readonly __javaSupertypes?: readonly [SpellcasterIllager];
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
-  considersEntityAsAlly(arg0: j_net_minecraft_world_entity.Entity): boolean;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getCastingSoundEvent(): j_net_minecraft_sounds.SoundEvent;
   getCelebrateSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getWololoTarget(): j_net_minecraft_world_entity_animal_sheep.Sheep | null;
-  registerGoals(): void;
-  setWololoTarget(arg0: j_net_minecraft_world_entity_animal_sheep.Sheep | null): void | null;
+  setWololoTarget(arg0: j_net_minecraft_world_entity_animal_sheep.Sheep | null): void;
 }
 export type Evoker = EvokerMembers & SpellcasterIllager;
 export interface EvokerStatics {
@@ -372,15 +310,7 @@ export interface Evoker_EvokerWololoSpellGoalMembers {
   readonly __javaSupertypes?: readonly [SpellcasterIllager_SpellcasterUseSpellGoal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  getCastWarmupTime(): number;
-  getCastingInterval(): number;
-  getCastingTime(): number;
-  getSpell(): SpellcasterIllager_IllagerSpell;
-  getSpellPrepareSound(): j_net_minecraft_sounds.SoundEvent;
-  performSpellCasting(): void;
-  start(): void;
   stop(): void;
-  tick(): void;
 }
 export type Evoker_EvokerWololoSpellGoal = Evoker_EvokerWololoSpellGoalMembers & SpellcasterIllager_SpellcasterUseSpellGoal;
 export interface Evoker_EvokerWololoSpellGoalStatics {
@@ -390,9 +320,6 @@ export interface Evoker_EvokerWololoSpellGoalStatics {
 /** JVM class net.minecraft.world.entity.monster.Ghast. */
 export interface GhastMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Mob, Enemy];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getExplosionPower(): number;
@@ -406,11 +333,8 @@ export interface GhastMembers {
   leashElasticDistance(): number;
   leashSnapDistance(): number;
   onClimbable(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setCharging(arg0: boolean): void;
   setExplosionPower(arg0: number): void;
-  shouldDespawnInPeaceful(): boolean;
   supportQuadLeashAsHolder(): boolean;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
 }
@@ -474,8 +398,6 @@ export interface GuardianMembers {
   readonly __javaSupertypes?: readonly [Monster];
   aiStep(): void;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getActiveAttackTarget(): j_net_minecraft_world_entity.LivingEntity | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getAmbientSoundInterval(): number;
@@ -483,10 +405,8 @@ export interface GuardianMembers {
   getAttackDuration(): number;
   getClientSideAttackTime(): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getMaxHeadXRot(): number;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   getSpikesAnimation(arg0: number): number;
   getTailAnimation(arg0: number): number;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
@@ -496,14 +416,12 @@ export interface GuardianMembers {
   isMoving(): boolean;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   randomStrollGoal: j_net_minecraft_world_entity_ai_goal.RandomStrollGoal | null;
-  registerGoals(): void;
   setActiveAttackTarget(arg0: number): void;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
 }
 export type Guardian = GuardianMembers & Monster;
 export interface GuardianStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<Guardian>, arg1: j_net_minecraft_world_level.Level): Guardian;
-  readonly ATTACK_TIME: 80;
   checkGuardianSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<Guardian>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
@@ -527,14 +445,10 @@ export interface Guardian_GuardianAttackGoalStatics {
 /** JVM class net.minecraft.world.entity.monster.Husk. */
 export interface HuskMembers {
   readonly __javaSupertypes?: readonly [Zombie];
-  convertsInWater(): boolean;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
-  doUnderWaterConversion(): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getSkull(): j_net_minecraft_world_item.ItemStack;
-  getStepSound(): j_net_minecraft_sounds.SoundEvent;
   isSunSensitive(): boolean;
 }
 export type Husk = HuskMembers & Zombie;
@@ -548,16 +462,14 @@ export interface IllusionerMembers {
   readonly __javaSupertypes?: readonly [SpellcasterIllager, RangedAttackMob];
   aiStep(): void;
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getArmPose(): AbstractIllager_IllagerArmPose;
-  getCastingSoundEvent(): j_net_minecraft_sounds.SoundEvent;
   getCelebrateSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getIllusionOffsets(arg0: number): Array<j_net_minecraft_world_phys.Vec3>;
   performRangedAttack(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
-  registerGoals(): void;
 }
 export type Illusioner = IllusionerMembers & SpellcasterIllager & RangedAttackMob;
 export interface IllusionerStatics {
@@ -569,19 +481,11 @@ export interface IllusionerStatics {
 /** JVM class net.minecraft.world.entity.monster.MagmaCube. */
 export interface MagmaCubeMembers {
   readonly __javaSupertypes?: readonly [Slime];
-  decreaseSquish(): void;
-  getAttackDamage(): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getJumpDelay(): number;
-  getJumpSound(): j_net_minecraft_sounds.SoundEvent;
   getLightLevelDependentMagicValue(): number;
-  getParticleType(): j_net_minecraft_core_particles.ParticleOptions;
-  getSquishSound(): j_net_minecraft_sounds.SoundEvent;
-  isDealsDamage(): boolean;
   isOnFire(): boolean;
   jumpFromGround(): void;
-  jumpInLiquid(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>): void;
   setSize(arg0: number, arg1: boolean): void;
 }
 export type MagmaCube = MagmaCubeMembers & Slime;
@@ -604,14 +508,10 @@ export interface MonsterMembers {
   getSwimSplashSound(): j_net_minecraft_sounds.SoundEvent;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
   isPreventingPlayerRest(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_player.Player): boolean;
-  shouldDespawnInPeaceful(): boolean;
   shouldDropExperience(): boolean;
-  shouldDropLoot(): boolean;
-  updateNoActionTime(): void;
 }
 export type Monster = MonsterMembers & j_net_minecraft_world_entity.PathfinderMob & Enemy;
 export interface MonsterStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<Monster>, arg1: j_net_minecraft_world_level.Level): Monster;
   checkAnyLightMonsterSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<Monster>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
   checkMonsterSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<Monster>, arg1: j_net_minecraft_world_level.ServerLevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
   createMonsterAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
@@ -621,7 +521,6 @@ export interface MonsterStatics {
 /** JVM abstract net.minecraft.world.entity.monster.PatrollingMonster. */
 export interface PatrollingMonsterMembers {
   readonly __javaSupertypes?: readonly [Monster];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   canBeLeader(): boolean;
   canJoinPatrol(): boolean;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
@@ -629,17 +528,12 @@ export interface PatrollingMonsterMembers {
   getPatrolTarget(): j_net_minecraft_core.BlockPos;
   hasPatrolTarget(): boolean;
   isPatrolLeader(): boolean;
-  isPatrolling(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
   setPatrolLeader(arg0: boolean): void;
   setPatrolTarget(arg0: j_net_minecraft_core.BlockPos): void;
-  setPatrolling(arg0: boolean): void;
 }
 export type PatrollingMonster = PatrollingMonsterMembers & Monster;
 export interface PatrollingMonsterStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<PatrollingMonster>, arg1: j_net_minecraft_world_level.Level): PatrollingMonster;
   checkPatrollingMonsterSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<PatrollingMonster>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
 }
 
@@ -659,14 +553,10 @@ export interface PatrollingMonster_LongDistancePatrolGoalStatics {
 /** JVM class net.minecraft.world.entity.monster.Phantom. */
 export interface PhantomMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Mob, Enemy];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   anchorPoint: j_net_minecraft_core.BlockPos | null;
   canAttackType(arg0: j_net_minecraft_world_entity.EntityType<object>): boolean;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  createBodyControl(): j_net_minecraft_world_entity_ai_control.BodyRotationControl;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
@@ -678,11 +568,8 @@ export interface PhantomMembers {
   isFlapping(): boolean;
   onClimbable(): boolean;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setPhantomSize(arg0: number): void;
   shouldBurnInDay: boolean;
-  shouldDespawnInPeaceful(): boolean;
   shouldRenderAtSqrDistance(arg0: number): boolean;
   spawningEntity: JavaOpaque<"java.util.UUID"> | null;
   tick(): void;
@@ -698,11 +585,8 @@ export interface PhantomStatics {
 /** JVM class net.minecraft.world.entity.monster.Pillager. */
 export interface PillagerMembers {
   readonly __javaSupertypes?: readonly [AbstractIllager, CrossbowAttackMob, j_net_minecraft_world_entity_npc.InventoryCarrier];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
   canFireProjectileWeapon(arg0: j_net_minecraft_world_item.ProjectileWeaponItem): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  enchantSpawnedWeapon(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world.DifficultyInstance): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getArmPose(): AbstractIllager_IllagerArmPose;
@@ -718,10 +602,6 @@ export interface PillagerMembers {
   isChargingCrossbow(): boolean;
   onCrossbowAttackPerformed(): void;
   performRangedAttack(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setChargingCrossbow(arg0: boolean): void;
 }
 export type Pillager = PillagerMembers & AbstractIllager & CrossbowAttackMob & j_net_minecraft_world_entity_npc.InventoryCarrier;
@@ -741,16 +621,13 @@ export interface RangedAttackMobStatics {
 /** JVM class net.minecraft.world.entity.monster.Ravager. */
 export interface RavagerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_raid.Raider];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
   attackTick: number;
-  blockedByItem(arg0: j_net_minecraft_world_entity.LivingEntity): void;
   canBeLeader(): boolean;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
-  getAttackBoundingBox(): j_net_minecraft_world_phys.AABB;
   getAttackTick(): number;
   getCelebrateSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -760,13 +637,8 @@ export interface RavagerMembers {
   getStunnedTick(): number;
   handleEntityEvent(arg0: number): void;
   hasLineOfSight(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  isImmobile(): boolean;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   roarTick: number;
   stunnedTick: number;
-  updateControlFlags(): void;
 }
 export type Ravager = RavagerMembers & j_net_minecraft_world_entity_raid.Raider;
 export interface RavagerStatics {
@@ -779,14 +651,8 @@ export interface RavagerStatics {
 /** JVM class net.minecraft.world.entity.monster.Shulker. */
 export interface ShulkerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.AbstractGolem, Enemy];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  canBeCollidedWith(arg0: j_net_minecraft_world_entity.Entity | null): boolean | null;
-  createBodyControl(): j_net_minecraft_world_entity_ai_control.BodyRotationControl;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
+  canBeCollidedWith(arg0: j_net_minecraft_world_entity.Entity | null): boolean;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
-  findAttachableSurface(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_core.Direction | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getAttachFace(): j_net_minecraft_core.Direction;
@@ -798,21 +664,16 @@ export interface ShulkerMembers {
   getInterpolation(): j_net_minecraft_world_entity.InterpolationHandler;
   getMaxHeadXRot(): number;
   getMaxHeadYRot(): number;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   getRawPeekAmount(): number;
   getRenderPosition(arg0: number): j_net_minecraft_world_phys.Vec3 | null;
   getSoundSource(): j_net_minecraft_sounds.SoundSource;
   getVariant(): JavaOptional<j_net_minecraft_world_item.DyeColor>;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
-  makeBoundingBox(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.AABB;
   move(arg0: j_net_minecraft_world_entity.MoverType, arg1: j_net_minecraft_world_phys.Vec3): void;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playAmbientSound(): void;
   push(arg0: j_net_minecraft_world_entity.Entity): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
-  registerGoals(): void;
-  sanitizeScale(arg0: number): number;
   setAttachFace(arg0: j_net_minecraft_core.Direction): void;
   setDeltaMovement(arg0: j_net_minecraft_world_phys.Vec3): void;
   setPos(arg0: number, arg1: number, arg2: number): void;
@@ -820,15 +681,12 @@ export interface ShulkerMembers {
   startRiding(arg0: j_net_minecraft_world_entity.Entity, arg1: boolean): boolean;
   stopRiding(): void;
   stopRiding(arg0: boolean): void;
-  teleportSomewhere(): boolean;
   tick(): void;
 }
 export type Shulker = ShulkerMembers & j_net_minecraft_world_entity_animal.AbstractGolem & Enemy;
 export interface ShulkerStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<Shulker>, arg1: j_net_minecraft_world_level.Level): Shulker;
-  readonly DATA_ATTACH_FACE_ID: j_net_minecraft_network_syncher.EntityDataAccessor<j_net_minecraft_core.Direction>;
   readonly DATA_COLOR_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
-  readonly DATA_PEEK_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
   getProgressAabb(arg0: number, arg1: j_net_minecraft_core.Direction, arg2: number, arg3: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.AABB;
   getProgressDeltaAabb(arg0: number, arg1: j_net_minecraft_core.Direction, arg2: number, arg3: number, arg4: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.AABB;
@@ -840,11 +698,8 @@ export interface SilverfishMembers {
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  registerGoals(): void;
   setYBodyRot(arg0: number): void;
   tick(): void;
 }
@@ -858,19 +713,14 @@ export interface SilverfishStatics {
 /** JVM class net.minecraft.world.entity.monster.Skeleton. */
 export interface SkeletonMembers {
   readonly __javaSupertypes?: readonly [AbstractSkeleton];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   canFreeze(): boolean;
   conversionTime: number;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  doFreezeConversion(): void;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   inPowderSnowTime: number;
   isFreezeConverting(): boolean;
   isShaking(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setFreezeConverting(arg0: boolean): void;
   startFreezeConversion(arg0: number): void;
   tick(): void;
@@ -885,41 +735,26 @@ export interface SkeletonStatics {
 /** JVM class net.minecraft.world.entity.monster.Slime. */
 export interface SlimeMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Mob, Enemy];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   canWander(): boolean;
-  dealDamage(arg0: j_net_minecraft_world_entity.LivingEntity): void;
-  decreaseSquish(): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  doPlayJumpSound(): boolean;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
-  getAttackDamage(): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getJumpDelay(): number;
-  getJumpSound(): j_net_minecraft_sounds.SoundEvent;
   getMaxHeadXRot(): number;
-  getParticleType(): j_net_minecraft_core_particles.ParticleOptions;
-  getPassengerAttachmentPoint(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.EntityDimensions, arg2: number): j_net_minecraft_world_phys.Vec3;
   getSize(): number;
   getSoundSource(): j_net_minecraft_sounds.SoundSource;
   getSoundVolume(): number;
-  getSquishSound(): j_net_minecraft_sounds.SoundEvent;
   getType(): j_net_minecraft_world_entity.EntityType<Slime>;
-  isDealsDamage(): boolean;
   isTiny(): boolean;
   jumpFromGround(): void;
   oSquish: number;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playerTouch(arg0: j_net_minecraft_world_entity_player.Player): void;
   push(arg0: j_net_minecraft_world_entity.Entity): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   refreshDimensions(): void;
-  registerGoals(): void;
-  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  remove(arg0: j_net_minecraft_world_entity.Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   setSize(arg0: number, arg1: boolean): void;
   setWander(arg0: boolean): void;
-  shouldDespawnInPeaceful(): boolean;
   squish: number;
   targetSquish: number;
   tick(): void;
@@ -936,22 +771,14 @@ export interface SlimeStatics {
 /** JVM abstract net.minecraft.world.entity.monster.SpellcasterIllager. */
 export interface SpellcasterIllagerMembers {
   readonly __javaSupertypes?: readonly [AbstractIllager];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getArmPose(): AbstractIllager_IllagerArmPose;
-  getCastingSoundEvent(): j_net_minecraft_sounds.SoundEvent;
   getCurrentSpell(): SpellcasterIllager_IllagerSpell;
-  getSpellCastingTime(): number;
   isCastingSpell(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setIsCastingSpell(arg0: SpellcasterIllager_IllagerSpell): void;
-  spellCastingTickCount: number;
   tick(): void;
 }
 export type SpellcasterIllager = SpellcasterIllagerMembers & AbstractIllager;
 export interface SpellcasterIllagerStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<SpellcasterIllager>, arg1: j_net_minecraft_world_level.Level): SpellcasterIllager;
 }
 
 /** Live JVM enum net.minecraft.world.entity.monster.SpellcasterIllager$IllagerSpell; constants are host handles, not strings. */
@@ -986,30 +813,19 @@ export interface SpellcasterIllager_SpellcasterCastingSpellGoalStatics {
 /** JVM abstract net.minecraft.world.entity.monster.SpellcasterIllager$SpellcasterUseSpellGoal. */
 export interface SpellcasterIllager_SpellcasterUseSpellGoalMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_goal.Goal];
-  attackWarmupDelay: number;
   canContinueToUse(): boolean;
   canUse(): boolean;
-  getCastWarmupTime(): number;
-  getCastingInterval(): number;
-  getCastingTime(): number;
-  getSpell(): SpellcasterIllager_IllagerSpell;
-  getSpellPrepareSound(): j_net_minecraft_sounds.SoundEvent | null;
-  nextAttackTickCount: number;
-  performSpellCasting(): void;
   start(): void;
   tick(): void;
 }
 export type SpellcasterIllager_SpellcasterUseSpellGoal = SpellcasterIllager_SpellcasterUseSpellGoalMembers & j_net_minecraft_world_entity_ai_goal.Goal;
 export interface SpellcasterIllager_SpellcasterUseSpellGoalStatics {
-  new(arg0: SpellcasterIllager): SpellcasterIllager_SpellcasterUseSpellGoal;
 }
 
 /** JVM class net.minecraft.world.entity.monster.Spider. */
 export interface SpiderMembers {
   readonly __javaSupertypes?: readonly [Monster];
   canBeAffected(arg0: j_net_minecraft_world_effect.MobEffectInstance): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -1018,8 +834,6 @@ export interface SpiderMembers {
   isClimbing(): boolean;
   makeStuckInBlock(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_phys.Vec3): void;
   onClimbable(): boolean;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  registerGoals(): void;
   setClimbing(arg0: boolean): void;
   tick(): void;
 }
@@ -1044,7 +858,6 @@ export interface Spider_SpiderEffectsGroupDataStatics {
 export interface StrayMembers {
   readonly __javaSupertypes?: readonly [AbstractSkeleton];
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getArrow(arg0: j_net_minecraft_world_item.ItemStack, arg1: number, arg2: j_net_minecraft_world_item.ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
 }
@@ -1058,42 +871,27 @@ export interface StrayStatics {
 export interface StriderMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Animal, j_net_minecraft_world_entity.ItemSteerable];
   boost(): boolean;
-  canAddPassenger(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  canDispenserEquipIntoSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
   canStandOnFluid(arg0: j_net_minecraft_world_level_material.FluidState): boolean;
   canUseSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Strider | null;
   getControllingPassenger(): j_net_minecraft_world_entity.LivingEntity | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDismountLocationForPassenger(arg0: j_net_minecraft_world_entity.LivingEntity): j_net_minecraft_world_phys.Vec3;
-  getEquipSound(arg0: j_net_minecraft_world_entity.EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item_equipment.Equippable): j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getLeashOffset(): j_net_minecraft_world_phys.Vec3;
-  getPassengerAttachmentPoint(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.EntityDimensions, arg2: number): j_net_minecraft_world_phys.Vec3;
-  getRiddenInput(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
-  getRiddenSpeed(arg0: j_net_minecraft_world_entity_player.Player): number;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isOnFire(): boolean;
   isSensitiveToWater(): boolean;
   isSuffocating(): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  nextStep(): number;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  registerGoals(): void;
   setSuffocating(arg0: boolean): void;
-  shouldPassengersInheritMalus(): boolean;
   readonly steering: j_net_minecraft_world_entity.ItemBasedSteering;
   tick(): void;
-  tickRidden(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): void;
 }
 export type Strider = StriderMembers & j_net_minecraft_world_entity_animal.Animal & j_net_minecraft_world_entity.ItemSteerable;
 export interface StriderStatics {
@@ -1105,15 +903,12 @@ export interface StriderStatics {
 /** JVM class net.minecraft.world.entity.monster.Vex. */
 export interface VexMembers {
   readonly __javaSupertypes?: readonly [Monster, j_net_minecraft_world_entity.TraceableEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBoundOrigin(): j_net_minecraft_core.BlockPos | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getLightLevelDependentMagicValue(): number;
-  getOwner(): j_net_minecraft_world_entity.Entity | null;
   getOwner(): j_net_minecraft_world_entity.Mob | null;
   hasLimitedLife: boolean;
   isAffectedByBlocks(): boolean;
@@ -1121,11 +916,8 @@ export interface VexMembers {
   isFlapping(): boolean;
   limitedLifeTicks: number;
   owner: j_net_minecraft_world_entity.EntityReference<j_net_minecraft_world_entity.Mob> | null;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   restoreFrom(arg0: j_net_minecraft_world_entity.Entity): void;
-  setBoundOrigin(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  setBoundOrigin(arg0: j_net_minecraft_core.BlockPos | null): void;
   setIsCharging(arg0: boolean): void;
   setLimitedLife(arg0: number): void;
   setOwner(arg0: j_net_minecraft_world_entity.Mob): void;
@@ -1134,7 +926,6 @@ export interface VexMembers {
 export type Vex = VexMembers & Monster & j_net_minecraft_world_entity.TraceableEntity;
 export interface VexStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<Vex>, arg1: j_net_minecraft_world_level.Level): Vex;
-  readonly DATA_FLAGS_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   readonly FLAP_DEGREES_PER_TICK: 45.836624;
   readonly TICKS_PER_FLAP: number;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
@@ -1143,9 +934,7 @@ export interface VexStatics {
 /** JVM class net.minecraft.world.entity.monster.Vindicator. */
 export interface VindicatorMembers {
   readonly __javaSupertypes?: readonly [AbstractIllager];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getArmPose(): AbstractIllager_IllagerArmPose;
@@ -1153,10 +942,7 @@ export interface VindicatorMembers {
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   isJohnny: boolean;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
-  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void;
 }
 export type Vindicator = VindicatorMembers & AbstractIllager;
 export interface VindicatorStatics {
@@ -1171,16 +957,13 @@ export interface WitchMembers {
   aiStep(): void;
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
   canBeLeader(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getCelebrateSound(): j_net_minecraft_sounds.SoundEvent;
-  getDamageAfterMagicAbsorb(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   handleEntityEvent(arg0: number): void;
   isDrinkingPotion(): boolean;
   performRangedAttack(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
-  registerGoals(): void;
   setDrinkingPotion(arg0: j_net_minecraft_world_item.ItemStack): void;
   setUsingItem(arg0: boolean): void;
   usingTime: number;
@@ -1197,16 +980,11 @@ export interface WitherSkeletonMembers {
   canBeAffected(arg0: j_net_minecraft_world_effect.MobEffectInstance): boolean;
   canHoldItem(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getArrow(arg0: j_net_minecraft_world_item.ItemStack, arg1: number, arg2: j_net_minecraft_world_item.ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getPreferredWeaponType(): j_net_minecraft_tags.TagKey<j_net_minecraft_world_item.Item>;
-  populateDefaultEquipmentEnchantments(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world.DifficultyInstance): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  registerGoals(): void;
 }
 export type WitherSkeleton = WitherSkeletonMembers & AbstractSkeleton;
 export interface WitherSkeletonStatics {
@@ -1216,13 +994,8 @@ export interface WitherSkeletonStatics {
 /** JVM class net.minecraft.world.entity.monster.Zoglin. */
 export interface ZoglinMembers {
   readonly __javaSupertypes?: readonly [Monster, j_net_minecraft_world_entity_monster_hoglin.HoglinBase];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  blockedByItem(arg0: j_net_minecraft_world_entity.LivingEntity): void;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Zoglin>;
   canBeLeashed(): boolean;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
@@ -1235,61 +1008,36 @@ export interface ZoglinMembers {
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isAdult(): boolean;
   isBaby(): boolean;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playAngrySound(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  sendDebugPackets(): void;
   setBaby(arg0: boolean): void;
-  updateActivity(): void;
 }
 export type Zoglin = ZoglinMembers & Monster & j_net_minecraft_world_entity_monster_hoglin.HoglinBase;
 export interface ZoglinStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<Zoglin>, arg1: j_net_minecraft_world_level.Level): Zoglin;
-  readonly MEMORY_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>]>;
-  readonly SENSOR_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_sensing.SensorType<j_net_minecraft_world_entity_ai_sensing.Sensor<Zoglin>>]>;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
 
 /** JVM class net.minecraft.world.entity.monster.Zombie. */
 export interface ZombieMembers {
   readonly __javaSupertypes?: readonly [Monster];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addBehaviourGoals(): void;
   aiStep(): void;
   canBreakDoors(): boolean;
   canHoldItem(arg0: j_net_minecraft_world_item.ItemStack): boolean;
-  canSpawnInLiquids(): boolean;
   conversionTime: number;
-  convertToZombieType(arg0: j_net_minecraft_world_entity.EntityType<Zombie>): void;
   convertVillagerToZombieVillager(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  convertsInWater(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
-  doUnderWaterConversion(): void;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getSkull(): j_net_minecraft_world_item.ItemStack;
-  getStepSound(): j_net_minecraft_sounds.SoundEvent;
   getType(): j_net_minecraft_world_entity.EntityType<Zombie>;
-  handleAttributes(arg0: number): void;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isBaby(): boolean;
   isSunSensitive(): boolean;
   isUnderWaterConverting(): boolean;
   killedEntity(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  randomizeReinforcementsChance(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setBaby(arg0: boolean): void;
   setCanBreakDoors(arg0: boolean): void;
   setConversionTime(arg0: number): void;
@@ -1329,18 +1077,12 @@ export interface Zombie_ZombieGroupDataStatics {
 /** JVM class net.minecraft.world.entity.monster.ZombieVillager. */
 export interface ZombieVillagerMembers {
   readonly __javaSupertypes?: readonly [Zombie, j_net_minecraft_world_entity_npc.VillagerDataHolder];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   conversionStarter: JavaOpaque<"java.util.UUID"> | null;
-  convertsInWater(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getSkull(): j_net_minecraft_world_item.ItemStack;
   getStepSound(): j_net_minecraft_sounds.SoundEvent;
   getVillagerData(): j_net_minecraft_world_entity_npc.VillagerData;
   getVillagerXp(): number;
@@ -1348,15 +1090,14 @@ export interface ZombieVillagerMembers {
   handleEntityEvent(arg0: number): void;
   isConverting(): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   removeWhenFarAway(arg0: number): boolean;
   setGossips(arg0: j_net_minecraft_world_entity_ai_gossip.GossipContainer): void;
   setTradeOffers(arg0: j_net_minecraft_world_item_trading.MerchantOffers): void;
   setVillagerConversionTime(arg0: number): void;
   setVillagerData(arg0: j_net_minecraft_world_entity_npc.VillagerData): void;
   setVillagerXp(arg0: number): void;
-  startConverting(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: number): void | null;
-  startConverting(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: number, arg2: boolean): void | null;
+  startConverting(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: number): void;
+  startConverting(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: number, arg2: boolean): void;
   tick(): void;
   villagerConversionTime: number;
 }
@@ -1369,25 +1110,17 @@ export interface ZombieVillagerStatics {
 /** JVM class net.minecraft.world.entity.monster.ZombifiedPiglin. */
 export interface ZombifiedPiglinMembers {
   readonly __javaSupertypes?: readonly [Zombie, j_net_minecraft_world_entity.NeutralMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addBehaviourGoals(): void;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
-  convertsInWater(): boolean;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getPersistentAngerTarget(): JavaOpaque<"java.util.UUID"> | null;
   getRemainingPersistentAngerTime(): number;
-  getSkull(): j_net_minecraft_world_item.ItemStack;
   isPreventingPlayerRest(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_player.Player): boolean;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  randomizeReinforcementsChance(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setRemainingPersistentAngerTime(arg0: number): void;
-  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean | null;
+  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean;
   startPersistentAngerTimer(): void;
   wantsToPickUp(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): boolean;
 }

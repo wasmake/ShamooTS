@@ -39,8 +39,8 @@ beforeAll(async () => {
 
 describe('complete platform binding generation', () => {
   it('pins the complete canonical scanner models', () => {
-    expect(models.paper.declarations).toHaveLength(2165);
-    expect(models.paper.events).toHaveLength(422);
+    expect(models.paper.declarations).toHaveLength(2215);
+    expect(models.paper.events).toHaveLength(423);
     expect(models.velocity.declarations).toHaveLength(358);
     expect(models.velocity.events).toHaveLength(46);
     expect(models.nms.declarations).toHaveLength(6004);
@@ -75,7 +75,7 @@ describe('complete platform binding generation', () => {
       ),
     );
     expect(reports.map((report) => (report.declarations as { expected: number }).expected)).toEqual(
-      [2165, 358, 6004, 219],
+      [2215, 358, 6004, 219],
     );
     for (const report of reports)
       for (const category of [
@@ -94,7 +94,7 @@ describe('complete platform binding generation', () => {
       }
     expect(reports[3]).toMatchObject({
       declarations: { expected: 219 },
-      members: { expected: 2029 },
+      members: { expected: 1811 },
       packets: { expected: 219 },
       packetRegistrations: { expected: 244 },
       packetRegistrationIds: { expected: 244 },

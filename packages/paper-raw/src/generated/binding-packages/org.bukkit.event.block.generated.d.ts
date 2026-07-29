@@ -86,8 +86,6 @@ export interface BlockBurnEventStatics {
 /** JVM class org.bukkit.event.block.BlockCanBuildEvent. */
 export interface BlockCanBuildEventMembers {
   readonly __javaSupertypes?: readonly [BlockEvent];
-  blockData: j_org_bukkit_block_data.BlockData;
-  buildable: boolean;
   getBlockData(): j_org_bukkit_block_data.BlockData;
   getHand(): j_org_bukkit_inventory.EquipmentSlot;
   getHandlers(): j_org_bukkit_event.HandlerList;
@@ -190,7 +188,7 @@ export interface BlockDispenseLootEventMembers {
   getPlayer(): j_org_bukkit_entity.Player | null;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setDispensedLoot(arg0: JavaList<j_org_bukkit_inventory.ItemStack> | null): void | null;
+  setDispensedLoot(arg0: JavaList<j_org_bukkit_inventory.ItemStack> | null): void;
 }
 export type BlockDispenseLootEvent = BlockDispenseLootEventMembers & BlockEvent & j_org_bukkit_event.Cancellable;
 export interface BlockDispenseLootEventStatics {
@@ -217,12 +215,10 @@ export interface BlockDropItemEventStatics {
 /** JVM abstract org.bukkit.event.block.BlockEvent. */
 export interface BlockEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event.Event];
-  block: j_org_bukkit_block.Block;
   getBlock(): j_org_bukkit_block.Block;
 }
 export type BlockEvent = BlockEventMembers & j_org_bukkit_event.Event;
 export interface BlockEventStatics {
-  new(arg0: j_org_bukkit_block.Block): BlockEvent;
 }
 
 /** JVM class org.bukkit.event.block.BlockExpEvent. */
@@ -299,14 +295,11 @@ export interface BlockFormEventStatics {
 /** JVM class org.bukkit.event.block.BlockFromToEvent. */
 export interface BlockFromToEventMembers {
   readonly __javaSupertypes?: readonly [BlockEvent, j_org_bukkit_event.Cancellable];
-  cancelled: boolean;
-  face: j_org_bukkit_block.BlockFace;
   getFace(): j_org_bukkit_block.BlockFace;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getToBlock(): j_org_bukkit_block.Block;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  to: j_org_bukkit_block.Block;
 }
 export type BlockFromToEvent = BlockFromToEventMembers & BlockEvent & j_org_bukkit_event.Cancellable;
 export interface BlockFromToEventStatics {
@@ -404,7 +397,6 @@ export interface BlockPistonEventMembers {
 }
 export type BlockPistonEvent = BlockPistonEventMembers & BlockEvent & j_org_bukkit_event.Cancellable;
 export interface BlockPistonEventStatics {
-  new(arg0: j_org_bukkit_block.Block, arg1: j_org_bukkit_block.BlockFace): BlockPistonEvent;
 }
 
 /** JVM class org.bukkit.event.block.BlockPistonExtendEvent. */
@@ -437,8 +429,7 @@ export interface BlockPistonRetractEventStatics {
 /** JVM class org.bukkit.event.block.BlockPlaceEvent. */
 export interface BlockPlaceEventMembers {
   readonly __javaSupertypes?: readonly [BlockEvent, j_org_bukkit_event.Cancellable];
-  canBuild: (boolean) & { (): boolean };
-  cancelled: boolean;
+  canBuild(): boolean;
   getBlockAgainst(): j_org_bukkit_block.Block;
   getBlockPlaced(): j_org_bukkit_block.Block;
   getBlockReplacedState(): j_org_bukkit_block.BlockState;
@@ -446,12 +437,7 @@ export interface BlockPlaceEventMembers {
   getHandlers(): j_org_bukkit_event.HandlerList;
   getItemInHand(): j_org_bukkit_inventory.ItemStack;
   getPlayer(): j_org_bukkit_entity.Player;
-  hand: j_org_bukkit_inventory.EquipmentSlot;
   isCancelled(): boolean;
-  itemInHand: j_org_bukkit_inventory.ItemStack;
-  placedAgainst: j_org_bukkit_block.Block;
-  player: j_org_bukkit_entity.Player;
-  replacedBlockState: j_org_bukkit_block.BlockState;
   setBuild(arg0: boolean): void;
   setCancelled(arg0: boolean): void;
 }
@@ -632,7 +618,6 @@ export interface InventoryBlockStartEventMembers {
   readonly __javaSupertypes?: readonly [BlockEvent];
   getHandlers(): j_org_bukkit_event.HandlerList;
   getSource(): j_org_bukkit_inventory.ItemStack;
-  source: j_org_bukkit_inventory.ItemStack;
 }
 export type InventoryBlockStartEvent = InventoryBlockStartEventMembers & BlockEvent;
 export interface InventoryBlockStartEventStatics {
@@ -712,11 +697,11 @@ export interface SignChangeEventMembers {
   /** @throws java.lang.IndexOutOfBoundsException */
   line(arg0: number): j_net_kyori_adventure_text.Component | null;
   /** @throws java.lang.IndexOutOfBoundsException */
-  line(arg0: number, arg1: j_net_kyori_adventure_text.Component): void | null;
+  line(arg0: number, arg1: j_net_kyori_adventure_text.Component | null): void;
   lines(): JavaList<j_net_kyori_adventure_text.Component>;
   setCancelled(arg0: boolean): void;
   /** @throws java.lang.IndexOutOfBoundsException */
-  setLine(arg0: number, arg1: string | null): void | null;
+  setLine(arg0: number, arg1: string | null): void;
 }
 export type SignChangeEvent = SignChangeEventMembers & BlockEvent & j_org_bukkit_event.Cancellable;
 export interface SignChangeEventStatics {
@@ -780,7 +765,7 @@ export interface VaultDisplayItemEventMembers {
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setDisplayItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setDisplayItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type VaultDisplayItemEvent = VaultDisplayItemEventMembers & BlockEvent & j_org_bukkit_event.Cancellable;
 export interface VaultDisplayItemEventStatics {

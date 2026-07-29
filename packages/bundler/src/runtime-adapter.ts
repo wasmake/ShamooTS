@@ -99,6 +99,7 @@ interface DescriptorCallbackState {
 
 const callbackMarker = (name: string): { readonly $callback: string } => ({ $callback: name });
 const callbackEncoder = new TextEncoder();
+const paperCallbackHook = Symbol.for('shamoo.paper.callback');
 
 function callbackId(componentId: string, method: string): string {
   const encoded = [...callbackEncoder.encode(`${componentId}\u0000${method}`)]
@@ -503,6 +504,10 @@ function executable(component: ComponentMetadata, constructors: ComponentRegistr
   return Reflect.construct(constructor, []);
 }
 
+function generatedEventName(decoratorName: string): string | undefined {
+  return /^On(.+Event(?:_\d+)?)$/.exec(decoratorName)?.[1];
+}
+
 function decorator(method: MethodMetadata): MethodMetadata['decorators'][number] | undefined {
   return method.decorators.find(
     (item) =>
@@ -516,8 +521,13 @@ function decorator(method: MethodMetadata): MethodMetadata['decorators'][number]
         'PacketHandler',
         'OnPacketReceive',
         'OnPacketSend',
-      ].includes(item.name) ||
-      (item.name.startsWith('On') && item.name.endsWith('Event')),
+      ].includes(item.name) || generatedEventName(item.name) !== undefined,
+  );
+}
+
+function eventDecorators(method: MethodMetadata): MethodMetadata['decorators'] {
+  return method.decorators.filter(
+    (item) => item.name === 'EventHandler' || generatedEventName(item.name) !== undefined,
   );
 }
 
@@ -860,44 +870,61 @@ export function installRuntimeAdapter(
         );
         return invoke(...commandInvocationValues(method, context));
       };
+      const eventInvoke = (...values: readonly Data[]): unknown => {
+        const hook: unknown = Reflect.get(globalThis, paperCallbackHook);
+        return typeof hook === 'function'
+          ? Reflect.apply(hook, undefined, [invoke, values])
+          : invoke(...values);
+      };
       const callback = register(
         host,
         callbackName,
         platform === 'paper' && method.invocation === 'command' && host !== undefined
           ? commandInvoke
-          : invoke,
+          : platform === 'paper' && method.invocation === 'event'
+            ? eventInvoke
+            : invoke,
       );
       if (host === undefined) continue;
       try {
-        const declaration = decorator(method);
         if (method.invocation === 'event') {
-          const event =
-            declaration?.name.startsWith('On') === true && declaration.name.endsWith('Event')
-              ? declaration.name.slice(2)
-              : firstString(method, method.name);
-          if (platform === 'paper')
-            call(
-              host,
-              platform,
-              component,
-              method,
-              'paperSubscribeEvent',
-              event,
-              'NORMAL',
-              false,
-              callbackMarker(callback),
-            );
-          else
-            call(
-              host,
-              platform,
-              component,
-              method,
-              'velocitySubscribeEvent',
-              event,
-              0,
-              callbackMarker(callback),
-            );
+          for (const eventDeclaration of eventDecorators(method)) {
+            const generated = generatedEventName(eventDeclaration.name);
+            const event =
+              generated ??
+              (typeof eventDeclaration.arguments[0] === 'string'
+                ? eventDeclaration.arguments[0]
+                : method.name);
+            const priorityValue = eventDeclaration.arguments[generated === undefined ? 1 : 0];
+            const receiveCancelledValue =
+              eventDeclaration.arguments[generated === undefined ? 2 : 1];
+            const priority = typeof priorityValue === 'string' ? priorityValue : 'NORMAL';
+            const receiveCancelled =
+              typeof receiveCancelledValue === 'boolean' ? receiveCancelledValue : false;
+            if (platform === 'paper')
+              call(
+                host,
+                platform,
+                component,
+                method,
+                'paperSubscribeEvent',
+                event,
+                priority,
+                receiveCancelled,
+                callbackMarker(callback),
+              );
+            else
+              call(
+                host,
+                platform,
+                component,
+                method,
+                'velocitySubscribeEvent',
+                event,
+                0,
+                callbackMarker(callback),
+              );
+          }
         } else if (method.invocation === 'command') {
           if (platform === 'paper') {
             if (route === undefined) throw new TypeError('Paper command route is unavailable.');

@@ -42,7 +42,7 @@
     "preserveState": false
   },
   "compiler": {
-    "version": "0.1.0-rc.1",
+    "version": "0.1.0-rc.2",
     "components": [
       {
         "id": "src/plugin.ts#EconomyPlugin",
@@ -98,6 +98,7 @@
                     "arguments": [
                       "player",
                       {
+                        "parser": "string",
                         "suggestions": [
                           "players"
                         ]
@@ -120,6 +121,7 @@
                     "arguments": [
                       "amount",
                       {
+                        "parser": "string",
                         "suggestions": [
                           "1.00",
                           "10.00",
@@ -204,6 +206,7 @@
                     "arguments": [
                       "player",
                       {
+                        "parser": "string",
                         "suggestions": [
                           "players"
                         ]

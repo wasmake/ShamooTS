@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/paper-packets",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Exact-version typed Paper packet interception contracts.",
   "license": "Apache-2.0",
   "type": "module",

@@ -36,7 +36,6 @@ export interface GrammarStatics {
 /** JVM class net.minecraft.util.parsing.packrat.commands.GreedyPatternParseRule. */
 export interface GreedyPatternParseRuleMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>];
-  parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState): object;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): string;
 }
 export type GreedyPatternParseRule = GreedyPatternParseRuleMembers & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>;
@@ -47,26 +46,19 @@ export interface GreedyPatternParseRuleStatics {
 /** JVM abstract net.minecraft.util.parsing.packrat.commands.GreedyPredicateParseRule. */
 export interface GreedyPredicateParseRuleMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>];
-  isAccepted(arg0: string): boolean;
-  parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState): object | null;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): string | null;
 }
 export type GreedyPredicateParseRule = GreedyPredicateParseRuleMembers & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>;
 export interface GreedyPredicateParseRuleStatics {
-  new(arg0: number, arg1: number, arg2: j_net_minecraft_util_parsing_packrat.DelayedException<JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">>): GreedyPredicateParseRule;
-  new(arg0: number, arg1: j_net_minecraft_util_parsing_packrat.DelayedException<JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">>): GreedyPredicateParseRule;
 }
 
 /** JVM abstract net.minecraft.util.parsing.packrat.commands.NumberRunParseRule. */
 export interface NumberRunParseRuleMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>];
-  isAccepted(arg0: string): boolean;
-  parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState): object | null;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): string | null;
 }
 export type NumberRunParseRule = NumberRunParseRuleMembers & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>;
 export interface NumberRunParseRuleStatics {
-  new(arg0: j_net_minecraft_util_parsing_packrat.DelayedException<JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">>, arg1: j_net_minecraft_util_parsing_packrat.DelayedException<JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">>): NumberRunParseRule;
 }
 
 /** JVM abstract net.minecraft.util.parsing.packrat.commands.ParserBasedArgument. */
@@ -78,13 +70,11 @@ export interface ParserBasedArgumentMembers<T = unknown> {
 }
 export type ParserBasedArgument<T = unknown> = ParserBasedArgumentMembers<T> & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [T]>;
 export interface ParserBasedArgumentStatics {
-  new<T>(arg0: CommandArgumentParser<T>): ParserBasedArgument<T>;
 }
 
 /** JVM class net.minecraft.util.parsing.packrat.commands.ResourceLocationParseRule. */
 export interface ResourceLocationParseRuleMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, j_net_minecraft_resources.ResourceLocation>];
-  parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState): object | null;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): j_net_minecraft_resources.ResourceLocation | null;
 }
 export type ResourceLocationParseRule = ResourceLocationParseRuleMembers & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, j_net_minecraft_resources.ResourceLocation>;
@@ -95,14 +85,10 @@ export interface ResourceLocationParseRuleStatics {
 /** JVM abstract net.minecraft.util.parsing.packrat.commands.ResourceLookupRule. */
 export interface ResourceLookupRuleMembers<C = unknown, V = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, V>, ResourceSuggestion];
-  readonly context: C;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): V | null;
-  /** @throws java.lang.Exception */
-  validateElement(arg0: JavaOpaque<"com.mojang.brigadier.ImmutableStringReader">, arg1: j_net_minecraft_resources.ResourceLocation): V;
 }
 export type ResourceLookupRule<C = unknown, V = unknown> = ResourceLookupRuleMembers<C, V> & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, V> & ResourceSuggestion;
 export interface ResourceLookupRuleStatics {
-  new<C, V>(arg0: j_net_minecraft_util_parsing_packrat.NamedRule<JavaOpaque<"com.mojang.brigadier.StringReader">, j_net_minecraft_resources.ResourceLocation>, arg1: C): ResourceLookupRule<C, V>;
 }
 
 /** JVM interface net.minecraft.util.parsing.packrat.commands.ResourceSuggestion. */
@@ -119,7 +105,6 @@ export interface ResourceSuggestionStatics {
 export interface StringReaderParserStateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.CachedParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>];
   input(): JavaOpaque<"com.mojang.brigadier.StringReader">;
-  input(): object;
   mark(): number;
   restore(arg0: number): void;
 }
@@ -142,12 +127,10 @@ export interface StringReaderTermsStatics {
 /** JVM abstract net.minecraft.util.parsing.packrat.commands.StringReaderTerms$TerminalCharacters. */
 export interface StringReaderTerms_TerminalCharactersMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Term<JavaOpaque<"com.mojang.brigadier.StringReader">>];
-  isAccepted(arg0: string): boolean;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>, arg1: j_net_minecraft_util_parsing_packrat.Scope, arg2: j_net_minecraft_util_parsing_packrat.Control): boolean;
 }
 export type StringReaderTerms_TerminalCharacters = StringReaderTerms_TerminalCharactersMembers & j_net_minecraft_util_parsing_packrat.Term<JavaOpaque<"com.mojang.brigadier.StringReader">>;
 export interface StringReaderTerms_TerminalCharactersStatics {
-  new(arg0: JavaOpaque<"it.unimi.dsi.fastutil.chars.CharList">): StringReaderTerms_TerminalCharacters;
 }
 
 /** JVM class net.minecraft.util.parsing.packrat.commands.StringReaderTerms$TerminalWord. */
@@ -165,7 +148,6 @@ export interface StringReaderTerms_TerminalWordStatics {
 export interface TagParseRuleMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>];
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]> | null;
-  parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState): object | null;
 }
 export type TagParseRule<T = unknown> = TagParseRuleMembers<T> & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
 export interface TagParseRuleStatics {
@@ -175,7 +157,6 @@ export interface TagParseRuleStatics {
 /** JVM class net.minecraft.util.parsing.packrat.commands.UnquotedStringParseRule. */
 export interface UnquotedStringParseRuleMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>];
-  parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState): object | null;
   parse(arg0: j_net_minecraft_util_parsing_packrat.ParseState<JavaOpaque<"com.mojang.brigadier.StringReader">>): string | null;
 }
 export type UnquotedStringParseRule = UnquotedStringParseRuleMembers & j_net_minecraft_util_parsing_packrat.Rule<JavaOpaque<"com.mojang.brigadier.StringReader">, string>;

@@ -164,7 +164,7 @@ var init_com_velocitypowered_api_event_command_generated = __esm({
 });
 
 // ../../packages/velocity-raw/src/generated/event-packages/com.velocitypowered.api.event.connection.generated.ts
-function generatedEventDecorator(name, javaName) {
+function generatedEventDecorator(name, javaName, priority, receiveCancelled) {
   return (...invocation) => {
     const context = invocation[1];
     const key = /* @__PURE__ */ Symbol.for("shamoo.decorator.declarations");
@@ -172,7 +172,7 @@ function generatedEventDecorator(name, javaName) {
     if (context?.kind !== "method" && legacyMember === void 0) throw new TypeError("@" + name + " can only decorate a method.");
     const carrier = context?.metadata ?? invocation[0].constructor;
     const declarations = carrier[key];
-    const value = { name, target: "method", arguments: [javaName], member: context?.name ?? legacyMember };
+    const value = { name, target: "method", arguments: [javaName, priority, receiveCancelled], member: context?.name ?? legacyMember };
     if (declarations === void 0) Object.defineProperty(carrier, key, { configurable: true, value: [value] });
     else declarations.push(value);
   };
@@ -181,8 +181,8 @@ var OnDisconnectEvent, OnPostLoginEvent;
 var init_com_velocitypowered_api_event_connection_generated = __esm({
   "../../packages/velocity-raw/src/generated/event-packages/com.velocitypowered.api.event.connection.generated.ts"() {
     "use strict";
-    OnDisconnectEvent = () => generatedEventDecorator("OnDisconnectEvent", "com.velocitypowered.api.event.connection.DisconnectEvent");
-    OnPostLoginEvent = () => generatedEventDecorator("OnPostLoginEvent", "com.velocitypowered.api.event.connection.PostLoginEvent");
+    OnDisconnectEvent = (priority = "NORMAL", receiveCancelled = false) => generatedEventDecorator("OnDisconnectEvent", "com.velocitypowered.api.event.connection.DisconnectEvent", priority, receiveCancelled);
+    OnPostLoginEvent = (priority = "NORMAL", receiveCancelled = false) => generatedEventDecorator("OnPostLoginEvent", "com.velocitypowered.api.event.connection.PostLoginEvent", priority, receiveCancelled);
   }
 });
 
@@ -373,6 +373,7 @@ var init_velocity2 = __esm({
 // ../../packages/bundler/dist/runtime-adapter.js
 var callbackMarker = (name) => ({ $callback: name });
 var callbackEncoder = new TextEncoder();
+var paperCallbackHook = /* @__PURE__ */ Symbol.for("shamoo.paper.callback");
 function callbackId(componentId, method2) {
   const encoded = [...callbackEncoder.encode(`${componentId}\0${method2}`)].map((value) => value.toString(16).padStart(2, "0")).join("");
   return `compiled.${encoded}`;
@@ -663,6 +664,9 @@ function executable(component, constructors) {
     );
   return Reflect.construct(constructor, []);
 }
+function generatedEventName(decoratorName) {
+  return /^On(.+Event(?:_\d+)?)$/.exec(decoratorName)?.[1];
+}
 function decorator(method2) {
   return method2.decorators.find(
     (item) => [
@@ -675,7 +679,12 @@ function decorator(method2) {
       "PacketHandler",
       "OnPacketReceive",
       "OnPacketSend"
-    ].includes(item.name) || item.name.startsWith("On") && item.name.endsWith("Event")
+    ].includes(item.name) || generatedEventName(item.name) !== void 0
+  );
+}
+function eventDecorators(method2) {
+  return method2.decorators.filter(
+    (item) => item.name === "EventHandler" || generatedEventName(item.name) !== void 0
   );
 }
 function firstString(method2, fallback) {
@@ -940,39 +949,49 @@ function installRuntimeAdapter(metadata, platform, constructors) {
         );
         return invoke(...commandInvocationValues(method2, context));
       };
+      const eventInvoke = (...values) => {
+        const hook = Reflect.get(globalThis, paperCallbackHook);
+        return typeof hook === "function" ? Reflect.apply(hook, void 0, [invoke, values]) : invoke(...values);
+      };
       const callback = register(
         host,
         callbackName,
-        platform === "paper" && method2.invocation === "command" && host !== void 0 ? commandInvoke : invoke
+        platform === "paper" && method2.invocation === "command" && host !== void 0 ? commandInvoke : platform === "paper" && method2.invocation === "event" ? eventInvoke : invoke
       );
       if (host === void 0) continue;
       try {
-        const declaration2 = decorator(method2);
         if (method2.invocation === "event") {
-          const event = declaration2?.name.startsWith("On") === true && declaration2.name.endsWith("Event") ? declaration2.name.slice(2) : firstString(method2, method2.name);
-          if (platform === "paper")
-            call(
-              host,
-              platform,
-              component,
-              method2,
-              "paperSubscribeEvent",
-              event,
-              "NORMAL",
-              false,
-              callbackMarker(callback)
-            );
-          else
-            call(
-              host,
-              platform,
-              component,
-              method2,
-              "velocitySubscribeEvent",
-              event,
-              0,
-              callbackMarker(callback)
-            );
+          for (const eventDeclaration of eventDecorators(method2)) {
+            const generated = generatedEventName(eventDeclaration.name);
+            const event = generated ?? (typeof eventDeclaration.arguments[0] === "string" ? eventDeclaration.arguments[0] : method2.name);
+            const priorityValue = eventDeclaration.arguments[generated === void 0 ? 1 : 0];
+            const receiveCancelledValue = eventDeclaration.arguments[generated === void 0 ? 2 : 1];
+            const priority = typeof priorityValue === "string" ? priorityValue : "NORMAL";
+            const receiveCancelled = typeof receiveCancelledValue === "boolean" ? receiveCancelledValue : false;
+            if (platform === "paper")
+              call(
+                host,
+                platform,
+                component,
+                method2,
+                "paperSubscribeEvent",
+                event,
+                priority,
+                receiveCancelled,
+                callbackMarker(callback)
+              );
+            else
+              call(
+                host,
+                platform,
+                component,
+                method2,
+                "velocitySubscribeEvent",
+                event,
+                0,
+                callbackMarker(callback)
+              );
+          }
         } else if (method2.invocation === "command") {
           if (platform === "paper") {
             if (route === void 0) throw new TypeError("Paper command route is unavailable.");

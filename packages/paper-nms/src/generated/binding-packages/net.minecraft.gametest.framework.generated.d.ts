@@ -35,7 +35,6 @@ export interface BlockBasedTestInstanceMembers {
   readonly __javaSupertypes?: readonly [GameTestInstance];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BlockBasedTestInstance]>;
   run(arg0: GameTestHelper): void;
-  typeDescription(): j_net_minecraft_network_chat.MutableComponent;
 }
 export type BlockBasedTestInstance = BlockBasedTestInstanceMembers & GameTestInstance;
 export interface BlockBasedTestInstanceStatics {
@@ -73,7 +72,6 @@ export interface FunctionGameTestInstanceMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FunctionGameTestInstance]>;
   describe(): j_net_minecraft_network_chat.Component;
   run(arg0: GameTestHelper): void;
-  typeDescription(): j_net_minecraft_network_chat.MutableComponent;
 }
 export type FunctionGameTestInstance = FunctionGameTestInstanceMembers & GameTestInstance;
 export interface FunctionGameTestInstanceStatics {
@@ -86,8 +84,6 @@ export interface GameTestAssertExceptionMembers {
   readonly __javaSupertypes?: readonly [GameTestException];
   getDescription(): j_net_minecraft_network_chat.Component;
   getMessage(): string;
-  readonly message: j_net_minecraft_network_chat.Component;
-  readonly tick: number;
 }
 export type GameTestAssertException = GameTestAssertExceptionMembers & GameTestException;
 export interface GameTestAssertExceptionStatics {
@@ -169,7 +165,6 @@ export interface GameTestExceptionMembers {
 }
 export type GameTestException = GameTestExceptionMembers & JavaOpaque<"java.lang.RuntimeException">;
 export interface GameTestExceptionStatics {
-  new(arg0: string): GameTestException;
 }
 
 /** JVM class net.minecraft.gametest.framework.GameTestHelper. */
@@ -195,7 +190,7 @@ export interface GameTestHelperMembers {
   assertContainerEmpty(arg0: j_net_minecraft_core.BlockPos): void;
   assertEntitiesPresent(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: number): void;
   assertEntitiesPresent(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: number): void;
-  assertEntityData<E /* extends j_net_minecraft_world_entity.Entity */, T>(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_entity.EntityType<E>, arg2: JavaFunction<E, T>, arg3: T | null): void | null;
+  assertEntityData<E /* extends j_net_minecraft_world_entity.Entity */, T>(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_entity.EntityType<E>, arg2: JavaFunction<E, T>, arg3: T | null): void;
   assertEntityData<E /* extends j_net_minecraft_world_entity.Entity */, T>(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_entity.EntityType<E>, arg2: JavaPredicate<E>): void;
   assertEntityInstancePresent(arg0: j_net_minecraft_world_entity.Entity, arg1: number, arg2: number, arg3: number): void;
   assertEntityInstancePresent(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_core.BlockPos): void;
@@ -349,7 +344,7 @@ export interface GameTestInfoMembers {
   requiredSuccesses(): number;
   retryOptions(): RetryOptions;
   setRunAtTickTime(arg0: bigint, arg1: JavaRunnable): void;
-  setTestBlockPos(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  setTestBlockPos(arg0: j_net_minecraft_core.BlockPos | null): void;
   startExecution(arg0: number): GameTestInfo;
   succeed(): void;
   tick(arg0: GameTestRunner): void;
@@ -365,11 +360,6 @@ export interface GameTestInstanceMembers {
   batch(): j_net_minecraft_core.Holder<TestEnvironmentDefinition>;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [GameTestInstance]>;
   describe(): j_net_minecraft_network_chat.Component;
-  describeInfo(): j_net_minecraft_network_chat.Component;
-  describeType(): j_net_minecraft_network_chat.MutableComponent;
-  descriptionRow(arg0: string, arg1: string): j_net_minecraft_network_chat.MutableComponent;
-  descriptionRow(arg0: string, arg1: j_net_minecraft_network_chat.MutableComponent): j_net_minecraft_network_chat.MutableComponent;
-  info(): TestData<j_net_minecraft_core.Holder<TestEnvironmentDefinition>>;
   manualOnly(): boolean;
   maxAttempts(): number;
   maxTicks(): number;
@@ -380,11 +370,9 @@ export interface GameTestInstanceMembers {
   setupTicks(): number;
   skyAccess(): boolean;
   structure(): j_net_minecraft_resources.ResourceLocation;
-  typeDescription(): j_net_minecraft_network_chat.MutableComponent;
 }
 export type GameTestInstance = GameTestInstanceMembers;
 export interface GameTestInstanceStatics {
-  new(arg0: TestData<j_net_minecraft_core.Holder<TestEnvironmentDefinition>>): GameTestInstance;
   readonly DIRECT_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [GameTestInstance]>;
   bootstrap(arg0: j_net_minecraft_core.Registry<JavaOpaque<"com.mojang.serialization.MapCodec", [GameTestInstance]>>): JavaOpaque<"com.mojang.serialization.MapCodec", [GameTestInstance]>;
 }
@@ -429,7 +417,6 @@ export interface GameTestRunnerMembers {
 }
 export type GameTestRunner = GameTestRunnerMembers;
 export interface GameTestRunnerStatics {
-  new(arg0: GameTestRunner_GameTestBatcher, arg1: JavaCollection<GameTestBatch>, arg2: j_net_minecraft_server_level.ServerLevel, arg3: GameTestTicker, arg4: GameTestRunner_StructureSpawner, arg5: GameTestRunner_StructureSpawner, arg6: boolean): GameTestRunner;
   readonly DEFAULT_TESTS_PER_ROW: 8;
   clearMarkers(arg0: j_net_minecraft_server_level.ServerLevel): void;
 }
@@ -541,7 +528,6 @@ export interface GameTestTickerStatics {
 export interface GameTestTimeoutExceptionMembers {
   readonly __javaSupertypes?: readonly [GameTestException];
   getDescription(): j_net_minecraft_network_chat.Component;
-  readonly message: j_net_minecraft_network_chat.Component;
 }
 export type GameTestTimeoutException = GameTestTimeoutExceptionMembers & GameTestException;
 export interface GameTestTimeoutExceptionStatics {
@@ -900,7 +886,6 @@ export interface TestFunctionLoaderMembers {
 }
 export type TestFunctionLoader = TestFunctionLoaderMembers;
 export interface TestFunctionLoaderStatics {
-  new(): TestFunctionLoader;
   registerLoader(arg0: TestFunctionLoader): void;
   runLoaders(arg0: j_net_minecraft_core.Registry<JavaConsumer<GameTestHelper>>): void;
 }

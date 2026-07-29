@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/hello-world",
+  "name": "hello-world",
   "displayName": "Shamoo Hello World",
   "version": "0.1.0",
   "platforms": ["paper"],

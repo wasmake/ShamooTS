@@ -1,7 +1,6 @@
 // Generated from paper-nms 1.21.8+paper.55+mache.2 (mojang+paperweight). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_commands from './net.minecraft.commands.generated.js';
-import type * as j_net_minecraft_commands_arguments from './net.minecraft.commands.arguments.generated.js';
 import type * as j_net_minecraft_commands_arguments_coordinates from './net.minecraft.commands.arguments.coordinates.generated.js';
 import type * as j_net_minecraft_commands_arguments_selector from './net.minecraft.commands.arguments.selector.generated.js';
 import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
@@ -105,7 +104,6 @@ export interface KeybindResolverStatics {
 /** JVM class net.minecraft.network.chat.contents.NbtContents. */
 export interface NbtContentsMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_chat.ComponentContents];
-  readonly compiledNbtPath: j_net_minecraft_commands_arguments.NbtPathArgument_NbtPath | null;
   equals(arg0: object): boolean;
   getDataSource(): DataSource;
   getNbtPath(): string;
@@ -113,7 +111,7 @@ export interface NbtContentsMembers {
   hashCode(): number;
   isInterpreting(): boolean;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent | null;
+  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent;
   toString(): string;
   type(): j_net_minecraft_network_chat.ComponentContents_Type<object>;
 }
@@ -161,7 +159,7 @@ export interface ScoreContentsMembers {
   name(): JavaOpaque<"com.mojang.datafixers.util.Either", [j_net_minecraft_commands_arguments_selector.SelectorPattern, string]>;
   objective(): string;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent | null;
+  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent;
   toString(): string;
   type(): j_net_minecraft_network_chat.ComponentContents_Type<object>;
 }
@@ -179,7 +177,7 @@ export interface SelectorContentsMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent | null;
+  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent;
   selector(): j_net_minecraft_commands_arguments_selector.SelectorPattern;
   separator(): JavaOptional<j_net_minecraft_network_chat.Component>;
   toString(): string;
@@ -220,7 +218,7 @@ export interface TranslatableContentsMembers {
   getKey(): string;
   hashCode(): number;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent | null;
+  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): j_net_minecraft_network_chat.MutableComponent;
   toString(): string;
   type(): j_net_minecraft_network_chat.ComponentContents_Type<object>;
   visit<T>(arg0: j_net_minecraft_network_chat.FormattedText_ContentConsumer<T>): JavaOptional<T>;
@@ -232,8 +230,8 @@ export interface TranslatableContentsStatics {
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TranslatableContents]>;
   readonly NO_ARGS: Array<object>;
   readonly TYPE: j_net_minecraft_network_chat.ComponentContents_Type<TranslatableContents>;
-  filterAllowedArguments(arg0: object | null): JavaOpaque<"com.mojang.serialization.DataResult", [object]> | null;
-  isAllowedPrimitiveArgument(arg0: object | null): boolean | null;
+  filterAllowedArguments(arg0: object | null): JavaOpaque<"com.mojang.serialization.DataResult", [object]>;
+  isAllowedPrimitiveArgument(arg0: object | null): boolean;
 }
 
 /** JVM class net.minecraft.network.chat.contents.TranslatableFormatException. */

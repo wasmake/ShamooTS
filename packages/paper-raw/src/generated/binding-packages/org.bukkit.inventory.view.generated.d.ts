@@ -15,7 +15,6 @@ export interface AnvilViewMembers {
   getRepairCost(): number;
   getRepairItemCountCost(): number;
   getTopInventory(): j_org_bukkit_inventory.AnvilInventory;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   setMaximumRepairCost(arg0: number): void;
   setRepairCost(arg0: number): void;
   setRepairItemCountCost(arg0: number): void;
@@ -31,9 +30,8 @@ export interface BeaconViewMembers {
   getSecondaryEffect(): j_org_bukkit_potion.PotionEffectType | null;
   getTier(): number;
   getTopInventory(): j_org_bukkit_inventory.BeaconInventory;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
-  setPrimaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void | null;
-  setSecondaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void | null;
+  setPrimaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
+  setSecondaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
 }
 export type BeaconView = BeaconViewMembers & j_org_bukkit_inventory.InventoryView;
 export interface BeaconViewStatics {
@@ -46,7 +44,6 @@ export interface BrewingStandViewMembers {
   getFuelLevel(): number;
   getRecipeBrewTime(): number;
   getTopInventory(): j_org_bukkit_inventory.BrewerInventory;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   /** @throws java.lang.IllegalArgumentException */
   setBrewingTicks(arg0: number): void;
   /** @throws java.lang.IllegalArgumentException */
@@ -61,7 +58,6 @@ export interface BrewingStandViewStatics {
 export interface CrafterViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_inventory.InventoryView];
   getTopInventory(): j_org_bukkit_inventory.CrafterInventory;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   isPowered(): boolean;
   isSlotDisabled(arg0: number): boolean;
   setSlotDisabled(arg0: number, arg1: boolean): void;
@@ -76,10 +72,9 @@ export interface EnchantmentViewMembers {
   getEnchantmentSeed(): number;
   getOffers(): Array<j_org_bukkit_enchantments.EnchantmentOffer> | null;
   getTopInventory(): j_org_bukkit_inventory.EnchantingInventory;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   setEnchantmentSeed(arg0: number): void;
   /** @throws java.lang.IllegalArgumentException */
-  setOffers(arg0: Array<j_org_bukkit_enchantments.EnchantmentOffer>): void | null;
+  setOffers(arg0: Array<j_org_bukkit_enchantments.EnchantmentOffer> | null): void;
 }
 export type EnchantmentView = EnchantmentViewMembers & j_org_bukkit_inventory.InventoryView;
 export interface EnchantmentViewStatics {
@@ -91,7 +86,6 @@ export interface FurnaceViewMembers {
   getBurnTime(): number;
   getCookTime(): number;
   getTopInventory(): j_org_bukkit_inventory.FurnaceInventory;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   isBurning(): boolean;
   setBurnTime(arg0: number, arg1: number): void;
   setCookTime(arg0: number, arg1: number): void;
@@ -104,7 +98,6 @@ export interface FurnaceViewStatics {
 export interface LecternViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_inventory.InventoryView];
   getPage(): number;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   getTopInventory(): j_org_bukkit_inventory.LecternInventory;
   setPage(arg0: number): void;
 }
@@ -117,7 +110,6 @@ export interface LoomViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_inventory.InventoryView];
   getSelectablePatterns(): JavaList<j_org_bukkit_block_banner.PatternType>;
   getSelectedPatternIndex(): number;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   getTopInventory(): j_org_bukkit_inventory.LoomInventory;
 }
 export type LoomView = LoomViewMembers & j_org_bukkit_inventory.InventoryView;
@@ -128,7 +120,6 @@ export interface LoomViewStatics {
 export interface MerchantViewMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_inventory.InventoryView];
   getMerchant(): j_org_bukkit_inventory.Merchant;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   getTopInventory(): j_org_bukkit_inventory.MerchantInventory;
 }
 export type MerchantView = MerchantViewMembers & j_org_bukkit_inventory.InventoryView;
@@ -141,7 +132,6 @@ export interface StonecutterViewMembers {
   getRecipeAmount(): number;
   getRecipes(): JavaList<j_org_bukkit_inventory.StonecuttingRecipe>;
   getSelectedRecipeIndex(): number;
-  getTopInventory(): j_org_bukkit_inventory.Inventory;
   getTopInventory(): j_org_bukkit_inventory.StonecutterInventory;
 }
 export type StonecutterView = StonecutterViewMembers & j_org_bukkit_inventory.InventoryView;

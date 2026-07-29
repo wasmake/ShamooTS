@@ -72,7 +72,6 @@ export interface CraftChunkMembers {
   getHandle(arg0: j_net_minecraft_world_level_chunk_status.ChunkStatus): j_net_minecraft_world_level_chunk.ChunkAccess;
   getInhabitedTime(): bigint;
   getLoadLevel(): JavaOpaque<"org.bukkit.Chunk$LoadLevel">;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getPlayersSeeingChunk(): JavaCollection<JavaOpaque<"org.bukkit.entity.Player">>;
   getPluginChunkTickets(): JavaCollection<JavaOpaque<"org.bukkit.plugin.Plugin">>;
@@ -134,7 +133,6 @@ export interface CraftChunkSnapshotStatics {
 /** JVM class org.bukkit.craftbukkit.CraftCrashReport. */
 export interface CraftCrashReportMembers {
   readonly __javaSupertypes?: readonly [JavaSupplier<string>];
-  get(): object;
   get(): string;
 }
 export type CraftCrashReport = CraftCrashReportMembers & JavaSupplier<string>;
@@ -351,7 +349,6 @@ export interface CraftOfflinePlayerMembers {
 }
 export type CraftOfflinePlayer = CraftOfflinePlayerMembers & JavaOpaque<"org.bukkit.OfflinePlayer"> & JavaOpaque<"org.bukkit.configuration.serialization.ConfigurationSerializable">;
 export interface CraftOfflinePlayerStatics {
-  new(arg0: CraftServer, arg1: JavaOpaque<"com.mojang.authlib.GameProfile">): CraftOfflinePlayer;
   deserialize(arg0: JavaMap<string, object>): JavaOpaque<"org.bukkit.OfflinePlayer">;
 }
 
@@ -364,7 +361,6 @@ export interface CraftParticleMembers<D = unknown> {
 }
 export type CraftParticle<D = unknown> = CraftParticleMembers<D> & JavaOpaque<"org.bukkit.Keyed">;
 export interface CraftParticleStatics {
-  new<D>(arg0: JavaOpaque<"org.bukkit.NamespacedKey">, arg1: j_net_minecraft_core_particles.ParticleType<object>, arg2: JavaClass<D>): CraftParticle<D>;
   bukkitToMinecraft(arg0: JavaOpaque<"org.bukkit.Particle">): j_net_minecraft_core_particles.ParticleType<object>;
   convertLegacy<T>(arg0: T): T;
   createParticleParam<D>(arg0: JavaOpaque<"org.bukkit.Particle">, arg1: D): j_net_minecraft_core_particles.ParticleOptions;
@@ -392,7 +388,6 @@ export interface CraftRaidMembers {
   getHeroes(): JavaSet<JavaOpaque<"java.util.UUID">>;
   getId(): number;
   getLocation(): JavaOpaque<"org.bukkit.Location">;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getRaiders(): JavaList<JavaOpaque<"org.bukkit.entity.Raider">>;
   getSpawnedGroups(): number;
@@ -475,7 +470,6 @@ export interface CraftRegionAccessorMembers {
 }
 export type CraftRegionAccessor = CraftRegionAccessorMembers & JavaOpaque<"org.bukkit.RegionAccessor">;
 export interface CraftRegionAccessorStatics {
-  new(): CraftRegionAccessor;
 }
 
 /** JVM class org.bukkit.craftbukkit.CraftRegistry. */
@@ -551,7 +545,6 @@ export interface CraftServerMembers {
   createInventory(arg0: JavaOpaque<"org.bukkit.inventory.InventoryHolder">, arg1: JavaOpaque<"org.bukkit.event.inventory.InventoryType">, arg2: string): JavaOpaque<"org.bukkit.inventory.Inventory">;
   createInventory(arg0: JavaOpaque<"org.bukkit.inventory.InventoryHolder">, arg1: JavaOpaque<"org.bukkit.event.inventory.InventoryType">, arg2: JavaOpaque<"net.kyori.adventure.text.Component">): JavaOpaque<"org.bukkit.inventory.Inventory">;
   createMap(arg0: JavaOpaque<"org.bukkit.World">): j_org_bukkit_craftbukkit_map.CraftMapView;
-  createMap(arg0: JavaOpaque<"org.bukkit.World">): JavaOpaque<"org.bukkit.map.MapView">;
   createMerchant(): JavaOpaque<"org.bukkit.inventory.Merchant">;
   createMerchant(arg0: string): JavaOpaque<"org.bukkit.inventory.Merchant">;
   createMerchant(arg0: JavaOpaque<"net.kyori.adventure.text.Component">): JavaOpaque<"org.bukkit.inventory.Merchant">;
@@ -560,8 +553,8 @@ export interface CraftServerMembers {
   createPlayerProfile(arg0: JavaOpaque<"java.util.UUID">, arg1: string): JavaOpaque<"org.bukkit.profile.PlayerProfile">;
   createProfile(arg0: string): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">;
   createProfile(arg0: JavaOpaque<"java.util.UUID">): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">;
-  createProfile(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string | null): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile"> | null;
-  createProfileExact(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string | null): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile"> | null;
+  createProfile(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string | null): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">;
+  createProfileExact(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string | null): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">;
   createWorld(arg0: JavaOpaque<"org.bukkit.WorldCreator">): JavaOpaque<"org.bukkit.World">;
   createWorldBorder(): JavaOpaque<"org.bukkit.WorldBorder">;
   dataPackManager: j_org_bukkit_craftbukkit_packs.CraftDataPackManager;
@@ -586,24 +579,20 @@ export interface CraftServerMembers {
   getBukkitVersion(): string;
   getCommandAliases(): JavaMap<string, Array<string>>;
   getCommandBlockOverride(arg0: string): boolean;
-  getCommandMap(): JavaOpaque<"org.bukkit.command.CommandMap">;
   getCommandMap(): JavaOpaque<"org.bukkit.command.SimpleCommandMap">;
   getConnectionThrottle(): bigint;
   getConsoleSender(): JavaOpaque<"org.bukkit.command.ConsoleCommandSender">;
   getCraftingRecipe(arg0: Array<JavaOpaque<"org.bukkit.inventory.ItemStack">>, arg1: JavaOpaque<"org.bukkit.World">): JavaOpaque<"org.bukkit.inventory.Recipe">;
   getCurrentTick(): number;
   getDataPackManager(): JavaOpaque<"org.bukkit.packs.DataPackManager">;
-  getDatapackManager(): JavaOpaque<"io.papermc.paper.datapack.DatapackManager">;
   getDatapackManager(): JavaOpaque<"io.papermc.paper.datapack.PaperDatapackManager">;
   getDefaultGameMode(): JavaOpaque<"org.bukkit.GameMode">;
   getEntity(arg0: JavaOpaque<"java.util.UUID">): JavaOpaque<"org.bukkit.entity.Entity">;
   getEntityFactory(): j_org_bukkit_craftbukkit_entity.CraftEntityFactory;
-  getEntityFactory(): JavaOpaque<"org.bukkit.entity.EntityFactory">;
   getEntityMetadata(): j_org_bukkit_craftbukkit_metadata.EntityMetadataStore;
   getGenerateStructures(): boolean;
   getGenerator(arg0: string): JavaOpaque<"org.bukkit.generator.ChunkGenerator">;
   getGlobalRegionScheduler(): JavaOpaque<"io.papermc.paper.threadedregions.scheduler.FoliaGlobalRegionScheduler">;
-  getGlobalRegionScheduler(): JavaOpaque<"io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler">;
   getHandle(): j_net_minecraft_server_dedicated.DedicatedPlayerList;
   getHelpMap(): JavaOpaque<"org.bukkit.help.HelpMap">;
   getHideOnlinePlayers(): boolean;
@@ -613,12 +602,10 @@ export interface CraftServerMembers {
   getInitialEnabledPacks(): JavaList<string>;
   getIp(): string;
   getItemFactory(): j_org_bukkit_craftbukkit_inventory.CraftItemFactory;
-  getItemFactory(): JavaOpaque<"org.bukkit.inventory.ItemFactory">;
   getListeningPluginChannels(): JavaSet<string>;
   getLogger(): JavaOpaque<"java.util.logging.Logger">;
   getLootTable(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.loot.LootTable">;
   getMap(arg0: number): j_org_bukkit_craftbukkit_map.CraftMapView;
-  getMap(arg0: number): JavaOpaque<"org.bukkit.map.MapView">;
   getMaxChainedNeighborUpdates(): number;
   getMaxPlayers(): number;
   getMaxWorldSize(): number;
@@ -634,7 +621,6 @@ export interface CraftServerMembers {
   getOfflinePlayerIfCached(arg0: string): JavaOpaque<"org.bukkit.OfflinePlayer"> | null;
   getOfflinePlayers(): Array<JavaOpaque<"org.bukkit.OfflinePlayer">>;
   getOnlineMode(): boolean;
-  getOnlinePlayers(): JavaCollection<object>;
   getOnlinePlayers(): JavaList<j_org_bukkit_craftbukkit_entity.CraftPlayer>;
   getOperators(): JavaSet<JavaOpaque<"org.bukkit.OfflinePlayer">>;
   getPauseWhenEmptyTime(): number;
@@ -649,7 +635,6 @@ export interface CraftServerMembers {
   getPluginsFolder(): JavaOpaque<"java.io.File">;
   getPort(): number;
   getPotionBrewer(): JavaOpaque<"io.papermc.paper.potion.PaperPotionBrewer">;
-  getPotionBrewer(): JavaOpaque<"org.bukkit.potion.PotionBrewer">;
   getQueryPlugins(): boolean;
   getRecipe(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.inventory.Recipe">;
   getRecipesFor(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): JavaList<JavaOpaque<"org.bukkit.inventory.Recipe">>;
@@ -659,14 +644,11 @@ export interface CraftServerMembers {
   getResourcePackHash(): string;
   getResourcePackPrompt(): string;
   getScheduler(): j_org_bukkit_craftbukkit_scheduler.CraftScheduler;
-  getScheduler(): JavaOpaque<"org.bukkit.scheduler.BukkitScheduler">;
   getScoreboardCriteria(arg0: string): JavaOpaque<"org.bukkit.scoreboard.Criteria">;
   getScoreboardManager(): j_org_bukkit_craftbukkit_scoreboard.CraftScoreboardManager;
-  getScoreboardManager(): JavaOpaque<"org.bukkit.scoreboard.ScoreboardManager">;
   getServer(): j_net_minecraft_server_dedicated.DedicatedServer;
   getServerConfig(): JavaOpaque<"io.papermc.paper.configuration.ServerConfiguration">;
   getServerIcon(): j_org_bukkit_craftbukkit_util.CraftIconCache;
-  getServerIcon(): JavaOpaque<"org.bukkit.util.CachedServerIcon">;
   getServerLinks(): JavaOpaque<"org.bukkit.ServerLinks">;
   getServerResourcePack(): JavaOpaque<"org.bukkit.packs.ResourcePack">;
   getServerTickManager(): JavaOpaque<"org.bukkit.ServerTickManager">;
@@ -730,12 +712,8 @@ export interface CraftServerMembers {
   loadPlugins(): void;
   /** @throws java.lang.Exception */
   loadServerIcon(arg0: JavaOpaque<"java.awt.image.BufferedImage">): j_org_bukkit_craftbukkit_util.CraftIconCache;
-  /** @throws java.lang.Exception @throws java.lang.IllegalArgumentException */
-  loadServerIcon(arg0: JavaOpaque<"java.awt.image.BufferedImage">): JavaOpaque<"org.bukkit.util.CachedServerIcon">;
   /** @throws java.lang.Exception */
   loadServerIcon(arg0: JavaOpaque<"java.io.File">): j_org_bukkit_craftbukkit_util.CraftIconCache;
-  /** @throws java.lang.Exception @throws java.lang.IllegalArgumentException */
-  loadServerIcon(arg0: JavaOpaque<"java.io.File">): JavaOpaque<"org.bukkit.util.CachedServerIcon">;
   matchPlayer(arg0: string): JavaList<JavaOpaque<"org.bukkit.entity.Player">>;
   minimumAPI: j_org_bukkit_craftbukkit_util.ApiVersion;
   motd(): JavaOpaque<"net.kyori.adventure.text.Component">;
@@ -1034,7 +1012,6 @@ export interface CraftWorldMembers {
   getGameTime(): bigint;
   getGenerator(): JavaOpaque<"org.bukkit.generator.ChunkGenerator"> | null;
   getHandle(): j_net_minecraft_server_level.ServerLevel;
-  getHandle(): j_net_minecraft_world_level.WorldGenLevel;
   getHighestBlockAt(arg0: number, arg1: number): JavaOpaque<"org.bukkit.block.Block">;
   getHighestBlockAt(arg0: number, arg1: number, arg2: JavaOpaque<"org.bukkit.HeightMap">): JavaOpaque<"org.bukkit.block.Block">;
   getHighestBlockAt(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.Block">;
@@ -1061,7 +1038,6 @@ export interface CraftWorldMembers {
   getNearbyEntities(arg0: JavaOpaque<"org.bukkit.util.BoundingBox">): JavaCollection<JavaOpaque<"org.bukkit.entity.Entity">>;
   getNearbyEntities(arg0: JavaOpaque<"org.bukkit.util.BoundingBox">, arg1: JavaPredicate<JavaOpaque<"org.bukkit.entity.Entity">>): JavaCollection<JavaOpaque<"org.bukkit.entity.Entity">>;
   getPVP(): boolean;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getPlayerCount(): number;
   getPlayers(): JavaList<JavaOpaque<"org.bukkit.entity.Player">>;
@@ -1226,7 +1202,7 @@ export interface CraftWorldMembers {
   setWaterUndergroundCreatureSpawnLimit(arg0: number): void;
   setWeatherDuration(arg0: number): void;
   /** @throws java.lang.IllegalArgumentException */
-  spawn<T /* extends JavaOpaque<"org.bukkit.entity.LivingEntity"> */>(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaClass<T>, arg2: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">, arg3: boolean, arg4: JavaConsumer<T> | null): T | null;
+  spawn<T /* extends JavaOpaque<"org.bukkit.entity.LivingEntity"> */>(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaClass<T>, arg2: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">, arg3: boolean, arg4: JavaConsumer<T> | null): T;
   spawnArrow(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaOpaque<"org.bukkit.util.Vector">, arg2: number, arg3: number): JavaOpaque<"org.bukkit.entity.Arrow">;
   spawnArrow<T /* extends JavaOpaque<"org.bukkit.entity.AbstractArrow"> */>(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaOpaque<"org.bukkit.util.Vector">, arg2: number, arg3: number, arg4: JavaClass<T>): T;
   /** @throws java.lang.IllegalArgumentException */

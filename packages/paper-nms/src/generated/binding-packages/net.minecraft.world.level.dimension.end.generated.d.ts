@@ -49,7 +49,7 @@ export interface EndDragonFightMembers {
   spawnNewGatewayIfPossible(): boolean;
   tick(): void;
   tryRespawn(): boolean;
-  tryRespawn(arg0: j_net_minecraft_core.BlockPos | null): boolean | null;
+  tryRespawn(arg0: j_net_minecraft_core.BlockPos | null): boolean;
   updateDragon(arg0: j_net_minecraft_world_entity_boss_enderdragon.EnderDragon): void;
 }
 export type EndDragonFight = EndDragonFightMembers;

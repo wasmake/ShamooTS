@@ -174,7 +174,6 @@ export interface FallenTreeConfigurationMembers {
 }
 export type FallenTreeConfiguration = FallenTreeConfigurationMembers & FeatureConfiguration;
 export interface FallenTreeConfigurationStatics {
-  new(arg0: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider, arg1: j_net_minecraft_util_valueproviders.IntProvider, arg2: JavaList<j_net_minecraft_world_level_levelgen_feature_treedecorators.TreeDecorator>, arg3: JavaList<j_net_minecraft_world_level_levelgen_feature_treedecorators.TreeDecorator>): FallenTreeConfiguration;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [FallenTreeConfiguration]>;
 }
 
@@ -543,7 +542,6 @@ export interface TreeConfigurationMembers {
 }
 export type TreeConfiguration = TreeConfigurationMembers & FeatureConfiguration;
 export interface TreeConfigurationStatics {
-  new(arg0: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider, arg1: j_net_minecraft_world_level_levelgen_feature_trunkplacers.TrunkPlacer, arg2: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider, arg3: j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer, arg4: JavaOptional<j_net_minecraft_world_level_levelgen_feature_rootplacers.RootPlacer>, arg5: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider, arg6: j_net_minecraft_world_level_levelgen_feature_featuresize.FeatureSize, arg7: JavaList<j_net_minecraft_world_level_levelgen_feature_treedecorators.TreeDecorator>, arg8: boolean, arg9: boolean): TreeConfiguration;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [TreeConfiguration]>;
 }
 

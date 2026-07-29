@@ -73,7 +73,6 @@ export interface WorldBorderMembers {
   getLerpRemainingTime(): bigint;
   getLerpSpeed(): number;
   getLerpTarget(): number;
-  getListeners(): JavaList<BorderChangeListener>;
   getMaxX(): number;
   getMaxZ(): number;
   getMinX(): number;

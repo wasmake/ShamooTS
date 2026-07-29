@@ -39,16 +39,6 @@ export interface AcquirePoiStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.AnimalMakeLove. */
 export interface AnimalMakeLoveMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_animal.Animal>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal.Animal, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal.Animal): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal.Animal, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal.Animal, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal.Animal, arg2: bigint): void;
 }
 export type AnimalMakeLove = AnimalMakeLoveMembers & Behavior<j_net_minecraft_world_entity_animal.Animal>;
 export interface AnimalMakeLoveStatics {
@@ -59,16 +49,6 @@ export interface AnimalMakeLoveStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.AnimalPanic. */
 export interface AnimalPanicMembers<E /* extends j_net_minecraft_world_entity.PathfinderMob */ = unknown> {
   readonly __javaSupertypes?: readonly [Behavior<E>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
 }
 export type AnimalPanic<E /* extends j_net_minecraft_world_entity.PathfinderMob */ = unknown> = AnimalPanicMembers<E> & Behavior<E>;
 export interface AnimalPanicStatics {
@@ -118,25 +98,14 @@ export interface BecomePassiveIfMemoryPresentStatics {
 /** JVM abstract net.minecraft.world.entity.ai.behavior.Behavior. */
 export interface BehaviorMembers<E /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [BehaviorControl<E>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E): boolean;
   debugString(): string;
   doStop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  readonly entryCondition: JavaMap<j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>, j_net_minecraft_world_entity_ai_memory.MemoryStatus>;
   getStatus(): Behavior_Status;
-  hasRequiredMemories(arg0: E): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
   tickOrStop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  timedOut(arg0: bigint): boolean;
   tryStart(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): boolean;
 }
 export type Behavior<E /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> = BehaviorMembers<E> & BehaviorControl<E>;
 export interface BehaviorStatics {
-  new<E /* extends j_net_minecraft_world_entity.LivingEntity */>(arg0: JavaMap<j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>, j_net_minecraft_world_entity_ai_memory.MemoryStatus>): Behavior<E>;
-  new<E /* extends j_net_minecraft_world_entity.LivingEntity */>(arg0: JavaMap<j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>, j_net_minecraft_world_entity_ai_memory.MemoryStatus>, arg1: number): Behavior<E>;
-  new<E /* extends j_net_minecraft_world_entity.LivingEntity */>(arg0: JavaMap<j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>, j_net_minecraft_world_entity_ai_memory.MemoryStatus>, arg1: number, arg2: number): Behavior<E>;
   readonly DEFAULT_DURATION: 60;
 }
 
@@ -205,14 +174,6 @@ export interface BlockPosTrackerStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.CelebrateVillagersSurvivedRaid. */
 export interface CelebrateVillagersSurvivedRaidMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type CelebrateVillagersSurvivedRaid = CelebrateVillagersSurvivedRaidMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface CelebrateVillagersSurvivedRaidStatics {
@@ -231,10 +192,6 @@ export interface CopyMemoryWithExpiryStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks. */
 export interface CountDownCooldownTicksMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.LivingEntity>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  timedOut(arg0: bigint): boolean;
 }
 export type CountDownCooldownTicks = CountDownCooldownTicksMembers & Behavior<j_net_minecraft_world_entity.LivingEntity>;
 export interface CountDownCooldownTicksStatics {
@@ -244,16 +201,6 @@ export interface CountDownCooldownTicksStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.Croak. */
 export interface CroakMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_animal_frog.Frog>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_frog.Frog, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_frog.Frog): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_frog.Frog, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_frog.Frog, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_frog.Frog, arg2: bigint): void;
 }
 export type Croak = CroakMembers & Behavior<j_net_minecraft_world_entity_animal_frog.Frog>;
 export interface CroakStatics {
@@ -263,14 +210,6 @@ export interface CroakStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.CrossbowAttack. */
 export interface CrossbowAttackMembers<E /* extends j_net_minecraft_world_entity_monster.CrossbowAttackMob */ = unknown, T /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [Behavior<E>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E): boolean;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
 }
 export type CrossbowAttack<E /* extends j_net_minecraft_world_entity_monster.CrossbowAttackMob */ = unknown, T /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> = CrossbowAttackMembers<E, T> & Behavior<E>;
 export interface CrossbowAttackStatics {
@@ -327,16 +266,6 @@ export interface EraseMemoryIfStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.FollowTemptation. */
 export interface FollowTemptationMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.PathfinderMob>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): boolean;
-  getSpeedModifier(arg0: j_net_minecraft_world_entity.PathfinderMob): number;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): void;
-  timedOut(arg0: bigint): boolean;
 }
 export type FollowTemptation = FollowTemptationMembers & Behavior<j_net_minecraft_world_entity.PathfinderMob>;
 export interface FollowTemptationStatics {
@@ -390,16 +319,6 @@ export interface GateBehavior_RunningPolicyStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.GiveGiftToHero. */
 export interface GiveGiftToHeroMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type GiveGiftToHero = GiveGiftToHeroMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface GiveGiftToHeroStatics {
@@ -409,10 +328,6 @@ export interface GiveGiftToHeroStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.GoAndGiveItemsToTarget. */
 export interface GoAndGiveItemsToTargetMembers<E /* extends j_net_minecraft_world_entity_npc.InventoryCarrier */ = unknown> {
   readonly __javaSupertypes?: readonly [Behavior<E>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
 }
 export type GoAndGiveItemsToTarget<E /* extends j_net_minecraft_world_entity_npc.InventoryCarrier */ = unknown> = GoAndGiveItemsToTargetMembers<E> & Behavior<E>;
 export interface GoAndGiveItemsToTargetStatics {
@@ -432,14 +347,6 @@ export interface GoToClosestVillageStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.GoToPotentialJobSite. */
 export interface GoToPotentialJobSiteMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type GoToPotentialJobSite = GoToPotentialJobSiteMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface GoToPotentialJobSiteStatics {
@@ -468,16 +375,6 @@ export interface GoToWantedItemStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.HarvestFarmland. */
 export interface HarvestFarmlandMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type HarvestFarmland = HarvestFarmlandMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface HarvestFarmlandStatics {
@@ -510,24 +407,13 @@ export interface InteractWithDoorMembers {
 export type InteractWithDoor = InteractWithDoorMembers;
 export interface InteractWithDoorStatics {
   new(): InteractWithDoor;
-  closeDoorsThatIHaveOpenedOrPassedThrough(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world_level_pathfinder.Node | null, arg3: j_net_minecraft_world_level_pathfinder.Node | null, arg4: JavaSet<j_net_minecraft_core.GlobalPos>, arg5: JavaOptional<JavaList<j_net_minecraft_world_entity.LivingEntity>>): void | null;
+  closeDoorsThatIHaveOpenedOrPassedThrough(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world_level_pathfinder.Node | null, arg3: j_net_minecraft_world_level_pathfinder.Node | null, arg4: JavaSet<j_net_minecraft_core.GlobalPos>, arg5: JavaOptional<JavaList<j_net_minecraft_world_entity.LivingEntity>>): void;
   create(): BehaviorControl<j_net_minecraft_world_entity.LivingEntity>;
 }
 
 /** JVM class net.minecraft.world.entity.ai.behavior.JumpOnBed. */
 export interface JumpOnBedMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.Mob>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  timedOut(arg0: bigint): boolean;
 }
 export type JumpOnBed = JumpOnBedMembers & Behavior<j_net_minecraft_world_entity.Mob>;
 export interface JumpOnBedStatics {
@@ -546,12 +432,6 @@ export interface LocateHidingPlaceStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.LongJumpMidJump. */
 export interface LongJumpMidJumpMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.Mob>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
 }
 export type LongJumpMidJump = LongJumpMidJumpMembers & Behavior<j_net_minecraft_world_entity.Mob>;
 export interface LongJumpMidJumpStatics {
@@ -562,9 +442,6 @@ export interface LongJumpMidJumpStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.LongJumpToPreferredBlock. */
 export interface LongJumpToPreferredBlockMembers<E /* extends j_net_minecraft_world_entity.Mob */ = unknown> {
   readonly __javaSupertypes?: readonly [LongJumpToRandomPos<E>];
-  getJumpCandidate(arg0: j_net_minecraft_server_level.ServerLevel): JavaOptional<LongJumpToRandomPos_PossibleJump>;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
 }
 export type LongJumpToPreferredBlock<E /* extends j_net_minecraft_world_entity.Mob */ = unknown> = LongJumpToPreferredBlockMembers<E> & LongJumpToRandomPos<E>;
 export interface LongJumpToPreferredBlockStatics {
@@ -574,32 +451,11 @@ export interface LongJumpToPreferredBlockStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.LongJumpToRandomPos. */
 export interface LongJumpToRandomPosMembers<E /* extends j_net_minecraft_world_entity.Mob */ = unknown> {
   readonly __javaSupertypes?: readonly [Behavior<E>];
-  calculateOptimalJumpVector(arg0: j_net_minecraft_world_entity.Mob, arg1: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3 | null;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob): boolean;
-  chosenJump: j_net_minecraft_world_phys.Vec3 | null;
-  findJumpTries: number;
-  getJumpCandidate(arg0: j_net_minecraft_server_level.ServerLevel): JavaOptional<LongJumpToRandomPos_PossibleJump>;
-  initialPosition: JavaOptional<j_net_minecraft_world_phys.Vec3>;
-  jumpCandidates: JavaList<LongJumpToRandomPos_PossibleJump>;
-  readonly maxJumpVelocityMultiplier: number;
-  readonly maxLongJumpHeight: number;
-  readonly maxLongJumpWidth: number;
-  pickCandidate(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  prepareJumpStart: bigint;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
 }
 export type LongJumpToRandomPos<E /* extends j_net_minecraft_world_entity.Mob */ = unknown> = LongJumpToRandomPosMembers<E> & Behavior<E>;
 export interface LongJumpToRandomPosStatics {
   new<E /* extends j_net_minecraft_world_entity.Mob */>(arg0: j_net_minecraft_util_valueproviders.UniformInt, arg1: number, arg2: number, arg3: number, arg4: JavaFunction<E, j_net_minecraft_sounds.SoundEvent>): LongJumpToRandomPos<E>;
   new<E /* extends j_net_minecraft_world_entity.Mob */>(arg0: j_net_minecraft_util_valueproviders.UniformInt, arg1: number, arg2: number, arg3: number, arg4: JavaFunction<E, j_net_minecraft_sounds.SoundEvent>, arg5: JavaOpaque<"java.util.function.BiPredicate", [E, j_net_minecraft_core.BlockPos]>): LongJumpToRandomPos<E>;
-  readonly FIND_JUMP_TRIES: 20;
-  readonly MIN_PATHFIND_DISTANCE_TO_VALID_JUMP: 8;
   defaultAcceptableLandingSpot<E /* extends j_net_minecraft_world_entity.Mob */>(arg0: E, arg1: j_net_minecraft_core.BlockPos): boolean;
 }
 
@@ -629,17 +485,6 @@ export interface LongJumpUtilStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.LookAndFollowTradingPlayerSink. */
 export interface LookAndFollowTradingPlayerSinkMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  timedOut(arg0: bigint): boolean;
 }
 export type LookAndFollowTradingPlayerSink = LookAndFollowTradingPlayerSinkMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface LookAndFollowTradingPlayerSinkStatics {
@@ -649,12 +494,6 @@ export interface LookAndFollowTradingPlayerSinkStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.LookAtTargetSink. */
 export interface LookAtTargetSinkMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.Mob>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): boolean;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
 }
 export type LookAtTargetSink = LookAtTargetSinkMembers & Behavior<j_net_minecraft_world_entity.Mob>;
 export interface LookAtTargetSinkStatics {
@@ -693,16 +532,6 @@ export interface MoveToSkySeeingSpotStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.MoveToTargetSink. */
 export interface MoveToTargetSinkMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.Mob>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
 }
 export type MoveToTargetSink = MoveToTargetSinkMembers & Behavior<j_net_minecraft_world_entity.Mob>;
 export interface MoveToTargetSinkStatics {
@@ -721,7 +550,6 @@ export interface OneShotMembers<E /* extends j_net_minecraft_world_entity.Living
 }
 export type OneShot<E /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> = OneShotMembers<E> & BehaviorControl<E> & j_net_minecraft_world_entity_ai_behavior_declarative.Trigger<E>;
 export interface OneShotStatics {
-  new<E /* extends j_net_minecraft_world_entity.LivingEntity */>(): OneShot<E>;
 }
 
 /** JVM class net.minecraft.world.entity.ai.behavior.PlayTagWithOtherKids. */
@@ -755,14 +583,6 @@ export interface PositionTrackerStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.PrepareRamNearestTarget. */
 export interface PrepareRamNearestTargetMembers<E /* extends j_net_minecraft_world_entity.PathfinderMob */ = unknown> {
   readonly __javaSupertypes?: readonly [Behavior<E>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: E, arg2: bigint): void;
 }
 export type PrepareRamNearestTarget<E /* extends j_net_minecraft_world_entity.PathfinderMob */ = unknown> = PrepareRamNearestTargetMembers<E> & Behavior<E>;
 export interface PrepareRamNearestTargetStatics {
@@ -784,15 +604,6 @@ export interface PrepareRamNearestTarget_RamCandidateStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.RamTarget. */
 export interface RamTargetMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_animal_goat.Goat>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_goat.Goat, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_goat.Goat): boolean;
-  finishRam(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_goat.Goat): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_goat.Goat, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_animal_goat.Goat, arg2: bigint): void;
 }
 export type RamTarget = RamTargetMembers & Behavior<j_net_minecraft_world_entity_animal_goat.Goat>;
 export interface RamTargetStatics {
@@ -804,8 +615,6 @@ export interface RamTargetStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.RandomLookAround. */
 export interface RandomLookAroundMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.Mob>];
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
 }
 export type RandomLookAround = RandomLookAroundMembers & Behavior<j_net_minecraft_world_entity.Mob>;
 export interface RandomLookAroundStatics {
@@ -981,15 +790,10 @@ export interface SetWalkTargetFromLookTargetStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.ShowTradesToPlayer. */
 export interface ShowTradesToPlayerMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
   canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
   checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
   start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
   stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
   tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type ShowTradesToPlayer = ShowTradesToPlayerMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
@@ -1001,7 +805,6 @@ export interface ShowTradesToPlayerStatics {
 export interface ShufflingListMembers<U = unknown> {
   readonly __javaSupertypes?: readonly [Iterable<U>];
   add(arg0: U, arg1: number): ShufflingList<U>;
-  readonly entries: JavaList<ShufflingList_WeightedEntry<U>>;
   iterator(): JavaOpaque<"java.util.Iterator", [U]>;
   shuffle(): ShufflingList<U>;
   stream(): JavaOpaque<"java.util.stream.Stream", [U]>;
@@ -1028,11 +831,6 @@ export interface ShufflingList_WeightedEntryStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.SleepInBed. */
 export interface SleepInBedMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity.LivingEntity>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  timedOut(arg0: bigint): boolean;
 }
 export type SleepInBed = SleepInBedMembers & Behavior<j_net_minecraft_world_entity.LivingEntity>;
 export interface SleepInBedStatics {
@@ -1160,12 +958,6 @@ export interface StrollToPoiListStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.Swim. */
 export interface SwimMembers<T /* extends j_net_minecraft_world_entity.Mob */ = unknown> {
   readonly __javaSupertypes?: readonly [Behavior<T>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob): boolean;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
 }
 export type Swim<T /* extends j_net_minecraft_world_entity.Mob */ = unknown> = SwimMembers<T> & Behavior<T>;
 export interface SwimStatics {
@@ -1176,16 +968,6 @@ export interface SwimStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.TradeWithVillager. */
 export interface TradeWithVillagerMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type TradeWithVillager = TradeWithVillagerMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface TradeWithVillagerStatics {
@@ -1250,16 +1032,6 @@ export interface UpdateActivityFromScheduleStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.UseBonemeal. */
 export interface UseBonemealMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type UseBonemeal = UseBonemealMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface UseBonemealStatics {
@@ -1318,16 +1090,6 @@ export interface VillagerGoalPackagesStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.VillagerMakeLove. */
 export interface VillagerMakeLoveMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type VillagerMakeLove = VillagerMakeLoveMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface VillagerMakeLoveStatics {
@@ -1337,12 +1099,6 @@ export interface VillagerMakeLoveStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.VillagerPanicTrigger. */
 export interface VillagerPanicTriggerMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
 }
 export type VillagerPanicTrigger = VillagerPanicTriggerMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface VillagerPanicTriggerStatics {
@@ -1363,7 +1119,6 @@ export interface WakeUpStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.WorkAtComposter. */
 export interface WorkAtComposterMembers {
   readonly __javaSupertypes?: readonly [WorkAtPoi];
-  useWorkstation(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): void;
 }
 export type WorkAtComposter = WorkAtComposterMembers & WorkAtPoi;
 export interface WorkAtComposterStatics {
@@ -1373,13 +1128,6 @@ export interface WorkAtComposterStatics {
 /** JVM class net.minecraft.world.entity.ai.behavior.WorkAtPoi. */
 export interface WorkAtPoiMembers {
   readonly __javaSupertypes?: readonly [Behavior<j_net_minecraft_world_entity_npc.Villager>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager, arg2: bigint): void;
-  useWorkstation(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_npc.Villager): void;
 }
 export type WorkAtPoi = WorkAtPoiMembers & Behavior<j_net_minecraft_world_entity_npc.Villager>;
 export interface WorkAtPoiStatics {

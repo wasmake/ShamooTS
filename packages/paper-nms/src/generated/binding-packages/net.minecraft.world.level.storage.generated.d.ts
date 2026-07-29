@@ -287,7 +287,7 @@ export interface LevelStorageSource_LevelStorageAccessMembers {
   restoreLevelDataFromOld(): boolean;
   safeClose(): void;
   saveDataTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: WorldData): void;
-  saveDataTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: WorldData, arg2: j_net_minecraft_nbt.CompoundTag | null): void | null;
+  saveDataTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: WorldData, arg2: j_net_minecraft_nbt.CompoundTag | null): void;
 }
 export type LevelStorageSource_LevelStorageAccess = LevelStorageSource_LevelStorageAccessMembers & JavaOpaque<"java.lang.AutoCloseable">;
 export interface LevelStorageSource_LevelStorageAccessStatics {
@@ -301,7 +301,6 @@ export interface LevelSummaryMembers {
   canEdit(): boolean;
   canRecreate(): boolean;
   canUpload(): boolean;
-  compareTo(arg0: object): number;
   compareTo(arg0: LevelSummary): number;
   getGameMode(): j_net_minecraft_world_level.GameType;
   getIcon(): JavaOpaque<"java.nio.file.Path">;
@@ -351,7 +350,6 @@ export interface LevelSummary_CorruptedLevelSummaryMembers {
   canEdit(): boolean;
   canRecreate(): boolean;
   canUpload(): boolean;
-  compareTo(arg0: object): number;
   getInfo(): j_net_minecraft_network_chat.Component;
   getLastPlayed(): bigint;
   getLevelName(): string;
@@ -370,7 +368,6 @@ export interface LevelSummary_SymlinkLevelSummaryMembers {
   canEdit(): boolean;
   canRecreate(): boolean;
   canUpload(): boolean;
-  compareTo(arg0: object): number;
   getInfo(): j_net_minecraft_network_chat.Component;
   getLastPlayed(): bigint;
   getLevelName(): string;
@@ -398,7 +395,6 @@ export interface LevelVersionStatics {
 
 /** JVM class net.minecraft.world.level.storage.PlayerDataStorage. */
 export interface PlayerDataStorageMembers {
-  readonly fixerUpper: JavaOpaque<"com.mojang.datafixers.DataFixer">;
   getPlayerDir(): JavaOpaque<"java.io.File">;
   load(arg0: string, arg1: string, arg2: j_net_minecraft_util.ProblemReporter): JavaOptional<j_net_minecraft_nbt.CompoundTag>;
   load(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_util.ProblemReporter): JavaOptional<ValueInput>;
@@ -413,7 +409,7 @@ export interface PlayerDataStorageStatics {
 export interface PrimaryLevelDataMembers {
   readonly __javaSupertypes?: readonly [ServerLevelData, WorldData];
   checkName(arg0: string): void;
-  createTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag | null;
+  createTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag;
   customDimensions: j_net_minecraft_core.Registry<j_net_minecraft_world_level_dimension.LevelStem>;
   endDragonFightData(): j_net_minecraft_world_level_dimension_end.EndDragonFight_Data;
   fillCrashReportCategory(arg0: j_net_minecraft.CrashReportCategory, arg1: j_net_minecraft_world_level.LevelHeightAccessor): void;
@@ -449,9 +445,8 @@ export interface PrimaryLevelDataMembers {
   isRaining(): boolean;
   isThundering(): boolean;
   overworldData(): ServerLevelData;
-  pdc: j_net_minecraft_nbt.Tag;
   setClearWeatherTime(arg0: number): void;
-  setCustomBossEvents(arg0: j_net_minecraft_nbt.CompoundTag | null): void | null;
+  setCustomBossEvents(arg0: j_net_minecraft_nbt.CompoundTag | null): void;
   setDataConfiguration(arg0: j_net_minecraft_world_level.WorldDataConfiguration): void;
   setDayTime(arg0: bigint): void;
   setDifficulty(arg0: j_net_minecraft_world.Difficulty): void;
@@ -482,8 +477,6 @@ export type PrimaryLevelData = PrimaryLevelDataMembers & ServerLevelData & World
 export interface PrimaryLevelDataStatics {
   new(arg0: j_net_minecraft_world_level.LevelSettings, arg1: j_net_minecraft_world_level_levelgen.WorldOptions, arg2: PrimaryLevelData_SpecialWorldProperty, arg3: JavaOpaque<"com.mojang.serialization.Lifecycle">): PrimaryLevelData;
   readonly LEVEL_NAME: "LevelName";
-  readonly PLAYER: "Player";
-  readonly WORLD_GEN_SETTINGS: "WorldGenSettings";
   parse<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>, arg1: j_net_minecraft_world_level.LevelSettings, arg2: PrimaryLevelData_SpecialWorldProperty, arg3: j_net_minecraft_world_level_levelgen.WorldOptions, arg4: JavaOpaque<"com.mojang.serialization.Lifecycle">): PrimaryLevelData;
 }
 
@@ -680,7 +673,7 @@ export interface TagValueOutputMembers {
   putString(arg0: string, arg1: string): void;
   store<T>(arg0: JavaOpaque<"com.mojang.serialization.MapCodec", [T]>, arg1: T): void;
   store<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T): void;
-  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T | null): void | null;
+  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T | null): void;
 }
 export type TagValueOutput = TagValueOutputMembers & ValueOutput;
 export interface TagValueOutputStatics {
@@ -816,7 +809,7 @@ export interface ValueOutputMembers {
   putString(arg0: string, arg1: string): void;
   store<T>(arg0: JavaOpaque<"com.mojang.serialization.MapCodec", [T]>, arg1: T): void;
   store<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T): void;
-  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T | null): void | null;
+  storeNullable<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T | null): void;
 }
 export type ValueOutput = ValueOutputMembers;
 export interface ValueOutputStatics {
@@ -843,7 +836,7 @@ export interface ValueOutput_ValueOutputListStatics {
 
 /** JVM interface net.minecraft.world.level.storage.WorldData. */
 export interface WorldDataMembers {
-  createTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag | null;
+  createTag(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_nbt.CompoundTag;
   enabledFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
   endDragonFightData(): j_net_minecraft_world_level_dimension_end.EndDragonFight_Data;
   fillCrashReportCategory(arg0: j_net_minecraft.CrashReportCategory): void;
@@ -865,7 +858,7 @@ export interface WorldDataMembers {
   isFlatWorld(): boolean;
   isHardcore(): boolean;
   overworldData(): ServerLevelData;
-  setCustomBossEvents(arg0: j_net_minecraft_nbt.CompoundTag | null): void | null;
+  setCustomBossEvents(arg0: j_net_minecraft_nbt.CompoundTag | null): void;
   setDataConfiguration(arg0: j_net_minecraft_world_level.WorldDataConfiguration): void;
   setDifficulty(arg0: j_net_minecraft_world.Difficulty): void;
   setDifficultyLocked(arg0: boolean): void;

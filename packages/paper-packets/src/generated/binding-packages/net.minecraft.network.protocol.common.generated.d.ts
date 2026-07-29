@@ -4,7 +4,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 /** JVM class net.minecraft.network.protocol.common.ClientboundClearDialogPacket. */
 export interface ClientboundClearDialogPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundClearDialogPacket]>;
 }
@@ -18,7 +17,6 @@ export interface ClientboundClearDialogPacketStatics {
 export interface ClientboundCustomPayloadPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   payload(): JavaOpaque<"net.minecraft.network.protocol.common.custom.CustomPacketPayload">;
@@ -37,7 +35,6 @@ export interface ClientboundCustomReportDetailsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   details(): JavaMap<string, string>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -53,7 +50,6 @@ export interface ClientboundCustomReportDetailsPacketStatics {
 export interface ClientboundDisconnectPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   reason(): JavaOpaque<"net.minecraft.network.chat.Component">;
@@ -70,7 +66,6 @@ export interface ClientboundDisconnectPacketStatics {
 export interface ClientboundKeepAlivePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   getId(): bigint;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundKeepAlivePacket]>;
 }
@@ -84,7 +79,6 @@ export interface ClientboundKeepAlivePacketStatics {
 export interface ClientboundPingPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundPingPacket]>;
 }
@@ -98,7 +92,6 @@ export interface ClientboundPingPacketStatics {
 export interface ClientboundResourcePackPopPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   id(): JavaOptional<JavaOpaque<"java.util.UUID">>;
@@ -115,7 +108,6 @@ export interface ClientboundResourcePackPopPacketStatics {
 export interface ClientboundResourcePackPushPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hash(): string;
   hashCode(): number;
@@ -137,7 +129,6 @@ export interface ClientboundResourcePackPushPacketStatics {
 export interface ClientboundServerLinksPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   links(): JavaList<JavaOpaque<"net.minecraft.server.ServerLinks$UntrustedEntry">>;
@@ -155,7 +146,6 @@ export interface ClientboundShowDialogPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   dialog(): JavaOpaque<"net.minecraft.core.Holder", [JavaOpaque<"net.minecraft.server.dialog.Dialog">]>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -172,7 +162,6 @@ export interface ClientboundShowDialogPacketStatics {
 export interface ClientboundStoreCookiePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   key(): JavaOpaque<"net.minecraft.resources.ResourceLocation">;
@@ -191,7 +180,6 @@ export interface ClientboundStoreCookiePacketStatics {
 export interface ClientboundTransferPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   hashCode(): number;
   host(): string;
@@ -209,7 +197,6 @@ export interface ClientboundTransferPacketStatics {
 export interface ClientboundUpdateTagsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">]>];
   getTags(): JavaMap<JavaOpaque<"net.minecraft.resources.ResourceKey", [JavaOpaque<"net.minecraft.core.Registry", [object]>]>, JavaOpaque<"net.minecraft.tags.TagNetworkSerialization$NetworkPayload">>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ClientCommonPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundUpdateTagsPacket]>;
 }
@@ -223,7 +210,6 @@ export interface ClientboundUpdateTagsPacketStatics {
 export interface ServerboundClientInformationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">): void;
   hashCode(): number;
   information(): JavaOpaque<"net.minecraft.server.level.ClientInformation">;
@@ -240,7 +226,6 @@ export interface ServerboundClientInformationPacketStatics {
 export interface ServerboundCustomClickActionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">): void;
   hashCode(): number;
   id(): JavaOpaque<"net.minecraft.resources.ResourceLocation">;
@@ -258,7 +243,6 @@ export interface ServerboundCustomClickActionPacketStatics {
 export interface ServerboundCustomPayloadPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">): void;
   hashCode(): number;
   payload(): JavaOpaque<"net.minecraft.network.protocol.common.custom.CustomPacketPayload">;
@@ -275,7 +259,6 @@ export interface ServerboundCustomPayloadPacketStatics {
 export interface ServerboundKeepAlivePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">]>];
   getId(): bigint;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundKeepAlivePacket]>;
 }
@@ -289,7 +272,6 @@ export interface ServerboundKeepAlivePacketStatics {
 export interface ServerboundPongPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">]>];
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundPongPacket]>;
 }
@@ -304,7 +286,6 @@ export interface ServerboundResourcePackPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">]>];
   action(): JavaOpaque<"net.minecraft.network.protocol.common.ServerboundResourcePackPacket$Action">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.common.ServerCommonPacketListener">): void;
   hashCode(): number;
   id(): JavaOpaque<"java.util.UUID">;

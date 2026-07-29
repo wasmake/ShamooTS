@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_builder from './net.kyori.adventure.builder.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
@@ -26,7 +26,7 @@ export interface ComponentFlattener_BuilderMembers {
   complexMapper<T /* extends j_net_kyori_adventure_text.Component */>(arg0: JavaClass<T>, arg1: JavaBiConsumer<T, JavaConsumer<j_net_kyori_adventure_text.Component>>): ComponentFlattener_Builder;
   mapper<T /* extends j_net_kyori_adventure_text.Component */>(arg0: JavaClass<T>, arg1: JavaFunction<T, string>): ComponentFlattener_Builder;
   nestingLimit(arg0: number): ComponentFlattener_Builder;
-  unknownMapper(arg0: JavaFunction<j_net_kyori_adventure_text.Component, string> | null): ComponentFlattener_Builder | null;
+  unknownMapper(arg0: JavaFunction<j_net_kyori_adventure_text.Component, string> | null): ComponentFlattener_Builder;
 }
 export type ComponentFlattener_Builder = ComponentFlattener_BuilderMembers;
 export interface ComponentFlattener_BuilderStatics {

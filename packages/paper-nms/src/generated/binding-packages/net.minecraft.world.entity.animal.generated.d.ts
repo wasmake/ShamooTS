@@ -2,7 +2,6 @@
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_core_component from './net.minecraft.core.component.generated.js';
-import type * as j_net_minecraft_core_particles from './net.minecraft.core.particles.generated.js';
 import type * as j_net_minecraft_data_worldgen from './net.minecraft.data.worldgen.generated.js';
 import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
 import type * as j_net_minecraft_network from './net.minecraft.network.generated.js';
@@ -12,7 +11,6 @@ import type * as j_net_minecraft_network_syncher from './net.minecraft.network.s
 import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
-import type * as j_net_minecraft_tags from './net.minecraft.tags.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
 import type * as j_net_minecraft_world from './net.minecraft.world.generated.js';
 import type * as j_net_minecraft_world_damagesource from './net.minecraft.world.damagesource.generated.js';
@@ -21,7 +19,6 @@ import type * as j_net_minecraft_world_entity_ai from './net.minecraft.world.ent
 import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraft.world.entity.ai.attributes.generated.js';
 import type * as j_net_minecraft_world_entity_ai_control from './net.minecraft.world.entity.ai.control.generated.js';
 import type * as j_net_minecraft_world_entity_ai_goal from './net.minecraft.world.entity.ai.goal.generated.js';
-import type * as j_net_minecraft_world_entity_ai_navigation from './net.minecraft.world.entity.ai.navigation.generated.js';
 import type * as j_net_minecraft_world_entity_ai_targeting from './net.minecraft.world.entity.ai.targeting.generated.js';
 import type * as j_net_minecraft_world_entity_item from './net.minecraft.world.entity.item.generated.js';
 import type * as j_net_minecraft_world_entity_monster from './net.minecraft.world.entity.monster.generated.js';
@@ -29,11 +26,9 @@ import type * as j_net_minecraft_world_entity_player from './net.minecraft.world
 import type * as j_net_minecraft_world_entity_variant from './net.minecraft.world.entity.variant.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_item_component from './net.minecraft.world.item.component.generated.js';
-import type * as j_net_minecraft_world_item_equipment from './net.minecraft.world.item.equipment.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_biome from './net.minecraft.world.level.biome.generated.js';
 import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
-import type * as j_net_minecraft_world_level_material from './net.minecraft.world.level.material.generated.js';
 import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
@@ -47,33 +42,21 @@ export interface AbstractCowMembers {
   getSoundVolume(): number;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  registerGoals(): void;
 }
 export type AbstractCow = AbstractCowMembers & Animal;
 export interface AbstractCowStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractCow>, arg1: j_net_minecraft_world_level.Level): AbstractCow;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
 
 /** JVM abstract net.minecraft.world.entity.animal.AbstractFish. */
 export interface AbstractFishMembers {
   readonly __javaSupertypes?: readonly [WaterAnimal, Bucketable];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  canRandomSwim(): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   fromBucket(): boolean;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getMaxSpawnClusterSize(): number;
   getPickupSound(): j_net_minecraft_sounds.SoundEvent;
   getSwimSound(): j_net_minecraft_sounds.SoundEvent;
   loadFromBucketTag(arg0: j_net_minecraft_nbt.CompoundTag): void;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
   requiresCustomPersistence(): boolean;
   saveToBucketTag(arg0: j_net_minecraft_world_item.ItemStack): void;
@@ -82,7 +65,6 @@ export interface AbstractFishMembers {
 }
 export type AbstractFish = AbstractFishMembers & WaterAnimal & Bucketable;
 export interface AbstractFishStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractFish>, arg1: j_net_minecraft_world_level.Level): AbstractFish;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
 
@@ -97,7 +79,6 @@ export interface AbstractGolemMembers {
 }
 export type AbstractGolem = AbstractGolemMembers & j_net_minecraft_world_entity.PathfinderMob;
 export interface AbstractGolemStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractGolem>, arg1: j_net_minecraft_world_level.Level): AbstractGolem;
 }
 
 /** JVM abstract net.minecraft.world.entity.animal.AbstractSchoolingFish. */
@@ -105,7 +86,6 @@ export interface AbstractSchoolingFishMembers {
   readonly __javaSupertypes?: readonly [AbstractFish];
   addFollowers(arg0: JavaOpaque<"java.util.stream.Stream", [AbstractSchoolingFish]>): void;
   canBeFollowed(): boolean;
-  canRandomSwim(): boolean;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getMaxSchoolSize(): number;
   getMaxSpawnClusterSize(): number;
@@ -114,7 +94,6 @@ export interface AbstractSchoolingFishMembers {
   isFollower(): boolean;
   leader: AbstractSchoolingFish | null;
   pathToLeader(): void;
-  registerGoals(): void;
   schoolSize: number;
   startFollowing(arg0: AbstractSchoolingFish): AbstractSchoolingFish;
   stopFollowing(): void;
@@ -122,7 +101,6 @@ export interface AbstractSchoolingFishMembers {
 }
 export type AbstractSchoolingFish = AbstractSchoolingFishMembers & AbstractFish;
 export interface AbstractSchoolingFishStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AbstractSchoolingFish>, arg1: j_net_minecraft_world_level.Level): AbstractSchoolingFish;
 }
 
 /** JVM class net.minecraft.world.entity.animal.AbstractSchoolingFish$SchoolSpawnGroupData. */
@@ -143,12 +121,10 @@ export interface AgeableWaterCreatureMembers {
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
   getAmbientSoundInterval(): number;
   getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
-  handleAirSupply(arg0: number): void;
   isPushedByFluid(): boolean;
 }
 export type AgeableWaterCreature = AgeableWaterCreatureMembers & j_net_minecraft_world_entity.AgeableMob;
 export interface AgeableWaterCreatureStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<AgeableWaterCreature>, arg1: j_net_minecraft_world_level.Level): AgeableWaterCreature;
   checkSurfaceAgeableWaterCreatureSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<AgeableWaterCreature>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
 }
 
@@ -156,16 +132,13 @@ export interface AgeableWaterCreatureStatics {
 export interface AnimalMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.AgeableMob];
   actuallyHurt(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number, arg3: JavaOpaque<"org.bukkit.event.entity.EntityDamageEvent">): boolean;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   breedItem: j_net_minecraft_world_item.ItemStack | null;
   canFallInLove(): boolean;
   canMate(arg0: Animal): boolean;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  finalizeSpawnChildFromBreeding(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Animal, arg2: j_net_minecraft_world_entity.AgeableMob | null): void | null;
-  finalizeSpawnChildFromBreeding(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Animal, arg2: j_net_minecraft_world_entity.AgeableMob | null, arg3: number): void | null;
+  finalizeSpawnChildFromBreeding(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Animal, arg2: j_net_minecraft_world_entity.AgeableMob | null): void;
+  finalizeSpawnChildFromBreeding(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Animal, arg2: j_net_minecraft_world_entity.AgeableMob | null, arg3: number): void;
   getAmbientSoundInterval(): number;
-  getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
   getInLoveTime(): number;
   getLoveCause(): j_net_minecraft_server_level.ServerPlayer | null;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
@@ -175,40 +148,28 @@ export interface AnimalMembers {
   isInLove(): boolean;
   loveCause: j_net_minecraft_world_entity.EntityReference<j_net_minecraft_server_level.ServerPlayer> | null;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  playEatingSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   removeWhenFarAway(arg0: number): boolean;
   resetLove(): void;
-  setInLove(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
-  setInLove(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_item.ItemStack | null): void | null;
+  setInLove(arg0: j_net_minecraft_world_entity_player.Player | null): void;
+  setInLove(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_item.ItemStack | null): void;
   setInLoveTime(arg0: number): void;
   spawnChildFromBreeding(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Animal): void;
-  usePlayerItem(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand, arg2: j_net_minecraft_world_item.ItemStack): void;
 }
 export type Animal = AnimalMembers & j_net_minecraft_world_entity.AgeableMob;
 export interface AnimalStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<Animal>, arg1: j_net_minecraft_world_level.Level): Animal;
-  readonly PARENT_AGE_AFTER_BREEDING: 6000;
   checkAnimalSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<Animal>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
   createAnimalAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
-  isBrightEnoughToSpawn(arg0: j_net_minecraft_world_level.BlockAndTintGetter, arg1: j_net_minecraft_core.BlockPos): boolean;
 }
 
 /** JVM class net.minecraft.world.entity.animal.Bee. */
 export interface BeeMembers {
   readonly __javaSupertypes?: readonly [Animal, j_net_minecraft_world_entity.NeutralMob, FlyingAnimal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: boolean): void;
   aiStep(): void;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
   dropOffNectar(): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBlacklistedHives(): JavaList<j_net_minecraft_core.BlockPos>;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Bee | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getGoalSelector(): j_net_minecraft_world_entity_ai_goal.GoalSelector;
@@ -232,19 +193,14 @@ export interface BeeMembers {
   isFlying(): boolean;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isRolling(): boolean;
-  jumpInLiquid(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>): void;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   numCropsGrownSincePollination: number;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   resetTicksWithoutNectarSinceExitingHive(): void;
   rollingOverride: JavaOpaque<"net.kyori.adventure.util.TriState">;
-  sendDebugPackets(): void;
   setHasNectar(arg0: boolean): void;
   setHasStung(arg0: boolean): void;
   setHivePos(arg0: j_net_minecraft_core.BlockPos): void;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setRemainingPersistentAngerTime(arg0: number): void;
   setRolling(arg0: boolean): void;
   setSavedFlowerPos(arg0: j_net_minecraft_core.BlockPos): void;
@@ -278,8 +234,6 @@ export interface Bee_BeeGoToHiveGoalMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.world.entity.animal.Bee$BaseBeeGoal">];
   canBeeContinueToUse(): boolean;
   canBeeUse(): boolean;
-  canContinueToUse(): boolean;
-  canUse(): boolean;
   start(): void;
   stop(): void;
   tick(): void;
@@ -294,8 +248,6 @@ export interface Bee_BeeGoToKnownFlowerGoalMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.world.entity.animal.Bee$BaseBeeGoal">];
   canBeeContinueToUse(): boolean;
   canBeeUse(): boolean;
-  canContinueToUse(): boolean;
-  canUse(): boolean;
   start(): void;
   stop(): void;
   tick(): void;
@@ -323,17 +275,12 @@ export interface BucketableStatics {
 /** JVM class net.minecraft.world.entity.animal.Cat. */
 export interface CatMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.TamableAnimal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   canMate(arg0: Animal): boolean;
   customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getAmbientSoundInterval(): number;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Cat | null;
   getCollarColor(): j_net_minecraft_world_item.DyeColor;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -349,10 +296,6 @@ export interface CatMembers {
   isRelaxStateOne(): boolean;
   isSteppingCarefully(): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  playEatingSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  reassessTameGoals(): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
   setCollarColor(arg0: j_net_minecraft_world_item.DyeColor): void;
   setLying(arg0: boolean): void;
@@ -411,35 +354,23 @@ export interface CatVariantsStatics {
 /** JVM class net.minecraft.world.entity.animal.Chicken. */
 export interface ChickenMembers {
   readonly __javaSupertypes?: readonly [Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   eggTime: number;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   flap: number;
   flapSpeed: number;
   flapping: number;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Chicken | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getVariant(): j_net_minecraft_core.Holder<ChickenVariant>;
   isChickenJockey: (boolean) & { (): boolean };
-  isFlapping(): boolean;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   oFlap: number;
   oFlapSpeed: number;
-  onFlap(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  positionRider(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_entity.Entity_MoveFunction): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
   setChickenJockey(arg0: boolean): void;
   setVariant(arg0: j_net_minecraft_core.Holder<ChickenVariant>): void;
@@ -501,7 +432,6 @@ export interface CodMembers {
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBucketItemStack(): j_net_minecraft_world_item.ItemStack;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
 }
 export type Cod = CodMembers & AbstractSchoolingFish;
@@ -512,16 +442,10 @@ export interface CodStatics {
 /** JVM class net.minecraft.world.entity.animal.Cow. */
 export interface CowMembers {
   readonly __javaSupertypes?: readonly [AbstractCow];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Cow | null;
   getVariant(): j_net_minecraft_core.Holder<CowVariant>;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setVariant(arg0: j_net_minecraft_core.Holder<CowVariant>): void;
 }
 export type Cow = CowMembers & AbstractCow;
@@ -578,18 +502,11 @@ export interface CowVariantsStatics {
 /** JVM class net.minecraft.world.entity.animal.Dolphin. */
 export interface DolphinMembers {
   readonly __javaSupertypes?: readonly [AgeableWaterCreature];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   canAttack(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
   canBeLeashed(): boolean;
-  canDispenserEquipIntoSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
-  canRide(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  closeToNextPos(): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAgeScale(): number;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Dolphin | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent | null;
   getDefaultMaxAirSupply(): number;
@@ -601,14 +518,8 @@ export interface DolphinMembers {
   getSwimSound(): j_net_minecraft_sounds.SoundEvent;
   getSwimSplashSound(): j_net_minecraft_sounds.SoundEvent;
   gotFish(): boolean;
-  handleAirSupply(arg0: number): void;
   handleEntityEvent(arg0: number): void;
-  increaseAirSupply(arg0: number): number;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
   playAttackSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setGotFish(arg0: boolean): void;
   setMoisntessLevel(arg0: number): void;
   tick(): void;
@@ -635,18 +546,11 @@ export interface FlyingAnimalStatics {
 /** JVM class net.minecraft.world.entity.animal.Fox. */
 export interface FoxMembers {
   readonly __javaSupertypes?: readonly [Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  canDispenserEquipIntoSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
   canHoldItem(arg0: j_net_minecraft_world_item.ItemStack): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  dropAllDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): JavaOpaque<"org.bukkit.event.entity.EntityDeathEvent">;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Fox | null;
   getCrouchAmount(arg0: number): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent | null;
@@ -661,18 +565,11 @@ export interface FoxMembers {
   isFaceplanted(): boolean;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isFullyCrouched(): boolean;
-  isImmobile(): boolean;
   isInterested(): boolean;
   isPouncing(): boolean;
   isSitting(): boolean;
   isSleeping(): boolean;
-  onOffspringSpawnedFromEgg(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_entity.Mob): void;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
   playAmbientSound(): void;
-  playEatingSound(): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setDefending(arg0: boolean): void;
   setFaceplanted(arg0: boolean): void;
   setIsCrouching(arg0: boolean): void;
@@ -681,9 +578,8 @@ export interface FoxMembers {
   setSitting(arg0: boolean): void;
   setSitting(arg0: boolean, arg1: boolean): void;
   setSleeping(arg0: boolean): void;
-  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean | null;
+  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean;
   setVariant(arg0: Fox_Variant): void;
-  shouldSkipLoot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
   tick(): void;
 }
 export type Fox = FoxMembers & Animal;
@@ -714,12 +610,9 @@ export interface Fox_FoxEatBerriesGoalMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_goal.MoveToBlockGoal];
   acceptedDistance(): number;
   canUse(): boolean;
-  isValidTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
-  onReachedTarget(): void;
   shouldRecalculatePath(): boolean;
   start(): void;
   tick(): void;
-  ticksWaited: number;
 }
 export type Fox_FoxEatBerriesGoal = Fox_FoxEatBerriesGoalMembers & j_net_minecraft_world_entity_ai_goal.MoveToBlockGoal;
 export interface Fox_FoxEatBerriesGoalStatics {
@@ -739,7 +632,6 @@ export interface Fox_FoxGroupDataStatics {
 /** JVM class net.minecraft.world.entity.animal.Fox$FoxLookControl. */
 export interface Fox_FoxLookControlMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_control.LookControl];
-  resetXRotOnTick(): boolean;
   tick(): void;
 }
 export type Fox_FoxLookControl = Fox_FoxLookControlMembers & j_net_minecraft_world_entity_ai_control.LookControl;
@@ -784,20 +676,11 @@ export interface Fox_VariantStatics {
 export interface HappyGhastMembers {
   readonly __javaSupertypes?: readonly [Animal];
   addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addPassenger(arg0: j_net_minecraft_world_entity.Entity): void;
-  ageBoundaryReached(): void;
   aiStep(): void;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<HappyGhast>;
-  canAddPassenger(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  canBeCollidedWith(arg0: j_net_minecraft_world_entity.Entity | null): boolean | null;
+  canBeCollidedWith(arg0: j_net_minecraft_world_entity.Entity | null): boolean;
   canBreatheUnderwater(): boolean;
-  canDispenserEquipIntoSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
   canFallInLove(): boolean;
   canUseSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  createBodyControl(): j_net_minecraft_world_entity_ai_control.BodyRotationControl;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAgeScale(): number;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getAmbientSoundInterval(): number;
@@ -808,8 +691,6 @@ export interface HappyGhastMembers {
   getLeashOffset(): j_net_minecraft_world_phys.Vec3;
   getMaxSpawnClusterSize(): number;
   getQuadLeashHolderOffsets(): Array<j_net_minecraft_world_phys.Vec3>;
-  getRiddenInput(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
-  getRiddenRotation(arg0: j_net_minecraft_world_entity.LivingEntity): j_net_minecraft_world_phys.Vec2;
   getSoundSource(): j_net_minecraft_sounds.SoundSource;
   getVoicePitch(): number;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
@@ -819,22 +700,14 @@ export interface HappyGhastMembers {
   isOnStillTimeout(): boolean;
   leashElasticDistance(): number;
   leashSnapDistance(): number;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   notifyLeashHolder(arg0: j_net_minecraft_world_entity.Leashable): void;
   onClimbable(): boolean;
   onElasticLeashPull(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
   readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
-  removePassenger(arg0: j_net_minecraft_world_entity.Entity, arg1: boolean): boolean;
-  sanitizeScale(arg0: number): number;
-  sendDebugPackets(): void;
-  shouldStayCloseToLeashHolder(): boolean;
   staysStill(): boolean;
   supportQuadLeashAsHolder(): boolean;
   tick(): void;
-  tickRidden(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): void;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
 }
 export type HappyGhast = HappyGhastMembers & Animal;
@@ -860,23 +733,18 @@ export type HappyGhastAi = HappyGhastAiMembers;
 export interface HappyGhastAiStatics {
   new(): HappyGhastAi;
   brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<HappyGhast>;
-  makeBrain(arg0: j_net_minecraft_world_entity_ai.Brain<HappyGhast>): j_net_minecraft_world_entity_ai.Brain<object>;
   updateActivity(arg0: HappyGhast): void;
 }
 
 /** JVM class net.minecraft.world.entity.animal.IronGolem. */
 export interface IronGolemMembers {
   readonly __javaSupertypes?: readonly [AbstractGolem, j_net_minecraft_world_entity.NeutralMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   canAttackType(arg0: j_net_minecraft_world_entity.EntityType<object>): boolean;
   canSpawnSprintParticle(): boolean;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
-  decreaseAirSupply(arg0: number): number;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
-  doPush(arg0: j_net_minecraft_world_entity.Entity): void;
   getAttackAnimationTick(): number;
   getCrackiness(): j_net_minecraft_world_entity.Crackiness_Level;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -888,12 +756,8 @@ export interface IronGolemMembers {
   handleEntityEvent(arg0: number): void;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isPlayerCreated(): boolean;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   offerFlower(arg0: boolean): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setPlayerCreated(arg0: boolean): void;
   setRemainingPersistentAngerTime(arg0: number): void;
   startPersistentAngerTimer(): void;
@@ -901,25 +765,18 @@ export interface IronGolemMembers {
 export type IronGolem = IronGolemMembers & AbstractGolem & j_net_minecraft_world_entity.NeutralMob;
 export interface IronGolemStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<IronGolem>, arg1: j_net_minecraft_world_level.Level): IronGolem;
-  readonly DATA_FLAGS_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   createAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeSupplier_Builder;
 }
 
 /** JVM class net.minecraft.world.entity.animal.MushroomCow. */
 export interface MushroomCowMembers {
   readonly __javaSupertypes?: readonly [AbstractCow, j_net_minecraft_world_entity.Shearable];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   generateDefaultDrops(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): JavaList<j_net_minecraft_world_item.ItemStack>;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): MushroomCow | null;
   getVariant(): MushroomCow_Variant;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   readyForShearing(): boolean;
   setVariant(arg0: MushroomCow_Variant): void;
   shear(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_sounds.SoundSource, arg2: j_net_minecraft_world_item.ItemStack): void;
@@ -952,14 +809,11 @@ export interface MushroomCow_VariantStatics {
 /** JVM class net.minecraft.world.entity.animal.Ocelot. */
 export interface OcelotMembers {
   readonly __javaSupertypes?: readonly [Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
   customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getAmbientSoundInterval(): number;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Ocelot | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
@@ -969,9 +823,6 @@ export interface OcelotMembers {
   isSteppingCarefully(): boolean;
   isTrusting(): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  reassessTrustingGoals(): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
   setTrusting(arg0: boolean): void;
 }
@@ -988,11 +839,8 @@ export interface OcelotStatics {
 /** JVM class net.minecraft.world.entity.animal.Panda. */
 export interface PandaMembers {
   readonly __javaSupertypes?: readonly [Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   canBeLeashed(): boolean;
-  canDispenserEquipIntoSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
   canPerformAction(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): boolean;
   eat(arg0: boolean): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
@@ -1025,16 +873,12 @@ export interface PandaMembers {
   isWeak(): boolean;
   isWorried(): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
   playAttackSound(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   roll(arg0: boolean): void;
   rollCounter: number;
   setAttributes(): void;
   setEatCounter(arg0: number): void;
-  setGeneFromParents(arg0: Panda, arg1: Panda | null): void | null;
+  setGeneFromParents(arg0: Panda, arg1: Panda | null): void;
   setHiddenGene(arg0: Panda_Gene): void;
   setMainGene(arg0: Panda_Gene): void;
   setOnBack(arg0: boolean): void;
@@ -1076,16 +920,8 @@ export interface Panda_GeneStatics {
 /** JVM class net.minecraft.world.entity.animal.Parrot. */
 export interface ParrotMembers {
   readonly __javaSupertypes?: readonly [ShoulderRidingEntity, FlyingAnimal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  canFlyToOwner(): boolean;
   canMate(arg0: Animal): boolean;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  doPush(arg0: j_net_minecraft_world_entity.Entity): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   flap: number;
   flapSpeed: number;
@@ -1101,17 +937,12 @@ export interface ParrotMembers {
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isBaby(): boolean;
   isCollidable(arg0: boolean): boolean;
-  isFlapping(): boolean;
   isFlying(): boolean;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isPartyParrot(): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   oFlap: number;
   oFlapSpeed: number;
-  onFlap(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setRecordPlayingNearby(arg0: j_net_minecraft_core.BlockPos, arg1: boolean): void;
   setVariant(arg0: Parrot_Variant): void;
 }
@@ -1149,37 +980,24 @@ export interface Parrot_VariantStatics {
 /** JVM class net.minecraft.world.entity.animal.Pig. */
 export interface PigMembers {
   readonly __javaSupertypes?: readonly [Animal, j_net_minecraft_world_entity.ItemSteerable];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   boost(): boolean;
-  canDispenserEquipIntoSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
   canUseSlot(arg0: j_net_minecraft_world_entity.EquipmentSlot): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Pig | null;
   getControllingPassenger(): j_net_minecraft_world_entity.LivingEntity | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDismountLocationForPassenger(arg0: j_net_minecraft_world_entity.LivingEntity): j_net_minecraft_world_phys.Vec3;
-  getEquipSound(arg0: j_net_minecraft_world_entity.EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item_equipment.Equippable): j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getLeashOffset(): j_net_minecraft_world_phys.Vec3;
-  getRiddenInput(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
-  getRiddenSpeed(arg0: j_net_minecraft_world_entity_player.Player): number;
   getVariant(): j_net_minecraft_core.Holder<PigVariant>;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setVariant(arg0: j_net_minecraft_core.Holder<PigVariant>): void;
   readonly steering: j_net_minecraft_world_entity.ItemBasedSteering;
   thunderHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LightningBolt): void;
-  tickRidden(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): void;
 }
 export type Pig = PigMembers & Animal & j_net_minecraft_world_entity.ItemSteerable;
 export interface PigStatics {
@@ -1235,9 +1053,7 @@ export interface PigVariantsStatics {
 /** JVM class net.minecraft.world.entity.animal.PolarBear. */
 export interface PolarBearMembers {
   readonly __javaSupertypes?: readonly [Animal, j_net_minecraft_world_entity.NeutralMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -1246,14 +1062,9 @@ export interface PolarBearMembers {
   getPersistentAngerTarget(): JavaOpaque<"java.util.UUID"> | null;
   getRemainingPersistentAngerTime(): number;
   getStandingAnimationScale(arg0: number): number;
-  getWaterSlowDown(): number;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isStanding(): boolean;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  playWarningSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setRemainingPersistentAngerTime(arg0: number): void;
   setStanding(arg0: boolean): void;
   startPersistentAngerTimer(): void;
@@ -1269,19 +1080,14 @@ export interface PolarBearStatics {
 /** JVM class net.minecraft.world.entity.animal.Pufferfish. */
 export interface PufferfishMembers {
   readonly __javaSupertypes?: readonly [AbstractFish];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getBucketItemStack(): j_net_minecraft_world_item.ItemStack;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getPuffState(): number;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playerTouch(arg0: j_net_minecraft_world_entity_player.Player): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setPuffState(arg0: number): void;
   tick(): void;
 }
@@ -1296,23 +1102,16 @@ export interface PufferfishStatics {
 /** JVM class net.minecraft.world.entity.animal.Rabbit. */
 export interface RabbitMembers {
   readonly __javaSupertypes?: readonly [Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   canSpawnSprintParticle(): boolean;
   customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Rabbit | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getJumpCompletion(arg0: number): number;
-  getJumpPower(): number;
-  getJumpSound(): j_net_minecraft_sounds.SoundEvent;
   getLeashOffset(): j_net_minecraft_world_phys.Vec3;
   getSoundSource(): j_net_minecraft_sounds.SoundSource;
   getVariant(): Rabbit_Variant;
@@ -1321,7 +1120,6 @@ export interface RabbitMembers {
   jumpFromGround(): void;
   moreCarrotTicks: number;
   playAttackSound(): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   registerGoals(): void;
   setJumping(arg0: boolean): void;
   setSpeedModifier(arg0: number): void;
@@ -1389,23 +1187,16 @@ export interface Rabbit_VariantStatics {
 /** JVM class net.minecraft.world.entity.animal.Salmon. */
 export interface SalmonMembers {
   readonly __javaSupertypes?: readonly [AbstractSchoolingFish];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBucketItemStack(): j_net_minecraft_world_item.ItemStack;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getDefaultDimensions(arg0: j_net_minecraft_world_entity.Pose): j_net_minecraft_world_entity.EntityDimensions;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getMaxSchoolSize(): number;
   getSalmonScale(): number;
   getVariant(): Salmon_Variant;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   saveToBucketTag(arg0: j_net_minecraft_world_item.ItemStack): void;
   setVariant(arg0: Salmon_Variant): void;
 }
@@ -1439,15 +1230,12 @@ export interface ShoulderRidingEntityMembers {
 }
 export type ShoulderRidingEntity = ShoulderRidingEntityMembers & j_net_minecraft_world_entity.TamableAnimal;
 export interface ShoulderRidingEntityStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<ShoulderRidingEntity>, arg1: j_net_minecraft_world_level.Level): ShoulderRidingEntity;
 }
 
 /** JVM class net.minecraft.world.entity.animal.SnowGolem. */
 export interface SnowGolemMembers {
   readonly __javaSupertypes?: readonly [AbstractGolem, j_net_minecraft_world_entity.Shearable, j_net_minecraft_world_entity_monster.RangedAttackMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   generateDefaultDrops(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): JavaList<j_net_minecraft_world_item.ItemStack>;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent | null;
@@ -1455,11 +1243,8 @@ export interface SnowGolemMembers {
   getLeashOffset(): j_net_minecraft_world_phys.Vec3;
   hasPumpkin(): boolean;
   isSensitiveToWater(): boolean;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   performRangedAttack(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   readyForShearing(): boolean;
-  registerGoals(): void;
   setPumpkin(arg0: boolean): void;
   shear(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_sounds.SoundSource, arg2: j_net_minecraft_world_item.ItemStack): void;
   shear(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_sounds.SoundSource, arg2: j_net_minecraft_world_item.ItemStack, arg3: JavaList<j_net_minecraft_world_item.ItemStack>): void;
@@ -1479,18 +1264,13 @@ export interface SquidMembers {
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getDefaultGravity(): number;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getInkParticle(): j_net_minecraft_core_particles.ParticleOptions;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   getSoundVolume(): number;
-  getSquirtSound(): j_net_minecraft_sounds.SoundEvent;
   handleEntityEvent(arg0: number): void;
   hasMovementVector(): boolean;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   oldTentacleAngle: number;
   oldTentacleMovement: number;
-  registerGoals(): void;
   tentacleAngle: number;
   tentacleMovement: number;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
@@ -1518,23 +1298,17 @@ export interface TemperatureVariantsStatics {
 /** JVM class net.minecraft.world.entity.animal.TropicalFish. */
 export interface TropicalFishMembers {
   readonly __javaSupertypes?: readonly [AbstractSchoolingFish];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBaseColor(): j_net_minecraft_world_item.DyeColor;
   getBucketItemStack(): j_net_minecraft_world_item.ItemStack;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
-  getFlopSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getPackedVariant(): number;
   getPattern(): TropicalFish_Pattern;
   getPatternColor(): j_net_minecraft_world_item.DyeColor;
   isMaxGroupSizeReached(arg0: number): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   saveToBucketTag(arg0: j_net_minecraft_world_item.ItemStack): void;
   setPackedVariant(arg0: number): void;
 }
@@ -1611,13 +1385,9 @@ export interface TropicalFish_VariantStatics {
 /** JVM class net.minecraft.world.entity.animal.Turtle. */
 export interface TurtleMembers {
   readonly __javaSupertypes?: readonly [Animal];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  ageBoundaryReached(): void;
   aiStep(): void;
   canBeLeashed(): boolean;
   canFallInLove(): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getAgeScale(): number;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
@@ -1634,11 +1404,6 @@ export interface TurtleMembers {
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isLayingEgg(): boolean;
   isPushedByFluid(): boolean;
-  nextStep(): number;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  playSwimSound(arg0: number): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setHasEgg(arg0: boolean): void;
   setHomePos(arg0: j_net_minecraft_core.BlockPos): void;
   thunderHit(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LightningBolt): void;
@@ -1659,13 +1424,10 @@ export interface WaterAnimalMembers {
   canBeLeashed(): boolean;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
   getAmbientSoundInterval(): number;
-  getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
-  handleAirSupply(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number): void;
   isPushedByFluid(): boolean;
 }
 export type WaterAnimal = WaterAnimalMembers & j_net_minecraft_world_entity.PathfinderMob;
 export interface WaterAnimalStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<WaterAnimal>, arg1: j_net_minecraft_world_level.Level): WaterAnimal;
   readonly AMBIENT_SOUND_INTERVAL: 120;
   checkSurfaceWaterAnimalSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<WaterAnimal>, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
 }

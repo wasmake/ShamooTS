@@ -21,7 +21,6 @@ export interface AttributeMembers {
 }
 export type Attribute = AttributeMembers;
 export interface AttributeStatics {
-  new(arg0: string, arg1: number): Attribute;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.Holder<Attribute>]>;
   readonly STREAM_CODEC: j_net_minecraft_network_codec.StreamCodec<j_net_minecraft_network.RegistryFriendlyByteBuf, j_net_minecraft_core.Holder<Attribute>>;
 }
@@ -60,7 +59,6 @@ export interface AttributeInstanceMembers {
   removeModifiers(): void;
   replaceFrom(arg0: AttributeInstance): void;
   setBaseValue(arg0: number): void;
-  setDirty(): void;
 }
 export type AttributeInstance = AttributeInstanceMembers;
 export interface AttributeInstanceStatics {

@@ -14,11 +14,9 @@ import type * as j_net_minecraft_world_level_levelgen_synth from './net.minecraf
 /** JVM abstract net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider. */
 export interface BlockStateProviderMembers {
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type BlockStateProvider = BlockStateProviderMembers;
 export interface BlockStateProviderStatics {
-  new(): BlockStateProvider;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [BlockStateProvider]>;
   simple(arg0: j_net_minecraft_world_level_block.Block): SimpleStateProvider;
   simple(arg0: j_net_minecraft_world_level_block_state.BlockState): SimpleStateProvider;
@@ -42,9 +40,7 @@ export interface BlockStateProviderTypeStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.stateproviders.DualNoiseProvider. */
 export interface DualNoiseProviderMembers {
   readonly __javaSupertypes?: readonly [NoiseProvider];
-  getSlowNoiseValue(arg0: j_net_minecraft_core.BlockPos): number;
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type DualNoiseProvider = DualNoiseProviderMembers & NoiseProvider;
 export interface DualNoiseProviderStatics {
@@ -55,39 +51,26 @@ export interface DualNoiseProviderStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.feature.stateproviders.NoiseBasedStateProvider. */
 export interface NoiseBasedStateProviderMembers {
   readonly __javaSupertypes?: readonly [BlockStateProvider];
-  getNoiseValue(arg0: j_net_minecraft_core.BlockPos, arg1: number): number;
-  readonly noise: j_net_minecraft_world_level_levelgen_synth.NormalNoise;
-  readonly parameters: j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters;
-  readonly scale: number;
-  readonly seed: bigint;
 }
 export type NoiseBasedStateProvider = NoiseBasedStateProviderMembers & BlockStateProvider;
 export interface NoiseBasedStateProviderStatics {
-  new(arg0: bigint, arg1: j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters, arg2: number): NoiseBasedStateProvider;
-  noiseCodec<P /* extends NoiseBasedStateProvider */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P3", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, bigint, j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters, number]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider. */
 export interface NoiseProviderMembers {
   readonly __javaSupertypes?: readonly [NoiseBasedStateProvider];
-  getRandomState(arg0: JavaList<j_net_minecraft_world_level_block_state.BlockState>, arg1: number): j_net_minecraft_world_level_block_state.BlockState;
-  getRandomState(arg0: JavaList<j_net_minecraft_world_level_block_state.BlockState>, arg1: j_net_minecraft_core.BlockPos, arg2: number): j_net_minecraft_world_level_block_state.BlockState;
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  readonly states: JavaList<j_net_minecraft_world_level_block_state.BlockState>;
-  type(): BlockStateProviderType<object>;
 }
 export type NoiseProvider = NoiseProviderMembers & NoiseBasedStateProvider;
 export interface NoiseProviderStatics {
   new(arg0: bigint, arg1: j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters, arg2: number, arg3: JavaList<j_net_minecraft_world_level_block_state.BlockState>): NoiseProvider;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [NoiseProvider]>;
-  noiseProviderCodec<P /* extends NoiseProvider */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P4", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, bigint, j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters, number, JavaList<j_net_minecraft_world_level_block_state.BlockState>]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.stateproviders.NoiseThresholdProvider. */
 export interface NoiseThresholdProviderMembers {
   readonly __javaSupertypes?: readonly [NoiseBasedStateProvider];
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type NoiseThresholdProvider = NoiseThresholdProviderMembers & NoiseBasedStateProvider;
 export interface NoiseThresholdProviderStatics {
@@ -99,7 +82,6 @@ export interface NoiseThresholdProviderStatics {
 export interface RandomizedIntStateProviderMembers {
   readonly __javaSupertypes?: readonly [BlockStateProvider];
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type RandomizedIntStateProvider = RandomizedIntStateProviderMembers & BlockStateProvider;
 export interface RandomizedIntStateProviderStatics {
@@ -112,7 +94,6 @@ export interface RandomizedIntStateProviderStatics {
 export interface RotatedBlockProviderMembers {
   readonly __javaSupertypes?: readonly [BlockStateProvider];
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type RotatedBlockProvider = RotatedBlockProviderMembers & BlockStateProvider;
 export interface RotatedBlockProviderStatics {
@@ -157,11 +138,9 @@ export interface RuleBasedBlockStateProvider_RuleStatics {
 export interface SimpleStateProviderMembers {
   readonly __javaSupertypes?: readonly [BlockStateProvider];
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type SimpleStateProvider = SimpleStateProviderMembers & BlockStateProvider;
 export interface SimpleStateProviderStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockState): SimpleStateProvider;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SimpleStateProvider]>;
 }
 
@@ -169,7 +148,6 @@ export interface SimpleStateProviderStatics {
 export interface WeightedStateProviderMembers {
   readonly __javaSupertypes?: readonly [BlockStateProvider];
   getState(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
-  type(): BlockStateProviderType<object>;
 }
 export type WeightedStateProvider = WeightedStateProviderMembers & BlockStateProvider;
 export interface WeightedStateProviderStatics {

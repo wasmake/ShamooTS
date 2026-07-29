@@ -24,8 +24,6 @@ import type * as j_org_bukkit_craftbukkit_entity from './org.bukkit.craftbukkit.
 export interface BossEventMembers {
   adventure: JavaOpaque<"net.kyori.adventure.bossbar.BossBar">;
   color: BossEvent_BossBarColor;
-  createWorldFog: boolean;
-  darkenScreen: boolean;
   getColor(): BossEvent_BossBarColor;
   getId(): JavaOpaque<"java.util.UUID">;
   getName(): j_net_minecraft_network_chat.Component;
@@ -33,8 +31,6 @@ export interface BossEventMembers {
   getProgress(): number;
   name: j_net_minecraft_network_chat.Component;
   overlay: BossEvent_BossBarOverlay;
-  playBossMusic: boolean;
-  progress: number;
   setColor(arg0: BossEvent_BossBarColor): void;
   setCreateWorldFog(arg0: boolean): BossEvent;
   setDarkenScreen(arg0: boolean): BossEvent;
@@ -48,7 +44,6 @@ export interface BossEventMembers {
 }
 export type BossEvent = BossEventMembers;
 export interface BossEventStatics {
-  new(arg0: JavaOpaque<"java.util.UUID">, arg1: j_net_minecraft_network_chat.Component, arg2: BossEvent_BossBarColor, arg3: BossEvent_BossBarOverlay): BossEvent;
 }
 
 /** Live JVM enum net.minecraft.world.BossEvent$BossBarColor; constants are host handles, not strings. */
@@ -170,7 +165,6 @@ export interface ContainerStatics {
 export interface Container_ContainerIteratorMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.Iterator", [j_net_minecraft_world_item.ItemStack]>];
   hasNext(): boolean;
-  next(): object;
   next(): j_net_minecraft_world_item.ItemStack;
 }
 export type Container_ContainerIterator = Container_ContainerIteratorMembers & JavaOpaque<"java.util.Iterator", [j_net_minecraft_world_item.ItemStack]>;
@@ -312,7 +306,7 @@ export interface InteractionResult_PaperSuccessContextMembers {
 }
 export type InteractionResult_PaperSuccessContext = InteractionResult_PaperSuccessContextMembers & JavaOpaque<"java.lang.Record">;
 export interface InteractionResult_PaperSuccessContextStatics {
-  new(arg0: j_net_minecraft_core.BlockPos): InteractionResult_PaperSuccessContext;
+  new(arg0: j_net_minecraft_core.BlockPos | null): InteractionResult_PaperSuccessContext;
 }
 
 /** JVM record net.minecraft.world.InteractionResult$Pass. */
@@ -437,13 +431,13 @@ export interface RandomizableContainerMembers {
   getLootTableSeed(): bigint;
   getLootableInventory(): JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableInventory">;
   lootableData(): JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableInventoryData"> | null;
-  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void | null;
-  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null, arg1: bigint): void | null;
+  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void;
+  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null, arg1: bigint): void;
   setLootTableSeed(arg0: bigint): void;
   tryLoadLootTable(arg0: j_net_minecraft_world_level_storage.ValueInput): boolean;
   trySaveLootTable(arg0: j_net_minecraft_world_level_storage.ValueOutput): boolean;
-  unpackLootTable(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
-  unpackLootTable(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: boolean): void | null;
+  unpackLootTable(arg0: j_net_minecraft_world_entity_player.Player | null): void;
+  unpackLootTable(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: boolean): void;
 }
 export type RandomizableContainer = RandomizableContainerMembers & Container;
 export interface RandomizableContainerStatics {
@@ -487,7 +481,6 @@ export interface SimpleContainerMembers {
   readonly __javaSupertypes?: readonly [Container, j_net_minecraft_world_inventory.StackedContentsCompatible];
   addItem(arg0: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
   addListener(arg0: ContainerListener): void;
-  bukkitOwner: JavaOpaque<"org.bukkit.inventory.InventoryHolder"> | null;
   canAddItem(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   clearContent(): void;
   fillStackedContents(arg0: j_net_minecraft_world_entity_player.StackedItemContents): void;
@@ -539,19 +532,18 @@ export interface SimpleMenuProviderStatics {
 
 /** JVM class net.minecraft.world.TickRateManager. */
 export interface TickRateManagerMembers {
-  frozenTicksToRun: (number) & { (): number };
+  frozenTicksToRun(): number;
   isEntityFrozen(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  isFrozen: (boolean) & { (): boolean };
+  isFrozen(): boolean;
   isSteppingForward(): boolean;
   millisecondsPerTick(): number;
-  nanosecondsPerTick: (bigint) & { (): bigint };
-  runGameElements: boolean;
+  nanosecondsPerTick(): bigint;
   runsNormally(): boolean;
   setFrozen(arg0: boolean): void;
   setFrozenTicksToRun(arg0: number): void;
   setTickRate(arg0: number): void;
   tick(): void;
-  tickrate: (number) & { (): number };
+  tickrate(): number;
 }
 export type TickRateManager = TickRateManagerMembers;
 export interface TickRateManagerStatics {
@@ -562,7 +554,7 @@ export interface TickRateManagerStatics {
 /** JVM interface net.minecraft.world.WorldlyContainer. */
 export interface WorldlyContainerMembers {
   readonly __javaSupertypes?: readonly [Container];
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
 }

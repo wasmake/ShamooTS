@@ -16,7 +16,6 @@ export interface BlockInputMembers {
   getState(): j_net_minecraft_world_level_block_state.BlockState;
   place(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: number): boolean;
   readonly tag: j_net_minecraft_nbt.CompoundTag | null;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos): boolean;
   test(arg0: j_net_minecraft_world_level_block_state_pattern.BlockInWorld): boolean;
 }
@@ -30,8 +29,6 @@ export interface BlockPredicateArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [BlockPredicateArgument_Result]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): BlockPredicateArgument_Result;
 }
@@ -59,8 +56,6 @@ export interface BlockStateArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [BlockInput]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): BlockInput;
 }

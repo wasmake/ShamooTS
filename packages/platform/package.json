@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/platform",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Platform declaration and capability checks for Shamoo.",
   "license": "Apache-2.0",
   "type": "module",

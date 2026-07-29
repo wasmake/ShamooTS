@@ -31,7 +31,7 @@ export interface DialogListType_BuilderMembers {
   build(): DialogListType;
   buttonWidth(arg0: number): DialogListType_Builder;
   columns(arg0: number): DialogListType_Builder;
-  exitAction(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton): DialogListType_Builder | null;
+  exitAction(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton | null): DialogListType_Builder;
 }
 export type DialogListType_Builder = DialogListType_BuilderMembers;
 export interface DialogListType_BuilderStatics {
@@ -44,12 +44,12 @@ export type DialogType = DialogTypeMembers;
 export interface DialogTypeStatics {
   confirmation(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton, arg1: j_io_papermc_paper_registry_data_dialog.ActionButton): ConfirmationType;
   dialogList(arg0: j_io_papermc_paper_registry_set.RegistrySet<j_io_papermc_paper_dialog.Dialog>): DialogListType_Builder;
-  dialogList(arg0: j_io_papermc_paper_registry_set.RegistrySet<j_io_papermc_paper_dialog.Dialog>, arg1: j_io_papermc_paper_registry_data_dialog.ActionButton, arg2: number, arg3: number): DialogListType | null;
+  dialogList(arg0: j_io_papermc_paper_registry_set.RegistrySet<j_io_papermc_paper_dialog.Dialog>, arg1: j_io_papermc_paper_registry_data_dialog.ActionButton | null, arg2: number, arg3: number): DialogListType;
   multiAction(arg0: JavaList<j_io_papermc_paper_registry_data_dialog.ActionButton>): MultiActionType_Builder;
-  multiAction(arg0: JavaList<j_io_papermc_paper_registry_data_dialog.ActionButton>, arg1: j_io_papermc_paper_registry_data_dialog.ActionButton, arg2: number): MultiActionType | null;
+  multiAction(arg0: JavaList<j_io_papermc_paper_registry_data_dialog.ActionButton>, arg1: j_io_papermc_paper_registry_data_dialog.ActionButton | null, arg2: number): MultiActionType;
   notice(): NoticeType;
   notice(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton): NoticeType;
-  serverLinks(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton, arg1: number, arg2: number): ServerLinksType | null;
+  serverLinks(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton | null, arg1: number, arg2: number): ServerLinksType;
 }
 
 /** JVM interface io.papermc.paper.registry.data.dialog.type.MultiActionType. */
@@ -67,7 +67,7 @@ export interface MultiActionTypeStatics {
 export interface MultiActionType_BuilderMembers {
   build(): MultiActionType;
   columns(arg0: number): MultiActionType_Builder;
-  exitAction(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton): MultiActionType_Builder | null;
+  exitAction(arg0: j_io_papermc_paper_registry_data_dialog.ActionButton | null): MultiActionType_Builder;
 }
 export type MultiActionType_Builder = MultiActionType_BuilderMembers;
 export interface MultiActionType_BuilderStatics {

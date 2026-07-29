@@ -67,12 +67,6 @@ export interface EntitySelectorParserMembers {
   parse(): EntitySelector;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: boolean): EntitySelector;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parseNameOrUUID(): void;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parseOptions(): void;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parseSelector(arg0: boolean): void;
   setDeltaX(arg0: number): void;
   setDeltaY(arg0: number): void;
   setDeltaZ(arg0: number): void;

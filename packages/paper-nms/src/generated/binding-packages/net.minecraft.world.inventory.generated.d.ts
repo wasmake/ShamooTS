@@ -16,9 +16,7 @@ import type * as j_net_minecraft_world_item from './net.minecraft.world.item.gen
 import type * as j_net_minecraft_world_item_crafting from './net.minecraft.world.item.crafting.generated.js';
 import type * as j_net_minecraft_world_item_trading from './net.minecraft.world.item.trading.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_block from './net.minecraft.world.level.block.generated.js';
 import type * as j_net_minecraft_world_level_block_entity from './net.minecraft.world.level.block.entity.generated.js';
-import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
 import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_org_bukkit_craftbukkit_entity from './org.bukkit.craftbukkit.entity.generated.js';
 import type * as j_org_bukkit_craftbukkit_inventory from './org.bukkit.craftbukkit.inventory.generated.js';
@@ -26,24 +24,16 @@ import type * as j_org_bukkit_craftbukkit_inventory_view from './org.bukkit.craf
 
 /** JVM abstract net.minecraft.world.inventory.AbstractContainerMenu. */
 export interface AbstractContainerMenuMembers {
-  addDataSlot(arg0: DataSlot): DataSlot;
-  addDataSlots(arg0: ContainerData): void;
-  addInventoryExtendedSlots(arg0: j_net_minecraft_world.Container, arg1: number, arg2: number): void;
-  addInventoryHotbarSlots(arg0: j_net_minecraft_world.Container, arg1: number, arg2: number): void;
-  addSlot(arg0: Slot): Slot;
   addSlotListener(arg0: ContainerListener_2): void;
-  addStandardInventorySlots(arg0: j_net_minecraft_world.Container, arg1: number, arg2: number): void;
   broadcastCarriedItem(): void;
   broadcastChanges(): void;
   broadcastFullState(): void;
   canDragTo(arg0: Slot): boolean;
   canTakeItemForPickAll(arg0: j_net_minecraft_world_item.ItemStack, arg1: Slot): boolean;
   checkReachable: boolean;
-  clearContainer(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.Container): void;
   clickMenuButton(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): boolean;
   clicked(arg0: number, arg1: number, arg2: ClickType, arg3: j_net_minecraft_world_entity_player.Player): void;
   readonly containerId: number;
-  createBlockHolder(arg0: ContainerLevelAccess): JavaSupplier<JavaOpaque<"org.bukkit.inventory.BlockInventoryHolder">>;
   dataSlots: JavaList<DataSlot>;
   findSlot(arg0: j_net_minecraft_world.Container, arg1: number): JavaOptionalNumber;
   forceHeldSlot(arg0: j_net_minecraft_world.InteractionHand): void;
@@ -61,8 +51,6 @@ export interface AbstractContainerMenuMembers {
   isValidSlotIndex(arg0: number): boolean;
   lastSlots: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   readonly menuType: MenuType<object> | null;
-  moveItemStackTo(arg0: j_net_minecraft_world_item.ItemStack, arg1: number, arg2: number, arg3: boolean): boolean;
-  moveItemStackTo(arg0: j_net_minecraft_world_item.ItemStack, arg1: number, arg2: number, arg3: boolean, arg4: boolean): boolean;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   readonly quickcraftSlots: JavaSet<Slot>;
   quickcraftStatus: number;
@@ -95,7 +83,6 @@ export interface AbstractContainerMenuMembers {
 }
 export type AbstractContainerMenu = AbstractContainerMenuMembers;
 export interface AbstractContainerMenuStatics {
-  new(arg0: MenuType<object> | null, arg1: number): AbstractContainerMenu;
   readonly CARRIED_SLOT_SIZE: 2147483647;
   readonly QUICKCRAFT_HEADER_CONTINUE: 1;
   readonly QUICKCRAFT_HEADER_END: 2;
@@ -106,63 +93,48 @@ export interface AbstractContainerMenuStatics {
   readonly SLOTS_PER_ROW: 9;
   readonly SLOT_CLICKED_OUTSIDE: -999;
   readonly SLOT_SIZE: 18;
-  canItemQuickReplace(arg0: Slot | null, arg1: j_net_minecraft_world_item.ItemStack, arg2: boolean): boolean | null;
-  checkContainerDataCount(arg0: ContainerData, arg1: number): void;
-  checkContainerSize(arg0: j_net_minecraft_world.Container, arg1: number): void;
+  canItemQuickReplace(arg0: Slot | null, arg1: j_net_minecraft_world_item.ItemStack, arg2: boolean): boolean;
   getQuickCraftPlaceCount(arg0: JavaSet<Slot>, arg1: number, arg2: j_net_minecraft_world_item.ItemStack): number;
   getQuickcraftHeader(arg0: number): number;
   getQuickcraftMask(arg0: number, arg1: number): number;
   getQuickcraftType(arg0: number): number;
-  getRedstoneSignalFromBlockEntity(arg0: j_net_minecraft_world_level_block_entity.BlockEntity | null): number | null;
-  getRedstoneSignalFromContainer(arg0: j_net_minecraft_world.Container | null): number | null;
+  getRedstoneSignalFromBlockEntity(arg0: j_net_minecraft_world_level_block_entity.BlockEntity | null): number;
+  getRedstoneSignalFromContainer(arg0: j_net_minecraft_world.Container | null): number;
   isValidQuickcraftType(arg0: number, arg1: j_net_minecraft_world_entity_player.Player): boolean;
-  stillValid(arg0: ContainerLevelAccess, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world_level_block.Block): boolean;
 }
 
 /** JVM abstract net.minecraft.world.inventory.AbstractCraftingMenu. */
 export interface AbstractCraftingMenuMembers {
   readonly __javaSupertypes?: readonly [RecipeBookMenu];
-  addCraftingGridSlots(arg0: number, arg1: number): void;
-  addResultSlot(arg0: j_net_minecraft_world_entity_player.Player, arg1: number, arg2: number): Slot;
-  beginPlacingRecipe(): void;
   readonly craftSlots: TransientCraftingContainer;
   fillCraftSlotsStackedContents(arg0: j_net_minecraft_world_entity_player.StackedItemContents): void;
-  finishPlacingRecipe(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item_crafting.RecipeHolder<j_net_minecraft_world_item_crafting.CraftingRecipe>): void;
   getGridHeight(): number;
   getGridWidth(): number;
   getInputGridSlots(): JavaList<Slot>;
   getResultSlot(): Slot;
   handlePlacement(arg0: boolean, arg1: boolean, arg2: j_net_minecraft_world_item_crafting.RecipeHolder<object>, arg3: j_net_minecraft_server_level.ServerLevel, arg4: j_net_minecraft_world_entity_player.Inventory): RecipeBookMenu_PostPlaceAction;
-  owner(): j_net_minecraft_world_entity_player.Player;
   readonly resultSlots: ResultContainer;
 }
 export type AbstractCraftingMenu = AbstractCraftingMenuMembers & RecipeBookMenu;
 export interface AbstractCraftingMenuStatics {
-  new(arg0: MenuType<object>, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_world_entity_player.Inventory): AbstractCraftingMenu;
 }
 
 /** JVM abstract net.minecraft.world.inventory.AbstractFurnaceMenu. */
 export interface AbstractFurnaceMenuMembers {
   readonly __javaSupertypes?: readonly [RecipeBookMenu];
-  canSmelt(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   fillCraftSlotsStackedContents(arg0: j_net_minecraft_world_entity_player.StackedItemContents): void;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftFurnaceView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getBurnProgress(): number;
   getLitProgress(): number;
   getRecipeBookType(): RecipeBookType;
   getResultSlot(): Slot;
   handlePlacement(arg0: boolean, arg1: boolean, arg2: j_net_minecraft_world_item_crafting.RecipeHolder<object>, arg3: j_net_minecraft_server_level.ServerLevel, arg4: j_net_minecraft_world_entity_player.Inventory): RecipeBookMenu_PostPlaceAction;
-  isFuel(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isLit(): boolean;
-  readonly level: j_net_minecraft_world_level.Level;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
 }
 export type AbstractFurnaceMenu = AbstractFurnaceMenuMembers & RecipeBookMenu;
 export interface AbstractFurnaceMenuStatics {
-  new(arg0: MenuType<object>, arg1: j_net_minecraft_world_item_crafting.RecipeType<j_net_minecraft_world_item_crafting.AbstractCookingRecipe>, arg2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.RecipePropertySet>, arg3: RecipeBookType, arg4: number, arg5: j_net_minecraft_world_entity_player.Inventory): AbstractFurnaceMenu;
-  new(arg0: MenuType<object>, arg1: j_net_minecraft_world_item_crafting.RecipeType<j_net_minecraft_world_item_crafting.AbstractCookingRecipe>, arg2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.RecipePropertySet>, arg3: RecipeBookType, arg4: number, arg5: j_net_minecraft_world_entity_player.Inventory, arg6: j_net_minecraft_world.Container, arg7: ContainerData): AbstractFurnaceMenu;
   readonly DATA_COUNT: 4;
   readonly FUEL_SLOT: 1;
   readonly INGREDIENT_SLOT: 0;
@@ -177,13 +149,9 @@ export interface AnvilMenuMembers {
   readonly cost: DataSlot;
   createResult(): void;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftAnvilView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getCost(): number;
-  isValidBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   itemName: string | null;
   maximumRepairCost: number;
-  mayPickup(arg0: j_net_minecraft_world_entity_player.Player, arg1: boolean): boolean;
-  onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
   repairItemCountCost: number;
   setItemName(arg0: string): boolean;
 }
@@ -203,7 +171,6 @@ export interface AnvilMenuStatics {
 export interface BeaconMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftBeaconView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getLevels(): number;
   getPrimaryEffect(): j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null;
   getSecondaryEffect(): j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null;
@@ -219,7 +186,7 @@ export interface BeaconMenuStatics {
   new(arg0: number, arg1: j_net_minecraft_world.Container): BeaconMenu;
   new(arg0: number, arg1: j_net_minecraft_world.Container, arg2: ContainerData, arg3: ContainerLevelAccess): BeaconMenu;
   decodeEffect(arg0: number): j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null;
-  encodeEffect(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null): number | null;
+  encodeEffect(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null): number;
 }
 
 /** JVM class net.minecraft.world.inventory.BlastFurnaceMenu. */
@@ -238,7 +205,6 @@ export interface BrewingStandMenuMembers {
   readonly brewingStandData: ContainerData;
   getBrewingTicks(): number;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftBrewingStandView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getFuel(): number;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
@@ -255,7 +221,6 @@ export interface CartographyTableMenuMembers {
   canTakeItemForPickAll(arg0: j_net_minecraft_world_item.ItemStack, arg1: Slot): boolean;
   readonly container: j_net_minecraft_world.Container;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   slotsChanged(arg0: j_net_minecraft_world.Container): void;
@@ -274,7 +239,6 @@ export interface CartographyTableMenuStatics {
 export interface ChestMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getContainer(): j_net_minecraft_world.Container;
   getRowCount(): number;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
@@ -379,7 +343,6 @@ export interface CrafterMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu, ContainerListener_2];
   dataChanged(arg0: AbstractContainerMenu, arg1: number, arg2: number): void;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftCrafterView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getContainer(): j_net_minecraft_world.Container;
   isPowered(): boolean;
   isSlotDisabled(arg0: number): boolean;
@@ -392,7 +355,6 @@ export type CrafterMenu = CrafterMenuMembers & AbstractContainerMenu & Container
 export interface CrafterMenuStatics {
   new(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): CrafterMenu;
   new(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: CraftingContainer, arg3: ContainerData): CrafterMenu;
-  readonly SLOT_COUNT: 9;
 }
 
 /** JVM class net.minecraft.world.inventory.CrafterSlot. */
@@ -429,11 +391,9 @@ export interface CraftingMenuMembers {
   canTakeItemForPickAll(arg0: j_net_minecraft_world_item.ItemStack, arg1: Slot): boolean;
   finishPlacingRecipe(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item_crafting.RecipeHolder<j_net_minecraft_world_item_crafting.CraftingRecipe>): void;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getInputGridSlots(): JavaList<Slot>;
   getRecipeBookType(): RecipeBookType;
   getResultSlot(): Slot;
-  owner(): j_net_minecraft_world_entity_player.Player;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   slotsChanged(arg0: j_net_minecraft_world.Container): void;
@@ -444,7 +404,6 @@ export interface CraftingMenuStatics {
   new(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): CraftingMenu;
   new(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: ContainerLevelAccess): CraftingMenu;
   readonly RESULT_SLOT: 0;
-  slotChangedCraftingGrid(arg0: AbstractContainerMenu, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity_player.Player, arg3: CraftingContainer, arg4: ResultContainer, arg5: j_net_minecraft_world_item_crafting.RecipeHolder<j_net_minecraft_world_item_crafting.CraftingRecipe> | null): void | null;
 }
 
 /** JVM abstract net.minecraft.world.inventory.DataSlot. */
@@ -455,7 +414,6 @@ export interface DataSlotMembers {
 }
 export type DataSlot = DataSlotMembers;
 export interface DataSlotStatics {
-  new(): DataSlot;
   forContainer(arg0: ContainerData, arg1: number): DataSlot;
   shared(arg0: Array<number>, arg1: number): DataSlot;
   standalone(): DataSlot;
@@ -464,10 +422,8 @@ export interface DataSlotStatics {
 /** JVM class net.minecraft.world.inventory.DispenserMenu. */
 export interface DispenserMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
-  add3x3GridSlots(arg0: j_net_minecraft_world.Container, arg1: number, arg2: number): void;
   readonly dispenser: j_net_minecraft_world.Container;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
@@ -485,7 +441,6 @@ export interface EnchantmentMenuMembers {
   readonly costs: Array<number>;
   readonly enchantClue: Array<number>;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftEnchantmentView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getEnchantmentSeed(): number;
   getGoldCount(): number;
   readonly levelClue: Array<number>;
@@ -526,9 +481,7 @@ export interface FurnaceMenuStatics {
 /** JVM class net.minecraft.world.inventory.FurnaceResultSlot. */
 export interface FurnaceResultSlotMembers {
   readonly __javaSupertypes?: readonly [Slot];
-  checkTakeAchievements(arg0: j_net_minecraft_world_item.ItemStack): void;
   mayPlace(arg0: j_net_minecraft_world_item.ItemStack): boolean;
-  onQuickCraft(arg0: j_net_minecraft_world_item.ItemStack, arg1: number): void;
   onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
   remove(arg0: number): j_net_minecraft_world_item.ItemStack;
 }
@@ -541,7 +494,6 @@ export interface FurnaceResultSlotStatics {
 export interface GrindstoneMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   slotsChanged(arg0: j_net_minecraft_world.Container): void;
@@ -561,7 +513,6 @@ export interface GrindstoneMenuStatics {
 export interface HopperMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
@@ -599,12 +550,10 @@ export interface InventoryMenuMembers {
   forceHeldSlot(arg0: j_net_minecraft_world.InteractionHand): void;
   forceHeldSlotAndArmor(arg0: j_net_minecraft_world.InteractionHand): void;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getCraftSlots(): CraftingContainer;
   getInputGridSlots(): JavaList<Slot>;
   getRecipeBookType(): RecipeBookType;
   getResultSlot(): Slot;
-  owner(): j_net_minecraft_world_entity_player.Player;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   slotsChanged(arg0: j_net_minecraft_world.Container): void;
@@ -637,24 +586,15 @@ export interface InventoryMenuStatics {
 /** JVM abstract net.minecraft.world.inventory.ItemCombinerMenu. */
 export interface ItemCombinerMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
-  readonly access: ContainerLevelAccess;
-  canMoveIntoInputSlots(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   createResult(): void;
   getResultSlot(): number;
-  readonly inputSlots: j_net_minecraft_world.Container;
-  isValidBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPickup(arg0: j_net_minecraft_world_entity_player.Player, arg1: boolean): boolean;
-  onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
-  readonly player: j_net_minecraft_world_entity_player.Player;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
-  readonly resultSlots: ResultContainer;
   slotsChanged(arg0: j_net_minecraft_world.Container): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
 }
 export type ItemCombinerMenu = ItemCombinerMenuMembers & AbstractContainerMenu;
 export interface ItemCombinerMenuStatics {
-  new(arg0: MenuType<object> | null, arg1: number, arg2: j_net_minecraft_world_entity_player.Inventory, arg3: ContainerLevelAccess, arg4: ItemCombinerMenuSlotDefinition): ItemCombinerMenu;
 }
 
 /** JVM class net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition. */
@@ -703,7 +643,6 @@ export interface LecternMenuMembers {
   clickMenuButton(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): boolean;
   getBook(): j_net_minecraft_world_item.ItemStack;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftLecternView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getPage(): number;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   setData(arg0: number, arg1: number): void;
@@ -725,7 +664,6 @@ export interface LoomMenuMembers {
   clickMenuButton(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): boolean;
   getBannerSlot(): Slot;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftLoomView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getDyeSlot(): Slot;
   getPatternSlot(): Slot;
   getResultSlot(): Slot;
@@ -824,7 +762,6 @@ export interface MerchantMenuMembers {
   canRestock(): boolean;
   canTakeItemForPickAll(arg0: j_net_minecraft_world_item.ItemStack, arg1: Slot): boolean;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftMerchantView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getFutureTraderXp(): number;
   getOffers(): j_net_minecraft_world_item_trading.MerchantOffers;
   getTraderLevel(): number;
@@ -846,17 +783,12 @@ export type MerchantMenu = MerchantMenuMembers & AbstractContainerMenu;
 export interface MerchantMenuStatics {
   new(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): MerchantMenu;
   new(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: j_net_minecraft_world_item_trading.Merchant): MerchantMenu;
-  readonly PAYMENT1_SLOT: 0;
-  readonly PAYMENT2_SLOT: 1;
-  readonly RESULT_SLOT: 2;
 }
 
 /** JVM class net.minecraft.world.inventory.MerchantResultSlot. */
 export interface MerchantResultSlotMembers {
   readonly __javaSupertypes?: readonly [Slot];
-  checkTakeAchievements(arg0: j_net_minecraft_world_item.ItemStack): void;
   mayPlace(arg0: j_net_minecraft_world_item.ItemStack): boolean;
-  onQuickCraft(arg0: j_net_minecraft_world_item.ItemStack, arg1: number): void;
   onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
   remove(arg0: number): j_net_minecraft_world_item.ItemStack;
 }
@@ -913,7 +845,6 @@ export interface RecipeBookMenuMembers {
 }
 export type RecipeBookMenu = RecipeBookMenuMembers & AbstractContainerMenu;
 export interface RecipeBookMenuStatics {
-  new(arg0: MenuType<object>, arg1: number): RecipeBookMenu;
 }
 
 /** Live JVM enum net.minecraft.world.inventory.RecipeBookMenu$PostPlaceAction; constants are host handles, not strings. */
@@ -945,7 +876,7 @@ export interface RecipeCraftingHolderMembers {
   awardUsedRecipes(arg0: j_net_minecraft_world_entity_player.Player, arg1: JavaList<j_net_minecraft_world_item.ItemStack>): void;
   getRecipeUsed(): j_net_minecraft_world_item_crafting.RecipeHolder<object> | null;
   setRecipeUsed(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_item_crafting.RecipeHolder<object>): boolean;
-  setRecipeUsed(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object> | null): void | null;
+  setRecipeUsed(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object> | null): void;
 }
 export type RecipeCraftingHolder = RecipeCraftingHolderMembers;
 export interface RecipeCraftingHolderStatics {
@@ -995,7 +926,7 @@ export interface ResultContainerMembers {
   setChanged(): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
   setMaxStackSize(arg0: number): void;
-  setRecipeUsed(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object> | null): void | null;
+  setRecipeUsed(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object> | null): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
 }
 export type ResultContainer = ResultContainerMembers & j_net_minecraft_world.Container & RecipeCraftingHolder;
@@ -1007,11 +938,8 @@ export interface ResultContainerStatics {
 /** JVM class net.minecraft.world.inventory.ResultSlot. */
 export interface ResultSlotMembers {
   readonly __javaSupertypes?: readonly [Slot];
-  checkTakeAchievements(arg0: j_net_minecraft_world_item.ItemStack): void;
   isFake(): boolean;
   mayPlace(arg0: j_net_minecraft_world_item.ItemStack): boolean;
-  onQuickCraft(arg0: j_net_minecraft_world_item.ItemStack, arg1: number): void;
-  onSwapCraft(arg0: number): void;
   onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
   remove(arg0: number): j_net_minecraft_world_item.ItemStack;
 }
@@ -1024,7 +952,6 @@ export interface ResultSlotStatics {
 export interface ShulkerBoxMenuMembers {
   readonly __javaSupertypes?: readonly [AbstractContainerMenu];
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   quickMoveStack(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): j_net_minecraft_world_item.ItemStack;
   removed(arg0: j_net_minecraft_world_entity_player.Player): void;
   startOpen(): void;
@@ -1061,7 +988,6 @@ export interface SimpleContainerDataStatics {
 /** JVM class net.minecraft.world.inventory.Slot. */
 export interface SlotMembers {
   allowModification(arg0: j_net_minecraft_world_entity_player.Player): boolean;
-  checkTakeAchievements(arg0: j_net_minecraft_world_item.ItemStack): void;
   readonly container: j_net_minecraft_world.Container;
   getContainerSlot(): number;
   getItem(): j_net_minecraft_world_item.ItemStack;
@@ -1075,9 +1001,7 @@ export interface SlotMembers {
   isHighlightable(): boolean;
   mayPickup(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   mayPlace(arg0: j_net_minecraft_world_item.ItemStack): boolean;
-  onQuickCraft(arg0: j_net_minecraft_world_item.ItemStack, arg1: number): void;
   onQuickCraft(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_item.ItemStack): void;
-  onSwapCraft(arg0: number): void;
   onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
   remove(arg0: number): j_net_minecraft_world_item.ItemStack;
   safeInsert(arg0: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
@@ -1127,10 +1051,7 @@ export interface SmithingMenuMembers {
   canTakeItemForPickAll(arg0: j_net_minecraft_world_item.ItemStack, arg1: Slot): boolean;
   createResult(): void;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory.CraftInventoryView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   hasRecipeError(): boolean;
-  isValidBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  onTake(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_item.ItemStack): void;
   slotsChanged(arg0: j_net_minecraft_world.Container): void;
 }
 export type SmithingMenu = SmithingMenuMembers & ItemCombinerMenu;
@@ -1172,7 +1093,6 @@ export interface StonecutterMenuMembers {
   clickMenuButton(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): boolean;
   readonly container: j_net_minecraft_world.Container;
   getBukkitView(): j_org_bukkit_craftbukkit_inventory_view.CraftStonecutterView;
-  getBukkitView(): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   getNumberOfVisibleRecipes(): number;
   getSelectedRecipeIndex(): number;
   getType(): MenuType<object>;

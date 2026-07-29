@@ -15,7 +15,7 @@ export interface Title_2Statics {
   readonly DEFAULT_TIMES: Title_Times;
   title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component): Title_2;
   title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number, arg4: number): Title_2;
-  title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: Title_Times | null): Title_2 | null;
+  title(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: Title_Times | null): Title_2;
 }
 
 /** JVM interface net.kyori.adventure.title.Title$Times. */

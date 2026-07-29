@@ -59,7 +59,6 @@ export interface FeaturePoolElementMembers {
 }
 export type FeaturePoolElement = FeaturePoolElementMembers & StructurePoolElement;
 export interface FeaturePoolElementStatics {
-  new(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: StructureTemplatePool_Projection): FeaturePoolElement;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FeaturePoolElement]>;
 }
 
@@ -94,13 +93,11 @@ export interface JigsawPlacementStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.pools.LegacySinglePoolElement. */
 export interface LegacySinglePoolElementMembers {
   readonly __javaSupertypes?: readonly [SinglePoolElement];
-  getSettings(arg0: j_net_minecraft_world_level_block.Rotation, arg1: j_net_minecraft_world_level_levelgen_structure.BoundingBox, arg2: j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings, arg3: boolean): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings;
   getType(): StructurePoolElementType<object>;
   toString(): string;
 }
 export type LegacySinglePoolElement = LegacySinglePoolElementMembers & SinglePoolElement;
 export interface LegacySinglePoolElementStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.util.Either", [j_net_minecraft_resources.ResourceLocation, j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate]>, arg1: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>, arg2: StructureTemplatePool_Projection, arg3: JavaOptional<j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings>): LegacySinglePoolElement;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LegacySinglePoolElement]>;
 }
 
@@ -127,24 +124,16 @@ export interface SinglePoolElementMembers {
   readonly __javaSupertypes?: readonly [StructurePoolElement];
   getBoundingBox(arg0: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Rotation): j_net_minecraft_world_level_levelgen_structure.BoundingBox;
   getDataMarkers(arg0: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Rotation, arg3: boolean): JavaList<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate_StructureBlockInfo>;
-  getSettings(arg0: j_net_minecraft_world_level_block.Rotation, arg1: j_net_minecraft_world_level_levelgen_structure.BoundingBox, arg2: j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings, arg3: boolean): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructurePlaceSettings;
   getShuffledJigsawBlocks(arg0: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Rotation, arg3: j_net_minecraft_util.RandomSource): JavaList<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate_JigsawBlockInfo>;
   getSize(arg0: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg1: j_net_minecraft_world_level_block.Rotation): j_net_minecraft_core.Vec3i;
   getTemplateLocation(): j_net_minecraft_resources.ResourceLocation;
   getType(): StructurePoolElementType<object>;
-  readonly overrideLiquidSettings: JavaOptional<j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings>;
   place(arg0: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg1: j_net_minecraft_world_level.WorldGenLevel, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkGenerator, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block.Rotation, arg7: j_net_minecraft_world_level_levelgen_structure.BoundingBox, arg8: j_net_minecraft_util.RandomSource, arg9: j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings, arg10: boolean): boolean;
-  readonly processors: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>;
-  readonly template: JavaOpaque<"com.mojang.datafixers.util.Either", [j_net_minecraft_resources.ResourceLocation, j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate]>;
   toString(): string;
 }
 export type SinglePoolElement = SinglePoolElementMembers & StructurePoolElement;
 export interface SinglePoolElementStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.util.Either", [j_net_minecraft_resources.ResourceLocation, j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate]>, arg1: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>, arg2: StructureTemplatePool_Projection, arg3: JavaOptional<j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings>): SinglePoolElement;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SinglePoolElement]>;
-  overrideLiquidSettingsCodec<E /* extends SinglePoolElement */>(): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [E, JavaOptional<j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings>]>;
-  processorsCodec<E /* extends SinglePoolElement */>(): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [E, j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>]>;
-  templateCodec<E /* extends SinglePoolElement */>(): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [E, JavaOpaque<"com.mojang.datafixers.util.Either", [j_net_minecraft_resources.ResourceLocation, j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate]>]>;
 }
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement. */
@@ -161,14 +150,12 @@ export interface StructurePoolElementMembers {
 }
 export type StructurePoolElement = StructurePoolElementMembers;
 export interface StructurePoolElementStatics {
-  new(arg0: StructureTemplatePool_Projection): StructurePoolElement;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [StructurePoolElement]>;
   empty(): JavaFunction<StructureTemplatePool_Projection, EmptyPoolElement>;
   feature(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>): JavaFunction<StructureTemplatePool_Projection, FeaturePoolElement>;
   legacy(arg0: string): JavaFunction<StructureTemplatePool_Projection, LegacySinglePoolElement>;
   legacy(arg0: string, arg1: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>): JavaFunction<StructureTemplatePool_Projection, LegacySinglePoolElement>;
   list(arg0: JavaList<JavaFunction<StructureTemplatePool_Projection, StructurePoolElement>>): JavaFunction<StructureTemplatePool_Projection, ListPoolElement>;
-  projectionCodec<E /* extends StructurePoolElement */>(): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [E, StructureTemplatePool_Projection]>;
   single(arg0: string): JavaFunction<StructureTemplatePool_Projection, SinglePoolElement>;
   single(arg0: string, arg1: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>): JavaFunction<StructureTemplatePool_Projection, SinglePoolElement>;
   single(arg0: string, arg1: j_net_minecraft_core.Holder<j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureProcessorList>, arg2: j_net_minecraft_world_level_levelgen_structure_templatesystem.LiquidSettings): JavaFunction<StructureTemplatePool_Projection, SinglePoolElement>;

@@ -48,8 +48,6 @@ export interface FunctionArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [FunctionArgument_Result]>];
   getExamples(): JavaCollection<string>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): FunctionArgument_Result;
 }
 export type FunctionArgument = FunctionArgumentMembers & JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [FunctionArgument_Result]>;
@@ -82,8 +80,6 @@ export interface ItemArgumentMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [ItemInput]>];
   getExamples(): JavaCollection<string>;
   listSuggestions<S>(arg0: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [S]>, arg1: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): object;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
   parse(arg0: JavaOpaque<"com.mojang.brigadier.StringReader">): ItemInput;
 }

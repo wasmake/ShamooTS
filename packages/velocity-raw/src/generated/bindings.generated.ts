@@ -1,5 +1,5 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
-export const API_VERSION = "3.4.0-20260121.190037-118" as const;
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
+export const API_VERSION = "3.4.0" as const;
 /** Runtime descriptors accepted by a host Java bridge. Raw Java classes are type-only. */
 export const JAVA_TYPES = {
   "com.velocitypowered.api.command.BrigadierCommand": { javaName: "com.velocitypowered.api.command.BrigadierCommand", kind: "class" },

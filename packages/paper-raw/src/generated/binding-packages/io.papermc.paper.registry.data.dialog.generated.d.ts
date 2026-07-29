@@ -23,14 +23,14 @@ export interface ActionButtonMembers {
 export type ActionButton = ActionButtonMembers;
 export interface ActionButtonStatics {
   builder(arg0: j_net_kyori_adventure_text.Component): ActionButton_Builder;
-  create(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: j_io_papermc_paper_registry_data_dialog_action.DialogAction): ActionButton | null;
+  create(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component | null, arg2: number, arg3: j_io_papermc_paper_registry_data_dialog_action.DialogAction | null): ActionButton;
 }
 
 /** JVM interface io.papermc.paper.registry.data.dialog.ActionButton$Builder. */
 export interface ActionButton_BuilderMembers {
-  action(arg0: j_io_papermc_paper_registry_data_dialog_action.DialogAction): ActionButton_Builder | null;
+  action(arg0: j_io_papermc_paper_registry_data_dialog_action.DialogAction | null): ActionButton_Builder;
   build(): ActionButton;
-  tooltip(arg0: j_net_kyori_adventure_text.Component): ActionButton_Builder | null;
+  tooltip(arg0: j_net_kyori_adventure_text.Component | null): ActionButton_Builder;
   width(arg0: number): ActionButton_Builder;
 }
 export type ActionButton_Builder = ActionButton_BuilderMembers;
@@ -50,7 +50,7 @@ export interface DialogBaseMembers {
 export type DialogBase = DialogBaseMembers;
 export interface DialogBaseStatics {
   builder(arg0: j_net_kyori_adventure_text.Component): DialogBase_Builder;
-  create(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component, arg2: boolean, arg3: boolean, arg4: DialogBase_DialogAfterAction, arg5: JavaList<j_io_papermc_paper_registry_data_dialog_body.DialogBody>, arg6: JavaList<j_io_papermc_paper_registry_data_dialog_input.DialogInput>): DialogBase | null;
+  create(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_text.Component | null, arg2: boolean, arg3: boolean, arg4: DialogBase_DialogAfterAction, arg5: JavaList<j_io_papermc_paper_registry_data_dialog_body.DialogBody>, arg6: JavaList<j_io_papermc_paper_registry_data_dialog_input.DialogInput>): DialogBase;
 }
 
 /** JVM interface io.papermc.paper.registry.data.dialog.DialogBase$Builder. */
@@ -59,7 +59,7 @@ export interface DialogBase_BuilderMembers {
   body(arg0: JavaList<j_io_papermc_paper_registry_data_dialog_body.DialogBody>): DialogBase_Builder;
   build(): DialogBase;
   canCloseWithEscape(arg0: boolean): DialogBase_Builder;
-  externalTitle(arg0: j_net_kyori_adventure_text.Component): DialogBase_Builder | null;
+  externalTitle(arg0: j_net_kyori_adventure_text.Component | null): DialogBase_Builder;
   inputs(arg0: JavaList<j_io_papermc_paper_registry_data_dialog_input.DialogInput>): DialogBase_Builder;
   pause(arg0: boolean): DialogBase_Builder;
 }
@@ -86,21 +86,21 @@ export interface DialogInstancesProviderMembers {
   booleanBuilder(arg0: string, arg1: j_net_kyori_adventure_text.Component): j_io_papermc_paper_registry_data_dialog_input.BooleanDialogInput_Builder;
   commandTemplate(arg0: string): j_io_papermc_paper_registry_data_dialog_action.DialogAction_CommandTemplateAction;
   confirmation(arg0: ActionButton, arg1: ActionButton): j_io_papermc_paper_registry_data_dialog_type.ConfirmationType;
-  customClick(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: j_net_kyori_adventure_nbt_api.BinaryTagHolder): j_io_papermc_paper_registry_data_dialog_action.DialogAction_CustomClickAction | null;
+  customClick(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): j_io_papermc_paper_registry_data_dialog_action.DialogAction_CustomClickAction;
   dialogBaseBuilder(arg0: j_net_kyori_adventure_text.Component): DialogBase_Builder;
   dialogList(arg0: j_io_papermc_paper_registry_set.RegistrySet<j_io_papermc_paper_dialog.Dialog>): j_io_papermc_paper_registry_data_dialog_type.DialogListType_Builder;
   itemDialogBodyBuilder(arg0: j_org_bukkit_inventory.ItemStack): j_io_papermc_paper_registry_data_dialog_body.ItemDialogBody_Builder;
   multiAction(arg0: JavaList<ActionButton>): j_io_papermc_paper_registry_data_dialog_type.MultiActionType_Builder;
-  multilineOptions(arg0: number, arg1: number): j_io_papermc_paper_registry_data_dialog_input.TextDialogInput_MultilineOptions | null;
+  multilineOptions(arg0: number | null, arg1: number | null): j_io_papermc_paper_registry_data_dialog_input.TextDialogInput_MultilineOptions;
   notice(): j_io_papermc_paper_registry_data_dialog_type.NoticeType;
   notice(arg0: ActionButton): j_io_papermc_paper_registry_data_dialog_type.NoticeType;
   numberRangeBuilder(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number): j_io_papermc_paper_registry_data_dialog_input.NumberRangeDialogInput_Builder;
   plainMessageDialogBody(arg0: j_net_kyori_adventure_text.Component): j_io_papermc_paper_registry_data_dialog_body.PlainMessageDialogBody;
   plainMessageDialogBody(arg0: j_net_kyori_adventure_text.Component, arg1: number): j_io_papermc_paper_registry_data_dialog_body.PlainMessageDialogBody;
   register(arg0: j_io_papermc_paper_registry_data_dialog_action.DialogActionCallback, arg1: j_net_kyori_adventure_text_event.ClickCallback_Options): j_io_papermc_paper_registry_data_dialog_action.DialogAction_CustomClickAction;
-  serverLinks(arg0: ActionButton, arg1: number, arg2: number): j_io_papermc_paper_registry_data_dialog_type.ServerLinksType | null;
+  serverLinks(arg0: ActionButton | null, arg1: number, arg2: number): j_io_papermc_paper_registry_data_dialog_type.ServerLinksType;
   singleOptionBuilder(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: JavaList<j_io_papermc_paper_registry_data_dialog_input.SingleOptionDialogInput_OptionEntry>): j_io_papermc_paper_registry_data_dialog_input.SingleOptionDialogInput_Builder;
-  singleOptionEntry(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: boolean): j_io_papermc_paper_registry_data_dialog_input.SingleOptionDialogInput_OptionEntry | null;
+  singleOptionEntry(arg0: string, arg1: j_net_kyori_adventure_text.Component | null, arg2: boolean): j_io_papermc_paper_registry_data_dialog_input.SingleOptionDialogInput_OptionEntry;
   staticAction(arg0: j_net_kyori_adventure_text_event.ClickEvent): j_io_papermc_paper_registry_data_dialog_action.DialogAction_StaticAction;
   textBuilder(arg0: string, arg1: j_net_kyori_adventure_text.Component): j_io_papermc_paper_registry_data_dialog_input.TextDialogInput_Builder;
 }

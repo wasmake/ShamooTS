@@ -7,7 +7,6 @@ import type * as j_org_bukkit_inventory from './org.bukkit.inventory.generated.j
 export interface PrepareGrindstoneEventMembers {
   readonly __javaSupertypes?: readonly [PrepareResultEvent];
   getInventory(): j_org_bukkit_inventory.GrindstoneInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
 }
 export type PrepareGrindstoneEvent = PrepareGrindstoneEventMembers & PrepareResultEvent;
 export interface PrepareGrindstoneEventStatics {
@@ -18,9 +17,9 @@ export interface PrepareGrindstoneEventStatics {
 export interface PrepareResultEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_inventory.PrepareInventoryResultEvent];
   getResult(): j_org_bukkit_inventory.ItemStack | null;
-  setResult(arg0: j_org_bukkit_inventory.ItemStack): void | null;
+  setResult(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PrepareResultEvent = PrepareResultEventMembers & j_org_bukkit_event_inventory.PrepareInventoryResultEvent;
 export interface PrepareResultEventStatics {
-  new(arg0: j_org_bukkit_inventory.InventoryView, arg1: j_org_bukkit_inventory.ItemStack): PrepareResultEvent;
+  new(arg0: j_org_bukkit_inventory.InventoryView, arg1: j_org_bukkit_inventory.ItemStack | null): PrepareResultEvent;
 }

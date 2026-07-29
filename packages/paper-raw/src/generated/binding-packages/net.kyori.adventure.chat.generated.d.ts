@@ -7,7 +7,7 @@ import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.gen
 export interface ChatTypeMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.kyori.adventure.key.Keyed">, JavaOpaque<"net.kyori.examination.Examinable">];
   bind(arg0: j_net_kyori_adventure_text.ComponentLike): ChatType_Bound;
-  bind(arg0: j_net_kyori_adventure_text.ComponentLike, arg1: j_net_kyori_adventure_text.ComponentLike | null): ChatType_Bound | null;
+  bind(arg0: j_net_kyori_adventure_text.ComponentLike, arg1: j_net_kyori_adventure_text.ComponentLike | null): ChatType_Bound;
   examinableProperties(): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"net.kyori.examination.ExaminableProperty">]>;
 }
 export type ChatType = ChatTypeMembers & JavaOpaque<"net.kyori.adventure.key.Keyed"> & JavaOpaque<"net.kyori.examination.Examinable">;
@@ -49,7 +49,7 @@ export interface SignedMessageMembers {
 export type SignedMessage = SignedMessageMembers & j_net_kyori_adventure_identity.Identified & JavaOpaque<"net.kyori.examination.Examinable">;
 export interface SignedMessageStatics {
   signature(arg0: Array<number>): SignedMessage_Signature;
-  system(arg0: string, arg1: j_net_kyori_adventure_text.ComponentLike | null): SignedMessage | null;
+  system(arg0: string, arg1: j_net_kyori_adventure_text.ComponentLike | null): SignedMessage;
 }
 
 /** JVM interface net.kyori.adventure.chat.SignedMessage$Signature. */

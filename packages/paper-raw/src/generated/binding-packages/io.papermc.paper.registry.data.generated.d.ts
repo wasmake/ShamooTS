@@ -164,7 +164,7 @@ export interface EnchantmentRegistryEntry_BuilderMembers {
   maxLevel(arg0: number): EnchantmentRegistryEntry_Builder;
   maximumCost(arg0: EnchantmentRegistryEntry_EnchantmentCost): EnchantmentRegistryEntry_Builder;
   minimumCost(arg0: EnchantmentRegistryEntry_EnchantmentCost): EnchantmentRegistryEntry_Builder;
-  primaryItems(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_inventory.ItemType>): EnchantmentRegistryEntry_Builder | null;
+  primaryItems(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_inventory.ItemType> | null): EnchantmentRegistryEntry_Builder;
   supportedItems(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_inventory.ItemType>): EnchantmentRegistryEntry_Builder;
   weight(arg0: number): EnchantmentRegistryEntry_Builder;
 }
@@ -292,9 +292,9 @@ export interface PaintingVariantRegistryEntryStatics {
 export interface PaintingVariantRegistryEntry_BuilderMembers {
   readonly __javaSupertypes?: readonly [PaintingVariantRegistryEntry, j_io_papermc_paper_registry.RegistryBuilder<j_org_bukkit.Art>];
   assetId(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): PaintingVariantRegistryEntry_Builder;
-  author(arg0: j_net_kyori_adventure_text.Component): PaintingVariantRegistryEntry_Builder | null;
+  author(arg0: j_net_kyori_adventure_text.Component | null): PaintingVariantRegistryEntry_Builder;
   height(arg0: number): PaintingVariantRegistryEntry_Builder;
-  title(arg0: j_net_kyori_adventure_text.Component): PaintingVariantRegistryEntry_Builder | null;
+  title(arg0: j_net_kyori_adventure_text.Component | null): PaintingVariantRegistryEntry_Builder;
   width(arg0: number): PaintingVariantRegistryEntry_Builder;
 }
 export type PaintingVariantRegistryEntry_Builder = PaintingVariantRegistryEntry_BuilderMembers & PaintingVariantRegistryEntry & j_io_papermc_paper_registry.RegistryBuilder<j_org_bukkit.Art>;
@@ -343,7 +343,7 @@ export interface SoundEventRegistryEntryStatics {
 /** JVM interface io.papermc.paper.registry.data.SoundEventRegistryEntry$Builder. */
 export interface SoundEventRegistryEntry_BuilderMembers {
   readonly __javaSupertypes?: readonly [SoundEventRegistryEntry, j_io_papermc_paper_registry.RegistryBuilder<j_org_bukkit.Sound_2>];
-  fixedRange(arg0: number): SoundEventRegistryEntry_Builder | null;
+  fixedRange(arg0: number | null): SoundEventRegistryEntry_Builder;
   location(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): SoundEventRegistryEntry_Builder;
 }
 export type SoundEventRegistryEntry_Builder = SoundEventRegistryEntry_BuilderMembers & SoundEventRegistryEntry & j_io_papermc_paper_registry.RegistryBuilder<j_org_bukkit.Sound_2>;

@@ -15,7 +15,6 @@ export interface BlockPlaceContextMembers {
   getNearestLookingDirection(): j_net_minecraft_core.Direction;
   getNearestLookingDirections(): Array<j_net_minecraft_core.Direction>;
   getNearestLookingVerticalDirection(): j_net_minecraft_core.Direction;
-  replaceClicked: boolean;
   replacingClickedOnBlock(): boolean;
 }
 export type BlockPlaceContext = BlockPlaceContextMembers & UseOnContext;
@@ -49,7 +48,6 @@ export interface UseOnContextMembers {
   getClickedFace(): j_net_minecraft_core.Direction;
   getClickedPos(): j_net_minecraft_core.BlockPos;
   getHand(): j_net_minecraft_world.InteractionHand;
-  getHitResult(): j_net_minecraft_world_phys.BlockHitResult;
   getHorizontalDirection(): j_net_minecraft_core.Direction;
   getItemInHand(): j_net_minecraft_world_item.ItemStack;
   getLevel(): j_net_minecraft_world_level.Level;

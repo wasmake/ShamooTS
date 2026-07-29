@@ -18,7 +18,7 @@ export interface BuildableMembers<R = unknown, B /* extends Buildable_Builder<R>
 }
 export type Buildable<R = unknown, B /* extends Buildable_Builder<R> */ = unknown> = BuildableMembers<R, B>;
 export interface BuildableStatics {
-  configureAndBuild<R /* extends Buildable<R, B> */, B /* extends Buildable_Builder<R> */>(arg0: B, arg1: JavaConsumer<B> | null): R | null;
+  configureAndBuild<R /* extends Buildable<R, B> */, B /* extends Buildable_Builder<R> */>(arg0: B, arg1: JavaConsumer<B> | null): R;
 }
 
 /** JVM interface net.kyori.adventure.util.Buildable$Builder. */
@@ -100,12 +100,12 @@ export interface HSVLikeStatics {
 /** JVM class net.kyori.adventure.util.Index. */
 export interface IndexMembers<K = unknown, V = unknown> {
   key(arg0: V): K | null;
-  keyOr(arg0: V, arg1: K | null): K | null;
+  keyOr(arg0: V, arg1: K | null): K;
   keyOrThrow(arg0: V): K;
   keyToValue(): JavaMap<K, V>;
   keys(): JavaSet<K>;
   value(arg0: K): V | null;
-  valueOr(arg0: K, arg1: V | null): V | null;
+  valueOr(arg0: K, arg1: V | null): V;
   valueOrThrow(arg0: K): V;
   valueToKey(): JavaMap<V, K>;
   values(): JavaSet<V>;
@@ -154,13 +154,9 @@ export interface IntFunction2Statics {
 
 /** JVM abstract net.kyori.adventure.util.Listenable. */
 export interface ListenableMembers<L = unknown> {
-  addListener0(arg0: L): void;
-  forEachListener(arg0: JavaConsumer<L>): void;
-  removeListener0(arg0: L): void;
 }
 export type Listenable<L = unknown> = ListenableMembers<L>;
 export interface ListenableStatics {
-  new<L>(): Listenable<L>;
 }
 
 /** JVM class net.kyori.adventure.util.MonkeyBars. */
@@ -180,7 +176,6 @@ export interface NagMembers {
 }
 export type Nag = NagMembers & JavaOpaque<"java.lang.RuntimeException">;
 export interface NagStatics {
-  new(arg0: string): Nag;
   print(arg0: Nag): void;
 }
 
@@ -251,7 +246,7 @@ export interface TriStateStatics {
   readonly FALSE: TriState;
   readonly NOT_SET: TriState;
   readonly TRUE: TriState;
-  byBoolean(arg0: boolean | null): TriState | null;
+  byBoolean(arg0: boolean | null): TriState;
   byBoolean(arg0: boolean): TriState;
   valueOf(arg0: string): TriState;
   values(): Array<TriState>;

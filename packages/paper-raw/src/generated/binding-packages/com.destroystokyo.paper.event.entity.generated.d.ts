@@ -14,7 +14,6 @@ import type * as j_org_bukkit_util from './org.bukkit.util.generated.js';
 export interface CreeperIgniteEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getEntity(): j_org_bukkit_entity.Creeper;
-  getEntity(): j_org_bukkit_entity.Entity;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
   isIgnited(): boolean;
@@ -32,7 +31,6 @@ export interface EnderDragonFireballHitEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getAreaEffectCloud(): j_org_bukkit_entity.AreaEffectCloud;
   getEntity(): j_org_bukkit_entity.DragonFireball;
-  getEntity(): j_org_bukkit_entity.Entity;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getTargets(): JavaCollection<j_org_bukkit_entity.LivingEntity>;
   isCancelled(): boolean;
@@ -49,7 +47,6 @@ export interface EnderDragonFlameEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getAreaEffectCloud(): j_org_bukkit_entity.AreaEffectCloud;
   getEntity(): j_org_bukkit_entity.EnderDragon;
-  getEntity(): j_org_bukkit_entity.Entity;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
@@ -64,7 +61,6 @@ export interface EnderDragonFlameEventStatics {
 export interface EnderDragonShootFireballEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getEntity(): j_org_bukkit_entity.EnderDragon;
-  getEntity(): j_org_bukkit_entity.Entity;
   getFireball(): j_org_bukkit_entity.DragonFireball;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
@@ -80,7 +76,6 @@ export interface EnderDragonShootFireballEventStatics {
 export interface EndermanAttackPlayerEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getEntity(): j_org_bukkit_entity.Enderman;
-  getEntity(): j_org_bukkit_entity.Entity;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getPlayer(): j_org_bukkit_entity.Player;
   isCancelled(): boolean;
@@ -96,7 +91,6 @@ export interface EndermanAttackPlayerEventStatics {
 export interface EndermanEscapeEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getEntity(): j_org_bukkit_entity.Enderman;
-  getEntity(): j_org_bukkit_entity.Entity;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getReason(): EndermanEscapeEvent_Reason;
   isCancelled(): boolean;
@@ -137,7 +131,6 @@ export interface EntityAddToWorldEventStatics {
 /** JVM class com.destroystokyo.paper.event.entity.EntityJumpEvent. */
 export interface EntityJumpEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.LivingEntity;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
@@ -152,7 +145,6 @@ export interface EntityJumpEventStatics {
 /** JVM class com.destroystokyo.paper.event.entity.EntityKnockbackByEntityEvent. */
 export interface EntityKnockbackByEntityEventMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_event_entity.EntityPushedByEntityAttackEvent];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.LivingEntity;
   getHitBy(): j_org_bukkit_entity.Entity;
   getKnockbackStrength(): number;
@@ -174,7 +166,7 @@ export interface EntityPathfindEventMembers {
 }
 export type EntityPathfindEvent = EntityPathfindEventMembers & j_org_bukkit_event_entity.EntityEvent & j_org_bukkit_event.Cancellable;
 export interface EntityPathfindEventStatics {
-  new(arg0: j_org_bukkit_entity.Entity, arg1: j_org_bukkit.Location, arg2: j_org_bukkit_entity.Entity): EntityPathfindEvent;
+  new(arg0: j_org_bukkit_entity.Entity, arg1: j_org_bukkit.Location, arg2: j_org_bukkit_entity.Entity | null): EntityPathfindEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -287,7 +279,6 @@ export interface PreSpawnerSpawnEventStatics {
 export interface ProjectileCollideEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getCollidedWith(): j_org_bukkit_entity.Entity;
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Projectile;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
@@ -303,7 +294,6 @@ export interface ProjectileCollideEventStatics {
 export interface SkeletonHorseTrapEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getEligibleHumans(): JavaList<j_org_bukkit_entity.HumanEntity>;
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.SkeletonHorse;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
@@ -329,7 +319,6 @@ export interface SlimeChangeDirectionEventStatics {
 /** JVM class com.destroystokyo.paper.event.entity.SlimePathfindEvent. */
 export interface SlimePathfindEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Slime;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
@@ -390,7 +379,6 @@ export interface ThrownEggHatchEventStatics {
 /** JVM class com.destroystokyo.paper.event.entity.TurtleGoHomeEvent. */
 export interface TurtleGoHomeEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Turtle;
   getHandlers(): j_org_bukkit_event.HandlerList;
   isCancelled(): boolean;
@@ -406,7 +394,6 @@ export interface TurtleGoHomeEventStatics {
 export interface TurtleLayEggEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
   getEggCount(): number;
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Turtle;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getLocation(): j_org_bukkit.Location;
@@ -423,7 +410,6 @@ export interface TurtleLayEggEventStatics {
 /** JVM class com.destroystokyo.paper.event.entity.TurtleStartDiggingEvent. */
 export interface TurtleStartDiggingEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Turtle;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getLocation(): j_org_bukkit.Location;
@@ -439,51 +425,48 @@ export interface TurtleStartDiggingEventStatics {
 /** JVM class com.destroystokyo.paper.event.entity.WitchConsumePotionEvent. */
 export interface WitchConsumePotionEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Witch;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getPotion(): j_org_bukkit_inventory.ItemStack | null;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setPotion(arg0: j_org_bukkit_inventory.ItemStack): void | null;
+  setPotion(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type WitchConsumePotionEvent = WitchConsumePotionEventMembers & j_org_bukkit_event_entity.EntityEvent & j_org_bukkit_event.Cancellable;
 export interface WitchConsumePotionEventStatics {
-  new(arg0: j_org_bukkit_entity.Witch, arg1: j_org_bukkit_inventory.ItemStack): WitchConsumePotionEvent;
+  new(arg0: j_org_bukkit_entity.Witch, arg1: j_org_bukkit_inventory.ItemStack | null): WitchConsumePotionEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
 /** JVM class com.destroystokyo.paper.event.entity.WitchReadyPotionEvent. */
 export interface WitchReadyPotionEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Witch;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getPotion(): j_org_bukkit_inventory.ItemStack | null;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setPotion(arg0: j_org_bukkit_inventory.ItemStack): void | null;
+  setPotion(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type WitchReadyPotionEvent = WitchReadyPotionEventMembers & j_org_bukkit_event_entity.EntityEvent & j_org_bukkit_event.Cancellable;
 export interface WitchReadyPotionEventStatics {
-  new(arg0: j_org_bukkit_entity.Witch, arg1: j_org_bukkit_inventory.ItemStack): WitchReadyPotionEvent;
+  new(arg0: j_org_bukkit_entity.Witch, arg1: j_org_bukkit_inventory.ItemStack | null): WitchReadyPotionEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
 /** JVM class com.destroystokyo.paper.event.entity.WitchThrowPotionEvent. */
 export interface WitchThrowPotionEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_entity.EntityEvent, j_org_bukkit_event.Cancellable];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Witch;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getPotion(): j_org_bukkit_inventory.ItemStack | null;
   getTarget(): j_org_bukkit_entity.LivingEntity;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setPotion(arg0: j_org_bukkit_inventory.ItemStack): void | null;
+  setPotion(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type WitchThrowPotionEvent = WitchThrowPotionEventMembers & j_org_bukkit_event_entity.EntityEvent & j_org_bukkit_event.Cancellable;
 export interface WitchThrowPotionEventStatics {
-  new(arg0: j_org_bukkit_entity.Witch, arg1: j_org_bukkit_entity.LivingEntity, arg2: j_org_bukkit_inventory.ItemStack): WitchThrowPotionEvent;
+  new(arg0: j_org_bukkit_entity.Witch, arg1: j_org_bukkit_entity.LivingEntity, arg2: j_org_bukkit_inventory.ItemStack | null): WitchThrowPotionEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

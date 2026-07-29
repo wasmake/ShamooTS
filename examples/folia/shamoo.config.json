@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/folia",
+  "name": "folia",
   "displayName": "Shamoo Folia Scheduling",
   "version": "0.1.0",
   "platforms": ["paper"],

@@ -24,12 +24,12 @@ export interface DefaultPermissionsMembers {
 export type DefaultPermissions = DefaultPermissionsMembers;
 export interface DefaultPermissionsStatics {
   registerCorePermissions(): void;
-  registerPermission(arg0: string, arg1: string | null): j_org_bukkit_permissions.Permission | null;
-  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission | null;
-  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null): j_org_bukkit_permissions.Permission | null;
-  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null, arg3: JavaMap<string, boolean> | null): j_org_bukkit_permissions.Permission | null;
-  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null, arg3: JavaMap<string, boolean> | null, arg4: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission | null;
-  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null, arg3: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission | null;
+  registerPermission(arg0: string, arg1: string | null): j_org_bukkit_permissions.Permission;
+  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission;
+  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null): j_org_bukkit_permissions.Permission;
+  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null, arg3: JavaMap<string, boolean> | null): j_org_bukkit_permissions.Permission;
+  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null, arg3: JavaMap<string, boolean> | null, arg4: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission;
+  registerPermission(arg0: string, arg1: string | null, arg2: j_org_bukkit_permissions.PermissionDefault | null, arg3: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission;
   registerPermission(arg0: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission;
   registerPermission(arg0: j_org_bukkit_permissions.Permission, arg1: j_org_bukkit_permissions.Permission): j_org_bukkit_permissions.Permission;
   registerPermission(arg0: j_org_bukkit_permissions.Permission, arg1: boolean): j_org_bukkit_permissions.Permission;

@@ -50,7 +50,7 @@ export interface ContextMap_BuilderMembers {
   create(arg0: ContextKeySet): ContextMap;
   getOptionalParameter<T>(arg0: ContextKey<T>): T | null;
   getParameter<T>(arg0: ContextKey<T>): T;
-  withOptionalParameter<T>(arg0: ContextKey<T>, arg1: T | null): ContextMap_Builder | null;
+  withOptionalParameter<T>(arg0: ContextKey<T>, arg1: T | null): ContextMap_Builder;
   withParameter<T>(arg0: ContextKey<T>, arg1: T): ContextMap_Builder;
 }
 export type ContextMap_Builder = ContextMap_BuilderMembers;

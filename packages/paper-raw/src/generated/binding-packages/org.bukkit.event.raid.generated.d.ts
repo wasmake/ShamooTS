@@ -12,7 +12,6 @@ export interface RaidEventMembers {
 }
 export type RaidEvent = RaidEventMembers & j_org_bukkit_event_world.WorldEvent;
 export interface RaidEventStatics {
-  new(arg0: j_org_bukkit.Raid, arg1: j_org_bukkit.World): RaidEvent;
 }
 
 /** JVM class org.bukkit.event.raid.RaidFinishEvent. */

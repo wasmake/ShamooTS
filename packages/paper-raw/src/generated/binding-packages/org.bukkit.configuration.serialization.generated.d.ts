@@ -12,14 +12,9 @@ export interface ConfigurationSerializableStatics {
 /** JVM class org.bukkit.configuration.serialization.ConfigurationSerialization. */
 export interface ConfigurationSerializationMembers {
   deserialize(arg0: JavaMap<string, object>): ConfigurationSerializable | null;
-  deserializeViaCtor(arg0: JavaOpaque<"java.lang.reflect.Constructor", [ConfigurationSerializable]>, arg1: JavaMap<string, object>): ConfigurationSerializable | null;
-  deserializeViaMethod(arg0: JavaOpaque<"java.lang.reflect.Method">, arg1: JavaMap<string, object>): ConfigurationSerializable | null;
-  getConstructor(): JavaOpaque<"java.lang.reflect.Constructor", [ConfigurationSerializable]> | null;
-  getMethod(arg0: string, arg1: boolean): JavaOpaque<"java.lang.reflect.Method"> | null;
 }
 export type ConfigurationSerialization = ConfigurationSerializationMembers;
 export interface ConfigurationSerializationStatics {
-  new(arg0: JavaClass<ConfigurationSerializable>): ConfigurationSerialization;
   readonly SERIALIZED_TYPE_KEY: "==";
   deserializeObject(arg0: JavaMap<string, object>): ConfigurationSerializable | null;
   deserializeObject(arg0: JavaMap<string, object>, arg1: JavaClass<ConfigurationSerializable>): ConfigurationSerializable | null;

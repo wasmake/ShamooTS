@@ -12,7 +12,7 @@ export type DialogAction = DialogActionMembers;
 export interface DialogActionStatics {
   commandTemplate(arg0: string): DialogAction_CommandTemplateAction;
   customClick(arg0: DialogActionCallback, arg1: j_net_kyori_adventure_text_event.ClickCallback_Options): DialogAction_CustomClickAction;
-  customClick(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: j_net_kyori_adventure_nbt_api.BinaryTagHolder): DialogAction_CustomClickAction | null;
+  customClick(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: j_net_kyori_adventure_nbt_api.BinaryTagHolder | null): DialogAction_CustomClickAction;
   staticAction(arg0: j_net_kyori_adventure_text_event.ClickEvent): DialogAction_StaticAction;
 }
 

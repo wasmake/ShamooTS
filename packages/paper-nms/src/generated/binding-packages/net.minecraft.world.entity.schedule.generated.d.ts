@@ -50,10 +50,7 @@ export interface KeyframeStatics {
 
 /** JVM class net.minecraft.world.entity.schedule.Schedule. */
 export interface ScheduleMembers {
-  ensureTimelineExistsFor(arg0: Activity): void;
   getActivityAt(arg0: number): Activity;
-  getAllTimelinesExceptFor(arg0: Activity): JavaList<Timeline>;
-  getTimelineFor(arg0: Activity): Timeline;
 }
 export type Schedule = ScheduleMembers;
 export interface ScheduleStatics {
@@ -64,7 +61,6 @@ export interface ScheduleStatics {
   readonly VILLAGER_BABY: Schedule;
   readonly VILLAGER_DEFAULT: Schedule;
   readonly WORK_START_TIME: 2000;
-  register(arg0: string): ScheduleBuilder;
 }
 
 /** JVM class net.minecraft.world.entity.schedule.ScheduleBuilder. */

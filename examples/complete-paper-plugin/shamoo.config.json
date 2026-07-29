@@ -1,5 +1,5 @@
 {
-  "name": "@shamoo-examples/complete-paper-plugin",
+  "name": "complete-paper-plugin",
   "displayName": "Complete Shamoo Paper Plugin",
   "version": "0.1.0",
   "platforms": ["paper"],

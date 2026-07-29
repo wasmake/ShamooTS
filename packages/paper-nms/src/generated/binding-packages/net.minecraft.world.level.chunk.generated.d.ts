@@ -76,11 +76,9 @@ export interface ChunkAccessMembers {
   addPackedPostProcess(arg0: JavaOpaque<"it.unimi.dsi.fastutil.shorts.ShortList">, arg1: number): void;
   addReferenceForStructure(arg0: j_net_minecraft_world_level_levelgen_structure.Structure, arg1: bigint): void;
   readonly biomeRegistry: j_net_minecraft_core.Registry<j_net_minecraft_world_level_biome.Biome>;
-  blendingData: j_net_minecraft_world_level_levelgen_blending.BlendingData | null;
   readonly blockEntities: JavaMap<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_entity.BlockEntity>;
   canBeSerialized(): boolean;
   carverBiome(arg0: JavaSupplier<j_net_minecraft_world_level_biome.BiomeGenerationSettings>): j_net_minecraft_world_level_biome.BiomeGenerationSettings;
-  readonly chunkPos: j_net_minecraft_world_level.ChunkPos;
   readonly coordinateKey: bigint;
   fillBiomesFromNoise(arg0: j_net_minecraft_world_level_biome.BiomeResolver, arg1: j_net_minecraft_world_level_biome.Climate_Sampler): void;
   findBlockLightSources(arg0: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>): void;
@@ -128,18 +126,13 @@ export interface ChunkAccessMembers {
   isUnsaved(): boolean;
   isUpgrading(): boolean;
   isYSpaceEmpty(arg0: number, arg1: number): boolean;
-  readonly levelHeightAccessor: j_net_minecraft_world_level.LevelHeightAccessor;
   readonly locX: number;
   readonly locZ: number;
   markPosForPostprocessing(arg0: j_net_minecraft_core.BlockPos): void;
   markUnsaved(): void;
-  noiseChunk: j_net_minecraft_world_level_levelgen.NoiseChunk | null;
-  readonly pendingBlockEntities: JavaMap<j_net_minecraft_core.BlockPos, j_net_minecraft_nbt.CompoundTag>;
   persistentDataContainer: j_org_bukkit_craftbukkit_persistence.DirtyCraftPersistentDataContainer;
-  readonly postProcessing: Array<JavaOpaque<"it.unimi.dsi.fastutil.shorts.ShortList">>;
   problemPath(): j_net_minecraft_util.ProblemReporter_PathElement;
   removeBlockEntity(arg0: j_net_minecraft_core.BlockPos): void;
-  readonly sections: Array<LevelChunkSection>;
   setAllReferences(arg0: JavaMap<j_net_minecraft_world_level_levelgen_structure.Structure, JavaOpaque<"it.unimi.dsi.fastutil.longs.LongSet">>): void;
   setAllStarts(arg0: JavaMap<j_net_minecraft_world_level_levelgen_structure.Structure, j_net_minecraft_world_level_levelgen_structure.StructureStart>): void;
   setBiome(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>): void;
@@ -160,11 +153,9 @@ export interface ChunkAccessMembers {
   starlight$setSkyEmptinessMap(arg0: Array<boolean>): void;
   starlight$setSkyNibbles(arg0: Array<JavaOpaque<"ca.spottedleaf.moonrise.patches.starlight.light.SWMRNibbleArray">>): void;
   tryMarkSaved(): boolean;
-  readonly upgradeData: UpgradeData;
 }
 export type ChunkAccess = ChunkAccessMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.starlight.chunk.StarlightChunk"> & j_net_minecraft_world_level_biome.BiomeManager_NoiseBiomeSource & LightChunk & StructureAccess;
 export interface ChunkAccessStatics {
-  new(arg0: j_net_minecraft_world_level.ChunkPos, arg1: UpgradeData, arg2: j_net_minecraft_world_level.LevelHeightAccessor, arg3: j_net_minecraft_core.Registry<j_net_minecraft_world_level_biome.Biome>, arg4: bigint, arg5: Array<LevelChunkSection> | null, arg6: j_net_minecraft_world_level_levelgen_blending.BlendingData | null): ChunkAccess;
   readonly NO_FILLED_SECTION: -1;
   getOrCreateOffsetList(arg0: Array<JavaOpaque<"it.unimi.dsi.fastutil.shorts.ShortList">>, arg1: number): JavaOpaque<"it.unimi.dsi.fastutil.shorts.ShortList">;
   problemPath(arg0: j_net_minecraft_world_level.ChunkPos): j_net_minecraft_util.ProblemReporter_PathElement;
@@ -191,9 +182,7 @@ export interface ChunkGeneratorMembers {
   applyBiomeDecoration(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: ChunkAccess, arg2: j_net_minecraft_world_level.StructureManager): void;
   applyBiomeDecoration(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: ChunkAccess, arg2: j_net_minecraft_world_level.StructureManager, arg3: boolean): void;
   applyCarvers(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: bigint, arg2: j_net_minecraft_world_level_levelgen.RandomState, arg3: j_net_minecraft_world_level_biome.BiomeManager, arg4: j_net_minecraft_world_level.StructureManager, arg5: ChunkAccess): void;
-  readonly biomeSource: j_net_minecraft_world_level_biome.BiomeSource;
   buildSurface(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_levelgen.RandomState, arg3: ChunkAccess): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ChunkGenerator]>;
   createBiomes(arg0: j_net_minecraft_world_level_levelgen.RandomState, arg1: j_net_minecraft_world_level_levelgen_blending.Blender, arg2: j_net_minecraft_world_level.StructureManager, arg3: ChunkAccess): PromiseLike<ChunkAccess>;
   createReferences(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level.StructureManager, arg2: ChunkAccess): void;
   createState(arg0: j_net_minecraft_core.HolderLookup<j_net_minecraft_world_level_levelgen_structure.StructureSet>, arg1: j_net_minecraft_world_level_levelgen.RandomState, arg2: bigint, arg3: JavaOpaque<"org.spigotmc.SpigotWorldConfig">): ChunkGeneratorStructureState;
@@ -218,8 +207,6 @@ export interface ChunkGeneratorMembers {
 }
 export type ChunkGenerator = ChunkGeneratorMembers;
 export interface ChunkGeneratorStatics {
-  new(arg0: j_net_minecraft_world_level_biome.BiomeSource): ChunkGenerator;
-  new(arg0: j_net_minecraft_world_level_biome.BiomeSource, arg1: JavaFunction<j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>, j_net_minecraft_world_level_biome.BiomeGenerationSettings>): ChunkGenerator;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [ChunkGenerator]>;
 }
 
@@ -280,13 +267,11 @@ export interface ChunkSourceMembers {
 }
 export type ChunkSource = ChunkSourceMembers & JavaOpaque<"java.lang.AutoCloseable"> & LightChunkGetter;
 export interface ChunkSourceStatics {
-  new(): ChunkSource;
 }
 
 /** JVM class net.minecraft.world.level.chunk.DataLayer. */
 export interface DataLayerMembers {
   copy(): DataLayer;
-  data: Array<number> | null;
   fill(arg0: number): void;
   get(arg0: number, arg1: number, arg2: number): number;
   getData(): Array<number>;
@@ -662,17 +647,17 @@ export interface PalettedContainerMembers<T = unknown> {
   release(): void;
   set(arg0: number, arg1: number, arg2: number, arg3: T): void;
   write(arg0: j_net_minecraft_network.FriendlyByteBuf): void;
-  write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: JavaOpaque<"io.papermc.paper.antixray.ChunkPacketInfo", [T]> | null, arg2: number): void | null;
+  write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: JavaOpaque<"io.papermc.paper.antixray.ChunkPacketInfo", [T]> | null, arg2: number): void;
 }
 export type PalettedContainer<T = unknown> = PalettedContainerMembers<T> & JavaOpaque<"net.minecraft.world.level.chunk.PaletteResize", [T]> & PalettedContainerRO<T>;
 export interface PalettedContainerStatics {
   new<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: T, arg2: PalettedContainer_Strategy): PalettedContainer<T>;
-  new<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: T, arg2: PalettedContainer_Strategy, arg3: Array<T>): PalettedContainer<T>;
+  new<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: T, arg2: PalettedContainer_Strategy, arg3: Array<T> | null): PalettedContainer<T>;
   new<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: PalettedContainer_Strategy, arg2: JavaOpaque<"net.minecraft.world.level.chunk.PalettedContainer$Configuration", [T]>, arg3: j_net_minecraft_util.BitStorage, arg4: JavaList<T>): PalettedContainer<T>;
-  new<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: PalettedContainer_Strategy, arg2: JavaOpaque<"net.minecraft.world.level.chunk.PalettedContainer$Configuration", [T]>, arg3: j_net_minecraft_util.BitStorage, arg4: JavaList<T>, arg5: T, arg6: Array<T>): PalettedContainer<T>;
+  new<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: PalettedContainer_Strategy, arg2: JavaOpaque<"net.minecraft.world.level.chunk.PalettedContainer$Configuration", [T]>, arg3: j_net_minecraft_util.BitStorage, arg4: JavaList<T>, arg5: T, arg6: Array<T> | null): PalettedContainer<T>;
   codecRO<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: PalettedContainer_Strategy, arg3: T): JavaOpaque<"com.mojang.serialization.Codec", [PalettedContainerRO<T>]>;
   codecRW<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: PalettedContainer_Strategy, arg3: T): JavaOpaque<"com.mojang.serialization.Codec", [PalettedContainer<T>]>;
-  codecRW<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: PalettedContainer_Strategy, arg3: T, arg4: Array<T>): JavaOpaque<"com.mojang.serialization.Codec", [PalettedContainer<T>]> | null;
+  codecRW<T>(arg0: j_net_minecraft_core.IdMap<T>, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: PalettedContainer_Strategy, arg3: T, arg4: Array<T> | null): JavaOpaque<"com.mojang.serialization.Codec", [PalettedContainer<T>]>;
 }
 
 /** JVM interface net.minecraft.world.level.chunk.PalettedContainer$CountConsumer. */
@@ -694,7 +679,7 @@ export interface PalettedContainer_DataMembers<T = unknown> {
   moonrise$setPalette(arg0: Array<T>): void;
   palette(): Palette<T>;
   storage(): j_net_minecraft_util.BitStorage;
-  write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: JavaOpaque<"io.papermc.paper.antixray.ChunkPacketInfo", [T]> | null, arg2: number): void | null;
+  write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: JavaOpaque<"io.papermc.paper.antixray.ChunkPacketInfo", [T]> | null, arg2: number): void;
 }
 export type PalettedContainer_Data<T = unknown> = PalettedContainer_DataMembers<T> & JavaOpaque<"ca.spottedleaf.moonrise.patches.fast_palette.FastPaletteData", [T]>;
 export interface PalettedContainer_DataStatics {
@@ -727,7 +712,7 @@ export interface PalettedContainerROMembers<T = unknown> {
   pack(arg0: j_net_minecraft_core.IdMap<T>, arg1: PalettedContainer_Strategy): PalettedContainerRO_PackedData<T>;
   recreate(): PalettedContainer<T>;
   write(arg0: j_net_minecraft_network.FriendlyByteBuf): void;
-  write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: JavaOpaque<"io.papermc.paper.antixray.ChunkPacketInfo", [T]> | null, arg2: number): void | null;
+  write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: JavaOpaque<"io.papermc.paper.antixray.ChunkPacketInfo", [T]> | null, arg2: number): void;
 }
 export type PalettedContainerRO<T = unknown> = PalettedContainerROMembers<T>;
 export interface PalettedContainerROStatics {
@@ -782,7 +767,7 @@ export interface ProtoChunkMembers {
   getTicksForSerialization(arg0: bigint): ChunkAccess_PackedTicks;
   markPosForPostprocessing(arg0: j_net_minecraft_core.BlockPos): void;
   removeBlockEntity(arg0: j_net_minecraft_core.BlockPos): void;
-  setBelowZeroRetrogen(arg0: j_net_minecraft_world_level_levelgen.BelowZeroRetrogen | null): void | null;
+  setBelowZeroRetrogen(arg0: j_net_minecraft_world_level_levelgen.BelowZeroRetrogen | null): void;
   setBlockEntity(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   setBlockState(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: number): j_net_minecraft_world_level_block_state.BlockState | null;
   setCarvingMask(arg0: CarvingMask): void;

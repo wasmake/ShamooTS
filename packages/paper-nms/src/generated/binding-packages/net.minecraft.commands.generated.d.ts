@@ -213,8 +213,8 @@ export interface CommandSourceStackMembers {
   getServer(): j_net_minecraft_server.MinecraftServer;
   getSigningContext(): CommandSigningContext;
   getTextName(): string;
-  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandExceptionType">, arg1: JavaOpaque<"com.mojang.brigadier.Message">, arg2: boolean, arg3: j_net_minecraft_commands_execution.TraceCallbacks | null): void | null;
-  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">, arg1: boolean, arg2: j_net_minecraft_commands_execution.TraceCallbacks | null): void | null;
+  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandExceptionType">, arg1: JavaOpaque<"com.mojang.brigadier.Message">, arg2: boolean, arg3: j_net_minecraft_commands_execution.TraceCallbacks | null): void;
+  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">, arg1: boolean, arg2: j_net_minecraft_commands_execution.TraceCallbacks | null): void;
   hasPermission(arg0: number): boolean;
   hasPermission(arg0: number, arg1: string): boolean;
   isPlayer(): boolean;
@@ -232,11 +232,9 @@ export interface CommandSourceStackMembers {
   suggestRegistryElements(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<object>>, arg1: SharedSuggestionProvider_ElementSuggestionType, arg2: JavaOpaque<"com.mojang.brigadier.suggestion.SuggestionsBuilder">, arg3: JavaOpaque<"com.mojang.brigadier.context.CommandContext", [object]>): PromiseLike<JavaOpaque<"com.mojang.brigadier.suggestion.Suggestions">>;
   withAnchor(arg0: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor): CommandSourceStack;
   withCallback(arg0: CommandResultCallback): CommandSourceStack;
-  withCallback(arg0: CommandResultCallback): ExecutionCommandSource;
   withCallback(arg0: CommandResultCallback, arg1: JavaOpaque<"java.util.function.BinaryOperator", [CommandResultCallback]>): CommandSourceStack;
   withEntity(arg0: j_net_minecraft_world_entity.Entity): CommandSourceStack;
   withLevel(arg0: j_net_minecraft_server_level.ServerLevel): CommandSourceStack;
-  withLocation(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"io.papermc.paper.command.brigadier.CommandSourceStack">;
   withLocation(arg0: JavaOpaque<"org.bukkit.Location">): CommandSourceStack;
   withMaximumPermission(arg0: number): CommandSourceStack;
   withPermission(arg0: number): CommandSourceStack;
@@ -249,7 +247,6 @@ export interface CommandSourceStackMembers {
 export type CommandSourceStack = CommandSourceStackMembers & PermissionSource & SharedSuggestionProvider & JavaOpaque<"io.papermc.paper.command.brigadier.PaperCommandSourceStack">;
 export interface CommandSourceStackStatics {
   new(arg0: CommandSource, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec2, arg3: j_net_minecraft_server_level.ServerLevel, arg4: number, arg5: string, arg6: j_net_minecraft_network_chat.Component, arg7: j_net_minecraft_server.MinecraftServer, arg8: j_net_minecraft_world_entity.Entity | null): CommandSourceStack;
-  new(arg0: CommandSource, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec2, arg3: j_net_minecraft_server_level.ServerLevel, arg4: number, arg5: string, arg6: j_net_minecraft_network_chat.Component, arg7: j_net_minecraft_server.MinecraftServer, arg8: j_net_minecraft_world_entity.Entity | null, arg9: boolean, arg10: CommandResultCallback, arg11: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor, arg12: CommandSigningContext, arg13: j_net_minecraft_util.TaskChainer): CommandSourceStack;
   readonly ERROR_NOT_ENTITY: JavaOpaque<"com.mojang.brigadier.exceptions.SimpleCommandExceptionType">;
   readonly ERROR_NOT_PLAYER: JavaOpaque<"com.mojang.brigadier.exceptions.SimpleCommandExceptionType">;
 }
@@ -260,8 +257,8 @@ export interface ExecutionCommandSourceMembers<T /* extends ExecutionCommandSour
   callback(): CommandResultCallback;
   clearCallbacks(): T;
   dispatcher(): JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>;
-  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandExceptionType">, arg1: JavaOpaque<"com.mojang.brigadier.Message">, arg2: boolean, arg3: j_net_minecraft_commands_execution.TraceCallbacks | null): void | null;
-  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">, arg1: boolean, arg2: j_net_minecraft_commands_execution.TraceCallbacks | null): void | null;
+  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandExceptionType">, arg1: JavaOpaque<"com.mojang.brigadier.Message">, arg2: boolean, arg3: j_net_minecraft_commands_execution.TraceCallbacks | null): void;
+  handleError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">, arg1: boolean, arg2: j_net_minecraft_commands_execution.TraceCallbacks | null): void;
   isSilent(): boolean;
   withCallback(arg0: CommandResultCallback): T;
 }
@@ -304,7 +301,6 @@ export interface PermissionSource_CheckMembers<T /* extends PermissionSource */ 
   equals(arg0: object): boolean;
   hashCode(): number;
   requiredLevel(): number;
-  test(arg0: object): boolean;
   test(arg0: T): boolean;
   toString(): string;
   vanillaNode(): JavaOpaque<"java.util.concurrent.atomic.AtomicReference", [JavaOpaque<"com.mojang.brigadier.tree.CommandNode", [CommandSourceStack]>]>;

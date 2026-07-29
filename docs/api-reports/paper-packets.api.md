@@ -8,7 +8,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.common.ClientboundClearDialogPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.common.ClientboundClearDialogPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.common.ClientboundClearDialogPacket>`
 
@@ -20,7 +19,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `CONFIG_STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket>`
 - Field: `GAMEPLAY_STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `payload(): net.minecraft.network.protocol.common.custom.CustomPacketPayload`
@@ -35,7 +33,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.common.ClientboundCustomReportDetailsPacket>`
 - Method: `details(): java.util.Map<java.lang.String, java.lang.String>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -48,7 +45,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.common.ClientboundDisconnectPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `reason(): net.minecraft.network.chat.Component`
@@ -62,7 +58,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: long)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundKeepAlivePacket>`
 - Method: `getId(): long`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.common.ClientboundKeepAlivePacket>`
 
@@ -73,7 +68,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundPingPacket>`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.common.ClientboundPingPacket>`
 
@@ -84,7 +78,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.Optional<java.util.UUID>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundResourcePackPopPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): java.util.Optional<java.util.UUID>`
@@ -99,7 +92,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `MAX_HASH_LENGTH: int`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.common.ClientboundResourcePackPushPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hash(): java.lang.String`
 - Method: `hashCode(): int`
@@ -117,7 +109,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.List<net.minecraft.server.ServerLinks$UntrustedEntry>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.common.ClientboundServerLinksPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `links(): java.util.List<net.minecraft.server.ServerLinks$UntrustedEntry>`
@@ -133,7 +124,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundShowDialogPacket>`
 - Method: `dialog(): net.minecraft.core.Holder<net.minecraft.server.dialog.Dialog>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -147,7 +137,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `PAYLOAD_STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, byte[]>`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundStoreCookiePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `key(): net.minecraft.resources.ResourceLocation`
@@ -162,7 +151,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.lang.String, arg1: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundTransferPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `host(): java.lang.String`
@@ -177,7 +165,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.Map<net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<?>>, net.minecraft.tags.TagNetworkSerialization$NetworkPayload>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ClientboundUpdateTagsPacket>`
 - Method: `getTags(): java.util.Map<net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<?>>, net.minecraft.tags.TagNetworkSerialization$NetworkPayload>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ClientCommonPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.common.ClientboundUpdateTagsPacket>`
 
@@ -188,7 +175,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.server.level.ClientInformation)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ServerboundClientInformationPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ServerCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `information(): net.minecraft.server.level.ClientInformation`
@@ -202,7 +188,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.resources.ResourceLocation, arg1: java.util.Optional<net.minecraft.nbt.Tag>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.common.ServerboundCustomClickActionPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ServerCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): net.minecraft.resources.ResourceLocation`
@@ -217,7 +202,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.protocol.common.custom.CustomPacketPayload)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ServerCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `payload(): net.minecraft.network.protocol.common.custom.CustomPacketPayload`
@@ -231,7 +215,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: long)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ServerboundKeepAlivePacket>`
 - Method: `getId(): long`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ServerCommonPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.common.ServerboundKeepAlivePacket>`
 
@@ -242,7 +225,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ServerboundPongPacket>`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ServerCommonPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.common.ServerboundPongPacket>`
 
@@ -254,7 +236,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.common.ServerboundResourcePackPacket>`
 - Method: `action(): net.minecraft.network.protocol.common.ServerboundResourcePackPacket$Action`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.common.ServerCommonPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): java.util.UUID`
@@ -267,7 +248,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.configuration.ClientboundFinishConfigurationPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.configuration.ClientboundFinishConfigurationPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener): void`
 - Method: `isTerminal(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.configuration.ClientboundFinishConfigurationPacket>`
@@ -280,7 +260,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.configuration.ClientboundRegistryDataPacket>`
 - Method: `entries(): java.util.List<net.minecraft.core.RegistrySynchronization$PackedRegistryEntry>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `registry(): net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<?>>`
@@ -293,7 +272,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.configuration.ClientboundResetChatPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.configuration.ClientboundResetChatPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.configuration.ClientboundResetChatPacket>`
 
@@ -304,7 +282,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.List<net.minecraft.server.packs.repository.KnownPack>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.configuration.ClientboundSelectKnownPacks>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `knownPacks(): java.util.List<net.minecraft.server.packs.repository.KnownPack>`
@@ -319,7 +296,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.configuration.ClientboundUpdateEnabledFeaturesPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `features(): java.util.Set<net.minecraft.resources.ResourceLocation>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -331,7 +307,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.configuration.ServerboundFinishConfigurationPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.configuration.ServerboundFinishConfigurationPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener): void`
 - Method: `isTerminal(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.configuration.ServerboundFinishConfigurationPacket>`
@@ -343,7 +318,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.List<net.minecraft.server.packs.repository.KnownPack>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.configuration.ServerboundSelectKnownPacks>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `knownPacks(): java.util.List<net.minecraft.server.packs.repository.KnownPack>`
@@ -357,7 +331,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.resources.ResourceLocation)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.cookie.ClientboundCookieRequestPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.cookie.ClientCookiePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `key(): net.minecraft.resources.ResourceLocation`
@@ -371,7 +344,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.resources.ResourceLocation, arg1: byte[])`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.cookie.ServerboundCookieResponsePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.cookie.ServerCookiePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `key(): net.minecraft.resources.ResourceLocation`
@@ -401,7 +373,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getYa(): double`
 - Method: `getZ(): double`
 - Method: `getZa(): double`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundAddEntityPacket>`
 
@@ -418,7 +389,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `WAKE_UP: int`
 - Method: `getAction(): int`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundAnimatePacket>`
 
@@ -429,7 +399,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: it.unimi.dsi.fastutil.objects.Object2IntMap<net.minecraft.stats.Stat<?>>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundAwardStatsPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `stats(): it.unimi.dsi.fastutil.objects.Object2IntMap<net.minecraft.stats.Stat<?>>`
@@ -443,7 +412,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundBlockChangedAckPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `sequence(): int`
@@ -459,7 +427,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getId(): int`
 - Method: `getPos(): net.minecraft.core.BlockPos`
 - Method: `getProgress(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundBlockDestructionPacket>`
 
@@ -474,7 +441,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getPos(): net.minecraft.core.BlockPos`
 - Method: `getTag(): net.minecraft.nbt.CompoundTag`
 - Method: `getType(): net.minecraft.world.level.block.entity.BlockEntityType<?>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket>`
 
@@ -488,7 +454,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getB1(): int`
 - Method: `getBlock(): net.minecraft.world.level.block.Block`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundBlockEventPacket>`
 
@@ -502,7 +467,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `blockState: net.minecraft.world.level.block.state.BlockState`
 - Method: `getBlockState(): net.minecraft.world.level.block.state.BlockState`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket>`
 
@@ -518,7 +482,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `createUpdatePropertiesPacket(arg0: net.minecraft.world.BossEvent): net.minecraft.network.protocol.game.ClientboundBossEventPacket`
 - Method: `createUpdateStylePacket(arg0: net.minecraft.world.BossEvent): net.minecraft.network.protocol.game.ClientboundBossEventPacket`
 - Method: `dispatch(arg0: net.minecraft.network.protocol.game.ClientboundBossEventPacket$Handler): void`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundBossEventPacket>`
 
@@ -537,7 +500,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundChangeDifficultyPacket>`
 - Method: `difficulty(): net.minecraft.world.Difficulty`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `locked(): boolean`
@@ -552,7 +514,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket>`
 - Method: `batchSize(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -564,7 +525,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket>`
 
@@ -577,7 +537,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `chunkBiomeData(): java.util.List<net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket$ChunkBiomeData>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `forChunks(arg0: java.util.List<net.minecraft.world.level.chunk.LevelChunk>): net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -589,7 +548,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundClearTitlesPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `shouldResetTimes(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundClearTitlesPacket>`
@@ -602,7 +560,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: com.mojang.brigadier.suggestion.Suggestions)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundCommandSuggestionsPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -620,7 +577,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: com.mojang.brigadier.tree.RootCommandNode<S>, arg1: net.minecraft.network.protocol.game.ClientboundCommandsPacket$NodeInspector<S>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundCommandsPacket>`
 - Method: `getRoot(arg0: net.minecraft.commands.CommandBuildContext, arg1: net.minecraft.network.protocol.game.ClientboundCommandsPacket$NodeBuilder<S>): com.mojang.brigadier.tree.RootCommandNode<S>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundCommandsPacket>`
 
@@ -631,7 +587,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundContainerClosePacket>`
 - Method: `getContainerId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundContainerClosePacket>`
 
@@ -644,7 +599,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `carriedItem(): net.minecraft.world.item.ItemStack`
 - Method: `containerId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hasLargePacketFallback(): boolean`
 - Method: `hashCode(): int`
@@ -663,7 +617,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getContainerId(): int`
 - Method: `getId(): int`
 - Method: `getValue(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundContainerSetDataPacket>`
 
@@ -677,7 +630,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getItem(): net.minecraft.world.item.ItemStack`
 - Method: `getSlot(): int`
 - Method: `getStateId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket>`
 
@@ -690,7 +642,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `cooldownGroup(): net.minecraft.resources.ResourceLocation`
 - Method: `duration(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -705,7 +656,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `action(): net.minecraft.network.protocol.game.ClientboundCustomChatCompletionsPacket$Action`
 - Method: `entries(): java.util.List<java.lang.String>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -721,7 +671,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `entityId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getSource(arg0: net.minecraft.world.level.Level): net.minecraft.world.damagesource.DamageSource`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `sourceCauseId(): int`
@@ -739,7 +688,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundDebugSamplePacket>`
 - Method: `debugSampleType(): net.minecraft.util.debugchart.RemoteDebugSampleType`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `sample(): long[]`
@@ -753,7 +701,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.MessageSignature$Packed)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundDeleteChatPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `messageSignature(): net.minecraft.network.chat.MessageSignature$Packed`
@@ -768,7 +715,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundDisguisedChatPacket>`
 - Method: `chatType(): net.minecraft.network.chat.ChatType$Bound`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `isSkippable(): boolean`
@@ -784,7 +730,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundEntityEventPacket>`
 - Method: `getEntity(arg0: net.minecraft.world.level.Level): net.minecraft.world.entity.Entity`
 - Method: `getEventId(): byte`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundEntityEventPacket>`
 
@@ -795,7 +740,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: net.minecraft.world.entity.PositionMoveRotation, arg2: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundEntityPositionSyncPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -815,7 +759,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `explosionParticle(): net.minecraft.core.particles.ParticleOptions`
 - Method: `explosionSound(): net.minecraft.core.Holder<net.minecraft.sounds.SoundEvent>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `playerKnockback(): java.util.Optional<net.minecraft.world.phys.Vec3>`
@@ -829,7 +772,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.level.ChunkPos)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundForgetLevelChunkPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `pos(): net.minecraft.world.level.ChunkPos`
@@ -863,7 +805,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `WIN_GAME: net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type`
 - Method: `getEvent(): net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type`
 - Method: `getParam(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundGameEventPacket>`
 
@@ -876,7 +817,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getContainerId(): int`
 - Method: `getEntityId(): int`
 - Method: `getInventoryColumns(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundHorseScreenOpenPacket>`
 
@@ -888,7 +828,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.entity.LivingEntity)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundHurtAnimationPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -910,7 +849,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getOldSize(): double`
 - Method: `getWarningBlocks(): int`
 - Method: `getWarningTime(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundInitializeBorderPacket>`
 
@@ -926,7 +864,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getLightData(): net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData`
 - Method: `getX(): int`
 - Method: `getZ(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isReady(): boolean`
 - Method: `setReady(arg0: boolean): void`
@@ -941,7 +878,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getData(): int`
 - Method: `getPos(): net.minecraft.core.BlockPos`
 - Method: `getType(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isGlobalEvent(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundLevelEventPacket>`
@@ -962,7 +898,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getYDist(): float`
 - Method: `getZ(): double`
 - Method: `getZDist(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isOverrideLimiter(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket>`
@@ -976,7 +911,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getLightData(): net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData`
 - Method: `getX(): int`
 - Method: `getZ(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundLightUpdatePacket>`
 
@@ -991,7 +925,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `doLimitedCrafting(): boolean`
 - Method: `enforcesSecureChat(): boolean`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hardcore(): boolean`
 - Method: `hashCode(): int`
@@ -1015,7 +948,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `colorPatch(): java.util.Optional<net.minecraft.world.level.saveddata.maps.MapItemSavedData$MapPatch>`
 - Method: `decorations(): java.util.Optional<java.util.List<net.minecraft.world.level.saveddata.maps.MapDecoration>>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `locked(): boolean`
@@ -1035,7 +967,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getOffers(): net.minecraft.world.item.trading.MerchantOffers`
 - Method: `getVillagerLevel(): int`
 - Method: `getVillagerXp(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `showProgress(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundMerchantOffersPacket>`
@@ -1046,7 +977,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: int, arg1: short, arg2: short, arg3: short, arg4: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$Pos>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$Pos>`
 
 ### ClientboundMoveEntityPacket_PosRot
@@ -1055,7 +985,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: int, arg1: short, arg2: short, arg3: short, arg4: byte, arg5: byte, arg6: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$PosRot>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$PosRot>`
 
 ### ClientboundMoveEntityPacket_Rot
@@ -1064,7 +993,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: int, arg1: byte, arg2: byte, arg3: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$Rot>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$Rot>`
 
 ### ClientboundMoveMinecartPacket
@@ -1076,7 +1004,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `entityId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getEntity(arg0: net.minecraft.world.level.Level): net.minecraft.world.entity.Entity`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `lerpSteps(): java.util.List<net.minecraft.world.entity.vehicle.NewMinecartBehavior$MinecartStep>`
@@ -1091,7 +1018,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundMoveVehiclePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `fromEntity(arg0: net.minecraft.world.entity.Entity): net.minecraft.network.protocol.game.ClientboundMoveVehiclePacket`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `position(): net.minecraft.world.phys.Vec3`
@@ -1107,7 +1033,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.InteractionHand)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundOpenBookPacket>`
 - Method: `getHand(): net.minecraft.world.InteractionHand`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundOpenBookPacket>`
 
@@ -1120,7 +1045,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getContainerId(): int`
 - Method: `getTitle(): net.minecraft.network.chat.Component`
 - Method: `getType(): net.minecraft.world.inventory.MenuType<?>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundOpenScreenPacket>`
 
@@ -1131,7 +1055,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.core.BlockPos, arg1: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundOpenSignEditorPacket>`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isFrontText(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundOpenSignEditorPacket>`
@@ -1144,7 +1067,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlaceGhostRecipePacket>`
 - Method: `containerId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `recipeDisplay(): net.minecraft.world.item.crafting.display.RecipeDisplay`
@@ -1161,7 +1083,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `canInstabuild(): boolean`
 - Method: `getFlyingSpeed(): float`
 - Method: `getWalkingSpeed(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isFlying(): boolean`
 - Method: `isInvulnerable(): boolean`
@@ -1178,7 +1099,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `filterMask(): net.minecraft.network.chat.FilterMask`
 - Method: `globalIndex(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `index(): int`
@@ -1196,7 +1116,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Constructor: `(arg0: net.minecraft.world.damagesource.CombatTracker)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket>`
 
@@ -1206,7 +1125,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket>`
 
@@ -1217,7 +1135,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: net.minecraft.network.chat.Component)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerCombatKillPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `isSkippable(): boolean`
@@ -1233,7 +1150,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.List<java.util.UUID>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `profileIds(): java.util.List<java.util.UUID>`
@@ -1254,7 +1170,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `createPlayerInitializing(arg0: java.util.Collection<net.minecraft.server.level.ServerPlayer>, arg1: net.minecraft.server.level.ServerPlayer): net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket`
 - Method: `createSinglePlayerInitializing(arg0: net.minecraft.server.level.ServerPlayer, arg1: boolean): net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket`
 - Method: `entries(): java.util.List<net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Entry>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `newEntries(): java.util.List<net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Entry>`
 - Method: `toString(): java.lang.String`
@@ -1270,7 +1185,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerLookAtPacket>`
 - Method: `getFromAnchor(): net.minecraft.commands.arguments.EntityAnchorArgument$Anchor`
 - Method: `getPosition(arg0: net.minecraft.world.level.Level): net.minecraft.world.phys.Vec3`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundPlayerLookAtPacket>`
 
@@ -1282,7 +1196,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerPositionPacket>`
 - Method: `change(): net.minecraft.world.entity.PositionMoveRotation`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -1298,7 +1211,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: float, arg1: float)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundPlayerRotationPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -1314,7 +1226,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundProjectilePowerPacket>`
 - Method: `getAccelerationPower(): double`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundProjectilePowerPacket>`
 
@@ -1326,7 +1237,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket>`
 - Method: `entries(): java.util.List<net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket$Entry>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `replace(): boolean`
@@ -1340,7 +1250,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.List<net.minecraft.world.item.crafting.display.RecipeDisplayId>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundRecipeBookRemovePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `recipes(): java.util.List<net.minecraft.world.item.crafting.display.RecipeDisplayId>`
@@ -1355,7 +1264,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundRecipeBookSettingsPacket>`
 - Method: `bookSettings(): net.minecraft.stats.RecipeBookSettings`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -1369,7 +1277,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket>`
 - Method: `getEntityIds(): it.unimi.dsi.fastutil.ints.IntList`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket>`
 
@@ -1383,7 +1290,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `entityId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getEntity(arg0: net.minecraft.world.level.Level): net.minecraft.world.entity.Entity`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -1396,7 +1302,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.lang.String, arg1: java.lang.String)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundResetScorePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `objectiveName(): java.lang.String`
@@ -1416,7 +1321,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `commonPlayerSpawnInfo(): net.minecraft.network.protocol.game.CommonPlayerSpawnInfo`
 - Method: `dataToKeep(): byte`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `shouldKeep(arg0: byte): boolean`
@@ -1431,7 +1335,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundRotateHeadPacket>`
 - Method: `getEntity(arg0: net.minecraft.world.level.Level): net.minecraft.world.entity.Entity`
 - Method: `getYHeadRot(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundRotateHeadPacket>`
 
@@ -1443,7 +1346,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.core.SectionPos, arg1: it.unimi.dsi.fastutil.shorts.ShortSet, arg2: net.minecraft.world.level.chunk.LevelChunkSection)`
 - Constructor: `(arg0: net.minecraft.core.SectionPos, arg1: it.unimi.dsi.fastutil.shorts.ShortSet, arg2: net.minecraft.world.level.block.state.BlockState[])`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `runUpdates(arg0: java.util.function.BiConsumer<net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState>): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket>`
@@ -1455,7 +1357,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.resources.ResourceLocation)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSelectAdvancementsTabPacket>`
 - Method: `getTab(): net.minecraft.resources.ResourceLocation`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSelectAdvancementsTabPacket>`
 
@@ -1466,7 +1367,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component, arg1: java.util.Optional<byte[]>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundServerDataPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `iconBytes(): java.util.Optional<byte[]>`
@@ -1481,7 +1381,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `text(): net.minecraft.network.chat.Component`
@@ -1496,7 +1395,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetBorderCenterPacket>`
 - Method: `getNewCenterX(): double`
 - Method: `getNewCenterZ(): double`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetBorderCenterPacket>`
 
@@ -1509,7 +1407,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getLerpTime(): long`
 - Method: `getNewSize(): double`
 - Method: `getOldSize(): double`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetBorderLerpSizePacket>`
 
@@ -1520,7 +1417,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.level.border.WorldBorder)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetBorderSizePacket>`
 - Method: `getSize(): double`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetBorderSizePacket>`
 
@@ -1531,7 +1427,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.level.border.WorldBorder)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket>`
 - Method: `getWarningDelay(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket>`
 
@@ -1542,7 +1437,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.level.border.WorldBorder)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket>`
 - Method: `getWarningBlocks(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket>`
 
@@ -1553,7 +1447,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.entity.Entity)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetCameraPacket>`
 - Method: `getEntity(arg0: net.minecraft.world.level.Level): net.minecraft.world.entity.Entity`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetCameraPacket>`
 
@@ -1565,7 +1458,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetChunkCacheCenterPacket>`
 - Method: `getX(): int`
 - Method: `getZ(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetChunkCacheCenterPacket>`
 
@@ -1576,7 +1468,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetChunkCacheRadiusPacket>`
 - Method: `getRadius(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetChunkCacheRadiusPacket>`
 
@@ -1588,7 +1479,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetCursorItemPacket>`
 - Method: `contents(): net.minecraft.world.item.ItemStack`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -1603,7 +1493,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `pos: net.minecraft.core.BlockPos`
 - Method: `getAngle(): float`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetDefaultSpawnPositionPacket>`
 
@@ -1615,7 +1504,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetDisplayObjectivePacket>`
 - Method: `getObjectiveName(): java.lang.String`
 - Method: `getSlot(): net.minecraft.world.scores.DisplaySlot`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetDisplayObjectivePacket>`
 
@@ -1627,7 +1515,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `EOF_MARKER: int`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -1643,7 +1530,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetEntityLinkPacket>`
 - Method: `getDestId(): int`
 - Method: `getSourceId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetEntityLinkPacket>`
 
@@ -1658,7 +1544,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getXa(): double`
 - Method: `getYa(): double`
 - Method: `getZa(): double`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket>`
 
@@ -1671,7 +1556,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket>`
 - Method: `getEntity(): int`
 - Method: `getSlots(): java.util.List<com.mojang.datafixers.util.Pair<net.minecraft.world.entity.EquipmentSlot, net.minecraft.world.item.ItemStack>>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket>`
 
@@ -1684,7 +1568,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getExperienceLevel(): int`
 - Method: `getExperienceProgress(): float`
 - Method: `getTotalExperience(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetExperiencePacket>`
 
@@ -1697,7 +1580,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getFood(): int`
 - Method: `getHealth(): float`
 - Method: `getSaturation(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetHealthPacket>`
 
@@ -1708,7 +1590,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundSetHeldSlotPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `slot(): int`
@@ -1729,7 +1610,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getNumberFormat(): java.util.Optional<net.minecraft.network.chat.numbers.NumberFormat>`
 - Method: `getObjectiveName(): java.lang.String`
 - Method: `getRenderType(): net.minecraft.world.scores.criteria.ObjectiveCriteria$RenderType`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetObjectivePacket>`
 
@@ -1741,7 +1621,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetPassengersPacket>`
 - Method: `getPassengers(): int[]`
 - Method: `getVehicle(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetPassengersPacket>`
 
@@ -1753,7 +1632,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetPlayerInventoryPacket>`
 - Method: `contents(): net.minecraft.world.item.ItemStack`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `slot(): int`
@@ -1774,7 +1652,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getPlayerAction(): net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Action`
 - Method: `getPlayers(): java.util.Collection<java.lang.String>`
 - Method: `getTeamAction(): net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Action`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket>`
 
@@ -1786,7 +1663,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetScorePacket>`
 - Method: `display(): java.util.Optional<net.minecraft.network.chat.Component>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `numberFormat(): java.util.Optional<net.minecraft.network.chat.numbers.NumberFormat>`
@@ -1803,7 +1679,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetSimulationDistancePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `simulationDistance(): int`
@@ -1817,7 +1692,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `text(): net.minecraft.network.chat.Component`
@@ -1833,7 +1707,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `dayTime(): long`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `gameTime(): long`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `tickDayTime(): boolean`
@@ -1847,7 +1720,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `text(): net.minecraft.network.chat.Component`
@@ -1863,7 +1735,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getFadeIn(): int`
 - Method: `getFadeOut(): int`
 - Method: `getStay(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket>`
 
@@ -1879,7 +1750,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getSound(): net.minecraft.core.Holder<net.minecraft.sounds.SoundEvent>`
 - Method: `getSource(): net.minecraft.sounds.SoundSource`
 - Method: `getVolume(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSoundEntityPacket>`
 
@@ -1898,7 +1768,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getX(): double`
 - Method: `getY(): double`
 - Method: `getZ(): double`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundSoundPacket>`
 
@@ -1908,7 +1777,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isTerminal(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket>`
@@ -1921,7 +1789,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundStopSoundPacket>`
 - Method: `getName(): net.minecraft.resources.ResourceLocation`
 - Method: `getSource(): net.minecraft.sounds.SoundSource`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundStopSoundPacket>`
 
@@ -1935,7 +1802,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundSystemChatPacket>`
 - Method: `content(): net.minecraft.network.chat.Component`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `isSkippable(): boolean`
@@ -1951,7 +1817,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundTabListPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `footer(): net.minecraft.network.chat.Component`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `header(): net.minecraft.network.chat.Component`
@@ -1966,7 +1831,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundTagQueryPacket>`
 - Method: `getTag(): net.minecraft.nbt.CompoundTag`
 - Method: `getTransactionId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isSkippable(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundTagQueryPacket>`
@@ -1980,7 +1844,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getAmount(): int`
 - Method: `getItemId(): int`
 - Method: `getPlayerId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundTakeItemEntityPacket>`
 
@@ -1992,7 +1855,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket>`
 - Method: `change(): net.minecraft.world.entity.PositionMoveRotation`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -2009,7 +1871,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component, arg1: java.util.Optional<net.minecraft.core.Vec3i>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundTestInstanceBlockStatus>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `size(): java.util.Optional<net.minecraft.core.Vec3i>`
@@ -2025,7 +1886,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundTickingStatePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `from(arg0: net.minecraft.world.TickRateManager): net.minecraft.network.protocol.game.ClientboundTickingStatePacket`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `isFrozen(): boolean`
@@ -2041,7 +1901,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundTickingStepPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `from(arg0: net.minecraft.world.TickRateManager): net.minecraft.network.protocol.game.ClientboundTickingStepPacket`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `tickSteps(): int`
@@ -2059,7 +1918,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `addWaypointPosition(arg0: java.util.UUID, arg1: net.minecraft.world.waypoints.Waypoint$Icon, arg2: net.minecraft.core.Vec3i): net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket`
 - Method: `apply(arg0: net.minecraft.world.waypoints.TrackedWaypointManager): void`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `operation(): net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket$Operation`
@@ -2080,7 +1938,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getAdded(): java.util.List<net.minecraft.advancements.AdvancementHolder>`
 - Method: `getProgress(): java.util.Map<net.minecraft.resources.ResourceLocation, net.minecraft.advancements.AdvancementProgress>`
 - Method: `getRemoved(): java.util.Set<net.minecraft.resources.ResourceLocation>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `shouldReset(): boolean`
 - Method: `shouldShowAdvancements(): boolean`
@@ -2094,7 +1951,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket>`
 - Method: `getEntityId(): int`
 - Method: `getValues(): java.util.List<net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket$AttributeSnapshot>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket>`
 
@@ -2109,7 +1965,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getEffectAmplifier(): int`
 - Method: `getEffectDurationTicks(): int`
 - Method: `getEntityId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `isEffectAmbient(): boolean`
 - Method: `isEffectVisible(): boolean`
@@ -2123,7 +1978,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.Map<net.minecraft.resources.ResourceKey<net.minecraft.world.item.crafting.RecipePropertySet>, net.minecraft.world.item.crafting.RecipePropertySet>, arg1: net.minecraft.world.item.crafting.SelectableRecipe$SingleInputSet<net.minecraft.world.item.crafting.StonecutterRecipe>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ClientGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `itemSets(): java.util.Map<net.minecraft.resources.ResourceKey<net.minecraft.world.item.crafting.RecipePropertySet>, net.minecraft.world.item.crafting.RecipePropertySet>`
@@ -2138,7 +1992,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundAcceptTeleportationPacket>`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundAcceptTeleportationPacket>`
 
@@ -2150,7 +2003,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundBlockEntityTagQueryPacket>`
 - Method: `getPos(): net.minecraft.core.BlockPos`
 - Method: `getTransactionId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundBlockEntityTagQueryPacket>`
 
@@ -2162,7 +2014,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundChangeDifficultyPacket>`
 - Method: `difficulty(): net.minecraft.world.Difficulty`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2175,7 +2026,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.level.GameType)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundChangeGameModePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `mode(): net.minecraft.world.level.GameType`
@@ -2189,7 +2039,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundChatAckPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `offset(): int`
@@ -2204,7 +2053,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundChatCommandPacket>`
 - Method: `command(): java.lang.String`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2219,7 +2067,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `argumentSignatures(): net.minecraft.commands.arguments.ArgumentSignatures`
 - Method: `command(): java.lang.String`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `lastSeenMessages(): net.minecraft.network.chat.LastSeenMessages$Update`
@@ -2235,7 +2082,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.lang.String, arg1: java.time.Instant, arg2: long, arg3: net.minecraft.network.chat.MessageSignature, arg4: net.minecraft.network.chat.LastSeenMessages$Update)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundChatPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `lastSeenMessages(): net.minecraft.network.chat.LastSeenMessages$Update`
@@ -2254,7 +2100,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundChatSessionUpdatePacket>`
 - Method: `chatSession(): net.minecraft.network.chat.RemoteChatSession$Data`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2268,7 +2113,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundChunkBatchReceivedPacket>`
 - Method: `desiredChunksPerTick(): float`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2281,7 +2125,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.protocol.game.ServerboundClientCommandPacket$Action)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundClientCommandPacket>`
 - Method: `getAction(): net.minecraft.network.protocol.game.ServerboundClientCommandPacket$Action`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundClientCommandPacket>`
 
@@ -2293,7 +2136,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `INSTANCE: net.minecraft.network.protocol.game.ServerboundClientTickEndPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundClientTickEndPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2307,7 +2149,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundCommandSuggestionPacket>`
 - Method: `getCommand(): java.lang.String`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundCommandSuggestionPacket>`
 
@@ -2317,7 +2158,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.game.ServerboundConfigurationAcknowledgedPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundConfigurationAcknowledgedPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isTerminal(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundConfigurationAcknowledgedPacket>`
@@ -2331,7 +2171,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `buttonId(): int`
 - Method: `containerId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2349,7 +2188,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `clickType(): net.minecraft.world.inventory.ClickType`
 - Method: `containerId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `slotNum(): short`
@@ -2364,7 +2202,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundContainerClosePacket>`
 - Method: `getContainerId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundContainerClosePacket>`
 
@@ -2376,7 +2213,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundContainerSlotStateChangedPacket>`
 - Method: `containerId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `newState(): boolean`
@@ -2391,7 +2227,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.util.debugchart.RemoteDebugSampleType)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundDebugSampleSubscriptionPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `sampleType(): net.minecraft.util.debugchart.RemoteDebugSampleType`
@@ -2405,7 +2240,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: java.util.List<java.lang.String>, arg2: java.util.Optional<java.lang.String>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundEditBookPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `pages(): java.util.List<java.lang.String>`
@@ -2422,7 +2256,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundEntityTagQueryPacket>`
 - Method: `getEntityId(): int`
 - Method: `getTransactionId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundEntityTagQueryPacket>`
 
@@ -2437,7 +2270,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `dispatch(arg0: net.minecraft.network.protocol.game.ServerboundInteractPacket$Handler): void`
 - Method: `getEntityId(): int`
 - Method: `getTarget(arg0: net.minecraft.server.level.ServerLevel): net.minecraft.world.entity.Entity`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isAttack(): boolean`
 - Method: `isUsingSecondaryAction(): boolean`
@@ -2450,7 +2282,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.core.BlockPos, arg1: int, arg2: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundJigsawGeneratePacket>`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `keepJigsaws(): boolean`
 - Method: `levels(): int`
@@ -2462,7 +2293,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundLockDifficultyPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isLocked(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundLockDifficultyPacket>`
@@ -2474,7 +2304,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: double, arg1: double, arg2: double, arg3: boolean, arg4: boolean)`
 - Constructor: `(arg0: net.minecraft.world.phys.Vec3, arg1: boolean, arg2: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos>`
 
 ### ServerboundMovePlayerPacket_PosRot
@@ -2484,7 +2313,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: double, arg1: double, arg2: double, arg3: float, arg4: float, arg5: boolean, arg6: boolean)`
 - Constructor: `(arg0: net.minecraft.world.phys.Vec3, arg1: float, arg2: float, arg3: boolean, arg4: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$PosRot>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$PosRot>`
 
 ### ServerboundMovePlayerPacket_Rot
@@ -2493,7 +2321,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: float, arg1: float, arg2: boolean, arg3: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Rot>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Rot>`
 
 ### ServerboundMovePlayerPacket_StatusOnly
@@ -2502,7 +2329,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: boolean, arg1: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$StatusOnly>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$StatusOnly>`
 
 ### ServerboundMoveVehiclePacket
@@ -2513,7 +2339,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundMoveVehiclePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `fromEntity(arg0: net.minecraft.world.entity.Entity): net.minecraft.network.protocol.game.ServerboundMoveVehiclePacket`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `onGround(): boolean`
@@ -2531,7 +2356,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundPaddleBoatPacket>`
 - Method: `getLeft(): boolean`
 - Method: `getRight(): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundPaddleBoatPacket>`
 
@@ -2542,7 +2366,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.core.BlockPos, arg1: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundPickItemFromBlockPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `includeData(): boolean`
@@ -2557,7 +2380,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundPickItemFromEntityPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `id(): int`
@@ -2573,7 +2395,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundPlaceRecipePacket>`
 - Method: `containerId(): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `recipe(): net.minecraft.world.item.crafting.display.RecipeDisplayId`
@@ -2587,7 +2408,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Constructor: `(arg0: net.minecraft.world.entity.player.Abilities)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundPlayerAbilitiesPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isFlying(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundPlayerAbilitiesPacket>`
@@ -2603,7 +2423,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getDirection(): net.minecraft.core.Direction`
 - Method: `getPos(): net.minecraft.core.BlockPos`
 - Method: `getSequence(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundPlayerActionPacket>`
 
@@ -2617,7 +2436,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getAction(): net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket$Action`
 - Method: `getData(): int`
 - Method: `getId(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket>`
 
@@ -2628,7 +2446,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.entity.player.Input)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundPlayerInputPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `input(): net.minecraft.world.entity.player.Input`
@@ -2642,7 +2459,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `()`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.game.ServerboundPlayerLoadedPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `toString(): java.lang.String`
@@ -2655,7 +2471,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.inventory.RecipeBookType, arg1: boolean, arg2: boolean)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundRecipeBookChangeSettingsPacket>`
 - Method: `getBookType(): net.minecraft.world.inventory.RecipeBookType`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isFiltering(): boolean`
 - Method: `isOpen(): boolean`
@@ -2668,7 +2483,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.item.crafting.display.RecipeDisplayId)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundRecipeBookSeenRecipePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `recipe(): net.minecraft.world.item.crafting.display.RecipeDisplayId`
@@ -2682,7 +2496,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.lang.String)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundRenameItemPacket>`
 - Method: `getName(): java.lang.String`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundRenameItemPacket>`
 
@@ -2695,7 +2508,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `closedScreen(): net.minecraft.network.protocol.game.ServerboundSeenAdvancementsPacket`
 - Method: `getAction(): net.minecraft.network.protocol.game.ServerboundSeenAdvancementsPacket$Action`
 - Method: `getTab(): net.minecraft.resources.ResourceLocation`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `openedTab(arg0: net.minecraft.advancements.AdvancementHolder): net.minecraft.network.protocol.game.ServerboundSeenAdvancementsPacket`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSeenAdvancementsPacket>`
@@ -2707,7 +2519,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSelectBundleItemPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `selectedItemIndex(): int`
@@ -2722,7 +2533,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSelectTradePacket>`
 - Method: `getItem(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSelectTradePacket>`
 
@@ -2733,7 +2543,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect>>, arg1: java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect>>)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSetBeaconPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `primary(): java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect>>`
@@ -2748,7 +2557,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSetCarriedItemPacket>`
 - Method: `getSlot(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSetCarriedItemPacket>`
 
@@ -2761,7 +2569,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getCommand(): java.lang.String`
 - Method: `getMode(): net.minecraft.world.level.block.entity.CommandBlockEntity$Mode`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isAutomatic(): boolean`
 - Method: `isConditional(): boolean`
@@ -2776,7 +2583,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSetCommandMinecartPacket>`
 - Method: `getCommand(): java.lang.String`
 - Method: `getCommandBlock(arg0: net.minecraft.world.level.Level): net.minecraft.world.level.BaseCommandBlock`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isTrackOutput(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSetCommandMinecartPacket>`
@@ -2789,7 +2595,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: short, arg1: net.minecraft.world.item.ItemStack)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSetCreativeModeSlotPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `itemStack(): net.minecraft.world.item.ItemStack`
@@ -2811,7 +2616,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getPos(): net.minecraft.core.BlockPos`
 - Method: `getSelectionPriority(): int`
 - Method: `getTarget(): net.minecraft.resources.ResourceLocation`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSetJigsawBlockPacket>`
 
@@ -2832,7 +2636,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getSeed(): long`
 - Method: `getSize(): net.minecraft.core.Vec3i`
 - Method: `getUpdateType(): net.minecraft.world.level.block.entity.StructureBlockEntity$UpdateType`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isIgnoreEntities(): boolean`
 - Method: `isShowAir(): boolean`
@@ -2847,7 +2650,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.core.BlockPos, arg1: net.minecraft.world.level.block.state.properties.TestBlockMode, arg2: java.lang.String)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSetTestBlockPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `message(): java.lang.String`
@@ -2864,7 +2666,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSignUpdatePacket>`
 - Method: `getLines(): java.lang.String[]`
 - Method: `getPos(): net.minecraft.core.BlockPos`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `isFrontText(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSignUpdatePacket>`
@@ -2876,7 +2677,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.world.InteractionHand)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundSwingPacket>`
 - Method: `getHand(): net.minecraft.world.InteractionHand`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundSwingPacket>`
 
@@ -2887,7 +2687,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.util.UUID)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.game.ServerboundTeleportToEntityPacket>`
 - Method: `getEntity(arg0: net.minecraft.server.level.ServerLevel): net.minecraft.world.entity.Entity`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundTeleportToEntityPacket>`
 
@@ -2901,7 +2700,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `action(): net.minecraft.network.protocol.game.ServerboundTestInstanceBlockActionPacket$Action`
 - Method: `data(): net.minecraft.world.level.block.entity.TestInstanceBlockEntity$Data`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `pos(): net.minecraft.core.BlockPos`
@@ -2918,7 +2716,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getHand(): net.minecraft.world.InteractionHand`
 - Method: `getHitResult(): net.minecraft.world.phys.BlockHitResult`
 - Method: `getSequence(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundUseItemOnPacket>`
 
@@ -2933,7 +2730,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getSequence(): int`
 - Method: `getXRot(): float`
 - Method: `getYRot(): float`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.game.ServerGamePacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.game.ServerboundUseItemPacket>`
 
@@ -2944,7 +2740,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: java.lang.String, arg2: int, arg3: net.minecraft.network.protocol.handshake.ClientIntent)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.handshake.ClientIntentionPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.handshake.ServerHandshakePacketListener): void`
 - Method: `hashCode(): int`
 - Method: `hostName(): java.lang.String`
@@ -2962,7 +2757,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: net.minecraft.network.protocol.login.custom.CustomQueryPayload)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.login.ClientboundCustomQueryPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ClientLoginPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `payload(): net.minecraft.network.protocol.login.custom.CustomQueryPayload`
@@ -2979,7 +2773,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Method: `getChallenge(): byte[]`
 - Method: `getPublicKey(): java.security.PublicKey`
 - Method: `getServerId(): java.lang.String`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ClientLoginPacketListener): void`
 - Method: `shouldAuthenticate(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.login.ClientboundHelloPacket>`
@@ -2991,7 +2784,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.login.ClientboundLoginCompressionPacket>`
 - Method: `getCompressionThreshold(): int`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ClientLoginPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.login.ClientboundLoginCompressionPacket>`
 
@@ -3002,7 +2794,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.chat.Component)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.login.ClientboundLoginDisconnectPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ClientLoginPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `reason(): net.minecraft.network.chat.Component`
@@ -3017,7 +2808,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.login.ClientboundLoginFinishedPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `gameProfile(): com.mojang.authlib.GameProfile`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ClientLoginPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `isTerminal(): boolean`
@@ -3031,7 +2821,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: int, arg1: net.minecraft.network.protocol.login.custom.CustomQueryAnswerPayload)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.login.ServerboundCustomQueryAnswerPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ServerLoginPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `payload(): net.minecraft.network.protocol.login.custom.CustomQueryAnswerPayload`
@@ -3046,7 +2835,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: java.lang.String, arg1: java.util.UUID)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.login.ServerboundHelloPacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ServerLoginPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `name(): java.lang.String`
@@ -3061,7 +2849,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: javax.crypto.SecretKey, arg1: java.security.PublicKey, arg2: byte[])`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.login.ServerboundKeyPacket>`
 - Method: `getSecretKey(arg0: java.security.PrivateKey): javax.crypto.SecretKey`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ServerLoginPacketListener): void`
 - Method: `isChallengeValid(arg0: byte[], arg1: java.security.PrivateKey): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.login.ServerboundKeyPacket>`
@@ -3072,7 +2859,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.login.ServerboundLoginAcknowledgedPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.login.ServerboundLoginAcknowledgedPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.login.ServerLoginPacketListener): void`
 - Method: `isTerminal(): boolean`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.login.ServerboundLoginAcknowledgedPacket>`
@@ -3084,7 +2870,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: long)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<net.minecraft.network.FriendlyByteBuf, net.minecraft.network.protocol.ping.ClientboundPongResponsePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.ping.ClientPongPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `time(): long`
@@ -3098,7 +2883,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: long)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.ping.ServerboundPingRequestPacket>`
 - Method: `getTime(): long`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.ping.ServerPingPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.ping.ServerboundPingRequestPacket>`
 
@@ -3109,7 +2893,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Constructor: `(arg0: net.minecraft.network.protocol.status.ServerStatus)`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.status.ClientboundStatusResponsePacket>`
 - Method: `equals(arg0: java.lang.Object): boolean`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.status.ClientStatusPacketListener): void`
 - Method: `hashCode(): int`
 - Method: `status(): net.minecraft.network.protocol.status.ServerStatus`
@@ -3122,7 +2905,6 @@ Canonical paper-packets 1.21.8+paper.55+mache.2; 219 declarations.
 - Kind: `class`
 - Field: `INSTANCE: net.minecraft.network.protocol.status.ServerboundStatusRequestPacket`
 - Field: `STREAM_CODEC: net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.network.protocol.status.ServerboundStatusRequestPacket>`
-- Method: `handle(arg0: net.minecraft.network.PacketListener): void`
 - Method: `handle(arg0: net.minecraft.network.protocol.status.ServerStatusPacketListener): void`
 - Method: `type(): net.minecraft.network.protocol.PacketType<net.minecraft.network.protocol.status.ServerboundStatusRequestPacket>`
 

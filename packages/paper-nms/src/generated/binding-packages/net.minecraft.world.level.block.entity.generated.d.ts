@@ -55,41 +55,33 @@ export interface AbstractFurnaceBlockEntityMembers {
   awardUsedRecipes(arg0: j_net_minecraft_world_entity_player.Player, arg1: JavaList<j_net_minecraft_world_item.ItemStack>): void;
   awardUsedRecipesAndPopExperience(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_world_item.ItemStack, arg2: number): void;
   canPlaceItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): boolean;
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
   cookSpeedMultiplier: number;
   cookingTimer: number;
   cookingTotalTime: number;
-  readonly dataAccess: j_net_minecraft_world_inventory.ContainerData;
   fillStackedContents(arg0: j_net_minecraft_world_entity_player.StackedItemContents): void;
-  getBurnDuration(arg0: FuelValues, arg1: j_net_minecraft_world_item.ItemStack): number;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getMaxStackSize(): number;
   getRecipeUsed(): j_net_minecraft_world_item_crafting.RecipeHolder<object> | null;
   getRecipesToAwardAndPopExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3): JavaList<j_net_minecraft_world_item_crafting.RecipeHolder<object>>;
   getRecipesToAwardAndPopExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_server_level.ServerPlayer, arg4: j_net_minecraft_world_item.ItemStack, arg5: number): JavaList<j_net_minecraft_world_item_crafting.RecipeHolder<object>>;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
-  items: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   litTimeRemaining: number;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
   readonly recipeType: j_net_minecraft_world_item_crafting.RecipeType<j_net_minecraft_world_item_crafting.AbstractCookingRecipe>;
   readonly recipesUsed: JavaOpaque<"it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap", [j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_crafting.Recipe<object>>]>;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
-  setRecipeUsed(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object> | null): void | null;
+  setRecipeUsed(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object> | null): void;
   transaction: JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
 }
 export type AbstractFurnaceBlockEntity = AbstractFurnaceBlockEntityMembers & BaseContainerBlockEntity & j_net_minecraft_world.WorldlyContainer & j_net_minecraft_world_inventory.RecipeCraftingHolder & j_net_minecraft_world_inventory.StackedContentsCompatible;
 export interface AbstractFurnaceBlockEntityStatics {
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_item_crafting.RecipeType<j_net_minecraft_world_item_crafting.AbstractCookingRecipe>): AbstractFurnaceBlockEntity;
   readonly BURN_COOL_SPEED: 2;
   readonly BURN_TIME_STANDARD: 200;
   readonly DATA_COOKING_PROGRESS: 2;
@@ -97,31 +89,23 @@ export interface AbstractFurnaceBlockEntityStatics {
   readonly DATA_LIT_DURATION: 1;
   readonly DATA_LIT_TIME: 0;
   readonly NUM_DATA_VALUES: 4;
-  readonly SLOT_FUEL: 1;
-  readonly SLOT_INPUT: 0;
-  readonly SLOT_RESULT: 2;
-  getTotalCookTime(arg0: j_net_minecraft_server_level.ServerLevel | null, arg1: AbstractFurnaceBlockEntity, arg2: j_net_minecraft_world_item_crafting.RecipeType<j_net_minecraft_world_item_crafting.AbstractCookingRecipe>, arg3: number): number | null;
+  getTotalCookTime(arg0: j_net_minecraft_server_level.ServerLevel | null, arg1: AbstractFurnaceBlockEntity, arg2: j_net_minecraft_world_item_crafting.RecipeType<j_net_minecraft_world_item_crafting.AbstractCookingRecipe>, arg3: number): number;
   serverTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: AbstractFurnaceBlockEntity): void;
 }
 
 /** JVM class net.minecraft.world.level.block.entity.BannerBlockEntity. */
 export interface BannerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.Nameable];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   baseColor: j_net_minecraft_world_item.DyeColor;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   getBaseColor(): j_net_minecraft_world_item.DyeColor;
   getCustomName(): j_net_minecraft_network_chat.Component | null;
   getItem(): j_net_minecraft_world_item.ItemStack;
   getName(): j_net_minecraft_network_chat.Component;
   getPatterns(): BannerPatternLayers;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   name: j_net_minecraft_network_chat.Component | null;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setPatterns(arg0: BannerPatternLayers): void;
 }
 export type BannerBlockEntity = BannerBlockEntityMembers & BlockEntity & j_net_minecraft_world.Nameable;
@@ -253,21 +237,15 @@ export interface BannerPatternsStatics {
 /** JVM class net.minecraft.world.level.block.entity.BarrelBlockEntity. */
 export interface BarrelBlockEntityMembers {
   readonly __javaSupertypes?: readonly [RandomizableContainerBlockEntity];
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getMaxStackSize(): number;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   readonly openersCounter: ContainerOpenersCounter;
   playSound(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_sounds.SoundEvent): void;
   recheckOpen(): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
   startOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
   stopOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
@@ -282,36 +260,27 @@ export interface BarrelBlockEntityStatics {
 /** JVM abstract net.minecraft.world.level.block.entity.BaseContainerBlockEntity. */
 export interface BaseContainerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.Container, j_net_minecraft_world.MenuProvider, j_net_minecraft_world.Nameable];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   canOpen(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   clearContent(): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_inventory.AbstractContainerMenu | null;
   getCustomName(): j_net_minecraft_network_chat.Component | null;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
   getDisplayName(): j_net_minecraft_network_chat.Component;
   getItem(arg0: number): j_net_minecraft_world_item.ItemStack;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getLocation(): JavaOpaque<"org.bukkit.Location"> | null;
   getName(): j_net_minecraft_network_chat.Component;
   isEmpty(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   lockKey: j_net_minecraft_world.LockCode;
   name: j_net_minecraft_network_chat.Component | null;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   removeItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
   removeItemNoUpdate(arg0: number): j_net_minecraft_world_item.ItemStack;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
 }
 export type BaseContainerBlockEntity = BaseContainerBlockEntityMembers & BlockEntity & j_net_minecraft_world.Container & j_net_minecraft_world.MenuProvider & j_net_minecraft_world.Nameable;
 export interface BaseContainerBlockEntityStatics {
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): BaseContainerBlockEntity;
   canUnlock(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.LockCode, arg2: j_net_minecraft_network_chat.Component): boolean;
-  canUnlock(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.LockCode, arg2: j_net_minecraft_network_chat.Component, arg3: BlockEntity | null): boolean | null;
+  canUnlock(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.LockCode, arg2: j_net_minecraft_network_chat.Component, arg3: BlockEntity | null): boolean;
 }
 
 /** JVM interface net.minecraft.world.level.block.entity.BeaconBeamOwner. */
@@ -336,8 +305,6 @@ export interface BeaconBeamOwner_SectionStatics {
 /** JVM class net.minecraft.world.level.block.entity.BeaconBlockEntity. */
 export interface BeaconBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.MenuProvider, j_net_minecraft_world.Nameable, BeaconBeamOwner];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_inventory.AbstractContainerMenu | null;
   getBeamSections(): JavaList<BeaconBeamOwner_Section>;
   getCustomName(): j_net_minecraft_network_chat.Component | null;
@@ -346,19 +313,16 @@ export interface BeaconBlockEntityMembers {
   getName(): j_net_minecraft_network_chat.Component;
   getPrimaryEffect(): JavaOpaque<"org.bukkit.potion.PotionEffect"> | null;
   getSecondaryEffect(): JavaOpaque<"org.bukkit.potion.PotionEffect"> | null;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   levels: number;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   lockKey: j_net_minecraft_world.LockCode;
   name: j_net_minecraft_network_chat.Component | null;
   primaryPower: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   resetEffectRange(): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   secondaryPower: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect> | null;
-  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void;
   setEffectRange(arg0: number): void;
   setLevel(arg0: j_net_minecraft_world_level.Level): void;
   setRemoved(): void;
@@ -371,7 +335,7 @@ export interface BeaconBlockEntityStatics {
   readonly DATA_PRIMARY: 1;
   readonly DATA_SECONDARY: 2;
   readonly NUM_DATA_VALUES: 3;
-  getHumansInRange(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: BeaconBlockEntity | null): JavaList<j_net_minecraft_world_entity_player.Player> | null;
+  getHumansInRange(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: BeaconBlockEntity | null): JavaList<j_net_minecraft_world_entity_player.Player>;
   playSound(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_sounds.SoundEvent): void;
   tick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: BeaconBlockEntity): void;
 }
@@ -381,7 +345,6 @@ export interface BedBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
   readonly color: j_net_minecraft_world_item.DyeColor;
   getColor(): j_net_minecraft_world_item.DyeColor;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
 }
 export type BedBlockEntity = BedBlockEntityMembers & BlockEntity;
@@ -394,20 +357,16 @@ export interface BedBlockEntityStatics {
 export interface BeehiveBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
   addOccupant(arg0: j_net_minecraft_world_entity_animal.Bee): void;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   clearBees(): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
-  emptyAllLivingFromHive(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: BeehiveBlockEntity_BeeReleaseStatus): void | null;
+  emptyAllLivingFromHive(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: BeehiveBlockEntity_BeeReleaseStatus): void;
   getOccupantCount(): number;
   isEmpty(): boolean;
   isFireNearby(): boolean;
   isFull(): boolean;
   isSedated(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   maxBees: number;
   releaseBees(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: BeehiveBlockEntity_BeeReleaseStatus, arg2: boolean): JavaList<j_net_minecraft_world_entity.Entity>;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   savedFlowerPos: j_net_minecraft_core.BlockPos | null;
   setChanged(): void;
   storeBee(arg0: BeehiveBlockEntity_Occupant): void;
@@ -475,9 +434,6 @@ export interface BellBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.BlastFurnaceBlockEntity. */
 export interface BlastFurnaceBlockEntityMembers {
   readonly __javaSupertypes?: readonly [AbstractFurnaceBlockEntity];
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
-  getBurnDuration(arg0: FuelValues, arg1: j_net_minecraft_world_item.ItemStack): number;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
 }
 export type BlastFurnaceBlockEntity = BlastFurnaceBlockEntityMembers & AbstractFurnaceBlockEntity;
 export interface BlastFurnaceBlockEntityStatics {
@@ -489,10 +445,8 @@ export interface BlockEntityMembers {
   applyComponents(arg0: j_net_minecraft_core_component.DataComponentMap, arg1: j_net_minecraft_core_component.DataComponentPatch): void;
   applyComponentsFromItemStack(arg0: j_net_minecraft_world_item.ItemStack): void;
   applyComponentsSet(arg0: j_net_minecraft_core_component.DataComponentMap, arg1: j_net_minecraft_core_component.DataComponentPatch): JavaSet<j_net_minecraft_core_component.DataComponentType<object>>;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   clearRemoved(): void;
   collectComponents(): j_net_minecraft_core_component.DataComponentMap;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   components(): j_net_minecraft_core_component.DataComponentMap;
   fillCrashReportCategory(arg0: j_net_minecraft.CrashReportCategory): void;
   getBlockPos(): j_net_minecraft_core.BlockPos;
@@ -507,17 +461,13 @@ export interface BlockEntityMembers {
   hasLevel(): boolean;
   isRemoved(): boolean;
   isValidBlockState(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  level: j_net_minecraft_world_level.Level | null;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   loadCustomOnly(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   loadWithComponents(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   readonly persistentDataContainer: j_org_bukkit_craftbukkit_persistence.CraftPersistentDataContainer;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
   problemPath(): j_net_minecraft_util.ProblemReporter_PathElement;
-  remove: boolean;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   sanitizeSentNbt(arg0: j_net_minecraft_nbt.CompoundTag): j_net_minecraft_nbt.CompoundTag;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   saveCustomOnly(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   saveCustomOnly(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   saveId(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
@@ -532,16 +482,13 @@ export interface BlockEntityMembers {
   setLevel(arg0: j_net_minecraft_world_level.Level): void;
   setRemoved(): void;
   triggerEvent(arg0: number, arg1: number): boolean;
-  readonly worldPosition: j_net_minecraft_core.BlockPos;
 }
 export type BlockEntity = BlockEntityMembers;
 export interface BlockEntityStatics {
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): BlockEntity;
   addEntityType(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: BlockEntityType<object>): void;
   getPosFromTag(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag): j_net_minecraft_core.BlockPos;
   loadStatic(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_nbt.CompoundTag, arg3: j_net_minecraft_core.HolderLookup_Provider): BlockEntity | null;
   parseCustomNameSafe(arg0: j_net_minecraft_world_level_storage.ValueInput, arg1: string): j_net_minecraft_network_chat.Component | null;
-  setChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 
 /** JVM interface net.minecraft.world.level.block.entity.BlockEntityTicker. */
@@ -654,24 +601,17 @@ export interface BrewingStandBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BaseContainerBlockEntity, j_net_minecraft_world.WorldlyContainer];
   brewTime: number;
   canPlaceItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): boolean;
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
-  readonly dataAccess: j_net_minecraft_world_inventory.ContainerData;
   fuel: number;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getMaxStackSize(): number;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   recipeBrewTime: number;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
   transaction: JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
 }
@@ -693,14 +633,11 @@ export interface BrushableBlockEntityMembers {
   checkReset(arg0: j_net_minecraft_server_level.ServerLevel): void;
   getHitDirection(): j_net_minecraft_core.Direction | null;
   getItem(): j_net_minecraft_world_item.ItemStack;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   item: j_net_minecraft_world_item.ItemStack;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   lootTable: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null;
   lootTableSeed: bigint;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg1: bigint): void;
 }
 export type BrushableBlockEntity = BrushableBlockEntityMembers & BlockEntity;
@@ -712,7 +649,6 @@ export interface BrushableBlockEntityStatics {
 export interface CalibratedSculkSensorBlockEntityMembers {
   readonly __javaSupertypes?: readonly [SculkSensorBlockEntity];
   createVibrationUser(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_User;
-  saveRangeOverride(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
 }
 export type CalibratedSculkSensorBlockEntity = CalibratedSculkSensorBlockEntityMembers & SculkSensorBlockEntity;
 export interface CalibratedSculkSensorBlockEntityStatics {
@@ -722,7 +658,7 @@ export interface CalibratedSculkSensorBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.CalibratedSculkSensorBlockEntity$VibrationUser. */
 export interface CalibratedSculkSensorBlockEntity_VibrationUserMembers {
   readonly __javaSupertypes?: readonly [SculkSensorBlockEntity_VibrationUser];
-  canReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_level_gameevent.GameEvent_Context | null): boolean | null;
+  canReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_level_gameevent.GameEvent_Context | null): boolean;
   getListenerRadius(): number;
 }
 export type CalibratedSculkSensorBlockEntity_VibrationUser = CalibratedSculkSensorBlockEntity_VibrationUserMembers & SculkSensorBlockEntity_VibrationUser;
@@ -733,20 +669,15 @@ export interface CalibratedSculkSensorBlockEntity_VibrationUserStatics {
 /** JVM class net.minecraft.world.level.block.entity.CampfireBlockEntity. */
 export interface CampfireBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.Clearable];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   clearContent(): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   readonly cookingProgress: Array<number>;
   readonly cookingTime: Array<number>;
   getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  placeFood(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity | null, arg2: j_net_minecraft_world_item.ItemStack): boolean | null;
+  placeFood(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity | null, arg2: j_net_minecraft_world_item.ItemStack): boolean;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   readonly stopCooking: Array<boolean>;
 }
 export type CampfireBlockEntity = CampfireBlockEntityMembers & BlockEntity & j_net_minecraft_world.Clearable;
@@ -760,23 +691,16 @@ export interface CampfireBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.ChestBlockEntity. */
 export interface ChestBlockEntityMembers {
   readonly __javaSupertypes?: readonly [RandomizableContainerBlockEntity, LidBlockEntity];
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getMaxStackSize(): number;
   getOpenNess(arg0: number): number;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   readonly openersCounter: ContainerOpenersCounter;
   recheckOpen(): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
-  signalOpenCount(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: number, arg4: number): void;
   startOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
   stopOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
   transaction: JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
@@ -785,7 +709,6 @@ export interface ChestBlockEntityMembers {
 export type ChestBlockEntity = ChestBlockEntityMembers & RandomizableContainerBlockEntity & LidBlockEntity;
 export interface ChestBlockEntityStatics {
   new(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): ChestBlockEntity;
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): ChestBlockEntity;
   getOpenCount(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): number;
   lidAnimateTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: ChestBlockEntity): void;
   playSound(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_sounds.SoundEvent): void;
@@ -806,11 +729,9 @@ export interface ChestLidControllerStatics {
 /** JVM class net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity. */
 export interface ChiseledBookShelfBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.Container];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   canPlaceItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): boolean;
   canTakeItem(arg0: j_net_minecraft_world.Container, arg1: number, arg2: j_net_minecraft_world_item.ItemStack): boolean;
   clearContent(): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   count(): number;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
@@ -821,13 +742,11 @@ export interface ChiseledBookShelfBlockEntityMembers {
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
   isEmpty(): boolean;
   lastInteractedSlot: number;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   removeItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
   removeItemNoUpdate(arg0: number): j_net_minecraft_world_item.ItemStack;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
   setMaxStackSize(arg0: number): void;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
@@ -842,18 +761,14 @@ export interface ChiseledBookShelfBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.CommandBlockEntity. */
 export interface CommandBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   getCommandBlock(): j_net_minecraft_world_level.BaseCommandBlock;
   getMode(): CommandBlockEntity_Mode;
   isAutomatic(): boolean;
   isConditional(): boolean;
   isPowered(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   markConditionMet(): boolean;
   onModeSwitch(): void;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setAutomatic(arg0: boolean): void;
   setPowered(arg0: boolean): void;
   wasConditionMet(): boolean;
@@ -879,8 +794,6 @@ export interface CommandBlockEntity_ModeStatics {
 export interface ComparatorBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
   getOutputSignal(): number;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setOutputSignal(arg0: number): void;
 }
 export type ComparatorBlockEntity = ComparatorBlockEntityMembers & BlockEntity;
@@ -894,13 +807,10 @@ export interface ConduitBlockEntityMembers {
   destroyTarget: j_net_minecraft_world_entity.EntityReference<j_net_minecraft_world_entity.LivingEntity> | null;
   readonly effectBlocks: JavaList<j_net_minecraft_core.BlockPos>;
   getActiveRotation(arg0: number): number;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   isActive(): boolean;
   isHunting(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   tickCount: number;
 }
 export type ConduitBlockEntity = ConduitBlockEntityMembers & BlockEntity;
@@ -920,35 +830,26 @@ export interface ContainerOpenersCounterMembers {
   decrementOpeners(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
   getOpenerCount(): number;
   incrementOpeners(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  isOwnContainer(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   onAPIClose(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   onAPIOpen(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  onClose(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  onOpen(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   opened: boolean;
   openerAPICountChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: number, arg4: number): void;
-  openerCountChanged(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: number, arg4: number): void;
   recheckOpeners(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type ContainerOpenersCounter = ContainerOpenersCounterMembers;
 export interface ContainerOpenersCounterStatics {
-  new(): ContainerOpenersCounter;
 }
 
 /** JVM class net.minecraft.world.level.block.entity.CrafterBlockEntity. */
 export interface CrafterBlockEntityMembers {
   readonly __javaSupertypes?: readonly [RandomizableContainerBlockEntity, j_net_minecraft_world_inventory.CraftingContainer];
   canPlaceItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): boolean;
-  readonly containerData: j_net_minecraft_world_inventory.ContainerData;
   craftingTicksRemaining: number;
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   fillStackedContents(arg0: j_net_minecraft_world_entity_player.StackedItemContents): void;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
   getHeight(): number;
   getItem(arg0: number): j_net_minecraft_world_item.ItemStack;
-  getItems(): JavaList<object>;
   getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getLocation(): JavaOpaque<"org.bukkit.Location"> | null;
   getMaxStackSize(): number;
@@ -958,13 +859,10 @@ export interface CrafterBlockEntityMembers {
   isEmpty(): boolean;
   isSlotDisabled(arg0: number): boolean;
   isTriggered(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setCraftingTicksRemaining(arg0: number): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
   setSlotState(arg0: number, arg1: boolean): void;
   setTriggered(arg0: boolean): void;
@@ -990,14 +888,11 @@ export interface CreakingHeartBlockEntityMembers {
   computeAnalogOutputSignal(): number;
   creakingHurt(): void;
   getAnalogOutputSignal(): number;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   isProtector(arg0: j_net_minecraft_world_entity_monster_creaking.Creaking): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  removeProtector(arg0: j_net_minecraft_world_damagesource.DamageSource | null): void | null;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
+  removeProtector(arg0: j_net_minecraft_world_damagesource.DamageSource | null): void;
   setCreakingInfo(arg0: JavaOpaque<"java.util.UUID">): void;
   setCreakingInfo(arg0: j_net_minecraft_world_entity_monster_creaking.Creaking): void;
 }
@@ -1020,8 +915,6 @@ export interface DaylightDetectorBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.DecoratedPotBlockEntity. */
 export interface DecoratedPotBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.RandomizableContainer, j_net_minecraft_world_ticks.ContainerSingleItem_BlockContainerSingleItem];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   decorations: PotDecorations;
   getContainerBlockEntity(): BlockEntity;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
@@ -1032,19 +925,14 @@ export interface DecoratedPotBlockEntityMembers {
   getLootTableSeed(): bigint;
   getMaxStackSize(): number;
   getTheItem(): j_net_minecraft_world_item.ItemStack;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
   lastWobbleStyle: DecoratedPotBlockEntity_WobbleStyle | null;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  lootTable: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null;
-  lootTableSeed: bigint;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void | null;
+  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void;
   setLootTableSeed(arg0: bigint): void;
   setMaxStackSize(arg0: number): void;
   setTheItem(arg0: j_net_minecraft_world_item.ItemStack): void;
@@ -1125,34 +1013,26 @@ export interface DecoratedPotPatternsStatics {
 /** JVM class net.minecraft.world.level.block.entity.DispenserBlockEntity. */
 export interface DispenserBlockEntityMembers {
   readonly __javaSupertypes?: readonly [RandomizableContainerBlockEntity];
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getMaxStackSize(): number;
   getRandomSlot(arg0: j_net_minecraft_util.RandomSource): number;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
   insertItem(arg0: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
   transaction: JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
 }
 export type DispenserBlockEntity = DispenserBlockEntityMembers & RandomizableContainerBlockEntity;
 export interface DispenserBlockEntityStatics {
   new(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): DispenserBlockEntity;
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): DispenserBlockEntity;
   readonly CONTAINER_SIZE: 9;
 }
 
 /** JVM class net.minecraft.world.level.block.entity.DropperBlockEntity. */
 export interface DropperBlockEntityMembers {
   readonly __javaSupertypes?: readonly [DispenserBlockEntity];
-  getDefaultName(): j_net_minecraft_network_chat.Component;
 }
 export type DropperBlockEntity = DropperBlockEntityMembers & DispenserBlockEntity;
 export interface DropperBlockEntityStatics {
@@ -1162,22 +1042,18 @@ export interface DropperBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.EnchantingTableBlockEntity. */
 export interface EnchantingTableBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world.Nameable];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   flip: number;
   flipA: number;
   flipT: number;
   getCustomName(): j_net_minecraft_network_chat.Component | null;
   getName(): j_net_minecraft_network_chat.Component;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   oFlip: number;
   oOpen: number;
   oRot: number;
   open: number;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   rot: number;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void;
   tRot: number;
   time: number;
 }
@@ -1231,8 +1107,6 @@ export interface FuelValues_BuilderStatics {
 /** JVM class net.minecraft.world.level.block.entity.FurnaceBlockEntity. */
 export interface FurnaceBlockEntityMembers {
   readonly __javaSupertypes?: readonly [AbstractFurnaceBlockEntity];
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
 }
 export type FurnaceBlockEntity = FurnaceBlockEntityMembers & AbstractFurnaceBlockEntity;
 export interface FurnaceBlockEntityStatics {
@@ -1269,26 +1143,20 @@ export interface HopperStatics {
 export interface HopperBlockEntityMembers {
   readonly __javaSupertypes?: readonly [RandomizableContainerBlockEntity, Hopper];
   cooldownTime: number;
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getLevelX(): number;
   getLevelY(): number;
   getLevelZ(): number;
   getMaxStackSize(): number;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
   isGridAligned(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   removeItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setBlockState(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
   setCooldown(arg0: number): void;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
   transaction: JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
 }
@@ -1297,7 +1165,7 @@ export interface HopperBlockEntityStatics {
   new(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): HopperBlockEntity;
   readonly HOPPER_CONTAINER_SIZE: 5;
   readonly MOVE_ITEM_SPEED: 8;
-  addItem(arg0: j_net_minecraft_world.Container | null, arg1: j_net_minecraft_world.Container, arg2: j_net_minecraft_world_item.ItemStack, arg3: j_net_minecraft_core.Direction | null): j_net_minecraft_world_item.ItemStack | null;
+  addItem(arg0: j_net_minecraft_world.Container | null, arg1: j_net_minecraft_world.Container, arg2: j_net_minecraft_world_item.ItemStack, arg3: j_net_minecraft_core.Direction | null): j_net_minecraft_world_item.ItemStack;
   addItem(arg0: j_net_minecraft_world.Container, arg1: j_net_minecraft_world_entity_item.ItemEntity): boolean;
   entityInside(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity, arg4: HopperBlockEntity): void;
   getContainerAt(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world.Container | null;
@@ -1318,11 +1186,8 @@ export interface JigsawBlockEntityMembers {
   getPool(): j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_structure_pools.StructureTemplatePool>;
   getSelectionPriority(): number;
   getTarget(): j_net_minecraft_resources.ResourceLocation;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setFinalState(arg0: string): void;
   setJoint(arg0: JigsawBlockEntity_JointType): void;
   setName(arg0: j_net_minecraft_resources.ResourceLocation): void;
@@ -1373,14 +1238,12 @@ export interface JukeboxBlockEntityMembers {
   getSongPlayer(): j_net_minecraft_world_item.JukeboxSongPlayer;
   getTheItem(): j_net_minecraft_world_item.ItemStack;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onSongChanged(): void;
   opened: boolean;
   popOutTheItem(): void;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setMaxStackSize(arg0: number): void;
   setSongItemWithoutPlaying(arg0: j_net_minecraft_world_item.ItemStack, arg1: bigint): void;
   setTheItem(arg0: j_net_minecraft_world_item.ItemStack): void;
@@ -1407,11 +1270,9 @@ export interface LecternBlockEntityMembers {
   getPage(): number;
   getRedstoneSignal(): number;
   hasBook(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setBook(arg0: j_net_minecraft_world_item.ItemStack): void;
-  setBook(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): void | null;
+  setBook(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): void;
   setPage(arg0: number): void;
 }
 export type LecternBlockEntity = LecternBlockEntityMembers & BlockEntity & j_net_minecraft_world.Clearable & j_net_minecraft_world.MenuProvider;
@@ -1485,9 +1346,7 @@ export interface PotDecorationsStatics {
 /** JVM abstract net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity. */
 export interface RandomizableContainerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BaseContainerBlockEntity, j_net_minecraft_world.RandomizableContainer];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   canOpen(arg0: j_net_minecraft_world_entity_player.Player): boolean;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory, arg2: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_inventory.AbstractContainerMenu | null;
   getItem(arg0: number): j_net_minecraft_world_item.ItemStack;
   getLootTable(): j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null;
@@ -1500,21 +1359,17 @@ export interface RandomizableContainerBlockEntityMembers {
   removeItem(arg0: number, arg1: number): j_net_minecraft_world_item.ItemStack;
   removeItemNoUpdate(arg0: number): j_net_minecraft_world_item.ItemStack;
   setItem(arg0: number, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void | null;
+  setLootTable(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable> | null): void;
   setLootTableSeed(arg0: bigint): void;
 }
 export type RandomizableContainerBlockEntity = RandomizableContainerBlockEntityMembers & BaseContainerBlockEntity & j_net_minecraft_world.RandomizableContainer;
 export interface RandomizableContainerBlockEntityStatics {
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): RandomizableContainerBlockEntity;
 }
 
 /** JVM class net.minecraft.world.level.block.entity.SculkCatalystBlockEntity. */
 export interface SculkCatalystBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world_level_gameevent.GameEventListener_Provider<SculkCatalystBlockEntity_CatalystListener>];
   getListener(): SculkCatalystBlockEntity_CatalystListener;
-  getListener(): j_net_minecraft_world_level_gameevent.GameEventListener;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setLevel(arg0: j_net_minecraft_world_level.Level): void;
 }
 export type SculkCatalystBlockEntity = SculkCatalystBlockEntityMembers & BlockEntity & j_net_minecraft_world_level_gameevent.GameEventListener_Provider<SculkCatalystBlockEntity_CatalystListener>;
@@ -1544,34 +1399,27 @@ export interface SculkSensorBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world_level_gameevent.GameEventListener_Provider<j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Listener>, j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem];
   createVibrationUser(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_User;
   getLastVibrationFrequency(): number;
-  getListener(): j_net_minecraft_world_level_gameevent.GameEventListener;
   getListener(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Listener;
   getVibrationData(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Data;
   getVibrationUser(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_User;
   lastVibrationFrequency: number;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   rangeOverride: number | null;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveRangeOverride(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setLastVibrationFrequency(arg0: number): void;
 }
 export type SculkSensorBlockEntity = SculkSensorBlockEntityMembers & BlockEntity & j_net_minecraft_world_level_gameevent.GameEventListener_Provider<j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Listener> & j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem;
 export interface SculkSensorBlockEntityStatics {
   new(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): SculkSensorBlockEntity;
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): SculkSensorBlockEntity;
-  readonly PAPER_LISTENER_RANGE_NBT_KEY: "Paper.ListenerRange";
 }
 
 /** JVM class net.minecraft.world.level.block.entity.SculkSensorBlockEntity$VibrationUser. */
 export interface SculkSensorBlockEntity_VibrationUserMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_User];
-  readonly blockPos: j_net_minecraft_core.BlockPos;
-  canReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_level_gameevent.GameEvent_Context | null): boolean | null;
+  canReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_level_gameevent.GameEvent_Context | null): boolean;
   canTriggerAvoidVibration(): boolean;
   getListenerRadius(): number;
   getPositionSource(): j_net_minecraft_world_level_gameevent.PositionSource;
   onDataChanged(): void;
-  onReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_entity.Entity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: number): void | null;
+  onReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_entity.Entity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: number): void;
   requiresAdjacentChunksToBeTicking(): boolean;
 }
 export type SculkSensorBlockEntity_VibrationUser = SculkSensorBlockEntity_VibrationUserMembers & j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_User;
@@ -1583,15 +1431,12 @@ export interface SculkSensorBlockEntity_VibrationUserStatics {
 /** JVM class net.minecraft.world.level.block.entity.SculkShriekerBlockEntity. */
 export interface SculkShriekerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world_level_gameevent.GameEventListener_Provider<j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Listener>, j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem];
-  getListener(): j_net_minecraft_world_level_gameevent.GameEventListener;
   getListener(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Listener;
   getVibrationData(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Data;
   getVibrationUser(): j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_User;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   tryRespond(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  tryShriek(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_server_level.ServerPlayer | null): void | null;
+  tryShriek(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_server_level.ServerPlayer | null): void;
   warningLevel: number;
 }
 export type SculkShriekerBlockEntity = SculkShriekerBlockEntityMembers & BlockEntity & j_net_minecraft_world_level_gameevent.GameEventListener_Provider<j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem_Listener> & j_net_minecraft_world_level_gameevent_vibrations.VibrationSystem;
@@ -1603,30 +1448,24 @@ export interface SculkShriekerBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity. */
 export interface ShulkerBoxBlockEntityMembers {
   readonly __javaSupertypes?: readonly [RandomizableContainerBlockEntity, j_net_minecraft_world.WorldlyContainer];
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
   getAnimationStatus(): ShulkerBoxBlockEntity_AnimationStatus;
   getBoundingBox(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys.AABB;
   getColor(): j_net_minecraft_world_item.DyeColor | null;
   getContainerSize(): number;
   getContents(): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
-  getItems(): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getMaxStackSize(): number;
   getProgress(arg0: number): number;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
   getViewers(): JavaList<JavaOpaque<"org.bukkit.entity.HumanEntity">>;
   isClosed(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   loadFromTag(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   onClose(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   onOpen(arg0: j_org_bukkit_craftbukkit_entity.CraftHumanEntity): void;
   openCount: number;
   opened: boolean;
   preRemoveSideEffects(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setItems(arg0: j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>): void;
   setMaxStackSize(arg0: number): void;
   startOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
   stopOpen(arg0: j_net_minecraft_world_entity_player.Player): void;
@@ -1664,7 +1503,6 @@ export interface ShulkerBoxBlockEntity_AnimationStatusStatics {
 export interface SignBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
   canExecuteClickCommands(arg0: boolean, arg1: j_net_minecraft_world_entity_player.Player): boolean;
-  createDefaultSignText(): SignText;
   executeClickCommandsIfPresent(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): boolean;
   getBackText(): SignText;
   getFrontText(): SignText;
@@ -1673,17 +1511,14 @@ export interface SignBlockEntityMembers {
   getSignInteractionFailedSoundEvent(): j_net_minecraft_sounds.SoundEvent;
   getText(arg0: boolean): SignText;
   getTextLineHeight(): number;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   isFacingFrontText(arg0: number, arg1: number): boolean;
   isFacingFrontText(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   isWaxed(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   playerIsTooFarAwayToEdit(arg0: JavaOpaque<"java.util.UUID">): boolean;
   playerWhoMayEdit: JavaOpaque<"java.util.UUID"> | null;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setAllowedPlayerEditor(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setAllowedPlayerEditor(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setText(arg0: SignText, arg1: boolean): boolean;
   setWaxed(arg0: boolean): boolean;
   updateSignText(arg0: j_net_minecraft_world_entity_player.Player, arg1: boolean, arg2: JavaList<j_net_minecraft_server_network.FilteredText>): void;
@@ -1721,21 +1556,16 @@ export interface SignTextStatics {
 /** JVM class net.minecraft.world.level.block.entity.SkullBlockEntity. */
 export interface SkullBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  collectImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentMap_Builder): void;
   customName: j_net_minecraft_network_chat.Component | null;
   getAnimation(arg0: number): number;
   getNoteBlockSound(): j_net_minecraft_resources.ResourceLocation | null;
   getOwnerProfile(): j_net_minecraft_world_item_component.ResolvableProfile | null;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   noteBlockSound: j_net_minecraft_resources.ResourceLocation | null;
   owner: j_net_minecraft_world_item_component.ResolvableProfile | null;
   removeComponentsFromTag(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  setOwner(arg0: j_net_minecraft_world_item_component.ResolvableProfile | null): void | null;
+  setOwner(arg0: j_net_minecraft_world_item_component.ResolvableProfile | null): void;
 }
 export type SkullBlockEntity = SkullBlockEntityMembers & BlockEntity;
 export interface SkullBlockEntityStatics {
@@ -1744,16 +1574,13 @@ export interface SkullBlockEntityStatics {
   animation(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: SkullBlockEntity): void;
   clear(): void;
   fetchGameProfile(arg0: string): PromiseLike<JavaOptional<JavaOpaque<"com.mojang.authlib.GameProfile">>>;
-  fetchGameProfile(arg0: JavaOpaque<"java.util.UUID">, arg1: string | null): PromiseLike<JavaOptional<JavaOpaque<"com.mojang.authlib.GameProfile">>> | null;
+  fetchGameProfile(arg0: JavaOpaque<"java.util.UUID">, arg1: string | null): PromiseLike<JavaOptional<JavaOpaque<"com.mojang.authlib.GameProfile">>>;
   setup(arg0: j_net_minecraft_server.Services, arg1: JavaOpaque<"java.util.concurrent.Executor">): void;
 }
 
 /** JVM class net.minecraft.world.level.block.entity.SmokerBlockEntity. */
 export interface SmokerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [AbstractFurnaceBlockEntity];
-  createMenu(arg0: number, arg1: j_net_minecraft_world_entity_player.Inventory): j_net_minecraft_world_inventory.AbstractContainerMenu;
-  getBurnDuration(arg0: FuelValues, arg1: j_net_minecraft_world_item.ItemStack): number;
-  getDefaultName(): j_net_minecraft_network_chat.Component;
 }
 export type SmokerBlockEntity = SmokerBlockEntityMembers & AbstractFurnaceBlockEntity;
 export interface SmokerBlockEntityStatics {
@@ -1764,11 +1591,8 @@ export interface SmokerBlockEntityStatics {
 export interface SpawnerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world_level.Spawner];
   getSpawner(): j_net_minecraft_world_level.BaseSpawner;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setEntityId(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_util.RandomSource): void;
   triggerEvent(arg0: number, arg1: number): boolean;
 }
@@ -1797,7 +1621,6 @@ export interface StructureBlockEntityMembers {
   getStructureName(): string;
   getStructurePos(): j_net_minecraft_core.BlockPos;
   getStructureSize(): j_net_minecraft_core.Vec3i;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   hasStructureName(): boolean;
@@ -1807,7 +1630,6 @@ export interface StructureBlockEntityMembers {
   isPowered(): boolean;
   isStrict(): boolean;
   isStructureLoadable(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   loadStructureInfo(arg0: j_net_minecraft_server_level.ServerLevel): boolean;
   metaData: string;
   mirror: j_net_minecraft_world_level_block.Mirror;
@@ -1816,7 +1638,6 @@ export interface StructureBlockEntityMembers {
   placeStructureIfSameSize(arg0: j_net_minecraft_server_level.ServerLevel): boolean;
   renderMode(): BoundingBoxRenderable_Mode;
   rotation: j_net_minecraft_world_level_block.Rotation;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   saveStructure(): boolean;
   saveStructure(arg0: boolean): boolean;
   seed: bigint;
@@ -1831,8 +1652,8 @@ export interface StructureBlockEntityMembers {
   setShowAir(arg0: boolean): void;
   setShowBoundingBox(arg0: boolean): void;
   setStrict(arg0: boolean): void;
-  setStructureName(arg0: string | null): void | null;
-  setStructureName(arg0: j_net_minecraft_resources.ResourceLocation | null): void | null;
+  setStructureName(arg0: string | null): void;
+  setStructureName(arg0: j_net_minecraft_resources.ResourceLocation | null): void;
   setStructurePos(arg0: j_net_minecraft_core.BlockPos): void;
   setStructureSize(arg0: j_net_minecraft_core.Vec3i): void;
   showAir: boolean;
@@ -1870,15 +1691,12 @@ export interface TestBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity];
   getMessage(): string;
   getMode(): j_net_minecraft_world_level_block_state_properties.TestBlockMode;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet | null;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket | null;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   hasTriggered(): boolean;
   isPowered(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   log(): void;
   reset(): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setMessage(arg0: string): void;
   setMode(arg0: j_net_minecraft_world_level_block_state_properties.TestBlockMode): void;
   setPowered(arg0: boolean): void;
@@ -1904,18 +1722,15 @@ export interface TestInstanceBlockEntityMembers {
   getStructureBounds(): j_net_minecraft_world_phys.AABB;
   getStructurePos(): j_net_minecraft_core.BlockPos;
   getTestName(): j_net_minecraft_network_chat.Component;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   ignoreEntities(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   placeStructure(): boolean;
   processStructureBoundary(arg0: JavaConsumer<j_net_minecraft_core.BlockPos>): void;
   removeBarriers(): void;
   renderMode(): BoundingBoxRenderable_Mode;
   resetTest(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>): void;
   runTest(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   saveTest(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>): JavaOptional<j_net_minecraft_resources.ResourceLocation>;
   set(arg0: TestInstanceBlockEntity_Data): void;
   setChanged(): void;
@@ -1981,13 +1796,10 @@ export interface TheEndGatewayBlockEntityMembers {
   getParticleAmount(): number;
   getPortalPosition(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys.Vec3 | null;
   getSpawnPercent(arg0: number): number;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
   isCoolingDown(): boolean;
   isSpawning(): boolean;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setExitPosition(arg0: j_net_minecraft_core.BlockPos, arg1: boolean): void;
   shouldRenderFace(arg0: j_net_minecraft_core.Direction): boolean;
   triggerEvent(arg0: number, arg1: number): boolean;
@@ -2008,7 +1820,6 @@ export interface TheEndPortalBlockEntityMembers {
 export type TheEndPortalBlockEntity = TheEndPortalBlockEntityMembers & BlockEntity;
 export interface TheEndPortalBlockEntityStatics {
   new(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): TheEndPortalBlockEntity;
-  new(arg0: BlockEntityType<object>, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): TheEndPortalBlockEntity;
 }
 
 /** JVM interface net.minecraft.world.level.block.entity.TickingBlockEntity. */
@@ -2025,7 +1836,6 @@ export interface TickingBlockEntityStatics {
 /** JVM class net.minecraft.world.level.block.entity.TrappedChestBlockEntity. */
 export interface TrappedChestBlockEntityMembers {
   readonly __javaSupertypes?: readonly [ChestBlockEntity];
-  signalOpenCount(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: number, arg4: number): void;
 }
 export type TrappedChestBlockEntity = TrappedChestBlockEntityMembers & ChestBlockEntity;
 export interface TrappedChestBlockEntityStatics {
@@ -2037,12 +1847,9 @@ export interface TrialSpawnerBlockEntityMembers {
   readonly __javaSupertypes?: readonly [BlockEntity, j_net_minecraft_world_level.Spawner, j_net_minecraft_world_level_block_entity_trialspawner.TrialSpawner_StateAccessor];
   getState(): j_net_minecraft_world_level_block_entity_trialspawner.TrialSpawnerState;
   getTrialSpawner(): j_net_minecraft_world_level_block_entity_trialspawner.TrialSpawner;
-  getUpdatePacket(): j_net_minecraft_network_protocol.Packet;
   getUpdatePacket(): j_net_minecraft_network_protocol_game.ClientboundBlockEntityDataPacket;
   getUpdateTag(arg0: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_nbt.CompoundTag;
-  loadAdditional(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   markUpdated(): void;
-  saveAdditional(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   setEntityId(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_util.RandomSource): void;
   setState(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_entity_trialspawner.TrialSpawnerState): void;
   readonly trialSpawner: j_net_minecraft_world_level_block_entity_trialspawner.TrialSpawner;

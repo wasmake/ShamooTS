@@ -11,9 +11,7 @@ export interface RegistryEntryAddConfigurationMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_plugin_lifecycle_event_handler_configuration.PrioritizedLifecycleEventHandlerConfiguration<j_io_papermc_paper_plugin_bootstrap.BootstrapContext>];
   filter(arg0: j_io_papermc_paper_registry.TypedKey<T>): RegistryEntryAddConfiguration<T>;
   filter(arg0: JavaPredicate<j_io_papermc_paper_registry.TypedKey<T>>): RegistryEntryAddConfiguration<T>;
-  monitor(): j_io_papermc_paper_plugin_lifecycle_event_handler_configuration.PrioritizedLifecycleEventHandlerConfiguration;
   monitor(): RegistryEntryAddConfiguration<T>;
-  priority(arg0: number): j_io_papermc_paper_plugin_lifecycle_event_handler_configuration.PrioritizedLifecycleEventHandlerConfiguration;
   priority(arg0: number): RegistryEntryAddConfiguration<T>;
 }
 export type RegistryEntryAddConfiguration<T = unknown> = RegistryEntryAddConfigurationMembers<T> & j_io_papermc_paper_plugin_lifecycle_event_handler_configuration.PrioritizedLifecycleEventHandlerConfiguration<j_io_papermc_paper_plugin_bootstrap.BootstrapContext>;

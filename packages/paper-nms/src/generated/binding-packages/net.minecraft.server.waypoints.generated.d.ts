@@ -10,13 +10,10 @@ export interface ServerWaypointManagerMembers {
   breakAllConnections(): void;
   remakeConnections(arg0: j_net_minecraft_world_waypoints.WaypointTransmitter): void;
   removePlayer(arg0: j_net_minecraft_server_level.ServerPlayer): void;
-  trackWaypoint(arg0: j_net_minecraft_world_waypoints.Waypoint): void;
   trackWaypoint(arg0: j_net_minecraft_world_waypoints.WaypointTransmitter): void;
   transmitters(): JavaSet<j_net_minecraft_world_waypoints.WaypointTransmitter>;
-  untrackWaypoint(arg0: j_net_minecraft_world_waypoints.Waypoint): void;
   untrackWaypoint(arg0: j_net_minecraft_world_waypoints.WaypointTransmitter): void;
   updatePlayer(arg0: j_net_minecraft_server_level.ServerPlayer): void;
-  updateWaypoint(arg0: j_net_minecraft_world_waypoints.Waypoint): void;
   updateWaypoint(arg0: j_net_minecraft_world_waypoints.WaypointTransmitter): void;
 }
 export type ServerWaypointManager = ServerWaypointManagerMembers & j_net_minecraft_world_waypoints.WaypointManager<j_net_minecraft_world_waypoints.WaypointTransmitter>;

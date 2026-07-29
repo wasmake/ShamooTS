@@ -118,11 +118,9 @@ export interface HitResultMembers {
   distanceTo(arg0: j_net_minecraft_world_entity.Entity): number;
   getLocation(): Vec3;
   getType(): HitResult_Type;
-  readonly location: Vec3;
 }
 export type HitResult = HitResultMembers;
 export interface HitResultStatics {
-  new(arg0: Vec3): HitResult;
 }
 
 /** Live JVM enum net.minecraft.world.phys.HitResult$Type; constants are host handles, not strings. */

@@ -67,7 +67,7 @@ export interface VibrationSystem_DataMembers {
   getCurrentVibration(): VibrationInfo | null;
   getSelectionStrategy(): VibrationSelector;
   getTravelTimeInTicks(): number;
-  setCurrentVibration(arg0: VibrationInfo | null): void | null;
+  setCurrentVibration(arg0: VibrationInfo | null): void;
   setReloadVibrationParticle(arg0: boolean): void;
   setTravelTimeInTicks(arg0: number): void;
   shouldReloadVibrationParticle(): boolean;
@@ -111,7 +111,7 @@ export interface VibrationSystem_UserMembers {
   getPositionSource(): j_net_minecraft_world_level_gameevent.PositionSource;
   isValidVibration(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg1: j_net_minecraft_world_level_gameevent.GameEvent_Context): boolean;
   onDataChanged(): void;
-  onReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_entity.Entity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: number): void | null;
+  onReceiveVibration(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg3: j_net_minecraft_world_entity.Entity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: number): void;
   requiresAdjacentChunksToBeTicking(): boolean;
 }
 export type VibrationSystem_User = VibrationSystem_UserMembers;

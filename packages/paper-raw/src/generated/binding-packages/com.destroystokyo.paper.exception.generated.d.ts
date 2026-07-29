@@ -16,7 +16,6 @@ export interface ServerCommandExceptionMembers {
 export type ServerCommandException = ServerCommandExceptionMembers & ServerException;
 export interface ServerCommandExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_command.Command, arg3: j_org_bukkit_command.CommandSender, arg4: Array<string>): ServerCommandException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_command.Command, arg5: j_org_bukkit_command.CommandSender, arg6: Array<string>): ServerCommandException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_command.Command, arg2: j_org_bukkit_command.CommandSender, arg3: Array<string>): ServerCommandException;
 }
 
@@ -29,7 +28,6 @@ export interface ServerEventExceptionMembers {
 export type ServerEventException = ServerEventExceptionMembers & ServerPluginException;
 export interface ServerEventExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_plugin.Plugin, arg3: j_org_bukkit_event.Listener, arg4: j_org_bukkit_event.Event): ServerEventException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_plugin.Plugin, arg5: j_org_bukkit_event.Listener, arg6: j_org_bukkit_event.Event): ServerEventException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_plugin.Plugin, arg2: j_org_bukkit_event.Listener, arg3: j_org_bukkit_event.Event): ServerEventException;
 }
 
@@ -41,7 +39,6 @@ export type ServerException = ServerExceptionMembers & JavaOpaque<"java.lang.Exc
 export interface ServerExceptionStatics {
   new(arg0: string): ServerException;
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">): ServerException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean): ServerException;
   new(arg0: JavaOpaque<"java.lang.Throwable">): ServerException;
 }
 
@@ -53,7 +50,6 @@ export type ServerInternalException = ServerInternalExceptionMembers & ServerExc
 export interface ServerInternalExceptionStatics {
   new(arg0: string): ServerInternalException;
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">): ServerInternalException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean): ServerInternalException;
   new(arg0: JavaOpaque<"java.lang.Throwable">): ServerInternalException;
   reportInternalException(arg0: JavaOpaque<"java.lang.Throwable">): void;
 }
@@ -65,7 +61,6 @@ export interface ServerPluginEnableDisableExceptionMembers {
 export type ServerPluginEnableDisableException = ServerPluginEnableDisableExceptionMembers & ServerPluginException;
 export interface ServerPluginEnableDisableExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_plugin.Plugin): ServerPluginEnableDisableException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_plugin.Plugin): ServerPluginEnableDisableException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_plugin.Plugin): ServerPluginEnableDisableException;
 }
 
@@ -77,7 +72,6 @@ export interface ServerPluginExceptionMembers {
 export type ServerPluginException = ServerPluginExceptionMembers & ServerException;
 export interface ServerPluginExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_plugin.Plugin): ServerPluginException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_plugin.Plugin): ServerPluginException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_plugin.Plugin): ServerPluginException;
 }
 
@@ -91,7 +85,6 @@ export interface ServerPluginMessageExceptionMembers {
 export type ServerPluginMessageException = ServerPluginMessageExceptionMembers & ServerPluginException;
 export interface ServerPluginMessageExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_plugin.Plugin, arg3: j_org_bukkit_entity.Player, arg4: string, arg5: Array<number>): ServerPluginMessageException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_plugin.Plugin, arg5: j_org_bukkit_entity.Player, arg6: string, arg7: Array<number>): ServerPluginMessageException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_plugin.Plugin, arg2: j_org_bukkit_entity.Player, arg3: string, arg4: Array<number>): ServerPluginMessageException;
 }
 
@@ -103,7 +96,6 @@ export interface ServerSchedulerExceptionMembers {
 export type ServerSchedulerException = ServerSchedulerExceptionMembers & ServerPluginException;
 export interface ServerSchedulerExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_scheduler.BukkitTask): ServerSchedulerException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_scheduler.BukkitTask): ServerSchedulerException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_scheduler.BukkitTask): ServerSchedulerException;
 }
 
@@ -114,6 +106,5 @@ export interface ServerTabCompleteExceptionMembers {
 export type ServerTabCompleteException = ServerTabCompleteExceptionMembers & ServerCommandException;
 export interface ServerTabCompleteExceptionStatics {
   new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: j_org_bukkit_command.Command, arg3: j_org_bukkit_command.CommandSender, arg4: Array<string>): ServerTabCompleteException;
-  new(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">, arg2: boolean, arg3: boolean, arg4: j_org_bukkit_command.Command, arg5: j_org_bukkit_command.CommandSender, arg6: Array<string>): ServerTabCompleteException;
   new(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_org_bukkit_command.Command, arg2: j_org_bukkit_command.CommandSender, arg3: Array<string>): ServerTabCompleteException;
 }

@@ -5,7 +5,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 export interface ClientboundCookieRequestPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.cookie.ClientCookiePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.cookie.ClientCookiePacketListener">): void;
   hashCode(): number;
   key(): JavaOpaque<"net.minecraft.resources.ResourceLocation">;
@@ -22,7 +21,6 @@ export interface ClientboundCookieRequestPacketStatics {
 export interface ServerboundCookieResponsePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.cookie.ServerCookiePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.cookie.ServerCookiePacketListener">): void;
   hashCode(): number;
   key(): JavaOpaque<"net.minecraft.resources.ResourceLocation">;

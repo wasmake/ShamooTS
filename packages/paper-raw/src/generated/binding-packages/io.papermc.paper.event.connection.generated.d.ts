@@ -16,6 +16,6 @@ export interface PlayerConnectionValidateLoginEventMembers {
 }
 export type PlayerConnectionValidateLoginEvent = PlayerConnectionValidateLoginEventMembers & j_org_bukkit_event.Event;
 export interface PlayerConnectionValidateLoginEventStatics {
-  new(arg0: j_io_papermc_paper_connection.PlayerConnection, arg1: j_net_kyori_adventure_text.Component): PlayerConnectionValidateLoginEvent;
+  new(arg0: j_io_papermc_paper_connection.PlayerConnection, arg1: j_net_kyori_adventure_text.Component | null): PlayerConnectionValidateLoginEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

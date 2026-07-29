@@ -39,7 +39,6 @@ export interface HeightProviderMembers {
 }
 export type HeightProvider = HeightProviderMembers;
 export interface HeightProviderStatics {
-  new(): HeightProvider;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [HeightProvider]>;
 }
 

@@ -41,7 +41,6 @@ import type * as j_org_bukkit_craftbukkit_legacy_reroute from './org.bukkit.craf
 /** JVM class org.bukkit.craftbukkit.util.ApiVersion. */
 export interface ApiVersionMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [ApiVersion]>, JavaOpaque<"java.io.Serializable">];
-  compareTo(arg0: object): number;
   compareTo(arg0: ApiVersion): number;
   getVersionString(): string;
   isNewerThan(arg0: ApiVersion): boolean;
@@ -107,7 +106,7 @@ export interface CapturedBlockMembers {
 }
 export type CapturedBlock = CapturedBlockMembers & JavaOpaque<"java.lang.Record">;
 export interface CapturedBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: number, arg2: j_net_minecraft_world_level_block_entity.BlockEntity): CapturedBlock;
+  new(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: number, arg2: j_net_minecraft_world_level_block_entity.BlockEntity | null): CapturedBlock;
 }
 
 /** JVM class org.bukkit.craftbukkit.util.ClassTraverser. */
@@ -115,7 +114,6 @@ export interface ClassTraverserMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.Iterator", [JavaClass<object>]>];
   hasNext(): boolean;
   next(): JavaClass<object>;
-  next(): object;
 }
 export type ClassTraverser = ClassTraverserMembers & JavaOpaque<"java.util.Iterator", [JavaClass<object>]>;
 export interface ClassTraverserStatics {
@@ -358,7 +356,7 @@ export interface CraftRayTraceResultMembers {
 }
 export type CraftRayTraceResult = CraftRayTraceResultMembers;
 export interface CraftRayTraceResultStatics {
-  convertFromInternal(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_phys.HitResult): JavaOpaque<"org.bukkit.util.RayTraceResult"> | null;
+  convertFromInternal(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_phys.HitResult | null): JavaOpaque<"org.bukkit.util.RayTraceResult"> | null;
 }
 
 /** JVM class org.bukkit.craftbukkit.util.CraftSpawnCategory. */
@@ -430,7 +428,7 @@ export interface CraftVoxelShapeStatics {
 export interface DelegatedGeneratorAccessMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level.WorldGenLevel];
   addFreshEntity(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean | null;
+  addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean;
   addParticle(arg0: j_net_minecraft_core_particles.ParticleOptions, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number): void;
   canSeeSky(arg0: j_net_minecraft_core.BlockPos): boolean;
   canSeeSkyFromBelowWater(arg0: j_net_minecraft_core.BlockPos): boolean;
@@ -562,7 +560,7 @@ export interface DelegatedGeneratorAccessMembers {
   noCollision(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_phys.AABB): boolean;
   noCollision(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_world_phys.AABB, arg2: boolean): boolean;
   noCollision(arg0: j_net_minecraft_world_phys.AABB): boolean;
-  playSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_sounds.SoundEvent, arg3: j_net_minecraft_sounds.SoundSource, arg4: number, arg5: number): void | null;
+  playSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_sounds.SoundEvent, arg3: j_net_minecraft_sounds.SoundSource, arg4: number, arg5: number): void;
   players(): JavaList<j_net_minecraft_world_entity_player.Player>;
   registryAccess(): j_net_minecraft_core.RegistryAccess;
   removeBlock(arg0: j_net_minecraft_core.BlockPos, arg1: boolean): boolean;
@@ -578,7 +576,6 @@ export interface DelegatedGeneratorAccessMembers {
 }
 export type DelegatedGeneratorAccess = DelegatedGeneratorAccessMembers & j_net_minecraft_world_level.WorldGenLevel;
 export interface DelegatedGeneratorAccessStatics {
-  new(): DelegatedGeneratorAccess;
 }
 
 /** JVM class org.bukkit.craftbukkit.util.DummyGeneratorAccess. */
@@ -632,7 +629,6 @@ export interface DummyGeneratorAccessMembers {
 }
 export type DummyGeneratorAccess = DummyGeneratorAccessMembers & j_net_minecraft_world_level.WorldGenLevel;
 export interface DummyGeneratorAccessStatics {
-  new(): DummyGeneratorAccess;
   readonly INSTANCE: j_net_minecraft_world_level.WorldGenLevel;
 }
 
@@ -666,7 +662,7 @@ export interface JsonHelperStatics {
   getOrCreateObject(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): JavaOpaque<"com.google.gson.JsonObject">;
   getPrimitiveOrNull(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): JavaOpaque<"com.google.gson.JsonPrimitive"> | null;
   getStringOrNull(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): string | null;
-  setOrRemove(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string, arg2: JavaOpaque<"com.google.gson.JsonElement"> | null): void | null;
+  setOrRemove(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string, arg2: JavaOpaque<"com.google.gson.JsonElement"> | null): void;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.util.LazyHashSet. */
@@ -683,7 +679,6 @@ export interface LazyHashSetMembers<E = unknown> {
   isEmpty(): boolean;
   isLazy(): boolean;
   iterator(): JavaOpaque<"java.util.Iterator", [E]>;
-  makeReference(): JavaSet<E>;
   remove(arg0: object): boolean;
   removeAll(arg0: JavaCollection<object>): boolean;
   retainAll(arg0: JavaCollection<object>): boolean;
@@ -694,13 +689,11 @@ export interface LazyHashSetMembers<E = unknown> {
 }
 export type LazyHashSet<E = unknown> = LazyHashSetMembers<E> & JavaSet<E>;
 export interface LazyHashSetStatics {
-  new<E>(): LazyHashSet<E>;
 }
 
 /** JVM class org.bukkit.craftbukkit.util.LazyPlayerSet. */
 export interface LazyPlayerSetMembers {
   readonly __javaSupertypes?: readonly [LazyHashSet<JavaOpaque<"org.bukkit.entity.Player">>];
-  makeReference(): JavaSet<JavaOpaque<"org.bukkit.entity.Player">>;
 }
 export type LazyPlayerSet = LazyPlayerSetMembers & LazyHashSet<JavaOpaque<"org.bukkit.entity.Player">>;
 export interface LazyPlayerSetStatics {
@@ -711,7 +704,6 @@ export interface LazyPlayerSetStatics {
 /** JVM class org.bukkit.craftbukkit.util.LimitedClassRemapper. */
 export interface LimitedClassRemapperMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.objectweb.asm.commons.ClassRemapper">];
-  createMethodRemapper(arg0: JavaOpaque<"org.objectweb.asm.MethodVisitor">): JavaOpaque<"org.objectweb.asm.MethodVisitor">;
   visit(arg0: number, arg1: number, arg2: string, arg3: string, arg4: string, arg5: Array<string>): void;
 }
 export type LimitedClassRemapper = LimitedClassRemapperMembers & JavaOpaque<"org.objectweb.asm.commons.ClassRemapper">;
@@ -770,7 +762,7 @@ export interface ServerShutdownThreadStatics {
 export interface TransformerGeneratorAccessMembers {
   readonly __javaSupertypes?: readonly [DelegatedGeneratorAccess];
   addFreshEntity(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean | null;
+  addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean;
   canTransformBlocks(): boolean;
   getStructureTransformer(): CraftStructureTransformer;
   setBlock(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: number): boolean;
@@ -837,14 +829,12 @@ export interface VersioningStatics {
 /** JVM abstract org.bukkit.craftbukkit.util.Waitable. */
 export interface WaitableMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [JavaRunnable];
-  evaluate(): T;
   /** @throws java.lang.InterruptedException @throws java.util.concurrent.ExecutionException */
   get(): T;
   run(): void;
 }
 export type Waitable<T = unknown> = WaitableMembers<T> & JavaRunnable;
 export interface WaitableStatics {
-  new<T>(): Waitable<T>;
 }
 
 /** JVM class org.bukkit.craftbukkit.util.WeakCollection. */

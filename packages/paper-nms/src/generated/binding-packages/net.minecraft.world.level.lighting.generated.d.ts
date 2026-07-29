@@ -9,9 +9,6 @@ import type * as j_net_minecraft_world_phys_shapes from './net.minecraft.world.p
 /** JVM class net.minecraft.world.level.lighting.BlockLightEngine. */
 export interface BlockLightEngineMembers {
   readonly __javaSupertypes?: readonly [LightEngine<BlockLightSectionStorage_BlockDataLayerStorageMap, BlockLightSectionStorage>];
-  checkNode(arg0: bigint): void;
-  propagateDecrease(arg0: bigint, arg1: bigint): void;
-  propagateIncrease(arg0: bigint, arg1: bigint, arg2: number): void;
   propagateLightSources(arg0: j_net_minecraft_world_level.ChunkPos): void;
 }
 export type BlockLightEngine = BlockLightEngineMembers & LightEngine<BlockLightSectionStorage_BlockDataLayerStorageMap, BlockLightSectionStorage>;
@@ -23,11 +20,9 @@ export interface BlockLightEngineStatics {
 /** JVM class net.minecraft.world.level.lighting.BlockLightSectionStorage. */
 export interface BlockLightSectionStorageMembers {
   readonly __javaSupertypes?: readonly [LayerLightSectionStorage<BlockLightSectionStorage_BlockDataLayerStorageMap>];
-  getLightValue(arg0: bigint): number;
 }
 export type BlockLightSectionStorage = BlockLightSectionStorageMembers & LayerLightSectionStorage<BlockLightSectionStorage_BlockDataLayerStorageMap>;
 export interface BlockLightSectionStorageStatics {
-  new(arg0: j_net_minecraft_world_level_chunk.LightChunkGetter): BlockLightSectionStorage;
 }
 
 /** JVM class net.minecraft.world.level.lighting.BlockLightSectionStorage$BlockDataLayerStorageMap. */
@@ -35,12 +30,10 @@ export interface BlockLightSectionStorage_BlockDataLayerStorageMapMembers {
   readonly __javaSupertypes?: readonly [DataLayerStorageMap<BlockLightSectionStorage_BlockDataLayerStorageMap>];
   clearCache(): void;
   copy(): BlockLightSectionStorage_BlockDataLayerStorageMap;
-  copy(): DataLayerStorageMap;
   copyDataLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer;
   disableCache(): void;
   getLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   hasLayer(arg0: bigint): boolean;
-  readonly map: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap", [j_net_minecraft_world_level_chunk.DataLayer]>;
   removeLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   setLayer(arg0: bigint, arg1: j_net_minecraft_world_level_chunk.DataLayer): void;
 }
@@ -70,36 +63,20 @@ export interface DataLayerStorageMapMembers<M /* extends DataLayerStorageMap<M> 
   disableCache(): void;
   getLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   hasLayer(arg0: bigint): boolean;
-  readonly map: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap", [j_net_minecraft_world_level_chunk.DataLayer]>;
   removeLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   setLayer(arg0: bigint, arg1: j_net_minecraft_world_level_chunk.DataLayer): void;
 }
 export type DataLayerStorageMap<M /* extends DataLayerStorageMap<M> */ = unknown> = DataLayerStorageMapMembers<M>;
 export interface DataLayerStorageMapStatics {
-  new<M /* extends DataLayerStorageMap<M> */>(arg0: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap", [j_net_minecraft_world_level_chunk.DataLayer]>): DataLayerStorageMap<M>;
 }
 
 /** JVM abstract net.minecraft.world.level.lighting.DynamicGraphMinFixedPoint. */
 export interface DynamicGraphMinFixedPointMembers {
-  checkEdge(arg0: bigint, arg1: bigint, arg2: number, arg3: boolean): void;
-  checkNeighbor(arg0: bigint, arg1: bigint, arg2: number, arg3: boolean): void;
-  checkNeighborsAfterUpdate(arg0: bigint, arg1: number, arg2: boolean): void;
-  checkNode(arg0: bigint): void;
-  computeLevelFromNeighbor(arg0: bigint, arg1: bigint, arg2: number): number;
-  getComputedLevel(arg0: bigint, arg1: bigint, arg2: number): number;
-  getLevel(arg0: bigint): number;
   getQueueSize(): number;
-  hasWork(): boolean;
-  isSource(arg0: bigint): boolean;
-  readonly levelCount: number;
-  removeFromQueue(arg0: bigint): void;
   removeIf(arg0: JavaOpaque<"java.util.function.LongPredicate">): void;
-  runUpdates(arg0: number): number;
-  setLevel(arg0: bigint, arg1: number): void;
 }
 export type DynamicGraphMinFixedPoint = DynamicGraphMinFixedPointMembers;
 export interface DynamicGraphMinFixedPointStatics {
-  new(arg0: number, arg1: number, arg2: number): DynamicGraphMinFixedPoint;
   readonly SOURCE: 9223372036854776000;
 }
 
@@ -134,40 +111,12 @@ export interface LayerLightEventListener_DummyLightLayerEventListenerStatics {
 
 /** JVM abstract net.minecraft.world.level.lighting.LayerLightSectionStorage. */
 export interface LayerLightSectionStorageMembers<M /* extends DataLayerStorageMap<M> */ = unknown> {
-  readonly changedSections: JavaOpaque<"it.unimi.dsi.fastutil.longs.LongSet">;
-  readonly chunkSource: j_net_minecraft_world_level_chunk.LightChunkGetter;
-  createDataLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer;
-  getDataLayer(arg0: bigint, arg1: boolean): j_net_minecraft_world_level_chunk.DataLayer | null;
-  getDataLayer(arg0: M, arg1: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   getDataLayerData(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
-  getDataLayerToWrite(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   getDebugSectionType(arg0: bigint): LayerLightSectionStorage_SectionType;
-  getLightValue(arg0: bigint): number;
-  getStoredLevel(arg0: bigint): number;
-  hasInconsistencies: (boolean) & { (): boolean };
-  lightOnInColumn(arg0: bigint): boolean;
-  lightOnInSection(arg0: bigint): boolean;
-  markNewInconsistencies(arg0: LightEngine<M, object>): void;
-  markSectionAndNeighborsAsAffected(arg0: bigint): void;
-  onNodeAdded(arg0: bigint): void;
-  onNodeRemoved(arg0: bigint): void;
-  putSectionState(arg0: bigint, arg1: number): void;
-  queueSectionData(arg0: bigint, arg1: j_net_minecraft_world_level_chunk.DataLayer | null): void | null;
-  readonly queuedSections: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ObjectMap", [j_net_minecraft_world_level_chunk.DataLayer]>;
   retainData(arg0: bigint, arg1: boolean): void;
-  readonly sectionStates: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ByteMap">;
-  readonly sectionsAffectedByLightUpdates: JavaOpaque<"it.unimi.dsi.fastutil.longs.LongSet">;
-  setLightEnabled(arg0: bigint, arg1: boolean): void;
-  setStoredLevel(arg0: bigint, arg1: number): void;
-  storingLightForSection(arg0: bigint): boolean;
-  swapSectionMap(): void;
-  updateSectionStatus(arg0: bigint, arg1: boolean): void;
-  readonly updatingSectionData: M;
-  visibleSectionData: M;
 }
 export type LayerLightSectionStorage<M /* extends DataLayerStorageMap<M> */ = unknown> = LayerLightSectionStorageMembers<M>;
 export interface LayerLightSectionStorageStatics {
-  new<M /* extends DataLayerStorageMap<M> */>(arg0: j_net_minecraft_world_level.LightLayer, arg1: j_net_minecraft_world_level_chunk.LightChunkGetter, arg2: M): LayerLightSectionStorage<M>;
 }
 
 /** JVM class net.minecraft.world.level.lighting.LayerLightSectionStorage$SectionState. */
@@ -175,7 +124,6 @@ export interface LayerLightSectionStorage_SectionStateMembers {
 }
 export type LayerLightSectionStorage_SectionState = LayerLightSectionStorage_SectionStateMembers;
 export interface LayerLightSectionStorage_SectionStateStatics {
-  new(): LayerLightSectionStorage_SectionState;
   readonly EMPTY: 0;
   hasData(arg0: number): boolean;
   hasData(arg0: number, arg1: boolean): number;
@@ -221,11 +169,9 @@ export interface LevelLightEngineMembers {
   getMinLightSection(): number;
   getRawBrightness(arg0: j_net_minecraft_core.BlockPos, arg1: number): number;
   hasLightWork(): boolean;
-  readonly levelHeightAccessor: j_net_minecraft_world_level.LevelHeightAccessor;
-  readonly lightEngine: JavaOpaque<"ca.spottedleaf.moonrise.patches.starlight.light.StarLightInterface">;
   lightOnInColumn(arg0: bigint): boolean;
   propagateLightSources(arg0: j_net_minecraft_world_level.ChunkPos): void;
-  queueSectionData(arg0: j_net_minecraft_world_level.LightLayer, arg1: j_net_minecraft_core.SectionPos, arg2: j_net_minecraft_world_level_chunk.DataLayer | null): void | null;
+  queueSectionData(arg0: j_net_minecraft_world_level.LightLayer, arg1: j_net_minecraft_core.SectionPos, arg2: j_net_minecraft_world_level_chunk.DataLayer | null): void;
   retainData(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
   runLightUpdates(): number;
   setLightEnabled(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
@@ -246,39 +192,23 @@ export interface LevelLightEngineStatics {
 export interface LightEngineMembers<M /* extends DataLayerStorageMap<M> */ = unknown, S /* extends LayerLightSectionStorage<M> */ = unknown> {
   readonly __javaSupertypes?: readonly [LayerLightEventListener];
   checkBlock(arg0: j_net_minecraft_core.BlockPos): void;
-  checkNode(arg0: bigint): void;
-  readonly chunkSource: j_net_minecraft_world_level_chunk.LightChunkGetter;
-  enqueueDecrease(arg0: bigint, arg1: bigint): void;
-  enqueueIncrease(arg0: bigint, arg1: bigint): void;
-  getChunk(arg0: number, arg1: number): j_net_minecraft_world_level_chunk.LightChunk | null;
   getDataLayerData(arg0: j_net_minecraft_core.SectionPos): j_net_minecraft_world_level_chunk.DataLayer | null;
   getDebugData(arg0: bigint): string;
   getDebugSectionType(arg0: bigint): LayerLightSectionStorage_SectionType;
   getLightValue(arg0: j_net_minecraft_core.BlockPos): number;
-  getOpacity(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getState(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
   hasLightWork(): boolean;
-  propagateDecrease(arg0: bigint, arg1: bigint): void;
-  propagateIncrease(arg0: bigint, arg1: bigint, arg2: number): void;
-  queueSectionData(arg0: bigint, arg1: j_net_minecraft_world_level_chunk.DataLayer | null): void | null;
+  queueSectionData(arg0: bigint, arg1: j_net_minecraft_world_level_chunk.DataLayer | null): void;
   retainData(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
   runLightUpdates(): number;
   setLightEnabled(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
-  shapeOccludes(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction): boolean;
-  readonly storage: S;
   updateSectionStatus(arg0: j_net_minecraft_core.SectionPos, arg1: boolean): void;
 }
 export type LightEngine<M /* extends DataLayerStorageMap<M> */ = unknown, S /* extends LayerLightSectionStorage<M> */ = unknown> = LightEngineMembers<M, S> & LayerLightEventListener;
 export interface LightEngineStatics {
-  new<M /* extends DataLayerStorageMap<M> */, S /* extends LayerLightSectionStorage<M> */>(arg0: j_net_minecraft_world_level_chunk.LightChunkGetter, arg1: S): LightEngine<M, S>;
   readonly MAX_LEVEL: 15;
-  readonly MIN_OPACITY: 1;
-  readonly PROPAGATION_DIRECTIONS: Array<j_net_minecraft_core.Direction>;
-  readonly PULL_LIGHT_IN_ENTRY: bigint;
   getLightBlockInto(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction, arg3: number): number;
   getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.Direction): j_net_minecraft_world_phys_shapes.VoxelShape;
   hasDifferentLightProperties(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isEmptyShape(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 
 /** JVM class net.minecraft.world.level.lighting.LightEngine$QueueEntry. */
@@ -316,34 +246,20 @@ export interface LightEventListenerStatics {
 /** JVM class net.minecraft.world.level.lighting.SkyLightEngine. */
 export interface SkyLightEngineMembers {
   readonly __javaSupertypes?: readonly [LightEngine<SkyLightSectionStorage_SkyDataLayerStorageMap, SkyLightSectionStorage>];
-  checkNode(arg0: bigint): void;
-  propagateDecrease(arg0: bigint, arg1: bigint): void;
-  propagateIncrease(arg0: bigint, arg1: bigint, arg2: number): void;
   propagateLightSources(arg0: j_net_minecraft_world_level.ChunkPos): void;
   setLightEnabled(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
 }
 export type SkyLightEngine = SkyLightEngineMembers & LightEngine<SkyLightSectionStorage_SkyDataLayerStorageMap, SkyLightSectionStorage>;
 export interface SkyLightEngineStatics {
   new(arg0: j_net_minecraft_world_level_chunk.LightChunkGetter): SkyLightEngine;
-  new(arg0: j_net_minecraft_world_level_chunk.LightChunkGetter, arg1: SkyLightSectionStorage): SkyLightEngine;
 }
 
 /** JVM class net.minecraft.world.level.lighting.SkyLightSectionStorage. */
 export interface SkyLightSectionStorageMembers {
   readonly __javaSupertypes?: readonly [LayerLightSectionStorage<SkyLightSectionStorage_SkyDataLayerStorageMap>];
-  createDataLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer;
-  getBottomSectionY(): number;
-  getLightValue(arg0: bigint): number;
-  getLightValue(arg0: bigint, arg1: boolean): number;
-  getTopSectionY(arg0: bigint): number;
-  hasLightDataAtOrBelow(arg0: number): boolean;
-  isAboveData(arg0: bigint): boolean;
-  onNodeAdded(arg0: bigint): void;
-  onNodeRemoved(arg0: bigint): void;
 }
 export type SkyLightSectionStorage = SkyLightSectionStorageMembers & LayerLightSectionStorage<SkyLightSectionStorage_SkyDataLayerStorageMap>;
 export interface SkyLightSectionStorageStatics {
-  new(arg0: j_net_minecraft_world_level_chunk.LightChunkGetter): SkyLightSectionStorage;
 }
 
 /** JVM class net.minecraft.world.level.lighting.SkyLightSectionStorage$SkyDataLayerStorageMap. */
@@ -351,12 +267,10 @@ export interface SkyLightSectionStorage_SkyDataLayerStorageMapMembers {
   readonly __javaSupertypes?: readonly [DataLayerStorageMap<SkyLightSectionStorage_SkyDataLayerStorageMap>];
   clearCache(): void;
   copy(): SkyLightSectionStorage_SkyDataLayerStorageMap;
-  copy(): DataLayerStorageMap;
   copyDataLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer;
   disableCache(): void;
   getLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   hasLayer(arg0: bigint): boolean;
-  readonly map: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap", [j_net_minecraft_world_level_chunk.DataLayer]>;
   removeLayer(arg0: bigint): j_net_minecraft_world_level_chunk.DataLayer | null;
   setLayer(arg0: bigint, arg1: j_net_minecraft_world_level_chunk.DataLayer): void;
 }
@@ -383,7 +297,6 @@ export interface SpatialLongSetStatics {
 export interface SpatialLongSet_InternalMapMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2LongLinkedOpenHashMap">];
   addBit(arg0: bigint): boolean;
-  rehash(arg0: number): void;
   removeBit(arg0: bigint): boolean;
   removeFirstBit(): bigint;
 }

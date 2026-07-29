@@ -13,6 +13,7 @@ import type {
 } from '@shamoo/communication';
 import { definePlatform } from '@shamoo/platform';
 import { createToken, type Provider } from '@shamoo/di';
+import { invokePaperCallback } from '@shamoo/paper-raw';
 import type {
   Entity,
   GeneratedEventCancellabilityMap,
@@ -775,7 +776,10 @@ export function createPaperHostApi(host: PaperRuntimeHost, namespace = 'paper.ap
   };
   const api: PaperHostApi = {
     on(type, handler, priority = 'NORMAL') {
-      registerOperation('event', handler, (name) =>
+      const hydrated = (...values: readonly never[]): unknown => {
+        return invokePaperCallback(handler, values);
+      };
+      registerOperation('event', hydrated, (name) =>
         host.paperSubscribeEvent({ source: 'api' }, type, priority, false, marker(name)),
       );
     },

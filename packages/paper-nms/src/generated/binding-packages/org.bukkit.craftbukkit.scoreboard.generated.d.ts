@@ -28,31 +28,21 @@ export interface CraftScoreboardMembers {
   /** @throws java.lang.IllegalArgumentException */
   getEntityTeam(arg0: JavaOpaque<"org.bukkit.entity.Entity">): JavaOpaque<"org.bukkit.scoreboard.Team">;
   getEntries(): JavaOpaque<"com.google.common.collect.ImmutableSet", [string]>;
-  getEntries(): JavaSet<object>;
   getEntryTeam(arg0: string): JavaOpaque<"org.bukkit.scoreboard.Team">;
   getHandle(): j_net_minecraft_world_scores.Scoreboard;
   getObjective(arg0: string): JavaOpaque<"org.bukkit.scoreboard.Objective">;
   getObjective(arg0: JavaOpaque<"org.bukkit.scoreboard.DisplaySlot">): JavaOpaque<"org.bukkit.scoreboard.Objective">;
   getObjectives(): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Objective">]>;
-  getObjectives(): JavaSet<object>;
   getObjectivesByCriteria(arg0: string): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Objective">]>;
-  getObjectivesByCriteria(arg0: string): JavaSet<object>;
   getObjectivesByCriteria(arg0: JavaOpaque<"org.bukkit.scoreboard.Criteria">): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Objective">]>;
-  getObjectivesByCriteria(arg0: JavaOpaque<"org.bukkit.scoreboard.Criteria">): JavaSet<object>;
   getPlayerTeam(arg0: JavaOpaque<"org.bukkit.OfflinePlayer">): JavaOpaque<"org.bukkit.scoreboard.Team">;
   getPlayers(): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.OfflinePlayer">]>;
-  getPlayers(): JavaSet<object>;
   getScores(arg0: string): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Score">]>;
-  getScores(arg0: string): JavaSet<object>;
   getScores(arg0: JavaOpaque<"org.bukkit.OfflinePlayer">): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Score">]>;
-  getScores(arg0: JavaOpaque<"org.bukkit.OfflinePlayer">): JavaSet<object>;
   /** @throws java.lang.IllegalArgumentException */
   getScoresFor(arg0: JavaOpaque<"org.bukkit.entity.Entity">): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Score">]>;
-  /** @throws java.lang.IllegalArgumentException */
-  getScoresFor(arg0: JavaOpaque<"org.bukkit.entity.Entity">): JavaSet<object>;
   getTeam(arg0: string): JavaOpaque<"org.bukkit.scoreboard.Team">;
   getTeams(): JavaOpaque<"com.google.common.collect.ImmutableSet", [JavaOpaque<"org.bukkit.scoreboard.Team">]>;
-  getTeams(): JavaSet<object>;
   registerNewObjective(arg0: string, arg1: string, arg2: string, arg3: JavaOpaque<"org.bukkit.scoreboard.RenderType">): JavaOpaque<"org.bukkit.scoreboard.Objective">;
   registerNewObjective(arg0: string, arg1: string, arg2: JavaOpaque<"net.kyori.adventure.text.Component">, arg3: JavaOpaque<"org.bukkit.scoreboard.RenderType">): JavaOpaque<"org.bukkit.scoreboard.Objective">;
   /** @throws java.lang.IllegalArgumentException */
@@ -73,9 +63,7 @@ export interface CraftScoreboardManagerMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.scoreboard.ScoreboardManager">];
   forAllObjectives(arg0: j_net_minecraft_world_scores_criteria.ObjectiveCriteria, arg1: j_net_minecraft_world_scores.ScoreHolder, arg2: JavaConsumer<j_net_minecraft_world_scores.ScoreAccess>): void;
   getMainScoreboard(): CraftScoreboard;
-  getMainScoreboard(): JavaOpaque<"org.bukkit.scoreboard.Scoreboard">;
   getNewScoreboard(): CraftScoreboard;
-  getNewScoreboard(): JavaOpaque<"org.bukkit.scoreboard.Scoreboard">;
   getPlayerBoard(arg0: j_org_bukkit_craftbukkit_entity.CraftPlayer): CraftScoreboard;
   registerScoreboardForVanilla(arg0: CraftScoreboard): void;
   removePlayer(arg0: j_org_bukkit_craftbukkit_entity.CraftPlayer): void;

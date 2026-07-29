@@ -84,7 +84,7 @@ export interface ArmorStandItemStatics {
 export interface ArrowItemMembers {
   readonly __javaSupertypes?: readonly [Item, ProjectileItem];
   asProjectile(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.Position, arg2: ItemStack, arg3: j_net_minecraft_core.Direction): j_net_minecraft_world_entity_projectile.Projectile;
-  createArrow(arg0: j_net_minecraft_world_level.Level, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow | null;
+  createArrow(arg0: j_net_minecraft_world_level.Level, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow;
 }
 export type ArrowItem = ArrowItemMembers & Item & ProjectileItem;
 export interface ArrowItemStatics {
@@ -99,7 +99,6 @@ export interface AxeItemMembers {
 export type AxeItem = AxeItemMembers & Item;
 export interface AxeItemStatics {
   new(arg0: ToolMaterial, arg1: number, arg2: number, arg3: Item_Properties): AxeItem;
-  readonly STRIPPABLES: JavaMap<j_net_minecraft_world_level_block.Block, j_net_minecraft_world_level_block.Block>;
 }
 
 /** JVM class net.minecraft.world.item.BannerItem. */
@@ -115,7 +114,6 @@ export interface BannerItemStatics {
 /** JVM class net.minecraft.world.item.BedItem. */
 export interface BedItemMembers {
   readonly __javaSupertypes?: readonly [BlockItem];
-  placeBlock(arg0: j_net_minecraft_world_item_context.BlockPlaceContext, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type BedItem = BedItemMembers & BlockItem;
 export interface BedItemStatics {
@@ -126,18 +124,12 @@ export interface BedItemStatics {
 export interface BlockItemMembers {
   readonly __javaSupertypes?: readonly [Item];
   canFitInsideContainerItems(): boolean;
-  canPlace(arg0: j_net_minecraft_world_item_context.BlockPlaceContext, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
   getBlock(): j_net_minecraft_world_level_block.Block;
-  getPlaceSound(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_sounds.SoundEvent;
-  getPlacementState(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mustSurvive(): boolean;
   onDestroyed(arg0: j_net_minecraft_world_entity_item.ItemEntity): void;
   place(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world.InteractionResult;
-  placeBlock(arg0: j_net_minecraft_world_item_context.BlockPlaceContext, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
   registerBlocks(arg0: JavaMap<j_net_minecraft_world_level_block.Block, Item>, arg1: Item): void;
   requiredFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
-  shouldPrintOpWarning(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): boolean | null;
-  updateCustomBlockEntityTag(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_entity_player.Player | null, arg3: ItemStack, arg4: j_net_minecraft_world_level_block_state.BlockState): boolean | null;
+  shouldPrintOpWarning(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): boolean;
   updatePlacementContext(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_item_context.BlockPlaceContext | null;
   useOn(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
 }
@@ -145,7 +137,7 @@ export type BlockItem = BlockItemMembers & Item;
 export interface BlockItemStatics {
   new(arg0: j_net_minecraft_world_level_block.Block, arg1: Item_Properties): BlockItem;
   setBlockEntityData(arg0: ItemStack, arg1: j_net_minecraft_world_level_block_entity.BlockEntityType<object>, arg2: j_net_minecraft_world_level_storage.TagValueOutput): void;
-  updateCustomBlockEntityTag(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.BlockPos, arg3: ItemStack): boolean | null;
+  updateCustomBlockEntityTag(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.BlockPos, arg3: ItemStack): boolean;
 }
 
 /** JVM class net.minecraft.world.item.BoatItem. */
@@ -172,13 +164,12 @@ export interface BoneMealItemStatics {
   addGrowthParticles(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: number): void;
   applyBonemeal(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
   growCrop(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): boolean;
-  growWaterPlant(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction | null): boolean | null;
+  growWaterPlant(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction | null): boolean;
 }
 
 /** JVM class net.minecraft.world.item.BottleItem. */
 export interface BottleItemMembers {
   readonly __javaSupertypes?: readonly [Item];
-  turnBottleIntoItem(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player, arg2: ItemStack): ItemStack;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
 }
 export type BottleItem = BottleItemMembers & Item;
@@ -194,7 +185,6 @@ export interface BowItemMembers {
   getUseAnimation(arg0: ItemStack): ItemUseAnimation;
   getUseDuration(arg0: ItemStack, arg1: j_net_minecraft_world_entity.LivingEntity): number;
   releaseUsing(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: number): boolean;
-  shootProjectile(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: j_net_minecraft_world_entity_projectile.Projectile, arg2: number, arg3: number, arg4: number, arg5: number, arg6: j_net_minecraft_world_entity.LivingEntity | null): void | null;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
 }
 export type BowItem = BowItemMembers & ProjectileWeaponItem;
@@ -222,11 +212,10 @@ export interface BrushItemStatics {
 /** JVM class net.minecraft.world.item.BucketItem. */
 export interface BucketItemMembers {
   readonly __javaSupertypes?: readonly [Item, DispensibleContainerItem];
-  checkExtraContent(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): void | null;
+  checkExtraContent(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): void;
   readonly content: j_net_minecraft_world_level_material.Fluid;
-  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null): boolean | null;
-  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: ItemStack, arg7: j_net_minecraft_world.InteractionHand): boolean | null;
-  playEmptySound(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos): void | null;
+  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null): boolean;
+  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: ItemStack, arg7: j_net_minecraft_world.InteractionHand): boolean;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
 }
 export type BucketItem = BucketItemMembers & Item & DispensibleContainerItem;
@@ -271,7 +260,7 @@ export interface BundleItemStatics {
 export interface CompassItemMembers {
   readonly __javaSupertypes?: readonly [Item];
   getName(arg0: ItemStack): j_net_minecraft_network_chat.Component;
-  inventoryTick(arg0: ItemStack, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.EquipmentSlot | null): void | null;
+  inventoryTick(arg0: ItemStack, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.EquipmentSlot | null): void;
   isFoil(arg0: ItemStack): boolean;
   useOn(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
 }
@@ -314,7 +303,6 @@ export interface CreativeModeTab_BuilderMembers {
   icon(arg0: JavaSupplier<ItemStack>): CreativeModeTab_Builder;
   noScrollBar(): CreativeModeTab_Builder;
   title(arg0: j_net_minecraft_network_chat.Component): CreativeModeTab_Builder;
-  type(arg0: CreativeModeTab_Type): CreativeModeTab_Builder;
 }
 export type CreativeModeTab_Builder = CreativeModeTab_BuilderMembers;
 export interface CreativeModeTab_BuilderStatics {
@@ -412,17 +400,14 @@ export interface CreativeModeTabsStatics {
 /** JVM class net.minecraft.world.item.CrossbowItem. */
 export interface CrossbowItemMembers {
   readonly __javaSupertypes?: readonly [ProjectileWeaponItem];
-  createProjectile(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: ItemStack, arg3: ItemStack, arg4: boolean): j_net_minecraft_world_entity_projectile.Projectile;
   getAllSupportedProjectiles(): JavaPredicate<ItemStack>;
   getDefaultProjectileRange(): number;
-  getDurabilityUse(arg0: ItemStack): number;
   getSupportedHeldProjectiles(): JavaPredicate<ItemStack>;
   getUseAnimation(arg0: ItemStack): ItemUseAnimation;
   getUseDuration(arg0: ItemStack, arg1: j_net_minecraft_world_entity.LivingEntity): number;
   onUseTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: ItemStack, arg3: number): void;
-  performShooting(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world.InteractionHand, arg3: ItemStack, arg4: number, arg5: number, arg6: j_net_minecraft_world_entity.LivingEntity | null): void | null;
+  performShooting(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world.InteractionHand, arg3: ItemStack, arg4: number, arg5: number, arg6: j_net_minecraft_world_entity.LivingEntity | null): void;
   releaseUsing(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: number): boolean;
-  shootProjectile(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: j_net_minecraft_world_entity_projectile.Projectile, arg2: number, arg3: number, arg4: number, arg5: number, arg6: j_net_minecraft_world_entity.LivingEntity | null): void | null;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   useOnRelease(arg0: ItemStack): boolean;
 }
@@ -491,8 +476,8 @@ export interface DiscFragmentItemStatics {
 
 /** JVM interface net.minecraft.world.item.DispensibleContainerItem. */
 export interface DispensibleContainerItemMembers {
-  checkExtraContent(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): void | null;
-  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null): boolean | null;
+  checkExtraContent(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): void;
+  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null): boolean;
 }
 export type DispensibleContainerItem = DispensibleContainerItemMembers;
 export interface DispensibleContainerItemStatics {
@@ -501,7 +486,6 @@ export interface DispensibleContainerItemStatics {
 /** JVM class net.minecraft.world.item.DoubleHighBlockItem. */
 export interface DoubleHighBlockItemMembers {
   readonly __javaSupertypes?: readonly [BlockItem];
-  placeBlock(arg0: j_net_minecraft_world_item_context.BlockPlaceContext, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type DoubleHighBlockItem = DoubleHighBlockItemMembers & BlockItem;
 export interface DoubleHighBlockItemStatics {
@@ -709,7 +693,6 @@ export interface FoodOnAStickItemStatics {
 /** JVM class net.minecraft.world.item.GameMasterBlockItem. */
 export interface GameMasterBlockItemMembers {
   readonly __javaSupertypes?: readonly [BlockItem];
-  getPlacementState(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
 }
 export type GameMasterBlockItem = GameMasterBlockItemMembers & BlockItem;
 export interface GameMasterBlockItemStatics {
@@ -730,7 +713,6 @@ export interface GlowInkSacItemStatics {
 export interface HangingEntityItemMembers {
   readonly __javaSupertypes?: readonly [Item];
   appendHoverText(arg0: ItemStack, arg1: Item_TooltipContext, arg2: j_net_minecraft_world_item_component.TooltipDisplay, arg3: JavaConsumer<j_net_minecraft_network_chat.Component>, arg4: TooltipFlag): void;
-  mayPlace(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_core.Direction, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): boolean;
   useOn(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
 }
 export type HangingEntityItem = HangingEntityItemMembers & Item;
@@ -741,7 +723,6 @@ export interface HangingEntityItemStatics {
 /** JVM class net.minecraft.world.item.HangingSignItem. */
 export interface HangingSignItemMembers {
   readonly __javaSupertypes?: readonly [SignItem];
-  canPlace(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type HangingSignItem = HangingSignItemMembers & SignItem;
 export interface HangingSignItemStatics {
@@ -756,7 +737,6 @@ export interface HoeItemMembers {
 export type HoeItem = HoeItemMembers & Item;
 export interface HoeItemStatics {
   new(arg0: ToolMaterial, arg1: number, arg2: number, arg3: Item_Properties): HoeItem;
-  readonly TILLABLES: JavaMap<j_net_minecraft_world_level_block.Block, JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaPredicate<j_net_minecraft_world_item_context.UseOnContext>, JavaConsumer<j_net_minecraft_world_item_context.UseOnContext>]>>;
   changeIntoState(arg0: j_net_minecraft_world_level_block_state.BlockState): JavaConsumer<j_net_minecraft_world_item_context.UseOnContext>;
   changeIntoStateAndDropItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.ItemLike): JavaConsumer<j_net_minecraft_world_item_context.UseOnContext>;
   onlyIfAirAbove(arg0: j_net_minecraft_world_item_context.UseOnContext): boolean;
@@ -848,7 +828,6 @@ export interface ItemMembers {
   canDestroyBlock(arg0: ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity.LivingEntity): boolean;
   canFitInsideContainerItems(): boolean;
   components(): j_net_minecraft_core_component.DataComponentMap;
-  readonly descriptionId: string;
   finishUsingItem(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_entity.LivingEntity): ItemStack;
   getAttackDamageBonus(arg0: j_net_minecraft_world_entity.Entity, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): number;
   getBarColor(arg0: ItemStack): number;
@@ -866,7 +845,7 @@ export interface ItemMembers {
   getUseDuration(arg0: ItemStack, arg1: j_net_minecraft_world_entity.LivingEntity): number;
   hurtEnemy(arg0: ItemStack, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world_entity.LivingEntity): void;
   interactLivingEntity(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  inventoryTick(arg0: ItemStack, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.EquipmentSlot | null): void | null;
+  inventoryTick(arg0: ItemStack, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.EquipmentSlot | null): void;
   isBarVisible(arg0: ItemStack): boolean;
   isCorrectToolForDrops(arg0: ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isFoil(arg0: ItemStack): boolean;
@@ -880,7 +859,7 @@ export interface ItemMembers {
   postHurtEnemy(arg0: ItemStack, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world_entity.LivingEntity): void;
   releaseUsing(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: number): boolean;
   requiredFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
-  shouldPrintOpWarning(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): boolean | null;
+  shouldPrintOpWarning(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): boolean;
   toString(): string;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   useOn(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
@@ -891,7 +870,6 @@ export type Item = ItemMembers & j_net_minecraft_world_flag.FeatureElement & j_n
 export interface ItemStatics {
   new(arg0: Item_Properties): Item;
   readonly ABSOLUTE_MAX_STACK_SIZE: 99;
-  readonly APPROXIMATELY_INFINITE_USE_DURATION: 72000;
   readonly BASE_ATTACK_DAMAGE_ID: j_net_minecraft_resources.ResourceLocation;
   readonly BASE_ATTACK_SPEED_ID: j_net_minecraft_resources.ResourceLocation;
   readonly BY_BLOCK: JavaMap<j_net_minecraft_world_level_block.Block, Item>;
@@ -902,7 +880,6 @@ export interface ItemStatics {
   byBlock(arg0: j_net_minecraft_world_level_block.Block): Item;
   byId(arg0: number): Item;
   getId(arg0: Item): number;
-  getPlayerPOVHitResult(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world_level.ClipContext_Fluid): j_net_minecraft_world_phys.BlockHitResult;
 }
 
 /** JVM class net.minecraft.world.item.Item$Properties. */
@@ -912,7 +889,6 @@ export interface Item_PropertiesMembers {
   component<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): Item_Properties;
   craftRemainder(arg0: Item): Item_Properties;
   durability(arg0: number): Item_Properties;
-  effectiveDescriptionId(): string;
   effectiveModel(): j_net_minecraft_resources.ResourceLocation;
   enchantable(arg0: number): Item_Properties;
   equippable(arg0: j_net_minecraft_world_entity.EquipmentSlot): Item_Properties;
@@ -957,7 +933,7 @@ export type Item_TooltipContext = Item_TooltipContextMembers;
 export interface Item_TooltipContextStatics {
   readonly EMPTY: Item_TooltipContext;
   of(arg0: j_net_minecraft_core.HolderLookup_Provider): Item_TooltipContext;
-  of(arg0: j_net_minecraft_world_level.Level | null): Item_TooltipContext | null;
+  of(arg0: j_net_minecraft_world_level.Level | null): Item_TooltipContext;
 }
 
 /** JVM class net.minecraft.world.item.ItemCooldowns. */
@@ -969,8 +945,6 @@ export interface ItemCooldownsMembers {
   getCooldownGroup(arg0: ItemStack): j_net_minecraft_resources.ResourceLocation;
   getCooldownPercent(arg0: ItemStack, arg1: number): number;
   isOnCooldown(arg0: ItemStack): boolean;
-  onCooldownEnded(arg0: j_net_minecraft_resources.ResourceLocation): void;
-  onCooldownStarted(arg0: j_net_minecraft_resources.ResourceLocation, arg1: number): void;
   removeCooldown(arg0: j_net_minecraft_resources.ResourceLocation): void;
   tick(): void;
   tickCount: number;
@@ -1021,7 +995,6 @@ export interface ItemDisplayContextStatics {
 /** JVM class net.minecraft.world.item.ItemFrameItem. */
 export interface ItemFrameItemMembers {
   readonly __javaSupertypes?: readonly [HangingEntityItem];
-  mayPlace(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_core.Direction, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): boolean;
 }
 export type ItemFrameItem = ItemFrameItemMembers & HangingEntityItem;
 export interface ItemFrameItemStatics {
@@ -2467,7 +2440,7 @@ export interface Items_2Statics {
 /** JVM class net.minecraft.world.item.ItemStack. */
 export interface ItemStackMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_core_component.DataComponentHolder];
-  addDetailsToTooltip(arg0: Item_TooltipContext, arg1: j_net_minecraft_world_item_component.TooltipDisplay, arg2: j_net_minecraft_world_entity_player.Player | null, arg3: TooltipFlag, arg4: JavaConsumer<j_net_minecraft_network_chat.Component>): void | null;
+  addDetailsToTooltip(arg0: Item_TooltipContext, arg1: j_net_minecraft_world_item_component.TooltipDisplay, arg2: j_net_minecraft_world_entity_player.Player | null, arg3: TooltipFlag, arg4: JavaConsumer<j_net_minecraft_network_chat.Component>): void;
   addToTooltip<T /* extends j_net_minecraft_world_item_component.TooltipProvider */>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: Item_TooltipContext, arg2: j_net_minecraft_world_item_component.TooltipDisplay, arg3: JavaConsumer<j_net_minecraft_network_chat.Component>, arg4: TooltipFlag): void;
   applyComponents(arg0: j_net_minecraft_core_component.DataComponentMap): void;
   applyComponents(arg0: j_net_minecraft_core_component.DataComponentPatch): void;
@@ -2478,8 +2451,8 @@ export interface ItemStackMembers {
   canBreakBlockInAdventureMode(arg0: j_net_minecraft_world_level_block_state_pattern.BlockInWorld): boolean;
   canDestroyBlock(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player): boolean;
   canPlaceOnBlockInAdventureMode(arg0: j_net_minecraft_world_level_block_state_pattern.BlockInWorld): boolean;
-  consume(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity | null): void | null;
-  consumeAndReturn(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity | null): ItemStack | null;
+  consume(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity | null): void;
+  consumeAndReturn(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity | null): ItemStack;
   copy(): ItemStack;
   copy(arg0: boolean): ItemStack;
   copyAndClear(): ItemStack;
@@ -2514,14 +2487,14 @@ export interface ItemStackMembers {
   getStyledHoverName(): j_net_minecraft_network_chat.Component;
   getTags(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_tags.TagKey<Item>]>;
   getTooltipImage(): JavaOptional<j_net_minecraft_world_inventory_tooltip.TooltipComponent>;
-  getTooltipLines(arg0: Item_TooltipContext, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: TooltipFlag): JavaList<j_net_minecraft_network_chat.Component> | null;
+  getTooltipLines(arg0: Item_TooltipContext, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: TooltipFlag): JavaList<j_net_minecraft_network_chat.Component>;
   getUseAnimation(): ItemUseAnimation;
   getUseDuration(arg0: j_net_minecraft_world_entity.LivingEntity): number;
   grow(arg0: number): void;
   hasFoil(): boolean;
   hasNonDefault(arg0: j_net_minecraft_core_component.DataComponentType<object>): boolean;
-  hurtAndBreak(arg0: number, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.LivingEntity | null, arg3: JavaConsumer<Item>): void | null;
-  hurtAndBreak(arg0: number, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.LivingEntity | null, arg3: JavaConsumer<Item>, arg4: boolean): void | null;
+  hurtAndBreak(arg0: number, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.LivingEntity | null, arg3: JavaConsumer<Item>): void;
+  hurtAndBreak(arg0: number, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.LivingEntity | null, arg3: JavaConsumer<Item>, arg4: boolean): void;
   hurtAndBreak(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world.InteractionHand): void;
   hurtAndBreak(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world_entity.EquipmentSlot): void;
   hurtAndBreak(arg0: number, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world_entity.EquipmentSlot, arg3: boolean): void;
@@ -2530,7 +2503,7 @@ export interface ItemStackMembers {
   hurtWithoutBreaking(arg0: number, arg1: j_net_minecraft_world_entity_player.Player): void;
   immutableComponents(): j_net_minecraft_core_component.DataComponentMap;
   interactLivingEntity(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  inventoryTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_world_entity.EquipmentSlot | null): void | null;
+  inventoryTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_world_entity.EquipmentSlot | null): void;
   is(arg0: JavaPredicate<j_net_minecraft_core.Holder<Item>>): boolean;
   is(arg0: j_net_minecraft_core.Holder<Item>): boolean;
   is(arg0: j_net_minecraft_core.HolderSet<Item>): boolean;
@@ -2564,7 +2537,7 @@ export interface ItemStackMembers {
   set<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T | null): T | null;
   setCount(arg0: number): void;
   setDamageValue(arg0: number): void;
-  setEntityRepresentation(arg0: j_net_minecraft_world_entity.Entity | null): void | null;
+  setEntityRepresentation(arg0: j_net_minecraft_world_entity.Entity | null): void;
   setItem(arg0: Item): void;
   setPopTime(arg0: number): void;
   shrink(arg0: number): void;
@@ -2598,7 +2571,7 @@ export interface ItemStackStatics {
   readonly STRICT_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [ItemStack]>;
   readonly STRICT_SINGLE_ITEM_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [ItemStack]>;
   fromBukkitCopy(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): ItemStack;
-  hashItemAndComponents(arg0: ItemStack | null): number | null;
+  hashItemAndComponents(arg0: ItemStack | null): number;
   hashStackList(arg0: JavaList<ItemStack>): number;
   isSameItem(arg0: ItemStack, arg1: ItemStack): boolean;
   isSameItemSameComponents(arg0: ItemStack, arg1: ItemStack): boolean;
@@ -2704,8 +2677,8 @@ export interface JukeboxSongPlayerMembers {
   play(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.Holder<JukeboxSong>): void;
   setSongWithoutPlaying(arg0: j_net_minecraft_core.Holder<JukeboxSong>, arg1: bigint): void;
   song: j_net_minecraft_core.Holder<JukeboxSong> | null;
-  stop(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_level_block_state.BlockState | null): void | null;
-  tick(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_level_block_state.BlockState | null): void | null;
+  stop(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_level_block_state.BlockState | null): void;
+  tick(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_level_block_state.BlockState | null): void;
 }
 export type JukeboxSongPlayer = JukeboxSongPlayerMembers;
 export interface JukeboxSongPlayerStatics {
@@ -2775,8 +2748,6 @@ export interface LeadItemStatics {
 /** JVM class net.minecraft.world.item.LingeringPotionItem. */
 export interface LingeringPotionItemMembers {
   readonly __javaSupertypes?: readonly [ThrowablePotionItem];
-  createPotion(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: ItemStack): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
-  createPotion(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.Position, arg2: ItemStack): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
 }
 export type LingeringPotionItem = LingeringPotionItemMembers & ThrowablePotionItem;
@@ -2805,7 +2776,7 @@ export interface MaceItemStatics {
 /** JVM class net.minecraft.world.item.MapItem. */
 export interface MapItemMembers {
   readonly __javaSupertypes?: readonly [Item];
-  inventoryTick(arg0: ItemStack, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.EquipmentSlot | null): void | null;
+  inventoryTick(arg0: ItemStack, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.EquipmentSlot | null): void;
   onCraftedPostProcess(arg0: ItemStack, arg1: j_net_minecraft_world_level.Level): void;
   update(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_world_level_saveddata_maps.MapItemSavedData): void;
   useOn(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
@@ -2835,8 +2806,7 @@ export interface MinecartItemStatics {
 /** JVM class net.minecraft.world.item.MobBucketItem. */
 export interface MobBucketItemMembers {
   readonly __javaSupertypes?: readonly [BucketItem];
-  checkExtraContent(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): void | null;
-  playEmptySound(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos): void | null;
+  checkExtraContent(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: ItemStack, arg3: j_net_minecraft_core.BlockPos): void;
 }
 export type MobBucketItem = MobBucketItemMembers & BucketItem;
 export interface MobBucketItemStatics {
@@ -2939,23 +2909,15 @@ export interface ProjectileItem_PositionFunctionStatics {
 /** JVM abstract net.minecraft.world.item.ProjectileWeaponItem. */
 export interface ProjectileWeaponItemMembers {
   readonly __javaSupertypes?: readonly [Item];
-  createProjectile(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: ItemStack, arg3: ItemStack, arg4: boolean): j_net_minecraft_world_entity_projectile.Projectile;
   getAllSupportedProjectiles(): JavaPredicate<ItemStack>;
   getDefaultProjectileRange(): number;
-  getDurabilityUse(arg0: ItemStack): number;
   getSupportedHeldProjectiles(): JavaPredicate<ItemStack>;
-  shoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: j_net_minecraft_world.InteractionHand, arg3: ItemStack, arg4: JavaList<ItemStack>, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_entity.LivingEntity | null, arg9: number): void | null;
-  shootProjectile(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: j_net_minecraft_world_entity_projectile.Projectile, arg2: number, arg3: number, arg4: number, arg5: number, arg6: j_net_minecraft_world_entity.LivingEntity | null): void | null;
 }
 export type ProjectileWeaponItem = ProjectileWeaponItemMembers & Item;
 export interface ProjectileWeaponItemStatics {
-  new(arg0: Item_Properties): ProjectileWeaponItem;
   readonly ARROW_ONLY: JavaPredicate<ItemStack>;
   readonly ARROW_OR_FIREWORK: JavaPredicate<ItemStack>;
-  draw(arg0: ItemStack, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity): JavaList<ItemStack>;
-  draw(arg0: ItemStack, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: boolean): JavaList<ItemStack>;
   getHeldProjectile(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: JavaPredicate<ItemStack>): ItemStack;
-  useAmmo(arg0: ItemStack, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: boolean): ItemStack;
 }
 
 /** Live JVM enum net.minecraft.world.item.Rarity; constants are host handles, not strings. */
@@ -2979,7 +2941,6 @@ export interface RarityStatics {
 /** JVM class net.minecraft.world.item.ScaffoldingBlockItem. */
 export interface ScaffoldingBlockItemMembers {
   readonly __javaSupertypes?: readonly [BlockItem];
-  mustSurvive(): boolean;
   updatePlacementContext(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_item_context.BlockPlaceContext | null;
 }
 export type ScaffoldingBlockItem = ScaffoldingBlockItemMembers & BlockItem;
@@ -2992,8 +2953,6 @@ export interface ServerItemCooldownsMembers {
   readonly __javaSupertypes?: readonly [ItemCooldowns];
   addCooldown(arg0: j_net_minecraft_resources.ResourceLocation, arg1: number, arg2: boolean): void;
   addCooldown(arg0: ItemStack, arg1: number): void;
-  onCooldownEnded(arg0: j_net_minecraft_resources.ResourceLocation): void;
-  onCooldownStarted(arg0: j_net_minecraft_resources.ResourceLocation, arg1: number): void;
 }
 export type ServerItemCooldowns = ServerItemCooldownsMembers & ItemCooldowns;
 export interface ServerItemCooldownsStatics {
@@ -3030,7 +2989,6 @@ export interface ShovelItemMembers {
 export type ShovelItem = ShovelItemMembers & Item;
 export interface ShovelItemStatics {
   new(arg0: ToolMaterial, arg1: number, arg2: number, arg3: Item_Properties): ShovelItem;
-  readonly FLATTENABLES: JavaMap<j_net_minecraft_world_level_block.Block, j_net_minecraft_world_level_block_state.BlockState>;
 }
 
 /** JVM interface net.minecraft.world.item.SignApplicator. */
@@ -3045,7 +3003,6 @@ export interface SignApplicatorStatics {
 /** JVM class net.minecraft.world.item.SignItem. */
 export interface SignItemMembers {
   readonly __javaSupertypes?: readonly [StandingAndWallBlockItem];
-  updateCustomBlockEntityTag(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_entity_player.Player | null, arg3: ItemStack, arg4: j_net_minecraft_world_level_block_state.BlockState): boolean | null;
 }
 export type SignItem = SignItemMembers & StandingAndWallBlockItem;
 export interface SignItemStatics {
@@ -3085,8 +3042,7 @@ export interface SnowballItemStatics {
 /** JVM class net.minecraft.world.item.SolidBucketItem. */
 export interface SolidBucketItemMembers {
   readonly __javaSupertypes?: readonly [BlockItem, DispensibleContainerItem];
-  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null): boolean | null;
-  getPlaceSound(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_sounds.SoundEvent;
+  emptyContents(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys.BlockHitResult | null): boolean;
   useOn(arg0: j_net_minecraft_world_item_context.UseOnContext): j_net_minecraft_world.InteractionResult;
 }
 export type SolidBucketItem = SolidBucketItemMembers & BlockItem & DispensibleContainerItem;
@@ -3099,7 +3055,7 @@ export interface SpawnEggItemMembers {
   readonly __javaSupertypes?: readonly [Item];
   getType(arg0: j_net_minecraft_core.HolderLookup_Provider, arg1: ItemStack): j_net_minecraft_world_entity.EntityType<object>;
   requiredFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
-  shouldPrintOpWarning(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): boolean | null;
+  shouldPrintOpWarning(arg0: ItemStack, arg1: j_net_minecraft_world_entity_player.Player | null): boolean;
   spawnOffspringFromSpawnEgg(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_entity.Mob, arg2: j_net_minecraft_world_entity.EntityType<j_net_minecraft_world_entity.Mob>, arg3: j_net_minecraft_server_level.ServerLevel, arg4: j_net_minecraft_world_phys.Vec3, arg5: ItemStack): JavaOptional<j_net_minecraft_world_entity.Mob>;
   spawnsEntity(arg0: j_net_minecraft_core.HolderLookup_Provider, arg1: ItemStack, arg2: j_net_minecraft_world_entity.EntityType<object>): boolean;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
@@ -3116,7 +3072,7 @@ export interface SpawnEggItemStatics {
 export interface SpectralArrowItemMembers {
   readonly __javaSupertypes?: readonly [ArrowItem];
   asProjectile(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.Position, arg2: ItemStack, arg3: j_net_minecraft_core.Direction): j_net_minecraft_world_entity_projectile.Projectile;
-  createArrow(arg0: j_net_minecraft_world_level.Level, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow | null;
+  createArrow(arg0: j_net_minecraft_world_level.Level, arg1: ItemStack, arg2: j_net_minecraft_world_entity.LivingEntity, arg3: ItemStack | null): j_net_minecraft_world_entity_projectile.AbstractArrow;
 }
 export type SpectralArrowItem = SpectralArrowItemMembers & ArrowItem;
 export interface SpectralArrowItemStatics {
@@ -3126,8 +3082,6 @@ export interface SpectralArrowItemStatics {
 /** JVM class net.minecraft.world.item.SplashPotionItem. */
 export interface SplashPotionItemMembers {
   readonly __javaSupertypes?: readonly [ThrowablePotionItem];
-  createPotion(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: ItemStack): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
-  createPotion(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.Position, arg2: ItemStack): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
 }
 export type SplashPotionItem = SplashPotionItemMembers & ThrowablePotionItem;
@@ -3154,8 +3108,6 @@ export interface SpyglassItemStatics {
 /** JVM class net.minecraft.world.item.StandingAndWallBlockItem. */
 export interface StandingAndWallBlockItemMembers {
   readonly __javaSupertypes?: readonly [BlockItem];
-  canPlace(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos): boolean;
-  getPlacementState(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   registerBlocks(arg0: JavaMap<j_net_minecraft_world_level_block.Block, Item>, arg1: Item): void;
   readonly wallBlock: j_net_minecraft_world_level_block.Block;
 }
@@ -3169,13 +3121,10 @@ export interface ThrowablePotionItemMembers {
   readonly __javaSupertypes?: readonly [PotionItem, ProjectileItem];
   asProjectile(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.Position, arg2: ItemStack, arg3: j_net_minecraft_core.Direction): j_net_minecraft_world_entity_projectile.Projectile;
   createDispenseConfig(): ProjectileItem_DispenseConfig;
-  createPotion(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: ItemStack): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
-  createPotion(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.Position, arg2: ItemStack): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
   use(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
 }
 export type ThrowablePotionItem = ThrowablePotionItemMembers & PotionItem & ProjectileItem;
 export interface ThrowablePotionItemStatics {
-  new(arg0: Item_Properties): ThrowablePotionItem;
   readonly PROJECTILE_SHOOT_POWER: number;
 }
 

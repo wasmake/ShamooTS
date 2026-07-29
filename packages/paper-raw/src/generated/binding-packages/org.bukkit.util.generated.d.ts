@@ -20,7 +20,6 @@ export interface BiomeSearchResultStatics {
 export interface BlockIteratorMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.Iterator", [j_org_bukkit_block.Block]>];
   hasNext(): boolean;
-  next(): object;
   /** @throws java.util.NoSuchElementException */
   next(): j_org_bukkit_block.Block;
   remove(): void;
@@ -55,10 +54,7 @@ export interface BlockTransformer_TransformationStateStatics {
 /** JVM class org.bukkit.util.BlockVector. */
 export interface BlockVectorMembers {
   readonly __javaSupertypes?: readonly [Vector];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): BlockVector;
-  clone(): Vector;
   equals(arg0: object): boolean;
   hashCode(): number;
 }
@@ -75,8 +71,6 @@ export interface BlockVectorStatics {
 /** JVM class org.bukkit.util.BoundingBox. */
 export interface BoundingBoxMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Cloneable">, j_org_bukkit_configuration_serialization.ConfigurationSerializable];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): BoundingBox;
   contains(arg0: number, arg1: number, arg2: number): boolean;
   contains(arg0: BoundingBox): boolean;
@@ -159,9 +153,9 @@ export interface ChatPaginatorStatics {
   readonly OPEN_CHAT_PAGE_HEIGHT: 20;
   readonly UNBOUNDED_PAGE_HEIGHT: 2147483647;
   readonly UNBOUNDED_PAGE_WIDTH: 2147483647;
-  paginate(arg0: string | null, arg1: number): ChatPaginator_ChatPage | null;
-  paginate(arg0: string | null, arg1: number, arg2: number, arg3: number): ChatPaginator_ChatPage | null;
-  wordWrap(arg0: string | null, arg1: number): Array<string> | null;
+  paginate(arg0: string | null, arg1: number): ChatPaginator_ChatPage;
+  paginate(arg0: string | null, arg1: number, arg2: number, arg3: number): ChatPaginator_ChatPage;
+  wordWrap(arg0: string | null, arg1: number): Array<string>;
 }
 
 /** JVM class org.bukkit.util.ChatPaginator$ChatPage. */
@@ -233,18 +227,17 @@ export interface NumberConversionsStatics {
   isFinite(arg0: number): boolean;
   round(arg0: number): number;
   square(arg0: number): number;
-  toByte(arg0: object | null): number | null;
-  toDouble(arg0: object | null): number | null;
-  toFloat(arg0: object | null): number | null;
-  toInt(arg0: object | null): number | null;
-  toLong(arg0: object | null): bigint | null;
-  toShort(arg0: object | null): number | null;
+  toByte(arg0: object | null): number;
+  toDouble(arg0: object | null): number;
+  toFloat(arg0: object | null): number;
+  toInt(arg0: object | null): number;
+  toLong(arg0: object | null): bigint;
+  toShort(arg0: object | null): number;
 }
 
 /** JVM interface org.bukkit.util.OldEnum. */
 export interface OldEnumMembers<T /* extends OldEnum<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [T]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: T): number;
   name(): string;
   ordinal(): number;
@@ -316,8 +309,6 @@ export interface VectorMembers {
   angle(arg0: Vector): number;
   /** @throws java.lang.IllegalArgumentException */
   checkFinite(): void;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Vector;
   copy(arg0: Vector): Vector;
   crossProduct(arg0: Vector): Vector;
@@ -373,9 +364,6 @@ export interface VectorMembers {
   toVector3f(): JavaOpaque<"org.joml.Vector3f">;
   toVector3i(): JavaOpaque<"org.joml.Vector3i">;
   toVector3i(arg0: number): JavaOpaque<"org.joml.Vector3i">;
-  x: number;
-  y: number;
-  z: number;
   zero(): Vector;
 }
 export type Vector = VectorMembers & JavaOpaque<"java.lang.Cloneable"> & j_org_bukkit_configuration_serialization.ConfigurationSerializable;

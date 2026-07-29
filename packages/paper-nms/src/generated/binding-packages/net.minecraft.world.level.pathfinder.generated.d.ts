@@ -15,7 +15,6 @@ export interface AmphibiousNodeEvaluatorMembers {
   getPathType(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number): PathType;
   getStart(): Node;
   getTarget(arg0: number, arg1: number, arg2: number): Target;
-  isAmphibious(): boolean;
   prepare(arg0: j_net_minecraft_world_level.PathNavigationRegion, arg1: j_net_minecraft_world_entity.Mob): void;
 }
 export type AmphibiousNodeEvaluator = AmphibiousNodeEvaluatorMembers & WalkNodeEvaluator;
@@ -43,10 +42,7 @@ export interface BinaryHeapStatics {
 /** JVM class net.minecraft.world.level.pathfinder.FlyNodeEvaluator. */
 export interface FlyNodeEvaluatorMembers {
   readonly __javaSupertypes?: readonly [WalkNodeEvaluator];
-  canStartAt(arg0: j_net_minecraft_core.BlockPos): boolean;
   done(): void;
-  findAcceptedNode(arg0: number, arg1: number, arg2: number): Node | null;
-  getCachedPathType(arg0: number, arg1: number, arg2: number): PathType;
   getNeighbors(arg0: Array<Node>, arg1: Node): number;
   getPathType(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number): PathType;
   getStart(): Node;
@@ -93,31 +89,21 @@ export interface NodeStatics {
   new(arg0: number, arg1: number, arg2: number): Node;
   createFromStream(arg0: j_net_minecraft_network.FriendlyByteBuf): Node;
   createHash(arg0: number, arg1: number, arg2: number): number;
-  readContents(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: Node): void;
 }
 
 /** JVM abstract net.minecraft.world.level.pathfinder.NodeEvaluator. */
 export interface NodeEvaluatorMembers {
-  canFloat: (boolean) & { (): boolean };
-  canOpenDoors: (boolean) & { (): boolean };
-  canPassDoors: (boolean) & { (): boolean };
-  canWalkOverFences: (boolean) & { (): boolean };
-  currentContext: PathfindingContext;
+  canFloat(): boolean;
+  canOpenDoors(): boolean;
+  canPassDoors(): boolean;
+  canWalkOverFences(): boolean;
   done(): void;
-  entityDepth: number;
-  entityHeight: number;
-  entityWidth: number;
   getNeighbors(arg0: Array<Node>, arg1: Node): number;
-  getNode(arg0: number, arg1: number, arg2: number): Node;
-  getNode(arg0: j_net_minecraft_core.BlockPos): Node;
   getPathType(arg0: j_net_minecraft_world_entity.Mob, arg1: j_net_minecraft_core.BlockPos): PathType;
   getPathType(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number): PathType;
   getPathTypeOfMob(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_world_entity.Mob): PathType;
   getStart(): Node;
   getTarget(arg0: number, arg1: number, arg2: number): Target;
-  getTargetNodeAt(arg0: number, arg1: number, arg2: number): Target;
-  mob: j_net_minecraft_world_entity.Mob;
-  readonly nodes: JavaOpaque<"it.unimi.dsi.fastutil.ints.Int2ObjectMap", [Node]>;
   prepare(arg0: j_net_minecraft_world_level.PathNavigationRegion, arg1: j_net_minecraft_world_entity.Mob): void;
   setCanFloat(arg0: boolean): void;
   setCanOpenDoors(arg0: boolean): void;
@@ -126,7 +112,6 @@ export interface NodeEvaluatorMembers {
 }
 export type NodeEvaluator = NodeEvaluatorMembers;
 export interface NodeEvaluatorStatics {
-  new(): NodeEvaluator;
   isBurningBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 
@@ -152,7 +137,7 @@ export interface PathMembers {
   readonly nodes: JavaList<Node>;
   notStarted(): boolean;
   replaceNode(arg0: number, arg1: Node): void;
-  sameAs(arg0: Path | null): boolean | null;
+  sameAs(arg0: Path | null): boolean;
   setNextNodeIndex(arg0: number): void;
   toString(): string;
   truncateNodes(arg0: number): void;
@@ -195,7 +180,6 @@ export interface PathComputationTypeStatics {
 
 /** JVM class net.minecraft.world.level.pathfinder.PathFinder. */
 export interface PathFinderMembers {
-  distance(arg0: Node, arg1: Node): number;
   findPath(arg0: j_net_minecraft_world_level.PathNavigationRegion, arg1: j_net_minecraft_world_entity.Mob, arg2: JavaSet<j_net_minecraft_core.BlockPos>, arg3: number, arg4: number, arg5: number): Path | null;
   readonly nodeEvaluator: NodeEvaluator;
   setMaxVisitedNodes(arg0: number): void;
@@ -267,14 +251,11 @@ export interface PathTypeCacheStatics {
 export interface SwimNodeEvaluatorMembers {
   readonly __javaSupertypes?: readonly [NodeEvaluator];
   done(): void;
-  findAcceptedNode(arg0: number, arg1: number, arg2: number): Node | null;
-  getCachedBlockType(arg0: number, arg1: number, arg2: number): PathType;
   getNeighbors(arg0: Array<Node>, arg1: Node): number;
   getPathType(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number): PathType;
   getPathTypeOfMob(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_world_entity.Mob): PathType;
   getStart(): Node;
   getTarget(arg0: number, arg1: number, arg2: number): Target;
-  isNodeValid(arg0: Node | null): boolean | null;
   prepare(arg0: j_net_minecraft_world_level.PathNavigationRegion, arg1: j_net_minecraft_world_entity.Mob): void;
 }
 export type SwimNodeEvaluator = SwimNodeEvaluatorMembers & NodeEvaluator;
@@ -300,22 +281,13 @@ export interface TargetStatics {
 /** JVM class net.minecraft.world.level.pathfinder.WalkNodeEvaluator. */
 export interface WalkNodeEvaluatorMembers {
   readonly __javaSupertypes?: readonly [NodeEvaluator];
-  canStartAt(arg0: j_net_minecraft_core.BlockPos): boolean;
   done(): void;
-  findAcceptedNode(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: j_net_minecraft_core.Direction, arg6: PathType): Node | null;
-  getCachedPathType(arg0: number, arg1: number, arg2: number): PathType;
-  getFloorLevel(arg0: j_net_minecraft_core.BlockPos): number;
   getNeighbors(arg0: Array<Node>, arg1: Node): number;
   getPathType(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number): PathType;
   getPathTypeOfMob(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_world_entity.Mob): PathType;
   getPathTypeWithinMobBB(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number): JavaSet<PathType>;
   getStart(): Node;
-  getStartNode(arg0: j_net_minecraft_core.BlockPos): Node;
   getTarget(arg0: number, arg1: number, arg2: number): Target;
-  isAmphibious(): boolean;
-  isDiagonalValid(arg0: Node | null): boolean | null;
-  isDiagonalValid(arg0: Node, arg1: Node | null, arg2: Node | null): boolean | null;
-  isNeighborValid(arg0: Node | null, arg1: Node): boolean | null;
   prepare(arg0: j_net_minecraft_world_level.PathNavigationRegion, arg1: j_net_minecraft_world_entity.Mob): void;
 }
 export type WalkNodeEvaluator = WalkNodeEvaluatorMembers & NodeEvaluator;
@@ -324,7 +296,6 @@ export interface WalkNodeEvaluatorStatics {
   readonly SPACE_BETWEEN_WALL_POSTS: 0.5;
   checkNeighbourBlocks(arg0: PathfindingContext, arg1: number, arg2: number, arg3: number, arg4: PathType): PathType;
   getFloorLevel(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): number;
-  getPathTypeFromState(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): PathType;
   getPathTypeStatic(arg0: j_net_minecraft_world_entity.Mob, arg1: j_net_minecraft_core.BlockPos): PathType;
   getPathTypeStatic(arg0: PathfindingContext, arg1: j_net_minecraft_core.BlockPos_MutableBlockPos): PathType;
 }

@@ -17,7 +17,6 @@ export interface CraftBlockInventoryConverterMembers {
 }
 export type CraftBlockInventoryConverter = CraftBlockInventoryConverterMembers & CraftInventoryCreator_InventoryConverter;
 export interface CraftBlockInventoryConverterStatics {
-  new(): CraftBlockInventoryConverter;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.inventory.util.CraftBlockInventoryConverter$AbstractFurnaceInventoryConverter. */
@@ -30,7 +29,6 @@ export interface CraftBlockInventoryConverter_AbstractFurnaceInventoryConverterM
 }
 export type CraftBlockInventoryConverter_AbstractFurnaceInventoryConverter = CraftBlockInventoryConverter_AbstractFurnaceInventoryConverterMembers & CraftBlockInventoryConverter;
 export interface CraftBlockInventoryConverter_AbstractFurnaceInventoryConverterStatics {
-  new(): CraftBlockInventoryConverter_AbstractFurnaceInventoryConverter;
 }
 
 /** JVM class org.bukkit.craftbukkit.inventory.util.CraftBlockInventoryConverter$BlastFurnace. */

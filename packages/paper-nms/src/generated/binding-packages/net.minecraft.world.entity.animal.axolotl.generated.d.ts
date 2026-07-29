@@ -4,7 +4,6 @@ import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_core_component from './net.minecraft.core.component.generated.js';
 import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
 import type * as j_net_minecraft_network_codec from './net.minecraft.network.codec.generated.js';
-import type * as j_net_minecraft_network_syncher from './net.minecraft.network.syncher.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
@@ -14,32 +13,21 @@ import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity
 import type * as j_net_minecraft_world_entity_ai from './net.minecraft.world.entity.ai.generated.js';
 import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraft.world.entity.ai.attributes.generated.js';
 import type * as j_net_minecraft_world_entity_ai_behavior from './net.minecraft.world.entity.ai.behavior.generated.js';
-import type * as j_net_minecraft_world_entity_ai_memory from './net.minecraft.world.entity.ai.memory.generated.js';
-import type * as j_net_minecraft_world_entity_ai_navigation from './net.minecraft.world.entity.ai.navigation.generated.js';
-import type * as j_net_minecraft_world_entity_ai_sensing from './net.minecraft.world.entity.ai.sensing.generated.js';
 import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world.entity.animal.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.animal.axolotl.Axolotl. */
 export interface AxolotlMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Animal, j_net_minecraft_world_entity_animal.Bucketable];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   applySupportingEffects(arg0: j_net_minecraft_world_entity_player.Player): void;
   baseTick(): void;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Axolotl>;
   canBeLeashed(): boolean;
   canBeSeenAsEnemy(): boolean;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData;
   fromBucket(): boolean;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
@@ -58,39 +46,32 @@ export interface AxolotlMembers {
   getTarget(): j_net_minecraft_world_entity.LivingEntity | null;
   getVariant(): Axolotl_Variant;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
-  handleAirSupply(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number): void;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   readonly inWaterAnimator: j_net_minecraft_util.BinaryAnimator;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isPlayingDead(): boolean;
   isPushedByFluid(): boolean;
   loadFromBucketTag(arg0: j_net_minecraft_nbt.CompoundTag): void;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   readonly movingAnimator: j_net_minecraft_util.BinaryAnimator;
   readonly onGroundAnimator: j_net_minecraft_util.BinaryAnimator;
   playAmbientSound(): void;
   playAttackSound(): void;
   readonly playingDeadAnimator: j_net_minecraft_util.BinaryAnimator;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   rehydrate(): void;
   removeWhenFarAway(arg0: number): boolean;
   requiresCustomPersistence(): boolean;
   saveToBucketTag(arg0: j_net_minecraft_world_item.ItemStack): void;
-  sendDebugPackets(): void;
   setFromBucket(arg0: boolean): void;
   setPlayingDead(arg0: boolean): void;
   setVariant(arg0: Axolotl_Variant): void;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
-  usePlayerItem(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand, arg2: j_net_minecraft_world_item.ItemStack): void;
 }
 export type Axolotl = AxolotlMembers & j_net_minecraft_world_entity_animal.Animal & j_net_minecraft_world_entity_animal.Bucketable;
 export interface AxolotlStatics {
   new(arg0: j_net_minecraft_world_entity.EntityType<Axolotl>, arg1: j_net_minecraft_world_level.Level): Axolotl;
-  readonly MEMORY_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_memory.MemoryModuleType<object>]>;
   readonly PLAYER_REGEN_DETECTION_RANGE: 20;
   readonly RARE_VARIANT_CHANCE: 1200;
-  readonly SENSOR_TYPES: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_world_entity_ai_sensing.SensorType<j_net_minecraft_world_entity_ai_sensing.Sensor<Axolotl>>]>;
   readonly TOTAL_PLAYDEAD_TIME: 200;
   readonly VARIANT_TAG: "Variant";
   checkAxolotlSpawnRules(arg0: j_net_minecraft_world_entity.EntityType<j_net_minecraft_world_entity.LivingEntity>, arg1: j_net_minecraft_world_level.ServerLevelAccessor, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
@@ -153,19 +134,12 @@ export type AxolotlAi = AxolotlAiMembers;
 export interface AxolotlAiStatics {
   new(): AxolotlAi;
   getTemptations(): JavaPredicate<j_net_minecraft_world_item.ItemStack>;
-  makeBrain(arg0: j_net_minecraft_world_entity_ai.Brain<Axolotl>): j_net_minecraft_world_entity_ai.Brain<object>;
   updateActivity(arg0: Axolotl): void;
 }
 
 /** JVM class net.minecraft.world.entity.animal.axolotl.PlayDead. */
 export interface PlayDeadMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Axolotl>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Axolotl, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Axolotl): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Axolotl, arg2: bigint): void;
 }
 export type PlayDead = PlayDeadMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Axolotl>;
 export interface PlayDeadStatics {

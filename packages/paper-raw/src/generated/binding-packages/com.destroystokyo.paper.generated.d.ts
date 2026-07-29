@@ -62,33 +62,28 @@ export interface MaterialSetTagMembers {
   add(arg0: JavaCollection<j_org_bukkit.Material>): MaterialSetTag;
   add(arg0: JavaPredicate<j_org_bukkit.Material>): MaterialSetTag;
   add(...arg0: Array<j_org_bukkit.Material>): MaterialSetTag;
-  add(...arg0: Array<j_org_bukkit.Tag_2<j_org_bukkit.Material>>): MaterialSetTag;
+  add(...arg0: Array<j_org_bukkit.Tag_3<j_org_bukkit.Material>>): MaterialSetTag;
   contains(arg0: string): MaterialSetTag;
   endsWith(arg0: string): MaterialSetTag;
   ensureSize(arg0: string, arg1: number): MaterialSetTag;
-  getAllPossibleValues(): JavaSet<j_org_bukkit.Material>;
   getKey(): j_org_bukkit.NamespacedKey;
-  getName(arg0: j_org_bukkit.Material): string;
-  getName(arg0: j_org_bukkit.Keyed): string;
   getValues(): JavaSet<j_org_bukkit.Material>;
   isLocked(): boolean;
   isTagged(arg0: j_org_bukkit.Material): boolean;
-  isTagged(arg0: j_org_bukkit.Keyed): boolean;
   isTagged(arg0: j_org_bukkit_block.Block): boolean;
   isTagged(arg0: j_org_bukkit_block.BlockState): boolean;
   isTagged(arg0: j_org_bukkit_block_data.BlockData): boolean;
   isTagged(arg0: j_org_bukkit_inventory.ItemStack): boolean;
-  readonly key: (j_org_bukkit.NamespacedKey) & { (): JavaOpaque<"net.kyori.adventure.key.Key"> };
+  key(): JavaOpaque<"net.kyori.adventure.key.Key">;
   lock(): MaterialSetTag;
   not(arg0: JavaCollection<j_org_bukkit.Material>): MaterialSetTag;
   not(arg0: JavaPredicate<j_org_bukkit.Material>): MaterialSetTag;
   not(...arg0: Array<j_org_bukkit.Material>): MaterialSetTag;
-  not(...arg0: Array<j_org_bukkit.Tag_2<j_org_bukkit.Material>>): MaterialSetTag;
+  not(...arg0: Array<j_org_bukkit.Tag_3<j_org_bukkit.Material>>): MaterialSetTag;
   notContains(arg0: string): MaterialSetTag;
   notEndsWith(arg0: string): MaterialSetTag;
   notStartsWith(arg0: string): MaterialSetTag;
   startsWith(arg0: string): MaterialSetTag;
-  readonly tagged: JavaSet<j_org_bukkit.Material>;
 }
 export type MaterialSetTag = MaterialSetTagMembers;
 export interface MaterialSetTagStatics {
@@ -238,13 +233,11 @@ export interface ParticleBuilderMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Cloneable">];
   allPlayers(): ParticleBuilder;
   clone(): ParticleBuilder;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   color(arg0: number): ParticleBuilder;
   color(arg0: number, arg1: number, arg2: number): ParticleBuilder;
   color(arg0: number, arg1: number, arg2: number, arg3: number): ParticleBuilder;
-  color(arg0: j_org_bukkit.Color): ParticleBuilder | null;
-  color(arg0: j_org_bukkit.Color, arg1: number): ParticleBuilder | null;
+  color(arg0: j_org_bukkit.Color | null): ParticleBuilder;
+  color(arg0: j_org_bukkit.Color | null, arg1: number): ParticleBuilder;
   colorTransition(arg0: number, arg1: number): ParticleBuilder;
   colorTransition(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): ParticleBuilder;
   colorTransition(arg0: j_org_bukkit.Color, arg1: j_org_bukkit.Color): ParticleBuilder;
@@ -252,7 +245,7 @@ export interface ParticleBuilderMembers {
   count(): number;
   count(arg0: number): ParticleBuilder;
   data<T>(): T | null;
-  data<T>(arg0: T): ParticleBuilder | null;
+  data<T>(arg0: T | null): ParticleBuilder;
   extra(): number;
   extra(arg0: number): ParticleBuilder;
   force(): boolean;
@@ -273,11 +266,11 @@ export interface ParticleBuilderMembers {
   receivers(arg0: number, arg1: number, arg2: number): ParticleBuilder;
   receivers(arg0: number, arg1: number, arg2: boolean): ParticleBuilder;
   receivers(arg0: number, arg1: boolean): ParticleBuilder;
-  receivers(arg0: JavaCollection<j_org_bukkit_entity.Player>): ParticleBuilder | null;
-  receivers(arg0: JavaList<j_org_bukkit_entity.Player>): ParticleBuilder | null;
-  receivers(...arg0: Array<j_org_bukkit_entity.Player>): ParticleBuilder | null;
+  receivers(arg0: JavaCollection<j_org_bukkit_entity.Player> | null): ParticleBuilder;
+  receivers(arg0: JavaList<j_org_bukkit_entity.Player> | null): ParticleBuilder;
+  receivers(...arg0: Array<j_org_bukkit_entity.Player | null>): ParticleBuilder;
   source(): j_org_bukkit_entity.Player | null;
-  source(arg0: j_org_bukkit_entity.Player): ParticleBuilder | null;
+  source(arg0: j_org_bukkit_entity.Player | null): ParticleBuilder;
   spawn(): ParticleBuilder;
 }
 export type ParticleBuilder = ParticleBuilderMembers & JavaOpaque<"java.lang.Cloneable">;
@@ -335,9 +328,9 @@ export interface Title_BuilderMembers {
   fadeIn(arg0: number): Title_Builder;
   fadeOut(arg0: number): Title_Builder;
   stay(arg0: number): Title_Builder;
-  subtitle(arg0: string | null): Title_Builder | null;
-  subtitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): Title_Builder | null;
-  subtitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): Title_Builder | null;
+  subtitle(arg0: string | null): Title_Builder;
+  subtitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): Title_Builder;
+  subtitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): Title_Builder;
   title(arg0: string): Title_Builder;
   title(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): Title_Builder;
   title(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): Title_Builder;

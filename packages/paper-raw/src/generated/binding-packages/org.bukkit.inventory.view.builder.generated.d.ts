@@ -9,7 +9,7 @@ import type * as j_org_bukkit_inventory from './org.bukkit.inventory.generated.j
 export interface InventoryViewBuilderMembers<V /* extends j_org_bukkit_inventory.InventoryView */ = unknown> {
   build(arg0: j_org_bukkit_entity.HumanEntity): V;
   copy(): InventoryViewBuilder<V>;
-  title(arg0: j_net_kyori_adventure_text.Component): InventoryViewBuilder<V> | null;
+  title(arg0: j_net_kyori_adventure_text.Component | null): InventoryViewBuilder<V>;
 }
 export type InventoryViewBuilder<V /* extends j_org_bukkit_inventory.InventoryView */ = unknown> = InventoryViewBuilderMembers<V>;
 export interface InventoryViewBuilderStatics {
@@ -19,11 +19,9 @@ export interface InventoryViewBuilderStatics {
 export interface LocationInventoryViewBuilderMembers<V /* extends j_org_bukkit_inventory.InventoryView */ = unknown> {
   readonly __javaSupertypes?: readonly [InventoryViewBuilder<V>];
   checkReachable(arg0: boolean): LocationInventoryViewBuilder<V>;
-  copy(): InventoryViewBuilder;
   copy(): LocationInventoryViewBuilder<V>;
   location(arg0: j_org_bukkit.Location): LocationInventoryViewBuilder<V>;
-  title(arg0: j_net_kyori_adventure_text.Component): InventoryViewBuilder | null;
-  title(arg0: j_net_kyori_adventure_text.Component): LocationInventoryViewBuilder<V> | null;
+  title(arg0: j_net_kyori_adventure_text.Component | null): LocationInventoryViewBuilder<V>;
 }
 export type LocationInventoryViewBuilder<V /* extends j_org_bukkit_inventory.InventoryView */ = unknown> = LocationInventoryViewBuilderMembers<V> & InventoryViewBuilder<V>;
 export interface LocationInventoryViewBuilderStatics {
@@ -33,11 +31,9 @@ export interface LocationInventoryViewBuilderStatics {
 export interface MerchantInventoryViewBuilderMembers<V /* extends j_org_bukkit_inventory.InventoryView */ = unknown> {
   readonly __javaSupertypes?: readonly [InventoryViewBuilder<V>];
   checkReachable(arg0: boolean): MerchantInventoryViewBuilder<V>;
-  copy(): InventoryViewBuilder;
   copy(): MerchantInventoryViewBuilder<V>;
   merchant(arg0: j_org_bukkit_inventory.Merchant): MerchantInventoryViewBuilder<V>;
-  title(arg0: j_net_kyori_adventure_text.Component): InventoryViewBuilder | null;
-  title(arg0: j_net_kyori_adventure_text.Component): MerchantInventoryViewBuilder<V> | null;
+  title(arg0: j_net_kyori_adventure_text.Component | null): MerchantInventoryViewBuilder<V>;
 }
 export type MerchantInventoryViewBuilder<V /* extends j_org_bukkit_inventory.InventoryView */ = unknown> = MerchantInventoryViewBuilderMembers<V> & InventoryViewBuilder<V>;
 export interface MerchantInventoryViewBuilderStatics {

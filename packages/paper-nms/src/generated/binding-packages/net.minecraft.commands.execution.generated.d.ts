@@ -59,15 +59,10 @@ export interface CustomCommandExecutor_CommandAdapterStatics {
 /** JVM abstract net.minecraft.commands.execution.CustomCommandExecutor$WithErrorHandling. */
 export interface CustomCommandExecutor_WithErrorHandlingMembers<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [CustomCommandExecutor<T>];
-  onError(arg0: JavaOpaque<"com.mojang.brigadier.exceptions.CommandSyntaxException">, arg1: T, arg2: ChainModifiers, arg3: TraceCallbacks | null): void | null;
-  run(arg0: object, arg1: JavaOpaque<"com.mojang.brigadier.context.ContextChain">, arg2: ChainModifiers, arg3: ExecutionControl): void;
   run(arg0: T, arg1: JavaOpaque<"com.mojang.brigadier.context.ContextChain", [T]>, arg2: ChainModifiers, arg3: ExecutionControl<T>): void;
-  /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  runGuarded(arg0: T, arg1: JavaOpaque<"com.mojang.brigadier.context.ContextChain", [T]>, arg2: ChainModifiers, arg3: ExecutionControl<T>): void;
 }
 export type CustomCommandExecutor_WithErrorHandling<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> = CustomCommandExecutor_WithErrorHandlingMembers<T> & CustomCommandExecutor<T>;
 export interface CustomCommandExecutor_WithErrorHandlingStatics {
-  new<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */>(): CustomCommandExecutor_WithErrorHandling<T>;
 }
 
 /** JVM interface net.minecraft.commands.execution.CustomModifierExecutor. */
@@ -108,7 +103,7 @@ export interface ExecutionContextMembers<T = unknown> {
   queueNext(arg0: CommandQueueEntry<T>): void;
   runCommandQueue(): void;
   tracer(): TraceCallbacks | null;
-  tracer(arg0: TraceCallbacks | null): void | null;
+  tracer(arg0: TraceCallbacks | null): void;
 }
 export type ExecutionContext<T = unknown> = ExecutionContextMembers<T> & JavaOpaque<"java.lang.AutoCloseable">;
 export interface ExecutionContextStatics {
@@ -122,7 +117,7 @@ export interface ExecutionControlMembers<T = unknown> {
   currentFrame(): Frame;
   queueNext(arg0: EntryAction<T>): void;
   tracer(): TraceCallbacks | null;
-  tracer(arg0: TraceCallbacks | null): void | null;
+  tracer(arg0: TraceCallbacks | null): void;
 }
 export type ExecutionControl<T = unknown> = ExecutionControlMembers<T>;
 export interface ExecutionControlStatics {

@@ -48,11 +48,9 @@ export interface HangingBreakEvent_RemoveCauseStatics {
 export interface HangingEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event.Event];
   getEntity(): j_org_bukkit_entity.Hanging;
-  hanging: j_org_bukkit_entity.Hanging;
 }
 export type HangingEvent = HangingEventMembers & j_org_bukkit_event.Event;
 export interface HangingEventStatics {
-  new(arg0: j_org_bukkit_entity.Hanging): HangingEvent;
 }
 
 /** JVM class org.bukkit.event.hanging.HangingPlaceEvent. */

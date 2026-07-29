@@ -20,7 +20,7 @@ export interface StructuresLocateEventMembers {
   setCancelled(arg0: boolean): void;
   setFindUnexplored(arg0: boolean): void;
   setRadius(arg0: number): void;
-  setResult(arg0: StructuresLocateEvent_Result): void | null;
+  setResult(arg0: StructuresLocateEvent_Result | null): void;
   setStructures(arg0: JavaList<j_org_bukkit_generator_structure.Structure_2>): void;
   shouldFindUnexplored(): boolean;
 }
@@ -54,7 +54,7 @@ export interface WorldDifficultyChangeEventMembers {
 }
 export type WorldDifficultyChangeEvent = WorldDifficultyChangeEventMembers & j_org_bukkit_event_world.WorldEvent;
 export interface WorldDifficultyChangeEventStatics {
-  new(arg0: j_org_bukkit.World, arg1: j_io_papermc_paper_command_brigadier.CommandSourceStack, arg2: j_org_bukkit.Difficulty): WorldDifficultyChangeEvent;
+  new(arg0: j_org_bukkit.World, arg1: j_io_papermc_paper_command_brigadier.CommandSourceStack | null, arg2: j_org_bukkit.Difficulty): WorldDifficultyChangeEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -71,6 +71,6 @@ export interface WorldGameRuleChangeEventMembers {
 }
 export type WorldGameRuleChangeEvent = WorldGameRuleChangeEventMembers & j_org_bukkit_event_world.WorldEvent & j_org_bukkit_event.Cancellable;
 export interface WorldGameRuleChangeEventStatics {
-  new(arg0: j_org_bukkit.World, arg1: j_org_bukkit_command.CommandSender, arg2: j_org_bukkit.GameRule<object>, arg3: string): WorldGameRuleChangeEvent;
+  new(arg0: j_org_bukkit.World, arg1: j_org_bukkit_command.CommandSender | null, arg2: j_org_bukkit.GameRule<object>, arg3: string): WorldGameRuleChangeEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

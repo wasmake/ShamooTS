@@ -82,7 +82,7 @@ export interface BlockDataMembers {
   isRandomlyTicked(): boolean;
   isSupported(arg0: j_org_bukkit.Location): boolean;
   isSupported(arg0: j_org_bukkit_block.Block): boolean;
-  matches(arg0: BlockData | null): boolean | null;
+  matches(arg0: BlockData | null): boolean;
   merge(arg0: BlockData): BlockData;
   mirror(arg0: j_org_bukkit_block_structure.Mirror): void;
   requiresCorrectToolForDrops(): boolean;

@@ -72,7 +72,6 @@ export interface BlockPredicateTypeStatics {
 /** JVM class net.minecraft.world.level.levelgen.blockpredicates.HasSturdyFacePredicate. */
 export interface HasSturdyFacePredicateMembers {
   readonly __javaSupertypes?: readonly [BlockPredicate_3];
-  test(arg0: object, arg1: object): boolean;
   test(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos): boolean;
   type(): BlockPredicateType<object>;
 }
@@ -85,7 +84,6 @@ export interface HasSturdyFacePredicateStatics {
 /** JVM class net.minecraft.world.level.levelgen.blockpredicates.InsideWorldBoundsPredicate. */
 export interface InsideWorldBoundsPredicateMembers {
   readonly __javaSupertypes?: readonly [BlockPredicate_3];
-  test(arg0: object, arg1: object): boolean;
   test(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos): boolean;
   type(): BlockPredicateType<object>;
 }
@@ -98,19 +96,16 @@ export interface InsideWorldBoundsPredicateStatics {
 /** JVM class net.minecraft.world.level.levelgen.blockpredicates.MatchingBlockTagPredicate. */
 export interface MatchingBlockTagPredicateMembers {
   readonly __javaSupertypes?: readonly [StateTestingPredicate];
-  test(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   type(): BlockPredicateType<object>;
 }
 export type MatchingBlockTagPredicate = MatchingBlockTagPredicateMembers & StateTestingPredicate;
 export interface MatchingBlockTagPredicateStatics {
-  new(arg0: j_net_minecraft_core.Vec3i, arg1: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_block.Block>): MatchingBlockTagPredicate;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [MatchingBlockTagPredicate]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.blockpredicates.SolidPredicate. */
 export interface SolidPredicateMembers {
   readonly __javaSupertypes?: readonly [StateTestingPredicate];
-  test(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   type(): BlockPredicateType<object>;
 }
 export type SolidPredicate = SolidPredicateMembers & StateTestingPredicate;
@@ -122,26 +117,19 @@ export interface SolidPredicateStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.blockpredicates.StateTestingPredicate. */
 export interface StateTestingPredicateMembers {
   readonly __javaSupertypes?: readonly [BlockPredicate_3];
-  readonly offset: j_net_minecraft_core.Vec3i;
-  test(arg0: object, arg1: object): boolean;
   test(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos): boolean;
-  test(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type StateTestingPredicate = StateTestingPredicateMembers & BlockPredicate_3;
 export interface StateTestingPredicateStatics {
-  new(arg0: j_net_minecraft_core.Vec3i): StateTestingPredicate;
-  stateTestingCodec<P /* extends StateTestingPredicate */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P1", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, j_net_minecraft_core.Vec3i]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.blockpredicates.WouldSurvivePredicate. */
 export interface WouldSurvivePredicateMembers {
   readonly __javaSupertypes?: readonly [BlockPredicate_3];
-  test(arg0: object, arg1: object): boolean;
   test(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos): boolean;
   type(): BlockPredicateType<object>;
 }
 export type WouldSurvivePredicate = WouldSurvivePredicateMembers & BlockPredicate_3;
 export interface WouldSurvivePredicateStatics {
-  new(arg0: j_net_minecraft_core.Vec3i, arg1: j_net_minecraft_world_level_block_state.BlockState): WouldSurvivePredicate;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WouldSurvivePredicate]>;
 }

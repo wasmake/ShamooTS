@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/decorators",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Standard TypeScript decorators discovered by the Shamoo compiler.",
   "license": "Apache-2.0",
   "type": "module",

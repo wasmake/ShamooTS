@@ -1,6 +1,6 @@
 {
   "name": "@shamoo/conditions",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "description": "Shamoo component condition declarations.",
   "license": "Apache-2.0",
   "type": "module",

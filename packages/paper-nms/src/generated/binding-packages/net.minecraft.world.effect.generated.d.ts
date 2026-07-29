@@ -32,7 +32,7 @@ export interface MobEffectMembers {
   addAttributeModifier(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg1: j_net_minecraft_resources.ResourceLocation, arg2: number, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier_Operation): MobEffect;
   addAttributeModifiers(arg0: j_net_minecraft_world_entity_ai_attributes.AttributeMap, arg1: number): void;
   applyEffectTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: number): boolean;
-  applyInstantenousEffect(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_entity.Entity | null, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: number, arg5: number): void | null;
+  applyInstantenousEffect(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_entity.Entity | null, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: number, arg5: number): void;
   readonly attributeModifiers: JavaMap<j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, MobEffect_AttributeTemplate>;
   createModifiers(arg0: number, arg1: JavaBiConsumer<j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, j_net_minecraft_world_entity_ai_attributes.AttributeModifier>): void;
   createParticleOptions(arg0: MobEffectInstance): j_net_minecraft_core_particles.ParticleOptions;
@@ -43,7 +43,6 @@ export interface MobEffectMembers {
   getColor(): number;
   getDescriptionId(): string;
   getDisplayName(): j_net_minecraft_network_chat.Component;
-  getOrCreateDescriptionId(): string;
   isBeneficial(): boolean;
   isInstantenous(): boolean;
   onEffectAdded(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: number): void;
@@ -60,8 +59,6 @@ export interface MobEffectMembers {
 }
 export type MobEffect = MobEffectMembers & j_net_minecraft_world_flag.FeatureElement;
 export interface MobEffectStatics {
-  new(arg0: MobEffectCategory, arg1: number): MobEffect;
-  new(arg0: MobEffectCategory, arg1: number, arg2: j_net_minecraft_core_particles.ParticleOptions): MobEffect;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.Holder<MobEffect>]>;
   readonly STREAM_CODEC: j_net_minecraft_network_codec.StreamCodec<j_net_minecraft_network.RegistryFriendlyByteBuf, j_net_minecraft_core.Holder<MobEffect>>;
 }
@@ -98,7 +95,6 @@ export interface MobEffectCategoryStatics {
 /** JVM class net.minecraft.world.effect.MobEffectInstance. */
 export interface MobEffectInstanceMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [MobEffectInstance]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: MobEffectInstance): number;
   copyBlendState(arg0: MobEffectInstance): void;
   endsWithin(arg0: number): boolean;
@@ -198,9 +194,9 @@ export interface MobEffectUtilMembers {
 export type MobEffectUtil = MobEffectUtilMembers;
 export interface MobEffectUtilStatics {
   new(): MobEffectUtil;
-  addEffectToPlayersAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: MobEffectInstance, arg5: number): JavaList<j_net_minecraft_server_level.ServerPlayer> | null;
-  addEffectToPlayersAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: MobEffectInstance, arg5: number, arg6: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): JavaList<j_net_minecraft_server_level.ServerPlayer> | null;
-  addEffectToPlayersAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: MobEffectInstance, arg5: number, arg6: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">, arg7: JavaPredicate<j_net_minecraft_server_level.ServerPlayer> | null): JavaList<j_net_minecraft_server_level.ServerPlayer> | null;
+  addEffectToPlayersAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: MobEffectInstance, arg5: number): JavaList<j_net_minecraft_server_level.ServerPlayer>;
+  addEffectToPlayersAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: MobEffectInstance, arg5: number, arg6: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): JavaList<j_net_minecraft_server_level.ServerPlayer>;
+  addEffectToPlayersAround(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity | null, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: MobEffectInstance, arg5: number, arg6: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">, arg7: JavaPredicate<j_net_minecraft_server_level.ServerPlayer> | null): JavaList<j_net_minecraft_server_level.ServerPlayer>;
   formatDuration(arg0: MobEffectInstance, arg1: number, arg2: number): j_net_minecraft_network_chat.Component;
   getDigSpeedAmplification(arg0: j_net_minecraft_world_entity.LivingEntity): number;
   hasDigSpeed(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
@@ -224,7 +220,6 @@ export interface PoisonMobEffectMembers {
 }
 export type PoisonMobEffect = PoisonMobEffectMembers & MobEffect;
 export interface PoisonMobEffectStatics {
-  new(arg0: MobEffectCategory, arg1: number): PoisonMobEffect;
   readonly DAMAGE_INTERVAL: 25;
 }
 
@@ -236,6 +231,5 @@ export interface WitherMobEffectMembers {
 }
 export type WitherMobEffect = WitherMobEffectMembers & MobEffect;
 export interface WitherMobEffectStatics {
-  new(arg0: MobEffectCategory, arg1: number): WitherMobEffect;
   readonly DAMAGE_INTERVAL: 40;
 }

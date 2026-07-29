@@ -1,7 +1,6 @@
 // Generated from paper-nms 1.21.8+paper.55+mache.2 (mojang+paperweight). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_commands from './net.minecraft.commands.generated.js';
-import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
 import type * as j_net_minecraft_network from './net.minecraft.network.generated.js';
 import type * as j_net_minecraft_network_chat from './net.minecraft.network.chat.generated.js';
@@ -22,21 +21,14 @@ import type * as j_net_minecraft_world_level_storage from './net.minecraft.world
 /** JVM abstract net.minecraft.server.players.BanListEntry. */
 export interface BanListEntryMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [StoredUserEntry<T>];
-  readonly created: JavaOpaque<"java.util.Date">;
-  readonly expires: JavaOpaque<"java.util.Date"> | null;
   getCreated(): JavaOpaque<"java.util.Date">;
   getDisplayName(): j_net_minecraft_network_chat.Component;
   getExpires(): JavaOpaque<"java.util.Date"> | null;
   getReason(): string;
   getSource(): string;
-  readonly reason: string;
-  serialize(arg0: JavaOpaque<"com.google.gson.JsonObject">): void;
-  readonly source: string;
 }
 export type BanListEntry<T = unknown> = BanListEntryMembers<T> & StoredUserEntry<T>;
 export interface BanListEntryStatics {
-  new<T>(arg0: T | null, arg1: JavaOpaque<"com.google.gson.JsonObject">): BanListEntry<T>;
-  new<T>(arg0: T | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: string | null, arg3: JavaOpaque<"java.util.Date"> | null, arg4: string | null): BanListEntry<T>;
   readonly DATE_FORMAT: JavaOpaque<"java.text.SimpleDateFormat">;
   readonly EXPIRES_NEVER: "forever";
 }
@@ -50,10 +42,8 @@ export interface GameProfileCacheMembers {
   getAsync(arg0: string): PromiseLike<JavaOptional<JavaOpaque<"com.mojang.authlib.GameProfile">>>;
   getProfileIfCached(arg0: string): JavaOpaque<"com.mojang.authlib.GameProfile"> | null;
   load(): JavaList<JavaOpaque<"net.minecraft.server.players.GameProfileCache$GameProfileInfo">>;
-  readonly lookupLock: JavaOpaque<"java.util.concurrent.locks.ReentrantLock">;
   save(arg0: boolean): void;
   setExecutor(arg0: JavaOpaque<"java.util.concurrent.Executor">): void;
-  readonly stateLock: JavaOpaque<"java.util.concurrent.locks.ReentrantLock">;
 }
 export type GameProfileCache = GameProfileCacheMembers;
 export interface GameProfileCacheStatics {
@@ -64,7 +54,6 @@ export interface GameProfileCacheStatics {
 /** JVM class net.minecraft.server.players.IpBanList. */
 export interface IpBanListMembers {
   readonly __javaSupertypes?: readonly [StoredUserList<string, IpBanListEntry>];
-  createEntry(arg0: JavaOpaque<"com.google.gson.JsonObject">): StoredUserEntry<string>;
   get(arg0: JavaOpaque<"java.net.SocketAddress">): IpBanListEntry | null;
   isBanned(arg0: string): boolean;
   isBanned(arg0: JavaOpaque<"java.net.SocketAddress">): boolean;
@@ -78,7 +67,6 @@ export interface IpBanListStatics {
 export interface IpBanListEntryMembers {
   readonly __javaSupertypes?: readonly [BanListEntry<string>];
   getDisplayName(): j_net_minecraft_network_chat.Component;
-  serialize(arg0: JavaOpaque<"com.google.gson.JsonObject">): void;
 }
 export type IpBanListEntry = IpBanListEntryMembers & BanListEntry<string>;
 export interface IpBanListEntryStatics {
@@ -109,15 +97,15 @@ export interface OldUsersConverterStatics {
 /** JVM abstract net.minecraft.server.players.PlayerList. */
 export interface PlayerListMembers {
   addWorldborderListener(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  broadcast(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: number, arg2: number, arg3: number, arg4: number, arg5: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level.Level>, arg6: j_net_minecraft_network_protocol.Packet<object>): void | null;
+  broadcast(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: number, arg2: number, arg3: number, arg4: number, arg5: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level.Level>, arg6: j_net_minecraft_network_protocol.Packet<object>): void;
   broadcastAll(arg0: j_net_minecraft_network_protocol.Packet<object>): void;
   broadcastAll(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level.Level>): void;
   broadcastAll(arg0: j_net_minecraft_network_protocol.Packet, arg1: j_net_minecraft_world_entity_player.Player): void;
   broadcastAll(arg0: j_net_minecraft_network_protocol.Packet, arg1: j_net_minecraft_world_level.Level): void;
-  broadcastChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: JavaPredicate<j_net_minecraft_server_level.ServerPlayer>, arg2: j_net_minecraft_server_level.ServerPlayer | null, arg3: j_net_minecraft_network_chat.ChatType_Bound, arg4: JavaFunction<JavaOpaque<"net.kyori.adventure.audience.Audience">, j_net_minecraft_network_chat.Component> | null): void | null;
+  broadcastChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: JavaPredicate<j_net_minecraft_server_level.ServerPlayer>, arg2: j_net_minecraft_server_level.ServerPlayer | null, arg3: j_net_minecraft_network_chat.ChatType_Bound, arg4: JavaFunction<JavaOpaque<"net.kyori.adventure.audience.Audience">, j_net_minecraft_network_chat.Component> | null): void;
   broadcastChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: j_net_minecraft_commands.CommandSourceStack, arg2: j_net_minecraft_network_chat.ChatType_Bound): void;
   broadcastChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: j_net_minecraft_server_level.ServerPlayer, arg2: j_net_minecraft_network_chat.ChatType_Bound): void;
-  broadcastChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: j_net_minecraft_server_level.ServerPlayer, arg2: j_net_minecraft_network_chat.ChatType_Bound, arg3: JavaFunction<JavaOpaque<"net.kyori.adventure.audience.Audience">, j_net_minecraft_network_chat.Component> | null): void | null;
+  broadcastChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: j_net_minecraft_server_level.ServerPlayer, arg2: j_net_minecraft_network_chat.ChatType_Bound, arg3: JavaFunction<JavaOpaque<"net.kyori.adventure.audience.Audience">, j_net_minecraft_network_chat.Component> | null): void;
   broadcastMessage(arg0: Array<j_net_minecraft_network_chat.Component>): void;
   broadcastSystemMessage(arg0: j_net_minecraft_network_chat.Component, arg1: JavaFunction<j_net_minecraft_server_level.ServerPlayer, j_net_minecraft_network_chat.Component>, arg2: boolean): void;
   broadcastSystemMessage(arg0: j_net_minecraft_network_chat.Component, arg1: boolean): void;
@@ -170,9 +158,8 @@ export interface PlayerListMembers {
   remove(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: JavaOpaque<"net.kyori.adventure.text.Component">): JavaOpaque<"net.kyori.adventure.text.Component"> | null;
   removeAll(): void;
   removeAll(arg0: boolean): void;
-  respawn(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity_RemovalReason, arg3: JavaOpaque<"org.bukkit.event.player.PlayerRespawnEvent$RespawnReason"> | null): j_net_minecraft_server_level.ServerPlayer | null;
-  respawn(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity_RemovalReason, arg3: JavaOpaque<"org.bukkit.event.player.PlayerRespawnEvent$RespawnReason"> | null, arg4: JavaOpaque<"org.bukkit.Location"> | null): j_net_minecraft_server_level.ServerPlayer | null;
-  save(arg0: j_net_minecraft_server_level.ServerPlayer): void;
+  respawn(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity_RemovalReason, arg3: JavaOpaque<"org.bukkit.event.player.PlayerRespawnEvent$RespawnReason"> | null): j_net_minecraft_server_level.ServerPlayer;
+  respawn(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity_RemovalReason, arg3: JavaOpaque<"org.bukkit.event.player.PlayerRespawnEvent$RespawnReason"> | null, arg4: JavaOpaque<"org.bukkit.Location"> | null): j_net_minecraft_server_level.ServerPlayer;
   saveAll(): void;
   saveAll(arg0: number): void;
   sendActiveEffects(arg0: j_net_minecraft_world_entity.LivingEntity, arg1: JavaConsumer<j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>>): void;
@@ -193,7 +180,6 @@ export interface PlayerListMembers {
 }
 export type PlayerList = PlayerListMembers;
 export interface PlayerListStatics {
-  new(arg0: j_net_minecraft_server.MinecraftServer, arg1: j_net_minecraft_core.LayeredRegistryAccess<j_net_minecraft_server.RegistryLayer>, arg2: j_net_minecraft_world_level_storage.PlayerDataStorage, arg3: number): PlayerList;
   readonly CHAT_FILTERED_FULL: j_net_minecraft_network_chat.Component;
   readonly DUPLICATE_LOGIN_DISCONNECT_MESSAGE: j_net_minecraft_network_chat.Component;
   readonly IPBANLIST_FILE: JavaOpaque<"java.io.File">;
@@ -222,9 +208,6 @@ export interface PlayerList_LoginResultStatics {
 export interface ServerOpListMembers {
   readonly __javaSupertypes?: readonly [StoredUserList<JavaOpaque<"com.mojang.authlib.GameProfile">, ServerOpListEntry>];
   canBypassPlayerLimit(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): boolean;
-  createEntry(arg0: JavaOpaque<"com.google.gson.JsonObject">): StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>;
-  getKeyForUser(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): string;
-  getKeyForUser(arg0: object): string;
   getUserList(): Array<string>;
 }
 export type ServerOpList = ServerOpListMembers & StoredUserList<JavaOpaque<"com.mojang.authlib.GameProfile">, ServerOpListEntry>;
@@ -237,7 +220,6 @@ export interface ServerOpListEntryMembers {
   readonly __javaSupertypes?: readonly [StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>];
   getBypassesPlayerLimit(): boolean;
   getLevel(): number;
-  serialize(arg0: JavaOpaque<"com.google.gson.JsonObject">): void;
 }
 export type ServerOpListEntry = ServerOpListEntryMembers & StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>;
 export interface ServerOpListEntryStatics {
@@ -262,22 +244,17 @@ export interface SleepStatusStatics {
 /** JVM abstract net.minecraft.server.players.StoredUserEntry. */
 export interface StoredUserEntryMembers<T = unknown> {
   getUser(): T | null;
-  serialize(arg0: JavaOpaque<"com.google.gson.JsonObject">): void;
 }
 export type StoredUserEntry<T = unknown> = StoredUserEntryMembers<T>;
 export interface StoredUserEntryStatics {
-  new<T>(arg0: T | null): StoredUserEntry<T>;
 }
 
 /** JVM abstract net.minecraft.server.players.StoredUserList. */
 export interface StoredUserListMembers<K = unknown, V /* extends StoredUserEntry<K> */ = unknown> {
   add(arg0: V): void;
-  contains(arg0: K): boolean;
-  createEntry(arg0: JavaOpaque<"com.google.gson.JsonObject">): StoredUserEntry<K>;
   get(arg0: K): V | null;
   getEntries(): JavaCollection<V>;
   getFile(): JavaOpaque<"java.io.File">;
-  getKeyForUser(arg0: K): string;
   getUserList(): Array<string>;
   isEmpty(): boolean;
   /** @throws java.io.IOException */
@@ -289,15 +266,11 @@ export interface StoredUserListMembers<K = unknown, V /* extends StoredUserEntry
 }
 export type StoredUserList<K = unknown, V /* extends StoredUserEntry<K> */ = unknown> = StoredUserListMembers<K, V>;
 export interface StoredUserListStatics {
-  new<K, V /* extends StoredUserEntry<K> */>(arg0: JavaOpaque<"java.io.File">): StoredUserList<K, V>;
 }
 
 /** JVM class net.minecraft.server.players.UserBanList. */
 export interface UserBanListMembers {
   readonly __javaSupertypes?: readonly [StoredUserList<JavaOpaque<"com.mojang.authlib.GameProfile">, UserBanListEntry>];
-  createEntry(arg0: JavaOpaque<"com.google.gson.JsonObject">): StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>;
-  getKeyForUser(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): string;
-  getKeyForUser(arg0: object): string;
   getUserList(): Array<string>;
   isBanned(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): boolean;
 }
@@ -310,7 +283,6 @@ export interface UserBanListStatics {
 export interface UserBanListEntryMembers {
   readonly __javaSupertypes?: readonly [BanListEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>];
   getDisplayName(): j_net_minecraft_network_chat.Component;
-  serialize(arg0: JavaOpaque<"com.google.gson.JsonObject">): void;
 }
 export type UserBanListEntry = UserBanListEntryMembers & BanListEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>;
 export interface UserBanListEntryStatics {
@@ -322,15 +294,10 @@ export interface UserBanListEntryStatics {
 /** JVM class net.minecraft.server.players.UserWhiteList. */
 export interface UserWhiteListMembers {
   readonly __javaSupertypes?: readonly [StoredUserList<JavaOpaque<"com.mojang.authlib.GameProfile">, UserWhiteListEntry>];
-  add(arg0: StoredUserEntry): void;
   add(arg0: UserWhiteListEntry): void;
-  createEntry(arg0: JavaOpaque<"com.google.gson.JsonObject">): StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>;
-  getKeyForUser(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): string;
-  getKeyForUser(arg0: object): string;
   getUserList(): Array<string>;
   isWhiteListed(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): boolean;
   remove(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): void;
-  remove(arg0: object): void;
 }
 export type UserWhiteList = UserWhiteListMembers & StoredUserList<JavaOpaque<"com.mojang.authlib.GameProfile">, UserWhiteListEntry>;
 export interface UserWhiteListStatics {
@@ -340,7 +307,6 @@ export interface UserWhiteListStatics {
 /** JVM class net.minecraft.server.players.UserWhiteListEntry. */
 export interface UserWhiteListEntryMembers {
   readonly __javaSupertypes?: readonly [StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>];
-  serialize(arg0: JavaOpaque<"com.google.gson.JsonObject">): void;
 }
 export type UserWhiteListEntry = UserWhiteListEntryMembers & StoredUserEntry<JavaOpaque<"com.mojang.authlib.GameProfile">>;
 export interface UserWhiteListEntryStatics {

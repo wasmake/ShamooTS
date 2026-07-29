@@ -17,10 +17,8 @@ import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.gen
 /** JVM class net.minecraft.world.entity.monster.breeze.Breeze. */
 export interface BreezeMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_monster.Monster];
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Breeze>;
   canAttackType(arg0: j_net_minecraft_world_entity.EntityType<object>): boolean;
   causeFallDamage(arg0: number, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): boolean;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
   deflection(arg0: j_net_minecraft_world_entity_projectile.Projectile): j_net_minecraft_world_entity_projectile.ProjectileDeflection;
   emitGroundParticles(arg0: number): void;
   emitJumpTrailParticles(): void;
@@ -33,19 +31,16 @@ export interface BreezeMembers {
   getHurtBy(): JavaOptional<j_net_minecraft_world_entity.LivingEntity>;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
   getMaxHeadYRot(): number;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   getSoundSource(): j_net_minecraft_sounds.SoundSource;
   getTarget(): j_net_minecraft_world_entity.LivingEntity | null;
   idle: j_net_minecraft_world_entity.AnimationState;
   inhale: j_net_minecraft_world_entity.AnimationState;
   isInvulnerableTo(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): boolean;
   longJump: j_net_minecraft_world_entity.AnimationState;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   playAmbientSound(): void;
   playWhirlSound(): void;
   resetJumpTrail(): Breeze;
-  sendDebugPackets(): void;
   shoot: j_net_minecraft_world_entity.AnimationState;
   slide: j_net_minecraft_world_entity.AnimationState;
   slideBack: j_net_minecraft_world_entity.AnimationState;
@@ -68,16 +63,11 @@ export interface BreezeAiStatics {
   readonly JUMP_CIRCLE_MIDDLE_RADIUS: 8;
   readonly JUMP_CIRCLE_OUTER_RADIUS: 24;
   readonly SPEED_MULTIPLIER_WHEN_SLIDING: 0.6;
-  makeBrain(arg0: Breeze, arg1: j_net_minecraft_world_entity_ai.Brain<Breeze>): j_net_minecraft_world_entity_ai.Brain<object>;
 }
 
 /** JVM class net.minecraft.world.entity.monster.breeze.BreezeAi$SlideToTargetSink. */
 export interface BreezeAi_SlideToTargetSinkMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.MoveToTargetSink];
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Mob, arg2: bigint): void;
 }
 export type BreezeAi_SlideToTargetSink = BreezeAi_SlideToTargetSinkMembers & j_net_minecraft_world_entity_ai_behavior.MoveToTargetSink;
 export interface BreezeAi_SlideToTargetSinkStatics {
@@ -97,16 +87,6 @@ export interface BreezeUtilStatics {
 /** JVM class net.minecraft.world.entity.monster.breeze.LongJump. */
 export interface LongJumpMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
 }
 export type LongJump = LongJumpMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>;
 export interface LongJumpStatics {
@@ -117,16 +97,6 @@ export interface LongJumpStatics {
 /** JVM class net.minecraft.world.entity.monster.breeze.Shoot. */
 export interface ShootMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
 }
 export type Shoot = ShootMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>;
 export interface ShootStatics {
@@ -136,12 +106,6 @@ export interface ShootStatics {
 /** JVM class net.minecraft.world.entity.monster.breeze.ShootWhenStuck. */
 export interface ShootWhenStuckMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
 }
 export type ShootWhenStuck = ShootWhenStuckMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>;
 export interface ShootWhenStuckStatics {
@@ -151,10 +115,6 @@ export interface ShootWhenStuckStatics {
 /** JVM class net.minecraft.world.entity.monster.breeze.Slide. */
 export interface SlideMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>];
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Breeze, arg2: bigint): void;
 }
 export type Slide = SlideMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Breeze>;
 export interface SlideStatics {

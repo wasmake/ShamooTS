@@ -78,7 +78,7 @@ export interface AbstractArrowMembers {
   setPickupRule(arg0: AbstractArrow_PickupRule): void;
   setPickupStatus(arg0: AbstractArrow_PickupStatus): void;
   setPierceLevel(arg0: number): void;
-  setShooter(arg0: j_org_bukkit_projectiles.ProjectileSource | null, arg1: boolean): void | null;
+  setShooter(arg0: j_org_bukkit_projectiles.ProjectileSource | null, arg1: boolean): void;
   setShotFromCrossbow(arg0: boolean): void;
   setWeapon(arg0: j_org_bukkit_inventory.ItemStack): void;
 }
@@ -123,7 +123,6 @@ export interface AbstractHorseMembers {
   readonly __javaSupertypes?: readonly [Tameable, Vehicle, j_org_bukkit_inventory.InventoryHolder];
   getDomestication(): number;
   getInventory(): j_org_bukkit_inventory.AbstractHorseInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getJumpStrength(): number;
   getMaxDomestication(): number;
   getVariant(): Horse_Variant;
@@ -227,7 +226,7 @@ export interface AnimalsMembers {
   isBreedItem(arg0: j_org_bukkit.Material): boolean;
   isBreedItem(arg0: j_org_bukkit_inventory.ItemStack): boolean;
   isLoveMode(): boolean;
-  setBreedCause(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setBreedCause(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setLoveModeTicks(arg0: number): void;
 }
 export type Animals = AnimalsMembers & Breedable;
@@ -265,19 +264,19 @@ export interface AreaEffectCloudMembers {
   hasCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
   hasCustomEffects(): boolean;
   removeCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
-  setBasePotionData(arg0: j_org_bukkit_potion.PotionData | null): void | null;
-  setBasePotionType(arg0: j_org_bukkit_potion.PotionType | null): void | null;
-  setColor(arg0: j_org_bukkit.Color | null): void | null;
+  setBasePotionData(arg0: j_org_bukkit_potion.PotionData | null): void;
+  setBasePotionType(arg0: j_org_bukkit_potion.PotionType | null): void;
+  setColor(arg0: j_org_bukkit.Color | null): void;
   setDuration(arg0: number): void;
   setDurationOnUse(arg0: number): void;
-  setOwnerUniqueId(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setOwnerUniqueId(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setParticle(arg0: j_org_bukkit.Particle): void;
-  setParticle<T>(arg0: j_org_bukkit.Particle, arg1: T | null): void | null;
+  setParticle<T>(arg0: j_org_bukkit.Particle, arg1: T | null): void;
   setRadius(arg0: number): void;
   setRadiusOnUse(arg0: number): void;
   setRadiusPerTick(arg0: number): void;
   setReapplicationDelay(arg0: number): void;
-  setSource(arg0: j_org_bukkit_projectiles.ProjectileSource | null): void | null;
+  setSource(arg0: j_org_bukkit_projectiles.ProjectileSource | null): void;
   setWaitTime(arg0: number): void;
 }
 export type AreaEffectCloud = AreaEffectCloudMembers & Entity;
@@ -348,21 +347,21 @@ export interface ArmorStandMembers {
   setBasePlate(arg0: boolean): void;
   setBodyPose(arg0: j_org_bukkit_util.EulerAngle): void;
   setBodyRotations(arg0: j_io_papermc_paper_math.Rotations): void;
-  setBoots(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setBoots(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setCanMove(arg0: boolean): void;
   setCanTick(arg0: boolean): void;
-  setChestplate(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setChestplate(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setDisabledSlots(...arg0: Array<j_org_bukkit_inventory.EquipmentSlot>): void;
   setHeadPose(arg0: j_org_bukkit_util.EulerAngle): void;
   setHeadRotations(arg0: j_io_papermc_paper_math.Rotations): void;
-  setHelmet(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
-  setItem(arg0: j_org_bukkit_inventory.EquipmentSlot, arg1: j_org_bukkit_inventory.ItemStack | null): void | null;
-  setItemInHand(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setHelmet(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setItem(arg0: j_org_bukkit_inventory.EquipmentSlot, arg1: j_org_bukkit_inventory.ItemStack | null): void;
+  setItemInHand(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setLeftArmPose(arg0: j_org_bukkit_util.EulerAngle): void;
   setLeftArmRotations(arg0: j_io_papermc_paper_math.Rotations): void;
   setLeftLegPose(arg0: j_org_bukkit_util.EulerAngle): void;
   setLeftLegRotations(arg0: j_io_papermc_paper_math.Rotations): void;
-  setLeggings(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setLeggings(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setMarker(arg0: boolean): void;
   setRightArmPose(arg0: j_org_bukkit_util.EulerAngle): void;
   setRightArmRotations(arg0: j_io_papermc_paper_math.Rotations): void;
@@ -396,12 +395,12 @@ export interface ArrowMembers {
   getBasePotionType(): j_org_bukkit_potion.PotionType | null;
   getColor(): j_org_bukkit.Color | null;
   getCustomEffects(): JavaList<j_org_bukkit_potion.PotionEffect>;
-  hasCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): boolean | null;
+  hasCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): boolean;
   hasCustomEffects(): boolean;
   removeCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
-  setBasePotionData(arg0: j_org_bukkit_potion.PotionData | null): void | null;
-  setBasePotionType(arg0: j_org_bukkit_potion.PotionType | null): void | null;
-  setColor(arg0: j_org_bukkit.Color | null): void | null;
+  setBasePotionData(arg0: j_org_bukkit_potion.PotionData | null): void;
+  setBasePotionType(arg0: j_org_bukkit_potion.PotionType | null): void;
+  setColor(arg0: j_org_bukkit.Color | null): void;
 }
 export type Arrow = ArrowMembers & AbstractArrow;
 export interface ArrowStatics {
@@ -439,7 +438,7 @@ export interface BatMembers {
   getTargetLocation(): j_org_bukkit.Location | null;
   isAwake(): boolean;
   setAwake(arg0: boolean): void;
-  setTargetLocation(arg0: j_org_bukkit.Location | null): void | null;
+  setTargetLocation(arg0: j_org_bukkit.Location | null): void;
 }
 export type Bat = BatMembers & Ambient;
 export interface BatStatics {
@@ -462,10 +461,10 @@ export interface BeeMembers {
   setAnger(arg0: number): void;
   setCannotEnterHiveTicks(arg0: number): void;
   setCropsGrownSincePollination(arg0: number): void;
-  setFlower(arg0: j_org_bukkit.Location | null): void | null;
+  setFlower(arg0: j_org_bukkit.Location | null): void;
   setHasNectar(arg0: boolean): void;
   setHasStung(arg0: boolean): void;
-  setHive(arg0: j_org_bukkit.Location | null): void | null;
+  setHive(arg0: j_org_bukkit.Location | null): void;
   setRollingOverride(arg0: j_net_kyori_adventure_util.TriState): void;
   setTicksSincePollination(arg0: number): void;
   setTimeSinceSting(arg0: number): void;
@@ -624,7 +623,6 @@ export interface CatStatics {
 /** JVM interface org.bukkit.entity.Cat$Type. */
 export interface Cat_TypeMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<Cat_Type>, j_org_bukkit.Keyed];
-  compareTo(arg0: object): number;
   compareTo(arg0: Cat_Type): number;
   getKey(): j_org_bukkit.NamespacedKey;
   key(): JavaOpaque<"net.kyori.adventure.key.Key">;
@@ -793,7 +791,7 @@ export interface DamageableMembers {
   readonly __javaSupertypes?: readonly [Entity];
   damage(arg0: number): void;
   damage(arg0: number, arg1: j_org_bukkit_damage.DamageSource): void;
-  damage(arg0: number, arg1: Entity | null): void | null;
+  damage(arg0: number, arg1: Entity | null): void;
   getAbsorptionAmount(): number;
   getHealth(): number;
   getMaxHealth(): number;
@@ -824,10 +822,10 @@ export interface DisplayMembers {
   getTransformation(): j_org_bukkit_util.Transformation;
   getViewRange(): number;
   setBillboard(arg0: Display_Billboard): void;
-  setBrightness(arg0: Display_Brightness | null): void | null;
+  setBrightness(arg0: Display_Brightness | null): void;
   setDisplayHeight(arg0: number): void;
   setDisplayWidth(arg0: number): void;
-  setGlowColorOverride(arg0: j_org_bukkit.Color | null): void | null;
+  setGlowColorOverride(arg0: j_org_bukkit.Color | null): void;
   setInterpolationDelay(arg0: number): void;
   setInterpolationDuration(arg0: number): void;
   setShadowRadius(arg0: number): void;
@@ -875,7 +873,7 @@ export interface DolphinMembers {
   hasFish(): boolean;
   setHasFish(arg0: boolean): void;
   setMoistness(arg0: number): void;
-  setTreasureLocation(arg0: j_org_bukkit.Location | null): void | null;
+  setTreasureLocation(arg0: j_org_bukkit.Location | null): void;
 }
 export type Dolphin = DolphinMembers & Ageable_2 & WaterMob;
 export interface DolphinStatics {
@@ -926,7 +924,7 @@ export interface EnderCrystalMembers {
   readonly __javaSupertypes?: readonly [Entity];
   getBeamTarget(): j_org_bukkit.Location | null;
   isShowingBottom(): boolean;
-  setBeamTarget(arg0: j_org_bukkit.Location | null): void | null;
+  setBeamTarget(arg0: j_org_bukkit.Location | null): void;
   setShowingBottom(arg0: boolean): void;
 }
 export type EnderCrystal = EnderCrystalMembers & Entity;
@@ -941,7 +939,7 @@ export interface EnderDragonMembers {
   getPhase(): EnderDragon_Phase;
   getPodium(): j_org_bukkit.Location;
   setPhase(arg0: EnderDragon_Phase): void;
-  setPodium(arg0: j_org_bukkit.Location | null): void | null;
+  setPodium(arg0: j_org_bukkit.Location | null): void;
 }
 export type EnderDragon = EnderDragonMembers & Boss & ComplexLivingEntity & Enemy & Mob;
 export interface EnderDragonStatics {
@@ -970,7 +968,6 @@ export interface EnderDragon_PhaseStatics {
 /** JVM interface org.bukkit.entity.EnderDragonPart. */
 export interface EnderDragonPartMembers {
   readonly __javaSupertypes?: readonly [ComplexEntityPart, Damageable];
-  getParent(): ComplexLivingEntity;
   getParent(): EnderDragon;
 }
 export type EnderDragonPart = EnderDragonPartMembers & ComplexEntityPart & Damageable;
@@ -984,7 +981,7 @@ export interface EndermanMembers {
   getCarriedMaterial(): j_org_bukkit_material.MaterialData;
   hasBeenStaredAt(): boolean;
   isScreaming(): boolean;
-  setCarriedBlock(arg0: j_org_bukkit_block_data.BlockData | null): void | null;
+  setCarriedBlock(arg0: j_org_bukkit_block_data.BlockData | null): void;
   setCarriedMaterial(arg0: j_org_bukkit_material.MaterialData): void;
   setHasBeenStaredAt(arg0: boolean): void;
   setScreaming(arg0: boolean): void;
@@ -1025,7 +1022,7 @@ export interface EnderSignalMembers {
   getTargetLocation(): j_org_bukkit.Location | null;
   setDespawnTimer(arg0: number): void;
   setDropItem(arg0: boolean): void;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setTargetLocation(arg0: j_org_bukkit.Location): void;
   setTargetLocation(arg0: j_org_bukkit.Location, arg1: boolean): void;
 }
@@ -1147,7 +1144,7 @@ export interface EntityMembers {
   setGravity(arg0: boolean): void;
   setInvisible(arg0: boolean): void;
   setInvulnerable(arg0: boolean): void;
-  setLastDamageCause(arg0: j_org_bukkit_event_entity.EntityDamageEvent | null): void | null;
+  setLastDamageCause(arg0: j_org_bukkit_event_entity.EntityDamageEvent | null): void;
   setNoPhysics(arg0: boolean): void;
   setPassenger(arg0: Entity): boolean;
   setPersistent(arg0: boolean): void;
@@ -1164,7 +1161,6 @@ export interface EntityMembers {
   setVisualFire(arg0: boolean): void;
   spawnAt(arg0: j_org_bukkit.Location): boolean;
   spawnAt(arg0: j_org_bukkit.Location, arg1: j_org_bukkit_event_entity.CreatureSpawnEvent_SpawnReason): boolean;
-  spigot(): j_org_bukkit_command.CommandSender_Spigot;
   spigot(): Entity_Spigot;
   teamDisplayName(): j_net_kyori_adventure_text.Component;
   teleport(arg0: j_org_bukkit.Location): boolean;
@@ -1406,8 +1402,8 @@ export interface EvokerMembers {
   readonly __javaSupertypes?: readonly [Spellcaster];
   getCurrentSpell(): Evoker_Spell;
   getWololoTarget(): Sheep | null;
-  setCurrentSpell(arg0: Evoker_Spell | null): void | null;
-  setWololoTarget(arg0: Sheep | null): void | null;
+  setCurrentSpell(arg0: Evoker_Spell | null): void;
+  setWololoTarget(arg0: Sheep | null): void;
 }
 export type Evoker = EvokerMembers & Spellcaster;
 export interface EvokerStatics {
@@ -1434,7 +1430,7 @@ export interface EvokerFangsMembers {
   getAttackDelay(): number;
   getOwner(): LivingEntity | null;
   setAttackDelay(arg0: number): void;
-  setOwner(arg0: LivingEntity | null): void | null;
+  setOwner(arg0: LivingEntity | null): void;
 }
 export type EvokerFangs = EvokerFangsMembers & Entity;
 export interface EvokerFangsStatics {
@@ -1543,9 +1539,9 @@ export interface FireworkMembers {
   getTicksToDetonate(): number;
   isDetonated(): boolean;
   isShotAtAngle(): boolean;
-  setAttachedTo(arg0: LivingEntity | null): boolean | null;
+  setAttachedTo(arg0: LivingEntity | null): boolean;
   setFireworkMeta(arg0: j_org_bukkit_inventory_meta.FireworkMeta): void;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setLife(arg0: number): boolean;
   setMaxLife(arg0: number): boolean;
   setShotAtAngle(arg0: boolean): void;
@@ -1588,7 +1584,7 @@ export interface FishHookMembers {
   setApplyLure(arg0: boolean): void;
   /** @throws java.lang.IllegalArgumentException */
   setBiteChance(arg0: number): void;
-  setHookedEntity(arg0: Entity | null): void | null;
+  setHookedEntity(arg0: Entity | null): void;
   setLureAngle(arg0: number, arg1: number): void;
   setLureTime(arg0: number, arg1: number): void;
   setMaxLureAngle(arg0: number): void;
@@ -1642,11 +1638,11 @@ export interface FoxMembers {
   setCrouching(arg0: boolean): void;
   setDefending(arg0: boolean): void;
   setFaceplanted(arg0: boolean): void;
-  setFirstTrustedPlayer(arg0: AnimalTamer | null): void | null;
+  setFirstTrustedPlayer(arg0: AnimalTamer | null): void;
   setFoxType(arg0: Fox_Type): void;
   setInterested(arg0: boolean): void;
   setLeaping(arg0: boolean): void;
-  setSecondTrustedPlayer(arg0: AnimalTamer | null): void | null;
+  setSecondTrustedPlayer(arg0: AnimalTamer | null): void;
   setSleeping(arg0: boolean): void;
 }
 export type Fox = FoxMembers & Animals & Sittable;
@@ -1669,7 +1665,7 @@ export interface FrogMembers {
   readonly __javaSupertypes?: readonly [Animals];
   getTongueTarget(): Entity | null;
   getVariant(): Frog_Variant;
-  setTongueTarget(arg0: Entity | null): void | null;
+  setTongueTarget(arg0: Entity | null): void;
   setVariant(arg0: Frog_Variant): void;
 }
 export type Frog = FrogMembers & Animals;
@@ -1679,7 +1675,6 @@ export interface FrogStatics {
 /** JVM interface org.bukkit.entity.Frog$Variant. */
 export interface Frog_VariantMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<Frog_Variant>, j_org_bukkit.Keyed];
-  compareTo(arg0: object): number;
   compareTo(arg0: Frog_Variant): number;
   getKey(): j_org_bukkit.NamespacedKey;
   key(): JavaOpaque<"net.kyori.adventure.key.Key">;
@@ -1808,9 +1803,7 @@ export interface HoglinStatics {
 export interface HorseMembers {
   readonly __javaSupertypes?: readonly [AbstractHorse];
   getColor(): Horse_Color;
-  getInventory(): j_org_bukkit_inventory.AbstractHorseInventory;
   getInventory(): j_org_bukkit_inventory.HorseInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getStyle(): Horse_Style;
   isCarryingChest(): boolean;
   setCarryingChest(arg0: boolean): void;
@@ -1876,12 +1869,12 @@ export interface HumanEntityMembers {
   discoverRecipes(arg0: JavaCollection<j_org_bukkit.NamespacedKey>): number;
   dropItem(arg0: number): Item | null;
   dropItem(arg0: number, arg1: number): Item | null;
-  dropItem(arg0: number, arg1: number, arg2: boolean, arg3: JavaConsumer<Item>): Item | null;
+  dropItem(arg0: number, arg1: number, arg2: boolean, arg3: JavaConsumer<Item> | null): Item | null;
   dropItem(arg0: j_org_bukkit_inventory.EquipmentSlot): Item | null;
   dropItem(arg0: j_org_bukkit_inventory.EquipmentSlot, arg1: number): Item | null;
-  dropItem(arg0: j_org_bukkit_inventory.EquipmentSlot, arg1: number, arg2: boolean, arg3: JavaConsumer<Item>): Item | null;
+  dropItem(arg0: j_org_bukkit_inventory.EquipmentSlot, arg1: number, arg2: boolean, arg3: JavaConsumer<Item> | null): Item | null;
   dropItem(arg0: j_org_bukkit_inventory.ItemStack): Item | null;
-  dropItem(arg0: j_org_bukkit_inventory.ItemStack, arg1: boolean, arg2: JavaConsumer<Item>): Item | null;
+  dropItem(arg0: j_org_bukkit_inventory.ItemStack, arg1: boolean, arg2: JavaConsumer<Item> | null): Item | null;
   dropItem(arg0: boolean): boolean;
   fireworkBoost(arg0: j_org_bukkit_inventory.ItemStack): Firework | null;
   getAttackCooldown(): number;
@@ -1898,7 +1891,6 @@ export interface HumanEntityMembers {
   getFishHook(): FishHook | null;
   getFoodLevel(): number;
   getGameMode(): j_org_bukkit.GameMode;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getInventory(): j_org_bukkit_inventory.PlayerInventory;
   getItemInHand(): j_org_bukkit_inventory.ItemStack;
   getItemOnCursor(): j_org_bukkit_inventory.ItemStack;
@@ -1921,20 +1913,20 @@ export interface HumanEntityMembers {
   isBlocking(): boolean;
   isDeeplySleeping(): boolean;
   isHandRaised(): boolean;
-  openAnvil(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
-  openCartographyTable(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
-  openEnchanting(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
-  openGrindstone(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openAnvil(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openCartographyTable(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openEnchanting(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openGrindstone(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
   openInventory(arg0: j_org_bukkit_inventory.Inventory): j_org_bukkit_inventory.InventoryView | null;
   openInventory(arg0: j_org_bukkit_inventory.InventoryView): void;
-  openLoom(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openLoom(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
   openMerchant(arg0: Villager, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
   openMerchant(arg0: j_org_bukkit_inventory.Merchant, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
   openSign(arg0: j_org_bukkit_block.Sign): void;
   openSign(arg0: j_org_bukkit_block.Sign, arg1: j_org_bukkit_block_sign.Side): void;
-  openSmithingTable(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
-  openStonecutter(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
-  openWorkbench(arg0: j_org_bukkit.Location, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openSmithingTable(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openStonecutter(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
+  openWorkbench(arg0: j_org_bukkit.Location | null, arg1: boolean): j_org_bukkit_inventory.InventoryView | null;
   releaseLeftShoulderEntity(): Entity | null;
   releaseRightShoulderEntity(): Entity | null;
   setCooldown(arg0: JavaOpaque<"net.kyori.adventure.key.Key">, arg1: number): void;
@@ -1945,18 +1937,18 @@ export interface HumanEntityMembers {
   setFoodLevel(arg0: number): void;
   setGameMode(arg0: j_org_bukkit.GameMode): void;
   setHurtDirection(arg0: number): void;
-  setItemInHand(arg0: j_org_bukkit_inventory.ItemStack): void | null;
-  setItemOnCursor(arg0: j_org_bukkit_inventory.ItemStack): void | null;
-  setLastDeathLocation(arg0: j_org_bukkit.Location): void | null;
+  setItemInHand(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setItemOnCursor(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setLastDeathLocation(arg0: j_org_bukkit.Location | null): void;
   setSaturatedRegenRate(arg0: number): void;
   setSaturation(arg0: number): void;
-  setShoulderEntityLeft(arg0: Entity): void | null;
-  setShoulderEntityRight(arg0: Entity): void | null;
+  setShoulderEntityLeft(arg0: Entity | null): void;
+  setShoulderEntityRight(arg0: Entity | null): void;
   setStarvationRate(arg0: number): void;
   setUnsaturatedRegenRate(arg0: number): void;
   setWindowProperty(arg0: j_org_bukkit_inventory.InventoryView_Property, arg1: number): boolean;
   sleep(arg0: j_org_bukkit.Location, arg1: boolean): boolean;
-  startRiptideAttack(arg0: number, arg1: number, arg2: j_org_bukkit_inventory.ItemStack): void | null;
+  startRiptideAttack(arg0: number, arg1: number, arg2: j_org_bukkit_inventory.ItemStack | null): void;
   undiscoverRecipe(arg0: j_org_bukkit.NamespacedKey): boolean;
   undiscoverRecipes(arg0: JavaCollection<j_org_bukkit.NamespacedKey>): number;
   wakeup(arg0: boolean): void;
@@ -2042,9 +2034,9 @@ export interface ItemMembers {
   setCanPlayerPickup(arg0: boolean): void;
   setHealth(arg0: number): void;
   setItemStack(arg0: j_org_bukkit_inventory.ItemStack): void;
-  setOwner(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setOwner(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setPickupDelay(arg0: number): void;
-  setThrower(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setThrower(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setUnlimitedLifetime(arg0: boolean): void;
   setWillAge(arg0: boolean): void;
   willAge(): boolean;
@@ -2059,7 +2051,7 @@ export interface ItemDisplayMembers {
   getItemDisplayTransform(): ItemDisplay_ItemDisplayTransform;
   getItemStack(): j_org_bukkit_inventory.ItemStack;
   setItemDisplayTransform(arg0: ItemDisplay_ItemDisplayTransform): void;
-  setItemStack(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItemStack(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type ItemDisplay = ItemDisplayMembers & Display;
 export interface ItemDisplayStatics {
@@ -2092,8 +2084,8 @@ export interface ItemFrameMembers {
   isFixed(): boolean;
   isVisible(): boolean;
   setFixed(arg0: boolean): void;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null, arg1: boolean): void | null;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null, arg1: boolean): void;
   setItemDropChance(arg0: number): void;
   /** @throws java.lang.IllegalArgumentException */
   setRotation(arg0: j_org_bukkit.Rotation_2): void;
@@ -2128,12 +2120,10 @@ export interface LightningStrikeMembers {
   getFlashes(): number;
   getLifeTicks(): number;
   isEffect(): boolean;
-  setCausingPlayer(arg0: Player | null): void | null;
+  setCausingPlayer(arg0: Player | null): void;
   setFlashCount(arg0: number): void;
   setFlashes(arg0: number): void;
   setLifeTicks(arg0: number): void;
-  spigot(): j_org_bukkit_command.CommandSender_Spigot;
-  spigot(): Entity_Spigot;
   spigot(): LightningStrike_Spigot;
 }
 export type LightningStrike = LightningStrikeMembers & Entity;
@@ -2209,10 +2199,10 @@ export interface LivingEntityMembers {
   getItemUseRemainingTime(): number;
   getKiller(): Player | null;
   getLastDamage(): number;
-  getLastTwoTargetBlocks(arg0: JavaSet<j_org_bukkit.Material> | null, arg1: number): JavaList<j_org_bukkit_block.Block> | null;
+  getLastTwoTargetBlocks(arg0: JavaSet<j_org_bukkit.Material> | null, arg1: number): JavaList<j_org_bukkit_block.Block>;
   /** @throws java.lang.IllegalStateException */
   getLeashHolder(): Entity;
-  getLineOfSight(arg0: JavaSet<j_org_bukkit.Material> | null, arg1: number): JavaList<j_org_bukkit_block.Block> | null;
+  getLineOfSight(arg0: JavaSet<j_org_bukkit.Material> | null, arg1: number): JavaList<j_org_bukkit_block.Block>;
   getMaximumAir(): number;
   getMaximumNoDamageTicks(): number;
   getMemory<T>(arg0: j_org_bukkit_entity_memory.MemoryKey<T>): T | null;
@@ -2227,7 +2217,7 @@ export interface LivingEntityMembers {
   getSidewaysMovement(): number;
   getTargetBlock(arg0: number): j_org_bukkit_block.Block | null;
   getTargetBlock(arg0: number, arg1: j_com_destroystokyo_paper_block.TargetBlockInfo_FluidMode): j_org_bukkit_block.Block | null;
-  getTargetBlock(arg0: JavaSet<j_org_bukkit.Material> | null, arg1: number): j_org_bukkit_block.Block | null;
+  getTargetBlock(arg0: JavaSet<j_org_bukkit.Material> | null, arg1: number): j_org_bukkit_block.Block;
   getTargetBlockExact(arg0: number): j_org_bukkit_block.Block | null;
   getTargetBlockExact(arg0: number, arg1: j_org_bukkit.FluidCollisionMode): j_org_bukkit_block.Block | null;
   getTargetBlockFace(arg0: number): j_org_bukkit_block.BlockFace | null;
@@ -2278,12 +2268,12 @@ export interface LivingEntityMembers {
   setHurtDirection(arg0: number): void;
   setItemInUseTicks(arg0: number): void;
   setJumping(arg0: boolean): void;
-  setKiller(arg0: Player | null): void | null;
+  setKiller(arg0: Player | null): void;
   setLastDamage(arg0: number): void;
-  setLeashHolder(arg0: Entity | null): boolean | null;
+  setLeashHolder(arg0: Entity | null): boolean;
   setMaximumAir(arg0: number): void;
   setMaximumNoDamageTicks(arg0: number): void;
-  setMemory<T>(arg0: j_org_bukkit_entity_memory.MemoryKey<T>, arg1: T | null): void | null;
+  setMemory<T>(arg0: j_org_bukkit_entity_memory.MemoryKey<T>, arg1: T | null): void;
   setNextArrowRemoval(arg0: number): void;
   setNextBeeStingerRemoval(arg0: number): void;
   setNoActionTicks(arg0: number): void;
@@ -2308,8 +2298,6 @@ export interface LlamaMembers {
   getCaravanHead(): Llama | null;
   getCaravanTail(): Llama | null;
   getColor(): Llama_Color;
-  getInventory(): j_org_bukkit_inventory.AbstractHorseInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getInventory(): j_org_bukkit_inventory.LlamaInventory;
   getStrength(): number;
   hasCaravanTail(): boolean;
@@ -2374,8 +2362,8 @@ export interface MinecartMembers {
   isSlowWhenEmpty(): boolean;
   setDamage(arg0: number): void;
   setDerailedVelocityMod(arg0: j_org_bukkit_util.Vector): void;
-  setDisplayBlock(arg0: j_org_bukkit_material.MaterialData | null): void | null;
-  setDisplayBlockData(arg0: j_org_bukkit_block_data.BlockData | null): void | null;
+  setDisplayBlock(arg0: j_org_bukkit_material.MaterialData | null): void;
+  setDisplayBlockData(arg0: j_org_bukkit_block_data.BlockData | null): void;
   setDisplayBlockOffset(arg0: number): void;
   setFlyingVelocityMod(arg0: j_org_bukkit_util.Vector): void;
   setMaxSpeed(arg0: number): void;
@@ -2410,8 +2398,8 @@ export interface MobMembers {
   setAware(arg0: boolean): void;
   setDespawnInPeacefulOverride(arg0: j_net_kyori_adventure_util.TriState): void;
   setLeftHanded(arg0: boolean): void;
-  setLootTable(arg0: j_org_bukkit_loot.LootTable, arg1: bigint): void | null;
-  setTarget(arg0: LivingEntity): void | null;
+  setLootTable(arg0: j_org_bukkit_loot.LootTable | null, arg1: bigint): void;
+  setTarget(arg0: LivingEntity | null): void;
   shouldDespawnInPeaceful(): boolean;
 }
 export type Mob = MobMembers & j_io_papermc_paper_entity.Leashable & LivingEntity & j_org_bukkit_loot.Lootable;
@@ -2448,7 +2436,7 @@ export interface MushroomCowMembers {
   hasEffectForNextStew(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
   hasEffectsForNextStew(): boolean;
   removeEffectFromNextStew(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
-  setStewEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void | null;
+  setStewEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
   setStewEffectDuration(arg0: number): void;
   setStewEffects(arg0: JavaList<j_io_papermc_paper_potion.SuspiciousEffectEntry>): void;
   setVariant(arg0: MushroomCow_Variant): void;
@@ -2508,7 +2496,7 @@ export interface OminousItemSpawnerMembers {
   readonly __javaSupertypes?: readonly [Entity];
   getItem(): j_org_bukkit_inventory.ItemStack;
   getSpawnItemAfterTicks(): bigint;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setSpawnItemAfterTicks(arg0: bigint): void;
 }
 export type OminousItemSpawner = OminousItemSpawnerMembers & Entity;
@@ -2604,7 +2592,7 @@ export interface PhantomMembers {
   getAnchorLocation(): j_org_bukkit.Location | null;
   getSize(): number;
   getSpawningEntity(): JavaOpaque<"java.util.UUID"> | null;
-  setAnchorLocation(arg0: j_org_bukkit.Location | null): void | null;
+  setAnchorLocation(arg0: j_org_bukkit.Location | null): void;
   setShouldBurnInDay(arg0: boolean): void;
   setSize(arg0: number): void;
   shouldBurnInDay(): boolean;
@@ -2707,27 +2695,27 @@ export interface PlayerMembers {
   activeBossBars(): Iterable<j_net_kyori_adventure_bossbar.BossBar>;
   addAdditionalChatCompletions(arg0: JavaCollection<string>): void;
   addCustomChatCompletions(arg0: JavaCollection<string>): void;
-  addResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number>, arg3: string, arg4: boolean): void | null;
+  addResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number> | null, arg3: string | null, arg4: boolean): void;
   applyMending(arg0: number): number;
   asHoverEvent(arg0: JavaOpaque<"java.util.function.UnaryOperator", [j_net_kyori_adventure_text_event.HoverEvent_ShowEntity]>): j_net_kyori_adventure_text_event.HoverEvent<j_net_kyori_adventure_text_event.HoverEvent_ShowEntity>;
-  ban<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: string, arg1: JavaOpaque<"java.time.Duration">, arg2: string, arg3: boolean): E | null;
-  ban<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: string, arg1: JavaOpaque<"java.time.Instant">, arg2: string, arg3: boolean): E | null;
-  ban<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: string, arg1: JavaOpaque<"java.util.Date">, arg2: string, arg3: boolean): E | null;
-  banIp(arg0: string, arg1: JavaOpaque<"java.time.Duration">, arg2: string, arg3: boolean): j_org_bukkit.BanEntry<JavaOpaque<"java.net.InetAddress">> | null;
-  banIp(arg0: string, arg1: JavaOpaque<"java.time.Instant">, arg2: string, arg3: boolean): j_org_bukkit.BanEntry<JavaOpaque<"java.net.InetAddress">> | null;
-  banIp(arg0: string, arg1: JavaOpaque<"java.util.Date">, arg2: string, arg3: boolean): j_org_bukkit.BanEntry<JavaOpaque<"java.net.InetAddress">> | null;
-  banPlayerFull(arg0: string): j_org_bukkit.BanEntry | null;
-  banPlayerFull(arg0: string, arg1: string): j_org_bukkit.BanEntry | null;
-  banPlayerFull(arg0: string, arg1: JavaOpaque<"java.util.Date">): j_org_bukkit.BanEntry | null;
-  banPlayerFull(arg0: string, arg1: JavaOpaque<"java.util.Date">, arg2: string): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: string): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: string, arg2: boolean): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: JavaOpaque<"java.util.Date">): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: JavaOpaque<"java.util.Date">, arg2: string): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: JavaOpaque<"java.util.Date">, arg2: string, arg3: boolean): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: JavaOpaque<"java.util.Date">, arg2: boolean): j_org_bukkit.BanEntry | null;
-  banPlayerIP(arg0: string, arg1: boolean): j_org_bukkit.BanEntry | null;
+  ban<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: string | null, arg1: JavaOpaque<"java.time.Duration"> | null, arg2: string | null, arg3: boolean): E | null;
+  ban<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: string | null, arg1: JavaOpaque<"java.time.Instant"> | null, arg2: string | null, arg3: boolean): E | null;
+  ban<E /* extends j_org_bukkit.BanEntry<j_com_destroystokyo_paper_profile.PlayerProfile> */>(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: string | null, arg3: boolean): E | null;
+  banIp(arg0: string | null, arg1: JavaOpaque<"java.time.Duration"> | null, arg2: string | null, arg3: boolean): j_org_bukkit.BanEntry<JavaOpaque<"java.net.InetAddress">> | null;
+  banIp(arg0: string | null, arg1: JavaOpaque<"java.time.Instant"> | null, arg2: string | null, arg3: boolean): j_org_bukkit.BanEntry<JavaOpaque<"java.net.InetAddress">> | null;
+  banIp(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: string | null, arg3: boolean): j_org_bukkit.BanEntry<JavaOpaque<"java.net.InetAddress">> | null;
+  banPlayerFull(arg0: string | null): j_org_bukkit.BanEntry | null;
+  banPlayerFull(arg0: string | null, arg1: string | null): j_org_bukkit.BanEntry | null;
+  banPlayerFull(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null): j_org_bukkit.BanEntry | null;
+  banPlayerFull(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: string | null): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: string | null): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: string | null, arg2: boolean): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: string | null): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: string | null, arg3: boolean): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: JavaOpaque<"java.util.Date"> | null, arg2: boolean): j_org_bukkit.BanEntry | null;
+  banPlayerIP(arg0: string | null, arg1: boolean): j_org_bukkit.BanEntry | null;
   boostElytra(arg0: j_org_bukkit_inventory.ItemStack): Firework | null;
   breakBlock(arg0: j_org_bukkit_block.Block): boolean;
   calculateTotalExperiencePoints(): number;
@@ -2735,7 +2723,7 @@ export interface PlayerMembers {
   canSee(arg0: Player): boolean;
   chat(arg0: string): void;
   displayName(): j_net_kyori_adventure_text.Component;
-  displayName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  displayName(arg0: j_net_kyori_adventure_text.Component | null): void;
   getAddress(): JavaOpaque<"java.net.InetSocketAddress"> | null;
   getAdvancementProgress(arg0: j_org_bukkit_advancement.Advancement): j_org_bukkit_advancement.AdvancementProgress;
   getAffectsSpawning(): boolean;
@@ -2816,9 +2804,9 @@ export interface PlayerMembers {
   isSprinting(): boolean;
   isTransferred(): boolean;
   kick(): void;
-  kick(arg0: j_net_kyori_adventure_text.Component): void | null;
-  kick(arg0: j_net_kyori_adventure_text.Component, arg1: j_org_bukkit_event_player.PlayerKickEvent_Cause): void | null;
-  kickPlayer(arg0: string): void | null;
+  kick(arg0: j_net_kyori_adventure_text.Component | null): void;
+  kick(arg0: j_net_kyori_adventure_text.Component | null, arg1: j_org_bukkit_event_player.PlayerKickEvent_Cause): void;
+  kickPlayer(arg0: string | null): void;
   listPlayer(arg0: Player): boolean;
   loadData(): void;
   locale(): JavaOpaque<"java.util.Locale">;
@@ -2829,7 +2817,7 @@ export interface PlayerMembers {
   openVirtualSign(arg0: j_io_papermc_paper_math.Position, arg1: j_org_bukkit_block_sign.Side): void;
   performCommand(arg0: string): boolean;
   playEffect(arg0: j_org_bukkit.Location, arg1: j_org_bukkit.Effect, arg2: number): void;
-  playEffect<T>(arg0: j_org_bukkit.Location, arg1: j_org_bukkit.Effect, arg2: T): void | null;
+  playEffect<T>(arg0: j_org_bukkit.Location, arg1: j_org_bukkit.Effect, arg2: T | null): void;
   playNote(arg0: j_org_bukkit.Location, arg1: number, arg2: number): void;
   playNote(arg0: j_org_bukkit.Location, arg1: j_org_bukkit.Instrument, arg2: j_org_bukkit.Note): void;
   playSound(arg0: j_org_bukkit.Location, arg1: string, arg2: number, arg3: number): void;
@@ -2847,7 +2835,7 @@ export interface PlayerMembers {
   playerListFooter(): j_net_kyori_adventure_text.Component | null;
   playerListHeader(): j_net_kyori_adventure_text.Component | null;
   playerListName(): j_net_kyori_adventure_text.Component;
-  playerListName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  playerListName(arg0: j_net_kyori_adventure_text.Component | null): void;
   removeAdditionalChatCompletions(arg0: JavaCollection<string>): void;
   removeCustomChatCompletions(arg0: JavaCollection<string>): void;
   removeResourcePack(arg0: JavaOpaque<"java.util.UUID">): void;
@@ -2872,8 +2860,8 @@ export interface PlayerMembers {
   /** @throws java.lang.IllegalArgumentException */
   sendBlockUpdate(arg0: j_org_bukkit.Location, arg1: j_org_bukkit_block.TileState): void;
   sendEntityEffect(arg0: j_org_bukkit.EntityEffect, arg1: Entity): void;
-  sendEquipmentChange(arg0: LivingEntity, arg1: JavaMap<j_org_bukkit_inventory.EquipmentSlot, j_org_bukkit_inventory.ItemStack>): void | null;
-  sendEquipmentChange(arg0: LivingEntity, arg1: j_org_bukkit_inventory.EquipmentSlot, arg2: j_org_bukkit_inventory.ItemStack): void | null;
+  sendEquipmentChange(arg0: LivingEntity, arg1: JavaMap<j_org_bukkit_inventory.EquipmentSlot, j_org_bukkit_inventory.ItemStack> | null): void;
+  sendEquipmentChange(arg0: LivingEntity, arg1: j_org_bukkit_inventory.EquipmentSlot, arg2: j_org_bukkit_inventory.ItemStack | null): void;
   sendExperienceChange(arg0: number): void;
   sendExperienceChange(arg0: number, arg1: number): void;
   sendHealthUpdate(): void;
@@ -2891,30 +2879,30 @@ export interface PlayerMembers {
   sendPotionEffectChangeRemove(arg0: LivingEntity, arg1: j_org_bukkit_potion.PotionEffectType): void;
   sendRawMessage(arg0: string): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component>): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component> | null): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component>, arg2: j_org_bukkit.DyeColor): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component> | null, arg2: j_org_bukkit.DyeColor): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component>, arg2: j_org_bukkit.DyeColor, arg3: boolean): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component> | null, arg2: j_org_bukkit.DyeColor, arg3: boolean): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component>, arg2: boolean): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: JavaList<j_net_kyori_adventure_text.Component> | null, arg2: boolean): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: Array<string>): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: Array<string> | null): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: Array<string>, arg2: j_org_bukkit.DyeColor): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: Array<string> | null, arg2: j_org_bukkit.DyeColor): void;
   /** @throws java.lang.IllegalArgumentException */
-  sendSignChange(arg0: j_org_bukkit.Location, arg1: Array<string>, arg2: j_org_bukkit.DyeColor, arg3: boolean): void | null;
+  sendSignChange(arg0: j_org_bukkit.Location, arg1: Array<string> | null, arg2: j_org_bukkit.DyeColor, arg3: boolean): void;
   sendTitle(arg0: j_com_destroystokyo_paper.Title): void;
-  sendTitle(arg0: string, arg1: string): void | null;
-  sendTitle(arg0: string, arg1: string, arg2: number, arg3: number, arg4: number): void | null;
+  sendTitle(arg0: string | null, arg1: string | null): void;
+  sendTitle(arg0: string | null, arg1: string | null, arg2: number, arg3: number, arg4: number): void;
   setAffectsSpawning(arg0: boolean): void;
   setAllowFlight(arg0: boolean): void;
-  setBedSpawnLocation(arg0: j_org_bukkit.Location): void | null;
-  setBedSpawnLocation(arg0: j_org_bukkit.Location, arg1: boolean): void | null;
+  setBedSpawnLocation(arg0: j_org_bukkit.Location | null): void;
+  setBedSpawnLocation(arg0: j_org_bukkit.Location | null, arg1: boolean): void;
   setCompassTarget(arg0: j_org_bukkit.Location): void;
   setCustomChatCompletions(arg0: JavaCollection<string>): void;
   setDeathScreenScore(arg0: number): void;
-  setDisplayName(arg0: string): void | null;
+  setDisplayName(arg0: string | null): void;
   setExp(arg0: number): void;
   setExpCooldown(arg0: number): void;
   setExperienceLevelAndProgress(arg0: number): void;
@@ -2928,12 +2916,12 @@ export interface PlayerMembers {
   setHealthScaled(arg0: boolean): void;
   setLevel(arg0: number): void;
   setNoTickViewDistance(arg0: number): void;
-  setPlayerListFooter(arg0: string): void | null;
-  setPlayerListHeader(arg0: string): void | null;
-  setPlayerListHeaderFooter(arg0: string, arg1: string): void | null;
-  setPlayerListHeaderFooter(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void | null;
-  setPlayerListHeaderFooter(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void | null;
-  setPlayerListName(arg0: string): void | null;
+  setPlayerListFooter(arg0: string | null): void;
+  setPlayerListHeader(arg0: string | null): void;
+  setPlayerListHeaderFooter(arg0: string | null, arg1: string | null): void;
+  setPlayerListHeaderFooter(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): void;
+  setPlayerListHeaderFooter(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): void;
+  setPlayerListName(arg0: string | null): void;
   setPlayerListOrder(arg0: number): void;
   setPlayerProfile(arg0: j_com_destroystokyo_paper_profile.PlayerProfile): void;
   setPlayerTime(arg0: bigint, arg1: boolean): void;
@@ -2941,18 +2929,18 @@ export interface PlayerMembers {
   setResourcePack(arg0: string): void;
   setResourcePack(arg0: string, arg1: string): void;
   setResourcePack(arg0: string, arg1: string, arg2: boolean): void;
-  setResourcePack(arg0: string, arg1: string, arg2: boolean, arg3: j_net_kyori_adventure_text.Component): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: string): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: string, arg3: boolean): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: j_net_kyori_adventure_text.Component): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: j_net_kyori_adventure_text.Component, arg3: boolean): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: boolean): void | null;
-  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: string, arg3: j_net_kyori_adventure_text.Component, arg4: boolean): void | null;
-  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number>, arg3: string, arg4: boolean): void | null;
-  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number>, arg3: j_net_kyori_adventure_text.Component, arg4: boolean): void | null;
-  setRespawnLocation(arg0: j_org_bukkit.Location): void | null;
-  setRespawnLocation(arg0: j_org_bukkit.Location, arg1: boolean): void | null;
+  setResourcePack(arg0: string, arg1: string, arg2: boolean, arg3: j_net_kyori_adventure_text.Component | null): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: string | null): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: string | null, arg3: boolean): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: j_net_kyori_adventure_text.Component | null): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: j_net_kyori_adventure_text.Component | null, arg3: boolean): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: boolean): void;
+  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: string, arg3: j_net_kyori_adventure_text.Component | null, arg4: boolean): void;
+  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number> | null, arg3: string | null, arg4: boolean): void;
+  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number> | null, arg3: j_net_kyori_adventure_text.Component | null, arg4: boolean): void;
+  setRespawnLocation(arg0: j_org_bukkit.Location | null): void;
+  setRespawnLocation(arg0: j_org_bukkit.Location | null, arg1: boolean): void;
   setRotation(arg0: number, arg1: number): void;
   /** @throws java.lang.IllegalArgumentException @throws java.lang.IllegalStateException */
   setScoreboard(arg0: j_org_bukkit_scoreboard.Scoreboard): void;
@@ -2960,7 +2948,7 @@ export interface PlayerMembers {
   setSimulationDistance(arg0: number): void;
   setSleepingIgnored(arg0: boolean): void;
   setSneaking(arg0: boolean): void;
-  setSpectatorTarget(arg0: Entity): void | null;
+  setSpectatorTarget(arg0: Entity | null): void;
   setSprinting(arg0: boolean): void;
   setSubtitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
   setSubtitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void;
@@ -2973,40 +2961,38 @@ export interface PlayerMembers {
   setWardenTimeSinceLastWarning(arg0: number): void;
   setWardenWarningCooldown(arg0: number): void;
   setWardenWarningLevel(arg0: number): void;
-  setWorldBorder(arg0: j_org_bukkit.WorldBorder): void | null;
+  setWorldBorder(arg0: j_org_bukkit.WorldBorder | null): void;
   showDemoScreen(): void;
   showElderGuardian(): void;
   showElderGuardian(arg0: boolean): void;
   showEntity(arg0: j_org_bukkit_plugin.Plugin, arg1: Entity): void;
   showPlayer(arg0: Player): void;
   showPlayer(arg0: j_org_bukkit_plugin.Plugin, arg1: Player): void;
-  showTitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void | null;
-  showTitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">, arg2: number, arg3: number, arg4: number): void | null;
-  showTitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void | null;
-  showTitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>, arg2: number, arg3: number, arg4: number): void | null;
+  showTitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): void;
+  showTitle(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null, arg2: number, arg3: number, arg4: number): void;
+  showTitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): void;
+  showTitle(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null, arg2: number, arg3: number, arg4: number): void;
   showWinScreen(): void;
   spawnParticle(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number): void;
   spawnParticle(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number): void;
   spawnParticle(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number): void;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: T): void | null;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: T, arg10: boolean): void | null;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: T): void | null;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: T): void | null;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: T | null): void;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: T | null, arg10: boolean): void;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: T | null): void;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: number, arg2: number, arg3: number, arg4: number, arg5: T | null): void;
   spawnParticle(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number): void;
   spawnParticle(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number): void;
   spawnParticle(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number): void;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: T): void | null;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: T, arg8: boolean): void | null;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: T): void | null;
-  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: T): void | null;
-  spigot(): j_org_bukkit_command.CommandSender_Spigot;
-  spigot(): Entity_Spigot;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: T | null): void;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: T | null, arg8: boolean): void;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: number, arg4: number, arg5: number, arg6: T | null): void;
+  spawnParticle<T>(arg0: j_org_bukkit.Particle, arg1: j_org_bukkit.Location, arg2: number, arg3: T | null): void;
   spigot(): Player_Spigot;
   stopAllSounds(): void;
   stopSound(arg0: string): void;
-  stopSound(arg0: string, arg1: j_org_bukkit.SoundCategory): void | null;
+  stopSound(arg0: string, arg1: j_org_bukkit.SoundCategory | null): void;
   stopSound(arg0: j_org_bukkit.Sound_2): void;
-  stopSound(arg0: j_org_bukkit.Sound_2, arg1: j_org_bukkit.SoundCategory): void | null;
+  stopSound(arg0: j_org_bukkit.Sound_2, arg1: j_org_bukkit.SoundCategory | null): void;
   stopSound(arg0: j_org_bukkit.SoundCategory): void;
   storeCookie(arg0: j_org_bukkit.NamespacedKey, arg1: Array<number>): void;
   transfer(arg0: string, arg1: number): void;
@@ -3026,8 +3012,8 @@ export interface Player_SpigotMembers {
   getPing(): number;
   getRawAddress(): JavaOpaque<"java.net.InetSocketAddress">;
   respawn(): void;
-  sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.ChatMessageType">, arg1: JavaOpaque<"java.util.UUID">, arg2: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void | null;
-  sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.ChatMessageType">, arg1: JavaOpaque<"java.util.UUID">, ...arg2: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void | null;
+  sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.ChatMessageType">, arg1: JavaOpaque<"java.util.UUID"> | null, arg2: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
+  sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.ChatMessageType">, arg1: JavaOpaque<"java.util.UUID"> | null, ...arg2: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void;
   sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.ChatMessageType">, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
   sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.ChatMessageType">, ...arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void;
   sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
@@ -3089,7 +3075,7 @@ export interface ProjectileMembers {
   setBounce(arg0: boolean): void;
   setHasBeenShot(arg0: boolean): void;
   setHasLeftShooter(arg0: boolean): void;
-  setShooter(arg0: j_org_bukkit_projectiles.ProjectileSource | null): void | null;
+  setShooter(arg0: j_org_bukkit_projectiles.ProjectileSource | null): void;
 }
 export type Projectile = ProjectileMembers & Entity;
 export interface ProjectileStatics {
@@ -3147,8 +3133,8 @@ export interface RaiderMembers {
   setCanJoinRaid(arg0: boolean): void;
   setCelebrating(arg0: boolean): void;
   setPatrolLeader(arg0: boolean): void;
-  setPatrolTarget(arg0: j_org_bukkit_block.Block | null): void | null;
-  setRaid(arg0: j_org_bukkit.Raid | null): void | null;
+  setPatrolTarget(arg0: j_org_bukkit_block.Block | null): void;
+  setRaid(arg0: j_org_bukkit.Raid | null): void;
   setTicksOutsideRaid(arg0: number): void;
   setWave(arg0: number): void;
 }
@@ -3230,9 +3216,9 @@ export interface ShulkerBulletMembers {
   getFlightSteps(): number;
   getTarget(): Entity | null;
   getTargetDelta(): j_org_bukkit_util.Vector;
-  setCurrentMovementDirection(arg0: j_org_bukkit_block.BlockFace | null): void | null;
+  setCurrentMovementDirection(arg0: j_org_bukkit_block.BlockFace | null): void;
   setFlightSteps(arg0: number): void;
-  setTarget(arg0: Entity | null): void | null;
+  setTarget(arg0: Entity | null): void;
   setTargetDelta(arg0: j_org_bukkit_util.Vector): void;
 }
 export type ShulkerBullet = ShulkerBulletMembers & Projectile;
@@ -3502,7 +3488,7 @@ export interface TameableMembers {
   getOwner(): AnimalTamer | null;
   getOwnerUniqueId(): JavaOpaque<"java.util.UUID"> | null;
   isTamed(): boolean;
-  setOwner(arg0: AnimalTamer | null): void | null;
+  setOwner(arg0: AnimalTamer | null): void;
   setTamed(arg0: boolean): void;
 }
 export type Tameable = TameableMembers & Animals;
@@ -3521,15 +3507,15 @@ export interface TextDisplayMembers {
   isSeeThrough(): boolean;
   isShadowed(): boolean;
   setAlignment(arg0: TextDisplay_TextAlignment): void;
-  setBackgroundColor(arg0: j_org_bukkit.Color | null): void | null;
+  setBackgroundColor(arg0: j_org_bukkit.Color | null): void;
   setDefaultBackground(arg0: boolean): void;
   setLineWidth(arg0: number): void;
   setSeeThrough(arg0: boolean): void;
   setShadowed(arg0: boolean): void;
-  setText(arg0: string | null): void | null;
+  setText(arg0: string | null): void;
   setTextOpacity(arg0: number): void;
   text(): j_net_kyori_adventure_text.Component;
-  text(arg0: j_net_kyori_adventure_text.Component): void | null;
+  text(arg0: j_net_kyori_adventure_text.Component | null): void;
 }
 export type TextDisplay = TextDisplayMembers & Display;
 export interface TextDisplayStatics {
@@ -3596,7 +3582,7 @@ export interface TNTPrimedMembers {
   getSourceLoc(): j_org_bukkit.Location;
   setBlockData(arg0: j_org_bukkit_block_data.BlockData): void;
   setFuseTicks(arg0: number): void;
-  setSource(arg0: Entity | null): void | null;
+  setSource(arg0: Entity | null): void;
 }
 export type TNTPrimed = TNTPrimedMembers & Explosive;
 export interface TNTPrimedStatics {
@@ -3696,12 +3682,12 @@ export interface VexMembers {
   hasLimitedLife(): boolean;
   hasLimitedLifetime(): boolean;
   isCharging(): boolean;
-  setBound(arg0: j_org_bukkit.Location | null): void | null;
+  setBound(arg0: j_org_bukkit.Location | null): void;
   setCharging(arg0: boolean): void;
   setLifeTicks(arg0: number): void;
   setLimitedLifetime(arg0: boolean): void;
   setLimitedLifetimeTicks(arg0: number): void;
-  setSummoner(arg0: Mob | null): void | null;
+  setSummoner(arg0: Mob | null): void;
 }
 export type Vex = VexMembers & Monster;
 export interface VexStatics {
@@ -3741,7 +3727,6 @@ export interface VillagerStatics {
 /** JVM interface org.bukkit.entity.Villager$Profession. */
 export interface Villager_ProfessionMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<Villager_Profession>, j_org_bukkit.Keyed, j_net_kyori_adventure_translation.Translatable];
-  compareTo(arg0: object): number;
   compareTo(arg0: Villager_Profession): number;
   getKey(): j_org_bukkit.NamespacedKey;
   key(): JavaOpaque<"net.kyori.adventure.key.Key">;
@@ -3773,7 +3758,6 @@ export interface Villager_ProfessionStatics {
 /** JVM interface org.bukkit.entity.Villager$Type. */
 export interface Villager_TypeMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<Villager_Type>, j_org_bukkit.Keyed];
-  compareTo(arg0: object): number;
   compareTo(arg0: Villager_Type): number;
   getKey(): j_org_bukkit.NamespacedKey;
   key(): JavaOpaque<"net.kyori.adventure.key.Key">;
@@ -3813,7 +3797,7 @@ export interface WanderingTraderMembers {
   setCanDrinkMilk(arg0: boolean): void;
   setCanDrinkPotion(arg0: boolean): void;
   setDespawnDelay(arg0: number): void;
-  setWanderingTowards(arg0: j_org_bukkit.Location | null): void | null;
+  setWanderingTowards(arg0: j_org_bukkit.Location | null): void;
 }
 export type WanderingTrader = WanderingTraderMembers & AbstractVillager;
 export interface WanderingTraderStatics {
@@ -3870,7 +3854,7 @@ export interface WitchMembers {
   getDrinkingPotion(): j_org_bukkit_inventory.ItemStack;
   getPotionUseTimeLeft(): number;
   isDrinkingPotion(): boolean;
-  setDrinkingPotion(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setDrinkingPotion(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setPotionUseTimeLeft(arg0: number): void;
 }
 export type Witch = WitchMembers & j_com_destroystokyo_paper_entity.RangedEntity & Raider;
@@ -3889,8 +3873,8 @@ export interface WitherMembers {
   setCanTravelThroughPortals(arg0: boolean): void;
   setInvulnerabilityTicks(arg0: number): void;
   setInvulnerableTicks(arg0: number): void;
-  setTarget(arg0: LivingEntity | null): void | null;
-  setTarget(arg0: Wither_Head, arg1: LivingEntity | null): void | null;
+  setTarget(arg0: LivingEntity | null): void;
+  setTarget(arg0: Wither_Head, arg1: LivingEntity | null): void;
 }
 export type Wither = WitherMembers & j_com_destroystokyo_paper_entity.RangedEntity & Boss & Monster;
 export interface WitherStatics {
@@ -4031,7 +4015,7 @@ export interface ZombieVillagerMembers {
   getVillagerProfession(): Villager_Profession;
   getVillagerType(): Villager_Type;
   isConverting(): boolean;
-  setConversionPlayer(arg0: j_org_bukkit.OfflinePlayer | null): void | null;
+  setConversionPlayer(arg0: j_org_bukkit.OfflinePlayer | null): void;
   setConversionTime(arg0: number): void;
   setConversionTime(arg0: number, arg1: boolean): void;
   setVillagerProfession(arg0: Villager_Profession): void;

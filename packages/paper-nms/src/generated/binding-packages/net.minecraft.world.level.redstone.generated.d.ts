@@ -10,10 +10,10 @@ import type * as j_net_minecraft_world_level_block_state from './net.minecraft.w
 /** JVM class net.minecraft.world.level.redstone.CollectingNeighborUpdater. */
 export interface CollectingNeighborUpdaterMembers {
   readonly __javaSupertypes?: readonly [NeighborUpdater];
-  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: Orientation | null): void | null;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: Orientation | null, arg4: boolean): void | null;
+  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: Orientation | null): void;
+  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: Orientation | null, arg4: boolean): void;
   shapeUpdate(arg0: j_net_minecraft_core.Direction, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: number): void;
-  updateNeighborsAtExceptFromFacing(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_core.Direction | null, arg3: Orientation | null): void | null;
+  updateNeighborsAtExceptFromFacing(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_core.Direction | null, arg3: Orientation | null): void;
 }
 export type CollectingNeighborUpdater = CollectingNeighborUpdaterMembers & NeighborUpdater;
 export interface CollectingNeighborUpdaterStatics {
@@ -24,7 +24,7 @@ export interface CollectingNeighborUpdaterStatics {
 export interface DefaultRedstoneWireEvaluatorMembers {
   readonly __javaSupertypes?: readonly [RedstoneWireEvaluator];
   calculateTargetStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  updatePowerStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: Orientation | null, arg4: boolean): void | null;
+  updatePowerStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: Orientation | null, arg4: boolean): void;
 }
 export type DefaultRedstoneWireEvaluator = DefaultRedstoneWireEvaluatorMembers & RedstoneWireEvaluator;
 export interface DefaultRedstoneWireEvaluatorStatics {
@@ -44,8 +44,7 @@ export interface ExperimentalRedstoneUtilsStatics {
 /** JVM class net.minecraft.world.level.redstone.ExperimentalRedstoneWireEvaluator. */
 export interface ExperimentalRedstoneWireEvaluatorMembers {
   readonly __javaSupertypes?: readonly [RedstoneWireEvaluator];
-  getWireSignal(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): number;
-  updatePowerStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: Orientation | null, arg4: boolean): void | null;
+  updatePowerStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: Orientation | null, arg4: boolean): void;
 }
 export type ExperimentalRedstoneWireEvaluator = ExperimentalRedstoneWireEvaluatorMembers & RedstoneWireEvaluator;
 export interface ExperimentalRedstoneWireEvaluatorStatics {
@@ -55,8 +54,8 @@ export interface ExperimentalRedstoneWireEvaluatorStatics {
 /** JVM class net.minecraft.world.level.redstone.InstantNeighborUpdater. */
 export interface InstantNeighborUpdaterMembers {
   readonly __javaSupertypes?: readonly [NeighborUpdater];
-  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: Orientation | null): void | null;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: Orientation | null, arg4: boolean): void | null;
+  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: Orientation | null): void;
+  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: Orientation | null, arg4: boolean): void;
   shapeUpdate(arg0: j_net_minecraft_core.Direction, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: number): void;
 }
 export type InstantNeighborUpdater = InstantNeighborUpdaterMembers & NeighborUpdater;
@@ -66,17 +65,17 @@ export interface InstantNeighborUpdaterStatics {
 
 /** JVM interface net.minecraft.world.level.redstone.NeighborUpdater. */
 export interface NeighborUpdaterMembers {
-  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: Orientation | null): void | null;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: Orientation | null, arg4: boolean): void | null;
+  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: Orientation | null): void;
+  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: Orientation | null, arg4: boolean): void;
   shapeUpdate(arg0: j_net_minecraft_core.Direction, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: number): void;
-  updateNeighborsAtExceptFromFacing(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_core.Direction | null, arg3: Orientation | null): void | null;
+  updateNeighborsAtExceptFromFacing(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_core.Direction | null, arg3: Orientation | null): void;
 }
 export type NeighborUpdater = NeighborUpdaterMembers;
 export interface NeighborUpdaterStatics {
   readonly UPDATE_ORDER: Array<j_net_minecraft_core.Direction>;
   executeShapeUpdate(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_level_block_state.BlockState, arg5: number, arg6: number): void;
-  executeUpdate(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block.Block, arg4: Orientation | null, arg5: boolean): void | null;
-  executeUpdate(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block.Block, arg4: Orientation | null, arg5: boolean, arg6: j_net_minecraft_core.BlockPos): void | null;
+  executeUpdate(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block.Block, arg4: Orientation | null, arg5: boolean): void;
+  executeUpdate(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block.Block, arg4: Orientation | null, arg5: boolean, arg6: j_net_minecraft_core.BlockPos): void;
 }
 
 /** JVM class net.minecraft.world.level.redstone.Orientation. */
@@ -101,7 +100,6 @@ export type Orientation = OrientationMembers;
 export interface OrientationStatics {
   readonly STREAM_CODEC: j_net_minecraft_network_codec.StreamCodec<JavaOpaque<"io.netty.buffer.ByteBuf">, Orientation>;
   fromIndex(arg0: number): Orientation;
-  generateIndex(arg0: j_net_minecraft_core.Direction, arg1: j_net_minecraft_core.Direction, arg2: Orientation_SideBias): number;
   of(arg0: j_net_minecraft_core.Direction, arg1: j_net_minecraft_core.Direction, arg2: Orientation_SideBias): Orientation;
   random(arg0: j_net_minecraft_util.RandomSource): Orientation;
 }
@@ -134,13 +132,8 @@ export interface RedstoneStatics {
 
 /** JVM abstract net.minecraft.world.level.redstone.RedstoneWireEvaluator. */
 export interface RedstoneWireEvaluatorMembers {
-  getBlockSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  getIncomingWireSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  getWireSignal(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): number;
-  updatePowerStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: Orientation | null, arg4: boolean): void | null;
-  readonly wireBlock: j_net_minecraft_world_level_block.RedStoneWireBlock;
+  updatePowerStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: Orientation | null, arg4: boolean): void;
 }
 export type RedstoneWireEvaluator = RedstoneWireEvaluatorMembers;
 export interface RedstoneWireEvaluatorStatics {
-  new(arg0: j_net_minecraft_world_level_block.RedStoneWireBlock): RedstoneWireEvaluator;
 }

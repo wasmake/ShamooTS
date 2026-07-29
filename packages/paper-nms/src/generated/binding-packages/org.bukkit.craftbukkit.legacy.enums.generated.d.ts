@@ -56,8 +56,6 @@ export interface EnumEvil_LegacyRegistryDataStatics {
 export interface ImposterEnumMapMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.AbstractMap", [object, object]>];
   clear(): void;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ImposterEnumMap;
   containsKey(arg0: object): boolean;
   containsValue(arg0: object): boolean;
@@ -85,8 +83,6 @@ export interface ImposterEnumSetMembers {
   add(arg0: object): boolean;
   addAll(arg0: JavaCollection<object>): boolean;
   clear(): void;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ImposterEnumSet;
   contains(arg0: object): boolean;
   containsAll(arg0: JavaCollection<object>): boolean;

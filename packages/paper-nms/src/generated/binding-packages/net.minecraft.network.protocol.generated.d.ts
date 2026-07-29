@@ -16,7 +16,6 @@ export interface BundleDelimiterPacketMembers<T /* extends j_net_minecraft_netwo
 }
 export type BundleDelimiterPacket<T /* extends j_net_minecraft_network.PacketListener */ = unknown> = BundleDelimiterPacketMembers<T> & Packet<T>;
 export interface BundleDelimiterPacketStatics {
-  new<T /* extends j_net_minecraft_network.PacketListener */>(): BundleDelimiterPacket<T>;
 }
 
 /** JVM abstract net.minecraft.network.protocol.BundlePacket. */
@@ -27,7 +26,6 @@ export interface BundlePacketMembers<T /* extends j_net_minecraft_network.Packet
 }
 export type BundlePacket<T /* extends j_net_minecraft_network.PacketListener */ = unknown> = BundlePacketMembers<T> & Packet<T>;
 export interface BundlePacketStatics {
-  new<T /* extends j_net_minecraft_network.PacketListener */>(arg0: Iterable<Packet<T>>): BundlePacket<T>;
 }
 
 /** JVM interface net.minecraft.network.protocol.BundlerInfo. */
@@ -66,8 +64,8 @@ export interface PacketMembers<T /* extends j_net_minecraft_network.PacketListen
   isReady(): boolean;
   isSkippable(): boolean;
   isTerminal(): boolean;
-  onPacketDispatch(arg0: j_net_minecraft_server_level.ServerPlayer | null): void | null;
-  onPacketDispatchFinish(arg0: j_net_minecraft_server_level.ServerPlayer | null, arg1: JavaOpaque<"io.netty.channel.ChannelFuture"> | null): void | null;
+  onPacketDispatch(arg0: j_net_minecraft_server_level.ServerPlayer | null): void;
+  onPacketDispatchFinish(arg0: j_net_minecraft_server_level.ServerPlayer | null, arg1: JavaOpaque<"io.netty.channel.ChannelFuture"> | null): void;
   packetTooLarge(arg0: j_net_minecraft_network.Connection): boolean;
   type(): PacketType<Packet<T>>;
 }
@@ -113,7 +111,7 @@ export interface PacketUtilsStatics {
   ensureRunningOnSameThread<T /* extends j_net_minecraft_network.PacketListener */>(arg0: Packet<T>, arg1: T, arg2: j_net_minecraft_server_level.ServerLevel): void;
   /** @throws net.minecraft.server.RunningOnDifferentThreadException */
   ensureRunningOnSameThread<T /* extends j_net_minecraft_network.PacketListener */>(arg0: Packet<T>, arg1: T, arg2: j_net_minecraft_util_thread.BlockableEventLoop<object>): void;
-  fillCrashReport<T /* extends j_net_minecraft_network.PacketListener */>(arg0: j_net_minecraft.CrashReport, arg1: T, arg2: Packet<T> | null): void | null;
+  fillCrashReport<T /* extends j_net_minecraft_network.PacketListener */>(arg0: j_net_minecraft.CrashReport, arg1: T, arg2: Packet<T> | null): void;
   getCurrentPacketProcessors(): JavaList<j_net_minecraft_network.PacketListener>;
   getTotalProcessedPackets(): bigint;
   makeReportedException<T /* extends j_net_minecraft_network.PacketListener */>(arg0: JavaOpaque<"java.lang.Exception">, arg1: Packet<T>, arg2: T): j_net_minecraft.ReportedException;

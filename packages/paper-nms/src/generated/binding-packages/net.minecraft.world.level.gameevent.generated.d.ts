@@ -178,15 +178,14 @@ export interface GameEvent_ContextMembers {
 export type GameEvent_Context = GameEvent_ContextMembers & JavaOpaque<"java.lang.Record">;
 export interface GameEvent_ContextStatics {
   new(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState | null): GameEvent_Context;
-  of(arg0: j_net_minecraft_world_entity.Entity | null): GameEvent_Context | null;
-  of(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState | null): GameEvent_Context | null;
-  of(arg0: j_net_minecraft_world_level_block_state.BlockState | null): GameEvent_Context | null;
+  of(arg0: j_net_minecraft_world_entity.Entity | null): GameEvent_Context;
+  of(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState | null): GameEvent_Context;
+  of(arg0: j_net_minecraft_world_level_block_state.BlockState | null): GameEvent_Context;
 }
 
 /** JVM class net.minecraft.world.level.gameevent.GameEvent$ListenerInfo. */
 export interface GameEvent_ListenerInfoMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [GameEvent_ListenerInfo]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: GameEvent_ListenerInfo): number;
   context(): GameEvent_Context;
   gameEvent(): j_net_minecraft_core.Holder<GameEvent>;

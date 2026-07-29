@@ -12,7 +12,6 @@ import type * as j_net_minecraft_resources from './net.minecraft.resources.gener
 export interface ClientboundCustomQueryPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientLoginPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientLoginPacketListener): void;
   hashCode(): number;
   payload(): j_net_minecraft_network_protocol_login_custom.CustomQueryPayload;
@@ -48,7 +47,6 @@ export interface ClientboundHelloPacketMembers {
   /** @throws net.minecraft.util.CryptException */
   getPublicKey(): JavaOpaque<"java.security.PublicKey">;
   getServerId(): string;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientLoginPacketListener): void;
   shouldAuthenticate(): boolean;
   type(): j_net_minecraft_network_protocol.PacketType<ClientboundHelloPacket>;
@@ -63,7 +61,6 @@ export interface ClientboundHelloPacketStatics {
 export interface ClientboundLoginCompressionPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ClientLoginPacketListener>];
   getCompressionThreshold(): number;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientLoginPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ClientboundLoginCompressionPacket>;
 }
@@ -77,7 +74,6 @@ export interface ClientboundLoginCompressionPacketStatics {
 export interface ClientboundLoginDisconnectPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientLoginPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientLoginPacketListener): void;
   hashCode(): number;
   reason(): j_net_minecraft_network_chat.Component;
@@ -95,7 +91,6 @@ export interface ClientboundLoginFinishedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientLoginPacketListener>];
   equals(arg0: object): boolean;
   gameProfile(): JavaOpaque<"com.mojang.authlib.GameProfile">;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientLoginPacketListener): void;
   hashCode(): number;
   isTerminal(): boolean;
@@ -155,7 +150,6 @@ export interface LoginProtocolsStatics {
 export interface ServerboundCustomQueryAnswerPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerLoginPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerLoginPacketListener): void;
   hashCode(): number;
   payload(): j_net_minecraft_network_protocol_login_custom.CustomQueryAnswerPayload | null;
@@ -184,7 +178,6 @@ export interface ServerboundCustomQueryAnswerPacket_QueryAnswerPayloadStatics {
 export interface ServerboundHelloPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerLoginPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerLoginPacketListener): void;
   hashCode(): number;
   name(): string;
@@ -203,7 +196,6 @@ export interface ServerboundKeyPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ServerLoginPacketListener>];
   /** @throws net.minecraft.util.CryptException */
   getSecretKey(arg0: JavaOpaque<"java.security.PrivateKey">): JavaOpaque<"javax.crypto.SecretKey">;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerLoginPacketListener): void;
   isChallengeValid(arg0: Array<number>, arg1: JavaOpaque<"java.security.PrivateKey">): boolean;
   type(): j_net_minecraft_network_protocol.PacketType<ServerboundKeyPacket>;
@@ -218,7 +210,6 @@ export interface ServerboundKeyPacketStatics {
 /** JVM class net.minecraft.network.protocol.login.ServerboundLoginAcknowledgedPacket. */
 export interface ServerboundLoginAcknowledgedPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ServerLoginPacketListener>];
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerLoginPacketListener): void;
   isTerminal(): boolean;
   type(): j_net_minecraft_network_protocol.PacketType<ServerboundLoginAcknowledgedPacket>;

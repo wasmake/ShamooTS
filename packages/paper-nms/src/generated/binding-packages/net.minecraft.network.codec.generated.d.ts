@@ -78,9 +78,7 @@ export interface ByteBufCodecsStatics {
 export interface IdDispatchCodecMembers<B /* extends JavaOpaque<"io.netty.buffer.ByteBuf"> */ = unknown, V = unknown, T = unknown> {
   readonly __javaSupertypes?: readonly [StreamCodec<B, V>];
   decode(arg0: B): V;
-  decode(arg0: object): object;
   encode(arg0: B, arg1: V): void;
-  encode(arg0: object, arg1: object): void;
 }
 export type IdDispatchCodec<B /* extends JavaOpaque<"io.netty.buffer.ByteBuf"> */ = unknown, V = unknown, T = unknown> = IdDispatchCodecMembers<B, V, T> & StreamCodec<B, V>;
 export interface IdDispatchCodecStatics {

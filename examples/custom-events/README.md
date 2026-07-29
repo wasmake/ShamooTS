@@ -8,8 +8,8 @@ handlers, and returns closeable subscription ownership.
 > ready-to-run release archives.
 
 ```sh
-pnpm --filter @shamoo-examples/custom-events typecheck
-pnpm --filter @shamoo-examples/custom-events test
+pnpm --filter @shamoo/example-custom-events typecheck
+pnpm --filter @shamoo/example-custom-events test
 ```
 
 The bus is in-process and platform-neutral. Host-backed contract events currently require an

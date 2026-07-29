@@ -22,7 +22,6 @@ export interface PatternStatics {
 /** JVM interface org.bukkit.block.banner.PatternType. */
 export interface PatternTypeMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<PatternType>, j_org_bukkit.Keyed];
-  compareTo(arg0: object): number;
   compareTo(arg0: PatternType): number;
   getIdentifier(): string;
   getKey(): j_org_bukkit.NamespacedKey;

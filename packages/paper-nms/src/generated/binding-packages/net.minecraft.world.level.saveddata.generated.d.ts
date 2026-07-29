@@ -11,7 +11,6 @@ export interface SavedDataMembers {
 }
 export type SavedData = SavedDataMembers;
 export interface SavedDataStatics {
-  new(): SavedData;
 }
 
 /** JVM record net.minecraft.world.level.saveddata.SavedData$Context. */

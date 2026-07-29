@@ -1,8 +1,18 @@
 {
-  "name": "@shamoo-examples/dual-platform-plugin",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@shamoo/example-dual-platform-plugin",
+  "version": "0.1.0-rc.2",
   "type": "module",
+  "files": [
+    "src",
+    "README.md",
+    "shamoo.config.json",
+    "tsconfig.json",
+    "vitest.config.ts"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://shamoof.com/npm/"
+  },
   "scripts": {
     "build": "shamooc",
     "doctor": "shamoo doctor",

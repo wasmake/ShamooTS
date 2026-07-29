@@ -92,7 +92,6 @@ export interface ConsoleInputStatics {
 /** JVM class net.minecraft.server.DebugLoggedPrintStream. */
 export interface DebugLoggedPrintStreamMembers {
   readonly __javaSupertypes?: readonly [LoggedPrintStream];
-  logLine(arg0: string): void;
 }
 export type DebugLoggedPrintStream = DebugLoggedPrintStreamMembers & LoggedPrintStream;
 export interface DebugLoggedPrintStreamStatics {
@@ -111,10 +110,8 @@ export interface EulaStatics {
 /** JVM class net.minecraft.server.LoggedPrintStream. */
 export interface LoggedPrintStreamMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.io.PrintStream">];
-  logLine(arg0: string | null): void | null;
-  readonly name: string;
   println(arg0: object): void;
-  println(arg0: string | null): void | null;
+  println(arg0: string | null): void;
 }
 export type LoggedPrintStream = LoggedPrintStreamMembers & JavaOpaque<"java.io.PrintStream">;
 export interface LoggedPrintStreamStatics {
@@ -149,7 +146,6 @@ export interface MinecraftServerMembers {
   createCommandSourceStack(): j_net_minecraft_commands.CommandSourceStack;
   createGameModeForPlayer(arg0: j_net_minecraft_server_level.ServerPlayer): j_net_minecraft_server_level.ServerPlayerGameMode;
   createTextFilterForPlayer(arg0: j_net_minecraft_server_level.ServerPlayer): j_net_minecraft_server_network.TextFilter;
-  doRunTask(arg0: JavaRunnable): void;
   doRunTask(arg0: TickTask): void;
   /** @throws java.io.IOException */
   dumpServerProperties(arg0: JavaOpaque<"java.nio.file.Path">): void;
@@ -162,7 +158,6 @@ export interface MinecraftServerMembers {
   fillSystemReport(arg0: j_net_minecraft.SystemReport): j_net_minecraft.SystemReport;
   finishRecordingMetrics(): void;
   readonly fixerUpper: JavaOpaque<"com.mojang.datafixers.DataFixer">;
-  forceDifficulty(): void;
   forceSynchronousWrites(): boolean;
   forceTicks: boolean;
   forceTimeSynchronization(): void;
@@ -219,11 +214,10 @@ export interface MinecraftServerMembers {
   getSessionService(): JavaOpaque<"com.mojang.authlib.minecraft.MinecraftSessionService">;
   getSingleplayerProfile(): JavaOpaque<"com.mojang.authlib.GameProfile"> | null;
   getSpawnProtectionRadius(): number;
-  getSpawnRadius(arg0: j_net_minecraft_server_level.ServerLevel | null): number | null;
+  getSpawnRadius(arg0: j_net_minecraft_server_level.ServerLevel | null): number;
   getStatus(): j_net_minecraft_network_protocol_status.ServerStatus | null;
   getStructureManager(): j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager;
   getTickCount(): number;
-  getTickTimeLogger(): j_net_minecraft_util_debugchart.SampleLogger;
   getTickTimesNanos(): Array<bigint>;
   getWorldData(): j_net_minecraft_world_level_storage.WorldData;
   getWorldPath(arg0: j_net_minecraft_world_level_storage.LevelResource): JavaOpaque<"java.nio.file.Path">;
@@ -235,10 +229,7 @@ export interface MinecraftServerMembers {
   hasStopped(): boolean;
   hidesOnlinePlayers(): boolean;
   readonly improvedChatDecorator: j_net_minecraft_network_chat.ChatDecorator;
-  /** @throws java.io.IOException */
-  initServer(): boolean;
   initWorld(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_level_storage.ServerLevelData, arg2: j_net_minecraft_world_level_storage.WorldData, arg3: j_net_minecraft_world_level_levelgen.WorldOptions): void;
-  initializeKeyPair(): void;
   invalidateStatus(): void;
   isCommandBlockEnabled(): boolean;
   isCurrentlySaving(): boolean;
@@ -270,8 +261,7 @@ export interface MinecraftServerMembers {
   isUnderSpawnProtection(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): boolean;
   kickUnlistedPlayers(arg0: j_net_minecraft_commands.CommandSourceStack): void;
   levelKeys(): JavaSet<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level.Level>>;
-  loadLevel(arg0: string): void;
-  logChatMessage(arg0: j_net_minecraft_network_chat.Component, arg1: j_net_minecraft_network_chat.ChatType_Bound, arg2: string | null): void | null;
+  logChatMessage(arg0: j_net_minecraft_network_chat.Component, arg1: j_net_minecraft_network_chat.ChatType_Bound, arg2: string | null): void;
   logIPs(): boolean;
   managedBlock(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
   moonrise$executeMidTickTasks(): void;
@@ -284,15 +274,13 @@ export interface MinecraftServerMembers {
   options: JavaOpaque<"joptsimple.OptionSet">;
   overworld(): j_net_minecraft_server_level.ServerLevel;
   readonly paperConfigurations: JavaOpaque<"io.papermc.paper.configuration.PaperConfigurations">;
-  pauseWhileEmptySeconds(): number;
   readonly playerDataStorage: j_net_minecraft_world_level_storage.PlayerDataStorage;
   pollTask(): boolean;
   potionBrewing: (j_net_minecraft_world_item_alchemy.PotionBrewing) & { (): j_net_minecraft_world_item_alchemy.PotionBrewing };
   prepareLevels(arg0: j_net_minecraft_server_level_progress.ChunkProgressListener, arg1: j_net_minecraft_server_level.ServerLevel): void;
   processQueue: JavaOpaque<"java.util.Queue", [JavaRunnable]>;
   readonly progressListenerFactory: j_net_minecraft_server_level_progress.ChunkProgressListenerFactory;
-  readonly proxy: JavaOpaque<"java.net.Proxy">;
-  publishServer(arg0: j_net_minecraft_world_level.GameType | null, arg1: boolean, arg2: number): boolean | null;
+  publishServer(arg0: j_net_minecraft_world_level.GameType | null, arg1: boolean, arg2: number): boolean;
   readonly recentTps: Array<number>;
   registries(): j_net_minecraft_core.LayeredRegistryAccess<RegistryLayer>;
   registryAccess(): j_net_minecraft_core.RegistryAccess_Frozen;
@@ -305,7 +293,6 @@ export interface MinecraftServerMembers {
   reportChunkSaveFailure(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_net_minecraft_world_level_chunk_storage.RegionStorageInfo, arg2: j_net_minecraft_world_level.ChunkPos): void;
   reportPacketHandlingException(arg0: JavaOpaque<"java.lang.Throwable">, arg1: j_net_minecraft_network_protocol.PacketType<object>): void;
   resources: MinecraftServer_ReloadableResources;
-  runServer(): void;
   safeShutdown(arg0: boolean, arg1: boolean): void;
   saveAllChunks(arg0: boolean, arg1: boolean, arg2: boolean): boolean;
   saveAllChunks(arg0: boolean, arg1: boolean, arg2: boolean, arg3: boolean): boolean;
@@ -315,14 +302,12 @@ export interface MinecraftServerMembers {
   server: j_org_bukkit_craftbukkit.CraftServer;
   serverLinks(): ServerLinks;
   readonly serverThread: JavaOpaque<"java.lang.Thread">;
-  readonly services: Services;
   setDefaultGameType(arg0: j_net_minecraft_world_level.GameType): void;
   setDemo(arg0: boolean): void;
-  setDifficulty(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world.Difficulty, arg2: j_net_minecraft_commands.CommandSourceStack | null, arg3: boolean): void | null;
+  setDifficulty(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world.Difficulty, arg2: j_net_minecraft_commands.CommandSourceStack | null, arg3: boolean): void;
   setDifficultyLocked(arg0: boolean): void;
   setEnforceWhitelist(arg0: boolean): void;
   setFlightAllowed(arg0: boolean): void;
-  setId(arg0: string): void;
   setLocalIp(arg0: string): void;
   setMotd(arg0: string): void;
   setPlayerIdleTimeout(arg0: number): void;
@@ -330,12 +315,10 @@ export interface MinecraftServerMembers {
   setPort(arg0: number): void;
   setPreventProxyConnections(arg0: boolean): void;
   setPvpAllowed(arg0: boolean): void;
-  setSingleplayerProfile(arg0: JavaOpaque<"com.mojang.authlib.GameProfile"> | null): void | null;
+  setSingleplayerProfile(arg0: JavaOpaque<"com.mojang.authlib.GameProfile"> | null): void;
   setUsesAuthentication(arg0: boolean): void;
   shouldInformAdmins(): boolean;
   shouldRconBroadcast(): boolean;
-  shouldRun(arg0: JavaRunnable): boolean;
-  shouldRun(arg0: TickTask): boolean;
   shutdownThread: JavaOpaque<"java.lang.Thread">;
   startRecordingMetrics(arg0: JavaConsumer<j_net_minecraft_util_profiling.ProfileResults>, arg1: JavaConsumer<JavaOpaque<"java.nio.file.Path">>): void;
   startTimeProfiler(): void;
@@ -344,7 +327,6 @@ export interface MinecraftServerMembers {
   stopTimeProfiler(): j_net_minecraft_util_profiling.ProfileResults;
   storageSource: j_net_minecraft_world_level_storage.LevelStorageSource_LevelStorageAccess;
   subscribeToDebugSample(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: j_net_minecraft_util_debugchart.RemoteDebugSampleType): void;
-  tickChildren(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
   tickConnection(): void;
   tickRateManager(): ServerTickRateManager;
   tickServer(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
@@ -356,15 +338,11 @@ export interface MinecraftServerMembers {
   readonly tps5: MinecraftServer_RollingAverage;
   usesAuthentication(): boolean;
   waitForTasks(): void;
-  waitUntilNextTick(): void;
-  worldData: j_net_minecraft_world_level_storage.WorldData;
   readonly worldLoader: WorldLoader_DataLoadContext;
-  wrapRunnable(arg0: JavaRunnable): JavaRunnable;
   wrapRunnable(arg0: JavaRunnable): TickTask;
 }
 export type MinecraftServer = MinecraftServerMembers & j_net_minecraft_util_thread.ReentrantBlockableEventLoop<TickTask> & ServerInfo & j_net_minecraft_world_level_chunk_storage.ChunkIOErrorReporter & j_net_minecraft_commands.CommandSource & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.server.ChunkSystemMinecraftServer">;
 export interface MinecraftServerStatics {
-  new(arg0: JavaOpaque<"joptsimple.OptionSet">, arg1: WorldLoader_DataLoadContext, arg2: JavaOpaque<"java.lang.Thread">, arg3: j_net_minecraft_world_level_storage.LevelStorageSource_LevelStorageAccess, arg4: j_net_minecraft_server_packs_repository.PackRepository, arg5: WorldStem, arg6: JavaOpaque<"java.net.Proxy">, arg7: JavaOpaque<"com.mojang.datafixers.DataFixer">, arg8: Services, arg9: j_net_minecraft_server_level_progress.ChunkProgressListenerFactory): MinecraftServer;
   readonly ABSOLUTE_MAX_WORLD_SIZE: 29999984;
   readonly ANONYMOUS_PLAYER_PROFILE: JavaOpaque<"com.mojang.authlib.GameProfile">;
   readonly COMPONENT_LOGGER: JavaOpaque<"net.kyori.adventure.text.logger.slf4j.ComponentLogger">;
@@ -443,7 +421,7 @@ export interface PlayerAdvancementsMembers {
   revoke(arg0: j_net_minecraft_advancements.AdvancementHolder, arg1: string): boolean;
   save(): void;
   setPlayer(arg0: j_net_minecraft_server_level.ServerPlayer): void;
-  setSelectedTab(arg0: j_net_minecraft_advancements.AdvancementHolder | null): void | null;
+  setSelectedTab(arg0: j_net_minecraft_advancements.AdvancementHolder | null): void;
   stopListening(): void;
 }
 export type PlayerAdvancements = PlayerAdvancementsMembers;
@@ -529,8 +507,6 @@ export interface RunningOnDifferentThreadExceptionStatics {
 export interface ServerAdvancementManagerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_server_packs_resources.SimpleJsonResourceReloadListener<j_net_minecraft_advancements.Advancement>];
   advancements: JavaMap<j_net_minecraft_resources.ResourceLocation, j_net_minecraft_advancements.AdvancementHolder>;
-  apply(arg0: object, arg1: j_net_minecraft_server_packs_resources.ResourceManager, arg2: j_net_minecraft_util_profiling.ProfilerFiller): void;
-  apply(arg0: JavaMap<j_net_minecraft_resources.ResourceLocation, j_net_minecraft_advancements.Advancement>, arg1: j_net_minecraft_server_packs_resources.ResourceManager, arg2: j_net_minecraft_util_profiling.ProfilerFiller): void;
   get(arg0: j_net_minecraft_resources.ResourceLocation): j_net_minecraft_advancements.AdvancementHolder | null;
   getAllAdvancements(): JavaCollection<j_net_minecraft_advancements.AdvancementHolder>;
   tree(): j_net_minecraft_advancements.AdvancementTree;
@@ -685,15 +661,12 @@ export interface ServerScoreboardMembers {
   onObjectiveRemoved(arg0: j_net_minecraft_world_scores.Objective): void;
   onPlayerRemoved(arg0: j_net_minecraft_world_scores.ScoreHolder): void;
   onPlayerScoreRemoved(arg0: j_net_minecraft_world_scores.ScoreHolder, arg1: j_net_minecraft_world_scores.Objective): void;
-  onScoreChanged(arg0: j_net_minecraft_world_scores.ScoreHolder, arg1: j_net_minecraft_world_scores.Objective, arg2: j_net_minecraft_world_scores.Score): void;
-  onScoreLockChanged(arg0: j_net_minecraft_world_scores.ScoreHolder, arg1: j_net_minecraft_world_scores.Objective): void;
   onTeamAdded(arg0: j_net_minecraft_world_scores.PlayerTeam): void;
   onTeamChanged(arg0: j_net_minecraft_world_scores.PlayerTeam): void;
   onTeamRemoved(arg0: j_net_minecraft_world_scores.PlayerTeam): void;
   removePlayerFromTeam(arg0: string, arg1: j_net_minecraft_world_scores.PlayerTeam): void;
   removePlayersFromTeam(arg0: JavaCollection<string>, arg1: j_net_minecraft_world_scores.PlayerTeam): void;
-  setDirty(): void;
-  setDisplayObjective(arg0: j_net_minecraft_world_scores.DisplaySlot, arg1: j_net_minecraft_world_scores.Objective | null): void | null;
+  setDisplayObjective(arg0: j_net_minecraft_world_scores.DisplaySlot, arg1: j_net_minecraft_world_scores.Objective | null): void;
   startTrackingObjective(arg0: j_net_minecraft_world_scores.Objective): void;
   stopTrackingObjective(arg0: j_net_minecraft_world_scores.Objective): void;
 }

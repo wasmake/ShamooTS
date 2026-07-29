@@ -28,23 +28,14 @@ export interface BandwidthDebugMonitorStatics {
 
 /** JVM class net.minecraft.network.CipherBase. */
 export interface CipherBaseMembers {
-  /** @throws javax.crypto.ShortBufferException */
-  decipher(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  /** @throws javax.crypto.ShortBufferException */
-  encipher(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
 }
 export type CipherBase = CipherBaseMembers;
 export interface CipherBaseStatics {
-  new(arg0: JavaOpaque<"javax.crypto.Cipher">): CipherBase;
 }
 
 /** JVM class net.minecraft.network.CipherDecoder. */
 export interface CipherDecoderMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToMessageDecoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>];
-  /** @throws java.lang.Exception */
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaList<object>): void;
-  /** @throws java.lang.Exception */
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaList<object>): void;
   handlerRemoved(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
 }
 export type CipherDecoder = CipherDecoderMembers & JavaOpaque<"io.netty.handler.codec.MessageToMessageDecoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>;
@@ -55,10 +46,6 @@ export interface CipherDecoderStatics {
 /** JVM class net.minecraft.network.CipherEncoder. */
 export interface CipherEncoderMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToMessageEncoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>];
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaList<object>): void;
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaList<object>): void;
   handlerRemoved(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
 }
 export type CipherEncoder = CipherEncoderMembers & JavaOpaque<"io.netty.handler.codec.MessageToMessageEncoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>;
@@ -78,8 +65,6 @@ export interface ClientboundPacketListenerStatics {
 /** JVM class net.minecraft.network.CompressionDecoder. */
 export interface CompressionDecoderMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.ByteToMessageDecoder">];
-  /** @throws java.lang.Exception */
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaList<object>): void;
   handlerRemoved0(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
   setThreshold(arg0: JavaOpaque<"com.velocitypowered.natives.compression.VelocityCompressor">, arg1: number, arg2: boolean): void;
 }
@@ -94,14 +79,6 @@ export interface CompressionDecoderStatics {
 /** JVM class net.minecraft.network.CompressionEncoder. */
 export interface CompressionEncoderMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToByteEncoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>];
-  /** @throws java.lang.Exception */
-  allocateBuffer(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: boolean): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  /** @throws java.lang.Exception */
-  allocateBuffer(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: boolean): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
   getThreshold(): number;
   handlerRemoved(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
   setThreshold(arg0: number): void;
@@ -115,16 +92,11 @@ export interface CompressionEncoderStatics {
 /** JVM class net.minecraft.network.Connection. */
 export interface ConnectionMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.channel.SimpleChannelInboundHandler", [j_net_minecraft_network_protocol.Packet<object>]>];
-  readonly PACKET_LIMIT_LOCK: object;
   address: JavaOpaque<"java.net.SocketAddress">;
-  readonly allPacketCounts: JavaOpaque<"io.papermc.paper.util.IntervalledCounter"> | null;
   channel: JavaOpaque<"io.netty.channel.Channel">;
   /** @throws java.lang.Exception */
   channelActive(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
   channelInactive(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
-  /** @throws java.lang.Exception */
-  channelRead0(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object): void;
-  channelRead0(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: j_net_minecraft_network_protocol.Packet<object>): void;
   clearPacketQueue(): void;
   configurePacketHandler(arg0: JavaOpaque<"io.netty.channel.ChannelPipeline">): void;
   disconnect(arg0: DisconnectionDetails): void;
@@ -153,7 +125,6 @@ export interface ConnectionMembers {
   isMemoryConnection(): boolean;
   isPending: boolean;
   legacySavedLoginEventResultOverride: JavaOptional<j_net_minecraft_network_chat.Component> | null;
-  readonly packetSpecificLimits: JavaMap<JavaClass<j_net_minecraft_network_protocol.Packet<object>>, JavaOpaque<"io.papermc.paper.util.IntervalledCounter">>;
   preparing: boolean;
   protocolVersion: number;
   queueImmunity: boolean;
@@ -161,8 +132,8 @@ export interface ConnectionMembers {
   runOnceConnected(arg0: JavaConsumer<Connection>): void;
   savedPlayerForLoginEventLegacy: j_net_minecraft_server_level.ServerPlayer | null;
   send(arg0: j_net_minecraft_network_protocol.Packet<object>): void;
-  send(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: JavaOpaque<"io.netty.channel.ChannelFutureListener"> | null): void | null;
-  send(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: JavaOpaque<"io.netty.channel.ChannelFutureListener"> | null, arg2: boolean): void | null;
+  send(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: JavaOpaque<"io.netty.channel.ChannelFutureListener"> | null): void;
+  send(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: JavaOpaque<"io.netty.channel.ChannelFutureListener"> | null, arg2: boolean): void;
   setBandwidthLogger(arg0: j_net_minecraft_util_debugchart.LocalSampleLogger): void;
   /** @throws net.minecraft.util.CryptException */
   setEncryptionKey(arg0: JavaOpaque<"javax.crypto.SecretKey">): void;
@@ -174,7 +145,6 @@ export interface ConnectionMembers {
   spoofedProfile: Array<JavaOpaque<"com.mojang.authlib.properties.Property">>;
   spoofedUUID: JavaOpaque<"java.util.UUID">;
   tick(): void;
-  tickSecond(): void;
   virtualHost: JavaOpaque<"java.net.InetSocketAddress">;
 }
 export type Connection = ConnectionMembers & JavaOpaque<"io.netty.channel.SimpleChannelInboundHandler", [j_net_minecraft_network_protocol.Packet<object>]>;
@@ -188,10 +158,10 @@ export interface ConnectionStatics {
   readonly PACKET_SENT_MARKER: JavaOpaque<"org.slf4j.Marker">;
   readonly ROOT_MARKER: JavaOpaque<"org.slf4j.Marker">;
   configureInMemoryPipeline(arg0: JavaOpaque<"io.netty.channel.ChannelPipeline">, arg1: j_net_minecraft_network_protocol.PacketFlow): void;
-  configureSerialization(arg0: JavaOpaque<"io.netty.channel.ChannelPipeline">, arg1: j_net_minecraft_network_protocol.PacketFlow, arg2: boolean, arg3: BandwidthDebugMonitor | null): void | null;
+  configureSerialization(arg0: JavaOpaque<"io.netty.channel.ChannelPipeline">, arg1: j_net_minecraft_network_protocol.PacketFlow, arg2: boolean, arg3: BandwidthDebugMonitor | null): void;
   connect(arg0: JavaOpaque<"java.net.InetSocketAddress">, arg1: boolean, arg2: Connection): JavaOpaque<"io.netty.channel.ChannelFuture">;
   connectToLocalServer(arg0: JavaOpaque<"java.net.SocketAddress">): Connection;
-  connectToServer(arg0: JavaOpaque<"java.net.InetSocketAddress">, arg1: boolean, arg2: j_net_minecraft_util_debugchart.LocalSampleLogger | null): Connection | null;
+  connectToServer(arg0: JavaOpaque<"java.net.InetSocketAddress">, arg1: boolean, arg2: j_net_minecraft_util_debugchart.LocalSampleLogger | null): Connection;
 }
 
 /** Live JVM enum net.minecraft.network.ConnectionProtocol; constants are host handles, not strings. */
@@ -240,21 +210,15 @@ export interface FriendlyByteBufMembers {
   bytesBefore(arg0: number, arg1: number): number;
   bytesBefore(arg0: number, arg1: number, arg2: number): number;
   capacity(): number;
-  capacity(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   capacity(arg0: number): FriendlyByteBuf;
-  clear(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   clear(): FriendlyByteBuf;
   codecDepth: number;
   compareTo(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">): number;
-  compareTo(arg0: object): number;
   copy(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   copy(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  discardReadBytes(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   discardReadBytes(): FriendlyByteBuf;
-  discardSomeReadBytes(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   discardSomeReadBytes(): FriendlyByteBuf;
   duplicate(): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  ensureWritable(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   ensureWritable(arg0: number): FriendlyByteBuf;
   ensureWritable(arg0: number, arg1: boolean): number;
   equals(arg0: object): boolean;
@@ -264,25 +228,17 @@ export interface FriendlyByteBufMembers {
   forEachByteDesc(arg0: JavaOpaque<"io.netty.util.ByteProcessor">): number;
   getBoolean(arg0: number): boolean;
   getByte(arg0: number): number;
-  getBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   getBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">): FriendlyByteBuf;
-  getBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   getBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number): FriendlyByteBuf;
-  getBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number, arg3: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   getBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number, arg3: number): FriendlyByteBuf;
   /** @throws java.io.IOException */
-  getBytes(arg0: number, arg1: JavaOpaque<"java.io.OutputStream">, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  /** @throws java.io.IOException */
   getBytes(arg0: number, arg1: JavaOpaque<"java.io.OutputStream">, arg2: number): FriendlyByteBuf;
-  getBytes(arg0: number, arg1: JavaOpaque<"java.nio.ByteBuffer">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   getBytes(arg0: number, arg1: JavaOpaque<"java.nio.ByteBuffer">): FriendlyByteBuf;
   /** @throws java.io.IOException */
   getBytes(arg0: number, arg1: JavaOpaque<"java.nio.channels.FileChannel">, arg2: bigint, arg3: number): number;
   /** @throws java.io.IOException */
   getBytes(arg0: number, arg1: JavaOpaque<"java.nio.channels.GatheringByteChannel">, arg2: number): number;
-  getBytes(arg0: number, arg1: Array<number>): JavaOpaque<"io.netty.buffer.ByteBuf">;
   getBytes(arg0: number, arg1: Array<number>): FriendlyByteBuf;
-  getBytes(arg0: number, arg1: Array<number>, arg2: number, arg3: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   getBytes(arg0: number, arg1: Array<number>, arg2: number, arg3: number): FriendlyByteBuf;
   getChar(arg0: number): string;
   getCharSequence(arg0: number, arg1: number, arg2: JavaOpaque<"java.nio.charset.Charset">): string;
@@ -315,9 +271,7 @@ export interface FriendlyByteBufMembers {
   isReadable(arg0: number): boolean;
   isWritable(): boolean;
   isWritable(arg0: number): boolean;
-  markReaderIndex(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   markReaderIndex(): FriendlyByteBuf;
-  markWriterIndex(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   markWriterIndex(): FriendlyByteBuf;
   maxCapacity(): number;
   maxFastWritableBytes(): number;
@@ -339,25 +293,17 @@ export interface FriendlyByteBufMembers {
   readByteArray(): Array<number>;
   readByteArray(arg0: number): Array<number>;
   readBytes(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  readBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">): FriendlyByteBuf;
-  readBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number): FriendlyByteBuf;
-  readBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number, arg2: number): FriendlyByteBuf;
   /** @throws java.io.IOException */
-  readBytes(arg0: JavaOpaque<"java.io.OutputStream">, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  /** @throws java.io.IOException */
   readBytes(arg0: JavaOpaque<"java.io.OutputStream">, arg1: number): FriendlyByteBuf;
-  readBytes(arg0: JavaOpaque<"java.nio.ByteBuffer">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readBytes(arg0: JavaOpaque<"java.nio.ByteBuffer">): FriendlyByteBuf;
   /** @throws java.io.IOException */
   readBytes(arg0: JavaOpaque<"java.nio.channels.FileChannel">, arg1: bigint, arg2: number): number;
   /** @throws java.io.IOException */
   readBytes(arg0: JavaOpaque<"java.nio.channels.GatheringByteChannel">, arg1: number): number;
-  readBytes(arg0: Array<number>): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readBytes(arg0: Array<number>): FriendlyByteBuf;
-  readBytes(arg0: Array<number>, arg1: number, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readBytes(arg0: Array<number>, arg1: number, arg2: number): FriendlyByteBuf;
   readChar(): string;
   readCharSequence(arg0: number, arg1: JavaOpaque<"java.nio.charset.Charset">): string;
@@ -421,85 +367,52 @@ export interface FriendlyByteBufMembers {
   readWithCount(arg0: JavaConsumer<FriendlyByteBuf>): void;
   readableBytes(): number;
   readerIndex(): number;
-  readerIndex(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   readerIndex(arg0: number): FriendlyByteBuf;
   refCnt(): number;
   release(): boolean;
   release(arg0: number): boolean;
-  resetReaderIndex(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   resetReaderIndex(): FriendlyByteBuf;
-  resetWriterIndex(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   resetWriterIndex(): FriendlyByteBuf;
-  retain(): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  retain(): JavaOpaque<"io.netty.util.ReferenceCounted">;
   retain(): FriendlyByteBuf;
-  retain(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  retain(arg0: number): JavaOpaque<"io.netty.util.ReferenceCounted">;
   retain(arg0: number): FriendlyByteBuf;
   retainedDuplicate(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   retainedSlice(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   retainedSlice(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  setBoolean(arg0: number, arg1: boolean): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBoolean(arg0: number, arg1: boolean): FriendlyByteBuf;
-  setByte(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setByte(arg0: number, arg1: number): FriendlyByteBuf;
-  setBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">): FriendlyByteBuf;
-  setBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number): FriendlyByteBuf;
-  setBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number, arg3: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBytes(arg0: number, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: number, arg3: number): FriendlyByteBuf;
   /** @throws java.io.IOException */
   setBytes(arg0: number, arg1: JavaOpaque<"java.io.InputStream">, arg2: number): number;
-  setBytes(arg0: number, arg1: JavaOpaque<"java.nio.ByteBuffer">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBytes(arg0: number, arg1: JavaOpaque<"java.nio.ByteBuffer">): FriendlyByteBuf;
   /** @throws java.io.IOException */
   setBytes(arg0: number, arg1: JavaOpaque<"java.nio.channels.FileChannel">, arg2: bigint, arg3: number): number;
   /** @throws java.io.IOException */
   setBytes(arg0: number, arg1: JavaOpaque<"java.nio.channels.ScatteringByteChannel">, arg2: number): number;
-  setBytes(arg0: number, arg1: Array<number>): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBytes(arg0: number, arg1: Array<number>): FriendlyByteBuf;
-  setBytes(arg0: number, arg1: Array<number>, arg2: number, arg3: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setBytes(arg0: number, arg1: Array<number>, arg2: number, arg3: number): FriendlyByteBuf;
-  setChar(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setChar(arg0: number, arg1: number): FriendlyByteBuf;
   setCharSequence(arg0: number, arg1: string, arg2: JavaOpaque<"java.nio.charset.Charset">): number;
-  setDouble(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setDouble(arg0: number, arg1: number): FriendlyByteBuf;
-  setFloat(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setFloat(arg0: number, arg1: number): FriendlyByteBuf;
-  setIndex(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setIndex(arg0: number, arg1: number): FriendlyByteBuf;
-  setInt(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setInt(arg0: number, arg1: number): FriendlyByteBuf;
-  setIntLE(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setIntLE(arg0: number, arg1: number): FriendlyByteBuf;
-  setLong(arg0: number, arg1: bigint): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setLong(arg0: number, arg1: bigint): FriendlyByteBuf;
-  setLongLE(arg0: number, arg1: bigint): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setLongLE(arg0: number, arg1: bigint): FriendlyByteBuf;
-  setMedium(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setMedium(arg0: number, arg1: number): FriendlyByteBuf;
-  setMediumLE(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setMediumLE(arg0: number, arg1: number): FriendlyByteBuf;
-  setShort(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setShort(arg0: number, arg1: number): FriendlyByteBuf;
-  setShortLE(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setShortLE(arg0: number, arg1: number): FriendlyByteBuf;
-  setZero(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   setZero(arg0: number, arg1: number): FriendlyByteBuf;
-  skipBytes(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   skipBytes(arg0: number): FriendlyByteBuf;
   slice(): JavaOpaque<"io.netty.buffer.ByteBuf">;
   slice(arg0: number, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   toString(): string;
   toString(arg0: number, arg1: number, arg2: JavaOpaque<"java.nio.charset.Charset">): string;
   toString(arg0: JavaOpaque<"java.nio.charset.Charset">): string;
-  touch(): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  touch(): JavaOpaque<"io.netty.util.ReferenceCounted">;
   touch(): FriendlyByteBuf;
-  touch(arg0: object): JavaOpaque<"io.netty.buffer.ByteBuf">;
-  touch(arg0: object): JavaOpaque<"io.netty.util.ReferenceCounted">;
   touch(arg0: object): FriendlyByteBuf;
   trackCodecDepth: boolean;
   unwrap(): JavaOpaque<"io.netty.buffer.ByteBuf">;
@@ -507,76 +420,57 @@ export interface FriendlyByteBufMembers {
   writeBitSet(arg0: JavaOpaque<"java.util.BitSet">): void;
   writeBlockHitResult(arg0: j_net_minecraft_world_phys.BlockHitResult): void;
   writeBlockPos(arg0: j_net_minecraft_core.BlockPos): FriendlyByteBuf;
-  writeBoolean(arg0: boolean): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBoolean(arg0: boolean): FriendlyByteBuf;
   writeById<T>(arg0: JavaOpaque<"java.util.function.ToIntFunction", [T]>, arg1: T): FriendlyByteBuf;
-  writeByte(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeByte(arg0: number): FriendlyByteBuf;
   writeByteArray(arg0: Array<number>): FriendlyByteBuf;
-  writeBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">): FriendlyByteBuf;
-  writeBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number): FriendlyByteBuf;
-  writeBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBytes(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number, arg2: number): FriendlyByteBuf;
   /** @throws java.io.IOException */
   writeBytes(arg0: JavaOpaque<"java.io.InputStream">, arg1: number): number;
-  writeBytes(arg0: JavaOpaque<"java.nio.ByteBuffer">): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBytes(arg0: JavaOpaque<"java.nio.ByteBuffer">): FriendlyByteBuf;
   /** @throws java.io.IOException */
   writeBytes(arg0: JavaOpaque<"java.nio.channels.FileChannel">, arg1: bigint, arg2: number): number;
   /** @throws java.io.IOException */
   writeBytes(arg0: JavaOpaque<"java.nio.channels.ScatteringByteChannel">, arg1: number): number;
-  writeBytes(arg0: Array<number>): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBytes(arg0: Array<number>): FriendlyByteBuf;
-  writeBytes(arg0: Array<number>, arg1: number, arg2: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeBytes(arg0: Array<number>, arg1: number, arg2: number): FriendlyByteBuf;
-  writeChar(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeChar(arg0: number): FriendlyByteBuf;
   writeCharSequence(arg0: string, arg1: JavaOpaque<"java.nio.charset.Charset">): number;
   writeChunkPos(arg0: j_net_minecraft_world_level.ChunkPos): FriendlyByteBuf;
   writeCollection<T>(arg0: JavaCollection<T>, arg1: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, T>): void;
   writeContainerId(arg0: number): void;
   writeDate(arg0: JavaOpaque<"java.util.Date">): FriendlyByteBuf;
-  writeDouble(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeDouble(arg0: number): FriendlyByteBuf;
   writeEither<L, R>(arg0: JavaOpaque<"com.mojang.datafixers.util.Either", [L, R]>, arg1: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, L>, arg2: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, R>): void;
   writeEnum(arg0: JavaOpaque<"java.lang.Enum", [object]>): FriendlyByteBuf;
   writeEnumSet<E /* extends JavaOpaque<"java.lang.Enum", [E]> */>(arg0: JavaOpaque<"java.util.EnumSet", [E]>, arg1: JavaClass<E>): void;
   writeFixedBitSet(arg0: JavaOpaque<"java.util.BitSet">, arg1: number): void;
   writeFixedSizeLongArray(arg0: Array<bigint>): FriendlyByteBuf;
-  writeFloat(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeFloat(arg0: number): FriendlyByteBuf;
   writeGlobalPos(arg0: j_net_minecraft_core.GlobalPos): void;
   writeInstant(arg0: JavaOpaque<"java.time.Instant">): void;
-  writeInt(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeInt(arg0: number): FriendlyByteBuf;
   writeIntIdList(arg0: JavaOpaque<"it.unimi.dsi.fastutil.ints.IntList">): void;
-  writeIntLE(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeIntLE(arg0: number): FriendlyByteBuf;
   writeJsonWithCodec<T>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg1: T): void;
   writeJsonWithCodec<T>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg1: T, arg2: number): void;
-  writeLong(arg0: bigint): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeLong(arg0: bigint): FriendlyByteBuf;
   writeLongArray(arg0: Array<bigint>): FriendlyByteBuf;
-  writeLongLE(arg0: bigint): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeLongLE(arg0: bigint): FriendlyByteBuf;
   writeMap<K, V>(arg0: JavaMap<K, V>, arg1: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, K>, arg2: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, V>): void;
-  writeMedium(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeMedium(arg0: number): FriendlyByteBuf;
-  writeMediumLE(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeMediumLE(arg0: number): FriendlyByteBuf;
-  writeNbt(arg0: j_net_minecraft_nbt.Tag | null): FriendlyByteBuf | null;
-  writeNullable<T>(arg0: T | null, arg1: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, T>): void | null;
+  writeNbt(arg0: j_net_minecraft_nbt.Tag | null): FriendlyByteBuf;
+  writeNullable<T>(arg0: T | null, arg1: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, T>): void;
   writeOptional<T>(arg0: JavaOptional<T>, arg1: j_net_minecraft_network_codec.StreamEncoder<FriendlyByteBuf, T>): void;
   writePublicKey(arg0: JavaOpaque<"java.security.PublicKey">): FriendlyByteBuf;
   writeQuaternion(arg0: JavaOpaque<"org.joml.Quaternionf">): void;
   writeResourceKey(arg0: j_net_minecraft_resources.ResourceKey<object>): void;
   writeResourceLocation(arg0: j_net_minecraft_resources.ResourceLocation): FriendlyByteBuf;
   writeSectionPos(arg0: j_net_minecraft_core.SectionPos): FriendlyByteBuf;
-  writeShort(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeShort(arg0: number): FriendlyByteBuf;
-  writeShortLE(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeShortLE(arg0: number): FriendlyByteBuf;
   writeUUID(arg0: JavaOpaque<"java.util.UUID">): FriendlyByteBuf;
   writeUtf(arg0: string): FriendlyByteBuf;
@@ -587,10 +481,8 @@ export interface FriendlyByteBufMembers {
   writeVec3(arg0: j_net_minecraft_world_phys.Vec3): void;
   writeVector3f(arg0: JavaOpaque<"org.joml.Vector3f">): void;
   writeWithCodec<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [j_net_minecraft_nbt.Tag]>, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: T): FriendlyByteBuf;
-  writeZero(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writeZero(arg0: number): FriendlyByteBuf;
   writerIndex(): number;
-  writerIndex(arg0: number): JavaOpaque<"io.netty.buffer.ByteBuf">;
   writerIndex(arg0: number): FriendlyByteBuf;
 }
 export type FriendlyByteBuf = FriendlyByteBufMembers & JavaOpaque<"io.netty.buffer.ByteBuf">;
@@ -620,8 +512,8 @@ export interface FriendlyByteBufStatics {
   writeContainerId(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: number): void;
   writeFixedSizeLongArray(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: Array<bigint>): void;
   writeLongArray(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: Array<bigint>): void;
-  writeNbt(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: j_net_minecraft_nbt.Tag | null): void | null;
-  writeNullable<T, B /* extends JavaOpaque<"io.netty.buffer.ByteBuf"> */>(arg0: B, arg1: T | null, arg2: j_net_minecraft_network_codec.StreamEncoder<B, T>): void | null;
+  writeNbt(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: j_net_minecraft_nbt.Tag | null): void;
+  writeNullable<T, B /* extends JavaOpaque<"io.netty.buffer.ByteBuf"> */>(arg0: B, arg1: T | null, arg2: j_net_minecraft_network_codec.StreamEncoder<B, T>): void;
   writeQuaternion(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: JavaOpaque<"org.joml.Quaternionf">): void;
   writeUUID(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: JavaOpaque<"java.util.UUID">): void;
   writeVec3(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">, arg1: j_net_minecraft_world_phys.Vec3): void;
@@ -714,14 +606,10 @@ export interface HiddenByteBufMembers {
   refCnt(): number;
   release(): boolean;
   release(arg0: number): boolean;
-  retain(): JavaOpaque<"io.netty.util.ReferenceCounted">;
   retain(): HiddenByteBuf;
-  retain(arg0: number): JavaOpaque<"io.netty.util.ReferenceCounted">;
   retain(arg0: number): HiddenByteBuf;
   toString(): string;
-  touch(): JavaOpaque<"io.netty.util.ReferenceCounted">;
   touch(): HiddenByteBuf;
-  touch(arg0: object): JavaOpaque<"io.netty.util.ReferenceCounted">;
   touch(arg0: object): HiddenByteBuf;
 }
 export type HiddenByteBuf = HiddenByteBufMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"io.netty.util.ReferenceCounted">;
@@ -764,10 +652,6 @@ export interface MonitoredLocalFrameDecoderStatics {
 /** JVM class net.minecraft.network.PacketBundlePacker. */
 export interface PacketBundlePackerMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToMessageDecoder", [j_net_minecraft_network_protocol.Packet<object>]>];
-  /** @throws java.lang.Exception */
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaList<object>): void;
-  /** @throws java.lang.Exception */
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: j_net_minecraft_network_protocol.Packet<object>, arg2: JavaList<object>): void;
 }
 export type PacketBundlePacker = PacketBundlePackerMembers & JavaOpaque<"io.netty.handler.codec.MessageToMessageDecoder", [j_net_minecraft_network_protocol.Packet<object>]>;
 export interface PacketBundlePackerStatics {
@@ -777,10 +661,6 @@ export interface PacketBundlePackerStatics {
 /** JVM class net.minecraft.network.PacketBundleUnpacker. */
 export interface PacketBundleUnpackerMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToMessageEncoder", [j_net_minecraft_network_protocol.Packet<object>]>];
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaList<object>): void;
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: j_net_minecraft_network_protocol.Packet<object>, arg2: JavaList<object>): void;
 }
 export type PacketBundleUnpacker = PacketBundleUnpackerMembers & JavaOpaque<"io.netty.handler.codec.MessageToMessageEncoder", [j_net_minecraft_network_protocol.Packet<object>]>;
 export interface PacketBundleUnpackerStatics {
@@ -790,8 +670,6 @@ export interface PacketBundleUnpackerStatics {
 /** JVM class net.minecraft.network.PacketDecoder. */
 export interface PacketDecoderMembers<T /* extends PacketListener */ = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.ByteToMessageDecoder">, ProtocolSwapHandler];
-  /** @throws java.lang.Exception */
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaList<object>): void;
 }
 export type PacketDecoder<T /* extends PacketListener */ = unknown> = PacketDecoderMembers<T> & JavaOpaque<"io.netty.handler.codec.ByteToMessageDecoder"> & ProtocolSwapHandler;
 export interface PacketDecoderStatics {
@@ -801,10 +679,6 @@ export interface PacketDecoderStatics {
 /** JVM class net.minecraft.network.PacketEncoder. */
 export interface PacketEncoderMembers<T /* extends PacketListener */ = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToByteEncoder", [j_net_minecraft_network_protocol.Packet<T>]>];
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: j_net_minecraft_network_protocol.Packet<T>, arg2: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
 }
 export type PacketEncoder<T /* extends PacketListener */ = unknown> = PacketEncoderMembers<T> & JavaOpaque<"io.netty.handler.codec.MessageToByteEncoder", [j_net_minecraft_network_protocol.Packet<T>]>;
 export interface PacketEncoderStatics {
@@ -896,7 +770,6 @@ export interface ProtocolSwapHandlerStatics {
 /** JVM class net.minecraft.network.RateKickingConnection. */
 export interface RateKickingConnectionMembers {
   readonly __javaSupertypes?: readonly [Connection];
-  tickSecond(): void;
 }
 export type RateKickingConnection = RateKickingConnectionMembers & Connection;
 export interface RateKickingConnectionStatics {
@@ -1037,8 +910,6 @@ export interface VarIntStatics {
 /** JVM class net.minecraft.network.Varint21FrameDecoder. */
 export interface Varint21FrameDecoderMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.ByteToMessageDecoder">];
-  decode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaList<object>): void;
-  handlerRemoved0(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">): void;
 }
 export type Varint21FrameDecoder = Varint21FrameDecoderMembers & JavaOpaque<"io.netty.handler.codec.ByteToMessageDecoder">;
 export interface Varint21FrameDecoderStatics {
@@ -1048,9 +919,6 @@ export interface Varint21FrameDecoderStatics {
 /** JVM class net.minecraft.network.Varint21LengthFieldPrepender. */
 export interface Varint21LengthFieldPrependerMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.netty.handler.codec.MessageToByteEncoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>];
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: JavaOpaque<"io.netty.buffer.ByteBuf">, arg2: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
-  /** @throws java.lang.Exception */
-  encode(arg0: JavaOpaque<"io.netty.channel.ChannelHandlerContext">, arg1: object, arg2: JavaOpaque<"io.netty.buffer.ByteBuf">): void;
 }
 export type Varint21LengthFieldPrepender = Varint21LengthFieldPrependerMembers & JavaOpaque<"io.netty.handler.codec.MessageToByteEncoder", [JavaOpaque<"io.netty.buffer.ByteBuf">]>;
 export interface Varint21LengthFieldPrependerStatics {

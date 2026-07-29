@@ -40,7 +40,6 @@ export interface BiomeProviderMembers {
 }
 export type BiomeProvider = BiomeProviderMembers;
 export interface BiomeProviderStatics {
-  new(): BiomeProvider;
 }
 
 /** JVM abstract org.bukkit.generator.BlockPopulator. */
@@ -50,13 +49,11 @@ export interface BlockPopulatorMembers {
 }
 export type BlockPopulator = BlockPopulatorMembers;
 export interface BlockPopulatorStatics {
-  new(): BlockPopulator;
 }
 
 /** JVM abstract org.bukkit.generator.ChunkGenerator. */
 export interface ChunkGeneratorMembers {
   canSpawn(arg0: j_org_bukkit.World, arg1: number, arg2: number): boolean;
-  createChunkData(arg0: j_org_bukkit.World): ChunkGenerator_ChunkData;
   generateBedrock(arg0: WorldInfo, arg1: JavaOpaque<"java.util.Random">, arg2: number, arg3: number, arg4: ChunkGenerator_ChunkData): void;
   generateCaves(arg0: WorldInfo, arg1: JavaOpaque<"java.util.Random">, arg2: number, arg3: number, arg4: ChunkGenerator_ChunkData): void;
   generateChunkData(arg0: j_org_bukkit.World, arg1: JavaOpaque<"java.util.Random">, arg2: number, arg3: number, arg4: ChunkGenerator_BiomeGrid): ChunkGenerator_ChunkData;
@@ -83,7 +80,6 @@ export interface ChunkGeneratorMembers {
 }
 export type ChunkGenerator = ChunkGeneratorMembers;
 export interface ChunkGeneratorStatics {
-  new(): ChunkGenerator;
 }
 
 /** JVM interface org.bukkit.generator.ChunkGenerator$BiomeGrid. */

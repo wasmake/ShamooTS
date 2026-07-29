@@ -26,7 +26,7 @@
   "dependencies": {
     "@shamoo/metadata": "workspace:^",
     "semver": "7.7.2",
-    "zod": "4.3.6"
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@types/semver": "7.7.0"

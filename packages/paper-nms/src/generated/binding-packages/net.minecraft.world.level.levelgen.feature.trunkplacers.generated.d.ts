@@ -13,7 +13,6 @@ import type * as j_net_minecraft_world_level_levelgen_feature_foliageplacers fro
 export interface BendingTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type BendingTrunkPlacer = BendingTrunkPlacerMembers & TrunkPlacer;
 export interface BendingTrunkPlacerStatics {
@@ -25,7 +24,6 @@ export interface BendingTrunkPlacerStatics {
 export interface CherryTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type CherryTrunkPlacer = CherryTrunkPlacerMembers & TrunkPlacer;
 export interface CherryTrunkPlacerStatics {
@@ -37,7 +35,6 @@ export interface CherryTrunkPlacerStatics {
 export interface DarkOakTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type DarkOakTrunkPlacer = DarkOakTrunkPlacerMembers & TrunkPlacer;
 export interface DarkOakTrunkPlacerStatics {
@@ -49,7 +46,6 @@ export interface DarkOakTrunkPlacerStatics {
 export interface FancyTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type FancyTrunkPlacer = FancyTrunkPlacerMembers & TrunkPlacer;
 export interface FancyTrunkPlacerStatics {
@@ -61,7 +57,6 @@ export interface FancyTrunkPlacerStatics {
 export interface ForkingTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type ForkingTrunkPlacer = ForkingTrunkPlacerMembers & TrunkPlacer;
 export interface ForkingTrunkPlacerStatics {
@@ -73,7 +68,6 @@ export interface ForkingTrunkPlacerStatics {
 export interface GiantTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type GiantTrunkPlacer = GiantTrunkPlacerMembers & TrunkPlacer;
 export interface GiantTrunkPlacerStatics {
@@ -85,7 +79,6 @@ export interface GiantTrunkPlacerStatics {
 export interface MegaJungleTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [GiantTrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type MegaJungleTrunkPlacer = MegaJungleTrunkPlacerMembers & GiantTrunkPlacer;
 export interface MegaJungleTrunkPlacerStatics {
@@ -97,7 +90,6 @@ export interface MegaJungleTrunkPlacerStatics {
 export interface StraightTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
 }
 export type StraightTrunkPlacer = StraightTrunkPlacerMembers & TrunkPlacer;
 export interface StraightTrunkPlacerStatics {
@@ -107,25 +99,14 @@ export interface StraightTrunkPlacerStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer. */
 export interface TrunkPlacerMembers {
-  readonly baseHeight: number;
   getTreeHeight(arg0: j_net_minecraft_util.RandomSource): number;
-  readonly heightRandA: number;
-  readonly heightRandB: number;
   isFree(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos): boolean;
-  placeLog(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): boolean;
-  placeLog(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration, arg5: JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_level_block_state.BlockState>): boolean;
-  placeLogIfFree(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos_MutableBlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): void;
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
-  validTreePos(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos): boolean;
 }
 export type TrunkPlacer = TrunkPlacerMembers;
 export interface TrunkPlacerStatics {
-  new(arg0: number, arg1: number, arg2: number): TrunkPlacer;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [TrunkPlacer]>;
   readonly MAX_HEIGHT: 80;
-  setDirtAt(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): void;
-  trunkPlacerParts<P /* extends TrunkPlacer */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [P]>): JavaOpaque<"com.mojang.datafixers.Products$P3", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [P]>, number, number, number]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType. */
@@ -149,8 +130,6 @@ export interface TrunkPlacerTypeStatics {
 export interface UpwardsBranchingTrunkPlacerMembers {
   readonly __javaSupertypes?: readonly [TrunkPlacer];
   placeTrunk(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: JavaBiConsumer<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: j_net_minecraft_core.BlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration): JavaList<j_net_minecraft_world_level_levelgen_feature_foliageplacers.FoliagePlacer_FoliageAttachment>;
-  type(): TrunkPlacerType<object>;
-  validTreePos(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos): boolean;
 }
 export type UpwardsBranchingTrunkPlacer = UpwardsBranchingTrunkPlacerMembers & TrunkPlacer;
 export interface UpwardsBranchingTrunkPlacerStatics {

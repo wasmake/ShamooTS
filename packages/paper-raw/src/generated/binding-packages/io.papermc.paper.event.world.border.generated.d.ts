@@ -68,9 +68,7 @@ export interface WorldBorderCenterChangeEventStatics {
 export interface WorldBorderEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_world.WorldEvent];
   getWorldBorder(): j_org_bukkit.WorldBorder;
-  readonly worldBorder: j_org_bukkit.WorldBorder;
 }
 export type WorldBorderEvent = WorldBorderEventMembers & j_org_bukkit_event_world.WorldEvent;
 export interface WorldBorderEventStatics {
-  new(arg0: j_org_bukkit.World, arg1: j_org_bukkit.WorldBorder): WorldBorderEvent;
 }

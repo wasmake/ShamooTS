@@ -12,11 +12,11 @@ export interface UnknownCommandEventMembers {
   getMessage(): string | null;
   getSender(): j_org_bukkit_command.CommandSender;
   message(): j_net_kyori_adventure_text.Component | null;
-  message(arg0: j_net_kyori_adventure_text.Component): void | null;
-  setMessage(arg0: string): void | null;
+  message(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setMessage(arg0: string | null): void;
 }
 export type UnknownCommandEvent = UnknownCommandEventMembers & j_org_bukkit_event.Event;
 export interface UnknownCommandEventStatics {
-  new(arg0: j_org_bukkit_command.CommandSender, arg1: string, arg2: j_net_kyori_adventure_text.Component): UnknownCommandEvent;
+  new(arg0: j_org_bukkit_command.CommandSender, arg1: string, arg2: j_net_kyori_adventure_text.Component | null): UnknownCommandEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

@@ -1,7 +1,6 @@
 // Generated from paper 1.21.8-R0.1-20250906.215025-55 (paper-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_org_bukkit_command from './org.bukkit.command.generated.js';
-import type * as j_org_bukkit_help from './org.bukkit.help.generated.js';
 
 /** JVM abstract org.bukkit.command.defaults.BukkitCommand. */
 export interface BukkitCommandMembers {
@@ -9,21 +8,17 @@ export interface BukkitCommandMembers {
 }
 export type BukkitCommand = BukkitCommandMembers & j_org_bukkit_command.Command;
 export interface BukkitCommandStatics {
-  new(arg0: string): BukkitCommand;
-  new(arg0: string, arg1: string, arg2: string, arg3: JavaList<string>): BukkitCommand;
 }
 
 /** JVM class org.bukkit.command.defaults.HelpCommand. */
 export interface HelpCommandMembers {
   readonly __javaSupertypes?: readonly [BukkitCommand];
   execute(arg0: j_org_bukkit_command.CommandSender, arg1: string, arg2: Array<string>): boolean;
-  findPossibleMatches(arg0: string): j_org_bukkit_help.HelpTopic | null;
   tabComplete(arg0: j_org_bukkit_command.CommandSender, arg1: string, arg2: Array<string>): JavaList<string>;
 }
 export type HelpCommand = HelpCommandMembers & BukkitCommand;
 export interface HelpCommandStatics {
   new(): HelpCommand;
-  damerauLevenshteinDistance(arg0: string | null, arg1: string | null): number | null;
 }
 
 /** JVM class org.bukkit.command.defaults.PluginsCommand. */

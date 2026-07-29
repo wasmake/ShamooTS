@@ -294,7 +294,7 @@ export interface LootParams_BuilderMembers {
   getParameter<T>(arg0: j_net_minecraft_util_context.ContextKey<T>): T;
   withDynamicDrop(arg0: j_net_minecraft_resources.ResourceLocation, arg1: LootParams_DynamicDrop): LootParams_Builder;
   withLuck(arg0: number): LootParams_Builder;
-  withOptionalParameter<T>(arg0: j_net_minecraft_util_context.ContextKey<T>, arg1: T | null): LootParams_Builder | null;
+  withOptionalParameter<T>(arg0: j_net_minecraft_util_context.ContextKey<T>, arg1: T | null): LootParams_Builder;
   withParameter<T>(arg0: j_net_minecraft_util_context.ContextKey<T>, arg1: T): LootParams_Builder;
 }
 export type LootParams_Builder = LootParams_BuilderMembers;
@@ -328,16 +328,12 @@ export interface LootPool_BuilderMembers {
   apply<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder>): LootPool_Builder;
   apply(arg0: j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder): LootPool_Builder;
   apply<E>(arg0: Array<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder>): LootPool_Builder;
-  apply(arg0: j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder): j_net_minecraft_world_level_storage_loot_functions.FunctionUserBuilder;
   build(): LootPool;
   setBonusRolls(arg0: j_net_minecraft_world_level_storage_loot_providers_number.NumberProvider): LootPool_Builder;
   setRolls(arg0: j_net_minecraft_world_level_storage_loot_providers_number.NumberProvider): LootPool_Builder;
   unwrap(): LootPool_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_functions.FunctionUserBuilder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): LootPool_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): LootPool_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type LootPool_Builder = LootPool_BuilderMembers;
 export interface LootPool_BuilderStatics {
@@ -378,12 +374,10 @@ export interface LootTable_BuilderMembers {
   apply<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder>): LootTable_Builder;
   apply(arg0: j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder): LootTable_Builder;
   apply<E>(arg0: Array<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder>): LootTable_Builder;
-  apply(arg0: j_net_minecraft_world_level_storage_loot_functions.LootItemFunction_Builder): j_net_minecraft_world_level_storage_loot_functions.FunctionUserBuilder;
   build(): LootTable;
   setParamSet(arg0: j_net_minecraft_util_context.ContextKeySet): LootTable_Builder;
   setRandomSequence(arg0: j_net_minecraft_resources.ResourceLocation): LootTable_Builder;
   unwrap(): LootTable_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_functions.FunctionUserBuilder;
   withPool(arg0: LootPool_Builder): LootTable_Builder;
 }
 export type LootTable_Builder = LootTable_BuilderMembers;

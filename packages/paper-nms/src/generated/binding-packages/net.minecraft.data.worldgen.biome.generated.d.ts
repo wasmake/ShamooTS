@@ -11,7 +11,6 @@ export interface BiomeDataMembers {
 }
 export type BiomeData = BiomeDataMembers;
 export interface BiomeDataStatics {
-  new(): BiomeData;
   bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<j_net_minecraft_world_level_biome.Biome>): void;
 }
 
@@ -47,13 +46,10 @@ export interface OverworldBiomesMembers {
 export type OverworldBiomes = OverworldBiomesMembers;
 export interface OverworldBiomesStatics {
   new(): OverworldBiomes;
-  readonly NORMAL_WATER_COLOR: 4159204;
-  readonly NORMAL_WATER_FOG_COLOR: 329011;
   readonly SWAMP_SKELETON_WEIGHT: 70;
   badlands(arg0: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_carver.ConfiguredWorldCarver<object>>, arg2: boolean): j_net_minecraft_world_level_biome.Biome;
   bambooJungle(arg0: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_carver.ConfiguredWorldCarver<object>>): j_net_minecraft_world_level_biome.Biome;
   beach(arg0: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_carver.ConfiguredWorldCarver<object>>, arg2: boolean, arg3: boolean): j_net_minecraft_world_level_biome.Biome;
-  calculateSkyColor(arg0: number): number;
   coldOcean(arg0: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_carver.ConfiguredWorldCarver<object>>, arg2: boolean): j_net_minecraft_world_level_biome.Biome;
   darkForest(arg0: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_carver.ConfiguredWorldCarver<object>>, arg2: boolean): j_net_minecraft_world_level_biome.Biome;
   deepDark(arg0: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_placement.PlacedFeature>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_carver.ConfiguredWorldCarver<object>>): j_net_minecraft_world_level_biome.Biome;

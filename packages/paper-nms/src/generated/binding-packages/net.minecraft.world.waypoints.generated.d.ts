@@ -16,7 +16,6 @@ export interface TrackedWaypointMembers {
   distanceSquared(arg0: j_net_minecraft_world_entity.Entity): number;
   icon(): Waypoint_Icon;
   id(): JavaOpaque<"com.mojang.datafixers.util.Either", [JavaOpaque<"java.util.UUID">, string]>;
-  readonly identifier: JavaOpaque<"com.mojang.datafixers.util.Either", [JavaOpaque<"java.util.UUID">, string]>;
   pitchDirectionToCamera(arg0: j_net_minecraft_world_level.Level, arg1: TrackedWaypoint_Projector): TrackedWaypoint_PitchDirection;
   update(arg0: TrackedWaypoint): void;
   write(arg0: JavaOpaque<"io.netty.buffer.ByteBuf">): void;

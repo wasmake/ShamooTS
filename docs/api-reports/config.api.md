@@ -18,6 +18,12 @@ export interface ConfigSource {
     readonly name: string;
 }
 
+// @public
+export const pluginFiles: Readonly<{
+    read(file: string): Promise<string>;
+    write(file: string, contents: string): Promise<void>;
+}>;
+
 // @public (undocumented)
 export function readConfig<T>(source: ConfigSource, decoder: ConfigDecoder<T>): Promise<T>;
 

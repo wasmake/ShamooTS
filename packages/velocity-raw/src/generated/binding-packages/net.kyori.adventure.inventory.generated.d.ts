@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_builder from './net.kyori.adventure.builder.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
@@ -15,7 +15,6 @@ export interface BookMembers {
   title(): j_net_kyori_adventure_text.Component;
   title(arg0: j_net_kyori_adventure_text.Component): Book;
   toBuilder(): Book_Builder;
-  toBuilder(): j_net_kyori_adventure_util.Buildable_Builder;
 }
 export type Book = BookMembers & JavaOpaque<"net.kyori.examination.Examinable">;
 export interface BookStatics {
@@ -30,7 +29,6 @@ export interface Book_BuilderMembers {
   addPage(arg0: j_net_kyori_adventure_text.Component): Book_Builder;
   author(arg0: j_net_kyori_adventure_text.Component): Book_Builder;
   build(): Book;
-  build(): object;
   pages(arg0: JavaCollection<j_net_kyori_adventure_text.Component>): Book_Builder;
   pages(...arg0: Array<j_net_kyori_adventure_text.Component>): Book_Builder;
   title(arg0: j_net_kyori_adventure_text.Component): Book_Builder;

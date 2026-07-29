@@ -17,7 +17,6 @@ export interface ClientboundAddEntityPacketMembers {
   getYa(): number;
   getZ(): number;
   getZa(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundAddEntityPacket]>;
 }
@@ -35,7 +34,6 @@ export interface ClientboundAnimatePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getAction(): number;
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundAnimatePacket]>;
 }
@@ -54,7 +52,6 @@ export interface ClientboundAnimatePacketStatics {
 export interface ClientboundAwardStatsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   stats(): JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2IntMap", [JavaOpaque<"net.minecraft.stats.Stat", [object]>]>;
@@ -71,7 +68,6 @@ export interface ClientboundAwardStatsPacketStatics {
 export interface ClientboundBlockChangedAckPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   sequence(): number;
@@ -90,7 +86,6 @@ export interface ClientboundBlockDestructionPacketMembers {
   getId(): number;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
   getProgress(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundBlockDestructionPacket]>;
 }
@@ -106,7 +101,6 @@ export interface ClientboundBlockEntityDataPacketMembers {
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
   getTag(): JavaOpaque<"net.minecraft.nbt.CompoundTag">;
   getType(): JavaOpaque<"net.minecraft.world.level.block.entity.BlockEntityType", [object]>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundBlockEntityDataPacket]>;
 }
@@ -125,7 +119,6 @@ export interface ClientboundBlockEventPacketMembers {
   getB1(): number;
   getBlock(): JavaOpaque<"net.minecraft.world.level.block.Block">;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundBlockEventPacket]>;
 }
@@ -141,7 +134,6 @@ export interface ClientboundBlockUpdatePacketMembers {
   readonly blockState: JavaOpaque<"net.minecraft.world.level.block.state.BlockState">;
   getBlockState(): JavaOpaque<"net.minecraft.world.level.block.state.BlockState">;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundBlockUpdatePacket]>;
 }
@@ -156,7 +148,6 @@ export interface ClientboundBlockUpdatePacketStatics {
 export interface ClientboundBossEventPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   dispatch(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientboundBossEventPacket$Handler">): void;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundBossEventPacket]>;
 }
@@ -186,7 +177,6 @@ export interface ClientboundChangeDifficultyPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   difficulty(): JavaOpaque<"net.minecraft.world.Difficulty">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   locked(): boolean;
@@ -204,7 +194,6 @@ export interface ClientboundChunkBatchFinishedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   batchSize(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -219,7 +208,6 @@ export interface ClientboundChunkBatchFinishedPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket. */
 export interface ClientboundChunkBatchStartPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundChunkBatchStartPacket]>;
 }
@@ -234,7 +222,6 @@ export interface ClientboundChunksBiomesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   chunkBiomeData(): JavaList<JavaOpaque<"net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket$ChunkBiomeData">>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -250,7 +237,6 @@ export interface ClientboundChunksBiomesPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundClearTitlesPacket. */
 export interface ClientboundClearTitlesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   shouldResetTimes(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundClearTitlesPacket]>;
@@ -265,7 +251,6 @@ export interface ClientboundClearTitlesPacketStatics {
 export interface ClientboundCommandsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getRoot<S>(arg0: JavaOpaque<"net.minecraft.commands.CommandBuildContext">, arg1: JavaOpaque<"net.minecraft.network.protocol.game.ClientboundCommandsPacket$NodeBuilder", [S]>): JavaOpaque<"com.mojang.brigadier.tree.RootCommandNode", [S]>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundCommandsPacket]>;
 }
@@ -279,7 +264,6 @@ export interface ClientboundCommandsPacketStatics {
 export interface ClientboundCommandSuggestionsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -301,7 +285,6 @@ export interface ClientboundCommandSuggestionsPacketStatics {
 export interface ClientboundContainerClosePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getContainerId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundContainerClosePacket]>;
 }
@@ -317,7 +300,6 @@ export interface ClientboundContainerSetContentPacketMembers {
   carriedItem(): JavaOpaque<"net.minecraft.world.item.ItemStack">;
   containerId(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hasLargePacketFallback(): boolean;
   hashCode(): number;
@@ -339,7 +321,6 @@ export interface ClientboundContainerSetDataPacketMembers {
   getContainerId(): number;
   getId(): number;
   getValue(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundContainerSetDataPacket]>;
 }
@@ -356,7 +337,6 @@ export interface ClientboundContainerSetSlotPacketMembers {
   getItem(): JavaOpaque<"net.minecraft.world.item.ItemStack">;
   getSlot(): number;
   getStateId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundContainerSetSlotPacket]>;
 }
@@ -372,7 +352,6 @@ export interface ClientboundCooldownPacketMembers {
   cooldownGroup(): JavaOpaque<"net.minecraft.resources.ResourceLocation">;
   duration(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -390,7 +369,6 @@ export interface ClientboundCustomChatCompletionsPacketMembers {
   action(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundCustomChatCompletionsPacket$Action">;
   entries(): JavaList<string>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -408,7 +386,6 @@ export interface ClientboundDamageEventPacketMembers {
   entityId(): number;
   equals(arg0: object): boolean;
   getSource(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.damagesource.DamageSource">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   sourceCauseId(): number;
@@ -430,7 +407,6 @@ export interface ClientboundDebugSamplePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   debugSampleType(): JavaOpaque<"net.minecraft.util.debugchart.RemoteDebugSampleType">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   sample(): Array<bigint>;
@@ -447,7 +423,6 @@ export interface ClientboundDebugSamplePacketStatics {
 export interface ClientboundDeleteChatPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   messageSignature(): JavaOpaque<"net.minecraft.network.chat.MessageSignature$Packed">;
@@ -465,7 +440,6 @@ export interface ClientboundDisguisedChatPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   chatType(): JavaOpaque<"net.minecraft.network.chat.ChatType$Bound">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   isSkippable(): boolean;
@@ -484,7 +458,6 @@ export interface ClientboundEntityEventPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEntity(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.entity.Entity"> | null;
   getEventId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundEntityEventPacket]>;
 }
@@ -498,7 +471,6 @@ export interface ClientboundEntityEventPacketStatics {
 export interface ClientboundEntityPositionSyncPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -521,7 +493,6 @@ export interface ClientboundExplodePacketMembers {
   equals(arg0: object): boolean;
   explosionParticle(): JavaOpaque<"net.minecraft.core.particles.ParticleOptions">;
   explosionSound(): JavaOpaque<"net.minecraft.core.Holder", [JavaOpaque<"net.minecraft.sounds.SoundEvent">]>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   playerKnockback(): JavaOptional<JavaOpaque<"net.minecraft.world.phys.Vec3">>;
@@ -538,7 +509,6 @@ export interface ClientboundExplodePacketStatics {
 export interface ClientboundForgetLevelChunkPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   pos(): JavaOpaque<"net.minecraft.world.level.ChunkPos">;
@@ -556,7 +526,6 @@ export interface ClientboundGameEventPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEvent(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type">;
   getParam(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundGameEventPacket]>;
 }
@@ -591,7 +560,6 @@ export interface ClientboundHorseScreenOpenPacketMembers {
   getContainerId(): number;
   getEntityId(): number;
   getInventoryColumns(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundHorseScreenOpenPacket]>;
 }
@@ -605,7 +573,6 @@ export interface ClientboundHorseScreenOpenPacketStatics {
 export interface ClientboundHurtAnimationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -631,7 +598,6 @@ export interface ClientboundInitializeBorderPacketMembers {
   getOldSize(): number;
   getWarningBlocks(): number;
   getWarningTime(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundInitializeBorderPacket]>;
 }
@@ -649,7 +615,6 @@ export interface ClientboundLevelChunkWithLightPacketMembers {
   getLightData(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData">;
   getX(): number;
   getZ(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isReady(): boolean;
   setReady(arg0: boolean): void;
@@ -668,7 +633,6 @@ export interface ClientboundLevelEventPacketMembers {
   getData(): number;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
   getType(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isGlobalEvent(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundLevelEventPacket]>;
@@ -692,7 +656,6 @@ export interface ClientboundLevelParticlesPacketMembers {
   getYDist(): number;
   getZ(): number;
   getZDist(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isOverrideLimiter(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundLevelParticlesPacket]>;
@@ -709,7 +672,6 @@ export interface ClientboundLightUpdatePacketMembers {
   getLightData(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData">;
   getX(): number;
   getZ(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundLightUpdatePacket]>;
 }
@@ -727,7 +689,6 @@ export interface ClientboundLoginPacketMembers {
   doLimitedCrafting(): boolean;
   enforcesSecureChat(): boolean;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hardcore(): boolean;
   hashCode(): number;
@@ -753,7 +714,6 @@ export interface ClientboundMapItemDataPacketMembers {
   colorPatch(): JavaOptional<JavaOpaque<"net.minecraft.world.level.saveddata.maps.MapItemSavedData$MapPatch">>;
   decorations(): JavaOptional<JavaList<JavaOpaque<"net.minecraft.world.level.saveddata.maps.MapDecoration">>>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   locked(): boolean;
@@ -777,7 +737,6 @@ export interface ClientboundMerchantOffersPacketMembers {
   getOffers(): JavaOpaque<"net.minecraft.world.item.trading.MerchantOffers">;
   getVillagerLevel(): number;
   getVillagerXp(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   showProgress(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundMerchantOffersPacket]>;
@@ -791,7 +750,6 @@ export interface ClientboundMerchantOffersPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$Pos. */
 export interface ClientboundMoveEntityPacket_PosMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ClientboundMoveEntityPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundMoveEntityPacket_Pos]>;
 }
 export type ClientboundMoveEntityPacket_Pos = ClientboundMoveEntityPacket_PosMembers & JavaOpaque<"net.minecraft.network.protocol.game.ClientboundMoveEntityPacket">;
@@ -803,7 +761,6 @@ export interface ClientboundMoveEntityPacket_PosStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$PosRot. */
 export interface ClientboundMoveEntityPacket_PosRotMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ClientboundMoveEntityPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundMoveEntityPacket_PosRot]>;
 }
 export type ClientboundMoveEntityPacket_PosRot = ClientboundMoveEntityPacket_PosRotMembers & JavaOpaque<"net.minecraft.network.protocol.game.ClientboundMoveEntityPacket">;
@@ -815,7 +772,6 @@ export interface ClientboundMoveEntityPacket_PosRotStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundMoveEntityPacket$Rot. */
 export interface ClientboundMoveEntityPacket_RotMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ClientboundMoveEntityPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundMoveEntityPacket_Rot]>;
 }
 export type ClientboundMoveEntityPacket_Rot = ClientboundMoveEntityPacket_RotMembers & JavaOpaque<"net.minecraft.network.protocol.game.ClientboundMoveEntityPacket">;
@@ -830,7 +786,6 @@ export interface ClientboundMoveMinecartPacketMembers {
   entityId(): number;
   equals(arg0: object): boolean;
   getEntity(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.entity.Entity"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   lerpSteps(): JavaList<JavaOpaque<"net.minecraft.world.entity.vehicle.NewMinecartBehavior$MinecartStep">>;
@@ -847,7 +802,6 @@ export interface ClientboundMoveMinecartPacketStatics {
 export interface ClientboundMoveVehiclePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   position(): JavaOpaque<"net.minecraft.world.phys.Vec3">;
@@ -867,7 +821,6 @@ export interface ClientboundMoveVehiclePacketStatics {
 export interface ClientboundOpenBookPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getHand(): JavaOpaque<"net.minecraft.world.InteractionHand">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundOpenBookPacket]>;
 }
@@ -883,7 +836,6 @@ export interface ClientboundOpenScreenPacketMembers {
   getContainerId(): number;
   getTitle(): JavaOpaque<"net.minecraft.network.chat.Component">;
   getType(): JavaOpaque<"net.minecraft.world.inventory.MenuType", [object]>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundOpenScreenPacket]>;
 }
@@ -897,7 +849,6 @@ export interface ClientboundOpenScreenPacketStatics {
 export interface ClientboundOpenSignEditorPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isFrontText(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundOpenSignEditorPacket]>;
@@ -913,7 +864,6 @@ export interface ClientboundPlaceGhostRecipePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   containerId(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   recipeDisplay(): JavaOpaque<"net.minecraft.world.item.crafting.display.RecipeDisplay">;
@@ -933,7 +883,6 @@ export interface ClientboundPlayerAbilitiesPacketMembers {
   canInstabuild(): boolean;
   getFlyingSpeed(): number;
   getWalkingSpeed(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isFlying(): boolean;
   isInvulnerable(): boolean;
@@ -953,7 +902,6 @@ export interface ClientboundPlayerChatPacketMembers {
   equals(arg0: object): boolean;
   filterMask(): JavaOpaque<"net.minecraft.network.chat.FilterMask">;
   globalIndex(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   index(): number;
@@ -973,7 +921,6 @@ export interface ClientboundPlayerChatPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket. */
 export interface ClientboundPlayerCombatEndPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundPlayerCombatEndPacket]>;
 }
@@ -987,7 +934,6 @@ export interface ClientboundPlayerCombatEndPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket. */
 export interface ClientboundPlayerCombatEnterPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundPlayerCombatEnterPacket]>;
 }
@@ -1001,7 +947,6 @@ export interface ClientboundPlayerCombatEnterPacketStatics {
 export interface ClientboundPlayerCombatKillPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   isSkippable(): boolean;
@@ -1020,7 +965,6 @@ export interface ClientboundPlayerCombatKillPacketStatics {
 export interface ClientboundPlayerInfoRemovePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   profileIds(): JavaList<JavaOpaque<"java.util.UUID">>;
@@ -1038,7 +982,6 @@ export interface ClientboundPlayerInfoUpdatePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   actions(): JavaOpaque<"java.util.EnumSet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Action">]>;
   entries(): JavaList<JavaOpaque<"net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Entry">>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   newEntries(): JavaList<JavaOpaque<"net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Entry">>;
   toString(): string;
@@ -1062,7 +1005,6 @@ export interface ClientboundPlayerLookAtPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getFromAnchor(): JavaOpaque<"net.minecraft.commands.arguments.EntityAnchorArgument$Anchor">;
   getPosition(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.phys.Vec3"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundPlayerLookAtPacket]>;
 }
@@ -1078,7 +1020,6 @@ export interface ClientboundPlayerPositionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   change(): JavaOpaque<"net.minecraft.world.entity.PositionMoveRotation">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -1097,7 +1038,6 @@ export interface ClientboundPlayerPositionPacketStatics {
 export interface ClientboundPlayerRotationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -1116,7 +1056,6 @@ export interface ClientboundProjectilePowerPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getAccelerationPower(): number;
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundProjectilePowerPacket]>;
 }
@@ -1131,7 +1070,6 @@ export interface ClientboundRecipeBookAddPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   entries(): JavaList<JavaOpaque<"net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket$Entry">>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   replace(): boolean;
@@ -1148,7 +1086,6 @@ export interface ClientboundRecipeBookAddPacketStatics {
 export interface ClientboundRecipeBookRemovePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   recipes(): JavaList<JavaOpaque<"net.minecraft.world.item.crafting.display.RecipeDisplayId">>;
@@ -1166,7 +1103,6 @@ export interface ClientboundRecipeBookSettingsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   bookSettings(): JavaOpaque<"net.minecraft.stats.RecipeBookSettings">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -1182,7 +1118,6 @@ export interface ClientboundRecipeBookSettingsPacketStatics {
 export interface ClientboundRemoveEntitiesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEntityIds(): JavaOpaque<"it.unimi.dsi.fastutil.ints.IntList">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundRemoveEntitiesPacket]>;
 }
@@ -1200,7 +1135,6 @@ export interface ClientboundRemoveMobEffectPacketMembers {
   entityId(): number;
   equals(arg0: object): boolean;
   getEntity(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.entity.Entity"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -1216,7 +1150,6 @@ export interface ClientboundRemoveMobEffectPacketStatics {
 export interface ClientboundResetScorePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   objectiveName(): string | null;
@@ -1236,7 +1169,6 @@ export interface ClientboundRespawnPacketMembers {
   commonPlayerSpawnInfo(): JavaOpaque<"net.minecraft.network.protocol.game.CommonPlayerSpawnInfo">;
   dataToKeep(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   shouldKeep(arg0: number): boolean;
@@ -1257,7 +1189,6 @@ export interface ClientboundRotateHeadPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEntity(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.entity.Entity">;
   getYHeadRot(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundRotateHeadPacket]>;
 }
@@ -1270,7 +1201,6 @@ export interface ClientboundRotateHeadPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket. */
 export interface ClientboundSectionBlocksUpdatePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   runUpdates(arg0: JavaBiConsumer<JavaOpaque<"net.minecraft.core.BlockPos">, JavaOpaque<"net.minecraft.world.level.block.state.BlockState">>): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSectionBlocksUpdatePacket]>;
@@ -1287,7 +1217,6 @@ export interface ClientboundSectionBlocksUpdatePacketStatics {
 export interface ClientboundSelectAdvancementsTabPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getTab(): JavaOpaque<"net.minecraft.resources.ResourceLocation"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSelectAdvancementsTabPacket]>;
 }
@@ -1301,7 +1230,6 @@ export interface ClientboundSelectAdvancementsTabPacketStatics {
 export interface ClientboundServerDataPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   iconBytes(): JavaOptional<Array<number>>;
@@ -1319,7 +1247,6 @@ export interface ClientboundServerDataPacketStatics {
 export interface ClientboundSetActionBarTextPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   text(): JavaOpaque<"net.minecraft.network.chat.Component">;
@@ -1337,7 +1264,6 @@ export interface ClientboundSetBorderCenterPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getNewCenterX(): number;
   getNewCenterZ(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetBorderCenterPacket]>;
 }
@@ -1353,7 +1279,6 @@ export interface ClientboundSetBorderLerpSizePacketMembers {
   getLerpTime(): bigint;
   getNewSize(): number;
   getOldSize(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetBorderLerpSizePacket]>;
 }
@@ -1367,7 +1292,6 @@ export interface ClientboundSetBorderLerpSizePacketStatics {
 export interface ClientboundSetBorderSizePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getSize(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetBorderSizePacket]>;
 }
@@ -1381,7 +1305,6 @@ export interface ClientboundSetBorderSizePacketStatics {
 export interface ClientboundSetBorderWarningDelayPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getWarningDelay(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetBorderWarningDelayPacket]>;
 }
@@ -1395,7 +1318,6 @@ export interface ClientboundSetBorderWarningDelayPacketStatics {
 export interface ClientboundSetBorderWarningDistancePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getWarningBlocks(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetBorderWarningDistancePacket]>;
 }
@@ -1409,7 +1331,6 @@ export interface ClientboundSetBorderWarningDistancePacketStatics {
 export interface ClientboundSetCameraPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEntity(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.entity.Entity"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetCameraPacket]>;
 }
@@ -1424,7 +1345,6 @@ export interface ClientboundSetChunkCacheCenterPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getX(): number;
   getZ(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetChunkCacheCenterPacket]>;
 }
@@ -1438,7 +1358,6 @@ export interface ClientboundSetChunkCacheCenterPacketStatics {
 export interface ClientboundSetChunkCacheRadiusPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getRadius(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetChunkCacheRadiusPacket]>;
 }
@@ -1453,7 +1372,6 @@ export interface ClientboundSetCursorItemPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   contents(): JavaOpaque<"net.minecraft.world.item.ItemStack">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -1470,7 +1388,6 @@ export interface ClientboundSetDefaultSpawnPositionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getAngle(): number;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   readonly pos: JavaOpaque<"net.minecraft.core.BlockPos">;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetDefaultSpawnPositionPacket]>;
@@ -1486,7 +1403,6 @@ export interface ClientboundSetDisplayObjectivePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getObjectiveName(): string | null;
   getSlot(): JavaOpaque<"net.minecraft.world.scores.DisplaySlot">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetDisplayObjectivePacket]>;
 }
@@ -1500,7 +1416,6 @@ export interface ClientboundSetDisplayObjectivePacketStatics {
 export interface ClientboundSetEntityDataPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -1520,7 +1435,6 @@ export interface ClientboundSetEntityLinkPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getDestId(): number;
   getSourceId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetEntityLinkPacket]>;
 }
@@ -1537,7 +1451,6 @@ export interface ClientboundSetEntityMotionPacketMembers {
   getXa(): number;
   getYa(): number;
   getZa(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetEntityMotionPacket]>;
 }
@@ -1553,7 +1466,6 @@ export interface ClientboundSetEquipmentPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEntity(): number;
   getSlots(): JavaList<JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"net.minecraft.world.entity.EquipmentSlot">, JavaOpaque<"net.minecraft.world.item.ItemStack">]>>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetEquipmentPacket]>;
 }
@@ -1570,7 +1482,6 @@ export interface ClientboundSetExperiencePacketMembers {
   getExperienceLevel(): number;
   getExperienceProgress(): number;
   getTotalExperience(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetExperiencePacket]>;
 }
@@ -1586,7 +1497,6 @@ export interface ClientboundSetHealthPacketMembers {
   getFood(): number;
   getHealth(): number;
   getSaturation(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetHealthPacket]>;
 }
@@ -1600,7 +1510,6 @@ export interface ClientboundSetHealthPacketStatics {
 export interface ClientboundSetHeldSlotPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   slot(): number;
@@ -1621,7 +1530,6 @@ export interface ClientboundSetObjectivePacketMembers {
   getNumberFormat(): JavaOptional<JavaOpaque<"net.minecraft.network.chat.numbers.NumberFormat">>;
   getObjectiveName(): string;
   getRenderType(): JavaOpaque<"net.minecraft.world.scores.criteria.ObjectiveCriteria$RenderType">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetObjectivePacket]>;
 }
@@ -1639,7 +1547,6 @@ export interface ClientboundSetPassengersPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getPassengers(): Array<number>;
   getVehicle(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetPassengersPacket]>;
 }
@@ -1654,7 +1561,6 @@ export interface ClientboundSetPlayerInventoryPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   contents(): JavaOpaque<"net.minecraft.world.item.ItemStack">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   slot(): number;
@@ -1675,7 +1581,6 @@ export interface ClientboundSetPlayerTeamPacketMembers {
   getPlayerAction(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Action"> | null;
   getPlayers(): JavaCollection<string>;
   getTeamAction(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Action"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetPlayerTeamPacket]>;
 }
@@ -1693,7 +1598,6 @@ export interface ClientboundSetScorePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   display(): JavaOptional<JavaOpaque<"net.minecraft.network.chat.Component">>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   numberFormat(): JavaOptional<JavaOpaque<"net.minecraft.network.chat.numbers.NumberFormat">>;
@@ -1713,7 +1617,6 @@ export interface ClientboundSetScorePacketStatics {
 export interface ClientboundSetSimulationDistancePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   simulationDistance(): number;
@@ -1730,7 +1633,6 @@ export interface ClientboundSetSimulationDistancePacketStatics {
 export interface ClientboundSetSubtitleTextPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   text(): JavaOpaque<"net.minecraft.network.chat.Component">;
@@ -1749,7 +1651,6 @@ export interface ClientboundSetTimePacketMembers {
   dayTime(): bigint;
   equals(arg0: object): boolean;
   gameTime(): bigint;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   tickDayTime(): boolean;
@@ -1768,7 +1669,6 @@ export interface ClientboundSetTitlesAnimationPacketMembers {
   getFadeIn(): number;
   getFadeOut(): number;
   getStay(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSetTitlesAnimationPacket]>;
 }
@@ -1782,7 +1682,6 @@ export interface ClientboundSetTitlesAnimationPacketStatics {
 export interface ClientboundSetTitleTextPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   text(): JavaOpaque<"net.minecraft.network.chat.Component">;
@@ -1804,7 +1703,6 @@ export interface ClientboundSoundEntityPacketMembers {
   getSound(): JavaOpaque<"net.minecraft.core.Holder", [JavaOpaque<"net.minecraft.sounds.SoundEvent">]>;
   getSource(): JavaOpaque<"net.minecraft.sounds.SoundSource">;
   getVolume(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSoundEntityPacket]>;
 }
@@ -1825,7 +1723,6 @@ export interface ClientboundSoundPacketMembers {
   getX(): number;
   getY(): number;
   getZ(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundSoundPacket]>;
 }
@@ -1839,7 +1736,6 @@ export interface ClientboundSoundPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket. */
 export interface ClientboundStartConfigurationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isTerminal(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundStartConfigurationPacket]>;
@@ -1855,7 +1751,6 @@ export interface ClientboundStopSoundPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getName(): JavaOpaque<"net.minecraft.resources.ResourceLocation"> | null;
   getSource(): JavaOpaque<"net.minecraft.sounds.SoundSource"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundStopSoundPacket]>;
 }
@@ -1870,7 +1765,6 @@ export interface ClientboundSystemChatPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   content(): JavaOpaque<"net.minecraft.network.chat.Component">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   isSkippable(): boolean;
@@ -1891,7 +1785,6 @@ export interface ClientboundTabListPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
   footer(): JavaOpaque<"net.minecraft.network.chat.Component">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   header(): JavaOpaque<"net.minecraft.network.chat.Component">;
@@ -1909,7 +1802,6 @@ export interface ClientboundTagQueryPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getTag(): JavaOpaque<"net.minecraft.nbt.CompoundTag"> | null;
   getTransactionId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isSkippable(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundTagQueryPacket]>;
@@ -1926,7 +1818,6 @@ export interface ClientboundTakeItemEntityPacketMembers {
   getAmount(): number;
   getItemId(): number;
   getPlayerId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundTakeItemEntityPacket]>;
 }
@@ -1941,7 +1832,6 @@ export interface ClientboundTeleportEntityPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   change(): JavaOpaque<"net.minecraft.world.entity.PositionMoveRotation">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -1961,7 +1851,6 @@ export interface ClientboundTeleportEntityPacketStatics {
 export interface ClientboundTestInstanceBlockStatusMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   size(): JavaOptional<JavaOpaque<"net.minecraft.core.Vec3i">>;
@@ -1979,7 +1868,6 @@ export interface ClientboundTestInstanceBlockStatusStatics {
 export interface ClientboundTickingStatePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   isFrozen(): boolean;
@@ -1998,7 +1886,6 @@ export interface ClientboundTickingStatePacketStatics {
 export interface ClientboundTickingStepPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   tickSteps(): number;
@@ -2017,7 +1904,6 @@ export interface ClientboundTrackedWaypointPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   apply(arg0: JavaOpaque<"net.minecraft.world.waypoints.TrackedWaypointManager">): void;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   operation(): JavaOpaque<"net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket$Operation">;
@@ -2044,7 +1930,6 @@ export interface ClientboundUpdateAdvancementsPacketMembers {
   getAdded(): JavaList<JavaOpaque<"net.minecraft.advancements.AdvancementHolder">>;
   getProgress(): JavaMap<JavaOpaque<"net.minecraft.resources.ResourceLocation">, JavaOpaque<"net.minecraft.advancements.AdvancementProgress">>;
   getRemoved(): JavaSet<JavaOpaque<"net.minecraft.resources.ResourceLocation">>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   shouldReset(): boolean;
   shouldShowAdvancements(): boolean;
@@ -2061,7 +1946,6 @@ export interface ClientboundUpdateAttributesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   getEntityId(): number;
   getValues(): JavaList<JavaOpaque<"net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket$AttributeSnapshot">>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundUpdateAttributesPacket]>;
 }
@@ -2079,7 +1963,6 @@ export interface ClientboundUpdateMobEffectPacketMembers {
   getEffectAmplifier(): number;
   getEffectDurationTicks(): number;
   getEntityId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   isEffectAmbient(): boolean;
   isEffectVisible(): boolean;
@@ -2096,7 +1979,6 @@ export interface ClientboundUpdateMobEffectPacketStatics {
 export interface ClientboundUpdateRecipesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ClientGamePacketListener">): void;
   hashCode(): number;
   itemSets(): JavaMap<JavaOpaque<"net.minecraft.resources.ResourceKey", [JavaOpaque<"net.minecraft.world.item.crafting.RecipePropertySet">]>, JavaOpaque<"net.minecraft.world.item.crafting.RecipePropertySet">>;
@@ -2114,7 +1996,6 @@ export interface ClientboundUpdateRecipesPacketStatics {
 export interface ServerboundAcceptTeleportationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundAcceptTeleportationPacket]>;
 }
@@ -2129,7 +2010,6 @@ export interface ServerboundBlockEntityTagQueryPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
   getTransactionId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundBlockEntityTagQueryPacket]>;
 }
@@ -2144,7 +2024,6 @@ export interface ServerboundChangeDifficultyPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   difficulty(): JavaOpaque<"net.minecraft.world.Difficulty">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2160,7 +2039,6 @@ export interface ServerboundChangeDifficultyPacketStatics {
 export interface ServerboundChangeGameModePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   mode(): JavaOpaque<"net.minecraft.world.level.GameType">;
@@ -2177,7 +2055,6 @@ export interface ServerboundChangeGameModePacketStatics {
 export interface ServerboundChatAckPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   offset(): number;
@@ -2195,7 +2072,6 @@ export interface ServerboundChatCommandPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   command(): string;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2213,7 +2089,6 @@ export interface ServerboundChatCommandSignedPacketMembers {
   argumentSignatures(): JavaOpaque<"net.minecraft.commands.arguments.ArgumentSignatures">;
   command(): string;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   lastSeenMessages(): JavaOpaque<"net.minecraft.network.chat.LastSeenMessages$Update">;
@@ -2232,7 +2107,6 @@ export interface ServerboundChatCommandSignedPacketStatics {
 export interface ServerboundChatPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   lastSeenMessages(): JavaOpaque<"net.minecraft.network.chat.LastSeenMessages$Update">;
@@ -2254,7 +2128,6 @@ export interface ServerboundChatSessionUpdatePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   chatSession(): JavaOpaque<"net.minecraft.network.chat.RemoteChatSession$Data">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2271,7 +2144,6 @@ export interface ServerboundChunkBatchReceivedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   desiredChunksPerTick(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2287,7 +2159,6 @@ export interface ServerboundChunkBatchReceivedPacketStatics {
 export interface ServerboundClientCommandPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getAction(): JavaOpaque<"net.minecraft.network.protocol.game.ServerboundClientCommandPacket$Action">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundClientCommandPacket]>;
 }
@@ -2301,7 +2172,6 @@ export interface ServerboundClientCommandPacketStatics {
 export interface ServerboundClientTickEndPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2319,7 +2189,6 @@ export interface ServerboundCommandSuggestionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getCommand(): string;
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundCommandSuggestionPacket]>;
 }
@@ -2332,7 +2201,6 @@ export interface ServerboundCommandSuggestionPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundConfigurationAcknowledgedPacket. */
 export interface ServerboundConfigurationAcknowledgedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isTerminal(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundConfigurationAcknowledgedPacket]>;
@@ -2349,7 +2217,6 @@ export interface ServerboundContainerButtonClickPacketMembers {
   buttonId(): number;
   containerId(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2370,7 +2237,6 @@ export interface ServerboundContainerClickPacketMembers {
   clickType(): JavaOpaque<"net.minecraft.world.inventory.ClickType">;
   containerId(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   slotNum(): number;
@@ -2388,7 +2254,6 @@ export interface ServerboundContainerClickPacketStatics {
 export interface ServerboundContainerClosePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getContainerId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundContainerClosePacket]>;
 }
@@ -2403,7 +2268,6 @@ export interface ServerboundContainerSlotStateChangedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   containerId(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   newState(): boolean;
@@ -2421,7 +2285,6 @@ export interface ServerboundContainerSlotStateChangedPacketStatics {
 export interface ServerboundDebugSampleSubscriptionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   sampleType(): JavaOpaque<"net.minecraft.util.debugchart.RemoteDebugSampleType">;
@@ -2438,7 +2301,6 @@ export interface ServerboundDebugSampleSubscriptionPacketStatics {
 export interface ServerboundEditBookPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   pages(): JavaList<string>;
@@ -2458,7 +2320,6 @@ export interface ServerboundEntityTagQueryPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getEntityId(): number;
   getTransactionId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundEntityTagQueryPacket]>;
 }
@@ -2474,7 +2335,6 @@ export interface ServerboundInteractPacketMembers {
   dispatch(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerboundInteractPacket$Handler">): void;
   getEntityId(): number;
   getTarget(arg0: JavaOpaque<"net.minecraft.server.level.ServerLevel">): JavaOpaque<"net.minecraft.world.entity.Entity"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isAttack(): boolean;
   isUsingSecondaryAction(): boolean;
@@ -2492,7 +2352,6 @@ export interface ServerboundInteractPacketStatics {
 export interface ServerboundJigsawGeneratePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   keepJigsaws(): boolean;
   levels(): number;
@@ -2507,7 +2366,6 @@ export interface ServerboundJigsawGeneratePacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundLockDifficultyPacket. */
 export interface ServerboundLockDifficultyPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isLocked(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundLockDifficultyPacket]>;
@@ -2521,7 +2379,6 @@ export interface ServerboundLockDifficultyPacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos. */
 export interface ServerboundMovePlayerPacket_PosMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundMovePlayerPacket_Pos]>;
 }
 export type ServerboundMovePlayerPacket_Pos = ServerboundMovePlayerPacket_PosMembers & JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">;
@@ -2534,7 +2391,6 @@ export interface ServerboundMovePlayerPacket_PosStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$PosRot. */
 export interface ServerboundMovePlayerPacket_PosRotMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundMovePlayerPacket_PosRot]>;
 }
 export type ServerboundMovePlayerPacket_PosRot = ServerboundMovePlayerPacket_PosRotMembers & JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">;
@@ -2547,7 +2403,6 @@ export interface ServerboundMovePlayerPacket_PosRotStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Rot. */
 export interface ServerboundMovePlayerPacket_RotMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundMovePlayerPacket_Rot]>;
 }
 export type ServerboundMovePlayerPacket_Rot = ServerboundMovePlayerPacket_RotMembers & JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">;
@@ -2559,7 +2414,6 @@ export interface ServerboundMovePlayerPacket_RotStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$StatusOnly. */
 export interface ServerboundMovePlayerPacket_StatusOnlyMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundMovePlayerPacket_StatusOnly]>;
 }
 export type ServerboundMovePlayerPacket_StatusOnly = ServerboundMovePlayerPacket_StatusOnlyMembers & JavaOpaque<"net.minecraft.network.protocol.game.ServerboundMovePlayerPacket">;
@@ -2572,7 +2426,6 @@ export interface ServerboundMovePlayerPacket_StatusOnlyStatics {
 export interface ServerboundMoveVehiclePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   onGround(): boolean;
@@ -2594,7 +2447,6 @@ export interface ServerboundPaddleBoatPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getLeft(): boolean;
   getRight(): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundPaddleBoatPacket]>;
 }
@@ -2608,7 +2460,6 @@ export interface ServerboundPaddleBoatPacketStatics {
 export interface ServerboundPickItemFromBlockPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   includeData(): boolean;
@@ -2626,7 +2477,6 @@ export interface ServerboundPickItemFromBlockPacketStatics {
 export interface ServerboundPickItemFromEntityPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   id(): number;
@@ -2645,7 +2495,6 @@ export interface ServerboundPlaceRecipePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   containerId(): number;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   recipe(): JavaOpaque<"net.minecraft.world.item.crafting.display.RecipeDisplayId">;
@@ -2662,7 +2511,6 @@ export interface ServerboundPlaceRecipePacketStatics {
 /** JVM class net.minecraft.network.protocol.game.ServerboundPlayerAbilitiesPacket. */
 export interface ServerboundPlayerAbilitiesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isFlying(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundPlayerAbilitiesPacket]>;
@@ -2680,7 +2528,6 @@ export interface ServerboundPlayerActionPacketMembers {
   getDirection(): JavaOpaque<"net.minecraft.core.Direction">;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
   getSequence(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundPlayerActionPacket]>;
 }
@@ -2697,7 +2544,6 @@ export interface ServerboundPlayerCommandPacketMembers {
   getAction(): JavaOpaque<"net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket$Action">;
   getData(): number;
   getId(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundPlayerCommandPacket]>;
 }
@@ -2712,7 +2558,6 @@ export interface ServerboundPlayerCommandPacketStatics {
 export interface ServerboundPlayerInputPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   input(): JavaOpaque<"net.minecraft.world.entity.player.Input">;
@@ -2729,7 +2574,6 @@ export interface ServerboundPlayerInputPacketStatics {
 export interface ServerboundPlayerLoadedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -2745,7 +2589,6 @@ export interface ServerboundPlayerLoadedPacketStatics {
 export interface ServerboundRecipeBookChangeSettingsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getBookType(): JavaOpaque<"net.minecraft.world.inventory.RecipeBookType">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isFiltering(): boolean;
   isOpen(): boolean;
@@ -2761,7 +2604,6 @@ export interface ServerboundRecipeBookChangeSettingsPacketStatics {
 export interface ServerboundRecipeBookSeenRecipePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   recipe(): JavaOpaque<"net.minecraft.world.item.crafting.display.RecipeDisplayId">;
@@ -2778,7 +2620,6 @@ export interface ServerboundRecipeBookSeenRecipePacketStatics {
 export interface ServerboundRenameItemPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getName(): string;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundRenameItemPacket]>;
 }
@@ -2793,7 +2634,6 @@ export interface ServerboundSeenAdvancementsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getAction(): JavaOpaque<"net.minecraft.network.protocol.game.ServerboundSeenAdvancementsPacket$Action">;
   getTab(): JavaOpaque<"net.minecraft.resources.ResourceLocation"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSeenAdvancementsPacket]>;
 }
@@ -2809,7 +2649,6 @@ export interface ServerboundSeenAdvancementsPacketStatics {
 export interface ServerboundSelectBundleItemPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   selectedItemIndex(): number;
@@ -2827,7 +2666,6 @@ export interface ServerboundSelectBundleItemPacketStatics {
 export interface ServerboundSelectTradePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getItem(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSelectTradePacket]>;
 }
@@ -2841,7 +2679,6 @@ export interface ServerboundSelectTradePacketStatics {
 export interface ServerboundSetBeaconPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   primary(): JavaOptional<JavaOpaque<"net.minecraft.core.Holder", [JavaOpaque<"net.minecraft.world.effect.MobEffect">]>>;
@@ -2859,7 +2696,6 @@ export interface ServerboundSetBeaconPacketStatics {
 export interface ServerboundSetCarriedItemPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getSlot(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSetCarriedItemPacket]>;
 }
@@ -2875,7 +2711,6 @@ export interface ServerboundSetCommandBlockPacketMembers {
   getCommand(): string;
   getMode(): JavaOpaque<"net.minecraft.world.level.block.entity.CommandBlockEntity$Mode">;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isAutomatic(): boolean;
   isConditional(): boolean;
@@ -2893,7 +2728,6 @@ export interface ServerboundSetCommandMinecartPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getCommand(): string;
   getCommandBlock(arg0: JavaOpaque<"net.minecraft.world.level.Level">): JavaOpaque<"net.minecraft.world.level.BaseCommandBlock"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isTrackOutput(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSetCommandMinecartPacket]>;
@@ -2908,7 +2742,6 @@ export interface ServerboundSetCommandMinecartPacketStatics {
 export interface ServerboundSetCreativeModeSlotPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   itemStack(): JavaOpaque<"net.minecraft.world.item.ItemStack">;
@@ -2934,7 +2767,6 @@ export interface ServerboundSetJigsawBlockPacketMembers {
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
   getSelectionPriority(): number;
   getTarget(): JavaOpaque<"net.minecraft.resources.ResourceLocation">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSetJigsawBlockPacket]>;
 }
@@ -2958,7 +2790,6 @@ export interface ServerboundSetStructureBlockPacketMembers {
   getSeed(): bigint;
   getSize(): JavaOpaque<"net.minecraft.core.Vec3i">;
   getUpdateType(): JavaOpaque<"net.minecraft.world.level.block.entity.StructureBlockEntity$UpdateType">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isIgnoreEntities(): boolean;
   isShowAir(): boolean;
@@ -2976,7 +2807,6 @@ export interface ServerboundSetStructureBlockPacketStatics {
 export interface ServerboundSetTestBlockPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   message(): string;
@@ -2996,7 +2826,6 @@ export interface ServerboundSignUpdatePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getLines(): Array<string>;
   getPos(): JavaOpaque<"net.minecraft.core.BlockPos">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   isFrontText(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSignUpdatePacket]>;
@@ -3011,7 +2840,6 @@ export interface ServerboundSignUpdatePacketStatics {
 export interface ServerboundSwingPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getHand(): JavaOpaque<"net.minecraft.world.InteractionHand">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundSwingPacket]>;
 }
@@ -3025,7 +2853,6 @@ export interface ServerboundSwingPacketStatics {
 export interface ServerboundTeleportToEntityPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">]>];
   getEntity(arg0: JavaOpaque<"net.minecraft.server.level.ServerLevel">): JavaOpaque<"net.minecraft.world.entity.Entity"> | null;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundTeleportToEntityPacket]>;
 }
@@ -3041,7 +2868,6 @@ export interface ServerboundTestInstanceBlockActionPacketMembers {
   action(): JavaOpaque<"net.minecraft.network.protocol.game.ServerboundTestInstanceBlockActionPacket$Action">;
   data(): JavaOpaque<"net.minecraft.world.level.block.entity.TestInstanceBlockEntity$Data">;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   hashCode(): number;
   pos(): JavaOpaque<"net.minecraft.core.BlockPos">;
@@ -3061,7 +2887,6 @@ export interface ServerboundUseItemOnPacketMembers {
   getHand(): JavaOpaque<"net.minecraft.world.InteractionHand">;
   getHitResult(): JavaOpaque<"net.minecraft.world.phys.BlockHitResult">;
   getSequence(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   timestamp: bigint;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundUseItemOnPacket]>;
@@ -3079,7 +2904,6 @@ export interface ServerboundUseItemPacketMembers {
   getSequence(): number;
   getXRot(): number;
   getYRot(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.game.ServerGamePacketListener">): void;
   timestamp: bigint;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundUseItemPacket]>;

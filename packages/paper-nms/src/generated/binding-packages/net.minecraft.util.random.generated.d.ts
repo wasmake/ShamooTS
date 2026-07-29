@@ -22,7 +22,7 @@ export interface WeightedStatics {
 /** JVM class net.minecraft.util.random.WeightedList. */
 export interface WeightedListMembers<E = unknown> {
   contains(arg0: E): boolean;
-  equals(arg0: object | null): boolean | null;
+  equals(arg0: object | null): boolean;
   getRandom(arg0: j_net_minecraft_util.RandomSource): JavaOptional<E>;
   getRandomOrThrow(arg0: j_net_minecraft_util.RandomSource): E;
   hashCode(): number;
@@ -32,7 +32,6 @@ export interface WeightedListMembers<E = unknown> {
 }
 export type WeightedList<E = unknown> = WeightedListMembers<E>;
 export interface WeightedListStatics {
-  new<E>(arg0: JavaList<Weighted<E>>): WeightedList<E>;
   builder<E>(): WeightedList_Builder<E>;
   codec<E>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [E]>): JavaOpaque<"com.mojang.serialization.Codec", [WeightedList<E>]>;
   codec<E>(arg0: JavaOpaque<"com.mojang.serialization.MapCodec", [E]>): JavaOpaque<"com.mojang.serialization.Codec", [WeightedList<E>]>;
@@ -49,7 +48,6 @@ export interface WeightedList_BuilderMembers<E = unknown> {
   add(arg0: E): WeightedList_Builder<E>;
   add(arg0: E, arg1: number): WeightedList_Builder<E>;
   build(): WeightedList<E>;
-  readonly result: JavaOpaque<"com.google.common.collect.ImmutableList$Builder", [Weighted<E>]>;
 }
 export type WeightedList_Builder<E = unknown> = WeightedList_BuilderMembers<E>;
 export interface WeightedList_BuilderStatics {

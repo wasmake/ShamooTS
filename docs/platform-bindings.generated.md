@@ -1,8 +1,8 @@
 # Generated platform binding report
 
-- `@shamoo/paper-raw`: `1.21.8-R0.1-20250906.215025-55`; 2,165 declarations, 30,836 members, 422 events, 0 packets, 126 opaque names across 1,421 signature occurrences.
-- `@shamoo/paper-nms`: `1.21.8+paper.55+mache.2`; 6,004 declarations, 68,422 members, 0 events, 0 packets, 1,503 opaque names across 17,054 signature occurrences.
-- `@shamoo/paper-packets`: `1.21.8+paper.55+mache.2`; 219 declarations, 2,029 members, 0 events, 219 packets, 180 opaque names across 2,253 signature occurrences.
-- `@shamoo/velocity-raw`: `3.4.0-20260121.190037-118`; 358 declarations, 2,664 members, 46 events, 0 packets, 58 opaque names across 505 signature occurrences.
+- `@shamoo/paper-raw`: `1.21.8-R0.1-20250906.215025-55`; 2,215 declarations, 30,315 members, 423 events, 0 packets, 125 opaque names across 1,408 signature occurrences.
+- `@shamoo/paper-nms`: `1.21.8+paper.55+mache.2`; 6,004 declarations, 57,844 members, 0 events, 0 packets, 1,471 opaque names across 14,452 signature occurrences.
+- `@shamoo/paper-packets`: `1.21.8+paper.55+mache.2`; 219 declarations, 1,811 members, 0 events, 219 packets, 179 opaque names across 2,035 signature occurrences.
+- `@shamoo/velocity-raw`: `3.4.0`; 358 declarations, 2,512 members, 46 events, 0 packets, 58 opaque names across 493 signature occurrences.
 
 Generated from canonical models and coverage reports by `pnpm api:check`.

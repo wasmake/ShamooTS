@@ -2,7 +2,6 @@
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
-import type * as j_net_minecraft_network_syncher from './net.minecraft.network.syncher.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
 import type * as j_net_minecraft_world from './net.minecraft.world.generated.js';
@@ -10,14 +9,12 @@ import type * as j_net_minecraft_world_damagesource from './net.minecraft.world.
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
 import type * as j_net_minecraft_world_entity_ai_goal from './net.minecraft.world.entity.ai.goal.generated.js';
 import type * as j_net_minecraft_world_entity_ai_targeting from './net.minecraft.world.entity.ai.targeting.generated.js';
-import type * as j_net_minecraft_world_entity_item from './net.minecraft.world.entity.item.generated.js';
 import type * as j_net_minecraft_world_entity_monster from './net.minecraft.world.entity.monster.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_block_entity from './net.minecraft.world.level.block.entity.generated.js';
 import type * as j_net_minecraft_world_level_dimension from './net.minecraft.world.level.dimension.generated.js';
 import type * as j_net_minecraft_world_level_saveddata from './net.minecraft.world.level.saveddata.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_org_bukkit_craftbukkit_persistence from './org.bukkit.craftbukkit.persistence.generated.js';
 
 /** JVM class net.minecraft.world.entity.raid.Raid. */
@@ -48,7 +45,7 @@ export interface RaidMembers {
   isStarted(): boolean;
   isStopped(): boolean;
   isVictory(): boolean;
-  joinRaid(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: Raider, arg3: j_net_minecraft_core.BlockPos | null, arg4: boolean): void | null;
+  joinRaid(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: Raider, arg3: j_net_minecraft_core.BlockPos | null, arg4: boolean): void;
   readonly numGroups: number;
   readonly persistentDataContainer: j_org_bukkit_craftbukkit_persistence.CraftPersistentDataContainer;
   readonly raidEvent: j_net_minecraft_server_level.ServerBossEvent;
@@ -81,12 +78,10 @@ export interface RaidStatics {
 /** JVM abstract net.minecraft.world.entity.raid.Raider. */
 export interface RaiderMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_monster.PatrollingMonster];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   applyRaidBuffs(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: boolean): void;
   canJoinPatrol(): boolean;
   canJoinRaid(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   getCelebrateSound(): j_net_minecraft_sounds.SoundEvent;
@@ -98,23 +93,16 @@ export interface RaiderMembers {
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isCaptain(): boolean;
   isCelebrating(): boolean;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
-  raid: Raid | null;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   removeWhenFarAway(arg0: number): boolean;
   requiresCustomPersistence(): boolean;
   setCanJoinRaid(arg0: boolean): void;
   setCelebrating(arg0: boolean): void;
-  setCurrentRaid(arg0: Raid | null): void | null;
+  setCurrentRaid(arg0: Raid | null): void;
   setTicksOutsideRaid(arg0: number): void;
   setWave(arg0: number): void;
-  updateNoActionTime(): void;
 }
 export type Raider = RaiderMembers & j_net_minecraft_world_entity_monster.PatrollingMonster;
 export interface RaiderStatics {
-  new(arg0: j_net_minecraft_world_entity.EntityType<Raider>, arg1: j_net_minecraft_world_level.Level): Raider;
-  readonly IS_CELEBRATING: j_net_minecraft_network_syncher.EntityDataAccessor<boolean>;
 }
 
 /** JVM class net.minecraft.world.entity.raid.Raider$HoldGroundAttackGoal. */

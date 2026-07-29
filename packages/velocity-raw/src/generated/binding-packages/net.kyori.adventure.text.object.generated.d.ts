@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 
 /** JVM interface net.kyori.adventure.text.object.ObjectContents. */
@@ -30,19 +30,19 @@ export type PlayerHeadObjectContents = PlayerHeadObjectContentsMembers & ObjectC
 export interface PlayerHeadObjectContentsStatics {
   readonly DEFAULT_HAT: 1;
   property(arg0: string, arg1: string): PlayerHeadObjectContents_ProfileProperty;
-  property(arg0: string, arg1: string, arg2: string | null): PlayerHeadObjectContents_ProfileProperty | null;
+  property(arg0: string, arg1: string, arg2: string | null): PlayerHeadObjectContents_ProfileProperty;
 }
 
 /** JVM interface net.kyori.adventure.text.object.PlayerHeadObjectContents$Builder. */
 export interface PlayerHeadObjectContents_BuilderMembers {
   build(): PlayerHeadObjectContents;
   hat(arg0: boolean): PlayerHeadObjectContents_Builder;
-  id(arg0: JavaOpaque<"java.util.UUID"> | null): PlayerHeadObjectContents_Builder | null;
-  name(arg0: string | null): PlayerHeadObjectContents_Builder | null;
+  id(arg0: JavaOpaque<"java.util.UUID"> | null): PlayerHeadObjectContents_Builder;
+  name(arg0: string | null): PlayerHeadObjectContents_Builder;
   profileProperties(arg0: JavaCollection<PlayerHeadObjectContents_ProfileProperty>): PlayerHeadObjectContents_Builder;
   profileProperty(arg0: PlayerHeadObjectContents_ProfileProperty): PlayerHeadObjectContents_Builder;
   skin(arg0: PlayerHeadObjectContents_SkinSource): PlayerHeadObjectContents_Builder;
-  texture(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): PlayerHeadObjectContents_Builder | null;
+  texture(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): PlayerHeadObjectContents_Builder;
 }
 export type PlayerHeadObjectContents_Builder = PlayerHeadObjectContents_BuilderMembers;
 export interface PlayerHeadObjectContents_BuilderStatics {

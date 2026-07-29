@@ -4,10 +4,8 @@ import type * as j_net_minecraft_advancements from './net.minecraft.advancements
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_data from './net.minecraft.data.generated.js';
 import type * as j_net_minecraft_data_advancements from './net.minecraft.data.advancements.generated.js';
-import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
-import type * as j_net_minecraft_world_level_biome from './net.minecraft.world.level.biome.generated.js';
 
 /** JVM class net.minecraft.data.advancements.packs.VanillaAdvancementProvider. */
 export interface VanillaAdvancementProviderMembers {
@@ -26,8 +24,6 @@ export interface VanillaAdventureAdvancementsMembers {
 export type VanillaAdventureAdvancements = VanillaAdventureAdvancementsMembers & j_net_minecraft_data_advancements.AdvancementSubProvider;
 export interface VanillaAdventureAdvancementsStatics {
   new(): VanillaAdventureAdvancements;
-  addBiomes(arg0: j_net_minecraft_advancements.Advancement_Builder, arg1: j_net_minecraft_core.HolderLookup_Provider, arg2: JavaList<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_biome.Biome>>): j_net_minecraft_advancements.Advancement_Builder;
-  createAdventuringTime(arg0: j_net_minecraft_core.HolderLookup_Provider, arg1: JavaConsumer<j_net_minecraft_advancements.AdvancementHolder>, arg2: j_net_minecraft_advancements.AdvancementHolder, arg3: j_net_minecraft_world_level_biome.MultiNoiseBiomeSourceParameterList_Preset): void;
   createMonsterHunterAdvancement(arg0: j_net_minecraft_advancements.AdvancementHolder, arg1: JavaConsumer<j_net_minecraft_advancements.AdvancementHolder>, arg2: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_entity.EntityType<object>>, arg3: JavaList<j_net_minecraft_world_entity.EntityType<object>>): j_net_minecraft_advancements.AdvancementHolder;
 }
 

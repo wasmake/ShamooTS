@@ -108,7 +108,6 @@ export interface FloatProviderMembers {
 }
 export type FloatProvider = FloatProviderMembers & SampledFloat;
 export interface FloatProviderStatics {
-  new(): FloatProvider;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [FloatProvider]>;
   codec(arg0: number, arg1: number): JavaOpaque<"com.mojang.serialization.Codec", [FloatProvider]>;
 }
@@ -135,7 +134,6 @@ export interface IntProviderMembers {
 }
 export type IntProvider = IntProviderMembers;
 export interface IntProviderStatics {
-  new(): IntProvider;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [IntProvider]>;
   readonly NON_NEGATIVE_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [IntProvider]>;
   readonly POSITIVE_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [IntProvider]>;

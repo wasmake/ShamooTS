@@ -11,7 +11,6 @@ import type * as j_net_minecraft_world_level_levelgen_feature_stateproviders fro
 export interface AlterGroundDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type AlterGroundDecorator = AlterGroundDecoratorMembers & TreeDecorator;
 export interface AlterGroundDecoratorStatics {
@@ -22,14 +21,7 @@ export interface AlterGroundDecoratorStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator. */
 export interface AttachedToLeavesDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
-  readonly blockProvider: j_net_minecraft_world_level_levelgen_feature_stateproviders.BlockStateProvider;
-  readonly directions: JavaList<j_net_minecraft_core.Direction>;
-  readonly exclusionRadiusXZ: number;
-  readonly exclusionRadiusY: number;
   place(arg0: TreeDecorator_Context): void;
-  readonly probability: number;
-  readonly requiredEmptyBlocks: number;
-  type(): TreeDecoratorType<object>;
 }
 export type AttachedToLeavesDecorator = AttachedToLeavesDecoratorMembers & TreeDecorator;
 export interface AttachedToLeavesDecoratorStatics {
@@ -41,7 +33,6 @@ export interface AttachedToLeavesDecoratorStatics {
 export interface AttachedToLogsDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type AttachedToLogsDecorator = AttachedToLogsDecoratorMembers & TreeDecorator;
 export interface AttachedToLogsDecoratorStatics {
@@ -53,7 +44,6 @@ export interface AttachedToLogsDecoratorStatics {
 export interface BeehiveDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type BeehiveDecorator = BeehiveDecoratorMembers & TreeDecorator;
 export interface BeehiveDecoratorStatics {
@@ -65,7 +55,6 @@ export interface BeehiveDecoratorStatics {
 export interface CocoaDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type CocoaDecorator = CocoaDecoratorMembers & TreeDecorator;
 export interface CocoaDecoratorStatics {
@@ -77,7 +66,6 @@ export interface CocoaDecoratorStatics {
 export interface CreakingHeartDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type CreakingHeartDecorator = CreakingHeartDecoratorMembers & TreeDecorator;
 export interface CreakingHeartDecoratorStatics {
@@ -89,7 +77,6 @@ export interface CreakingHeartDecoratorStatics {
 export interface LeaveVineDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type LeaveVineDecorator = LeaveVineDecoratorMembers & TreeDecorator;
 export interface LeaveVineDecoratorStatics {
@@ -101,7 +88,6 @@ export interface LeaveVineDecoratorStatics {
 export interface PaleMossDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type PaleMossDecorator = PaleMossDecoratorMembers & TreeDecorator;
 export interface PaleMossDecoratorStatics {
@@ -113,7 +99,6 @@ export interface PaleMossDecoratorStatics {
 export interface PlaceOnGroundDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type PlaceOnGroundDecorator = PlaceOnGroundDecoratorMembers & TreeDecorator;
 export interface PlaceOnGroundDecoratorStatics {
@@ -124,11 +109,9 @@ export interface PlaceOnGroundDecoratorStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator. */
 export interface TreeDecoratorMembers {
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type TreeDecorator = TreeDecoratorMembers;
 export interface TreeDecoratorStatics {
-  new(): TreeDecorator;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [TreeDecorator]>;
 }
 
@@ -171,7 +154,6 @@ export interface TreeDecoratorTypeStatics {
 export interface TrunkVineDecoratorMembers {
   readonly __javaSupertypes?: readonly [TreeDecorator];
   place(arg0: TreeDecorator_Context): void;
-  type(): TreeDecoratorType<object>;
 }
 export type TrunkVineDecorator = TrunkVineDecoratorMembers & TreeDecorator;
 export interface TrunkVineDecoratorStatics {

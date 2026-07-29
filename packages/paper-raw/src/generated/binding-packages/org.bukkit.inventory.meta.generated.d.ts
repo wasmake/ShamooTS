@@ -5,7 +5,6 @@ import type * as j_com_destroystokyo_paper_profile from './com.destroystokyo.pap
 import type * as j_io_papermc_paper_potion from './io.papermc.paper.potion.generated.js';
 import type * as j_net_kyori_adventure_inventory from './net.kyori.adventure.inventory.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
-import type * as j_net_kyori_adventure_util from './net.kyori.adventure.util.generated.js';
 import type * as j_org_bukkit from './org.bukkit.generated.js';
 import type * as j_org_bukkit_attribute from './org.bukkit.attribute.generated.js';
 import type * as j_org_bukkit_block from './org.bukkit.block.generated.js';
@@ -28,10 +27,9 @@ import type * as j_org_bukkit_profile from './org.bukkit.profile.generated.js';
 export interface ArmorMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   clone(): ArmorMeta;
-  clone(): ItemMeta;
   getTrim(): j_org_bukkit_inventory_meta_trim.ArmorTrim | null;
   hasTrim(): boolean;
-  setTrim(arg0: j_org_bukkit_inventory_meta_trim.ArmorTrim | null): void | null;
+  setTrim(arg0: j_org_bukkit_inventory_meta_trim.ArmorTrim | null): void;
 }
 export type ArmorMeta = ArmorMetaMembers & ItemMeta;
 export interface ArmorMetaStatics {
@@ -41,7 +39,6 @@ export interface ArmorMetaStatics {
 export interface AxolotlBucketMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   clone(): AxolotlBucketMeta;
-  clone(): ItemMeta;
   getVariant(): j_org_bukkit_entity.Axolotl_Variant;
   hasVariant(): boolean;
   setVariant(arg0: j_org_bukkit_entity.Axolotl_Variant): void;
@@ -94,11 +91,8 @@ export interface BookMetaMembers {
   addPage(...arg0: Array<string>): void;
   addPages(...arg0: Array<j_net_kyori_adventure_text.Component>): void;
   author(): j_net_kyori_adventure_text.Component | null;
-  author(arg0: j_net_kyori_adventure_text.Component): j_net_kyori_adventure_inventory.Book | null;
-  author(arg0: j_net_kyori_adventure_text.Component): BookMeta | null;
+  author(arg0: j_net_kyori_adventure_text.Component | null): BookMeta;
   clone(): BookMeta;
-  clone(): ItemMeta;
-  clone(): WritableBookMeta;
   getAuthor(): string | null;
   getGeneration(): BookMeta_Generation | null;
   getPage(arg0: number): string;
@@ -109,18 +103,15 @@ export interface BookMetaMembers {
   hasTitle(): boolean;
   page(arg0: number): j_net_kyori_adventure_text.Component;
   page(arg0: number, arg1: j_net_kyori_adventure_text.Component): void;
-  setAuthor(arg0: string | null): void | null;
-  setGeneration(arg0: BookMeta_Generation | null): void | null;
+  setAuthor(arg0: string | null): void;
+  setGeneration(arg0: BookMeta_Generation | null): void;
   setPage(arg0: number, arg1: string): void;
   setPages(arg0: JavaList<string>): void;
   setPages(...arg0: Array<string>): void;
-  setTitle(arg0: string | null): boolean | null;
+  setTitle(arg0: string | null): boolean;
   spigot(): BookMeta_Spigot;
   title(): j_net_kyori_adventure_text.Component | null;
-  title(arg0: j_net_kyori_adventure_text.Component): j_net_kyori_adventure_inventory.Book | null;
-  title(arg0: j_net_kyori_adventure_text.Component): BookMeta | null;
-  toBuilder(): j_net_kyori_adventure_inventory.Book_Builder;
-  toBuilder(): j_net_kyori_adventure_util.Buildable_Builder;
+  title(arg0: j_net_kyori_adventure_text.Component | null): BookMeta;
   toBuilder(): BookMeta_BookMetaBuilder;
 }
 export type BookMeta = BookMetaMembers & j_net_kyori_adventure_inventory.Book & WritableBookMeta;
@@ -130,19 +121,12 @@ export interface BookMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.BookMeta$BookMetaBuilder. */
 export interface BookMeta_BookMetaBuilderMembers {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_inventory.Book_Builder];
-  addPage(arg0: j_net_kyori_adventure_text.Component): j_net_kyori_adventure_inventory.Book_Builder;
   addPage(arg0: j_net_kyori_adventure_text.Component): BookMeta_BookMetaBuilder;
-  author(arg0: j_net_kyori_adventure_text.Component): j_net_kyori_adventure_inventory.Book_Builder | null;
-  author(arg0: j_net_kyori_adventure_text.Component): BookMeta_BookMetaBuilder | null;
-  build(): object;
-  build(): j_net_kyori_adventure_inventory.Book;
+  author(arg0: j_net_kyori_adventure_text.Component | null): BookMeta_BookMetaBuilder;
   build(): BookMeta;
-  pages(arg0: JavaCollection<object>): j_net_kyori_adventure_inventory.Book_Builder;
   pages(arg0: JavaCollection<j_net_kyori_adventure_text.Component>): BookMeta_BookMetaBuilder;
-  pages(arg0: Array<j_net_kyori_adventure_text.Component>): j_net_kyori_adventure_inventory.Book_Builder;
   pages(...arg0: Array<j_net_kyori_adventure_text.Component>): BookMeta_BookMetaBuilder;
-  title(arg0: j_net_kyori_adventure_text.Component): j_net_kyori_adventure_inventory.Book_Builder | null;
-  title(arg0: j_net_kyori_adventure_text.Component): BookMeta_BookMetaBuilder | null;
+  title(arg0: j_net_kyori_adventure_text.Component | null): BookMeta_BookMetaBuilder;
 }
 export type BookMeta_BookMetaBuilder = BookMeta_BookMetaBuilderMembers & j_net_kyori_adventure_inventory.Book_Builder;
 export interface BookMeta_BookMetaBuilderStatics {
@@ -166,7 +150,7 @@ export interface BookMeta_SpigotMembers {
   addPage(...arg0: Array<Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>>): void;
   getPage(arg0: number): Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>;
   getPages(): JavaList<Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>>;
-  setPage(arg0: number, ...arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null>): void | null;
+  setPage(arg0: number, ...arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null>): void;
   setPages(arg0: JavaList<Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>>): void;
   setPages(...arg0: Array<Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>>): void;
 }
@@ -181,7 +165,7 @@ export interface BundleMetaMembers {
   addItem(arg0: j_org_bukkit_inventory.ItemStack): void;
   getItems(): JavaList<j_org_bukkit_inventory.ItemStack>;
   hasItems(): boolean;
-  setItems(arg0: JavaList<j_org_bukkit_inventory.ItemStack> | null): void | null;
+  setItems(arg0: JavaList<j_org_bukkit_inventory.ItemStack> | null): void;
 }
 export type BundleMeta = BundleMetaMembers & ItemMeta;
 export interface BundleMetaStatics {
@@ -190,10 +174,7 @@ export interface BundleMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.ColorableArmorMeta. */
 export interface ColorableArmorMetaMembers {
   readonly __javaSupertypes?: readonly [ArmorMeta, LeatherArmorMeta];
-  clone(): ArmorMeta;
   clone(): ColorableArmorMeta;
-  clone(): ItemMeta;
-  clone(): LeatherArmorMeta;
 }
 export type ColorableArmorMeta = ColorableArmorMetaMembers & ArmorMeta & LeatherArmorMeta;
 export interface ColorableArmorMetaStatics {
@@ -204,12 +185,11 @@ export interface CompassMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   clearLodestone(): void;
   clone(): CompassMeta;
-  clone(): ItemMeta;
   getLodestone(): j_org_bukkit.Location | null;
   hasLodestone(): boolean;
   isLodestoneCompass(): boolean;
   isLodestoneTracked(): boolean;
-  setLodestone(arg0: j_org_bukkit.Location | null): void | null;
+  setLodestone(arg0: j_org_bukkit.Location | null): void;
   setLodestoneTracked(arg0: boolean): void;
 }
 export type CompassMeta = CompassMetaMembers & ItemMeta;
@@ -222,7 +202,7 @@ export interface CrossbowMetaMembers {
   addChargedProjectile(arg0: j_org_bukkit_inventory.ItemStack): void;
   getChargedProjectiles(): JavaList<j_org_bukkit_inventory.ItemStack>;
   hasChargedProjectiles(): boolean;
-  setChargedProjectiles(arg0: JavaList<j_org_bukkit_inventory.ItemStack> | null): void | null;
+  setChargedProjectiles(arg0: JavaList<j_org_bukkit_inventory.ItemStack> | null): void;
 }
 export type CrossbowMeta = CrossbowMetaMembers & ItemMeta;
 export interface CrossbowMetaStatics {
@@ -232,7 +212,6 @@ export interface CrossbowMetaStatics {
 export interface Damageable_2Members {
   readonly __javaSupertypes?: readonly [ItemMeta];
   clone(): Damageable_2;
-  clone(): ItemMeta;
   getDamage(): number;
   getMaxDamage(): number;
   hasDamage(): boolean;
@@ -240,7 +219,7 @@ export interface Damageable_2Members {
   hasMaxDamage(): boolean;
   resetDamage(): void;
   setDamage(arg0: number): void;
-  setMaxDamage(arg0: number | null): void | null;
+  setMaxDamage(arg0: number | null): void;
 }
 export type Damageable_2 = Damageable_2Members & ItemMeta;
 export interface Damageable_2Statics {
@@ -251,7 +230,6 @@ export interface EnchantmentStorageMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   addStoredEnchant(arg0: j_org_bukkit_enchantments.Enchantment, arg1: number, arg2: boolean): boolean;
   clone(): EnchantmentStorageMeta;
-  clone(): ItemMeta;
   getStoredEnchantLevel(arg0: j_org_bukkit_enchantments.Enchantment): number;
   getStoredEnchants(): JavaMap<j_org_bukkit_enchantments.Enchantment, number>;
   hasConflictingStoredEnchant(arg0: j_org_bukkit_enchantments.Enchantment): boolean;
@@ -268,10 +246,9 @@ export interface EnchantmentStorageMetaStatics {
 export interface FireworkEffectMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   clone(): FireworkEffectMeta;
-  clone(): ItemMeta;
   getEffect(): j_org_bukkit.FireworkEffect | null;
   hasEffect(): boolean;
-  setEffect(arg0: j_org_bukkit.FireworkEffect | null): void | null;
+  setEffect(arg0: j_org_bukkit.FireworkEffect | null): void;
 }
 export type FireworkEffectMeta = FireworkEffectMetaMembers & ItemMeta;
 export interface FireworkEffectMetaStatics {
@@ -288,7 +265,6 @@ export interface FireworkMetaMembers {
   addEffects(...arg0: Array<j_org_bukkit.FireworkEffect>): void;
   clearEffects(): void;
   clone(): FireworkMeta;
-  clone(): ItemMeta;
   getEffects(): JavaList<j_org_bukkit.FireworkEffect>;
   getEffectsSize(): number;
   getPower(): number;
@@ -311,9 +287,9 @@ export interface ItemMetaMembers {
   addItemFlags(...arg0: Array<j_org_bukkit_inventory.ItemFlag>): void;
   clone(): ItemMeta;
   customName(): j_net_kyori_adventure_text.Component | null;
-  customName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  customName(arg0: j_net_kyori_adventure_text.Component | null): void;
   displayName(): j_net_kyori_adventure_text.Component | null;
-  displayName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  displayName(arg0: j_net_kyori_adventure_text.Component | null): void;
   getAsComponentString(): string;
   getAsString(): string;
   getAttributeModifiers(): JavaOpaque<"com.google.common.collect.Multimap", [j_org_bukkit_attribute.Attribute, j_org_bukkit_attribute.AttributeModifier]> | null;
@@ -324,7 +300,7 @@ export interface ItemMetaMembers {
   getCustomModelData(): number;
   getCustomModelDataComponent(): j_org_bukkit_inventory_meta_components.CustomModelDataComponent;
   getCustomTagContainer(): j_org_bukkit_inventory_meta_tags.CustomItemTagContainer;
-  getDamageResistant(): j_org_bukkit.Tag_2<j_org_bukkit_damage.DamageType> | null;
+  getDamageResistant(): j_org_bukkit.Tag_3<j_org_bukkit_damage.DamageType> | null;
   getDestroyableKeys(): JavaSet<j_com_destroystokyo_paper.Namespaced>;
   getDisplayName(): string;
   getDisplayNameComponent(): Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>;
@@ -380,45 +356,45 @@ export interface ItemMetaMembers {
   isHideTooltip(): boolean;
   isUnbreakable(): boolean;
   itemName(): j_net_kyori_adventure_text.Component;
-  itemName(arg0: j_net_kyori_adventure_text.Component | null): void | null;
+  itemName(arg0: j_net_kyori_adventure_text.Component | null): void;
   lore(): JavaList<j_net_kyori_adventure_text.Component> | null;
-  lore(arg0: JavaList<j_net_kyori_adventure_text.Component> | null): void | null;
+  lore(arg0: JavaList<j_net_kyori_adventure_text.Component> | null): void;
   removeAttributeModifier(arg0: j_org_bukkit_attribute.Attribute): boolean;
   removeAttributeModifier(arg0: j_org_bukkit_attribute.Attribute, arg1: j_org_bukkit_attribute.AttributeModifier): boolean;
   removeAttributeModifier(arg0: j_org_bukkit_inventory.EquipmentSlot): boolean;
   removeEnchant(arg0: j_org_bukkit_enchantments.Enchantment): boolean;
   removeEnchantments(): void;
   removeItemFlags(...arg0: Array<j_org_bukkit_inventory.ItemFlag>): void;
-  setAttributeModifiers(arg0: JavaOpaque<"com.google.common.collect.Multimap", [j_org_bukkit_attribute.Attribute, j_org_bukkit_attribute.AttributeModifier]> | null): void | null;
+  setAttributeModifiers(arg0: JavaOpaque<"com.google.common.collect.Multimap", [j_org_bukkit_attribute.Attribute, j_org_bukkit_attribute.AttributeModifier]> | null): void;
   setCanDestroy(arg0: JavaSet<j_org_bukkit.Material>): void;
   setCanPlaceOn(arg0: JavaSet<j_org_bukkit.Material>): void;
-  setCustomModelData(arg0: number | null): void | null;
-  setCustomModelDataComponent(arg0: j_org_bukkit_inventory_meta_components.CustomModelDataComponent | null): void | null;
-  setDamageResistant(arg0: j_org_bukkit.Tag_2<j_org_bukkit_damage.DamageType> | null): void | null;
+  setCustomModelData(arg0: number | null): void;
+  setCustomModelDataComponent(arg0: j_org_bukkit_inventory_meta_components.CustomModelDataComponent | null): void;
+  setDamageResistant(arg0: j_org_bukkit.Tag_3<j_org_bukkit_damage.DamageType> | null): void;
   setDestroyableKeys(arg0: JavaCollection<j_com_destroystokyo_paper.Namespaced>): void;
-  setDisplayName(arg0: string | null): void | null;
-  setDisplayNameComponent(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): void | null;
-  setEnchantable(arg0: number | null): void | null;
-  setEnchantmentGlintOverride(arg0: boolean | null): void | null;
-  setEquippable(arg0: j_org_bukkit_inventory_meta_components.EquippableComponent | null): void | null;
+  setDisplayName(arg0: string | null): void;
+  setDisplayNameComponent(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): void;
+  setEnchantable(arg0: number | null): void;
+  setEnchantmentGlintOverride(arg0: boolean | null): void;
+  setEquippable(arg0: j_org_bukkit_inventory_meta_components.EquippableComponent | null): void;
   setFireResistant(arg0: boolean): void;
-  setFood(arg0: j_org_bukkit_inventory_meta_components.FoodComponent | null): void | null;
+  setFood(arg0: j_org_bukkit_inventory_meta_components.FoodComponent | null): void;
   setGlider(arg0: boolean): void;
   setHideTooltip(arg0: boolean): void;
-  setItemModel(arg0: j_org_bukkit.NamespacedKey | null): void | null;
-  setItemName(arg0: string | null): void | null;
-  setJukeboxPlayable(arg0: j_org_bukkit_inventory_meta_components.JukeboxPlayableComponent | null): void | null;
-  setLocalizedName(arg0: string | null): void | null;
-  setLore(arg0: JavaList<string> | null): void | null;
-  setLoreComponents(arg0: JavaList<Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>> | null): void | null;
-  setMaxStackSize(arg0: number | null): void | null;
+  setItemModel(arg0: j_org_bukkit.NamespacedKey | null): void;
+  setItemName(arg0: string | null): void;
+  setJukeboxPlayable(arg0: j_org_bukkit_inventory_meta_components.JukeboxPlayableComponent | null): void;
+  setLocalizedName(arg0: string | null): void;
+  setLore(arg0: JavaList<string> | null): void;
+  setLoreComponents(arg0: JavaList<Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>> | null): void;
+  setMaxStackSize(arg0: number | null): void;
   setPlaceableKeys(arg0: JavaCollection<j_com_destroystokyo_paper.Namespaced>): void;
-  setRarity(arg0: j_org_bukkit_inventory.ItemRarity_2 | null): void | null;
-  setTool(arg0: j_org_bukkit_inventory_meta_components.ToolComponent | null): void | null;
-  setTooltipStyle(arg0: j_org_bukkit.NamespacedKey | null): void | null;
+  setRarity(arg0: j_org_bukkit_inventory.ItemRarity_2 | null): void;
+  setTool(arg0: j_org_bukkit_inventory_meta_components.ToolComponent | null): void;
+  setTooltipStyle(arg0: j_org_bukkit.NamespacedKey | null): void;
   setUnbreakable(arg0: boolean): void;
-  setUseCooldown(arg0: j_org_bukkit_inventory_meta_components.UseCooldownComponent | null): void | null;
-  setUseRemainder(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setUseCooldown(arg0: j_org_bukkit_inventory_meta_components.UseCooldownComponent | null): void;
+  setUseRemainder(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   setVersion(arg0: number): void;
 }
 export type ItemMeta = ItemMetaMembers & JavaOpaque<"java.lang.Cloneable"> & j_org_bukkit_configuration_serialization.ConfigurationSerializable & j_org_bukkit_persistence.PersistentDataHolder;
@@ -429,7 +405,6 @@ export interface ItemMetaStatics {
 export interface KnowledgeBookMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   addRecipe(...arg0: Array<j_org_bukkit.NamespacedKey>): void;
-  clone(): ItemMeta;
   clone(): KnowledgeBookMeta;
   getRecipes(): JavaList<j_org_bukkit.NamespacedKey>;
   hasRecipes(): boolean;
@@ -442,11 +417,10 @@ export interface KnowledgeBookMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.LeatherArmorMeta. */
 export interface LeatherArmorMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): LeatherArmorMeta;
   getColor(): j_org_bukkit.Color;
   isDyed(): boolean;
-  setColor(arg0: j_org_bukkit.Color | null): void | null;
+  setColor(arg0: j_org_bukkit.Color | null): void;
 }
 export type LeatherArmorMeta = LeatherArmorMetaMembers & ItemMeta;
 export interface LeatherArmorMetaStatics {
@@ -455,7 +429,6 @@ export interface LeatherArmorMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.MapMeta. */
 export interface MapMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): MapMeta;
   getColor(): j_org_bukkit.Color | null;
   getLocationName(): string | null;
@@ -466,8 +439,8 @@ export interface MapMetaMembers {
   hasMapId(): boolean;
   hasMapView(): boolean;
   isScaling(): boolean;
-  setColor(arg0: j_org_bukkit.Color | null): void | null;
-  setLocationName(arg0: string | null): void | null;
+  setColor(arg0: j_org_bukkit.Color | null): void;
+  setLocationName(arg0: string | null): void;
   setMapId(arg0: number): void;
   setMapView(arg0: j_org_bukkit_map.MapView): void;
   setScaling(arg0: boolean): void;
@@ -479,10 +452,9 @@ export interface MapMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.MusicInstrumentMeta. */
 export interface MusicInstrumentMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): MusicInstrumentMeta;
   getInstrument(): j_org_bukkit.MusicInstrument | null;
-  setInstrument(arg0: j_org_bukkit.MusicInstrument | null): void | null;
+  setInstrument(arg0: j_org_bukkit.MusicInstrument | null): void;
 }
 export type MusicInstrumentMeta = MusicInstrumentMetaMembers & ItemMeta;
 export interface MusicInstrumentMetaStatics {
@@ -491,7 +463,6 @@ export interface MusicInstrumentMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.OminousBottleMeta. */
 export interface OminousBottleMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): OminousBottleMeta;
   getAmplifier(): number;
   hasAmplifier(): boolean;
@@ -506,7 +477,6 @@ export interface PotionMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   addCustomEffect(arg0: j_org_bukkit_potion.PotionEffect, arg1: boolean): boolean;
   clearCustomEffects(): boolean;
-  clone(): ItemMeta;
   clone(): PotionMeta;
   computeEffectiveColor(): j_org_bukkit.Color;
   getAllEffects(): JavaList<j_org_bukkit_potion.PotionEffect>;
@@ -523,11 +493,11 @@ export interface PotionMetaMembers {
   hasCustomName(): boolean;
   hasCustomPotionName(): boolean;
   removeCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
-  setBasePotionData(arg0: j_org_bukkit_potion.PotionData | null): void | null;
-  setBasePotionType(arg0: j_org_bukkit_potion.PotionType | null): void | null;
-  setColor(arg0: j_org_bukkit.Color | null): void | null;
-  setCustomName(arg0: string | null): void | null;
-  setCustomPotionName(arg0: string | null): void | null;
+  setBasePotionData(arg0: j_org_bukkit_potion.PotionData | null): void;
+  setBasePotionType(arg0: j_org_bukkit_potion.PotionType | null): void;
+  setColor(arg0: j_org_bukkit.Color | null): void;
+  setCustomName(arg0: string | null): void;
+  setCustomPotionName(arg0: string | null): void;
   setMainEffect(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
 }
 export type PotionMeta = PotionMetaMembers & ItemMeta;
@@ -537,7 +507,6 @@ export interface PotionMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.Repairable. */
 export interface Repairable_2Members {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): Repairable_2;
   getRepairCost(): number;
   hasRepairCost(): boolean;
@@ -551,7 +520,7 @@ export interface Repairable_2Statics {
 export interface ShieldMetaMembers {
   readonly __javaSupertypes?: readonly [BannerMeta];
   getBaseColor(): j_org_bukkit.DyeColor | null;
-  setBaseColor(arg0: j_org_bukkit.DyeColor | null): void | null;
+  setBaseColor(arg0: j_org_bukkit.DyeColor | null): void;
 }
 export type ShieldMeta = ShieldMetaMembers & BannerMeta;
 export interface ShieldMetaStatics {
@@ -560,7 +529,6 @@ export interface ShieldMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.SkullMeta. */
 export interface SkullMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): SkullMeta;
   getNoteBlockSound(): j_org_bukkit.NamespacedKey | null;
   getOwner(): string | null;
@@ -568,11 +536,11 @@ export interface SkullMetaMembers {
   getOwningPlayer(): j_org_bukkit.OfflinePlayer | null;
   getPlayerProfile(): j_com_destroystokyo_paper_profile.PlayerProfile | null;
   hasOwner(): boolean;
-  setNoteBlockSound(arg0: j_org_bukkit.NamespacedKey | null): void | null;
-  setOwner(arg0: string | null): boolean | null;
-  setOwnerProfile(arg0: j_org_bukkit_profile.PlayerProfile_2 | null): void | null;
-  setOwningPlayer(arg0: j_org_bukkit.OfflinePlayer | null): boolean | null;
-  setPlayerProfile(arg0: j_com_destroystokyo_paper_profile.PlayerProfile | null): void | null;
+  setNoteBlockSound(arg0: j_org_bukkit.NamespacedKey | null): void;
+  setOwner(arg0: string | null): boolean;
+  setOwnerProfile(arg0: j_org_bukkit_profile.PlayerProfile_2 | null): void;
+  setOwningPlayer(arg0: j_org_bukkit.OfflinePlayer | null): boolean;
+  setPlayerProfile(arg0: j_com_destroystokyo_paper_profile.PlayerProfile | null): void;
 }
 export type SkullMeta = SkullMetaMembers & ItemMeta;
 export interface SkullMetaStatics {
@@ -581,12 +549,11 @@ export interface SkullMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.SpawnEggMeta. */
 export interface SpawnEggMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): SpawnEggMeta;
   getCustomSpawnedType(): j_org_bukkit_entity.EntityType | null;
   getSpawnedEntity(): j_org_bukkit_entity.EntitySnapshot | null;
   getSpawnedType(): j_org_bukkit_entity.EntityType;
-  setCustomSpawnedType(arg0: j_org_bukkit_entity.EntityType | null): void | null;
+  setCustomSpawnedType(arg0: j_org_bukkit_entity.EntityType | null): void;
   setSpawnedEntity(arg0: j_org_bukkit_entity.EntitySnapshot): void;
   setSpawnedType(arg0: j_org_bukkit_entity.EntityType): void;
 }
@@ -600,7 +567,6 @@ export interface SuspiciousStewMetaMembers {
   addCustomEffect(arg0: j_io_papermc_paper_potion.SuspiciousEffectEntry, arg1: boolean): boolean;
   addCustomEffect(arg0: j_org_bukkit_potion.PotionEffect, arg1: boolean): boolean;
   clearCustomEffects(): boolean;
-  clone(): ItemMeta;
   clone(): SuspiciousStewMeta;
   getCustomEffects(): JavaList<j_org_bukkit_potion.PotionEffect>;
   hasCustomEffect(arg0: j_org_bukkit_potion.PotionEffectType): boolean;
@@ -614,7 +580,6 @@ export interface SuspiciousStewMetaStatics {
 /** JVM interface org.bukkit.inventory.meta.TropicalFishBucketMeta. */
 export interface TropicalFishBucketMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
-  clone(): ItemMeta;
   clone(): TropicalFishBucketMeta;
   getBodyColor(): j_org_bukkit.DyeColor;
   getPattern(): j_org_bukkit_entity.TropicalFish_Pattern;
@@ -632,7 +597,6 @@ export interface TropicalFishBucketMetaStatics {
 export interface WritableBookMetaMembers {
   readonly __javaSupertypes?: readonly [ItemMeta];
   addPage(...arg0: Array<string>): void;
-  clone(): ItemMeta;
   clone(): WritableBookMeta;
   getPage(arg0: number): string;
   getPageCount(): number;

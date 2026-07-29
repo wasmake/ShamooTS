@@ -5,7 +5,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 export interface ClientboundStatusResponsePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.status.ClientStatusPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.status.ClientStatusPacketListener">): void;
   hashCode(): number;
   status(): JavaOpaque<"net.minecraft.network.protocol.status.ServerStatus">;
@@ -21,7 +20,6 @@ export interface ClientboundStatusResponsePacketStatics {
 /** JVM class net.minecraft.network.protocol.status.ServerboundStatusRequestPacket. */
 export interface ServerboundStatusRequestPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.status.ServerStatusPacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.status.ServerStatusPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundStatusRequestPacket]>;
 }

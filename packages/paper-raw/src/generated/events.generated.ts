@@ -29,6 +29,7 @@ export * from './event-packages/org.bukkit.event.server.generated.js';
 export * from './event-packages/org.bukkit.event.vehicle.generated.js';
 export * from './event-packages/org.bukkit.event.weather.generated.js';
 export * from './event-packages/org.bukkit.event.world.generated.js';
+export * from './event-packages/org.spigotmc.event.player.generated.js';
 export const EVENT_TYPES = {
   "com.destroystokyo.paper.event.block.AnvilDamagedEvent": {
     "type": "AnvilDamagedEvent",
@@ -1717,6 +1718,10 @@ export const EVENT_TYPES = {
   "org.bukkit.event.world.WorldUnloadEvent": {
     "type": "WorldUnloadEvent",
     "cancellable": true
+  },
+  "org.spigotmc.event.player.PlayerSpawnLocationEvent": {
+    "type": "PlayerSpawnLocationEvent",
+    "cancellable": false
   }
 } as const;
 export type GeneratedEventType = typeof EVENT_TYPES[keyof typeof EVENT_TYPES]['type'];
@@ -2144,4 +2149,5 @@ export interface GeneratedEventMap {
   readonly "org.bukkit.event.world.WorldLoadEvent": import('./binding-packages/org.bukkit.event.world.generated.js').WorldLoadEvent;
   readonly "org.bukkit.event.world.WorldSaveEvent": import('./binding-packages/org.bukkit.event.world.generated.js').WorldSaveEvent;
   readonly "org.bukkit.event.world.WorldUnloadEvent": import('./binding-packages/org.bukkit.event.world.generated.js').WorldUnloadEvent;
+  readonly "org.spigotmc.event.player.PlayerSpawnLocationEvent": import('./binding-packages/org.spigotmc.event.player.generated.js').PlayerSpawnLocationEvent;
 }

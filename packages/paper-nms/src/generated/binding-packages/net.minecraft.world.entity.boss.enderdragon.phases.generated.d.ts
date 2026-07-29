@@ -14,18 +14,16 @@ export interface AbstractDragonPhaseInstanceMembers {
   begin(): void;
   doClientTick(): void;
   doServerTick(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  readonly dragon: j_net_minecraft_world_entity_boss_enderdragon.EnderDragon;
   end(): void;
   getFlySpeed(): number;
   getFlyTargetLocation(): j_net_minecraft_world_phys.Vec3 | null;
   getTurnSpeed(): number;
   isSitting(): boolean;
-  onCrystalDestroyed(arg0: j_net_minecraft_world_entity_boss_enderdragon.EndCrystal, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_damagesource.DamageSource, arg3: j_net_minecraft_world_entity_player.Player | null): void | null;
+  onCrystalDestroyed(arg0: j_net_minecraft_world_entity_boss_enderdragon.EndCrystal, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_damagesource.DamageSource, arg3: j_net_minecraft_world_entity_player.Player | null): void;
   onHurt(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): number;
 }
 export type AbstractDragonPhaseInstance = AbstractDragonPhaseInstanceMembers & DragonPhaseInstance;
 export interface AbstractDragonPhaseInstanceStatics {
-  new(arg0: j_net_minecraft_world_entity_boss_enderdragon.EnderDragon): AbstractDragonPhaseInstance;
 }
 
 /** JVM abstract net.minecraft.world.entity.boss.enderdragon.phases.AbstractDragonSittingPhase. */
@@ -36,7 +34,6 @@ export interface AbstractDragonSittingPhaseMembers {
 }
 export type AbstractDragonSittingPhase = AbstractDragonSittingPhaseMembers & AbstractDragonPhaseInstance;
 export interface AbstractDragonSittingPhaseStatics {
-  new(arg0: j_net_minecraft_world_entity_boss_enderdragon.EnderDragon): AbstractDragonSittingPhase;
 }
 
 /** JVM class net.minecraft.world.entity.boss.enderdragon.phases.DragonChargePlayerPhase. */
@@ -76,7 +73,7 @@ export interface DragonHoldingPatternPhaseMembers {
   doServerTick(arg0: j_net_minecraft_server_level.ServerLevel): void;
   getFlyTargetLocation(): j_net_minecraft_world_phys.Vec3 | null;
   getPhase(): EnderDragonPhase<DragonHoldingPatternPhase>;
-  onCrystalDestroyed(arg0: j_net_minecraft_world_entity_boss_enderdragon.EndCrystal, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_damagesource.DamageSource, arg3: j_net_minecraft_world_entity_player.Player | null): void | null;
+  onCrystalDestroyed(arg0: j_net_minecraft_world_entity_boss_enderdragon.EndCrystal, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_damagesource.DamageSource, arg3: j_net_minecraft_world_entity_player.Player | null): void;
 }
 export type DragonHoldingPatternPhase = DragonHoldingPatternPhaseMembers & AbstractDragonPhaseInstance;
 export interface DragonHoldingPatternPhaseStatics {
@@ -138,7 +135,7 @@ export interface DragonPhaseInstanceMembers {
   getPhase(): EnderDragonPhase<DragonPhaseInstance>;
   getTurnSpeed(): number;
   isSitting(): boolean;
-  onCrystalDestroyed(arg0: j_net_minecraft_world_entity_boss_enderdragon.EndCrystal, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_damagesource.DamageSource, arg3: j_net_minecraft_world_entity_player.Player | null): void | null;
+  onCrystalDestroyed(arg0: j_net_minecraft_world_entity_boss_enderdragon.EndCrystal, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_damagesource.DamageSource, arg3: j_net_minecraft_world_entity_player.Player | null): void;
   onHurt(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): number;
 }
 export type DragonPhaseInstance = DragonPhaseInstanceMembers;
@@ -215,8 +212,6 @@ export interface DragonTakeoffPhaseStatics {
 /** JVM class net.minecraft.world.entity.boss.enderdragon.phases.EnderDragonPhase. */
 export interface EnderDragonPhaseMembers<T /* extends DragonPhaseInstance */ = unknown> {
   createInstance(arg0: j_net_minecraft_world_entity_boss_enderdragon.EnderDragon): DragonPhaseInstance;
-  /** @throws java.lang.NoSuchMethodException */
-  getConstructor(): JavaOpaque<"java.lang.reflect.Constructor", [DragonPhaseInstance]>;
   getId(): number;
   toString(): string;
 }

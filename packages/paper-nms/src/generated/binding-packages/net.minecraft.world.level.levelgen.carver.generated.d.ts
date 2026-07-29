@@ -11,7 +11,6 @@ import type * as j_net_minecraft_world_level_chunk from './net.minecraft.world.l
 import type * as j_net_minecraft_world_level_levelgen from './net.minecraft.world.level.levelgen.generated.js';
 import type * as j_net_minecraft_world_level_levelgen_feature_configurations from './net.minecraft.world.level.levelgen.feature.configurations.generated.js';
 import type * as j_net_minecraft_world_level_levelgen_heightproviders from './net.minecraft.world.level.levelgen.heightproviders.generated.js';
-import type * as j_net_minecraft_world_level_material from './net.minecraft.world.level.material.generated.js';
 
 /** JVM class net.minecraft.world.level.levelgen.carver.CanyonCarverConfiguration. */
 export interface CanyonCarverConfigurationMembers {
@@ -45,9 +44,7 @@ export interface CanyonCarverConfiguration_CanyonShapeConfigurationStatics {
 export interface CanyonWorldCarverMembers {
   readonly __javaSupertypes?: readonly [WorldCarver<CanyonCarverConfiguration>];
   carve(arg0: CarvingContext, arg1: CanyonCarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_util.RandomSource, arg5: j_net_minecraft_world_level_levelgen.Aquifer, arg6: j_net_minecraft_world_level.ChunkPos, arg7: j_net_minecraft_world_level_chunk.CarvingMask): boolean;
-  carve(arg0: CarvingContext, arg1: CarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<object, object>, arg4: j_net_minecraft_util.RandomSource, arg5: j_net_minecraft_world_level_levelgen.Aquifer, arg6: j_net_minecraft_world_level.ChunkPos, arg7: j_net_minecraft_world_level_chunk.CarvingMask): boolean;
   isStartChunk(arg0: CanyonCarverConfiguration, arg1: j_net_minecraft_util.RandomSource): boolean;
-  isStartChunk(arg0: CarverConfiguration, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type CanyonWorldCarver = CanyonWorldCarverMembers & WorldCarver<CanyonCarverConfiguration>;
 export interface CanyonWorldCarverStatics {
@@ -115,14 +112,7 @@ export interface CaveCarverConfigurationStatics {
 /** JVM class net.minecraft.world.level.levelgen.carver.CaveWorldCarver. */
 export interface CaveWorldCarverMembers {
   readonly __javaSupertypes?: readonly [WorldCarver<CaveCarverConfiguration>];
-  carve(arg0: CarvingContext, arg1: CarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<object, object>, arg4: j_net_minecraft_util.RandomSource, arg5: j_net_minecraft_world_level_levelgen.Aquifer, arg6: j_net_minecraft_world_level.ChunkPos, arg7: j_net_minecraft_world_level_chunk.CarvingMask): boolean;
   carve(arg0: CarvingContext, arg1: CaveCarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_util.RandomSource, arg5: j_net_minecraft_world_level_levelgen.Aquifer, arg6: j_net_minecraft_world_level.ChunkPos, arg7: j_net_minecraft_world_level_chunk.CarvingMask): boolean;
-  createRoom(arg0: CarvingContext, arg1: CaveCarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_world_level_levelgen.Aquifer, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: j_net_minecraft_world_level_chunk.CarvingMask, arg11: WorldCarver_CarveSkipChecker): void;
-  createTunnel(arg0: CarvingContext, arg1: CaveCarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: bigint, arg5: j_net_minecraft_world_level_levelgen.Aquifer, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number, arg12: number, arg13: number, arg14: number, arg15: number, arg16: number, arg17: j_net_minecraft_world_level_chunk.CarvingMask, arg18: WorldCarver_CarveSkipChecker): void;
-  getCaveBound(): number;
-  getThickness(arg0: j_net_minecraft_util.RandomSource): number;
-  getYScale(): number;
-  isStartChunk(arg0: CarverConfiguration, arg1: j_net_minecraft_util.RandomSource): boolean;
   isStartChunk(arg0: CaveCarverConfiguration, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type CaveWorldCarver = CaveWorldCarverMembers & WorldCarver<CaveCarverConfiguration>;
@@ -152,11 +142,6 @@ export interface ConfiguredWorldCarverStatics {
 /** JVM class net.minecraft.world.level.levelgen.carver.NetherWorldCarver. */
 export interface NetherWorldCarverMembers {
   readonly __javaSupertypes?: readonly [CaveWorldCarver];
-  carveBlock(arg0: CarvingContext, arg1: CarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<object, object>, arg4: j_net_minecraft_world_level_chunk.CarvingMask, arg5: j_net_minecraft_core.BlockPos_MutableBlockPos, arg6: j_net_minecraft_core.BlockPos_MutableBlockPos, arg7: j_net_minecraft_world_level_levelgen.Aquifer, arg8: JavaOpaque<"org.apache.commons.lang3.mutable.MutableBoolean">): boolean;
-  carveBlock(arg0: CarvingContext, arg1: CaveCarverConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_world_level_chunk.CarvingMask, arg5: j_net_minecraft_core.BlockPos_MutableBlockPos, arg6: j_net_minecraft_core.BlockPos_MutableBlockPos, arg7: j_net_minecraft_world_level_levelgen.Aquifer, arg8: JavaOpaque<"org.apache.commons.lang3.mutable.MutableBoolean">): boolean;
-  getCaveBound(): number;
-  getThickness(arg0: j_net_minecraft_util.RandomSource): number;
-  getYScale(): number;
 }
 export type NetherWorldCarver = NetherWorldCarverMembers & CaveWorldCarver;
 export interface NetherWorldCarverStatics {
@@ -165,27 +150,17 @@ export interface NetherWorldCarverStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.carver.WorldCarver. */
 export interface WorldCarverMembers<C /* extends CarverConfiguration */ = unknown> {
-  canReplaceBlock(arg0: C, arg1: j_net_minecraft_world_level_block_state.BlockState): boolean;
   carve(arg0: CarvingContext, arg1: C, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_util.RandomSource, arg5: j_net_minecraft_world_level_levelgen.Aquifer, arg6: j_net_minecraft_world_level.ChunkPos, arg7: j_net_minecraft_world_level_chunk.CarvingMask): boolean;
-  carveBlock(arg0: CarvingContext, arg1: C, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_world_level_chunk.CarvingMask, arg5: j_net_minecraft_core.BlockPos_MutableBlockPos, arg6: j_net_minecraft_core.BlockPos_MutableBlockPos, arg7: j_net_minecraft_world_level_levelgen.Aquifer, arg8: JavaOpaque<"org.apache.commons.lang3.mutable.MutableBoolean">): boolean;
-  carveEllipsoid(arg0: CarvingContext, arg1: C, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg4: j_net_minecraft_world_level_levelgen.Aquifer, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: j_net_minecraft_world_level_chunk.CarvingMask, arg11: WorldCarver_CarveSkipChecker): boolean;
   configured(arg0: C): ConfiguredWorldCarver<C>;
   configuredCodec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ConfiguredWorldCarver<C>]>;
   getRange(): number;
   isStartChunk(arg0: C, arg1: j_net_minecraft_util.RandomSource): boolean;
-  liquids: JavaSet<j_net_minecraft_world_level_material.Fluid>;
 }
 export type WorldCarver<C /* extends CarverConfiguration */ = unknown> = WorldCarverMembers<C>;
 export interface WorldCarverStatics {
-  new<C /* extends CarverConfiguration */>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [C]>): WorldCarver<C>;
-  readonly AIR: j_net_minecraft_world_level_block_state.BlockState;
   readonly CANYON: WorldCarver<CanyonCarverConfiguration>;
   readonly CAVE: WorldCarver<CaveCarverConfiguration>;
-  readonly CAVE_AIR: j_net_minecraft_world_level_block_state.BlockState;
-  readonly LAVA: j_net_minecraft_world_level_material.FluidState;
   readonly NETHER_CAVE: WorldCarver<CaveCarverConfiguration>;
-  readonly WATER: j_net_minecraft_world_level_material.FluidState;
-  canReach(arg0: j_net_minecraft_world_level.ChunkPos, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): boolean;
 }
 
 /** JVM interface net.minecraft.world.level.levelgen.carver.WorldCarver$CarveSkipChecker. */

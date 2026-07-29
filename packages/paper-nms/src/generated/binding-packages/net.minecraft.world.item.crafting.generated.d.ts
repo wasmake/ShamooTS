@@ -8,7 +8,6 @@ import type * as j_net_minecraft_resources from './net.minecraft.resources.gener
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_server_packs_resources from './net.minecraft.server.packs.resources.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
-import type * as j_net_minecraft_util_profiling from './net.minecraft.util.profiling.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
 import type * as j_net_minecraft_world_flag from './net.minecraft.world.flag.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
@@ -23,13 +22,11 @@ export interface AbstractCookingRecipeMembers {
   cookingTime(): number;
   display(): JavaList<j_net_minecraft_world_item_crafting_display.RecipeDisplay>;
   experience(): number;
-  furnaceIcon(): j_net_minecraft_world_item.Item;
   getSerializer(): RecipeSerializer<AbstractCookingRecipe>;
   getType(): RecipeType<AbstractCookingRecipe>;
 }
 export type AbstractCookingRecipe = AbstractCookingRecipeMembers & SingleItemRecipe;
 export interface AbstractCookingRecipeStatics {
-  new(arg0: string, arg1: CookingBookCategory, arg2: Ingredient, arg3: j_net_minecraft_world_item.ItemStack, arg4: number, arg5: number): AbstractCookingRecipe;
 }
 
 /** JVM interface net.minecraft.world.item.crafting.AbstractCookingRecipe$Factory. */
@@ -55,10 +52,8 @@ export interface AbstractCookingRecipe_SerializerStatics {
 export interface ArmorDyeRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<ArmorDyeRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type ArmorDyeRecipe = ArmorDyeRecipeMembers & CustomRecipe;
 export interface ArmorDyeRecipeStatics {
@@ -69,11 +64,9 @@ export interface ArmorDyeRecipeStatics {
 export interface BannerDuplicateRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getRemainingItems(arg0: CraftingInput): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getSerializer(): RecipeSerializer<BannerDuplicateRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type BannerDuplicateRecipe = BannerDuplicateRecipeMembers & CustomRecipe;
 export interface BannerDuplicateRecipeStatics {
@@ -83,7 +76,6 @@ export interface BannerDuplicateRecipeStatics {
 /** JVM class net.minecraft.world.item.crafting.BlastingRecipe. */
 export interface BlastingRecipeMembers {
   readonly __javaSupertypes?: readonly [AbstractCookingRecipe];
-  furnaceIcon(): j_net_minecraft_world_item.Item;
   getSerializer(): RecipeSerializer<BlastingRecipe>;
   getType(): RecipeType<BlastingRecipe>;
   recipeBookCategory(): RecipeBookCategory;
@@ -98,11 +90,9 @@ export interface BlastingRecipeStatics {
 export interface BookCloningRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getRemainingItems(arg0: CraftingInput): j_net_minecraft_core.NonNullList<j_net_minecraft_world_item.ItemStack>;
   getSerializer(): RecipeSerializer<BookCloningRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type BookCloningRecipe = BookCloningRecipeMembers & CustomRecipe;
 export interface BookCloningRecipeStatics {
@@ -112,7 +102,6 @@ export interface BookCloningRecipeStatics {
 /** JVM class net.minecraft.world.item.crafting.CampfireCookingRecipe. */
 export interface CampfireCookingRecipeMembers {
   readonly __javaSupertypes?: readonly [AbstractCookingRecipe];
-  furnaceIcon(): j_net_minecraft_world_item.Item;
   getSerializer(): RecipeSerializer<CampfireCookingRecipe>;
   getType(): RecipeType<CampfireCookingRecipe>;
   recipeBookCategory(): RecipeBookCategory;
@@ -218,7 +207,6 @@ export interface CustomRecipeMembers {
 }
 export type CustomRecipe = CustomRecipeMembers & CraftingRecipe;
 export interface CustomRecipeStatics {
-  new(arg0: CraftingBookCategory): CustomRecipe;
 }
 
 /** JVM class net.minecraft.world.item.crafting.CustomRecipe$Serializer. */
@@ -244,10 +232,8 @@ export interface CustomRecipe_Serializer_FactoryStatics {
 export interface DecoratedPotRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<DecoratedPotRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type DecoratedPotRecipe = DecoratedPotRecipeMembers & CustomRecipe;
 export interface DecoratedPotRecipeStatics {
@@ -265,10 +251,8 @@ export interface ExtendedRecipeBookCategoryStatics {
 export interface FireworkRocketRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<FireworkRocketRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type FireworkRocketRecipe = FireworkRocketRecipeMembers & CustomRecipe;
 export interface FireworkRocketRecipeStatics {
@@ -279,10 +263,8 @@ export interface FireworkRocketRecipeStatics {
 export interface FireworkStarFadeRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<FireworkStarFadeRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type FireworkStarFadeRecipe = FireworkStarFadeRecipeMembers & CustomRecipe;
 export interface FireworkStarFadeRecipeStatics {
@@ -293,10 +275,8 @@ export interface FireworkStarFadeRecipeStatics {
 export interface FireworkStarRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<FireworkStarRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type FireworkStarRecipe = FireworkStarRecipeMembers & CustomRecipe;
 export interface FireworkStarRecipeStatics {
@@ -307,14 +287,12 @@ export interface FireworkStarRecipeStatics {
 export interface IngredientMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_player.StackedContents_IngredientInfo<JavaOpaque<"io.papermc.paper.inventory.recipe.ItemOrExact">>, JavaPredicate<j_net_minecraft_world_item.ItemStack>];
   acceptsItem(arg0: JavaOpaque<"io.papermc.paper.inventory.recipe.ItemOrExact">): boolean;
-  acceptsItem(arg0: object): boolean;
   display(): j_net_minecraft_world_item_crafting_display.SlotDisplay;
   equals(arg0: object): boolean;
   isEmpty(): boolean;
   isExact(): boolean;
   itemStacks(): JavaSet<j_net_minecraft_world_item.ItemStack> | null;
   items(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<j_net_minecraft_world_item.Item>]>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_item.ItemStack): boolean;
 }
 export type Ingredient = IngredientMembers & j_net_minecraft_world_entity_player.StackedContents_IngredientInfo<JavaOpaque<"io.papermc.paper.inventory.recipe.ItemOrExact">> & JavaPredicate<j_net_minecraft_world_item.ItemStack>;
@@ -336,10 +314,8 @@ export interface IngredientStatics {
 export interface MapCloningRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<MapCloningRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type MapCloningRecipe = MapCloningRecipeMembers & CustomRecipe;
 export interface MapCloningRecipeStatics {
@@ -350,11 +326,9 @@ export interface MapCloningRecipeStatics {
 export interface MapExtendingRecipeMembers {
   readonly __javaSupertypes?: readonly [ShapedRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<MapExtendingRecipe>;
   isSpecial(): boolean;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type MapExtendingRecipe = MapExtendingRecipeMembers & ShapedRecipe;
 export interface MapExtendingRecipeStatics {
@@ -476,22 +450,18 @@ export interface RecipeInputStatics {
 export interface RecipeManagerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_server_packs_resources.SimplePreparableReloadListener<RecipeMap>, RecipeAccess];
   addRecipe(arg0: RecipeHolder<object>): void;
-  apply(arg0: object, arg1: j_net_minecraft_server_packs_resources.ResourceManager, arg2: j_net_minecraft_util_profiling.ProfilerFiller): void;
-  apply(arg0: RecipeMap, arg1: j_net_minecraft_server_packs_resources.ResourceManager, arg2: j_net_minecraft_util_profiling.ProfilerFiller): void;
   byKey(arg0: j_net_minecraft_resources.ResourceKey<Recipe<object>>): JavaOptional<RecipeHolder<object>>;
   clearRecipes(): void;
   finalizeRecipeLoading(): void;
   finalizeRecipeLoading(arg0: j_net_minecraft_world_flag.FeatureFlagSet): void;
   getRecipeFor<I /* extends RecipeInput */, T /* extends Recipe<I> */>(arg0: RecipeType<T>, arg1: I, arg2: j_net_minecraft_world_level.Level): JavaOptional<RecipeHolder<T>>;
-  getRecipeFor<I /* extends RecipeInput */, T /* extends Recipe<I> */>(arg0: RecipeType<T>, arg1: I, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_resources.ResourceKey<Recipe<object>> | null): JavaOptional<RecipeHolder<T>> | null;
-  getRecipeFor<I /* extends RecipeInput */, T /* extends Recipe<I> */>(arg0: RecipeType<T>, arg1: I, arg2: j_net_minecraft_world_level.Level, arg3: RecipeHolder<T> | null): JavaOptional<RecipeHolder<T>> | null;
+  getRecipeFor<I /* extends RecipeInput */, T /* extends Recipe<I> */>(arg0: RecipeType<T>, arg1: I, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_resources.ResourceKey<Recipe<object>> | null): JavaOptional<RecipeHolder<T>>;
+  getRecipeFor<I /* extends RecipeInput */, T /* extends Recipe<I> */>(arg0: RecipeType<T>, arg1: I, arg2: j_net_minecraft_world_level.Level, arg3: RecipeHolder<T> | null): JavaOptional<RecipeHolder<T>>;
   getRecipeFromDisplay(arg0: j_net_minecraft_world_item_crafting_display.RecipeDisplayId): RecipeManager_ServerDisplayInfo | null;
   getRecipes(): JavaCollection<RecipeHolder<object>>;
   getSynchronizedItemProperties(): JavaMap<j_net_minecraft_resources.ResourceKey<RecipePropertySet>, RecipePropertySet>;
   getSynchronizedStonecutterRecipes(): SelectableRecipe_SingleInputSet<StonecutterRecipe>;
   listDisplaysForRecipe(arg0: j_net_minecraft_resources.ResourceKey<Recipe<object>>, arg1: JavaConsumer<j_net_minecraft_world_item_crafting_display.RecipeDisplayEntry>): void;
-  prepare(arg0: j_net_minecraft_server_packs_resources.ResourceManager, arg1: j_net_minecraft_util_profiling.ProfilerFiller): object;
-  prepare(arg0: j_net_minecraft_server_packs_resources.ResourceManager, arg1: j_net_minecraft_util_profiling.ProfilerFiller): RecipeMap;
   propertySet(arg0: j_net_minecraft_resources.ResourceKey<RecipePropertySet>): RecipePropertySet;
   recipes: RecipeMap;
   removeRecipe(arg0: j_net_minecraft_resources.ResourceKey<Recipe<object>>): boolean;
@@ -501,7 +471,6 @@ export type RecipeManager = RecipeManagerMembers & j_net_minecraft_server_packs_
 export interface RecipeManagerStatics {
   new(arg0: j_net_minecraft_core.HolderLookup_Provider): RecipeManager;
   createCheck<I /* extends RecipeInput */, T /* extends Recipe<I> */>(arg0: RecipeType<T>): RecipeManager_CachedCheck<I, T>;
-  fromJson(arg0: j_net_minecraft_resources.ResourceKey<Recipe<object>>, arg1: JavaOpaque<"com.google.gson.JsonObject">, arg2: j_net_minecraft_core.HolderLookup_Provider): RecipeHolder<object>;
 }
 
 /** JVM interface net.minecraft.world.item.crafting.RecipeManager$CachedCheck. */
@@ -515,13 +484,11 @@ export interface RecipeManager_CachedCheckStatics {
 /** JVM class net.minecraft.world.item.crafting.RecipeManager$IngredientCollector. */
 export interface RecipeManager_IngredientCollectorMembers {
   readonly __javaSupertypes?: readonly [JavaConsumer<Recipe<object>>];
-  accept(arg0: object): void;
   accept(arg0: Recipe<object>): void;
   asPropertySet(arg0: j_net_minecraft_world_flag.FeatureFlagSet): RecipePropertySet;
 }
 export type RecipeManager_IngredientCollector = RecipeManager_IngredientCollectorMembers & JavaConsumer<Recipe<object>>;
 export interface RecipeManager_IngredientCollectorStatics {
-  new(arg0: j_net_minecraft_resources.ResourceKey<RecipePropertySet>, arg1: RecipeManager_IngredientExtractor): RecipeManager_IngredientCollector;
 }
 
 /** JVM interface net.minecraft.world.item.crafting.RecipeManager$IngredientExtractor. */
@@ -630,10 +597,8 @@ export interface RecipeTypeStatics {
 export interface RepairItemRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<RepairItemRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type RepairItemRecipe = RepairItemRecipeMembers & CustomRecipe;
 export interface RepairItemRecipeStatics {
@@ -693,7 +658,6 @@ export interface SelectableRecipe_SingleInputSetStatics {
 export interface ShapedRecipeMembers {
   readonly __javaSupertypes?: readonly [CraftingRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   category(): CraftingBookCategory;
   display(): JavaList<j_net_minecraft_world_item_crafting_display.RecipeDisplay>;
   getHeight(): number;
@@ -702,10 +666,8 @@ export interface ShapedRecipeMembers {
   getWidth(): number;
   group(): string;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   placementInfo(): PlacementInfo;
   showNotification(): boolean;
-  toBukkitRecipe(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.inventory.Recipe">;
   toBukkitRecipe(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.inventory.ShapedRecipe">;
 }
 export type ShapedRecipe = ShapedRecipeMembers & CraftingRecipe;
@@ -763,15 +725,12 @@ export interface ShapedRecipePattern_DataStatics {
 export interface ShapelessRecipeMembers {
   readonly __javaSupertypes?: readonly [CraftingRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   category(): CraftingBookCategory;
   display(): JavaList<j_net_minecraft_world_item_crafting_display.RecipeDisplay>;
   getSerializer(): RecipeSerializer<ShapelessRecipe>;
   group(): string;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   placementInfo(): PlacementInfo;
-  toBukkitRecipe(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.inventory.Recipe">;
   toBukkitRecipe(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.inventory.ShapelessRecipe">;
 }
 export type ShapelessRecipe = ShapelessRecipeMembers & CraftingRecipe;
@@ -795,10 +754,8 @@ export interface ShapelessRecipe_SerializerStatics {
 export interface ShieldDecorationRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<ShieldDecorationRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type ShieldDecorationRecipe = ShieldDecorationRecipeMembers & CustomRecipe;
 export interface ShieldDecorationRecipeStatics {
@@ -808,20 +765,16 @@ export interface ShieldDecorationRecipeStatics {
 /** JVM abstract net.minecraft.world.item.crafting.SingleItemRecipe. */
 export interface SingleItemRecipeMembers {
   readonly __javaSupertypes?: readonly [Recipe<SingleRecipeInput>];
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   assemble(arg0: SingleRecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<SingleItemRecipe>;
   getType(): RecipeType<SingleItemRecipe>;
   group(): string;
   input(): Ingredient;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   matches(arg0: SingleRecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   placementInfo(): PlacementInfo;
-  result(): j_net_minecraft_world_item.ItemStack;
 }
 export type SingleItemRecipe = SingleItemRecipeMembers & Recipe<SingleRecipeInput>;
 export interface SingleItemRecipeStatics {
-  new(arg0: string, arg1: Ingredient, arg2: j_net_minecraft_world_item.ItemStack): SingleItemRecipe;
 }
 
 /** JVM interface net.minecraft.world.item.crafting.SingleItemRecipe$Factory. */
@@ -840,7 +793,6 @@ export interface SingleItemRecipe_SerializerMembers<T /* extends SingleItemRecip
 }
 export type SingleItemRecipe_Serializer<T /* extends SingleItemRecipe */ = unknown> = SingleItemRecipe_SerializerMembers<T> & RecipeSerializer<T>;
 export interface SingleItemRecipe_SerializerStatics {
-  new<T /* extends SingleItemRecipe */>(arg0: SingleItemRecipe_Factory<T>): SingleItemRecipe_Serializer<T>;
 }
 
 /** JVM record net.minecraft.world.item.crafting.SingleRecipeInput. */
@@ -861,7 +813,6 @@ export interface SingleRecipeInputStatics {
 /** JVM class net.minecraft.world.item.crafting.SmeltingRecipe. */
 export interface SmeltingRecipeMembers {
   readonly __javaSupertypes?: readonly [AbstractCookingRecipe];
-  furnaceIcon(): j_net_minecraft_world_item.Item;
   getSerializer(): RecipeSerializer<SmeltingRecipe>;
   getType(): RecipeType<SmeltingRecipe>;
   recipeBookCategory(): RecipeBookCategory;
@@ -879,7 +830,6 @@ export interface SmithingRecipeMembers {
   baseIngredient(): Ingredient;
   getSerializer(): RecipeSerializer<SmithingRecipe>;
   getType(): RecipeType<SmithingRecipe>;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   matches(arg0: SmithingRecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   recipeBookCategory(): RecipeBookCategory;
   templateIngredient(): JavaOptional<Ingredient>;
@@ -910,7 +860,6 @@ export interface SmithingRecipeInputStatics {
 export interface SmithingTransformRecipeMembers {
   readonly __javaSupertypes?: readonly [SmithingRecipe];
   additionIngredient(): JavaOptional<Ingredient>;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   assemble(arg0: SmithingRecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   baseIngredient(): Ingredient;
   display(): JavaList<j_net_minecraft_world_item_crafting_display.RecipeDisplay>;
@@ -941,7 +890,6 @@ export interface SmithingTransformRecipe_SerializerStatics {
 export interface SmithingTrimRecipeMembers {
   readonly __javaSupertypes?: readonly [SmithingRecipe];
   additionIngredient(): JavaOptional<Ingredient>;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   assemble(arg0: SmithingRecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   baseIngredient(): Ingredient;
   display(): JavaList<j_net_minecraft_world_item_crafting_display.RecipeDisplay>;
@@ -973,7 +921,6 @@ export interface SmithingTrimRecipe_SerializerStatics {
 /** JVM class net.minecraft.world.item.crafting.SmokingRecipe. */
 export interface SmokingRecipeMembers {
   readonly __javaSupertypes?: readonly [AbstractCookingRecipe];
-  furnaceIcon(): j_net_minecraft_world_item.Item;
   getSerializer(): RecipeSerializer<SmokingRecipe>;
   getType(): RecipeType<SmokingRecipe>;
   recipeBookCategory(): RecipeBookCategory;
@@ -1003,10 +950,8 @@ export interface StonecutterRecipeStatics {
 export interface TippedArrowRecipeMembers {
   readonly __javaSupertypes?: readonly [CustomRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   getSerializer(): RecipeSerializer<TippedArrowRecipe>;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
 }
 export type TippedArrowRecipe = TippedArrowRecipeMembers & CustomRecipe;
 export interface TippedArrowRecipeStatics {
@@ -1017,13 +962,11 @@ export interface TippedArrowRecipeStatics {
 export interface TransmuteRecipeMembers {
   readonly __javaSupertypes?: readonly [CraftingRecipe];
   assemble(arg0: CraftingInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
-  assemble(arg0: RecipeInput, arg1: j_net_minecraft_core.HolderLookup_Provider): j_net_minecraft_world_item.ItemStack;
   category(): CraftingBookCategory;
   display(): JavaList<j_net_minecraft_world_item_crafting_display.RecipeDisplay>;
   getSerializer(): RecipeSerializer<TransmuteRecipe>;
   group(): string;
   matches(arg0: CraftingInput, arg1: j_net_minecraft_world_level.Level): boolean;
-  matches(arg0: RecipeInput, arg1: j_net_minecraft_world_level.Level): boolean;
   placementInfo(): PlacementInfo;
   toBukkitRecipe(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): JavaOpaque<"org.bukkit.inventory.Recipe">;
 }

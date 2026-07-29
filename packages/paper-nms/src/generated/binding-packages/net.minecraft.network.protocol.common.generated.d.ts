@@ -17,7 +17,6 @@ import type * as j_net_minecraft_tags from './net.minecraft.tags.generated.js';
 /** JVM class net.minecraft.network.protocol.common.ClientboundClearDialogPacket. */
 export interface ClientboundClearDialogPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ClientboundClearDialogPacket>;
 }
@@ -31,7 +30,6 @@ export interface ClientboundClearDialogPacketStatics {
 export interface ClientboundCustomPayloadPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   payload(): j_net_minecraft_network_protocol_common_custom.CustomPacketPayload;
@@ -50,7 +48,6 @@ export interface ClientboundCustomReportDetailsPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   details(): JavaMap<string, string>;
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   toString(): string;
@@ -66,7 +63,6 @@ export interface ClientboundCustomReportDetailsPacketStatics {
 export interface ClientboundDisconnectPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   reason(): j_net_minecraft_network_chat.Component;
@@ -83,7 +79,6 @@ export interface ClientboundDisconnectPacketStatics {
 export interface ClientboundKeepAlivePacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   getId(): bigint;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ClientboundKeepAlivePacket>;
 }
@@ -97,7 +92,6 @@ export interface ClientboundKeepAlivePacketStatics {
 export interface ClientboundPingPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   getId(): number;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ClientboundPingPacket>;
 }
@@ -111,7 +105,6 @@ export interface ClientboundPingPacketStatics {
 export interface ClientboundResourcePackPopPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   id(): JavaOptional<JavaOpaque<"java.util.UUID">>;
@@ -128,7 +121,6 @@ export interface ClientboundResourcePackPopPacketStatics {
 export interface ClientboundResourcePackPushPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hash(): string;
   hashCode(): number;
@@ -150,7 +142,6 @@ export interface ClientboundResourcePackPushPacketStatics {
 export interface ClientboundServerLinksPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   links(): JavaList<j_net_minecraft_server.ServerLinks_UntrustedEntry>;
@@ -168,7 +159,6 @@ export interface ClientboundShowDialogPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   dialog(): j_net_minecraft_core.Holder<j_net_minecraft_server_dialog.Dialog>;
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   toString(): string;
@@ -185,7 +175,6 @@ export interface ClientboundShowDialogPacketStatics {
 export interface ClientboundStoreCookiePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   key(): j_net_minecraft_resources.ResourceLocation;
@@ -204,7 +193,6 @@ export interface ClientboundStoreCookiePacketStatics {
 export interface ClientboundTransferPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   hashCode(): number;
   host(): string;
@@ -222,7 +210,6 @@ export interface ClientboundTransferPacketStatics {
 export interface ClientboundUpdateTagsPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ClientCommonPacketListener>];
   getTags(): JavaMap<j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<object>>, j_net_minecraft_tags.TagNetworkSerialization_NetworkPayload>;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCommonPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ClientboundUpdateTagsPacket>;
 }
@@ -284,7 +271,6 @@ export interface CommonPacketTypesStatics {
 export interface ServerboundClientInformationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCommonPacketListener): void;
   hashCode(): number;
   information(): j_net_minecraft_server_level.ClientInformation;
@@ -301,7 +287,6 @@ export interface ServerboundClientInformationPacketStatics {
 export interface ServerboundCustomClickActionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCommonPacketListener): void;
   hashCode(): number;
   id(): j_net_minecraft_resources.ResourceLocation;
@@ -319,7 +304,6 @@ export interface ServerboundCustomClickActionPacketStatics {
 export interface ServerboundCustomPayloadPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerCommonPacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCommonPacketListener): void;
   hashCode(): number;
   payload(): j_net_minecraft_network_protocol_common_custom.CustomPacketPayload;
@@ -336,7 +320,6 @@ export interface ServerboundCustomPayloadPacketStatics {
 export interface ServerboundKeepAlivePacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ServerCommonPacketListener>];
   getId(): bigint;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCommonPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ServerboundKeepAlivePacket>;
 }
@@ -350,7 +333,6 @@ export interface ServerboundKeepAlivePacketStatics {
 export interface ServerboundPongPacketMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol.Packet<ServerCommonPacketListener>];
   getId(): number;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCommonPacketListener): void;
   type(): j_net_minecraft_network_protocol.PacketType<ServerboundPongPacket>;
 }
@@ -365,7 +347,6 @@ export interface ServerboundResourcePackPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerCommonPacketListener>];
   action(): ServerboundResourcePackPacket_Action;
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCommonPacketListener): void;
   hashCode(): number;
   id(): JavaOpaque<"java.util.UUID">;

@@ -88,7 +88,6 @@ export interface PotionEffectTypeMembers {
 }
 export type PotionEffectType = PotionEffectTypeMembers & j_io_papermc_paper_world_flag.FeatureDependant & j_net_kyori_adventure_translation.Translatable & j_org_bukkit.Keyed & j_org_bukkit.Translatable_2;
 export interface PotionEffectTypeStatics {
-  new(): PotionEffectType;
   readonly ABSORPTION: PotionEffectType;
   readonly BAD_OMEN: PotionEffectType;
   readonly BLINDNESS: PotionEffectType;
@@ -173,7 +172,6 @@ export interface PotionEffectTypeWrapperMembers {
 }
 export type PotionEffectTypeWrapper = PotionEffectTypeWrapperMembers & PotionEffectType;
 export interface PotionEffectTypeWrapperStatics {
-  new(): PotionEffectTypeWrapper;
 }
 
 /** Live JVM enum org.bukkit.potion.PotionType; constants are host handles, not strings. */

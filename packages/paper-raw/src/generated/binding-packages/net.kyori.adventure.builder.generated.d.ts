@@ -7,5 +7,5 @@ export interface AbstractBuilderMembers<R = unknown> {
 }
 export type AbstractBuilder<R = unknown> = AbstractBuilderMembers<R>;
 export interface AbstractBuilderStatics {
-  configureAndBuild<R, B /* extends AbstractBuilder<R> */>(arg0: B, arg1: JavaConsumer<B> | null): R | null;
+  configureAndBuild<R, B /* extends AbstractBuilder<R> */>(arg0: B, arg1: JavaConsumer<B> | null): R;
 }

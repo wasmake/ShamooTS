@@ -107,7 +107,6 @@ export interface ParticleTypeMembers<T /* extends ParticleOptions */ = unknown> 
 }
 export type ParticleType<T /* extends ParticleOptions */ = unknown> = ParticleTypeMembers<T>;
 export interface ParticleTypeStatics {
-  new<T /* extends ParticleOptions */>(arg0: boolean): ParticleType<T>;
 }
 
 /** JVM class net.minecraft.core.particles.ParticleTypes. */
@@ -241,10 +240,8 @@ export interface ScalableParticleOptionsBaseMembers {
 }
 export type ScalableParticleOptionsBase = ScalableParticleOptionsBaseMembers & ParticleOptions;
 export interface ScalableParticleOptionsBaseStatics {
-  new(arg0: number): ScalableParticleOptionsBase;
   readonly MAX_SCALE: 4;
   readonly MIN_SCALE: 0.01;
-  readonly SCALE: JavaOpaque<"com.mojang.serialization.Codec", [number]>;
 }
 
 /** JVM record net.minecraft.core.particles.SculkChargeParticleOptions. */
@@ -282,14 +279,12 @@ export interface SimpleParticleTypeMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SimpleParticleType]>;
   getOverrideLimiter(): boolean;
   getType(): ParticleType<object>;
-  getType(): ParticleType;
   getType(): SimpleParticleType;
   streamCodec(): j_net_minecraft_network_codec.StreamCodec<j_net_minecraft_network.RegistryFriendlyByteBuf, SimpleParticleType>;
   streamCodec(): j_net_minecraft_network_codec.StreamCodec<j_net_minecraft_network.RegistryFriendlyByteBuf, SimpleParticleType>;
 }
 export type SimpleParticleType = SimpleParticleTypeMembers & ParticleOptions;
 export interface SimpleParticleTypeStatics {
-  new(arg0: boolean): SimpleParticleType;
 }
 
 /** JVM record net.minecraft.core.particles.TrailParticleOption. */

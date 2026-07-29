@@ -49,8 +49,8 @@ export interface MerchantMembers {
   openTradingScreen(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_network_chat.Component, arg2: number): void;
   overrideOffers(arg0: MerchantOffers): void;
   overrideXp(arg0: number): void;
-  processTrade(arg0: MerchantOffer, arg1: JavaOpaque<"io.papermc.paper.event.player.PlayerPurchaseEvent"> | null): void | null;
-  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void | null;
+  processTrade(arg0: MerchantOffer, arg1: JavaOpaque<"io.papermc.paper.event.player.PlayerPurchaseEvent"> | null): void;
+  setTradingPlayer(arg0: j_net_minecraft_world_entity_player.Player | null): void;
   showProgressBar(): boolean;
   stillValid(arg0: j_net_minecraft_world_entity_player.Player): boolean;
 }

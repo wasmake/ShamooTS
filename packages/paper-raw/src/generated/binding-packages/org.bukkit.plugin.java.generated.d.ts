@@ -15,22 +15,19 @@ import type * as j_org_bukkit_plugin from './org.bukkit.plugin.generated.js';
 /** JVM abstract org.bukkit.plugin.java.JavaPlugin. */
 export interface JavaPluginMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_plugin.PluginBase];
-  getClassLoader(): JavaOpaque<"java.lang.ClassLoader">;
   getCommand(arg0: string): j_org_bukkit_command.PluginCommand | null;
   getConfig(): j_org_bukkit_configuration_file.FileConfiguration;
   getDataFolder(): JavaOpaque<"java.io.File">;
-  getDefaultBiomeProvider(arg0: string, arg1: string): j_org_bukkit_generator.BiomeProvider | null;
-  getDefaultWorldGenerator(arg0: string, arg1: string): j_org_bukkit_generator.ChunkGenerator | null;
+  getDefaultBiomeProvider(arg0: string, arg1: string | null): j_org_bukkit_generator.BiomeProvider | null;
+  getDefaultWorldGenerator(arg0: string, arg1: string | null): j_org_bukkit_generator.ChunkGenerator | null;
   getDescription(): j_org_bukkit_plugin.PluginDescriptionFile;
-  getFile(): JavaOpaque<"java.io.File">;
   getLifecycleManager(): j_io_papermc_paper_plugin_lifecycle_event.LifecycleEventManager<j_org_bukkit_plugin.Plugin>;
   getLogger(): JavaOpaque<"java.util.logging.Logger">;
   getPluginLoader(): j_org_bukkit_plugin.PluginLoader_2;
   getPluginMeta(): j_io_papermc_paper_plugin_configuration.PluginMeta;
   getResource(arg0: string): JavaOpaque<"java.io.InputStream"> | null;
   getServer(): j_org_bukkit.Server;
-  getTextResource(arg0: string): JavaOpaque<"java.io.Reader"> | null;
-  init(arg0: j_org_bukkit.Server, arg1: j_org_bukkit_plugin.PluginDescriptionFile, arg2: JavaOpaque<"java.io.File">, arg3: JavaOpaque<"java.io.File">, arg4: JavaOpaque<"java.lang.ClassLoader">, arg5: j_io_papermc_paper_plugin_configuration.PluginMeta, arg6: JavaOpaque<"java.util.logging.Logger">): void | null;
+  init(arg0: j_org_bukkit.Server, arg1: j_org_bukkit_plugin.PluginDescriptionFile, arg2: JavaOpaque<"java.io.File">, arg3: JavaOpaque<"java.io.File">, arg4: JavaOpaque<"java.lang.ClassLoader">, arg5: j_io_papermc_paper_plugin_configuration.PluginMeta | null, arg6: JavaOpaque<"java.util.logging.Logger">): void;
   init(arg0: j_org_bukkit_plugin.PluginLoader_2, arg1: j_org_bukkit.Server, arg2: j_org_bukkit_plugin.PluginDescriptionFile, arg3: JavaOpaque<"java.io.File">, arg4: JavaOpaque<"java.io.File">, arg5: JavaOpaque<"java.lang.ClassLoader">): void;
   isEnabled(): boolean;
   isNaggable(): boolean;
@@ -40,8 +37,8 @@ export interface JavaPluginMembers {
   onLoad(): void;
   onTabComplete(arg0: j_org_bukkit_command.CommandSender, arg1: j_org_bukkit_command.Command, arg2: string, arg3: Array<string>): JavaList<string> | null;
   registerCommand(arg0: string, arg1: j_io_papermc_paper_command_brigadier.BasicCommand): void;
-  registerCommand(arg0: string, arg1: string, arg2: j_io_papermc_paper_command_brigadier.BasicCommand): void | null;
-  registerCommand(arg0: string, arg1: string, arg2: JavaCollection<string>, arg3: j_io_papermc_paper_command_brigadier.BasicCommand): void | null;
+  registerCommand(arg0: string, arg1: string | null, arg2: j_io_papermc_paper_command_brigadier.BasicCommand): void;
+  registerCommand(arg0: string, arg1: string | null, arg2: JavaCollection<string>, arg3: j_io_papermc_paper_command_brigadier.BasicCommand): void;
   registerCommand(arg0: string, arg1: JavaCollection<string>, arg2: j_io_papermc_paper_command_brigadier.BasicCommand): void;
   reloadConfig(): void;
   saveConfig(): void;
@@ -53,8 +50,6 @@ export interface JavaPluginMembers {
 }
 export type JavaPlugin = JavaPluginMembers & j_org_bukkit_plugin.PluginBase;
 export interface JavaPluginStatics {
-  new(): JavaPlugin;
-  new(arg0: JavaPluginLoader, arg1: j_org_bukkit_plugin.PluginDescriptionFile, arg2: JavaOpaque<"java.io.File">, arg3: JavaOpaque<"java.io.File">): JavaPlugin;
   getPlugin<T /* extends JavaPlugin */>(arg0: JavaClass<T>): T;
   getProvidingPlugin(arg0: JavaClass<object>): JavaPlugin;
 }
@@ -79,7 +74,7 @@ export interface JavaPluginLoaderStatics {
 /** JVM class org.bukkit.plugin.java.LibraryLoader. */
 export interface LibraryLoaderMembers {
   createLoader(arg0: j_org_bukkit_plugin.PluginDescriptionFile): JavaOpaque<"java.lang.ClassLoader"> | null;
-  createLoader(arg0: j_org_bukkit_plugin.PluginDescriptionFile, arg1: JavaList<JavaOpaque<"java.nio.file.Path">>): JavaOpaque<"java.lang.ClassLoader"> | null;
+  createLoader(arg0: j_org_bukkit_plugin.PluginDescriptionFile, arg1: JavaList<JavaOpaque<"java.nio.file.Path">> | null): JavaOpaque<"java.lang.ClassLoader"> | null;
 }
 export type LibraryLoader = LibraryLoaderMembers;
 export interface LibraryLoaderStatics {
@@ -94,8 +89,6 @@ export interface PluginClassLoaderMembers {
   /** @throws java.io.IOException */
   close(): void;
   dependencyContext: j_io_papermc_paper_plugin_provider_entrypoint.DependencyContext;
-  /** @throws java.lang.ClassNotFoundException */
-  findClass(arg0: string): JavaClass<object>;
   getConfiguration(): j_io_papermc_paper_plugin_configuration.PluginMeta;
   getGroup(): j_io_papermc_paper_plugin_provider_classloader.PluginClassLoaderGroup | null;
   getPlugin(): JavaPlugin;
@@ -104,8 +97,6 @@ export interface PluginClassLoaderMembers {
   getResources(arg0: string): JavaOpaque<"java.util.Enumeration", [JavaOpaque<"java.net.URL">]>;
   init(arg0: JavaPlugin): void;
   initialize(arg0: JavaPlugin): void;
-  /** @throws java.lang.ClassNotFoundException */
-  loadClass(arg0: string, arg1: boolean): JavaClass<object>;
   /** @throws java.lang.ClassNotFoundException */
   loadClass(arg0: string, arg1: boolean, arg2: boolean, arg3: boolean): JavaClass<object>;
   toString(): string;

@@ -20,7 +20,7 @@ export interface IllegalPacketEventMembers {
   getKickMessage(): string | null;
   getType(): string | null;
   isShouldKick(): boolean;
-  setKickMessage(arg0: string | null): void | null;
+  setKickMessage(arg0: string | null): void;
   setShouldKick(arg0: boolean): void;
 }
 export type IllegalPacketEvent = IllegalPacketEventMembers & j_org_bukkit_event_player.PlayerEvent;
@@ -284,14 +284,14 @@ export interface PlayerSetSpawnEventMembers {
   isForced(): boolean;
   setCancelled(arg0: boolean): void;
   setForced(arg0: boolean): void;
-  setLocation(arg0: j_org_bukkit.Location): void | null;
-  setNotification(arg0: j_net_kyori_adventure_text.Component): void | null;
+  setLocation(arg0: j_org_bukkit.Location | null): void;
+  setNotification(arg0: j_net_kyori_adventure_text.Component | null): void;
   setNotifyPlayer(arg0: boolean): void;
   willNotifyPlayer(): boolean;
 }
 export type PlayerSetSpawnEvent = PlayerSetSpawnEventMembers & j_org_bukkit_event_player.PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerSetSpawnEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: PlayerSetSpawnEvent_Cause, arg2: j_org_bukkit.Location, arg3: boolean, arg4: boolean, arg5: j_net_kyori_adventure_text.Component): PlayerSetSpawnEvent;
+  new(arg0: j_org_bukkit_entity.Player, arg1: PlayerSetSpawnEvent_Cause, arg2: j_org_bukkit.Location | null, arg3: boolean, arg4: boolean, arg5: j_net_kyori_adventure_text.Component | null): PlayerSetSpawnEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -360,6 +360,6 @@ export interface PlayerUseUnknownEntityEventMembers {
 }
 export type PlayerUseUnknownEntityEvent = PlayerUseUnknownEntityEventMembers & j_org_bukkit_event_player.PlayerEvent;
 export interface PlayerUseUnknownEntityEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: number, arg2: boolean, arg3: j_org_bukkit_inventory.EquipmentSlot, arg4: j_org_bukkit_util.Vector): PlayerUseUnknownEntityEvent;
+  new(arg0: j_org_bukkit_entity.Player, arg1: number, arg2: boolean, arg3: j_org_bukkit_inventory.EquipmentSlot, arg4: j_org_bukkit_util.Vector | null): PlayerUseUnknownEntityEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

@@ -4,15 +4,11 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 /** JVM abstract net.minecraft.world.level.levelgen.feature.featuresize.FeatureSize. */
 export interface FeatureSizeMembers {
   getSizeAtHeight(arg0: number, arg1: number): number;
-  readonly minClippedHeight: (JavaOptionalNumber) & { (): JavaOptionalNumber };
-  type(): FeatureSizeType<object>;
+  minClippedHeight(): JavaOptionalNumber;
 }
 export type FeatureSize = FeatureSizeMembers;
 export interface FeatureSizeStatics {
-  new(arg0: JavaOptionalNumber): FeatureSize;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [FeatureSize]>;
-  readonly MAX_WIDTH: 16;
-  minClippedHeightCodec<S /* extends FeatureSize */>(): JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder", [S, JavaOptionalNumber]>;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.featuresize.FeatureSizeType. */
@@ -29,7 +25,6 @@ export interface FeatureSizeTypeStatics {
 export interface ThreeLayersFeatureSizeMembers {
   readonly __javaSupertypes?: readonly [FeatureSize];
   getSizeAtHeight(arg0: number, arg1: number): number;
-  type(): FeatureSizeType<object>;
 }
 export type ThreeLayersFeatureSize = ThreeLayersFeatureSizeMembers & FeatureSize;
 export interface ThreeLayersFeatureSizeStatics {
@@ -41,7 +36,6 @@ export interface ThreeLayersFeatureSizeStatics {
 export interface TwoLayersFeatureSizeMembers {
   readonly __javaSupertypes?: readonly [FeatureSize];
   getSizeAtHeight(arg0: number, arg1: number): number;
-  type(): FeatureSizeType<object>;
 }
 export type TwoLayersFeatureSize = TwoLayersFeatureSizeMembers & FeatureSize;
 export interface TwoLayersFeatureSizeStatics {

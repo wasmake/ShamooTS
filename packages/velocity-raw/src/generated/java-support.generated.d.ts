@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 /** A JVM type referenced by a signature but absent from this scanner model. */
 declare const javaOpaqueBrand: unique symbol;
 export type JavaOpaque<JavaName extends string, Arguments = never, Supertypes extends readonly unknown[] = readonly []> = object & { readonly [javaOpaqueBrand]: string; readonly __javaName?: JavaName; readonly __arguments?: Arguments; readonly __supertypes?: Supertypes };

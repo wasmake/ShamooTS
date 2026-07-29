@@ -56,7 +56,7 @@ export interface LeashableMembers {
   /** @throws java.lang.IllegalStateException */
   getLeashHolder(): j_org_bukkit_entity.Entity;
   isLeashed(): boolean;
-  setLeashHolder(arg0: j_org_bukkit_entity.Entity): boolean | null;
+  setLeashHolder(arg0: j_org_bukkit_entity.Entity | null): boolean;
 }
 export type Leashable = LeashableMembers & j_org_bukkit_entity.Entity;
 export interface LeashableStatics {

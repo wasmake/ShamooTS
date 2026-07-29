@@ -8,5 +8,5 @@ export type ProviderUtil = ProviderUtilMembers;
 export interface ProviderUtilStatics {
   new(): ProviderUtil;
   loadClass<T>(arg0: string, arg1: JavaClass<T>, arg2: JavaOpaque<"java.lang.ClassLoader">): T;
-  loadClass<T>(arg0: string, arg1: JavaClass<T>, arg2: JavaOpaque<"java.lang.ClassLoader">, arg3: JavaRunnable): T | null;
+  loadClass<T>(arg0: string, arg1: JavaClass<T>, arg2: JavaOpaque<"java.lang.ClassLoader">, arg3: JavaRunnable | null): T;
 }

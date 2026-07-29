@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
 
@@ -91,7 +91,6 @@ export interface ResultedEvent_ComponentResultMembers {
 }
 export type ResultedEvent_ComponentResult = ResultedEvent_ComponentResultMembers & ResultedEvent_Result;
 export interface ResultedEvent_ComponentResultStatics {
-  new(arg0: boolean, arg1: j_net_kyori_adventure_text.Component): ResultedEvent_ComponentResult;
   allowed(): ResultedEvent_ComponentResult;
   denied(arg0: j_net_kyori_adventure_text.Component): ResultedEvent_ComponentResult;
 }

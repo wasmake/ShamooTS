@@ -139,7 +139,6 @@ export interface ColumnMembers {
 }
 export type Column = ColumnMembers;
 export interface ColumnStatics {
-  new(): Column;
   above(arg0: number): Column;
   around(arg0: number, arg1: number): Column_Range;
   below(arg0: number): Column;
@@ -176,7 +175,6 @@ export interface Column_RangeMembers {
 }
 export type Column_Range = Column_RangeMembers & Column;
 export interface Column_RangeStatics {
-  new(arg0: number, arg1: number): Column_Range;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.Column$Ray. */
@@ -199,7 +197,6 @@ export interface DebugLevelSourceMembers {
   applyBiomeDecoration(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_chunk.ChunkAccess, arg2: j_net_minecraft_world_level.StructureManager): void;
   applyCarvers(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: bigint, arg2: RandomState, arg3: j_net_minecraft_world_level_biome.BiomeManager, arg4: j_net_minecraft_world_level.StructureManager, arg5: j_net_minecraft_world_level_chunk.ChunkAccess): void;
   buildSurface(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: j_net_minecraft_world_level.StructureManager, arg2: RandomState, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_chunk.ChunkGenerator]>;
   fillFromNoise(arg0: j_net_minecraft_world_level_levelgen_blending.Blender, arg1: RandomState, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   getBaseColumn(arg0: number, arg1: number, arg2: j_net_minecraft_world_level.LevelHeightAccessor, arg3: RandomState): j_net_minecraft_world_level.NoiseColumn;
   getBaseHeight(arg0: number, arg1: number, arg2: Heightmap_Types, arg3: j_net_minecraft_world_level.LevelHeightAccessor, arg4: RandomState): number;
@@ -211,8 +208,6 @@ export interface DebugLevelSourceMembers {
 export type DebugLevelSource = DebugLevelSourceMembers & j_net_minecraft_world_level_chunk.ChunkGenerator;
 export interface DebugLevelSourceStatics {
   new(arg0: j_net_minecraft_core.Holder_Reference<j_net_minecraft_world_level_biome.Biome>): DebugLevelSource;
-  readonly AIR: j_net_minecraft_world_level_block_state.BlockState;
-  readonly BARRIER: j_net_minecraft_world_level_block_state.BlockState;
   readonly BARRIER_HEIGHT: 60;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DebugLevelSource]>;
   readonly HEIGHT: 70;
@@ -331,7 +326,6 @@ export interface DensityFunctionsMembers {
 export type DensityFunctions = DensityFunctionsMembers;
 export interface DensityFunctionsStatics {
   readonly DIRECT_CODEC: JavaOpaque<"com.mojang.serialization.Codec", [DensityFunction]>;
-  readonly MAX_REASONABLE_NOISE_VALUE: 1000000;
   add(arg0: DensityFunction, arg1: DensityFunction): DensityFunction;
   blendAlpha(): DensityFunction;
   blendDensity(arg0: DensityFunction): DensityFunction;
@@ -463,7 +457,6 @@ export interface DensityFunctions_ClampMembers {
 }
 export type DensityFunctions_Clamp = DensityFunctions_ClampMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$PureTransformer">;
 export interface DensityFunctions_ClampStatics {
-  new(arg0: DensityFunction, arg1: number, arg2: number): DensityFunctions_Clamp;
   readonly CODEC: j_net_minecraft_util.KeyDispatchDataCodec<DensityFunctions_Clamp>;
 }
 
@@ -507,7 +500,6 @@ export interface DensityFunctions_MappedMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   input(): DensityFunction;
-  mapAll(arg0: DensityFunction_Visitor): DensityFunction;
   mapAll(arg0: DensityFunction_Visitor): DensityFunctions_Mapped;
   maxValue(): number;
   minValue(): number;
@@ -517,7 +509,6 @@ export interface DensityFunctions_MappedMembers {
 }
 export type DensityFunctions_Mapped = DensityFunctions_MappedMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$PureTransformer">;
 export interface DensityFunctions_MappedStatics {
-  new(arg0: JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$Mapped$Type">, arg1: DensityFunction, arg2: number, arg3: number): DensityFunctions_Mapped;
   create(arg0: JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$Mapped$Type">, arg1: DensityFunction): DensityFunctions_Mapped;
 }
 
@@ -536,7 +527,6 @@ export interface DensityFunctions_MarkerMembers {
 }
 export type DensityFunctions_Marker = DensityFunctions_MarkerMembers & JavaOpaque<"java.lang.Record"> & DensityFunctions_MarkerOrMarked;
 export interface DensityFunctions_MarkerStatics {
-  new(arg0: JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$Marker$Type">, arg1: DensityFunction): DensityFunctions_Marker;
 }
 
 /** JVM interface net.minecraft.world.level.levelgen.DensityFunctions$MarkerOrMarked. */
@@ -569,7 +559,6 @@ export interface DensityFunctions_NoiseMembers {
 }
 export type DensityFunctions_Noise = DensityFunctions_NoiseMembers & JavaOpaque<"java.lang.Record"> & DensityFunction;
 export interface DensityFunctions_NoiseStatics {
-  new(arg0: DensityFunction_NoiseHolder, arg1: number, arg2: number): DensityFunctions_Noise;
   readonly CODEC: j_net_minecraft_util.KeyDispatchDataCodec<DensityFunctions_Noise>;
   readonly DATA_CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DensityFunctions_Noise]>;
 }
@@ -587,7 +576,6 @@ export interface DensityFunctions_ShiftMembers {
 }
 export type DensityFunctions_Shift = DensityFunctions_ShiftMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$ShiftNoise">;
 export interface DensityFunctions_ShiftStatics {
-  new(arg0: DensityFunction_NoiseHolder): DensityFunctions_Shift;
 }
 
 /** JVM record net.minecraft.world.level.levelgen.DensityFunctions$ShiftA. */
@@ -603,7 +591,6 @@ export interface DensityFunctions_ShiftAMembers {
 }
 export type DensityFunctions_ShiftA = DensityFunctions_ShiftAMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$ShiftNoise">;
 export interface DensityFunctions_ShiftAStatics {
-  new(arg0: DensityFunction_NoiseHolder): DensityFunctions_ShiftA;
 }
 
 /** JVM record net.minecraft.world.level.levelgen.DensityFunctions$ShiftB. */
@@ -619,7 +606,6 @@ export interface DensityFunctions_ShiftBMembers {
 }
 export type DensityFunctions_ShiftB = DensityFunctions_ShiftBMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$ShiftNoise">;
 export interface DensityFunctions_ShiftBStatics {
-  new(arg0: DensityFunction_NoiseHolder): DensityFunctions_ShiftB;
 }
 
 /** JVM record net.minecraft.world.level.levelgen.DensityFunctions$ShiftedNoise. */
@@ -643,7 +629,6 @@ export interface DensityFunctions_ShiftedNoiseMembers {
 }
 export type DensityFunctions_ShiftedNoise = DensityFunctions_ShiftedNoiseMembers & JavaOpaque<"java.lang.Record"> & DensityFunction;
 export interface DensityFunctions_ShiftedNoiseStatics {
-  new(arg0: DensityFunction, arg1: DensityFunction, arg2: DensityFunction, arg3: number, arg4: number, arg5: DensityFunction_NoiseHolder): DensityFunctions_ShiftedNoise;
   readonly CODEC: j_net_minecraft_util.KeyDispatchDataCodec<DensityFunctions_ShiftedNoise>;
 }
 
@@ -670,7 +655,6 @@ export interface DensityFunctions_SplineStatics {
 /** JVM record net.minecraft.world.level.levelgen.DensityFunctions$Spline$Coordinate. */
 export interface DensityFunctions_Spline_CoordinateMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_util.ToFloatFunction<DensityFunctions_Spline_Point>];
-  apply(arg0: object): number;
   apply(arg0: DensityFunctions_Spline_Point): number;
   equals(arg0: object): boolean;
   function(): j_net_minecraft_core.Holder<DensityFunction>;
@@ -730,7 +714,6 @@ export interface DensityFunctions_WeirdScaledSamplerMembers {
 }
 export type DensityFunctions_WeirdScaledSampler = DensityFunctions_WeirdScaledSamplerMembers & JavaOpaque<"java.lang.Record"> & JavaOpaque<"net.minecraft.world.level.levelgen.DensityFunctions$TransformerWithContext">;
 export interface DensityFunctions_WeirdScaledSamplerStatics {
-  new(arg0: DensityFunction, arg1: DensityFunction_NoiseHolder, arg2: DensityFunctions_WeirdScaledSampler_RarityValueMapper): DensityFunctions_WeirdScaledSampler;
   readonly CODEC: j_net_minecraft_util.KeyDispatchDataCodec<DensityFunctions_WeirdScaledSampler>;
 }
 
@@ -753,7 +736,6 @@ export interface FlatLevelSourceMembers {
   addDebugScreenInfo(arg0: JavaList<string>, arg1: RandomState, arg2: j_net_minecraft_core.BlockPos): void;
   applyCarvers(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: bigint, arg2: RandomState, arg3: j_net_minecraft_world_level_biome.BiomeManager, arg4: j_net_minecraft_world_level.StructureManager, arg5: j_net_minecraft_world_level_chunk.ChunkAccess): void;
   buildSurface(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: j_net_minecraft_world_level.StructureManager, arg2: RandomState, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_chunk.ChunkGenerator]>;
   createState(arg0: j_net_minecraft_core.HolderLookup<j_net_minecraft_world_level_levelgen_structure.StructureSet>, arg1: RandomState, arg2: bigint, arg3: JavaOpaque<"org.spigotmc.SpigotWorldConfig">): j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState;
   fillFromNoise(arg0: j_net_minecraft_world_level_levelgen_blending.Blender, arg1: RandomState, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   getBaseColumn(arg0: number, arg1: number, arg2: j_net_minecraft_world_level.LevelHeightAccessor, arg3: RandomState): j_net_minecraft_world_level.NoiseColumn;
@@ -938,7 +920,6 @@ export interface NoiseBasedChunkGeneratorMembers {
   applyCarvers(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: bigint, arg2: RandomState, arg3: j_net_minecraft_world_level_biome.BiomeManager, arg4: j_net_minecraft_world_level.StructureManager, arg5: j_net_minecraft_world_level_chunk.ChunkAccess): void;
   buildSurface(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: j_net_minecraft_world_level.StructureManager, arg2: RandomState, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): void;
   buildSurface(arg0: j_net_minecraft_world_level_chunk.ChunkAccess, arg1: WorldGenerationContext, arg2: RandomState, arg3: j_net_minecraft_world_level.StructureManager, arg4: j_net_minecraft_world_level_biome.BiomeManager, arg5: j_net_minecraft_core.Registry<j_net_minecraft_world_level_biome.Biome>, arg6: j_net_minecraft_world_level_levelgen_blending.Blender): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_chunk.ChunkGenerator]>;
   createBiomes(arg0: RandomState, arg1: j_net_minecraft_world_level_levelgen_blending.Blender, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   fillFromNoise(arg0: j_net_minecraft_world_level_levelgen_blending.Blender, arg1: RandomState, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   generatorSettings(): j_net_minecraft_core.Holder<NoiseGeneratorSettings>;
@@ -965,14 +946,9 @@ export interface NoiseChunkMembers {
   blockX(): number;
   blockY(): number;
   blockZ(): number;
-  cachedClimateSampler(arg0: NoiseRouter, arg1: JavaList<j_net_minecraft_world_level_biome.Climate_ParameterPoint>): j_net_minecraft_world_level_biome.Climate_Sampler;
-  cellHeight(): number;
-  cellWidth(): number;
   fillAllDirectly(arg0: Array<number>, arg1: DensityFunction): void;
-  forIndex(arg0: number): DensityFunction_FunctionContext;
   forIndex(arg0: number): NoiseChunk;
   getBlender(): j_net_minecraft_world_level_levelgen_blending.Blender;
-  getInterpolatedState(): j_net_minecraft_world_level_block_state.BlockState | null;
   initializeForFirstCellX(): void;
   preliminarySurfaceLevel(arg0: number, arg1: number): number;
   selectCellYZ(arg0: number, arg1: number): void;
@@ -981,7 +957,6 @@ export interface NoiseChunkMembers {
   updateForX(arg0: number, arg1: number): void;
   updateForY(arg0: number, arg1: number): void;
   updateForZ(arg0: number, arg1: number): void;
-  wrap(arg0: DensityFunction): DensityFunction;
 }
 export type NoiseChunk = NoiseChunkMembers & DensityFunction_ContextProvider & DensityFunction_FunctionContext;
 export interface NoiseChunkStatics {
@@ -1094,12 +1069,6 @@ export interface NoiseRouterDataStatics {
   readonly RIDGES: j_net_minecraft_resources.ResourceKey<DensityFunction>;
   readonly RIDGES_FOLDED: j_net_minecraft_resources.ResourceKey<DensityFunction>;
   bootstrap(arg0: j_net_minecraft_data_worldgen.BootstrapContext<DensityFunction>): j_net_minecraft_core.Holder<DensityFunction>;
-  caves(arg0: j_net_minecraft_core.HolderGetter<DensityFunction>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters>): NoiseRouter;
-  end(arg0: j_net_minecraft_core.HolderGetter<DensityFunction>): NoiseRouter;
-  floatingIslands(arg0: j_net_minecraft_core.HolderGetter<DensityFunction>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters>): NoiseRouter;
-  nether(arg0: j_net_minecraft_core.HolderGetter<DensityFunction>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters>): NoiseRouter;
-  none(): NoiseRouter;
-  overworld(arg0: j_net_minecraft_core.HolderGetter<DensityFunction>, arg1: j_net_minecraft_core.HolderGetter<j_net_minecraft_world_level_levelgen_synth.NormalNoise_NoiseParameters>, arg2: boolean, arg3: boolean): NoiseRouter;
   peaksAndValleys(arg0: number): number;
 }
 
@@ -1108,9 +1077,6 @@ export interface NoiseRouterData_QuantizedSpaghettiRarityMembers {
 }
 export type NoiseRouterData_QuantizedSpaghettiRarity = NoiseRouterData_QuantizedSpaghettiRarityMembers;
 export interface NoiseRouterData_QuantizedSpaghettiRarityStatics {
-  new(): NoiseRouterData_QuantizedSpaghettiRarity;
-  getSpaghettiRarity3D(arg0: number): number;
-  getSphaghettiRarity2D(arg0: number): number;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.Noises. */
@@ -1199,12 +1165,7 @@ export interface NoiseSettingsMembers {
 export type NoiseSettings = NoiseSettingsMembers & JavaOpaque<"java.lang.Record">;
 export interface NoiseSettingsStatics {
   new(arg0: number, arg1: number, arg2: number, arg3: number): NoiseSettings;
-  readonly CAVES_NOISE_SETTINGS: NoiseSettings;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [NoiseSettings]>;
-  readonly END_NOISE_SETTINGS: NoiseSettings;
-  readonly FLOATING_ISLANDS_NOISE_SETTINGS: NoiseSettings;
-  readonly NETHER_NOISE_SETTINGS: NoiseSettings;
-  readonly OVERWORLD_NOISE_SETTINGS: NoiseSettings;
   create(arg0: number, arg1: number, arg2: number, arg3: number): NoiseSettings;
 }
 
@@ -1213,14 +1174,11 @@ export interface OreVeinifierMembers {
 }
 export type OreVeinifier = OreVeinifierMembers;
 export interface OreVeinifierStatics {
-  create(arg0: DensityFunction, arg1: DensityFunction, arg2: DensityFunction, arg3: PositionalRandomFactory): NoiseChunk_BlockStateFiller;
 }
 
 /** Live JVM enum net.minecraft.world.level.levelgen.OreVeinifier$VeinType; constants are host handles, not strings. */
 export type OreVeinifier_VeinType = JavaEnum<"net.minecraft.world.level.levelgen.OreVeinifier$VeinType", "COPPER" | "IRON"> & OreVeinifier_VeinTypeMembers;
 export interface OreVeinifier_VeinTypeMembers {
-  readonly maxY: number;
-  readonly minY: number;
 }
 export interface OreVeinifier_VeinTypeStatics {
   readonly COPPER: OreVeinifier_VeinType;
@@ -1382,39 +1340,28 @@ export interface SurfaceRules_ContextMembers {
   blockY: number;
   blockZ: number;
   readonly context: WorldGenerationContext;
-  getMinSurfaceLevel(): number;
   getSeaLevel(): number;
-  getSurfaceSecondary(): number;
   readonly randomState: RandomState;
-  updateXZ(arg0: number, arg1: number): void;
-  updateY(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): void;
 }
 export type SurfaceRules_Context = SurfaceRules_ContextMembers;
 export interface SurfaceRules_ContextStatics {
-  new(arg0: SurfaceSystem, arg1: RandomState, arg2: j_net_minecraft_world_level_chunk.ChunkAccess, arg3: NoiseChunk, arg4: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg5: j_net_minecraft_core.Registry<j_net_minecraft_world_level_biome.Biome>, arg6: WorldGenerationContext): SurfaceRules_Context;
 }
 
 /** JVM abstract net.minecraft.world.level.levelgen.SurfaceRules$LazyCondition. */
 export interface SurfaceRules_LazyConditionMembers {
   readonly __javaSupertypes?: readonly [SurfaceRules_Condition];
-  compute(): boolean;
-  readonly context: SurfaceRules_Context;
-  getContextLastUpdate(): bigint;
   test(): boolean;
 }
 export type SurfaceRules_LazyCondition = SurfaceRules_LazyConditionMembers & SurfaceRules_Condition;
 export interface SurfaceRules_LazyConditionStatics {
-  new(arg0: SurfaceRules_Context): SurfaceRules_LazyCondition;
 }
 
 /** JVM abstract net.minecraft.world.level.levelgen.SurfaceRules$LazyYCondition. */
 export interface SurfaceRules_LazyYConditionMembers {
   readonly __javaSupertypes?: readonly [SurfaceRules_LazyCondition];
-  getContextLastUpdate(): bigint;
 }
 export type SurfaceRules_LazyYCondition = SurfaceRules_LazyYConditionMembers & SurfaceRules_LazyCondition;
 export interface SurfaceRules_LazyYConditionStatics {
-  new(arg0: SurfaceRules_Context): SurfaceRules_LazyYCondition;
 }
 
 /** JVM interface net.minecraft.world.level.levelgen.SurfaceRules$RuleSource. */
@@ -1439,7 +1386,6 @@ export interface SurfaceRules_SurfaceRuleStatics {
 /** JVM record net.minecraft.world.level.levelgen.SurfaceRules$VerticalGradientConditionSource. */
 export interface SurfaceRules_VerticalGradientConditionSourceMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, SurfaceRules_ConditionSource];
-  apply(arg0: object): object;
   apply(arg0: SurfaceRules_Context): SurfaceRules_Condition;
   codec(): j_net_minecraft_util.KeyDispatchDataCodec<SurfaceRules_ConditionSource>;
   equals(arg0: object): boolean;
@@ -1457,10 +1403,7 @@ export interface SurfaceRules_VerticalGradientConditionSourceStatics {
 /** JVM class net.minecraft.world.level.levelgen.SurfaceSystem. */
 export interface SurfaceSystemMembers {
   buildSurface(arg0: RandomState, arg1: j_net_minecraft_world_level_biome.BiomeManager, arg2: j_net_minecraft_core.Registry<j_net_minecraft_world_level_biome.Biome>, arg3: boolean, arg4: WorldGenerationContext, arg5: j_net_minecraft_world_level_chunk.ChunkAccess, arg6: NoiseChunk, arg7: SurfaceRules_RuleSource): void;
-  getBand(arg0: number, arg1: number, arg2: number): j_net_minecraft_world_level_block_state.BlockState;
   getSeaLevel(): number;
-  getSurfaceDepth(arg0: number, arg1: number): number;
-  getSurfaceSecondary(arg0: number, arg1: number): number;
   topMaterial(arg0: SurfaceRules_RuleSource, arg1: j_net_minecraft_world_level_levelgen_carver.CarvingContext, arg2: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg3: j_net_minecraft_world_level_chunk.ChunkAccess, arg4: NoiseChunk, arg5: j_net_minecraft_core.BlockPos, arg6: boolean): JavaOptional<j_net_minecraft_world_level_block_state.BlockState>;
 }
 export type SurfaceSystem = SurfaceSystemMembers;

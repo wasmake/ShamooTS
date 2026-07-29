@@ -6,9 +6,7 @@ import type * as j_net_minecraft_commands_functions from './net.minecraft.comman
 
 /** JVM class net.minecraft.commands.execution.tasks.BuildContexts. */
 export interface BuildContextsMembers<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> {
-  execute(arg0: T, arg1: JavaList<T>, arg2: j_net_minecraft_commands_execution.ExecutionContext<T>, arg3: j_net_minecraft_commands_execution.Frame, arg4: j_net_minecraft_commands_execution.ChainModifiers): void;
   toString(): string;
-  traceCommandStart(arg0: j_net_minecraft_commands_execution.ExecutionContext<T>, arg1: j_net_minecraft_commands_execution.Frame): void;
 }
 export type BuildContexts<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> = BuildContextsMembers<T>;
 export interface BuildContextsStatics {
@@ -39,7 +37,6 @@ export interface BuildContexts_TopLevelStatics {
 /** JVM class net.minecraft.commands.execution.tasks.BuildContexts$Unbound. */
 export interface BuildContexts_UnboundMembers<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [BuildContexts<T>, j_net_minecraft_commands_execution.UnboundEntryAction<T>];
-  execute(arg0: object, arg1: j_net_minecraft_commands_execution.ExecutionContext, arg2: j_net_minecraft_commands_execution.Frame): void;
   execute(arg0: T, arg1: j_net_minecraft_commands_execution.ExecutionContext<T>, arg2: j_net_minecraft_commands_execution.Frame): void;
 }
 export type BuildContexts_Unbound<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> = BuildContexts_UnboundMembers<T> & BuildContexts<T> & j_net_minecraft_commands_execution.UnboundEntryAction<T>;
@@ -50,7 +47,6 @@ export interface BuildContexts_UnboundStatics {
 /** JVM class net.minecraft.commands.execution.tasks.CallFunction. */
 export interface CallFunctionMembers<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_execution.UnboundEntryAction<T>];
-  execute(arg0: object, arg1: j_net_minecraft_commands_execution.ExecutionContext, arg2: j_net_minecraft_commands_execution.Frame): void;
   execute(arg0: T, arg1: j_net_minecraft_commands_execution.ExecutionContext<T>, arg2: j_net_minecraft_commands_execution.Frame): void;
 }
 export type CallFunction<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> = CallFunctionMembers<T> & j_net_minecraft_commands_execution.UnboundEntryAction<T>;
@@ -79,7 +75,6 @@ export interface ContinuationTask_TaskProviderStatics {
 /** JVM class net.minecraft.commands.execution.tasks.ExecuteCommand. */
 export interface ExecuteCommandMembers<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_commands_execution.UnboundEntryAction<T>];
-  execute(arg0: object, arg1: j_net_minecraft_commands_execution.ExecutionContext, arg2: j_net_minecraft_commands_execution.Frame): void;
   execute(arg0: T, arg1: j_net_minecraft_commands_execution.ExecutionContext<T>, arg2: j_net_minecraft_commands_execution.Frame): void;
 }
 export type ExecuteCommand<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> = ExecuteCommandMembers<T> & j_net_minecraft_commands_execution.UnboundEntryAction<T>;

@@ -23,7 +23,6 @@ import type * as j_org_bukkit_craftbukkit_persistence from './org.bukkit.craftbu
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.AlwaysTrueTest. */
 export interface AlwaysTrueTestMembers {
   readonly __javaSupertypes?: readonly [RuleTest];
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type AlwaysTrueTest = AlwaysTrueTestMembers & RuleTest;
@@ -35,7 +34,6 @@ export interface AlwaysTrueTestStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.AxisAlignedLinearPosTest. */
 export interface AxisAlignedLinearPosTestMembers {
   readonly __javaSupertypes?: readonly [PosRuleTest];
-  getType(): PosRuleTestType<object>;
   test(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): boolean;
 }
 export type AxisAlignedLinearPosTest = AxisAlignedLinearPosTestMembers & PosRuleTest;
@@ -47,7 +45,6 @@ export interface AxisAlignedLinearPosTestStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.BlackstoneReplaceProcessor. */
 export interface BlackstoneReplaceProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo;
 }
 export type BlackstoneReplaceProcessor = BlackstoneReplaceProcessorMembers & StructureProcessor;
@@ -59,7 +56,6 @@ export interface BlackstoneReplaceProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.BlockAgeProcessor. */
 export interface BlockAgeProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type BlockAgeProcessor = BlockAgeProcessorMembers & StructureProcessor;
@@ -71,7 +67,6 @@ export interface BlockAgeProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor. */
 export interface BlockIgnoreProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type BlockIgnoreProcessor = BlockIgnoreProcessorMembers & StructureProcessor;
@@ -86,7 +81,6 @@ export interface BlockIgnoreProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest. */
 export interface BlockMatchTestMembers {
   readonly __javaSupertypes?: readonly [RuleTest];
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type BlockMatchTest = BlockMatchTestMembers & RuleTest;
@@ -98,7 +92,6 @@ export interface BlockMatchTestStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.BlockRotProcessor. */
 export interface BlockRotProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type BlockRotProcessor = BlockRotProcessorMembers & StructureProcessor;
@@ -111,7 +104,6 @@ export interface BlockRotProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest. */
 export interface BlockStateMatchTestMembers {
   readonly __javaSupertypes?: readonly [RuleTest];
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type BlockStateMatchTest = BlockStateMatchTestMembers & RuleTest;
@@ -124,7 +116,6 @@ export interface BlockStateMatchTestStatics {
 export interface CappedProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
   finalizeProcessing(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: JavaList<StructureTemplate_StructureBlockInfo>, arg4: JavaList<StructureTemplate_StructureBlockInfo>, arg5: StructurePlaceSettings): JavaList<StructureTemplate_StructureBlockInfo>;
-  getType(): StructureProcessorType<object>;
 }
 export type CappedProcessor = CappedProcessorMembers & StructureProcessor;
 export interface CappedProcessorStatics {
@@ -135,7 +126,6 @@ export interface CappedProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.GravityProcessor. */
 export interface GravityProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type GravityProcessor = GravityProcessorMembers & StructureProcessor;
@@ -147,7 +137,6 @@ export interface GravityProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.JigsawReplacementProcessor. */
 export interface JigsawReplacementProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type JigsawReplacementProcessor = JigsawReplacementProcessorMembers & StructureProcessor;
@@ -159,7 +148,6 @@ export interface JigsawReplacementProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.LavaSubmergedBlockProcessor. */
 export interface LavaSubmergedBlockProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type LavaSubmergedBlockProcessor = LavaSubmergedBlockProcessorMembers & StructureProcessor;
@@ -172,7 +160,6 @@ export interface LavaSubmergedBlockProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.LinearPosTest. */
 export interface LinearPosTestMembers {
   readonly __javaSupertypes?: readonly [PosRuleTest];
-  getType(): PosRuleTestType<object>;
   test(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): boolean;
 }
 export type LinearPosTest = LinearPosTestMembers & PosRuleTest;
@@ -197,7 +184,6 @@ export interface LiquidSettingsStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.NopProcessor. */
 export interface NopProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
 }
 export type NopProcessor = NopProcessorMembers & StructureProcessor;
 export interface NopProcessorStatics {
@@ -208,7 +194,6 @@ export interface NopProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.PosAlwaysTrueTest. */
 export interface PosAlwaysTrueTestMembers {
   readonly __javaSupertypes?: readonly [PosRuleTest];
-  getType(): PosRuleTestType<object>;
   test(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): boolean;
 }
 export type PosAlwaysTrueTest = PosAlwaysTrueTestMembers & PosRuleTest;
@@ -219,12 +204,10 @@ export interface PosAlwaysTrueTestStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTest. */
 export interface PosRuleTestMembers {
-  getType(): PosRuleTestType<object>;
   test(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): boolean;
 }
 export type PosRuleTest = PosRuleTestMembers;
 export interface PosRuleTestStatics {
-  new(): PosRuleTest;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [PosRuleTest]>;
 }
 
@@ -259,7 +242,6 @@ export interface ProcessorRuleStatics {
 export interface ProtectedBlockProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
   readonly cannotReplace: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_block.Block>;
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type ProtectedBlockProcessor = ProtectedBlockProcessorMembers & StructureProcessor;
@@ -271,7 +253,6 @@ export interface ProtectedBlockProcessorStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.RandomBlockMatchTest. */
 export interface RandomBlockMatchTestMembers {
   readonly __javaSupertypes?: readonly [RuleTest];
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type RandomBlockMatchTest = RandomBlockMatchTestMembers & RuleTest;
@@ -283,7 +264,6 @@ export interface RandomBlockMatchTestStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.RandomBlockStateMatchTest. */
 export interface RandomBlockStateMatchTestMembers {
   readonly __javaSupertypes?: readonly [RuleTest];
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type RandomBlockStateMatchTest = RandomBlockStateMatchTestMembers & RuleTest;
@@ -295,7 +275,6 @@ export interface RandomBlockStateMatchTestStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.RuleProcessor. */
 export interface RuleProcessorMembers {
   readonly __javaSupertypes?: readonly [StructureProcessor];
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type RuleProcessor = RuleProcessorMembers & StructureProcessor;
@@ -306,12 +285,10 @@ export interface RuleProcessorStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest. */
 export interface RuleTestMembers {
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type RuleTest = RuleTestMembers;
 export interface RuleTestStatics {
-  new(): RuleTest;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [RuleTest]>;
 }
 
@@ -339,8 +316,8 @@ export interface StructurePlaceSettingsMembers {
   getKnownShape(): boolean;
   getMirror(): j_net_minecraft_world_level_block.Mirror;
   getProcessors(): JavaList<StructureProcessor>;
-  getRandom(arg0: j_net_minecraft_core.BlockPos | null): j_net_minecraft_util.RandomSource | null;
-  getRandomPalette(arg0: JavaList<StructureTemplate_Palette>, arg1: j_net_minecraft_core.BlockPos | null): StructureTemplate_Palette | null;
+  getRandom(arg0: j_net_minecraft_core.BlockPos | null): j_net_minecraft_util.RandomSource;
+  getRandomPalette(arg0: JavaList<StructureTemplate_Palette>, arg1: j_net_minecraft_core.BlockPos | null): StructureTemplate_Palette;
   getRotation(): j_net_minecraft_world_level_block.Rotation;
   getRotationPivot(): j_net_minecraft_core.BlockPos;
   isIgnoreEntities(): boolean;
@@ -352,7 +329,7 @@ export interface StructurePlaceSettingsMembers {
   setKnownShape(arg0: boolean): StructurePlaceSettings;
   setLiquidSettings(arg0: LiquidSettings): StructurePlaceSettings;
   setMirror(arg0: j_net_minecraft_world_level_block.Mirror): StructurePlaceSettings;
-  setRandom(arg0: j_net_minecraft_util.RandomSource | null): StructurePlaceSettings | null;
+  setRandom(arg0: j_net_minecraft_util.RandomSource | null): StructurePlaceSettings;
   setRotation(arg0: j_net_minecraft_world_level_block.Rotation): StructurePlaceSettings;
   setRotationPivot(arg0: j_net_minecraft_core.BlockPos): StructurePlaceSettings;
   shouldApplyWaterlogging(): boolean;
@@ -366,12 +343,10 @@ export interface StructurePlaceSettingsStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor. */
 export interface StructureProcessorMembers {
   finalizeProcessing(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: JavaList<StructureTemplate_StructureBlockInfo>, arg4: JavaList<StructureTemplate_StructureBlockInfo>, arg5: StructurePlaceSettings): JavaList<StructureTemplate_StructureBlockInfo>;
-  getType(): StructureProcessorType<object>;
   processBlock(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: StructureTemplate_StructureBlockInfo, arg4: StructureTemplate_StructureBlockInfo, arg5: StructurePlaceSettings): StructureTemplate_StructureBlockInfo | null;
 }
 export type StructureProcessor = StructureProcessorMembers;
 export interface StructureProcessorStatics {
-  new(): StructureProcessor;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList. */
@@ -444,7 +419,6 @@ export interface StructureTemplateStatics {
   readonly PALETTE_TAG: "palette";
   readonly SIZE_TAG: "size";
   calculateRelativePosition(arg0: StructurePlaceSettings, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
-  getBoundingBox(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Rotation, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block.Mirror, arg4: j_net_minecraft_core.Vec3i): j_net_minecraft_world_level_levelgen_structure.BoundingBox;
   getDefaultJointType(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.JigsawBlockEntity_JointType;
   getJointType(arg0: j_net_minecraft_nbt.CompoundTag, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.JigsawBlockEntity_JointType;
   getZeroPositionWithTransform(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Mirror, arg2: j_net_minecraft_world_level_block.Rotation, arg3: number, arg4: number): j_net_minecraft_core.BlockPos;
@@ -537,7 +511,6 @@ export interface StructureTemplateManagerStatics {
 /** JVM class net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest. */
 export interface TagMatchTestMembers {
   readonly __javaSupertypes?: readonly [RuleTest];
-  getType(): RuleTestType<object>;
   test(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): boolean;
 }
 export type TagMatchTest = TagMatchTestMembers & RuleTest;

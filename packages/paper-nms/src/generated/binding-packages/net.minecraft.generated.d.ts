@@ -232,19 +232,19 @@ export interface OptionullStatics {
   first<T>(arg0: JavaCollection<T>): T | null;
   firstOrDefault<T>(arg0: JavaCollection<T>, arg1: T): T;
   firstOrElse<T>(arg0: JavaCollection<T>, arg1: JavaSupplier<T>): T;
-  isNullOrEmpty(arg0: Array<number> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<string> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<number> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<number> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<number> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<bigint> | null): boolean | null;
-  isNullOrEmpty<T>(arg0: Array<T> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<number> | null): boolean | null;
-  isNullOrEmpty(arg0: Array<boolean> | null): boolean | null;
+  isNullOrEmpty(arg0: Array<number> | null): boolean;
+  isNullOrEmpty(arg0: Array<string> | null): boolean;
+  isNullOrEmpty(arg0: Array<number> | null): boolean;
+  isNullOrEmpty(arg0: Array<number> | null): boolean;
+  isNullOrEmpty(arg0: Array<number> | null): boolean;
+  isNullOrEmpty(arg0: Array<bigint> | null): boolean;
+  isNullOrEmpty<T>(arg0: Array<T> | null): boolean;
+  isNullOrEmpty(arg0: Array<number> | null): boolean;
+  isNullOrEmpty(arg0: Array<boolean> | null): boolean;
   map<T, R>(arg0: T | null, arg1: JavaFunction<T, R>): R | null;
-  mapOrDefault<T, R>(arg0: T | null, arg1: JavaFunction<T, R>, arg2: R): R | null;
-  mapOrElse<T, R>(arg0: T | null, arg1: JavaFunction<T, R>, arg2: JavaSupplier<R>): R | null;
-  orElse<T>(arg0: T | null, arg1: T): T | null;
+  mapOrDefault<T, R>(arg0: T | null, arg1: JavaFunction<T, R>, arg2: R): R;
+  mapOrElse<T, R>(arg0: T | null, arg1: JavaFunction<T, R>, arg2: JavaSupplier<R>): R;
+  orElse<T>(arg0: T | null, arg1: T): T;
 }
 
 /** JVM class net.minecraft.ReportedException. */
@@ -504,8 +504,8 @@ export interface UtilStatics {
   createIndexLookup<T>(arg0: JavaList<T>): JavaOpaque<"java.util.function.ToIntFunction", [T]>;
   describeError(arg0: JavaOpaque<"java.lang.Throwable">): string;
   fetchChoiceType(arg0: JavaOpaque<"com.mojang.datafixers.DSL$TypeReference">, arg1: string): JavaOpaque<"com.mojang.datafixers.types.Type", [object]> | null;
-  findNextInIterable<T>(arg0: Iterable<T>, arg1: T | null): T | null;
-  findPreviousInIterable<T>(arg0: Iterable<T>, arg1: T | null): T | null;
+  findNextInIterable<T>(arg0: Iterable<T>, arg1: T | null): T;
+  findPreviousInIterable<T>(arg0: Iterable<T>, arg1: T | null): T;
   fixedSize<T>(arg0: JavaList<T>, arg1: number): JavaOpaque<"com.mojang.serialization.DataResult", [JavaList<T>]>;
   fixedSize(arg0: JavaOpaque<"java.util.stream.IntStream">, arg1: number): JavaOpaque<"com.mojang.serialization.DataResult", [Array<number>]>;
   fixedSize(arg0: JavaOpaque<"java.util.stream.LongStream">, arg1: number): JavaOpaque<"com.mojang.serialization.DataResult", [Array<bigint>]>;
@@ -531,7 +531,7 @@ export interface UtilStatics {
   logAndPauseIfInIde(arg0: string, arg1: JavaOpaque<"java.lang.Throwable">): void;
   make<T>(arg0: T, arg1: JavaConsumer<T>): T;
   make<T>(arg0: JavaSupplier<T>): T;
-  makeDescriptionId(arg0: string, arg1: j_net_minecraft_resources.ResourceLocation | null): string | null;
+  makeDescriptionId(arg0: string, arg1: j_net_minecraft_resources.ResourceLocation | null): string;
   makeEnumMap<K /* extends JavaOpaque<"java.lang.Enum", [K]> */, V>(arg0: JavaClass<K>, arg1: JavaFunction<K, V>): JavaMap<K, V>;
   mapValues<K, V1, V2>(arg0: JavaMap<K, V1>, arg1: JavaFunction<V1, V2>): JavaMap<K, V2>;
   mapValuesLazy<K, V1, V2>(arg0: JavaMap<K, V1>, arg1: JavaOpaque<"com.google.common.base.Function", [V1, V2]>): JavaMap<K, V2>;
@@ -575,7 +575,6 @@ export interface UtilStatics {
 /** Live JVM enum net.minecraft.Util$OS; constants are host handles, not strings. */
 export type Util_OS = JavaEnum<"net.minecraft.Util$OS", "LINUX" | "OSX" | "SOLARIS" | "UNKNOWN" | "WINDOWS"> & Util_OSMembers;
 export interface Util_OSMembers {
-  getOpenUriArguments(arg0: JavaOpaque<"java.net.URI">): Array<string>;
   openFile(arg0: JavaOpaque<"java.io.File">): void;
   openPath(arg0: JavaOpaque<"java.nio.file.Path">): void;
   openUri(arg0: string): void;

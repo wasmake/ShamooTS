@@ -17,7 +17,6 @@ export interface AbstractPackResourcesMembers {
 }
 export type AbstractPackResources = AbstractPackResourcesMembers & PackResources;
 export interface AbstractPackResourcesStatics {
-  new(arg0: PackLocationInfo): AbstractPackResources;
   getMetadataFromStream<T>(arg0: j_net_minecraft_server_packs_metadata.MetadataSectionType<T>, arg1: JavaOpaque<"java.io.InputStream">): T | null;
 }
 

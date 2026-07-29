@@ -103,6 +103,10 @@ export interface JvmCallable {
     // (undocumented)
     readonly deprecated?: string;
     // (undocumented)
+    readonly descriptor?: string;
+    // (undocumented)
+    readonly id?: string;
+    // (undocumented)
     readonly name: string;
     // (undocumented)
     readonly nullable?: boolean;
@@ -166,6 +170,10 @@ export interface JvmField {
     readonly constant?: string | number | boolean;
     // (undocumented)
     readonly deprecated?: string;
+    // (undocumented)
+    readonly descriptor?: string;
+    // (undocumented)
+    readonly id?: string;
     // (undocumented)
     readonly name: string;
     // (undocumented)

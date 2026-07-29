@@ -12,7 +12,7 @@ export interface FilteredMembers<T = unknown> {
 }
 export type Filtered<T = unknown> = FilteredMembers<T>;
 export interface FilteredStatics {
-  of<T>(arg0: T, arg1: T): Filtered<T> | null;
+  of<T>(arg0: T, arg1: T | null): Filtered<T>;
 }
 
 /** JVM class io.papermc.paper.text.PaperComponents. */
@@ -27,7 +27,7 @@ export interface PaperComponentsStatics {
   plainSerializer(): JavaOpaque<"net.kyori.adventure.text.serializer.plain.PlainComponentSerializer">;
   plainTextSerializer(): JavaOpaque<"net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer">;
   /** @throws java.io.IOException */
-  resolveWithContext(arg0: j_net_kyori_adventure_text.Component, arg1: j_org_bukkit_command.CommandSender, arg2: j_org_bukkit_entity.Entity): j_net_kyori_adventure_text.Component | null;
+  resolveWithContext(arg0: j_net_kyori_adventure_text.Component, arg1: j_org_bukkit_command.CommandSender | null, arg2: j_org_bukkit_entity.Entity | null): j_net_kyori_adventure_text.Component;
   /** @throws java.io.IOException */
-  resolveWithContext(arg0: j_net_kyori_adventure_text.Component, arg1: j_org_bukkit_command.CommandSender, arg2: j_org_bukkit_entity.Entity, arg3: boolean): j_net_kyori_adventure_text.Component | null;
+  resolveWithContext(arg0: j_net_kyori_adventure_text.Component, arg1: j_org_bukkit_command.CommandSender | null, arg2: j_org_bukkit_entity.Entity | null, arg3: boolean): j_net_kyori_adventure_text.Component;
 }

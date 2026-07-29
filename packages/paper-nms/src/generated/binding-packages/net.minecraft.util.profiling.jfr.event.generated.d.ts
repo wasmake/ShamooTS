@@ -53,7 +53,6 @@ export interface ChunkRegionIoEventMembers {
 }
 export type ChunkRegionIoEvent = ChunkRegionIoEventMembers & JavaOpaque<"jdk.jfr.Event">;
 export interface ChunkRegionIoEventStatics {
-  new(arg0: j_net_minecraft_world_level_chunk_storage.RegionStorageInfo, arg1: j_net_minecraft_world_level.ChunkPos, arg2: j_net_minecraft_world_level_chunk_storage.RegionFileVersion, arg3: number): ChunkRegionIoEvent;
 }
 
 /** JVM class net.minecraft.util.profiling.jfr.event.ChunkRegionIoEvent$Fields. */
@@ -144,7 +143,6 @@ export interface PacketEventMembers {
 }
 export type PacketEvent = PacketEventMembers & JavaOpaque<"jdk.jfr.Event">;
 export interface PacketEventStatics {
-  new(arg0: string, arg1: string, arg2: string, arg3: JavaOpaque<"java.net.SocketAddress">, arg4: number): PacketEvent;
 }
 
 /** JVM class net.minecraft.util.profiling.jfr.event.PacketEvent$Fields. */

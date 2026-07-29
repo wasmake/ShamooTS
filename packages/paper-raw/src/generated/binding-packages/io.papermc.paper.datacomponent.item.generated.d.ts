@@ -83,11 +83,11 @@ export interface BlocksAttacks_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<BlocksAttacks>];
   addDamageReduction(arg0: j_io_papermc_paper_datacomponent_item_blocksattacks.DamageReduction): BlocksAttacks_Builder;
   blockDelaySeconds(arg0: number): BlocksAttacks_Builder;
-  blockSound(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): BlocksAttacks_Builder | null;
-  bypassedBy(arg0: j_io_papermc_paper_registry_tag.TagKey<j_org_bukkit_damage.DamageType>): BlocksAttacks_Builder | null;
+  blockSound(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): BlocksAttacks_Builder;
+  bypassedBy(arg0: j_io_papermc_paper_registry_tag.TagKey<j_org_bukkit_damage.DamageType> | null): BlocksAttacks_Builder;
   damageReductions(arg0: JavaList<j_io_papermc_paper_datacomponent_item_blocksattacks.DamageReduction>): BlocksAttacks_Builder;
   disableCooldownScale(arg0: number): BlocksAttacks_Builder;
-  disableSound(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): BlocksAttacks_Builder | null;
+  disableSound(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): BlocksAttacks_Builder;
   itemDamage(arg0: j_io_papermc_paper_datacomponent_item_blocksattacks.ItemDamageFunction): BlocksAttacks_Builder;
 }
 export type BlocksAttacks_Builder = BlocksAttacks_BuilderMembers & j_io_papermc_paper_datacomponent.DataComponentBuilder<BlocksAttacks>;
@@ -274,10 +274,10 @@ export interface EquippableStatics {
 /** JVM interface io.papermc.paper.datacomponent.item.Equippable$Builder. */
 export interface Equippable_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<Equippable>];
-  allowedEntities(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_entity.EntityType>): Equippable_Builder | null;
-  assetId(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): Equippable_Builder | null;
+  allowedEntities(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_entity.EntityType> | null): Equippable_Builder;
+  assetId(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): Equippable_Builder;
   build(): Equippable;
-  cameraOverlay(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): Equippable_Builder | null;
+  cameraOverlay(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): Equippable_Builder;
   canBeSheared(arg0: boolean): Equippable_Builder;
   damageOnHurt(arg0: boolean): Equippable_Builder;
   dispensable(arg0: boolean): Equippable_Builder;
@@ -495,13 +495,13 @@ export interface LodestoneTrackerMembers {
 export type LodestoneTracker = LodestoneTrackerMembers;
 export interface LodestoneTrackerStatics {
   lodestoneTracker(): LodestoneTracker_Builder;
-  lodestoneTracker(arg0: j_org_bukkit.Location, arg1: boolean): LodestoneTracker | null;
+  lodestoneTracker(arg0: j_org_bukkit.Location | null, arg1: boolean): LodestoneTracker;
 }
 
 /** JVM interface io.papermc.paper.datacomponent.item.LodestoneTracker$Builder. */
 export interface LodestoneTracker_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<LodestoneTracker>];
-  location(arg0: j_org_bukkit.Location): LodestoneTracker_Builder | null;
+  location(arg0: j_org_bukkit.Location | null): LodestoneTracker_Builder;
   tracked(arg0: boolean): LodestoneTracker_Builder;
 }
 export type LodestoneTracker_Builder = LodestoneTracker_BuilderMembers & j_io_papermc_paper_datacomponent.DataComponentBuilder<LodestoneTracker>;
@@ -587,16 +587,16 @@ export interface PotDecorationsMembers {
 export type PotDecorations = PotDecorationsMembers;
 export interface PotDecorationsStatics {
   potDecorations(): PotDecorations_Builder;
-  potDecorations(arg0: j_org_bukkit_inventory.ItemType, arg1: j_org_bukkit_inventory.ItemType, arg2: j_org_bukkit_inventory.ItemType, arg3: j_org_bukkit_inventory.ItemType): PotDecorations | null;
+  potDecorations(arg0: j_org_bukkit_inventory.ItemType | null, arg1: j_org_bukkit_inventory.ItemType | null, arg2: j_org_bukkit_inventory.ItemType | null, arg3: j_org_bukkit_inventory.ItemType | null): PotDecorations;
 }
 
 /** JVM interface io.papermc.paper.datacomponent.item.PotDecorations$Builder. */
 export interface PotDecorations_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<PotDecorations>];
-  back(arg0: j_org_bukkit_inventory.ItemType): PotDecorations_Builder | null;
-  front(arg0: j_org_bukkit_inventory.ItemType): PotDecorations_Builder | null;
-  left(arg0: j_org_bukkit_inventory.ItemType): PotDecorations_Builder | null;
-  right(arg0: j_org_bukkit_inventory.ItemType): PotDecorations_Builder | null;
+  back(arg0: j_org_bukkit_inventory.ItemType | null): PotDecorations_Builder;
+  front(arg0: j_org_bukkit_inventory.ItemType | null): PotDecorations_Builder;
+  left(arg0: j_org_bukkit_inventory.ItemType | null): PotDecorations_Builder;
+  right(arg0: j_org_bukkit_inventory.ItemType | null): PotDecorations_Builder;
 }
 export type PotDecorations_Builder = PotDecorations_BuilderMembers & j_io_papermc_paper_datacomponent.DataComponentBuilder<PotDecorations>;
 export interface PotDecorations_BuilderStatics {
@@ -621,9 +621,9 @@ export interface PotionContents_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<PotionContents>];
   addCustomEffect(arg0: j_org_bukkit_potion.PotionEffect): PotionContents_Builder;
   addCustomEffects(arg0: JavaList<j_org_bukkit_potion.PotionEffect>): PotionContents_Builder;
-  customColor(arg0: j_org_bukkit.Color): PotionContents_Builder | null;
-  customName(arg0: string): PotionContents_Builder | null;
-  potion(arg0: j_org_bukkit_potion.PotionType): PotionContents_Builder | null;
+  customColor(arg0: j_org_bukkit.Color | null): PotionContents_Builder;
+  customName(arg0: string | null): PotionContents_Builder;
+  potion(arg0: j_org_bukkit_potion.PotionType | null): PotionContents_Builder;
 }
 export type PotionContents_Builder = PotionContents_BuilderMembers & j_io_papermc_paper_datacomponent.DataComponentBuilder<PotionContents>;
 export interface PotionContents_BuilderStatics {
@@ -656,8 +656,8 @@ export interface ResolvableProfile_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<ResolvableProfile>];
   addProperties(arg0: JavaCollection<j_com_destroystokyo_paper_profile.ProfileProperty>): ResolvableProfile_Builder;
   addProperty(arg0: j_com_destroystokyo_paper_profile.ProfileProperty): ResolvableProfile_Builder;
-  name(arg0: string): ResolvableProfile_Builder | null;
-  uuid(arg0: JavaOpaque<"java.util.UUID">): ResolvableProfile_Builder | null;
+  name(arg0: string | null): ResolvableProfile_Builder;
+  uuid(arg0: JavaOpaque<"java.util.UUID"> | null): ResolvableProfile_Builder;
 }
 export type ResolvableProfile_Builder = ResolvableProfile_BuilderMembers & j_io_papermc_paper_datacomponent.DataComponentBuilder<ResolvableProfile>;
 export interface ResolvableProfile_BuilderStatics {
@@ -713,7 +713,7 @@ export interface ToolMembers {
 }
 export type Tool = ToolMembers;
 export interface ToolStatics {
-  rule(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_block.BlockType>, arg1: number, arg2: j_net_kyori_adventure_util.TriState): Tool_Rule | null;
+  rule(arg0: j_io_papermc_paper_registry_set.RegistryKeySet<j_org_bukkit_block.BlockType>, arg1: number | null, arg2: j_net_kyori_adventure_util.TriState): Tool_Rule;
   tool(): Tool_Builder;
 }
 
@@ -774,7 +774,7 @@ export interface UseCooldownStatics {
 /** JVM interface io.papermc.paper.datacomponent.item.UseCooldown$Builder. */
 export interface UseCooldown_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_datacomponent.DataComponentBuilder<UseCooldown>];
-  cooldownGroup(arg0: JavaOpaque<"net.kyori.adventure.key.Key">): UseCooldown_Builder | null;
+  cooldownGroup(arg0: JavaOpaque<"net.kyori.adventure.key.Key"> | null): UseCooldown_Builder;
 }
 export type UseCooldown_Builder = UseCooldown_BuilderMembers & j_io_papermc_paper_datacomponent.DataComponentBuilder<UseCooldown>;
 export interface UseCooldown_BuilderStatics {

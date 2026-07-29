@@ -2,13 +2,8 @@ import { Command, Context } from '@shamoo/commands';
 import { Plugin } from '@shamoo/decorators';
 import { OnDisable, OnDrain, OnEnable, OnLoad, OnReady } from '@shamoo/lifecycle';
 import type { PaperCommandContext } from '@shamoo/paper';
-import { OnPlayerJoinEvent } from '@shamoo/paper-raw';
+import { OnPlayerJoinEvent, type PaperHandle, type PlayerJoinEvent } from '@shamoo/paper-raw';
 import { Scheduled } from '@shamoo/scheduler';
-
-export interface PaperRuntimeEvent {
-  readonly type: string;
-  readonly asynchronous: boolean;
-}
 
 @Plugin({ name: 'complete-paper-plugin' })
 export class CompletePaperPlugin {
@@ -41,10 +36,10 @@ export class CompletePaperPlugin {
   }
 
   @OnPlayerJoinEvent()
-  public playerJoined(@Context() event: PaperRuntimeEvent): void {
+  public playerJoined(@Context() event: PaperHandle<PlayerJoinEvent>): void {
     this.joins += 1;
     console.info(
-      `[complete-paper-plugin] Observed ${String(this.joins)} ${event.type} callback(s); asynchronous=${String(event.asynchronous)}.`,
+      `[complete-paper-plugin] Observed ${String(this.joins)} ${event.$type} callback(s).`,
     );
   }
 

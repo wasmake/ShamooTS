@@ -7,7 +7,6 @@ import type * as j_net_minecraft_world_level_levelgen_structure from './net.mine
 export interface CraftGeneratedStructureMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.generator.structure.GeneratedStructure">];
   getBoundingBox(): JavaOpaque<"org.bukkit.util.BoundingBox">;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getPieces(): JavaCollection<JavaOpaque<"org.bukkit.generator.structure.StructurePiece">>;
   getStructure(): JavaOpaque<"org.bukkit.generator.structure.Structure">;

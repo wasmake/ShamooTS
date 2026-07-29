@@ -160,7 +160,7 @@ export interface DataComponentTypesStatics {
 /** JVM interface io.papermc.paper.datacomponent.DataComponentView. */
 export interface DataComponentViewMembers {
   getData<T>(arg0: DataComponentType_Valued<T>): T | null;
-  getDataOrDefault<T>(arg0: DataComponentType_Valued<T>, arg1: T): T | null;
+  getDataOrDefault<T>(arg0: DataComponentType_Valued<T>, arg1: T | null): T | null;
   hasData(arg0: DataComponentType): boolean;
 }
 export type DataComponentView = DataComponentViewMembers;

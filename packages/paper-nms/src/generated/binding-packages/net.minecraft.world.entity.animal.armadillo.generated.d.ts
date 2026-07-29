@@ -12,26 +12,18 @@ import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity
 import type * as j_net_minecraft_world_entity_ai from './net.minecraft.world.entity.ai.generated.js';
 import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraft.world.entity.ai.attributes.generated.js';
 import type * as j_net_minecraft_world_entity_ai_behavior from './net.minecraft.world.entity.ai.behavior.generated.js';
-import type * as j_net_minecraft_world_entity_ai_control from './net.minecraft.world.entity.ai.control.generated.js';
 import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world.entity.animal.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 
 /** JVM class net.minecraft.world.entity.animal.armadillo.Armadillo. */
 export interface ArmadilloMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Animal];
   actuallyHurt(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number, arg3: JavaOpaque<"org.bukkit.event.entity.EntityDamageEvent">): boolean;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Armadillo>;
   brushOffScute(): boolean;
   canFallInLove(): boolean;
   canStayRolledUp(): boolean;
-  createBodyControl(): j_net_minecraft_world_entity_ai_control.BodyRotationControl;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAgeScale(): number;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
@@ -44,18 +36,13 @@ export interface ArmadilloMembers {
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isScared(): boolean;
   isScaredBy(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
   readonly peekAnimationState: j_net_minecraft_world_entity.AnimationState;
-  playEatingSound(): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   rollOut(): void;
   readonly rollOutAnimationState: j_net_minecraft_world_entity.AnimationState;
   rollUp(): void;
   readonly rollUpAnimationState: j_net_minecraft_world_entity.AnimationState;
-  sendDebugPackets(): void;
   shouldHideInShell(): boolean;
   shouldSwitchToScaredState(): boolean;
   switchToState(arg0: Armadillo_ArmadilloState): void;
@@ -97,23 +84,12 @@ export interface ArmadilloAiStatics {
   new(): ArmadilloAi;
   brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<Armadillo>;
   getTemptations(): JavaPredicate<j_net_minecraft_world_item.ItemStack>;
-  makeBrain(arg0: j_net_minecraft_world_entity_ai.Brain<Armadillo>): j_net_minecraft_world_entity_ai.Brain<object>;
   updateActivity(arg0: Armadillo): void;
 }
 
 /** JVM class net.minecraft.world.entity.animal.armadillo.ArmadilloAi$ArmadilloBallUp. */
 export interface ArmadilloAi_ArmadilloBallUpMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.Behavior<Armadillo>];
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): boolean;
-  canStillUse(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Armadillo, arg2: bigint): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity): boolean;
-  checkExtraStartConditions(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Armadillo): boolean;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Armadillo, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  stop(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Armadillo, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Armadillo, arg2: bigint): void;
 }
 export type ArmadilloAi_ArmadilloBallUp = ArmadilloAi_ArmadilloBallUpMembers & j_net_minecraft_world_entity_ai_behavior.Behavior<Armadillo>;
 export interface ArmadilloAi_ArmadilloBallUpStatics {
@@ -123,9 +99,6 @@ export interface ArmadilloAi_ArmadilloBallUpStatics {
 /** JVM class net.minecraft.world.entity.animal.armadillo.ArmadilloAi$ArmadilloPanic. */
 export interface ArmadilloAi_ArmadilloPanicMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_behavior.AnimalPanic<Armadillo>];
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.PathfinderMob, arg2: bigint): void;
-  start(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Armadillo, arg2: bigint): void;
 }
 export type ArmadilloAi_ArmadilloPanic = ArmadilloAi_ArmadilloPanicMembers & j_net_minecraft_world_entity_ai_behavior.AnimalPanic<Armadillo>;
 export interface ArmadilloAi_ArmadilloPanicStatics {

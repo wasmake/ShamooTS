@@ -25,7 +25,6 @@ export interface DelegatingOpsMembers<T = unknown> {
   createNumeric(arg0: number): T;
   createShort(arg0: number): T;
   createString(arg0: string): T;
-  readonly delegate: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>;
   empty(): T;
   emptyList(): T;
   emptyMap(): T;
@@ -52,7 +51,6 @@ export interface DelegatingOpsMembers<T = unknown> {
 }
 export type DelegatingOps<T = unknown> = DelegatingOpsMembers<T> & JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>;
 export interface DelegatingOpsStatics {
-  new<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>): DelegatingOps<T>;
 }
 
 /** JVM class net.minecraft.resources.DelegatingOps$DelegateListBuilder. */
@@ -70,7 +68,6 @@ export interface DelegatingOps_DelegateListBuilderMembers {
 }
 export type DelegatingOps_DelegateListBuilder = DelegatingOps_DelegateListBuilderMembers & JavaOpaque<"com.mojang.serialization.ListBuilder", [JavaOpaque<"T">]>;
 export interface DelegatingOps_DelegateListBuilderStatics {
-  new(arg0: DelegatingOps, arg1: JavaOpaque<"com.mojang.serialization.ListBuilder", [JavaOpaque<"T">]>): DelegatingOps_DelegateListBuilder;
 }
 
 /** JVM class net.minecraft.resources.DelegatingOps$DelegateRecordBuilder. */
@@ -91,7 +88,6 @@ export interface DelegatingOps_DelegateRecordBuilderMembers {
 }
 export type DelegatingOps_DelegateRecordBuilder = DelegatingOps_DelegateRecordBuilderMembers & JavaOpaque<"com.mojang.serialization.RecordBuilder", [JavaOpaque<"T">]>;
 export interface DelegatingOps_DelegateRecordBuilderStatics {
-  new(arg0: DelegatingOps, arg1: JavaOpaque<"com.mojang.serialization.RecordBuilder", [JavaOpaque<"T">]>): DelegatingOps_DelegateRecordBuilder;
 }
 
 /** JVM interface net.minecraft.resources.DependantName. */
@@ -121,7 +117,6 @@ export interface FileToIdConverterStatics {
 export interface HolderSetCodecMembers<E = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.HolderSet<E>]>];
   decode<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg1: T): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.HolderSet<E>, T]>]>;
-  encode(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   encode<T>(arg0: j_net_minecraft_core.HolderSet<E>, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg2: T): JavaOpaque<"com.mojang.serialization.DataResult", [T]>;
 }
 export type HolderSetCodec<E = unknown> = HolderSetCodecMembers<E> & JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.HolderSet<E>]>;
@@ -176,7 +171,6 @@ export interface RegistryDataLoader_RegistryDataStatics {
 export interface RegistryFileCodecMembers<E = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.Holder<E>]>];
   decode<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg1: T): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.Holder<E>, T]>]>;
-  encode(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   encode<T>(arg0: j_net_minecraft_core.Holder<E>, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg2: T): JavaOpaque<"com.mojang.serialization.DataResult", [T]>;
   toString(): string;
 }
@@ -190,7 +184,6 @@ export interface RegistryFileCodecStatics {
 export interface RegistryFixedCodecMembers<E = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_core.Holder<E>]>];
   decode<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg1: T): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.Holder<E>, T]>]>;
-  encode(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   encode<T>(arg0: j_net_minecraft_core.Holder<E>, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg2: T): JavaOpaque<"com.mojang.serialization.DataResult", [T]>;
   toString(): string;
 }
@@ -276,7 +269,6 @@ export interface ResourceKeyStatics {
 /** JVM class net.minecraft.resources.ResourceLocation. */
 export interface ResourceLocationMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [ResourceLocation]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: ResourceLocation): number;
   equals(arg0: object): boolean;
   getNamespace(): string;

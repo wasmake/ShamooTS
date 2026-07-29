@@ -13,18 +13,10 @@ export interface NoiseGeneratorMembers {
   noise(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): number;
   noise(arg0: number, arg1: number, arg2: number, arg3: number): number;
   noise(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean): number;
-  offsetX: number;
-  offsetY: number;
-  offsetZ: number;
-  readonly perm: Array<number>;
 }
 export type NoiseGenerator = NoiseGeneratorMembers;
 export interface NoiseGeneratorStatics {
-  new(): NoiseGenerator;
-  fade(arg0: number): number;
   floor(arg0: number): number;
-  grad(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  lerp(arg0: number, arg1: number, arg2: number): number;
 }
 
 /** JVM abstract org.bukkit.util.noise.OctaveGenerator. */
@@ -39,18 +31,13 @@ export interface OctaveGeneratorMembers {
   noise(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: boolean): number;
   noise(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean): number;
   noise(arg0: number, arg1: number, arg2: number, arg3: boolean): number;
-  readonly octaves: Array<NoiseGenerator>;
   setScale(arg0: number): void;
   setXScale(arg0: number): void;
   setYScale(arg0: number): void;
   setZScale(arg0: number): void;
-  xScale: number;
-  yScale: number;
-  zScale: number;
 }
 export type OctaveGenerator = OctaveGeneratorMembers;
 export interface OctaveGeneratorStatics {
-  new(arg0: Array<NoiseGenerator>): OctaveGenerator;
 }
 
 /** JVM class org.bukkit.util.noise.PerlinNoiseGenerator. */
@@ -60,7 +47,6 @@ export interface PerlinNoiseGeneratorMembers {
 }
 export type PerlinNoiseGenerator = PerlinNoiseGeneratorMembers & NoiseGenerator;
 export interface PerlinNoiseGeneratorStatics {
-  new(): PerlinNoiseGenerator;
   new(arg0: bigint): PerlinNoiseGenerator;
   new(arg0: JavaOpaque<"java.util.Random">): PerlinNoiseGenerator;
   new(arg0: j_org_bukkit.World): PerlinNoiseGenerator;
@@ -71,7 +57,6 @@ export interface PerlinNoiseGeneratorStatics {
   getNoise(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): number;
   getNoise(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): number;
   getNoise(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  readonly grad3: Array<Array<number>>;
 }
 
 /** JVM class org.bukkit.util.noise.PerlinOctaveGenerator. */
@@ -91,36 +76,17 @@ export interface SimplexNoiseGeneratorMembers {
   noise(arg0: number, arg1: number): number;
   noise(arg0: number, arg1: number, arg2: number): number;
   noise(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  offsetW: number;
 }
 export type SimplexNoiseGenerator = SimplexNoiseGeneratorMembers & PerlinNoiseGenerator;
 export interface SimplexNoiseGeneratorStatics {
-  new(): SimplexNoiseGenerator;
   new(arg0: bigint): SimplexNoiseGenerator;
   new(arg0: JavaOpaque<"java.util.Random">): SimplexNoiseGenerator;
   new(arg0: j_org_bukkit.World): SimplexNoiseGenerator;
-  readonly F2: number;
-  readonly F3: 0.3333333333333333;
-  readonly F4: number;
-  readonly G2: number;
-  readonly G22: number;
-  readonly G3: 0.16666666666666666;
-  readonly G4: number;
-  readonly G42: number;
-  readonly G43: number;
-  readonly G44: number;
-  readonly SQRT_3: number;
-  readonly SQRT_5: number;
-  dot(arg0: Array<number>, arg1: number, arg2: number): number;
-  dot(arg0: Array<number>, arg1: number, arg2: number, arg3: number): number;
-  dot(arg0: Array<number>, arg1: number, arg2: number, arg3: number, arg4: number): number;
   getInstance(): SimplexNoiseGenerator;
   getNoise(arg0: number): number;
   getNoise(arg0: number, arg1: number): number;
   getNoise(arg0: number, arg1: number, arg2: number): number;
   getNoise(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  readonly grad4: Array<Array<number>>;
-  readonly simplex: Array<Array<number>>;
 }
 
 /** JVM class org.bukkit.util.noise.SimplexOctaveGenerator. */

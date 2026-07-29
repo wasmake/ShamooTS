@@ -30,7 +30,7 @@ import type * as j_org_bukkit_persistence from './org.bukkit.persistence.generat
 export interface AbstractHorseInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getSaddle(): ItemStack | null;
-  setSaddle(arg0: ItemStack | null): void | null;
+  setSaddle(arg0: ItemStack | null): void;
 }
 export type AbstractHorseInventory = AbstractHorseInventoryMembers & Inventory;
 export interface AbstractHorseInventoryStatics {
@@ -46,12 +46,12 @@ export interface AnvilInventoryMembers {
   getRepairCostAmount(): number;
   getResult(): ItemStack | null;
   getSecondItem(): ItemStack | null;
-  setFirstItem(arg0: ItemStack | null): void | null;
+  setFirstItem(arg0: ItemStack | null): void;
   setMaximumRepairCost(arg0: number): void;
   setRepairCost(arg0: number): void;
   setRepairCostAmount(arg0: number): void;
-  setResult(arg0: ItemStack | null): void | null;
-  setSecondItem(arg0: ItemStack | null): void | null;
+  setResult(arg0: ItemStack | null): void;
+  setSecondItem(arg0: ItemStack | null): void;
 }
 export type AnvilInventory = AnvilInventoryMembers & Inventory;
 export interface AnvilInventoryStatics {
@@ -61,7 +61,7 @@ export interface AnvilInventoryStatics {
 export interface ArmoredHorseInventoryMembers {
   readonly __javaSupertypes?: readonly [AbstractHorseInventory];
   getArmor(): ItemStack | null;
-  setArmor(arg0: ItemStack): void | null;
+  setArmor(arg0: ItemStack | null): void;
 }
 export type ArmoredHorseInventory = ArmoredHorseInventoryMembers & AbstractHorseInventory;
 export interface ArmoredHorseInventoryStatics {
@@ -71,7 +71,7 @@ export interface ArmoredHorseInventoryStatics {
 export interface BeaconInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getItem(): ItemStack | null;
-  setItem(arg0: ItemStack | null): void | null;
+  setItem(arg0: ItemStack | null): void;
 }
 export type BeaconInventory = BeaconInventoryMembers & Inventory;
 export interface BeaconInventoryStatics {
@@ -116,10 +116,9 @@ export interface BrewerInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getFuel(): ItemStack | null;
   getHolder(): j_org_bukkit_block.BrewingStand | null;
-  getHolder(): InventoryHolder | null;
   getIngredient(): ItemStack | null;
-  setFuel(arg0: ItemStack | null): void | null;
-  setIngredient(arg0: ItemStack | null): void | null;
+  setFuel(arg0: ItemStack | null): void;
+  setIngredient(arg0: ItemStack | null): void;
 }
 export type BrewerInventory = BrewerInventoryMembers & Inventory;
 export interface BrewerInventoryStatics {
@@ -154,7 +153,7 @@ export interface CampfireRecipeStatics {
 export interface CartographyInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getResult(): ItemStack | null;
-  setResult(arg0: ItemStack | null): void | null;
+  setResult(arg0: ItemStack | null): void;
 }
 export type CartographyInventory = CartographyInventoryMembers & Inventory;
 export interface CartographyInventoryStatics {
@@ -164,7 +163,6 @@ export interface CartographyInventoryStatics {
 export interface ChiseledBookshelfInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getHolder(): j_org_bukkit_block.ChiseledBookshelf | null;
-  getHolder(): InventoryHolder | null;
 }
 export type ChiseledBookshelfInventory = ChiseledBookshelfInventoryMembers & Inventory;
 export interface ChiseledBookshelfInventoryStatics {
@@ -198,8 +196,6 @@ export interface CookingRecipeMembers<T /* extends CookingRecipe */ = unknown> {
 }
 export type CookingRecipe<T /* extends CookingRecipe */ = unknown> = CookingRecipeMembers<T> & Recipe & j_org_bukkit.Keyed;
 export interface CookingRecipeStatics {
-  new<T /* extends CookingRecipe */>(arg0: j_org_bukkit.NamespacedKey, arg1: ItemStack, arg2: j_org_bukkit.Material, arg3: number, arg4: number): CookingRecipe<T>;
-  new<T /* extends CookingRecipe */>(arg0: j_org_bukkit.NamespacedKey, arg1: ItemStack, arg2: RecipeChoice, arg3: number, arg4: number): CookingRecipe<T>;
 }
 
 /** JVM interface org.bukkit.inventory.CrafterInventory. */
@@ -216,8 +212,8 @@ export interface CraftingInventoryMembers {
   getMatrix(): Array<ItemStack> | null;
   getRecipe(): Recipe | null;
   getResult(): ItemStack | null;
-  setMatrix(arg0: Array<ItemStack> | null): void | null;
-  setResult(arg0: ItemStack | null): void | null;
+  setMatrix(arg0: Array<ItemStack> | null): void;
+  setResult(arg0: ItemStack | null): void;
 }
 export type CraftingInventory = CraftingInventoryMembers & Inventory;
 export interface CraftingInventoryStatics {
@@ -235,8 +231,6 @@ export interface CraftingRecipeMembers {
 }
 export type CraftingRecipe = CraftingRecipeMembers & j_org_bukkit.Keyed & Recipe;
 export interface CraftingRecipeStatics {
-  new(arg0: j_org_bukkit.NamespacedKey, arg1: ItemStack): CraftingRecipe;
-  checkResult(arg0: ItemStack): ItemStack;
 }
 
 /** Live JVM enum org.bukkit.inventory.CreativeCategory; constants are host handles, not strings. */
@@ -262,9 +256,8 @@ export interface CreativeCategoryStatics {
 export interface DecoratedPotInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getHolder(): j_org_bukkit_block.DecoratedPot | null;
-  getHolder(): InventoryHolder | null;
   getItem(): ItemStack | null;
-  setItem(arg0: ItemStack | null): void | null;
+  setItem(arg0: ItemStack | null): void;
 }
 export type DecoratedPotInventory = DecoratedPotInventoryMembers & Inventory;
 export interface DecoratedPotInventoryStatics {
@@ -274,7 +267,6 @@ export interface DecoratedPotInventoryStatics {
 export interface DoubleChestInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getHolder(): j_org_bukkit_block.DoubleChest | null;
-  getHolder(): InventoryHolder | null;
   getLeftSide(): Inventory;
   getRightSide(): Inventory;
 }
@@ -287,8 +279,8 @@ export interface EnchantingInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getItem(): ItemStack | null;
   getSecondary(): ItemStack | null;
-  setItem(arg0: ItemStack | null): void | null;
-  setSecondary(arg0: ItemStack | null): void | null;
+  setItem(arg0: ItemStack | null): void;
+  setSecondary(arg0: ItemStack | null): void;
 }
 export type EnchantingInventory = EnchantingInventoryMembers & Inventory;
 export interface EnchantingInventoryStatics {
@@ -316,28 +308,28 @@ export interface EntityEquipmentMembers {
   getLeggings(): ItemStack;
   getLeggingsDropChance(): number;
   setArmorContents(arg0: Array<ItemStack>): void;
-  setBoots(arg0: ItemStack | null): void | null;
-  setBoots(arg0: ItemStack | null, arg1: boolean): void | null;
+  setBoots(arg0: ItemStack | null): void;
+  setBoots(arg0: ItemStack | null, arg1: boolean): void;
   setBootsDropChance(arg0: number): void;
-  setChestplate(arg0: ItemStack | null): void | null;
-  setChestplate(arg0: ItemStack | null, arg1: boolean): void | null;
+  setChestplate(arg0: ItemStack | null): void;
+  setChestplate(arg0: ItemStack | null, arg1: boolean): void;
   setChestplateDropChance(arg0: number): void;
   setDropChance(arg0: EquipmentSlot, arg1: number): void;
-  setHelmet(arg0: ItemStack | null): void | null;
-  setHelmet(arg0: ItemStack | null, arg1: boolean): void | null;
+  setHelmet(arg0: ItemStack | null): void;
+  setHelmet(arg0: ItemStack | null, arg1: boolean): void;
   setHelmetDropChance(arg0: number): void;
-  setItem(arg0: EquipmentSlot, arg1: ItemStack | null): void | null;
-  setItem(arg0: EquipmentSlot, arg1: ItemStack | null, arg2: boolean): void | null;
-  setItemInHand(arg0: ItemStack | null): void | null;
+  setItem(arg0: EquipmentSlot, arg1: ItemStack | null): void;
+  setItem(arg0: EquipmentSlot, arg1: ItemStack | null, arg2: boolean): void;
+  setItemInHand(arg0: ItemStack | null): void;
   setItemInHandDropChance(arg0: number): void;
-  setItemInMainHand(arg0: ItemStack | null): void | null;
-  setItemInMainHand(arg0: ItemStack | null, arg1: boolean): void | null;
+  setItemInMainHand(arg0: ItemStack | null): void;
+  setItemInMainHand(arg0: ItemStack | null, arg1: boolean): void;
   setItemInMainHandDropChance(arg0: number): void;
-  setItemInOffHand(arg0: ItemStack | null): void | null;
-  setItemInOffHand(arg0: ItemStack | null, arg1: boolean): void | null;
+  setItemInOffHand(arg0: ItemStack | null): void;
+  setItemInOffHand(arg0: ItemStack | null, arg1: boolean): void;
   setItemInOffHandDropChance(arg0: number): void;
-  setLeggings(arg0: ItemStack | null): void | null;
-  setLeggings(arg0: ItemStack | null, arg1: boolean): void | null;
+  setLeggings(arg0: ItemStack | null): void;
+  setLeggings(arg0: ItemStack | null, arg1: boolean): void;
   setLeggingsDropChance(arg0: number): void;
 }
 export type EntityEquipment = EntityEquipmentMembers;
@@ -369,7 +361,6 @@ export interface EquipmentSlotStatics {
 export interface EquipmentSlotGroupMembers {
   readonly __javaSupertypes?: readonly [JavaPredicate<EquipmentSlot>];
   getExample(): EquipmentSlot;
-  test(arg0: object): boolean;
   test(arg0: EquipmentSlot): boolean;
   toString(): string;
 }
@@ -392,16 +383,15 @@ export interface EquipmentSlotGroupStatics {
 /** JVM interface org.bukkit.inventory.FurnaceInventory. */
 export interface FurnaceInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
-  canSmelt(arg0: ItemStack | null): boolean | null;
+  canSmelt(arg0: ItemStack | null): boolean;
   getFuel(): ItemStack | null;
   getHolder(): j_org_bukkit_block.Furnace | null;
-  getHolder(): InventoryHolder | null;
   getResult(): ItemStack | null;
   getSmelting(): ItemStack | null;
-  isFuel(arg0: ItemStack | null): boolean | null;
-  setFuel(arg0: ItemStack | null): void | null;
-  setResult(arg0: ItemStack | null): void | null;
-  setSmelting(arg0: ItemStack | null): void | null;
+  isFuel(arg0: ItemStack | null): boolean;
+  setFuel(arg0: ItemStack | null): void;
+  setResult(arg0: ItemStack | null): void;
+  setSmelting(arg0: ItemStack | null): void;
 }
 export type FurnaceInventory = FurnaceInventoryMembers & Inventory;
 export interface FurnaceInventoryStatics {
@@ -428,7 +418,6 @@ export interface FurnaceRecipeMembers {
   setInput(arg0: j_org_bukkit.Material, arg1: number): FurnaceRecipe;
   setInput(arg0: j_org_bukkit_material.MaterialData): FurnaceRecipe;
   setInputChoice(arg0: RecipeChoice): FurnaceRecipe;
-  setInputChoice(arg0: RecipeChoice): CookingRecipe;
 }
 export type FurnaceRecipe = FurnaceRecipeMembers;
 export interface FurnaceRecipeStatics {
@@ -447,9 +436,9 @@ export interface GrindstoneInventoryMembers {
   getLowerItem(): ItemStack | null;
   getResult(): ItemStack | null;
   getUpperItem(): ItemStack | null;
-  setLowerItem(arg0: ItemStack | null): void | null;
-  setResult(arg0: ItemStack | null): void | null;
-  setUpperItem(arg0: ItemStack | null): void | null;
+  setLowerItem(arg0: ItemStack | null): void;
+  setResult(arg0: ItemStack | null): void;
+  setUpperItem(arg0: ItemStack | null): void;
 }
 export type GrindstoneInventory = GrindstoneInventoryMembers & Inventory;
 export interface GrindstoneInventoryStatics {
@@ -470,7 +459,7 @@ export interface InventoryMembers {
   addItem(...arg0: Array<ItemStack>): JavaOpaque<"java.util.HashMap", [number, ItemStack]>;
   /** @throws java.lang.IllegalArgumentException */
   all(arg0: j_org_bukkit.Material): JavaOpaque<"java.util.HashMap", [number, ItemStack]>;
-  all(arg0: ItemStack | null): JavaOpaque<"java.util.HashMap", [number, ItemStack]> | null;
+  all(arg0: ItemStack | null): JavaOpaque<"java.util.HashMap", [number, ItemStack]>;
   clear(): void;
   clear(arg0: number): void;
   close(): number;
@@ -478,9 +467,9 @@ export interface InventoryMembers {
   contains(arg0: j_org_bukkit.Material): boolean;
   /** @throws java.lang.IllegalArgumentException */
   contains(arg0: j_org_bukkit.Material, arg1: number): boolean;
-  contains(arg0: ItemStack | null): boolean | null;
-  contains(arg0: ItemStack | null, arg1: number): boolean | null;
-  containsAtLeast(arg0: ItemStack | null, arg1: number): boolean | null;
+  contains(arg0: ItemStack | null): boolean;
+  contains(arg0: ItemStack | null, arg1: number): boolean;
+  containsAtLeast(arg0: ItemStack | null, arg1: number): boolean;
   /** @throws java.lang.IllegalArgumentException */
   first(arg0: j_org_bukkit.Material): number;
   first(arg0: ItemStack): number;
@@ -496,7 +485,6 @@ export interface InventoryMembers {
   getType(): j_org_bukkit_event_inventory.InventoryType;
   getViewers(): JavaList<j_org_bukkit_entity.HumanEntity>;
   isEmpty(): boolean;
-  iterator(): JavaOpaque<"java.util.Iterator">;
   iterator(): JavaOpaque<"java.util.ListIterator", [ItemStack]>;
   iterator(arg0: number): JavaOpaque<"java.util.ListIterator", [ItemStack]>;
   /** @throws java.lang.IllegalArgumentException */
@@ -507,11 +495,11 @@ export interface InventoryMembers {
   /** @throws java.lang.IllegalArgumentException */
   removeItemAnySlot(...arg0: Array<ItemStack>): JavaOpaque<"java.util.HashMap", [number, ItemStack]>;
   /** @throws java.lang.IllegalArgumentException */
-  setContents(arg0: Array<ItemStack> | null): void | null;
-  setItem(arg0: number, arg1: ItemStack | null): void | null;
+  setContents(arg0: Array<ItemStack> | null): void;
+  setItem(arg0: number, arg1: ItemStack | null): void;
   setMaxStackSize(arg0: number): void;
   /** @throws java.lang.IllegalArgumentException */
-  setStorageContents(arg0: Array<ItemStack> | null): void | null;
+  setStorageContents(arg0: Array<ItemStack> | null): void;
 }
 export type Inventory = InventoryMembers & Iterable<ItemStack>;
 export interface InventoryStatics {
@@ -542,8 +530,8 @@ export interface InventoryViewMembers {
   getTopInventory(): Inventory;
   getType(): j_org_bukkit_event_inventory.InventoryType;
   open(): void;
-  setCursor(arg0: ItemStack | null): void | null;
-  setItem(arg0: number, arg1: ItemStack | null): void | null;
+  setCursor(arg0: ItemStack | null): void;
+  setItem(arg0: number, arg1: ItemStack | null): void;
   setProperty(arg0: InventoryView_Property, arg1: number): boolean;
   setTitle(arg0: string): void;
   title(): j_net_kyori_adventure_text.Component;
@@ -612,20 +600,20 @@ export interface ItemFactoryMembers {
   enchantWithLevels(arg0: ItemStack, arg1: number, arg2: boolean, arg3: JavaOpaque<"java.util.Random">): ItemStack;
   ensureServerConversions(arg0: ItemStack): ItemStack;
   /** @throws java.lang.IllegalArgumentException */
-  equals(arg0: j_org_bukkit_inventory_meta.ItemMeta | null, arg1: j_org_bukkit_inventory_meta.ItemMeta | null): boolean | null;
+  equals(arg0: j_org_bukkit_inventory_meta.ItemMeta | null, arg1: j_org_bukkit_inventory_meta.ItemMeta | null): boolean;
   getDefaultLeatherColor(): j_org_bukkit.Color;
   getI18NDisplayName(arg0: ItemStack | null): string | null;
   getItemMeta(arg0: j_org_bukkit.Material): j_org_bukkit_inventory_meta.ItemMeta;
   getSpawnEgg(arg0: j_org_bukkit_entity.EntityType): j_org_bukkit.Material | null;
   hoverContentOf(arg0: j_org_bukkit_entity.Entity): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content">;
-  hoverContentOf(arg0: j_org_bukkit_entity.Entity, arg1: string | null): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content"> | null;
-  hoverContentOf(arg0: j_org_bukkit_entity.Entity, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content"> | null;
+  hoverContentOf(arg0: j_org_bukkit_entity.Entity, arg1: string | null): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content">;
+  hoverContentOf(arg0: j_org_bukkit_entity.Entity, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content">;
   hoverContentOf(arg0: j_org_bukkit_entity.Entity, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content">;
   hoverContentOf(arg0: ItemStack): JavaOpaque<"net.md_5.bungee.api.chat.hover.content.Content">;
   /** @throws java.lang.IllegalArgumentException */
-  isApplicable(arg0: j_org_bukkit_inventory_meta.ItemMeta | null, arg1: j_org_bukkit.Material | null): boolean | null;
+  isApplicable(arg0: j_org_bukkit_inventory_meta.ItemMeta | null, arg1: j_org_bukkit.Material | null): boolean;
   /** @throws java.lang.IllegalArgumentException */
-  isApplicable(arg0: j_org_bukkit_inventory_meta.ItemMeta | null, arg1: ItemStack | null): boolean | null;
+  isApplicable(arg0: j_org_bukkit_inventory_meta.ItemMeta | null, arg1: ItemStack | null): boolean;
 }
 export type ItemFactory = ItemFactoryMembers;
 export interface ItemFactoryStatics {
@@ -677,10 +665,8 @@ export interface ItemStackMembers {
   asOne(): ItemStack;
   asQuantity(arg0: number): ItemStack;
   canRepair(arg0: ItemStack): boolean;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ItemStack;
-  computeTooltipLines(arg0: j_io_papermc_paper_inventory_tooltip.TooltipContext, arg1: j_org_bukkit_entity.Player | null): JavaList<j_net_kyori_adventure_text.Component> | null;
+  computeTooltipLines(arg0: j_io_papermc_paper_inventory_tooltip.TooltipContext, arg1: j_org_bukkit_entity.Player | null): JavaList<j_net_kyori_adventure_text.Component>;
   containsEnchantment(arg0: j_org_bukkit_enchantments.Enchantment): boolean;
   copyDataFrom(arg0: ItemStack, arg1: JavaPredicate<j_io_papermc_paper_datacomponent.DataComponentType>): void;
   damage(arg0: number, arg1: j_org_bukkit_entity.LivingEntity): ItemStack;
@@ -719,9 +705,9 @@ export interface ItemStackMembers {
   isDataOverridden(arg0: j_io_papermc_paper_datacomponent.DataComponentType): boolean;
   isEmpty(): boolean;
   isRepairableBy(arg0: ItemStack): boolean;
-  isSimilar(arg0: ItemStack | null): boolean | null;
+  isSimilar(arg0: ItemStack | null): boolean;
   lore(): JavaList<j_net_kyori_adventure_text.Component> | null;
-  lore(arg0: JavaList<j_net_kyori_adventure_text.Component> | null): void | null;
+  lore(arg0: JavaList<j_net_kyori_adventure_text.Component> | null): void;
   matchesWithoutData(arg0: ItemStack, arg1: JavaSet<j_io_papermc_paper_datacomponent.DataComponentType>): boolean;
   matchesWithoutData(arg0: ItemStack, arg1: JavaSet<j_io_papermc_paper_datacomponent.DataComponentType>, arg2: boolean): boolean;
   removeEnchantment(arg0: j_org_bukkit_enchantments.Enchantment): number;
@@ -734,10 +720,10 @@ export interface ItemStackMembers {
   setData(arg0: j_io_papermc_paper_datacomponent.DataComponentType_NonValued): void;
   setData<T>(arg0: j_io_papermc_paper_datacomponent.DataComponentType_Valued<T>, arg1: j_io_papermc_paper_datacomponent.DataComponentBuilder<T>): void;
   setData<T>(arg0: j_io_papermc_paper_datacomponent.DataComponentType_Valued<T>, arg1: T): void;
-  setData(arg0: j_org_bukkit_material.MaterialData | null): void | null;
+  setData(arg0: j_org_bukkit_material.MaterialData | null): void;
   setDurability(arg0: number): void;
-  setItemMeta(arg0: j_org_bukkit_inventory_meta.ItemMeta | null): boolean | null;
-  setLore(arg0: JavaList<string> | null): void | null;
+  setItemMeta(arg0: j_org_bukkit_inventory_meta.ItemMeta | null): boolean;
+  setLore(arg0: JavaList<string> | null): void;
   setType(arg0: j_org_bukkit.Material): void;
   subtract(): ItemStack;
   subtract(arg0: number): ItemStack;
@@ -748,7 +734,6 @@ export interface ItemStackMembers {
 }
 export type ItemStack = ItemStackMembers & JavaOpaque<"java.lang.Cloneable"> & j_org_bukkit_configuration_serialization.ConfigurationSerializable & j_org_bukkit.Translatable_2 & j_net_kyori_adventure_text_event.HoverEventSource<j_net_kyori_adventure_text_event.HoverEvent_ShowItem> & j_net_kyori_adventure_translation.Translatable & j_io_papermc_paper_persistence.PersistentDataViewHolder & j_io_papermc_paper_datacomponent.DataComponentHolder;
 export interface ItemStackStatics {
-  new(): ItemStack;
   new(arg0: j_org_bukkit.Material): ItemStack;
   new(arg0: j_org_bukkit.Material, arg1: number): ItemStack;
   new(arg0: j_org_bukkit.Material, arg1: number, arg2: number): ItemStack;
@@ -762,7 +747,7 @@ export interface ItemStackStatics {
   of(arg0: j_org_bukkit.Material): ItemStack;
   of(arg0: j_org_bukkit.Material, arg1: number): ItemStack;
   serializeItemsAsBytes(arg0: JavaCollection<ItemStack>): Array<number>;
-  serializeItemsAsBytes(arg0: Array<ItemStack> | null): Array<number> | null;
+  serializeItemsAsBytes(arg0: Array<ItemStack> | null): Array<number>;
 }
 
 /** JVM interface org.bukkit.inventory.ItemType. */
@@ -2218,8 +2203,8 @@ export interface ItemTypeStatics {
 /** JVM interface org.bukkit.inventory.ItemType$Typed. */
 export interface ItemType_TypedMembers<M /* extends j_org_bukkit_inventory_meta.ItemMeta */ = unknown> {
   readonly __javaSupertypes?: readonly [ItemType];
-  createItemStack(arg0: number, arg1: JavaConsumer<M>): ItemStack | null;
-  createItemStack(arg0: JavaConsumer<M>): ItemStack | null;
+  createItemStack(arg0: number, arg1: JavaConsumer<M> | null): ItemStack;
+  createItemStack(arg0: JavaConsumer<M> | null): ItemStack;
   getItemMetaClass(): JavaClass<M>;
 }
 export type ItemType_Typed<M /* extends j_org_bukkit_inventory_meta.ItemMeta */ = unknown> = ItemType_TypedMembers<M> & ItemType;
@@ -2230,9 +2215,8 @@ export interface ItemType_TypedStatics {
 export interface JukeboxInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getHolder(): j_org_bukkit_block.Jukebox | null;
-  getHolder(): InventoryHolder | null;
   getRecord(): ItemStack | null;
-  setRecord(arg0: ItemStack | null): void | null;
+  setRecord(arg0: ItemStack | null): void;
 }
 export type JukeboxInventory = JukeboxInventoryMembers & Inventory;
 export interface JukeboxInventoryStatics {
@@ -2243,8 +2227,7 @@ export interface LecternInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getBook(): ItemStack | null;
   getHolder(): j_org_bukkit_block.Lectern | null;
-  getHolder(): InventoryHolder | null;
-  setBook(arg0: ItemStack | null): void | null;
+  setBook(arg0: ItemStack | null): void;
 }
 export type LecternInventory = LecternInventoryMembers & Inventory;
 export interface LecternInventoryStatics {
@@ -2254,7 +2237,7 @@ export interface LecternInventoryStatics {
 export interface LlamaInventoryMembers {
   readonly __javaSupertypes?: readonly [SaddledHorseInventory];
   getDecor(): ItemStack | null;
-  setDecor(arg0: ItemStack | null): void | null;
+  setDecor(arg0: ItemStack | null): void;
 }
 export type LlamaInventory = LlamaInventoryMembers & SaddledHorseInventory;
 export interface LlamaInventoryStatics {
@@ -2282,7 +2265,7 @@ export interface MainHandStatics {
 /** JVM interface org.bukkit.inventory.MenuType. */
 export interface MenuTypeMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_world_flag.FeatureDependant, j_org_bukkit.Keyed];
-  create(arg0: j_org_bukkit_entity.HumanEntity, arg1: j_net_kyori_adventure_text.Component): InventoryView | null;
+  create(arg0: j_org_bukkit_entity.HumanEntity, arg1: j_net_kyori_adventure_text.Component | null): InventoryView;
   getInventoryViewClass(): JavaClass<InventoryView>;
   typed(): MenuType_Typed<InventoryView, j_org_bukkit_inventory_view_builder.InventoryViewBuilder<InventoryView>>;
   /** @throws java.lang.IllegalArgumentException */
@@ -2322,8 +2305,8 @@ export interface MenuType_TypedMembers<V /* extends InventoryView */ = unknown, 
   readonly __javaSupertypes?: readonly [MenuType];
   builder(): B;
   create(arg0: j_org_bukkit_entity.HumanEntity): V;
-  create(arg0: j_org_bukkit_entity.HumanEntity, arg1: string): V | null;
-  create(arg0: j_org_bukkit_entity.HumanEntity, arg1: j_net_kyori_adventure_text.Component): V | null;
+  create(arg0: j_org_bukkit_entity.HumanEntity, arg1: string | null): V;
+  create(arg0: j_org_bukkit_entity.HumanEntity, arg1: j_net_kyori_adventure_text.Component | null): V;
 }
 export type MenuType_Typed<V /* extends InventoryView */ = unknown, B /* extends j_org_bukkit_inventory_view_builder.InventoryViewBuilder<V> */ = unknown> = MenuType_TypedMembers<V, B> & MenuType;
 export interface MenuType_TypedStatics {
@@ -2360,7 +2343,7 @@ export interface MerchantInventoryStatics {
 export interface MerchantRecipeMembers {
   readonly __javaSupertypes?: readonly [Recipe];
   addIngredient(arg0: ItemStack): void;
-  adjust(arg0: ItemStack | null): void | null;
+  adjust(arg0: ItemStack | null): void;
   getAdjustedIngredient1(): ItemStack | null;
   getDemand(): number;
   getIngredients(): JavaList<ItemStack>;
@@ -2404,24 +2387,23 @@ export interface PlayerInventoryMembers {
   getHeldItemSlot(): number;
   getHelmet(): ItemStack | null;
   getHolder(): j_org_bukkit_entity.HumanEntity | null;
-  getHolder(): InventoryHolder | null;
   getItem(arg0: EquipmentSlot): ItemStack;
   getItemInHand(): ItemStack;
   getItemInMainHand(): ItemStack;
   getItemInOffHand(): ItemStack;
   getLeggings(): ItemStack | null;
-  setArmorContents(arg0: Array<ItemStack> | null): void | null;
-  setBoots(arg0: ItemStack | null): void | null;
-  setChestplate(arg0: ItemStack | null): void | null;
-  setExtraContents(arg0: Array<ItemStack> | null): void | null;
+  setArmorContents(arg0: Array<ItemStack> | null): void;
+  setBoots(arg0: ItemStack | null): void;
+  setChestplate(arg0: ItemStack | null): void;
+  setExtraContents(arg0: Array<ItemStack> | null): void;
   setHeldItemSlot(arg0: number): void;
-  setHelmet(arg0: ItemStack | null): void | null;
-  setItem(arg0: number, arg1: ItemStack | null): void | null;
-  setItem(arg0: EquipmentSlot, arg1: ItemStack | null): void | null;
-  setItemInHand(arg0: ItemStack | null): void | null;
-  setItemInMainHand(arg0: ItemStack | null): void | null;
-  setItemInOffHand(arg0: ItemStack | null): void | null;
-  setLeggings(arg0: ItemStack | null): void | null;
+  setHelmet(arg0: ItemStack | null): void;
+  setItem(arg0: number, arg1: ItemStack | null): void;
+  setItem(arg0: EquipmentSlot, arg1: ItemStack | null): void;
+  setItemInHand(arg0: ItemStack | null): void;
+  setItemInMainHand(arg0: ItemStack | null): void;
+  setItemInOffHand(arg0: ItemStack | null): void;
+  setLeggings(arg0: ItemStack | null): void;
 }
 export type PlayerInventory = PlayerInventoryMembers & Inventory;
 export interface PlayerInventoryStatics {
@@ -2440,7 +2422,6 @@ export interface RecipeChoiceMembers {
   readonly __javaSupertypes?: readonly [JavaPredicate<ItemStack>, JavaOpaque<"java.lang.Cloneable">];
   clone(): RecipeChoice;
   getItemStack(): ItemStack;
-  test(arg0: object): boolean;
   test(arg0: ItemStack): boolean;
   validate(arg0: boolean): RecipeChoice;
 }
@@ -2452,15 +2433,11 @@ export interface RecipeChoiceStatics {
 /** JVM class org.bukkit.inventory.RecipeChoice$ExactChoice. */
 export interface RecipeChoice_ExactChoiceMembers {
   readonly __javaSupertypes?: readonly [RecipeChoice];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): RecipeChoice_ExactChoice;
-  clone(): RecipeChoice;
   equals(arg0: object): boolean;
   getChoices(): JavaList<ItemStack>;
   getItemStack(): ItemStack;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: ItemStack): boolean;
   toString(): string;
   validate(arg0: boolean): RecipeChoice;
@@ -2475,15 +2452,11 @@ export interface RecipeChoice_ExactChoiceStatics {
 /** JVM class org.bukkit.inventory.RecipeChoice$MaterialChoice. */
 export interface RecipeChoice_MaterialChoiceMembers {
   readonly __javaSupertypes?: readonly [RecipeChoice];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): RecipeChoice_MaterialChoice;
-  clone(): RecipeChoice;
   equals(arg0: object): boolean;
   getChoices(): JavaList<j_org_bukkit.Material>;
   getItemStack(): ItemStack;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: ItemStack): boolean;
   toString(): string;
   validate(arg0: boolean): RecipeChoice;
@@ -2492,7 +2465,7 @@ export type RecipeChoice_MaterialChoice = RecipeChoice_MaterialChoiceMembers & R
 export interface RecipeChoice_MaterialChoiceStatics {
   new(arg0: JavaList<j_org_bukkit.Material>): RecipeChoice_MaterialChoice;
   new(arg0: j_org_bukkit.Material): RecipeChoice_MaterialChoice;
-  new(arg0: j_org_bukkit.Tag_2<j_org_bukkit.Material>): RecipeChoice_MaterialChoice;
+  new(arg0: j_org_bukkit.Tag_3<j_org_bukkit.Material>): RecipeChoice_MaterialChoice;
   new(...arg0: Array<j_org_bukkit.Material>): RecipeChoice_MaterialChoice;
 }
 
@@ -2561,10 +2534,10 @@ export interface SmithingInventoryMembers {
   getInputTemplate(): ItemStack | null;
   getRecipe(): Recipe | null;
   getResult(): ItemStack | null;
-  setInputEquipment(arg0: ItemStack | null): void | null;
-  setInputMineral(arg0: ItemStack | null): void | null;
-  setInputTemplate(arg0: ItemStack | null): void | null;
-  setResult(arg0: ItemStack | null): void | null;
+  setInputEquipment(arg0: ItemStack | null): void;
+  setInputMineral(arg0: ItemStack | null): void;
+  setInputTemplate(arg0: ItemStack | null): void;
+  setResult(arg0: ItemStack | null): void;
 }
 export type SmithingInventory = SmithingInventoryMembers & Inventory;
 export interface SmithingInventoryStatics {
@@ -2641,8 +2614,8 @@ export interface StonecutterInventoryMembers {
   readonly __javaSupertypes?: readonly [Inventory];
   getInputItem(): ItemStack | null;
   getResult(): ItemStack | null;
-  setInputItem(arg0: ItemStack | null): void | null;
-  setResult(arg0: ItemStack | null): void | null;
+  setInputItem(arg0: ItemStack | null): void;
+  setResult(arg0: ItemStack | null): void;
 }
 export type StonecutterInventory = StonecutterInventoryMembers & Inventory;
 export interface StonecutterInventoryStatics {

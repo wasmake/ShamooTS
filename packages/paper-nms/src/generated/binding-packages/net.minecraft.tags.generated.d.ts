@@ -811,7 +811,7 @@ export interface TagKeyStatics {
 
 /** JVM class net.minecraft.tags.TagLoader. */
 export interface TagLoaderMembers<T = unknown> {
-  build(arg0: JavaMap<j_net_minecraft_resources.ResourceLocation, JavaList<TagLoader_EntryWithSource>>, arg1: JavaOpaque<"io.papermc.paper.tag.TagEventConfig", [T, object]> | null): JavaMap<j_net_minecraft_resources.ResourceLocation, JavaList<T>> | null;
+  build(arg0: JavaMap<j_net_minecraft_resources.ResourceLocation, JavaList<TagLoader_EntryWithSource>>, arg1: JavaOpaque<"io.papermc.paper.tag.TagEventConfig", [T, object]> | null): JavaMap<j_net_minecraft_resources.ResourceLocation, JavaList<T>>;
   load(arg0: j_net_minecraft_server_packs_resources.ResourceManager): JavaMap<j_net_minecraft_resources.ResourceLocation, JavaList<TagLoader_EntryWithSource>>;
 }
 export type TagLoader<T = unknown> = TagLoaderMembers<T>;

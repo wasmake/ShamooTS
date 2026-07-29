@@ -17,7 +17,7 @@ export interface MapCanvasMembers {
   getPixelColor(arg0: number, arg1: number): JavaOpaque<"java.awt.Color"> | null;
   setCursors(arg0: MapCursorCollection): void;
   setPixel(arg0: number, arg1: number, arg2: number): void;
-  setPixelColor(arg0: number, arg1: number, arg2: JavaOpaque<"java.awt.Color"> | null): void | null;
+  setPixelColor(arg0: number, arg1: number, arg2: JavaOpaque<"java.awt.Color"> | null): void;
 }
 export type MapCanvas = MapCanvasMembers;
 export interface MapCanvasStatics {
@@ -26,7 +26,7 @@ export interface MapCanvasStatics {
 /** JVM class org.bukkit.map.MapCursor. */
 export interface MapCursorMembers {
   caption(): j_net_kyori_adventure_text.Component | null;
-  caption(arg0: j_net_kyori_adventure_text.Component): void | null;
+  caption(arg0: j_net_kyori_adventure_text.Component | null): void;
   getCaption(): string | null;
   getDirection(): number;
   getRawType(): number;
@@ -34,7 +34,7 @@ export interface MapCursorMembers {
   getX(): number;
   getY(): number;
   isVisible(): boolean;
-  setCaption(arg0: string | null): void | null;
+  setCaption(arg0: string | null): void;
   setDirection(arg0: number): void;
   setRawType(arg0: number): void;
   setType(arg0: MapCursor_Type): void;
@@ -46,16 +46,15 @@ export type MapCursor = MapCursorMembers;
 export interface MapCursorStatics {
   new(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean): MapCursor;
   new(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: string | null): MapCursor;
-  new(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: j_net_kyori_adventure_text.Component): MapCursor;
+  new(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: j_net_kyori_adventure_text.Component | null): MapCursor;
   new(arg0: number, arg1: number, arg2: number, arg3: MapCursor_Type, arg4: boolean): MapCursor;
   new(arg0: number, arg1: number, arg2: number, arg3: MapCursor_Type, arg4: boolean, arg5: string | null): MapCursor;
-  new(arg0: number, arg1: number, arg2: number, arg3: MapCursor_Type, arg4: boolean, arg5: j_net_kyori_adventure_text.Component): MapCursor;
+  new(arg0: number, arg1: number, arg2: number, arg3: MapCursor_Type, arg4: boolean, arg5: j_net_kyori_adventure_text.Component | null): MapCursor;
 }
 
 /** JVM interface org.bukkit.map.MapCursor$Type. */
 export interface MapCursor_TypeMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<MapCursor_Type>, j_org_bukkit.Keyed];
-  compareTo(arg0: object): number;
   compareTo(arg0: MapCursor_Type): number;
   getKey(): j_org_bukkit.NamespacedKey;
   getValue(): number;
@@ -110,8 +109,8 @@ export interface MapCursorCollectionMembers {
   addCursor(arg0: number, arg1: number, arg2: number): MapCursor;
   addCursor(arg0: number, arg1: number, arg2: number, arg3: number): MapCursor;
   addCursor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean): MapCursor;
-  addCursor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: string | null): MapCursor | null;
-  addCursor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: j_net_kyori_adventure_text.Component): MapCursor | null;
+  addCursor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: string | null): MapCursor;
+  addCursor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: boolean, arg5: j_net_kyori_adventure_text.Component | null): MapCursor;
   addCursor(arg0: MapCursor): MapCursor;
   getCursor(arg0: number): MapCursor;
   removeCursor(arg0: MapCursor): boolean;
@@ -128,7 +127,6 @@ export interface MapFontMembers {
   getHeight(): number;
   getWidth(arg0: string): number;
   isValid(arg0: string): boolean;
-  malleable: boolean;
   setChar(arg0: string, arg1: MapFont_CharacterSprite): void;
 }
 export type MapFont = MapFontMembers;
@@ -170,7 +168,7 @@ export interface MapPaletteStatics {
   imageToBytes(arg0: JavaOpaque<"java.awt.Image">): Array<number>;
   matchColor(arg0: number, arg1: number, arg2: number): number;
   matchColor(arg0: JavaOpaque<"java.awt.Color">): number;
-  resizeImage(arg0: JavaOpaque<"java.awt.Image"> | null): JavaOpaque<"java.awt.image.BufferedImage"> | null;
+  resizeImage(arg0: JavaOpaque<"java.awt.Image"> | null): JavaOpaque<"java.awt.image.BufferedImage">;
   setMapColorCache(arg0: MapPalette_MapColorCache): void;
 }
 
@@ -191,8 +189,6 @@ export interface MapRendererMembers {
 }
 export type MapRenderer = MapRendererMembers;
 export interface MapRendererStatics {
-  new(): MapRenderer;
-  new(arg0: boolean): MapRenderer;
 }
 
 /** JVM interface org.bukkit.map.MapView. */
@@ -208,7 +204,7 @@ export interface MapViewMembers {
   isTrackingPosition(): boolean;
   isUnlimitedTracking(): boolean;
   isVirtual(): boolean;
-  removeRenderer(arg0: MapRenderer | null): boolean | null;
+  removeRenderer(arg0: MapRenderer | null): boolean;
   setCenterX(arg0: number): void;
   setCenterZ(arg0: number): void;
   setLocked(arg0: boolean): void;

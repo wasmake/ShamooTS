@@ -67,12 +67,10 @@ export interface AsyncStructureSpawnEventStatics {
 /** JVM abstract org.bukkit.event.world.ChunkEvent. */
 export interface ChunkEventMembers {
   readonly __javaSupertypes?: readonly [WorldEvent];
-  chunk: j_org_bukkit.Chunk;
   getChunk(): j_org_bukkit.Chunk;
 }
 export type ChunkEvent = ChunkEventMembers & WorldEvent;
 export interface ChunkEventStatics {
-  new(arg0: j_org_bukkit.Chunk): ChunkEvent;
 }
 
 /** JVM class org.bukkit.event.world.ChunkLoadEvent. */
@@ -166,7 +164,7 @@ export interface LootGenerateEventMembers {
   isCancelled(): boolean;
   isPlugin(): boolean;
   setCancelled(arg0: boolean): void;
-  setLoot(arg0: JavaCollection<j_org_bukkit_inventory.ItemStack> | null): void | null;
+  setLoot(arg0: JavaCollection<j_org_bukkit_inventory.ItemStack> | null): void;
 }
 export type LootGenerateEvent = LootGenerateEventMembers & WorldEvent & j_org_bukkit_event.Cancellable;
 export interface LootGenerateEventStatics {
@@ -265,12 +263,9 @@ export interface TimeSkipEvent_SkipReasonStatics {
 export interface WorldEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event.Event];
   getWorld(): j_org_bukkit.World;
-  readonly world: j_org_bukkit.World;
 }
 export type WorldEvent = WorldEventMembers & j_org_bukkit_event.Event;
 export interface WorldEventStatics {
-  new(arg0: j_org_bukkit.World): WorldEvent;
-  new(arg0: j_org_bukkit.World, arg1: boolean): WorldEvent;
 }
 
 /** JVM class org.bukkit.event.world.WorldInitEvent. */

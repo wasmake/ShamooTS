@@ -65,7 +65,6 @@ export interface CraftDragonBattleStatics {
 export interface CraftKeyedBossbarMembers {
   readonly __javaSupertypes?: readonly [CraftBossBar, JavaOpaque<"org.bukkit.boss.KeyedBossBar">];
   getHandle(): j_net_minecraft_server_bossevents.CustomBossEvent;
-  getHandle(): j_net_minecraft_server_level.ServerBossEvent;
   getKey(): JavaOpaque<"org.bukkit.NamespacedKey">;
 }
 export type CraftKeyedBossbar = CraftKeyedBossbarMembers & CraftBossBar & JavaOpaque<"org.bukkit.boss.KeyedBossBar">;

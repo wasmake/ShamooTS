@@ -1,6 +1,6 @@
 ## Generated API Reference for "@shamoo/velocity-raw"
 
-Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
+Canonical velocity 3.4.0; 358 declarations.
 
 ### BrigadierCommand
 
@@ -189,7 +189,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `com.velocitypowered.api.event.ResultedEvent$ComponentResult`
 - Kind: `class`
-- Constructor: `(arg0: boolean, arg1: net.kyori.adventure.text.Component)`
 - Method: `allowed(): com.velocitypowered.api.event.ResultedEvent$ComponentResult`
 - Method: `denied(arg0: net.kyori.adventure.text.Component): com.velocitypowered.api.event.ResultedEvent$ComponentResult`
 - Method: `getReasonComponent(): java.util.Optional<net.kyori.adventure.text.Component>`
@@ -233,9 +232,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getCommand(): java.lang.String`
 - Method: `getCommandSource(): com.velocitypowered.api.command.CommandSource`
 - Method: `getInvocationInfo(): com.velocitypowered.api.event.command.CommandExecuteEvent$InvocationInfo`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.command.CommandExecuteEvent$CommandResult`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.command.CommandExecuteEvent$CommandResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -341,9 +338,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Constructor: `(arg0: com.velocitypowered.api.proxy.Player)`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
 - Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$ComponentResult`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$ComponentResult): void`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `toString(): java.lang.String`
 
 ### PluginMessageEvent
@@ -355,11 +350,9 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `dataAsInputStream(): java.io.ByteArrayInputStream`
 - Method: `getData(): byte[]`
 - Method: `getIdentifier(): com.velocitypowered.api.proxy.messages.ChannelIdentifier`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.connection.PluginMessageEvent$ForwardResult`
 - Method: `getSource(): com.velocitypowered.api.proxy.messages.ChannelMessageSource`
 - Method: `getTarget(): com.velocitypowered.api.proxy.messages.ChannelMessageSink`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.connection.PluginMessageEvent$ForwardResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -387,11 +380,9 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Constructor: `(arg0: com.velocitypowered.api.proxy.InboundConnection, arg1: java.lang.String)`
 - Constructor: `(arg0: com.velocitypowered.api.proxy.InboundConnection, arg1: java.lang.String, arg2: java.util.UUID)`
 - Method: `getConnection(): com.velocitypowered.api.proxy.InboundConnection`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.connection.PreLoginEvent$PreLoginComponentResult`
 - Method: `getUniqueId(): java.util.UUID`
 - Method: `getUsername(): java.lang.String`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.connection.PreLoginEvent$PreLoginComponentResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -414,11 +405,9 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Java: `com.velocitypowered.api.event.connection.PreTransferEvent`
 - Kind: `class`
 - Constructor: `(arg0: com.velocitypowered.api.proxy.Player, arg1: java.net.InetSocketAddress)`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.connection.PreTransferEvent$TransferResult`
 - Method: `originalAddress(): java.net.InetSocketAddress`
 - Method: `player(): com.velocitypowered.api.proxy.Player`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.connection.PreTransferEvent$TransferResult): void`
 
 ### PreTransferEvent_TransferResult
@@ -450,9 +439,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getOriginalData(): byte[]`
 - Method: `getOriginalKey(): net.kyori.adventure.key.Key`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.CookieReceiveEvent$ForwardResult`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.CookieReceiveEvent$ForwardResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -476,9 +463,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Constructor: `(arg0: com.velocitypowered.api.proxy.Player, arg1: net.kyori.adventure.key.Key)`
 - Method: `getOriginalKey(): net.kyori.adventure.key.Key`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.CookieRequestEvent$ForwardResult`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.CookieRequestEvent$ForwardResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -501,9 +486,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getOriginalData(): byte[]`
 - Method: `getOriginalKey(): net.kyori.adventure.key.Key`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.CookieStoreEvent$ForwardResult`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.CookieStoreEvent$ForwardResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -539,13 +522,11 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Kind: `class`
 - Constructor: `(arg0: com.velocitypowered.api.proxy.Player, arg1: com.velocitypowered.api.proxy.server.RegisteredServer, arg2: net.kyori.adventure.text.Component, arg3: boolean, arg4: com.velocitypowered.api.event.player.KickedFromServerEvent$ServerKickResult)`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.KickedFromServerEvent$ServerKickResult`
 - Method: `getServer(): com.velocitypowered.api.proxy.server.RegisteredServer`
 - Method: `getServerKickReason(): java.util.Optional<net.kyori.adventure.text.Component>`
 - Method: `kickedDuringLogin(): boolean`
 - Method: `kickedDuringServerConnect(): boolean`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.KickedFromServerEvent$ServerKickResult): void`
 
 ### KickedFromServerEvent_DisconnectPlayer
@@ -607,9 +588,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Constructor: `(arg0: com.velocitypowered.api.proxy.Player, arg1: java.lang.String)`
 - Method: `getMessage(): java.lang.String`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.PlayerChatEvent$ChatResult`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.PlayerChatEvent$ChatResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -712,10 +691,8 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getConnection(): com.velocitypowered.api.proxy.ServerConnection`
 - Method: `getContents(): byte[]`
 - Method: `getIdentifier(): com.velocitypowered.api.proxy.messages.ChannelIdentifier`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.ServerLoginPluginMessageEvent$ResponseResult`
 - Method: `getSequenceId(): int`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.ServerLoginPluginMessageEvent$ResponseResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -749,9 +726,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getOriginalServer(): com.velocitypowered.api.proxy.server.RegisteredServer`
 - Method: `getPlayer(): com.velocitypowered.api.proxy.Player`
 - Method: `getPreviousServer(): com.velocitypowered.api.proxy.server.RegisteredServer`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getResult(): com.velocitypowered.api.event.player.ServerPreConnectEvent$ServerResult`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.player.ServerPreConnectEvent$ServerResult): void`
 - Method: `toString(): java.lang.String`
 
@@ -772,10 +747,8 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Constructor: `(arg0: java.util.UUID, arg1: com.velocitypowered.api.proxy.ServerConnection)`
 - Method: `getPackId(): java.util.UUID`
 - Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$GenericResult`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getServerConnection(): com.velocitypowered.api.proxy.ServerConnection`
 - Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$GenericResult): void`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 
 ### ServerResourcePackSendEvent
 
@@ -785,11 +758,9 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getProvidedResourcePack(): com.velocitypowered.api.proxy.player.ResourcePackInfo`
 - Method: `getReceivedResourcePack(): com.velocitypowered.api.proxy.player.ResourcePackInfo`
 - Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$GenericResult`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `getServerConnection(): com.velocitypowered.api.proxy.ServerConnection`
 - Method: `setProvidedResourcePack(arg0: com.velocitypowered.api.proxy.player.ResourcePackInfo): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$GenericResult): void`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 
 ### TabCompleteEvent
 
@@ -889,10 +860,8 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `getConnection(): com.velocitypowered.api.proxy.InboundConnection`
 - Method: `getPing(): com.velocitypowered.api.proxy.server.ServerPing`
 - Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$GenericResult`
-- Method: `getResult(): com.velocitypowered.api.event.ResultedEvent$Result`
 - Method: `setPing(arg0: com.velocitypowered.api.proxy.server.ServerPing): void`
 - Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$GenericResult): void`
-- Method: `setResult(arg0: com.velocitypowered.api.event.ResultedEvent$Result): void`
 - Method: `toString(): java.lang.String`
 
 ### ProxyPreShutdownEvent
@@ -1676,7 +1645,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Java: `com.velocitypowered.api.proxy.server.PingOptions$Builder`
 - Kind: `class`
 - Method: `build(): com.velocitypowered.api.proxy.server.PingOptions`
-- Method: `build(): java.lang.Object`
 - Method: `timeout(arg0: long, arg1: java.util.concurrent.TimeUnit): com.velocitypowered.api.proxy.server.PingOptions$Builder`
 - Method: `timeout(arg0: java.time.Duration): com.velocitypowered.api.proxy.server.PingOptions$Builder`
 - Method: `version(arg0: com.velocitypowered.api.network.ProtocolVersion): com.velocitypowered.api.proxy.server.PingOptions$Builder`
@@ -1748,7 +1716,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Kind: `class`
 - Constructor: `(arg0: java.lang.String, arg1: java.net.InetSocketAddress)`
 - Method: `compareTo(arg0: com.velocitypowered.api.proxy.server.ServerInfo): int`
-- Method: `compareTo(arg0: java.lang.Object): int`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `getAddress(): java.net.InetSocketAddress`
 - Method: `getName(): java.lang.String`
@@ -2394,7 +2361,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `title(): net.kyori.adventure.text.Component`
 - Method: `title(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book`
 - Method: `toBuilder(): net.kyori.adventure.inventory.Book$Builder`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 
 ### Book_Builder
 
@@ -2402,7 +2368,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Kind: `interface`
 - Method: `addPage(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
 - Method: `author(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
-- Method: `build(): java.lang.Object`
 - Method: `build(): net.kyori.adventure.inventory.Book`
 - Method: `pages(arg0: java.util.Collection<net.kyori.adventure.text.Component>): net.kyori.adventure.inventory.Book$Builder`
 - Method: `pages(arg0: net.kyori.adventure.text.Component): net.kyori.adventure.inventory.Book$Builder`
@@ -2425,7 +2390,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Kind: `interface`
 - Field: `POINTER: net.kyori.adventure.pointer.Pointer<net.kyori.adventure.permission.PermissionChecker>`
 - Method: `always(arg0: net.kyori.adventure.util.TriState): net.kyori.adventure.permission.PermissionChecker`
-- Method: `test(arg0: java.lang.Object): boolean`
 - Method: `test(arg0: java.lang.String): boolean`
 - Method: `value(arg0: java.lang.String): net.kyori.adventure.util.TriState`
 
@@ -2505,7 +2469,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Java: `net.kyori.adventure.resource.ResourcePackInfo$Builder`
 - Kind: `interface`
 - Method: `asResourcePackInfo(): net.kyori.adventure.resource.ResourcePackInfo`
-- Method: `build(): java.lang.Object`
 - Method: `build(): net.kyori.adventure.resource.ResourcePackInfo`
 - Method: `computeHashAndBuild(): java.util.concurrent.CompletableFuture<net.kyori.adventure.resource.ResourcePackInfo>`
 - Method: `computeHashAndBuild(arg0: java.util.concurrent.Executor): java.util.concurrent.CompletableFuture<net.kyori.adventure.resource.ResourcePackInfo>`
@@ -2660,9 +2623,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `net.kyori.adventure.text.AbstractComponent`
 - Kind: `abstract`
-- Constructor: `(arg0: java.util.List<? extends net.kyori.adventure.text.ComponentLike>, arg1: net.kyori.adventure.text.format.Style)`
-- Field: `children: java.util.List<net.kyori.adventure.text.Component>`
-- Field: `style: net.kyori.adventure.text.format.Style`
 - Method: `children(): java.util.List<net.kyori.adventure.text.Component>`
 - Method: `equals(arg0: java.lang.Object): boolean`
 - Method: `hashCode(): int`
@@ -2744,7 +2704,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Java: `net.kyori.adventure.text.BuildableComponent`
 - Kind: `interface`
 - Method: `toBuilder(): B`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 
 ### Component
 
@@ -2773,29 +2732,21 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `children(arg0: java.util.List<? extends net.kyori.adventure.text.ComponentLike>): net.kyori.adventure.text.Component`
 - Method: `clickEvent(): net.kyori.adventure.text.event.ClickEvent`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.Component`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.Component`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.Component`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `compact(): net.kyori.adventure.text.Component`
 - Method: `compact(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.Component`
 - Method: `componentBuilderApply(arg0: net.kyori.adventure.text.ComponentBuilder<?, ?>): void`
 - Method: `contains(arg0: net.kyori.adventure.text.Component): boolean`
 - Method: `contains(arg0: net.kyori.adventure.text.Component, arg1: java.util.function.BiPredicate<? super net.kyori.adventure.text.Component, ? super net.kyori.adventure.text.Component>): boolean`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.Component`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.TextDecoration$State`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.Component`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.Component`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.Component`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(): java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): net.kyori.adventure.text.Component`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `detectCycle(arg0: net.kyori.adventure.text.Component): void`
 - Method: `empty(): net.kyori.adventure.text.TextComponent`
 - Method: `entityNBT(): net.kyori.adventure.text.EntityNBTComponent$Builder`
@@ -2804,15 +2755,12 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `examinableProperties(): java.util.stream.Stream<? extends net.kyori.examination.ExaminableProperty>`
 - Method: `font(): net.kyori.adventure.key.Key`
 - Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.Component`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hasDecoration(arg0: net.kyori.adventure.text.format.TextDecoration): boolean`
 - Method: `hasStyling(): boolean`
 - Method: `hoverEvent(): net.kyori.adventure.text.event.HoverEvent<?>`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): net.kyori.adventure.text.Component`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(): java.lang.String`
 - Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.Component`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `iterable(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: java.util.Set<net.kyori.adventure.text.ComponentIteratorFlag>): java.lang.Iterable<net.kyori.adventure.text.Component>`
 - Method: `iterable(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: net.kyori.adventure.text.ComponentIteratorFlag): java.lang.Iterable<net.kyori.adventure.text.Component>`
 - Method: `iterator(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: java.util.Set<net.kyori.adventure.text.ComponentIteratorFlag>): java.util.Iterator<net.kyori.adventure.text.Component>`
@@ -2862,9 +2810,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `selector(arg0: java.util.function.Consumer<? super net.kyori.adventure.text.SelectorComponent$Builder>): net.kyori.adventure.text.SelectorComponent`
 - Method: `shadowColor(): net.kyori.adventure.text.format.ShadowColor`
 - Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.Component`
-- Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.Component`
-- Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `space(): net.kyori.adventure.text.TextComponent`
 - Method: `spliterator(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: java.util.Set<net.kyori.adventure.text.ComponentIteratorFlag>): java.util.Spliterator<net.kyori.adventure.text.Component>`
 - Method: `spliterator(arg0: net.kyori.adventure.text.ComponentIteratorType, arg1: net.kyori.adventure.text.ComponentIteratorFlag): java.util.Spliterator<net.kyori.adventure.text.Component>`
@@ -2990,39 +2936,22 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `apply(arg0: java.util.function.Consumer<? super net.kyori.adventure.text.ComponentBuilder<?, ?>>): B`
 - Method: `applyDeep(arg0: java.util.function.Consumer<? super net.kyori.adventure.text.ComponentBuilder<?, ?>>): B`
 - Method: `asComponent(): net.kyori.adventure.text.Component`
-- Method: `build(): java.lang.Object`
 - Method: `build(): C`
 - Method: `children(): java.util.List<net.kyori.adventure.text.Component>`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): B`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): B`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): B`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `componentBuilderApply(arg0: net.kyori.adventure.text.ComponentBuilder<?, ?>): void`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): B`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): B`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.MutableStyleSetter`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): B`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): B`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): B`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): B`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.MutableStyleSetter`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Set<net.kyori.adventure.text.format.TextDecoration>, arg1: boolean): B`
-- Method: `decorations(arg0: java.util.Set, arg1: boolean): net.kyori.adventure.text.format.MutableStyleSetter`
-- Method: `decorations(arg0: java.util.Set, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `font(arg0: net.kyori.adventure.key.Key): B`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): B`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(arg0: java.lang.String): B`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `mapChildren(arg0: java.util.function.Function<net.kyori.adventure.text.BuildableComponent<?, ?>, ? extends net.kyori.adventure.text.BuildableComponent<?, ?>>): B`
 - Method: `mapChildrenDeep(arg0: java.util.function.Function<net.kyori.adventure.text.BuildableComponent<?, ?>, ? extends net.kyori.adventure.text.BuildableComponent<?, ?>>): B`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component): B`
@@ -3201,34 +3130,21 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `asComponent(): C`
 - Method: `children(arg0: java.util.List<? extends net.kyori.adventure.text.ComponentLike>): C`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): C`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): C`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): C`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): C`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): C`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): C`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): C`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): C`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `font(arg0: net.kyori.adventure.key.Key): C`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): C`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(arg0: java.lang.String): C`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component): C`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component, arg1: java.util.Set<net.kyori.adventure.text.format.Style$Merge>): C`
 - Method: `mergeStyle(arg0: net.kyori.adventure.text.Component, arg1: net.kyori.adventure.text.format.Style$Merge): C`
 - Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): C`
-- Method: `shadowColor(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): C`
-- Method: `shadowColorIfAbsent(arg0: net.kyori.adventure.util.ARGBLike): net.kyori.adventure.text.format.StyleSetter`
 - Method: `style(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>): C`
 - Method: `style(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>, arg1: net.kyori.adventure.text.format.Style$Merge$Strategy): C`
 - Method: `style(arg0: net.kyori.adventure.text.format.Style$Builder): C`
@@ -3690,11 +3606,8 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Java: `net.kyori.adventure.text.format.MutableStyleSetter`
 - Kind: `interface`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): T`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): T`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(arg0: java.util.Set<net.kyori.adventure.text.format.TextDecoration>, arg1: boolean): T`
-- Method: `decorations(arg0: java.util.Set, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 
 ### NamedTextColor
 
@@ -3751,37 +3664,26 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Field: `DEFAULT_FONT: net.kyori.adventure.key.Key`
 - Method: `clickEvent(): net.kyori.adventure.text.event.ClickEvent`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.Style`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.TextDecoration$State`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.Style`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorations(): java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): net.kyori.adventure.text.format.Style`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `edit(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>): net.kyori.adventure.text.format.Style`
 - Method: `edit(arg0: java.util.function.Consumer<net.kyori.adventure.text.format.Style$Builder>, arg1: net.kyori.adventure.text.format.Style$Merge$Strategy): net.kyori.adventure.text.format.Style`
 - Method: `empty(): net.kyori.adventure.text.format.Style`
 - Method: `font(): net.kyori.adventure.key.Key`
 - Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.Style`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hasDecoration(arg0: net.kyori.adventure.text.format.TextDecoration): boolean`
 - Method: `hoverEvent(): net.kyori.adventure.text.event.HoverEvent<?>`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): net.kyori.adventure.text.format.Style`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(): java.lang.String`
 - Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.Style`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `isEmpty(): boolean`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.format.Style`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style, arg1: java.util.Set<net.kyori.adventure.text.format.Style$Merge>): net.kyori.adventure.text.format.Style`
@@ -3800,7 +3702,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `style(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style`
 - Method: `style(arg0: net.kyori.adventure.text.format.StyleBuilderApplicable): net.kyori.adventure.text.format.Style`
 - Method: `toBuilder(): net.kyori.adventure.text.format.Style$Builder`
-- Method: `toBuilder(): net.kyori.adventure.util.Buildable$Builder`
 - Method: `unmerge(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.format.Style`
 
 ### Style_Builder
@@ -3808,34 +3709,19 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Java: `net.kyori.adventure.text.format.Style$Builder`
 - Kind: `interface`
 - Method: `apply(arg0: net.kyori.adventure.text.format.StyleBuilderApplicable): net.kyori.adventure.text.format.Style$Builder`
-- Method: `build(): java.lang.Object`
 - Method: `build(): net.kyori.adventure.text.format.Style`
 - Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.Style$Builder`
-- Method: `clickEvent(arg0: net.kyori.adventure.text.event.ClickEvent): net.kyori.adventure.text.format.StyleSetter`
 - Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style$Builder`
-- Method: `color(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.Style$Builder`
-- Method: `colorIfAbsent(arg0: net.kyori.adventure.text.format.TextColor): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.StyleSetter`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.MutableStyleSetter`
 - Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorate(arg0: net.kyori.adventure.text.format.TextDecoration[]): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decoration(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: boolean): net.kyori.adventure.text.format.StyleSetter`
 - Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorationIfAbsent(arg0: net.kyori.adventure.text.format.TextDecoration, arg1: net.kyori.adventure.text.format.TextDecoration$State): net.kyori.adventure.text.format.StyleSetter`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.MutableStyleSetter`
 - Method: `decorations(arg0: java.util.Map<net.kyori.adventure.text.format.TextDecoration, net.kyori.adventure.text.format.TextDecoration$State>): net.kyori.adventure.text.format.Style$Builder`
-- Method: `decorations(arg0: java.util.Map): net.kyori.adventure.text.format.StyleSetter`
 - Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.Style$Builder`
-- Method: `font(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.text.format.StyleSetter`
 - Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource<?>): net.kyori.adventure.text.format.Style$Builder`
-- Method: `hoverEvent(arg0: net.kyori.adventure.text.event.HoverEventSource): net.kyori.adventure.text.format.StyleSetter`
 - Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.Style$Builder`
-- Method: `insertion(arg0: java.lang.String): net.kyori.adventure.text.format.StyleSetter`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style): net.kyori.adventure.text.format.Style$Builder`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style, arg1: java.util.Set<net.kyori.adventure.text.format.Style$Merge>): net.kyori.adventure.text.format.Style$Builder`
 - Method: `merge(arg0: net.kyori.adventure.text.format.Style, arg1: net.kyori.adventure.text.format.Style$Merge$Strategy): net.kyori.adventure.text.format.Style$Builder`
@@ -3924,7 +3810,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `color(arg0: int, arg1: int, arg2: int): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.util.HSVLike): net.kyori.adventure.text.format.TextColor`
 - Method: `color(arg0: net.kyori.adventure.util.RGBLike): net.kyori.adventure.text.format.TextColor`
-- Method: `compareTo(arg0: java.lang.Object): int`
 - Method: `compareTo(arg0: net.kyori.adventure.text.format.TextColor): int`
 - Method: `examinableProperties(): java.util.stream.Stream<? extends net.kyori.examination.ExaminableProperty>`
 - Method: `fromCSSHexString(arg0: java.lang.String): net.kyori.adventure.text.format.TextColor`
@@ -4051,17 +3936,7 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `net.kyori.adventure.text.renderer.AbstractComponentRenderer`
 - Kind: `abstract`
-- Constructor: `()`
 - Method: `render(arg0: net.kyori.adventure.text.Component, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderBlockNbt(arg0: net.kyori.adventure.text.BlockNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderEntityNbt(arg0: net.kyori.adventure.text.EntityNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderKeybind(arg0: net.kyori.adventure.text.KeybindComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderScore(arg0: net.kyori.adventure.text.ScoreComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderSelector(arg0: net.kyori.adventure.text.SelectorComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderStorageNbt(arg0: net.kyori.adventure.text.StorageNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderText(arg0: net.kyori.adventure.text.TextComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderTranslatable(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderVirtual(arg0: net.kyori.adventure.text.VirtualComponent, arg1: C): net.kyori.adventure.text.Component`
 
 ### ComponentRenderer
 
@@ -4074,23 +3949,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `net.kyori.adventure.text.renderer.TranslatableComponentRenderer`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `mergeStyle(arg0: net.kyori.adventure.text.Component, arg1: B, arg2: C): void`
-- Method: `mergeStyleAndOptionallyDeepRender(arg0: net.kyori.adventure.text.Component, arg1: B, arg2: C): O`
-- Method: `nbt(arg0: C, arg1: B, arg2: O): B`
-- Method: `optionallyRenderChildrenAndStyle(arg0: net.kyori.adventure.text.Component, arg1: C): net.kyori.adventure.text.Component`
-- Method: `optionallyRenderChildrenAppendAndBuild(arg0: java.util.List<net.kyori.adventure.text.Component>, arg1: B, arg2: C): O`
-- Method: `renderBlockNbt(arg0: net.kyori.adventure.text.BlockNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderEntityNbt(arg0: net.kyori.adventure.text.EntityNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderKeybind(arg0: net.kyori.adventure.text.KeybindComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderScore(arg0: net.kyori.adventure.text.ScoreComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderSelector(arg0: net.kyori.adventure.text.SelectorComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderStorageNbt(arg0: net.kyori.adventure.text.StorageNBTComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderText(arg0: net.kyori.adventure.text.TextComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderTranslatable(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `renderTranslatableInner(arg0: net.kyori.adventure.text.TranslatableComponent, arg1: C): net.kyori.adventure.text.Component`
-- Method: `translate(arg0: java.lang.String, arg1: C): java.text.MessageFormat`
-- Method: `translate(arg0: java.lang.String, arg1: java.lang.String, arg2: C): java.text.MessageFormat`
 - Method: `usingTranslationSource(arg0: net.kyori.adventure.translation.Translator): net.kyori.adventure.text.renderer.TranslatableComponentRenderer<java.util.Locale>`
 
 ### ComponentDecoder
@@ -4156,7 +4014,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `net.kyori.adventure.translation.AbstractTranslationStore`
 - Kind: `abstract`
-- Constructor: `(arg0: net.kyori.adventure.key.Key)`
 - Method: `canTranslate(arg0: java.lang.String, arg1: java.util.Locale): boolean`
 - Method: `contains(arg0: java.lang.String): boolean`
 - Method: `contains(arg0: java.lang.String, arg1: java.util.Locale): boolean`
@@ -4170,15 +4027,12 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.Map<java.lang.String, T>): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.Set<java.lang.String>, arg2: java.util.function.Function<java.lang.String, T>): void`
 - Method: `toString(): java.lang.String`
-- Method: `translationValue(arg0: java.lang.String, arg1: java.util.Locale): T`
 - Method: `unregister(arg0: java.lang.String): void`
 
 ### AbstractTranslationStore_StringBased
 
 - Java: `net.kyori.adventure.translation.AbstractTranslationStore$StringBased`
 - Kind: `abstract`
-- Constructor: `(arg0: net.kyori.adventure.key.Key)`
-- Method: `parse(arg0: java.lang.String, arg1: java.util.Locale): T`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.nio.file.Path, arg2: boolean): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.ResourceBundle, arg2: boolean): void`
 
@@ -4208,7 +4062,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 - Method: `contains(arg0: java.lang.String): boolean`
 - Method: `create(arg0: net.kyori.adventure.key.Key): net.kyori.adventure.translation.TranslationRegistry`
 - Method: `defaultLocale(arg0: java.util.Locale): void`
-- Method: `register(arg0: java.lang.String, arg1: java.util.Locale, arg2: java.lang.Object): void`
 - Method: `register(arg0: java.lang.String, arg1: java.util.Locale, arg2: java.text.MessageFormat): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.nio.file.Path, arg2: boolean): void`
 - Method: `registerAll(arg0: java.util.Locale, arg1: java.util.Map<java.lang.String, java.text.MessageFormat>): void`
@@ -4368,10 +4221,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `net.kyori.adventure.util.Listenable`
 - Kind: `abstract`
-- Constructor: `()`
-- Method: `addListener0(arg0: L): void`
-- Method: `forEachListener(arg0: java.util.function.Consumer<L>): void`
-- Method: `removeListener0(arg0: L): void`
 
 ### MonkeyBars
 
@@ -4386,7 +4235,6 @@ Canonical velocity 3.4.0-20260121.190037-118; 358 declarations.
 
 - Java: `net.kyori.adventure.util.Nag`
 - Kind: `abstract`
-- Constructor: `(arg0: java.lang.String)`
 - Method: `print(arg0: net.kyori.adventure.util.Nag): void`
 
 ### PlatformAPI

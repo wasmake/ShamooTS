@@ -23,7 +23,6 @@ export interface ClientIntentStatics {
 export interface ClientIntentionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerHandshakePacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerHandshakePacketListener): void;
   hashCode(): number;
   hostName(): string;

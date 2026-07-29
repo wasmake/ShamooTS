@@ -57,7 +57,7 @@ export interface ObjectiveMembers {
   pack(): Objective_Packed;
   setDisplayAutoUpdate(arg0: boolean): void;
   setDisplayName(arg0: j_net_minecraft_network_chat.Component): void;
-  setNumberFormat(arg0: j_net_minecraft_network_chat_numbers.NumberFormat | null): void | null;
+  setNumberFormat(arg0: j_net_minecraft_network_chat_numbers.NumberFormat | null): void;
   setRenderType(arg0: j_net_minecraft_world_scores_criteria.ObjectiveCriteria_RenderType): void;
 }
 export type Objective = ObjectiveMembers;
@@ -128,15 +128,15 @@ export interface PlayerTeamMembers {
   setDeathMessageVisibility(arg0: Team_Visibility): void;
   setDisplayName(arg0: j_net_minecraft_network_chat.Component): void;
   setNameTagVisibility(arg0: Team_Visibility): void;
-  setPlayerPrefix(arg0: j_net_minecraft_network_chat.Component | null): void | null;
-  setPlayerSuffix(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  setPlayerPrefix(arg0: j_net_minecraft_network_chat.Component | null): void;
+  setPlayerSuffix(arg0: j_net_minecraft_network_chat.Component | null): void;
   setSeeFriendlyInvisibles(arg0: boolean): void;
   unpackOptions(arg0: number): void;
 }
 export type PlayerTeam = PlayerTeamMembers & Team;
 export interface PlayerTeamStatics {
   new(arg0: Scoreboard, arg1: string): PlayerTeam;
-  formatNameForTeam(arg0: Team | null, arg1: j_net_minecraft_network_chat.Component): j_net_minecraft_network_chat.MutableComponent | null;
+  formatNameForTeam(arg0: Team | null, arg1: j_net_minecraft_network_chat.Component): j_net_minecraft_network_chat.MutableComponent;
 }
 
 /** JVM record net.minecraft.world.scores.PlayerTeam$Packed. */
@@ -172,17 +172,17 @@ export interface ReadOnlyScoreInfoMembers {
 }
 export type ReadOnlyScoreInfo = ReadOnlyScoreInfoMembers;
 export interface ReadOnlyScoreInfoStatics {
-  safeFormatValue(arg0: ReadOnlyScoreInfo | null, arg1: j_net_minecraft_network_chat_numbers.NumberFormat): j_net_minecraft_network_chat.MutableComponent | null;
+  safeFormatValue(arg0: ReadOnlyScoreInfo | null, arg1: j_net_minecraft_network_chat_numbers.NumberFormat): j_net_minecraft_network_chat.MutableComponent;
 }
 
 /** JVM class net.minecraft.world.scores.Score. */
 export interface ScoreMembers {
   readonly __javaSupertypes?: readonly [ReadOnlyScoreInfo];
   display(): j_net_minecraft_network_chat.Component | null;
-  display(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  display(arg0: j_net_minecraft_network_chat.Component | null): void;
   isLocked(): boolean;
   numberFormat(): j_net_minecraft_network_chat_numbers.NumberFormat | null;
-  numberFormat(arg0: j_net_minecraft_network_chat_numbers.NumberFormat | null): void | null;
+  numberFormat(arg0: j_net_minecraft_network_chat_numbers.NumberFormat | null): void;
   setLocked(arg0: boolean): void;
   value(): number;
   value(arg0: number): void;
@@ -197,12 +197,12 @@ export interface ScoreStatics {
 export interface ScoreAccessMembers {
   add(arg0: number): number;
   display(): j_net_minecraft_network_chat.Component | null;
-  display(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  display(arg0: j_net_minecraft_network_chat.Component | null): void;
   get(): number;
   increment(): number;
   lock(): void;
   locked(): boolean;
-  numberFormatOverride(arg0: j_net_minecraft_network_chat_numbers.NumberFormat | null): void | null;
+  numberFormatOverride(arg0: j_net_minecraft_network_chat_numbers.NumberFormat | null): void;
   reset(): void;
   set(arg0: number): void;
   unlock(): void;
@@ -213,7 +213,7 @@ export interface ScoreAccessStatics {
 
 /** JVM class net.minecraft.world.scores.Scoreboard. */
 export interface ScoreboardMembers {
-  addObjective(arg0: string, arg1: j_net_minecraft_world_scores_criteria.ObjectiveCriteria, arg2: j_net_minecraft_network_chat.Component, arg3: j_net_minecraft_world_scores_criteria.ObjectiveCriteria_RenderType, arg4: boolean, arg5: j_net_minecraft_network_chat_numbers.NumberFormat | null): Objective | null;
+  addObjective(arg0: string, arg1: j_net_minecraft_world_scores_criteria.ObjectiveCriteria, arg2: j_net_minecraft_network_chat.Component, arg3: j_net_minecraft_world_scores_criteria.ObjectiveCriteria_RenderType, arg4: boolean, arg5: j_net_minecraft_network_chat_numbers.NumberFormat | null): Objective;
   addPlayerTeam(arg0: string): PlayerTeam;
   addPlayerToTeam(arg0: string, arg1: PlayerTeam): boolean;
   entityRemoved(arg0: j_net_minecraft_world_entity.Entity): void;
@@ -232,27 +232,21 @@ export interface ScoreboardMembers {
   getTrackedPlayers(): JavaCollection<ScoreHolder>;
   listPlayerScores(arg0: Objective): JavaCollection<PlayerScoreEntry>;
   listPlayerScores(arg0: ScoreHolder): JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2IntMap", [Objective]>;
-  loadObjective(arg0: Objective_Packed): void;
-  loadPlayerScore(arg0: Scoreboard_PackedScore): void;
-  loadPlayerTeam(arg0: PlayerTeam_Packed): void;
   onObjectiveAdded(arg0: Objective): void;
   onObjectiveChanged(arg0: Objective): void;
   onObjectiveRemoved(arg0: Objective): void;
   onPlayerRemoved(arg0: ScoreHolder): void;
   onPlayerScoreRemoved(arg0: ScoreHolder, arg1: Objective): void;
-  onScoreChanged(arg0: ScoreHolder, arg1: Objective, arg2: Score): void;
-  onScoreLockChanged(arg0: ScoreHolder, arg1: Objective): void;
   onTeamAdded(arg0: PlayerTeam): void;
   onTeamChanged(arg0: PlayerTeam): void;
   onTeamRemoved(arg0: PlayerTeam): void;
-  packPlayerScores(): JavaList<Scoreboard_PackedScore>;
   removeObjective(arg0: Objective): void;
   removePlayerFromTeam(arg0: string): boolean;
   removePlayerFromTeam(arg0: string, arg1: PlayerTeam): void;
   removePlayerTeam(arg0: PlayerTeam): void;
   resetAllPlayerScores(arg0: ScoreHolder): void;
   resetSinglePlayerScore(arg0: ScoreHolder, arg1: Objective): void;
-  setDisplayObjective(arg0: DisplaySlot, arg1: Objective | null): void | null;
+  setDisplayObjective(arg0: DisplaySlot, arg1: Objective | null): void;
 }
 export type Scoreboard = ScoreboardMembers;
 export interface ScoreboardStatics {
@@ -329,12 +323,11 @@ export interface TeamMembers {
   getName(): string;
   getNameTagVisibility(): Team_Visibility;
   getPlayers(): JavaCollection<string>;
-  isAlliedTo(arg0: Team | null): boolean | null;
+  isAlliedTo(arg0: Team | null): boolean;
   isAllowFriendlyFire(): boolean;
 }
 export type Team = TeamMembers;
 export interface TeamStatics {
-  new(): Team;
 }
 
 /** Live JVM enum net.minecraft.world.scores.Team$CollisionRule; constants are host handles, not strings. */

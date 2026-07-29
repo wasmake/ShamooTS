@@ -91,7 +91,6 @@ export interface CraftLimitedRegionMembers {
   getHighestBlockYAt(arg0: number, arg1: number, arg2: JavaOpaque<"org.bukkit.HeightMap">): number;
   getHighestBlockYAt(arg0: JavaOpaque<"org.bukkit.Location">): number;
   getHighestBlockYAt(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaOpaque<"org.bukkit.HeightMap">): number;
-  getNMSEntities(): Iterable<object>;
   getNMSEntities(): JavaCollection<j_net_minecraft_world_entity.Entity>;
   getTileEntities(): JavaList<JavaOpaque<"org.bukkit.block.BlockState">>;
   getType(arg0: number, arg1: number, arg2: number): JavaOpaque<"org.bukkit.Material">;
@@ -137,7 +136,6 @@ export interface CustomChunkGeneratorMembers {
   applyBiomeDecoration(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_chunk.ChunkAccess, arg2: j_net_minecraft_world_level.StructureManager): void;
   applyCarvers(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: bigint, arg2: j_net_minecraft_world_level_levelgen.RandomState, arg3: j_net_minecraft_world_level_biome.BiomeManager, arg4: j_net_minecraft_world_level.StructureManager, arg5: j_net_minecraft_world_level_chunk.ChunkAccess): void;
   buildSurface(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: j_net_minecraft_world_level.StructureManager, arg2: j_net_minecraft_world_level_levelgen.RandomState, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_chunk.ChunkGenerator]>;
   createStructures(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkAccess, arg4: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplateManager, arg5: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level.Level>): void;
   fillFromNoise(arg0: j_net_minecraft_world_level_levelgen_blending.Blender, arg1: j_net_minecraft_world_level_levelgen.RandomState, arg2: j_net_minecraft_world_level.StructureManager, arg3: j_net_minecraft_world_level_chunk.ChunkAccess): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   getBaseColumn(arg0: number, arg1: number, arg2: j_net_minecraft_world_level.LevelHeightAccessor, arg3: j_net_minecraft_world_level_levelgen.RandomState): j_net_minecraft_world_level.NoiseColumn;
@@ -159,8 +157,6 @@ export interface CustomChunkGeneratorStatics {
 /** JVM class org.bukkit.craftbukkit.generator.CustomWorldChunkManager. */
 export interface CustomWorldChunkManagerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level_biome.BiomeSource];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_biome.BiomeSource]>;
-  collectPossibleBiomes(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>]>;
   getNoiseBiome(arg0: number, arg1: number, arg2: number, arg3: j_net_minecraft_world_level_biome.Climate_Sampler): j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>;
   readonly vanillaBiomeSource: j_net_minecraft_world_level_biome.BiomeSource;
 }
@@ -175,7 +171,6 @@ export interface InternalChunkGeneratorMembers {
 }
 export type InternalChunkGenerator = InternalChunkGeneratorMembers & j_net_minecraft_world_level_chunk.ChunkGenerator;
 export interface InternalChunkGeneratorStatics {
-  new(arg0: j_net_minecraft_world_level_biome.BiomeSource, arg1: JavaFunction<j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>, j_net_minecraft_world_level_biome.BiomeGenerationSettings>): InternalChunkGenerator;
 }
 
 /** JVM class org.bukkit.craftbukkit.generator.OldCraftChunkData. */

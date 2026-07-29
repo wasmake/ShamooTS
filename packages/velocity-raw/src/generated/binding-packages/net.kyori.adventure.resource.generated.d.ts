@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_audience from './net.kyori.adventure.audience.generated.js';
 import type * as j_net_kyori_adventure_builder from './net.kyori.adventure.builder.generated.js';
@@ -32,7 +32,6 @@ export interface ResourcePackInfo_2Statics {
 export interface ResourcePackInfo_Builder_2Members {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_builder.AbstractBuilder<ResourcePackInfo_2>, ResourcePackInfoLike];
   asResourcePackInfo(): ResourcePackInfo_2;
-  build(): object;
   build(): ResourcePackInfo_2;
   computeHashAndBuild(): PromiseLike<ResourcePackInfo_2>;
   computeHashAndBuild(arg0: JavaOpaque<"java.util.concurrent.Executor">): PromiseLike<ResourcePackInfo_2>;
@@ -79,7 +78,7 @@ export interface ResourcePackRequest_BuilderMembers {
   callback(arg0: ResourcePackCallback): ResourcePackRequest_Builder;
   packs(arg0: Iterable<ResourcePackInfoLike>): ResourcePackRequest_Builder;
   packs(arg0: ResourcePackInfoLike, ...arg1: Array<ResourcePackInfoLike>): ResourcePackRequest_Builder;
-  prompt(arg0: j_net_kyori_adventure_text.Component | null): ResourcePackRequest_Builder | null;
+  prompt(arg0: j_net_kyori_adventure_text.Component | null): ResourcePackRequest_Builder;
   replace(arg0: boolean): ResourcePackRequest_Builder;
   required(arg0: boolean): ResourcePackRequest_Builder;
 }

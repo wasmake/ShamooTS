@@ -16,7 +16,6 @@ import type * as j_net_minecraft_world_item from './net.minecraft.world.item.gen
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_dimension_end from './net.minecraft.world.level.dimension.end.generated.js';
 import type * as j_net_minecraft_world_level_pathfinder from './net.minecraft.world.level.pathfinder.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.boss.enderdragon.DragonFlightHistory. */
@@ -49,18 +48,14 @@ export interface DragonFlightHistory_SampleStatics {
 /** JVM class net.minecraft.world.entity.boss.enderdragon.EndCrystal. */
 export interface EndCrystalMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   generatedByDragonFight: boolean;
   getBeamTarget(): j_net_minecraft_core.BlockPos | null;
-  getMovementEmission(): j_net_minecraft_world_entity.Entity_MovementEmission;
   getPickResult(): j_net_minecraft_world_item.ItemStack;
   hurtClient(arg0: j_net_minecraft_world_damagesource.DamageSource): boolean;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isPickable(): boolean;
   kill(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  setBeamTarget(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  setBeamTarget(arg0: j_net_minecraft_core.BlockPos | null): void;
   setShowBottom(arg0: boolean): void;
   shouldRenderAtSqrDistance(arg0: number): boolean;
   showsBottom(): boolean;
@@ -76,14 +71,11 @@ export interface EndCrystalStatics {
 /** JVM class net.minecraft.world.entity.boss.enderdragon.EnderDragon. */
 export interface EnderDragonMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.Mob, j_net_minecraft_world_entity_monster.Enemy];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: j_net_minecraft_world_entity.Entity | null): boolean | null;
+  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: j_net_minecraft_world_entity.Entity | null): boolean;
   aiStep(): void;
   canAttack(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
-  canRide(arg0: j_net_minecraft_world_entity.Entity): boolean;
   canUsePortal(arg0: boolean): boolean;
   checkDespawn(): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   dragonDeathTime: number;
   findClosestNode(): number;
   findClosestNode(arg0: number, arg1: number, arg2: number): number;
@@ -113,15 +105,11 @@ export interface EnderDragonMembers {
   onCrystalDestroyed(arg0: j_net_minecraft_server_level.ServerLevel, arg1: EndCrystal, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_damagesource.DamageSource): void;
   onFlap(): void;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  reallyHurt(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
-  sanitizeScale(arg0: number): number;
   setDragonFight(arg0: j_net_minecraft_world_level_dimension_end.EndDragonFight): void;
   setFightOrigin(arg0: j_net_minecraft_core.BlockPos): void;
-  setPodium(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  setPodium(arg0: j_net_minecraft_core.BlockPos | null): void;
   readonly subEntities: Array<j_net_minecraft_world_entity_boss.EnderDragonPart>;
-  tickDeath(): void;
   yRotA: number;
 }
 export type EnderDragon = EnderDragonMembers & j_net_minecraft_world_entity.Mob & j_net_minecraft_world_entity_monster.Enemy;

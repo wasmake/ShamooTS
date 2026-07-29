@@ -5,7 +5,6 @@ import type * as j_net_minecraft_world_entity_ai_goal from './net.minecraft.worl
 import type * as j_net_minecraft_world_entity_ai_targeting from './net.minecraft.world.entity.ai.targeting.generated.js';
 import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world.entity.animal.generated.js';
 import type * as j_net_minecraft_world_entity_raid from './net.minecraft.world.entity.raid.generated.js';
-import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.ai.goal.target.DefendVillageTargetGoal. */
 export interface DefendVillageTargetGoalMembers {
@@ -21,8 +20,6 @@ export interface DefendVillageTargetGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal. */
 export interface HurtByTargetGoalMembers {
   readonly __javaSupertypes?: readonly [TargetGoal];
-  alertOther(arg0: j_net_minecraft_world_entity.Mob, arg1: j_net_minecraft_world_entity.LivingEntity): void;
-  alertOthers(): void;
   canUse(): boolean;
   setAlertOthers(...arg0: Array<JavaClass<object>>): HurtByTargetGoal;
   start(): void;
@@ -36,14 +33,8 @@ export interface HurtByTargetGoalStatics {
 export interface NearestAttackableTargetGoalMembers<T /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [TargetGoal];
   canUse(): boolean;
-  findTarget(): void;
-  getTargetSearchArea(arg0: number): j_net_minecraft_world_phys.AABB;
-  readonly randomInterval: number;
-  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null): void | null;
+  setTarget(arg0: j_net_minecraft_world_entity.LivingEntity | null): void;
   start(): void;
-  target: j_net_minecraft_world_entity.LivingEntity | null;
-  targetConditions: j_net_minecraft_world_entity_ai_targeting.TargetingConditions;
-  readonly targetType: JavaClass<T>;
 }
 export type NearestAttackableTargetGoal<T /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> = NearestAttackableTargetGoalMembers<T> & TargetGoal;
 export interface NearestAttackableTargetGoalStatics {
@@ -124,19 +115,11 @@ export interface ResetUniversalAngerTargetGoalStatics {
 /** JVM abstract net.minecraft.world.entity.ai.goal.target.TargetGoal. */
 export interface TargetGoalMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_ai_goal.Goal];
-  canAttack(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_entity_ai_targeting.TargetingConditions): boolean | null;
   canContinueToUse(): boolean;
-  getFollowDistance(): number;
-  readonly mob: j_net_minecraft_world_entity.Mob;
-  readonly mustSee: boolean;
   setUnseenMemoryTicks(arg0: number): TargetGoal;
   start(): void;
   stop(): void;
-  targetMob: j_net_minecraft_world_entity.LivingEntity | null;
-  unseenMemoryTicks: number;
 }
 export type TargetGoal = TargetGoalMembers & j_net_minecraft_world_entity_ai_goal.Goal;
 export interface TargetGoalStatics {
-  new(arg0: j_net_minecraft_world_entity.Mob, arg1: boolean): TargetGoal;
-  new(arg0: j_net_minecraft_world_entity.Mob, arg1: boolean, arg2: boolean): TargetGoal;
 }

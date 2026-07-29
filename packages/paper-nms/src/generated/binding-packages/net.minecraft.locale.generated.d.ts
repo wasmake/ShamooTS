@@ -34,7 +34,6 @@ export interface LanguageMembers {
 }
 export type Language = LanguageMembers;
 export interface LanguageStatics {
-  new(): Language;
   readonly DEFAULT: "en_us";
   getInstance(): Language;
   inject(arg0: Language): void;

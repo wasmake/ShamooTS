@@ -57,7 +57,6 @@ export interface PersistentDataContainerStatics {
 /** JVM interface org.bukkit.persistence.PersistentDataHolder. */
 export interface PersistentDataHolderMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_persistence.PersistentDataViewHolder];
-  getPersistentDataContainer(): j_io_papermc_paper_persistence.PersistentDataContainerView;
   getPersistentDataContainer(): PersistentDataContainer;
 }
 export type PersistentDataHolder = PersistentDataHolderMembers & j_io_papermc_paper_persistence.PersistentDataViewHolder;
@@ -93,11 +92,9 @@ export interface PersistentDataTypeStatics {
 export interface PersistentDataType_BooleanPersistentDataTypeMembers {
   readonly __javaSupertypes?: readonly [PersistentDataType<number, boolean>];
   fromPrimitive(arg0: number, arg1: PersistentDataAdapterContext): boolean;
-  fromPrimitive(arg0: object, arg1: PersistentDataAdapterContext): object;
   getComplexType(): JavaClass<boolean>;
   getPrimitiveType(): JavaClass<number>;
   toPrimitive(arg0: boolean, arg1: PersistentDataAdapterContext): number;
-  toPrimitive(arg0: object, arg1: PersistentDataAdapterContext): object;
 }
 export type PersistentDataType_BooleanPersistentDataType = PersistentDataType_BooleanPersistentDataTypeMembers & PersistentDataType<number, boolean>;
 export interface PersistentDataType_BooleanPersistentDataTypeStatics {

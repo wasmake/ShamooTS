@@ -18,7 +18,6 @@ export interface AttributableStatics {
 /** JVM interface org.bukkit.attribute.Attribute. */
 export interface AttributeMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<Attribute>, j_org_bukkit.Keyed, j_org_bukkit.Translatable_2, j_net_kyori_adventure_translation.Translatable];
-  compareTo(arg0: object): number;
   compareTo(arg0: Attribute): number;
   getKey(): j_org_bukkit.NamespacedKey;
   getSentiment(): Attribute_Sentiment;

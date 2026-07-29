@@ -101,9 +101,7 @@ export interface WeatherChangeEvent_CauseStatics {
 export interface WeatherEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event.Event];
   getWorld(): j_org_bukkit.World;
-  world: j_org_bukkit.World;
 }
 export type WeatherEvent = WeatherEventMembers & j_org_bukkit_event.Event;
 export interface WeatherEventStatics {
-  new(arg0: j_org_bukkit.World): WeatherEvent;
 }

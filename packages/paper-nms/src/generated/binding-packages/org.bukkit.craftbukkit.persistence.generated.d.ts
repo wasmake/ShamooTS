@@ -6,7 +6,6 @@ import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
 export interface CraftPersistentDataAdapterContextMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.persistence.PersistentDataAdapterContext">];
   newPersistentDataContainer(): CraftPersistentDataContainer;
-  newPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
 }
 export type CraftPersistentDataAdapterContext = CraftPersistentDataAdapterContextMembers & JavaOpaque<"org.bukkit.persistence.PersistentDataAdapterContext">;
 export interface CraftPersistentDataAdapterContextStatics {

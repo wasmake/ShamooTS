@@ -24,7 +24,6 @@ export interface Structure_2Members {
 }
 export type Structure_2 = Structure_2Members & j_org_bukkit.Keyed;
 export interface Structure_2Statics {
-  new(): Structure_2;
   readonly ANCIENT_CITY: Structure_2;
   readonly BASTION_REMNANT: Structure_2;
   readonly BURIED_TREASURE: Structure_2;
@@ -75,7 +74,6 @@ export interface StructureType_2Members {
 }
 export type StructureType_2 = StructureType_2Members & j_org_bukkit.Keyed;
 export interface StructureType_2Statics {
-  new(): StructureType_2;
   readonly BURIED_TREASURE: StructureType_2;
   readonly DESERT_PYRAMID: StructureType_2;
   readonly END_CITY: StructureType_2;

@@ -13,7 +13,6 @@ export interface ConcentricRingsStructurePlacementMembers {
   readonly __javaSupertypes?: readonly [StructurePlacement];
   count(): number;
   distance(): number;
-  isPlacementChunk(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number): boolean;
   preferredBiomes(): j_net_minecraft_core.HolderSet<j_net_minecraft_world_level_biome.Biome>;
   spread(): number;
   type(): StructurePlacementType<object>;
@@ -29,7 +28,6 @@ export interface ConcentricRingsStructurePlacementStatics {
 export interface RandomSpreadStructurePlacementMembers {
   readonly __javaSupertypes?: readonly [StructurePlacement];
   getPotentialStructureChunk(arg0: bigint, arg1: number, arg2: number): j_net_minecraft_world_level.ChunkPos;
-  isPlacementChunk(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number): boolean;
   separation(): number;
   spacing(): number;
   spreadType(): RandomSpreadType;
@@ -58,24 +56,21 @@ export interface RandomSpreadTypeStatics {
 
 /** JVM abstract net.minecraft.world.level.levelgen.structure.placement.StructurePlacement. */
 export interface StructurePlacementMembers {
-  applyAdditionalChunkRestrictions(arg0: number, arg1: number, arg2: bigint, arg3: number | null): boolean | null;
+  applyAdditionalChunkRestrictions(arg0: number, arg1: number, arg2: bigint, arg3: number | null): boolean;
   applyInteractionsWithOtherStructures(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number): boolean;
-  readonly exclusionZone: (JavaOptional<StructurePlacement_ExclusionZone>) & { (): JavaOptional<StructurePlacement_ExclusionZone> };
-  readonly frequency: (number) & { (): number };
-  readonly frequencyReductionMethod: (StructurePlacement_FrequencyReductionMethod) & { (): StructurePlacement_FrequencyReductionMethod };
+  readonly exclusionZone: JavaOptional<StructurePlacement_ExclusionZone>;
+  readonly frequency: number;
+  readonly frequencyReductionMethod: StructurePlacement_FrequencyReductionMethod;
   getLocatePos(arg0: j_net_minecraft_world_level.ChunkPos): j_net_minecraft_core.BlockPos;
-  isPlacementChunk(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number): boolean;
   isStructureChunk(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number): boolean;
-  isStructureChunk(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number, arg3: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_structure.StructureSet> | null): boolean | null;
-  readonly locateOffset: (j_net_minecraft_core.Vec3i) & { (): j_net_minecraft_core.Vec3i };
-  readonly salt: (number) & { (): number };
+  isStructureChunk(arg0: j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState, arg1: number, arg2: number, arg3: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_structure.StructureSet> | null): boolean;
+  readonly locateOffset: j_net_minecraft_core.Vec3i;
+  readonly salt: number;
   type(): StructurePlacementType<object>;
 }
 export type StructurePlacement = StructurePlacementMembers;
 export interface StructurePlacementStatics {
-  new(arg0: j_net_minecraft_core.Vec3i, arg1: StructurePlacement_FrequencyReductionMethod, arg2: number, arg3: number, arg4: JavaOptional<StructurePlacement_ExclusionZone>): StructurePlacement;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [StructurePlacement]>;
-  placementCodec<S /* extends StructurePlacement */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [S]>): JavaOpaque<"com.mojang.datafixers.Products$P5", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [S]>, j_net_minecraft_core.Vec3i, StructurePlacement_FrequencyReductionMethod, number, number, JavaOptional<StructurePlacement_ExclusionZone>]>;
 }
 
 /** JVM record net.minecraft.world.level.levelgen.structure.placement.StructurePlacement$ExclusionZone. */
@@ -95,7 +90,7 @@ export interface StructurePlacement_ExclusionZoneStatics {
 
 /** JVM interface net.minecraft.world.level.levelgen.structure.placement.StructurePlacement$FrequencyReducer. */
 export interface StructurePlacement_FrequencyReducerMembers {
-  shouldGenerate(arg0: bigint, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number | null): boolean | null;
+  shouldGenerate(arg0: bigint, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number | null): boolean;
 }
 export type StructurePlacement_FrequencyReducer = StructurePlacement_FrequencyReducerMembers;
 export interface StructurePlacement_FrequencyReducerStatics {
@@ -105,7 +100,7 @@ export interface StructurePlacement_FrequencyReducerStatics {
 export type StructurePlacement_FrequencyReductionMethod = JavaEnum<"net.minecraft.world.level.levelgen.structure.placement.StructurePlacement$FrequencyReductionMethod", "DEFAULT" | "LEGACY_TYPE_1" | "LEGACY_TYPE_2" | "LEGACY_TYPE_3"> & StructurePlacement_FrequencyReductionMethodMembers;
 export interface StructurePlacement_FrequencyReductionMethodMembers {
   getSerializedName(): string;
-  shouldGenerate(arg0: bigint, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number | null): boolean | null;
+  shouldGenerate(arg0: bigint, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number | null): boolean;
 }
 export interface StructurePlacement_FrequencyReductionMethodStatics {
   readonly DEFAULT: StructurePlacement_FrequencyReductionMethod;

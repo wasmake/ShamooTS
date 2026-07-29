@@ -5,7 +5,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 export interface ClientboundCustomQueryPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">): void;
   hashCode(): number;
   payload(): JavaOpaque<"net.minecraft.network.protocol.login.custom.CustomQueryPayload">;
@@ -26,7 +25,6 @@ export interface ClientboundHelloPacketMembers {
   /** @throws net.minecraft.util.CryptException */
   getPublicKey(): JavaOpaque<"java.security.PublicKey">;
   getServerId(): string;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">): void;
   shouldAuthenticate(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundHelloPacket]>;
@@ -41,7 +39,6 @@ export interface ClientboundHelloPacketStatics {
 export interface ClientboundLoginCompressionPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">]>];
   getCompressionThreshold(): number;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundLoginCompressionPacket]>;
 }
@@ -55,7 +52,6 @@ export interface ClientboundLoginCompressionPacketStatics {
 export interface ClientboundLoginDisconnectPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">): void;
   hashCode(): number;
   reason(): JavaOpaque<"net.minecraft.network.chat.Component">;
@@ -73,7 +69,6 @@ export interface ClientboundLoginFinishedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">]>];
   equals(arg0: object): boolean;
   gameProfile(): JavaOpaque<"com.mojang.authlib.GameProfile">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ClientLoginPacketListener">): void;
   hashCode(): number;
   isTerminal(): boolean;
@@ -90,7 +85,6 @@ export interface ClientboundLoginFinishedPacketStatics {
 export interface ServerboundCustomQueryAnswerPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">): void;
   hashCode(): number;
   payload(): JavaOpaque<"net.minecraft.network.protocol.login.custom.CustomQueryAnswerPayload"> | null;
@@ -108,7 +102,6 @@ export interface ServerboundCustomQueryAnswerPacketStatics {
 export interface ServerboundHelloPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">): void;
   hashCode(): number;
   name(): string;
@@ -127,7 +120,6 @@ export interface ServerboundKeyPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">]>];
   /** @throws net.minecraft.util.CryptException */
   getSecretKey(arg0: JavaOpaque<"java.security.PrivateKey">): JavaOpaque<"javax.crypto.SecretKey">;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">): void;
   isChallengeValid(arg0: Array<number>, arg1: JavaOpaque<"java.security.PrivateKey">): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundKeyPacket]>;
@@ -142,7 +134,6 @@ export interface ServerboundKeyPacketStatics {
 /** JVM class net.minecraft.network.protocol.login.ServerboundLoginAcknowledgedPacket. */
 export interface ServerboundLoginAcknowledgedPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.login.ServerLoginPacketListener">): void;
   isTerminal(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundLoginAcknowledgedPacket]>;

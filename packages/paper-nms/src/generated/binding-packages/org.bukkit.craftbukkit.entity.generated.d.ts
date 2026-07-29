@@ -51,7 +51,6 @@ export interface AbstractProjectileMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.Projectile">];
   canHitEntity(arg0: JavaOpaque<"org.bukkit.entity.Entity">): boolean;
   doesBounce(): boolean;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getOwnerUniqueId(): JavaOpaque<"java.util.UUID">;
   getShooter(): JavaOpaque<"org.bukkit.projectiles.ProjectileSource">;
@@ -66,7 +65,6 @@ export interface AbstractProjectileMembers {
 }
 export type AbstractProjectile = AbstractProjectileMembers & CraftEntity & JavaOpaque<"org.bukkit.entity.Projectile">;
 export interface AbstractProjectileStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity.Entity): AbstractProjectile;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftAbstractArrow. */
@@ -75,13 +73,10 @@ export interface CraftAbstractArrowMembers {
   getAttachedBlock(): JavaOpaque<"org.bukkit.block.Block">;
   getAttachedBlocks(): JavaList<JavaOpaque<"org.bukkit.block.Block">>;
   getDamage(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.AbstractArrow;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHitSound(): JavaOpaque<"org.bukkit.Sound">;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getItemStack(): j_org_bukkit_craftbukkit_inventory.CraftItemStack;
-  getItemStack(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getKnockbackStrength(): number;
   getLifetimeTicks(): number;
   getPickupStatus(): JavaOpaque<"org.bukkit.entity.AbstractArrow$PickupStatus">;
@@ -107,40 +102,23 @@ export interface CraftAbstractArrowMembers {
 }
 export type CraftAbstractArrow = CraftAbstractArrowMembers & AbstractProjectile & JavaOpaque<"org.bukkit.entity.AbstractArrow">;
 export interface CraftAbstractArrowStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_projectile.AbstractArrow): CraftAbstractArrow;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftAbstractCow. */
 export interface CraftAbstractCowMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.AbstractCow">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.AbstractCow;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
 }
 export type CraftAbstractCow = CraftAbstractCowMembers & CraftAnimals & JavaOpaque<"org.bukkit.entity.AbstractCow">;
 export interface CraftAbstractCowStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_animal.AbstractCow): CraftAbstractCow;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftAbstractHorse. */
 export interface CraftAbstractHorseMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.AbstractHorse">];
   getDomestication(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
   getInventory(): JavaOpaque<"org.bukkit.inventory.AbstractHorseInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getJumpStrength(): number;
   getMaxDomestication(): number;
   getOwner(): JavaOpaque<"org.bukkit.entity.AnimalTamer">;
@@ -165,38 +143,23 @@ export interface CraftAbstractHorseMembers {
 }
 export type CraftAbstractHorse = CraftAbstractHorseMembers & CraftAnimals & JavaOpaque<"org.bukkit.entity.AbstractHorse">;
 export interface CraftAbstractHorseStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_animal_horse.AbstractHorse): CraftAbstractHorse;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftAbstractSkeleton. */
 export interface CraftAbstractSkeletonMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.AbstractSkeleton">, JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.AbstractSkeleton]>];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.AbstractSkeleton;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   setShouldBurnInDay(arg0: boolean): void;
   setSkeletonType(arg0: JavaOpaque<"org.bukkit.entity.Skeleton$SkeletonType">): void;
   shouldBurnInDay(): boolean;
 }
 export type CraftAbstractSkeleton = CraftAbstractSkeletonMembers & CraftMonster & JavaOpaque<"org.bukkit.entity.AbstractSkeleton"> & JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.AbstractSkeleton]>;
 export interface CraftAbstractSkeletonStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_monster.AbstractSkeleton): CraftAbstractSkeleton;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftAbstractVillager. */
 export interface CraftAbstractVillagerMembers {
   readonly __javaSupertypes?: readonly [CraftAgeable, j_org_bukkit_craftbukkit_inventory.CraftMerchant, JavaOpaque<"org.bukkit.entity.AbstractVillager">, JavaOpaque<"org.bukkit.inventory.InventoryHolder">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_npc.AbstractVillager;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getMerchant(): j_net_minecraft_world_item_trading.Merchant;
@@ -204,21 +167,16 @@ export interface CraftAbstractVillagerMembers {
 }
 export type CraftAbstractVillager = CraftAbstractVillagerMembers & CraftAgeable & j_org_bukkit_craftbukkit_inventory.CraftMerchant & JavaOpaque<"org.bukkit.entity.AbstractVillager"> & JavaOpaque<"org.bukkit.inventory.InventoryHolder">;
 export interface CraftAbstractVillagerStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_npc.AbstractVillager): CraftAbstractVillager;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftAbstractWindCharge. */
 export interface CraftAbstractWindChargeMembers {
   readonly __javaSupertypes?: readonly [CraftFireball, JavaOpaque<"org.bukkit.entity.AbstractWindCharge">];
   explode(): void;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile_windcharge.AbstractWindCharge;
 }
 export type CraftAbstractWindCharge = CraftAbstractWindChargeMembers & CraftFireball & JavaOpaque<"org.bukkit.entity.AbstractWindCharge">;
 export interface CraftAbstractWindChargeStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_projectile_windcharge.AbstractWindCharge): CraftAbstractWindCharge;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftAgeable. */
@@ -228,11 +186,6 @@ export interface CraftAgeableMembers {
   getAge(): number;
   getAgeLock(): boolean;
   getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   isAdult(): boolean;
   setAdult(): void;
   setAge(arg0: number): void;
@@ -251,11 +204,6 @@ export interface CraftAllayMembers {
   canDuplicate(): boolean;
   duplicateAllay(): JavaOpaque<"org.bukkit.entity.Allay">;
   getDuplicationCooldown(): bigint;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal_allay.Allay;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getJukebox(): JavaOpaque<"org.bukkit.Location">;
@@ -275,10 +223,6 @@ export interface CraftAllayStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftAmbient. */
 export interface CraftAmbientMembers {
   readonly __javaSupertypes?: readonly [CraftMob, JavaOpaque<"org.bukkit.entity.Ambient">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
   getHandle(): j_net_minecraft_world_entity_ambient.AmbientCreature;
 }
 export type CraftAmbient = CraftAmbientMembers & CraftMob & JavaOpaque<"org.bukkit.entity.Ambient">;
@@ -290,12 +234,6 @@ export interface CraftAmbientStatics {
 export interface CraftAnimalsMembers {
   readonly __javaSupertypes?: readonly [CraftAgeable, JavaOpaque<"org.bukkit.entity.Animals">];
   getBreedCause(): JavaOpaque<"java.util.UUID">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getLoveModeTicks(): number;
   isBreedItem(arg0: JavaOpaque<"org.bukkit.Material">): boolean;
@@ -321,7 +259,6 @@ export interface CraftAreaEffectCloudMembers {
   getDuration(): number;
   getDurationOnUse(): number;
   getHandle(): j_net_minecraft_world_entity.AreaEffectCloud;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getOwnerUniqueId(): JavaOpaque<"java.util.UUID">;
   getParticle(): JavaOpaque<"org.bukkit.Particle">;
   getRadius(): number;
@@ -356,13 +293,6 @@ export interface CraftAreaEffectCloudStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftArmadillo. */
 export interface CraftArmadilloMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Armadillo">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_armadillo.Armadillo;
   getState(): JavaOpaque<"org.bukkit.entity.Armadillo$State">;
   rollOut(): void;
@@ -385,8 +315,6 @@ export interface CraftArmorStandMembers {
   getBoots(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getChestplate(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getDisabledSlots(): JavaSet<JavaOpaque<"org.bukkit.inventory.EquipmentSlot">>;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
   getHandle(): j_net_minecraft_world_entity_decoration.ArmorStand;
   getHeadPose(): JavaOpaque<"org.bukkit.util.EulerAngle">;
   getHeadRotations(): JavaOpaque<"io.papermc.paper.math.Rotations">;
@@ -454,10 +382,7 @@ export interface CraftArrowMembers {
   getBasePotionType(): JavaOpaque<"org.bukkit.potion.PotionType">;
   getColor(): JavaOpaque<"org.bukkit.Color">;
   getCustomEffects(): JavaList<JavaOpaque<"org.bukkit.potion.PotionEffect">>;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractArrow;
   getHandle(): j_net_minecraft_world_entity_projectile.Arrow;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   hasCustomEffect(arg0: JavaOpaque<"org.bukkit.potion.PotionEffectType">): boolean;
   hasCustomEffects(): boolean;
   removeCustomEffect(arg0: JavaOpaque<"org.bukkit.potion.PotionEffectType">): boolean;
@@ -473,14 +398,6 @@ export interface CraftArrowStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftAxolotl. */
 export interface CraftAxolotlMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"io.papermc.paper.entity.PaperBucketable">, JavaOpaque<"org.bukkit.entity.Axolotl">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
   getHandle(): j_net_minecraft_world_entity_animal_axolotl.Axolotl;
   getVariant(): JavaOpaque<"org.bukkit.entity.Axolotl$Variant">;
   isPlayingDead(): boolean;
@@ -495,11 +412,6 @@ export interface CraftAxolotlStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftBat. */
 export interface CraftBatMembers {
   readonly __javaSupertypes?: readonly [CraftAmbient, JavaOpaque<"org.bukkit.entity.Bat">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity_ambient.AmbientCreature;
   getHandle(): j_net_minecraft_world_entity_ambient.Bat;
   getTargetLocation(): JavaOpaque<"org.bukkit.Location">;
   isAwake(): boolean;
@@ -518,13 +430,6 @@ export interface CraftBeeMembers {
   getCannotEnterHiveTicks(): number;
   getCropsGrownSincePollination(): number;
   getFlower(): JavaOpaque<"org.bukkit.Location">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Bee;
   getHive(): JavaOpaque<"org.bukkit.Location">;
   getRollingOverride(): JavaOpaque<"net.kyori.adventure.util.TriState">;
@@ -552,14 +457,7 @@ export interface CraftBeeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftBlaze. */
 export interface CraftBlazeMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Blaze">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.Blaze;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
 }
 export type CraftBlaze = CraftBlazeMembers & CraftMonster & JavaOpaque<"org.bukkit.entity.Blaze">;
 export interface CraftBlazeStatics {
@@ -569,7 +467,6 @@ export interface CraftBlazeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftBlockAttachedEntity. */
 export interface CraftBlockAttachedEntityMembers {
   readonly __javaSupertypes?: readonly [CraftEntity];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_decoration.BlockAttachedEntity;
 }
 export type CraftBlockAttachedEntity = CraftBlockAttachedEntityMembers & CraftEntity;
@@ -582,8 +479,6 @@ export interface CraftBlockDisplayMembers {
   readonly __javaSupertypes?: readonly [CraftDisplay, JavaOpaque<"org.bukkit.entity.BlockDisplay">];
   getBlock(): JavaOpaque<"org.bukkit.block.data.BlockData">;
   getHandle(): j_net_minecraft_world_entity.Display_BlockDisplay;
-  getHandle(): j_net_minecraft_world_entity.Display;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   setBlock(arg0: JavaOpaque<"org.bukkit.block.data.BlockData">): void;
 }
 export type CraftBlockDisplay = CraftBlockDisplayMembers & CraftDisplay & JavaOpaque<"org.bukkit.entity.BlockDisplay">;
@@ -596,8 +491,6 @@ export interface CraftBoatMembers {
   readonly __javaSupertypes?: readonly [CraftVehicle, JavaOpaque<"io.papermc.paper.entity.PaperLeashable">, JavaOpaque<"org.bukkit.entity.Boat">];
   getBoatMaterial(): JavaOpaque<"org.bukkit.Material">;
   getBoatType(): JavaOpaque<"org.bukkit.entity.Boat$Type">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
   getHandle(): j_net_minecraft_world_entity_vehicle.AbstractBoat;
   getMaxSpeed(): number;
   getOccupiedDeceleration(): number;
@@ -614,7 +507,6 @@ export interface CraftBoatMembers {
 }
 export type CraftBoat = CraftBoatMembers & CraftVehicle & JavaOpaque<"io.papermc.paper.entity.PaperLeashable"> & JavaOpaque<"org.bukkit.entity.Boat">;
 export interface CraftBoatStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_vehicle.AbstractBoat): CraftBoat;
   boatStatusFromNms(arg0: j_net_minecraft_world_entity_vehicle.AbstractBoat_Status): JavaOpaque<"org.bukkit.entity.Boat$Status">;
   boatTypeFromNms(arg0: j_net_minecraft_world_entity.EntityType<object>): JavaOpaque<"org.bukkit.entity.Boat$Type">;
   getTreeSpecies(arg0: j_net_minecraft_world_entity.EntityType<object>): JavaOpaque<"org.bukkit.TreeSpecies">;
@@ -623,16 +515,7 @@ export interface CraftBoatStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftBogged. */
 export interface CraftBoggedMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractSkeleton, JavaOpaque<"io.papermc.paper.entity.PaperShearable">, JavaOpaque<"org.bukkit.entity.Bogged">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.Shearable;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractSkeleton;
   getHandle(): j_net_minecraft_world_entity_monster.Bogged;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getSkeletonType(): JavaOpaque<"org.bukkit.entity.Skeleton$SkeletonType">;
   isSheared(): boolean;
   setSheared(arg0: boolean): void;
@@ -645,13 +528,6 @@ export interface CraftBoggedStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftBreeze. */
 export interface CraftBreezeMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Breeze">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster_breeze.Breeze;
   setTarget(arg0: JavaOpaque<"org.bukkit.entity.LivingEntity">): void;
 }
@@ -663,10 +539,6 @@ export interface CraftBreezeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftBreezeWindCharge. */
 export interface CraftBreezeWindChargeMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractWindCharge, JavaOpaque<"org.bukkit.entity.BreezeWindCharge">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile_windcharge.AbstractWindCharge;
   getHandle(): j_net_minecraft_world_entity_projectile_windcharge.BreezeWindCharge;
 }
 export type CraftBreezeWindCharge = CraftBreezeWindChargeMembers & CraftAbstractWindCharge & JavaOpaque<"org.bukkit.entity.BreezeWindCharge">;
@@ -677,15 +549,7 @@ export interface CraftBreezeWindChargeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftCamel. */
 export interface CraftCamelMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractHorse, JavaOpaque<"org.bukkit.entity.Camel">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_camel.Camel;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
   getVariant(): JavaOpaque<"org.bukkit.entity.Horse$Variant">;
   isDashing(): boolean;
   isSitting(): boolean;
@@ -702,14 +566,6 @@ export interface CraftCatMembers {
   readonly __javaSupertypes?: readonly [CraftTameableAnimal, JavaOpaque<"org.bukkit.entity.Cat">];
   getCatType(): JavaOpaque<"org.bukkit.entity.Cat$Type">;
   getCollarColor(): JavaOpaque<"org.bukkit.DyeColor">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.TamableAnimal;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Cat;
   isHeadUp(): boolean;
   isLyingDown(): boolean;
@@ -739,15 +595,7 @@ export interface CraftCat_CraftTypeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftCaveSpider. */
 export interface CraftCaveSpiderMembers {
   readonly __javaSupertypes?: readonly [CraftSpider, JavaOpaque<"org.bukkit.entity.CaveSpider">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.CaveSpider;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster.Spider;
 }
 export type CraftCaveSpider = CraftCaveSpiderMembers & CraftSpider & JavaOpaque<"org.bukkit.entity.CaveSpider">;
 export interface CraftCaveSpiderStatics {
@@ -757,49 +605,28 @@ export interface CraftCaveSpiderStatics {
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftChestBoat. */
 export interface CraftChestBoatMembers {
   readonly __javaSupertypes?: readonly [CraftBoat, JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableEntityInventory">, JavaOpaque<"org.bukkit.entity.ChestBoat">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractBoat;
   getHandle(): j_net_minecraft_world_entity_vehicle.AbstractChestBoat;
-  getHandle(): j_net_minecraft_world_entity_vehicle.ContainerEntity;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
 }
 export type CraftChestBoat = CraftChestBoatMembers & CraftBoat & JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableEntityInventory"> & JavaOpaque<"org.bukkit.entity.ChestBoat">;
 export interface CraftChestBoatStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_vehicle.AbstractChestBoat): CraftChestBoat;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftChestedHorse. */
 export interface CraftChestedHorseMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractHorse, JavaOpaque<"org.bukkit.entity.ChestedHorse">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractChestedHorse;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
   isCarryingChest(): boolean;
   setCarryingChest(arg0: boolean): void;
 }
 export type CraftChestedHorse = CraftChestedHorseMembers & CraftAbstractHorse & JavaOpaque<"org.bukkit.entity.ChestedHorse">;
 export interface CraftChestedHorseStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_animal_horse.AbstractChestedHorse): CraftChestedHorse;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftChicken. */
 export interface CraftChickenMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Chicken">];
   getEggLayTime(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Chicken;
   getVariant(): JavaOpaque<"org.bukkit.entity.Chicken$Variant">;
   isChickenJockey(): boolean;
@@ -828,16 +655,7 @@ export interface CraftChicken_CraftVariantStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftCod. */
 export interface CraftCodMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.papermc.paper.entity.PaperSchoolableFish">, JavaOpaque<"org.bukkit.entity.Cod">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractFish;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractSchoolingFish;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
   getHandle(): j_net_minecraft_world_entity_animal.Cod;
-  getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
 }
 export type CraftCod = CraftCodMembers & JavaOpaque<"io.papermc.paper.entity.PaperSchoolableFish"> & JavaOpaque<"org.bukkit.entity.Cod">;
 export interface CraftCodStatics {
@@ -847,7 +665,6 @@ export interface CraftCodStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftComplexPart. */
 export interface CraftComplexPartMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.ComplexEntityPart">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_boss.EnderDragonPart;
   getLastDamageCause(): JavaOpaque<"org.bukkit.event.entity.EntityDamageEvent">;
   getParent(): JavaOpaque<"org.bukkit.entity.ComplexLivingEntity">;
@@ -862,14 +679,6 @@ export interface CraftComplexPartStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftCow. */
 export interface CraftCowMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractCow, JavaOpaque<"org.bukkit.entity.Cow">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractCow;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Cow;
   getVariant(): JavaOpaque<"org.bukkit.entity.Cow$Variant">;
   setVariant(arg0: JavaOpaque<"org.bukkit.entity.Cow$Variant">): void;
@@ -897,13 +706,6 @@ export interface CraftCreakingMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Creaking">];
   activate(arg0: JavaOpaque<"org.bukkit.entity.Player">): void;
   deactivate(): void;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster_creaking.Creaking;
   getHome(): JavaOpaque<"org.bukkit.Location"> | null;
   isActive(): boolean;
@@ -916,10 +718,6 @@ export interface CraftCreakingStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftCreature. */
 export interface CraftCreatureMembers {
   readonly __javaSupertypes?: readonly [CraftMob, JavaOpaque<"org.bukkit.entity.Creature">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
   getHandle(): j_net_minecraft_world_entity.PathfinderMob;
 }
 export type CraftCreature = CraftCreatureMembers & CraftMob & JavaOpaque<"org.bukkit.entity.Creature">;
@@ -933,14 +731,7 @@ export interface CraftCreeperMembers {
   explode(): void;
   getExplosionRadius(): number;
   getFuseTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.Creeper;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getIgniter(): JavaOpaque<"org.bukkit.entity.Entity">;
   getMaxFuseTicks(): number;
   ignite(): void;
@@ -967,7 +758,6 @@ export interface CraftDisplayMembers {
   getDisplayWidth(): number;
   getGlowColorOverride(): JavaOpaque<"org.bukkit.Color">;
   getHandle(): j_net_minecraft_world_entity.Display;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getInterpolationDelay(): number;
   getInterpolationDuration(): number;
   getShadowRadius(): number;
@@ -997,12 +787,6 @@ export interface CraftDisplayStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftDolphin. */
 export interface CraftDolphinMembers {
   readonly __javaSupertypes?: readonly [CraftAgeable, JavaOpaque<"org.bukkit.entity.Dolphin">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.Dolphin;
   getMoistness(): number;
   getTreasureLocation(): JavaOpaque<"org.bukkit.Location">;
@@ -1038,15 +822,7 @@ export interface CraftDragonFireballStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftDrowned. */
 export interface CraftDrownedMembers {
   readonly __javaSupertypes?: readonly [CraftZombie, JavaOpaque<"org.bukkit.entity.Drowned">, JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Drowned]>];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.Drowned;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster.Zombie;
 }
 export type CraftDrowned = CraftDrownedMembers & CraftZombie & JavaOpaque<"org.bukkit.entity.Drowned"> & JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Drowned]>;
 export interface CraftDrownedStatics {
@@ -1056,9 +832,6 @@ export interface CraftDrownedStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftEgg. */
 export interface CraftEggMembers {
   readonly __javaSupertypes?: readonly [CraftThrowableProjectile, JavaOpaque<"org.bukkit.entity.Egg">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrownEgg;
 }
 export type CraftEgg = CraftEggMembers & CraftThrowableProjectile & JavaOpaque<"org.bukkit.entity.Egg">;
@@ -1080,7 +853,6 @@ export interface CraftElderGuardianStatics {
 export interface CraftEnderCrystalMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.EnderCrystal">];
   getBeamTarget(): JavaOpaque<"org.bukkit.Location">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_boss_enderdragon.EndCrystal;
   isShowingBottom(): boolean;
   setBeamTarget(arg0: JavaOpaque<"org.bukkit.Location">): void;
@@ -1097,12 +869,7 @@ export interface CraftEnderDragonMembers {
   getBossBar(): JavaOpaque<"org.bukkit.boss.BossBar">;
   getDeathAnimationTicks(): number;
   getDragonBattle(): JavaOpaque<"org.bukkit.boss.DragonBattle">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
   getHandle(): j_net_minecraft_world_entity_boss_enderdragon.EnderDragon;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getParts(): JavaSet<JavaOpaque<"org.bukkit.entity.ComplexEntityPart">>;
   getPhase(): JavaOpaque<"org.bukkit.entity.EnderDragon$Phase">;
   getPodium(): JavaOpaque<"org.bukkit.Location">;
@@ -1125,7 +892,6 @@ export interface CraftEnderDragonPartMembers {
   getAbsorptionAmount(): number;
   getHealth(): number;
   getMaxHealth(): number;
-  getParent(): JavaOpaque<"org.bukkit.entity.ComplexLivingEntity">;
   getParent(): JavaOpaque<"org.bukkit.entity.EnderDragon">;
   heal(arg0: number, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRegainHealthEvent$RegainReason">): void;
   resetMaxHealth(): void;
@@ -1143,14 +909,7 @@ export interface CraftEndermanMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Enderman">];
   getCarriedBlock(): JavaOpaque<"org.bukkit.block.data.BlockData">;
   getCarriedMaterial(): JavaOpaque<"org.bukkit.material.MaterialData">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.EnderMan;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   hasBeenStaredAt(): boolean;
   isScreaming(): boolean;
   setCarriedBlock(arg0: JavaOpaque<"org.bukkit.block.data.BlockData">): void;
@@ -1169,14 +928,7 @@ export interface CraftEndermanStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftEndermite. */
 export interface CraftEndermiteMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Endermite">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.Endermite;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getLifetimeTicks(): number;
   isPlayerSpawned(): boolean;
   setLifetimeTicks(arg0: number): void;
@@ -1190,9 +942,6 @@ export interface CraftEndermiteStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftEnderPearl. */
 export interface CraftEnderPearlMembers {
   readonly __javaSupertypes?: readonly [CraftThrowableProjectile, JavaOpaque<"org.bukkit.entity.EnderPearl">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrownEnderpearl;
 }
 export type CraftEnderPearl = CraftEnderPearlMembers & CraftThrowableProjectile & JavaOpaque<"org.bukkit.entity.EnderPearl">;
@@ -1205,7 +954,6 @@ export interface CraftEnderSignalMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.EnderSignal">];
   getDespawnTimer(): number;
   getDropItem(): boolean;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.EyeOfEnder;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getTargetLocation(): JavaOpaque<"org.bukkit.Location">;
@@ -1246,7 +994,6 @@ export interface CraftEntityMembers {
   customName(): JavaOpaque<"net.kyori.adventure.text.Component">;
   customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component">): void;
   eject(): boolean;
-  entity: j_net_minecraft_world_entity.Entity;
   equals(arg0: object): boolean;
   fromMobSpawner(): boolean;
   getAsString(): string;
@@ -1275,9 +1022,7 @@ export interface CraftEntityMembers {
   getOrigin(): JavaOpaque<"org.bukkit.Location">;
   getPassenger(): JavaOpaque<"org.bukkit.entity.Entity">;
   getPassengers(): JavaList<JavaOpaque<"org.bukkit.entity.Entity">>;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): j_org_bukkit_craftbukkit_persistence.CraftPersistentDataContainer;
-  getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getPickItemStack(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getPistonMoveReaction(): JavaOpaque<"org.bukkit.block.PistonMoveReaction">;
   getPitch(): number;
@@ -1353,12 +1098,10 @@ export interface CraftEntityMembers {
   removeMetadata(arg0: string, arg1: JavaOpaque<"org.bukkit.plugin.Plugin">): void;
   removePassenger(arg0: JavaOpaque<"org.bukkit.entity.Entity">): boolean;
   removeScoreboardTag(arg0: string): boolean;
-  save(): j_net_minecraft_nbt.CompoundTag;
   sendMessage(arg0: string): void;
   sendMessage(arg0: JavaOpaque<"java.util.UUID">, arg1: string): void;
   sendMessage(arg0: JavaOpaque<"java.util.UUID">, ...arg1: Array<string>): void;
   sendMessage(...arg0: Array<string>): void;
-  readonly server: j_org_bukkit_craftbukkit.CraftServer;
   setCustomName(arg0: string): void;
   setCustomNameVisible(arg0: boolean): void;
   setFallDistance(arg0: number): void;
@@ -1386,7 +1129,6 @@ export interface CraftEntityMembers {
   setVisualFire(arg0: JavaOpaque<"net.kyori.adventure.util.TriState">): void;
   setVisualFire(arg0: boolean): void;
   spawnAt(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">): boolean;
-  spigot(): JavaOpaque<"org.bukkit.command.CommandSender$Spigot">;
   spigot(): JavaOpaque<"org.bukkit.entity.Entity$Spigot">;
   storeBukkitValues(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   readonly taskScheduler: JavaOpaque<"io.papermc.paper.threadedregions.EntityScheduler">;
@@ -1398,13 +1140,11 @@ export interface CraftEntityMembers {
   teleport(arg0: JavaOpaque<"org.bukkit.entity.Entity">, arg1: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">): boolean;
   teleportAsync(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">, ...arg2: Array<JavaOpaque<"io.papermc.paper.entity.TeleportFlag">>): PromiseLike<boolean>;
   toString(): string;
-  update(): void;
   update(arg0: j_net_minecraft_server_level.ServerPlayer): void;
   wouldCollideUsing(arg0: JavaOpaque<"org.bukkit.util.BoundingBox">): boolean;
 }
 export type CraftEntity = CraftEntityMembers & JavaOpaque<"org.bukkit.entity.Entity">;
 export interface CraftEntityStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity.Entity): CraftEntity;
   getEntity<T /* extends j_net_minecraft_world_entity.Entity */>(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: T): CraftEntity;
   toApiAnchor(arg0: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor): JavaOpaque<"io.papermc.paper.entity.LookAnchor">;
   toNmsAnchor(arg0: JavaOpaque<"io.papermc.paper.entity.LookAnchor">): j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor;
@@ -1494,17 +1234,7 @@ export interface CraftEntityTypes_SpawnDataStatics {
 export interface CraftEvokerMembers {
   readonly __javaSupertypes?: readonly [CraftSpellcaster, JavaOpaque<"org.bukkit.entity.Evoker">];
   getCurrentSpell(): JavaOpaque<"org.bukkit.entity.Evoker$Spell">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractIllager;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Evoker;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster.SpellcasterIllager;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
   getWololoTarget(): JavaOpaque<"org.bukkit.entity.Sheep">;
   setCurrentSpell(arg0: JavaOpaque<"org.bukkit.entity.Evoker$Spell">): void;
   setWololoTarget(arg0: JavaOpaque<"org.bukkit.entity.Sheep">): void;
@@ -1518,7 +1248,6 @@ export interface CraftEvokerStatics {
 export interface CraftEvokerFangsMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.EvokerFangs">];
   getAttackDelay(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.EvokerFangs;
   getOwner(): JavaOpaque<"org.bukkit.entity.LivingEntity">;
   setAttackDelay(arg0: number): void;
@@ -1534,7 +1263,6 @@ export interface CraftExperienceOrbMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.ExperienceOrb">];
   getCount(): number;
   getExperience(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.ExperienceOrb;
   getSourceEntityId(): JavaOpaque<"java.util.UUID">;
   getSpawnReason(): JavaOpaque<"org.bukkit.entity.ExperienceOrb$SpawnReason">;
@@ -1557,7 +1285,6 @@ export interface CraftFallingBlockMembers {
   getCancelDrop(): boolean;
   getDamagePerBlock(): number;
   getDropItem(): boolean;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_item.FallingBlockEntity;
   getMaterial(): JavaOpaque<"org.bukkit.Material">;
   getMaxDamage(): number;
@@ -1581,9 +1308,7 @@ export interface CraftFireballMembers {
   readonly __javaSupertypes?: readonly [AbstractProjectile, JavaOpaque<"org.bukkit.entity.Fireball">];
   getAcceleration(): JavaOpaque<"org.bukkit.util.Vector">;
   getDirection(): JavaOpaque<"org.bukkit.util.Vector">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getPower(): JavaOpaque<"org.bukkit.util.Vector">;
   getYield(): number;
   isIncendiary(): boolean;
@@ -1604,9 +1329,7 @@ export interface CraftFireworkMembers {
   detonate(): void;
   getAttachedTo(): JavaOpaque<"org.bukkit.entity.LivingEntity">;
   getFireworkMeta(): JavaOpaque<"org.bukkit.inventory.meta.FireworkMeta">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.FireworkRocketEntity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getLife(): number;
   getMaxLife(): number;
@@ -1632,14 +1355,7 @@ export interface CraftFireworkStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftFish. */
 export interface CraftFishMembers {
   readonly __javaSupertypes?: readonly [CraftWaterMob, JavaOpaque<"io.papermc.paper.entity.PaperBucketable">, JavaOpaque<"org.bukkit.entity.Fish">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.AbstractFish;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
-  getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
 }
 export type CraftFish = CraftFishMembers & CraftWaterMob & JavaOpaque<"io.papermc.paper.entity.PaperBucketable"> & JavaOpaque<"org.bukkit.entity.Fish">;
 export interface CraftFishStatics {
@@ -1651,9 +1367,7 @@ export interface CraftFishHookMembers {
   readonly __javaSupertypes?: readonly [CraftProjectile, JavaOpaque<"org.bukkit.entity.FishHook">];
   getApplyLure(): boolean;
   getBiteChance(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.FishingHook;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHookedEntity(): JavaOpaque<"org.bukkit.entity.Entity">;
   getMaxLureAngle(): number;
   getMaxLureTime(): number;
@@ -1697,13 +1411,6 @@ export interface CraftFoxMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Fox">];
   getFirstTrustedPlayer(): JavaOpaque<"org.bukkit.entity.AnimalTamer">;
   getFoxType(): JavaOpaque<"org.bukkit.entity.Fox$Type">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Fox;
   getSecondTrustedPlayer(): JavaOpaque<"org.bukkit.entity.AnimalTamer">;
   isCrouching(): boolean;
@@ -1731,13 +1438,6 @@ export interface CraftFoxStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftFrog. */
 export interface CraftFrogMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Frog">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_frog.Frog;
   getTongueTarget(): JavaOpaque<"org.bukkit.entity.Entity">;
   getVariant(): JavaOpaque<"org.bukkit.entity.Frog$Variant">;
@@ -1766,11 +1466,6 @@ export interface CraftFrog_CraftVariantStatics {
 export interface CraftGhastMembers {
   readonly __javaSupertypes?: readonly [CraftMob, CraftEnemy, JavaOpaque<"org.bukkit.entity.Ghast">];
   getExplosionPower(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Ghast;
   isCharging(): boolean;
   setCharging(arg0: boolean): void;
@@ -1784,14 +1479,7 @@ export interface CraftGhastStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftGiant. */
 export interface CraftGiantMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Giant">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Giant;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
 }
 export type CraftGiant = CraftGiantMembers & CraftMonster & JavaOpaque<"org.bukkit.entity.Giant">;
 export interface CraftGiantStatics {
@@ -1801,11 +1489,7 @@ export interface CraftGiantStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftGlowItemFrame. */
 export interface CraftGlowItemFrameMembers {
   readonly __javaSupertypes?: readonly [CraftItemFrame, JavaOpaque<"org.bukkit.entity.GlowItemFrame">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_decoration.BlockAttachedEntity;
   getHandle(): j_net_minecraft_world_entity_decoration.GlowItemFrame;
-  getHandle(): j_net_minecraft_world_entity_decoration.HangingEntity;
-  getHandle(): j_net_minecraft_world_entity_decoration.ItemFrame;
 }
 export type CraftGlowItemFrame = CraftGlowItemFrameMembers & CraftItemFrame & JavaOpaque<"org.bukkit.entity.GlowItemFrame">;
 export interface CraftGlowItemFrameStatics {
@@ -1816,14 +1500,7 @@ export interface CraftGlowItemFrameStatics {
 export interface CraftGlowSquidMembers {
   readonly __javaSupertypes?: readonly [CraftSquid, JavaOpaque<"org.bukkit.entity.GlowSquid">];
   getDarkTicksRemaining(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.GlowSquid;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Squid;
   setDarkTicksRemaining(arg0: number): void;
 }
 export type CraftGlowSquid = CraftGlowSquidMembers & CraftSquid & JavaOpaque<"org.bukkit.entity.GlowSquid">;
@@ -1834,13 +1511,6 @@ export interface CraftGlowSquidStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftGoat. */
 export interface CraftGoatMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Goat">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_goat.Goat;
   hasLeftHorn(): boolean;
   hasRightHorn(): boolean;
@@ -1858,11 +1528,6 @@ export interface CraftGoatStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftGolem. */
 export interface CraftGolemMembers {
   readonly __javaSupertypes?: readonly [CraftCreature, JavaOpaque<"org.bukkit.entity.Golem">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.AbstractGolem;
 }
 export type CraftGolem = CraftGolemMembers & CraftCreature & JavaOpaque<"org.bukkit.entity.Golem">;
@@ -1873,14 +1538,7 @@ export interface CraftGolemStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftGuardian. */
 export interface CraftGuardianMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Guardian">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Guardian;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getLaserDuration(): number;
   getLaserTicks(): number;
   hasLaser(): boolean;
@@ -1901,8 +1559,6 @@ export interface CraftHangingMembers {
   readonly __javaSupertypes?: readonly [CraftBlockAttachedEntity, JavaOpaque<"org.bukkit.entity.Hanging">];
   getAttachedFace(): JavaOpaque<"org.bukkit.block.BlockFace">;
   getFacing(): JavaOpaque<"org.bukkit.block.BlockFace">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_decoration.BlockAttachedEntity;
   getHandle(): j_net_minecraft_world_entity_decoration.HangingEntity;
   setFacingDirection(arg0: JavaOpaque<"org.bukkit.block.BlockFace">): void;
   setFacingDirection(arg0: JavaOpaque<"org.bukkit.block.BlockFace">, arg1: boolean): boolean;
@@ -1925,14 +1581,6 @@ export interface CraftHappyGhastStatics {
 export interface CraftHoglinMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, CraftEnemy, JavaOpaque<"org.bukkit.entity.Hoglin">];
   getConversionTime(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster_hoglin.Hoglin;
   isAbleToBeHunted(): boolean;
   isConverting(): boolean;
@@ -1950,18 +1598,8 @@ export interface CraftHoglinStatics {
 export interface CraftHorseMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractHorse, JavaOpaque<"org.bukkit.entity.Horse">];
   getColor(): JavaOpaque<"org.bukkit.entity.Horse$Color">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
   getHandle(): j_net_minecraft_world_entity_animal_horse.Horse;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.AbstractHorseInventory">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.HorseInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getStyle(): JavaOpaque<"org.bukkit.entity.Horse$Style">;
   getVariant(): JavaOpaque<"org.bukkit.entity.Horse$Variant">;
   isCarryingChest(): boolean;
@@ -2007,10 +1645,7 @@ export interface CraftHumanEntityMembers {
   getFishHook(): JavaOpaque<"org.bukkit.entity.FishHook">;
   getFoodLevel(): number;
   getGameMode(): JavaOpaque<"org.bukkit.GameMode">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
   getHandle(): j_net_minecraft_world_entity_player.Player;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.PlayerInventory">;
   getItemInHand(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getItemOnCursor(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
@@ -2050,7 +1685,6 @@ export interface CraftHumanEntityMembers {
   openSmithingTable(arg0: JavaOpaque<"org.bukkit.Location">, arg1: boolean): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   openStonecutter(arg0: JavaOpaque<"org.bukkit.Location">, arg1: boolean): JavaOpaque<"org.bukkit.inventory.InventoryView">;
   openWorkbench(arg0: JavaOpaque<"org.bukkit.Location">, arg1: boolean): JavaOpaque<"org.bukkit.inventory.InventoryView">;
-  readonly perm: JavaOpaque<"org.bukkit.permissions.PermissibleBase">;
   recalculatePermissions(): void;
   releaseLeftShoulderEntity(): JavaOpaque<"org.bukkit.entity.Entity">;
   releaseRightShoulderEntity(): JavaOpaque<"org.bukkit.entity.Entity">;
@@ -2099,15 +1733,7 @@ export interface CraftHuskStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftIllager. */
 export interface CraftIllagerMembers {
   readonly __javaSupertypes?: readonly [CraftRaider, JavaOpaque<"org.bukkit.entity.Illager">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_monster.AbstractIllager;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
 }
 export type CraftIllager = CraftIllagerMembers & CraftRaider & JavaOpaque<"org.bukkit.entity.Illager">;
 export interface CraftIllagerStatics {
@@ -2117,17 +1743,7 @@ export interface CraftIllagerStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftIllusioner. */
 export interface CraftIllusionerMembers {
   readonly __javaSupertypes?: readonly [CraftSpellcaster, JavaOpaque<"org.bukkit.entity.Illusioner">, JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Illusioner]>];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractIllager;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Illusioner;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster.SpellcasterIllager;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
 }
 export type CraftIllusioner = CraftIllusionerMembers & CraftSpellcaster & JavaOpaque<"org.bukkit.entity.Illusioner"> & JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Illusioner]>;
 export interface CraftIllusionerStatics {
@@ -2137,7 +1753,6 @@ export interface CraftIllusionerStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftInteraction. */
 export interface CraftInteractionMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.Interaction">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.Interaction;
   getInteractionHeight(): number;
   getInteractionWidth(): number;
@@ -2156,12 +1771,6 @@ export interface CraftInteractionStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftIronGolem. */
 export interface CraftIronGolemMembers {
   readonly __javaSupertypes?: readonly [CraftGolem, JavaOpaque<"org.bukkit.entity.IronGolem">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractGolem;
   getHandle(): j_net_minecraft_world_entity_animal.IronGolem;
   isPlayerCreated(): boolean;
   setPlayerCreated(arg0: boolean): void;
@@ -2177,7 +1786,6 @@ export interface CraftItemMembers {
   canMobPickup(): boolean;
   canPlayerPickup(): boolean;
   getFrictionState(): JavaOpaque<"net.kyori.adventure.util.TriState">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_item.ItemEntity;
   getHealth(): number;
   getItemStack(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
@@ -2207,8 +1815,6 @@ export interface CraftItemStatics {
 export interface CraftItemDisplayMembers {
   readonly __javaSupertypes?: readonly [CraftDisplay, JavaOpaque<"org.bukkit.entity.ItemDisplay">];
   getHandle(): j_net_minecraft_world_entity.Display_ItemDisplay;
-  getHandle(): j_net_minecraft_world_entity.Display;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getItemDisplayTransform(): JavaOpaque<"org.bukkit.entity.ItemDisplay$ItemDisplayTransform">;
   getItemStack(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   setItemDisplayTransform(arg0: JavaOpaque<"org.bukkit.entity.ItemDisplay$ItemDisplayTransform">): void;
@@ -2222,9 +1828,6 @@ export interface CraftItemDisplayStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftItemFrame. */
 export interface CraftItemFrameMembers {
   readonly __javaSupertypes?: readonly [CraftHanging, JavaOpaque<"org.bukkit.entity.ItemFrame">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_decoration.BlockAttachedEntity;
-  getHandle(): j_net_minecraft_world_entity_decoration.HangingEntity;
   getHandle(): j_net_minecraft_world_entity_decoration.ItemFrame;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getItemDropChance(): number;
@@ -2238,7 +1841,6 @@ export interface CraftItemFrameMembers {
   setItemDropChance(arg0: number): void;
   setRotation(arg0: JavaOpaque<"org.bukkit.Rotation">): void;
   setVisible(arg0: boolean): void;
-  update(): void;
 }
 export type CraftItemFrame = CraftItemFrameMembers & CraftHanging & JavaOpaque<"org.bukkit.entity.ItemFrame">;
 export interface CraftItemFrameStatics {
@@ -2248,11 +1850,7 @@ export interface CraftItemFrameStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftLargeFireball. */
 export interface CraftLargeFireballMembers {
   readonly __javaSupertypes?: readonly [CraftSizedFireball, JavaOpaque<"org.bukkit.entity.LargeFireball">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Fireball;
   getHandle(): j_net_minecraft_world_entity_projectile.LargeFireball;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   setYield(arg0: number): void;
 }
 export type CraftLargeFireball = CraftLargeFireballMembers & CraftSizedFireball & JavaOpaque<"org.bukkit.entity.LargeFireball">;
@@ -2265,8 +1863,6 @@ export interface CraftLeashMembers {
   readonly __javaSupertypes?: readonly [CraftBlockAttachedEntity, JavaOpaque<"org.bukkit.entity.LeashHitch">];
   getAttachedFace(): JavaOpaque<"org.bukkit.block.BlockFace">;
   getFacing(): JavaOpaque<"org.bukkit.block.BlockFace">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_decoration.BlockAttachedEntity;
   getHandle(): j_net_minecraft_world_entity_decoration.LeashFenceKnotEntity;
   setFacingDirection(arg0: JavaOpaque<"org.bukkit.block.BlockFace">): void;
   setFacingDirection(arg0: JavaOpaque<"org.bukkit.block.BlockFace">, arg1: boolean): boolean;
@@ -2283,7 +1879,6 @@ export interface CraftLightningStrikeMembers {
   getCausingPlayer(): JavaOpaque<"org.bukkit.entity.Player">;
   getFlashCount(): number;
   getFlashes(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.LightningBolt;
   getLifeTicks(): number;
   isEffect(): boolean;
@@ -2291,8 +1886,6 @@ export interface CraftLightningStrikeMembers {
   setFlashCount(arg0: number): void;
   setFlashes(arg0: number): void;
   setLifeTicks(arg0: number): void;
-  spigot(): JavaOpaque<"org.bukkit.command.CommandSender$Spigot">;
-  spigot(): JavaOpaque<"org.bukkit.entity.Entity$Spigot">;
   spigot(): JavaOpaque<"org.bukkit.entity.LightningStrike$Spigot">;
 }
 export type CraftLightningStrike = CraftLightningStrikeMembers & CraftEntity & JavaOpaque<"org.bukkit.entity.LightningStrike">;
@@ -2348,7 +1941,6 @@ export interface CraftLivingEntityMembers {
   getFallDamageSoundSmall(): JavaOpaque<"org.bukkit.Sound">;
   getForwardsMovement(): number;
   getFrictionState(): JavaOpaque<"net.kyori.adventure.util.TriState">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.LivingEntity;
   getHealth(): number;
   getHurtDirection(): number;
@@ -2461,18 +2053,7 @@ export interface CraftLlamaMembers {
   getCaravanHead(): JavaOpaque<"org.bukkit.entity.Llama">;
   getCaravanTail(): JavaOpaque<"org.bukkit.entity.Llama">;
   getColor(): JavaOpaque<"org.bukkit.entity.Llama$Color">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractChestedHorse;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
   getHandle(): j_net_minecraft_world_entity_animal_horse.Llama;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.AbstractHorseInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.LlamaInventory">;
   getStrength(): number;
   getVariant(): JavaOpaque<"org.bukkit.entity.Horse$Variant">;
@@ -2491,9 +2072,7 @@ export interface CraftLlamaStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftLlamaSpit. */
 export interface CraftLlamaSpitMembers {
   readonly __javaSupertypes?: readonly [AbstractProjectile, JavaOpaque<"org.bukkit.entity.LlamaSpit">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.LlamaSpit;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
 }
 export type CraftLlamaSpit = CraftLlamaSpitMembers & AbstractProjectile & JavaOpaque<"org.bukkit.entity.LlamaSpit">;
 export interface CraftLlamaSpitStatics {
@@ -2503,13 +2082,7 @@ export interface CraftLlamaSpitStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftMagmaCube. */
 export interface CraftMagmaCubeMembers {
   readonly __javaSupertypes?: readonly [CraftSlime, JavaOpaque<"org.bukkit.entity.MagmaCube">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.MagmaCube;
-  getHandle(): j_net_minecraft_world_entity_monster.Slime;
 }
 export type CraftMagmaCube = CraftMagmaCubeMembers & CraftSlime & JavaOpaque<"org.bukkit.entity.MagmaCube">;
 export interface CraftMagmaCubeStatics {
@@ -2519,7 +2092,6 @@ export interface CraftMagmaCubeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftMarker. */
 export interface CraftMarkerMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.Marker">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.Marker;
 }
 export type CraftMarker = CraftMarkerMembers & CraftEntity & JavaOpaque<"org.bukkit.entity.Marker">;
@@ -2537,7 +2109,6 @@ export interface CraftMinecartMembers {
   getDisplayBlockOffset(): number;
   getFlyingVelocityMod(): JavaOpaque<"org.bukkit.util.Vector">;
   getFrictionState(): JavaOpaque<"net.kyori.adventure.util.TriState">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
   getMaxSpeed(): number;
   getMinecartMaterial(): JavaOpaque<"org.bukkit.Material">;
@@ -2554,7 +2125,6 @@ export interface CraftMinecartMembers {
 }
 export type CraftMinecart = CraftMinecartMembers & CraftVehicle & JavaOpaque<"org.bukkit.entity.Minecart">;
 export interface CraftMinecartStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_vehicle.AbstractMinecart): CraftMinecart;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftMinecartChest. */
@@ -2577,8 +2147,6 @@ export interface CraftMinecartCommandMembers {
   getCommand(): string;
   getCommandBlockHandle(): j_net_minecraft_world_level.BaseCommandBlock;
   getEffectivePermissions(): JavaSet<JavaOpaque<"org.bukkit.permissions.PermissionAttachmentInfo">>;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
   getHandle(): j_net_minecraft_world_entity_vehicle.MinecartCommandBlock;
   getName(): string;
   getServer(): JavaOpaque<"org.bukkit.Server">;
@@ -2605,22 +2173,16 @@ export interface CraftMinecartCommandStatics {
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftMinecartContainer. */
 export interface CraftMinecartContainerMembers {
   readonly __javaSupertypes?: readonly [CraftMinecart, JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableEntityInventory">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
   getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecartContainer;
-  getHandle(): j_net_minecraft_world_entity_vehicle.ContainerEntity;
 }
 export type CraftMinecartContainer = CraftMinecartContainerMembers & CraftMinecart & JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableEntityInventory">;
 export interface CraftMinecartContainerStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_vehicle.AbstractMinecart): CraftMinecartContainer;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftMinecartFurnace. */
 export interface CraftMinecartFurnaceMembers {
   readonly __javaSupertypes?: readonly [CraftMinecart, JavaOpaque<"org.bukkit.entity.minecart.PoweredMinecart">];
   getFuel(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
   getHandle(): j_net_minecraft_world_entity_vehicle.MinecartFurnace;
   getPushX(): number;
   getPushZ(): number;
@@ -2636,10 +2198,6 @@ export interface CraftMinecartFurnaceStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftMinecartHopper. */
 export interface CraftMinecartHopperMembers {
   readonly __javaSupertypes?: readonly [CraftMinecartContainer, JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableEntityInventory">, JavaOpaque<"org.bukkit.entity.minecart.HopperMinecart">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecartContainer;
-  getHandle(): j_net_minecraft_world_entity_vehicle.ContainerEntity;
   getHandle(): j_net_minecraft_world_entity_vehicle.MinecartHopper;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getPickupCooldown(): number;
@@ -2658,8 +2216,6 @@ export interface CraftMinecartMobSpawnerMembers {
   addPotentialSpawn(arg0: JavaOpaque<"org.bukkit.block.spawner.SpawnerEntry">): void;
   addPotentialSpawn(arg0: JavaOpaque<"org.bukkit.entity.EntitySnapshot">, arg1: number, arg2: JavaOpaque<"org.bukkit.block.spawner.SpawnRule">): void;
   getDelay(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
   getHandle(): j_net_minecraft_world_entity_vehicle.MinecartSpawner;
   getInternalPosition(): j_net_minecraft_core.BlockPos;
   getInternalWorld(): j_net_minecraft_world_level.Level;
@@ -2707,8 +2263,6 @@ export interface CraftMinecartTNTMembers {
   explode(arg0: number): void;
   getExplosionSpeedFactor(): number;
   getFuseTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_vehicle.AbstractMinecart;
   getHandle(): j_net_minecraft_world_entity_vehicle.MinecartTNT;
   getYield(): number;
   ignite(): void;
@@ -2729,9 +2283,6 @@ export interface CraftMobMembers {
   readonly __javaSupertypes?: readonly [CraftLivingEntity, JavaOpaque<"io.papermc.paper.entity.PaperLeashable">, JavaOpaque<"org.bukkit.entity.Mob">];
   getAmbientSound(): JavaOpaque<"org.bukkit.Sound">;
   getDespawnInPeacefulOverride(): JavaOpaque<"net.kyori.adventure.util.TriState">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
   getHandle(): j_net_minecraft_world_entity.Mob;
   getHeadRotationSpeed(): number;
   /** @throws java.lang.IllegalStateException */
@@ -2742,7 +2293,6 @@ export interface CraftMobMembers {
   getPossibleExperienceReward(): number;
   getSeed(): bigint;
   getTarget(): CraftLivingEntity;
-  getTarget(): JavaOpaque<"org.bukkit.entity.LivingEntity">;
   isAggressive(): boolean;
   isAware(): boolean;
   isInDaylight(): boolean;
@@ -2767,18 +2317,11 @@ export interface CraftMobMembers {
 }
 export type CraftMob = CraftMobMembers & CraftLivingEntity & JavaOpaque<"io.papermc.paper.entity.PaperLeashable"> & JavaOpaque<"org.bukkit.entity.Mob">;
 export interface CraftMobStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity.Mob): CraftMob;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftMonster. */
 export interface CraftMonsterMembers {
   readonly __javaSupertypes?: readonly [CraftCreature, CraftEnemy, JavaOpaque<"org.bukkit.entity.Monster">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Monster;
 }
 export type CraftMonster = CraftMonsterMembers & CraftCreature & CraftEnemy & JavaOpaque<"org.bukkit.entity.Monster">;
@@ -2803,15 +2346,6 @@ export interface CraftMushroomCowMembers {
   addEffectToNextStew(arg0: JavaOpaque<"org.bukkit.potion.PotionEffect">, arg1: boolean): boolean;
   clearEffectsForNextStew(): void;
   getEffectsForNextStew(): JavaList<JavaOpaque<"org.bukkit.potion.PotionEffect">>;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.Shearable;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractCow;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.MushroomCow;
   getStewEffects(): JavaList<JavaOpaque<"io.papermc.paper.potion.SuspiciousEffectEntry">>;
   getVariant(): JavaOpaque<"org.bukkit.entity.MushroomCow$Variant">;
@@ -2830,13 +2364,6 @@ export interface CraftMushroomCowStatics {
 export interface CraftOcelotMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Ocelot">];
   getCatType(): JavaOpaque<"org.bukkit.entity.Ocelot$Type">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Ocelot;
   isTrusting(): boolean;
   setCatType(arg0: JavaOpaque<"org.bukkit.entity.Ocelot$Type">): void;
@@ -2850,7 +2377,6 @@ export interface CraftOcelotStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftOminousItemSpawner. */
 export interface CraftOminousItemSpawnerMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.OminousItemSpawner">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity.OminousItemSpawner;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getSpawnItemAfterTicks(): bigint;
@@ -2866,9 +2392,6 @@ export interface CraftOminousItemSpawnerStatics {
 export interface CraftPaintingMembers {
   readonly __javaSupertypes?: readonly [CraftHanging, JavaOpaque<"org.bukkit.entity.Painting">];
   getArt(): JavaOpaque<"org.bukkit.Art">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_decoration.BlockAttachedEntity;
-  getHandle(): j_net_minecraft_world_entity_decoration.HangingEntity;
   getHandle(): j_net_minecraft_world_entity_decoration.Painting;
   setArt(arg0: JavaOpaque<"org.bukkit.Art">): boolean;
   setArt(arg0: JavaOpaque<"org.bukkit.Art">, arg1: boolean): boolean;
@@ -2884,13 +2407,6 @@ export interface CraftPandaMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Panda">];
   getCombinedGene(): JavaOpaque<"org.bukkit.entity.Panda$Gene">;
   getEatingTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Panda;
   getHiddenGene(): JavaOpaque<"org.bukkit.entity.Panda$Gene">;
   getMainGene(): JavaOpaque<"org.bukkit.entity.Panda$Gene">;
@@ -2923,14 +2439,6 @@ export interface CraftPandaStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftParrot. */
 export interface CraftParrotMembers {
   readonly __javaSupertypes?: readonly [CraftTameableAnimal, JavaOpaque<"org.bukkit.entity.Parrot">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.TamableAnimal;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Parrot;
   getVariant(): JavaOpaque<"org.bukkit.entity.Parrot$Variant">;
   isDancing(): boolean;
@@ -2945,11 +2453,6 @@ export interface CraftParrotStatics {
 export interface CraftPhantomMembers {
   readonly __javaSupertypes?: readonly [CraftMob, CraftEnemy, JavaOpaque<"org.bukkit.entity.Phantom">];
   getAnchorLocation(): JavaOpaque<"org.bukkit.Location">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Phantom;
   getSize(): number;
   getSpawningEntity(): JavaOpaque<"java.util.UUID">;
@@ -2968,13 +2471,6 @@ export interface CraftPigMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Pig">];
   getBoostTicks(): number;
   getCurrentBoostTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Pig;
   getSteerMaterial(): JavaOpaque<"org.bukkit.Material">;
   getVariant(): JavaOpaque<"org.bukkit.entity.Pig$Variant">;
@@ -3008,14 +2504,6 @@ export interface CraftPiglinMembers {
   addBarterMaterial(arg0: JavaOpaque<"org.bukkit.Material">): boolean;
   addMaterialOfInterest(arg0: JavaOpaque<"org.bukkit.Material">): boolean;
   getBarterList(): JavaSet<JavaOpaque<"org.bukkit.Material">>;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster_piglin.AbstractPiglin;
   getHandle(): j_net_minecraft_world_entity_monster_piglin.Piglin;
   getInterestList(): JavaSet<JavaOpaque<"org.bukkit.Material">>;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
@@ -3041,13 +2529,6 @@ export interface CraftPiglinAbstractMembers {
   getAge(): number;
   getAgeLock(): boolean;
   getConversionTime(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster_piglin.AbstractPiglin;
   isAdult(): boolean;
   isBaby(): boolean;
@@ -3070,14 +2551,6 @@ export interface CraftPiglinAbstractStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftPiglinBrute. */
 export interface CraftPiglinBruteMembers {
   readonly __javaSupertypes?: readonly [CraftPiglinAbstract, JavaOpaque<"org.bukkit.entity.PiglinBrute">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster_piglin.AbstractPiglin;
   getHandle(): j_net_minecraft_world_entity_monster_piglin.PiglinBrute;
 }
 export type CraftPiglinBrute = CraftPiglinBruteMembers & CraftPiglinAbstract & JavaOpaque<"org.bukkit.entity.PiglinBrute">;
@@ -3090,14 +2563,6 @@ export interface CraftPigZombieMembers {
   readonly __javaSupertypes?: readonly [CraftZombie, JavaOpaque<"org.bukkit.entity.PigZombie">];
   getAnger(): number;
   getConversionTime(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster.Zombie;
   getHandle(): j_net_minecraft_world_entity_monster.ZombifiedPiglin;
   isAngry(): boolean;
   isConverting(): boolean;
@@ -3113,16 +2578,7 @@ export interface CraftPigZombieStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftPillager. */
 export interface CraftPillagerMembers {
   readonly __javaSupertypes?: readonly [CraftIllager, JavaOpaque<"org.bukkit.entity.Pillager">, JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Pillager]>];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractIllager;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Pillager;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
 }
 export type CraftPillager = CraftPillagerMembers & CraftIllager & JavaOpaque<"org.bukkit.entity.Pillager"> & JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Pillager]>;
@@ -3139,7 +2595,7 @@ export interface CraftPlayerMembers {
   activeBossBars(): Iterable<JavaOpaque<"net.kyori.adventure.bossbar.BossBar">>;
   addAdditionalChatCompletions(arg0: JavaCollection<string>): void;
   addCustomChatCompletions(arg0: JavaCollection<string>): void;
-  addResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number>, arg3: string, arg4: boolean): void | null;
+  addResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number> | null, arg3: string, arg4: boolean): void;
   applyMending(arg0: number): number;
   ban(arg0: string, arg1: JavaOpaque<"java.time.Duration">, arg2: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   ban(arg0: string, arg1: JavaOpaque<"java.time.Duration">, arg2: string, arg3: boolean): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
@@ -3199,9 +2655,6 @@ export interface CraftPlayerMembers {
   getGameMode(): JavaOpaque<"org.bukkit.GameMode">;
   getHAProxyAddress(): JavaOpaque<"java.net.InetSocketAddress"> | null;
   getHandle(): j_net_minecraft_server_level.ServerPlayer;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity_player.Player;
   getHealth(): number;
   getHealthScale(): number;
   getIdleDuration(): JavaOpaque<"java.time.Duration">;
@@ -3230,7 +2683,6 @@ export interface CraftPlayerMembers {
   getScaledHealth(): number;
   getScaledMaxHealth(): j_net_minecraft_world_entity_ai_attributes.AttributeInstance;
   getScoreboard(): j_org_bukkit_craftbukkit_scoreboard.CraftScoreboard;
-  getScoreboard(): JavaOpaque<"org.bukkit.scoreboard.Scoreboard">;
   getSendViewDistance(): number;
   getSentChunkKeys(): JavaSet<bigint>;
   getSentChunks(): JavaSet<JavaOpaque<"org.bukkit.Chunk">>;
@@ -3354,8 +2806,8 @@ export interface CraftPlayerMembers {
   /** @throws java.lang.IllegalArgumentException */
   sendBlockUpdate(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaOpaque<"org.bukkit.block.TileState">): void;
   sendEntityEffect(arg0: JavaOpaque<"org.bukkit.EntityEffect">, arg1: JavaOpaque<"org.bukkit.entity.Entity">): void;
-  sendEquipmentChange(arg0: JavaOpaque<"org.bukkit.entity.LivingEntity">, arg1: JavaMap<JavaOpaque<"org.bukkit.inventory.EquipmentSlot">, JavaOpaque<"org.bukkit.inventory.ItemStack">>): void | null;
-  sendEquipmentChange(arg0: JavaOpaque<"org.bukkit.entity.LivingEntity">, arg1: JavaOpaque<"org.bukkit.inventory.EquipmentSlot">, arg2: JavaOpaque<"org.bukkit.inventory.ItemStack">): void | null;
+  sendEquipmentChange(arg0: JavaOpaque<"org.bukkit.entity.LivingEntity">, arg1: JavaMap<JavaOpaque<"org.bukkit.inventory.EquipmentSlot">, JavaOpaque<"org.bukkit.inventory.ItemStack">> | null): void;
+  sendEquipmentChange(arg0: JavaOpaque<"org.bukkit.entity.LivingEntity">, arg1: JavaOpaque<"org.bukkit.inventory.EquipmentSlot">, arg2: JavaOpaque<"org.bukkit.inventory.ItemStack"> | null): void;
   sendExperienceChange(arg0: number): void;
   sendExperienceChange(arg0: number, arg1: number): void;
   sendHealthUpdate(): void;
@@ -3382,10 +2834,10 @@ export interface CraftPlayerMembers {
   sendRawMessage(arg0: string): void;
   sendRawMessage(arg0: JavaOpaque<"java.util.UUID">, arg1: string): void;
   sendResourcePacks(arg0: JavaOpaque<"net.kyori.adventure.resource.ResourcePackRequest">): void;
-  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaList<JavaOpaque<"net.kyori.adventure.text.Component">>, arg2: JavaOpaque<"org.bukkit.DyeColor">, arg3: boolean): void | null;
-  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: Array<string>): void | null;
-  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: Array<string>, arg2: JavaOpaque<"org.bukkit.DyeColor">): void | null;
-  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: Array<string>, arg2: JavaOpaque<"org.bukkit.DyeColor">, arg3: boolean): void | null;
+  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: JavaList<JavaOpaque<"net.kyori.adventure.text.Component">> | null, arg2: JavaOpaque<"org.bukkit.DyeColor">, arg3: boolean): void;
+  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: Array<string> | null): void;
+  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: Array<string> | null, arg2: JavaOpaque<"org.bukkit.DyeColor">): void;
+  sendSignChange(arg0: JavaOpaque<"org.bukkit.Location">, arg1: Array<string> | null, arg2: JavaOpaque<"org.bukkit.DyeColor">, arg3: boolean): void;
   sendSupportedChannels(): void;
   sendTitle(arg0: JavaOpaque<"com.destroystokyo.paper.Title">): void;
   sendTitle(arg0: string, arg1: string): void;
@@ -3419,8 +2871,8 @@ export interface CraftPlayerMembers {
   setPlayerListFooter(arg0: string): void;
   setPlayerListHeader(arg0: string): void;
   setPlayerListHeaderFooter(arg0: string, arg1: string): void;
-  setPlayerListHeaderFooter(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void | null;
-  setPlayerListHeaderFooter(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void | null;
+  setPlayerListHeaderFooter(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent"> | null): void;
+  setPlayerListHeaderFooter(arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null, arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">> | null): void;
   setPlayerListName(arg0: string): void;
   setPlayerListOrder(arg0: number): void;
   setPlayerProfile(arg0: JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">): void;
@@ -3428,12 +2880,12 @@ export interface CraftPlayerMembers {
   setPlayerWeather(arg0: JavaOpaque<"org.bukkit.WeatherType">): void;
   setRealHealth(arg0: number): void;
   setResourcePack(arg0: string): void;
-  setResourcePack(arg0: string, arg1: Array<number>): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: string): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: string, arg3: boolean): void | null;
-  setResourcePack(arg0: string, arg1: Array<number>, arg2: boolean): void | null;
-  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number>, arg3: string, arg4: boolean): void | null;
-  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number>, arg3: JavaOpaque<"net.kyori.adventure.text.Component">, arg4: boolean): void | null;
+  setResourcePack(arg0: string, arg1: Array<number> | null): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: string): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: string, arg3: boolean): void;
+  setResourcePack(arg0: string, arg1: Array<number> | null, arg2: boolean): void;
+  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number> | null, arg3: string, arg4: boolean): void;
+  setResourcePack(arg0: JavaOpaque<"java.util.UUID">, arg1: string, arg2: Array<number> | null, arg3: JavaOpaque<"net.kyori.adventure.text.Component">, arg4: boolean): void;
   setRespawnLocation(arg0: JavaOpaque<"org.bukkit.Location">): void;
   setRespawnLocation(arg0: JavaOpaque<"org.bukkit.Location">, arg1: boolean): void;
   setRotation(arg0: number, arg1: number): void;
@@ -3487,8 +2939,6 @@ export interface CraftPlayerMembers {
   spawnParticle<T>(arg0: JavaOpaque<"org.bukkit.Particle">, arg1: JavaOpaque<"org.bukkit.Location">, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: T, arg8: boolean): void;
   spawnParticle<T>(arg0: JavaOpaque<"org.bukkit.Particle">, arg1: JavaOpaque<"org.bukkit.Location">, arg2: number, arg3: number, arg4: number, arg5: number, arg6: T): void;
   spawnParticle<T>(arg0: JavaOpaque<"org.bukkit.Particle">, arg1: JavaOpaque<"org.bukkit.Location">, arg2: number, arg3: T): void;
-  spigot(): JavaOpaque<"org.bukkit.command.CommandSender$Spigot">;
-  spigot(): JavaOpaque<"org.bukkit.entity.Entity$Spigot">;
   spigot(): JavaOpaque<"org.bukkit.entity.Player$Spigot">;
   stopAllSounds(): void;
   stopSound(arg0: string): void;
@@ -3518,13 +2968,6 @@ export interface CraftPlayerStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftPolarBear. */
 export interface CraftPolarBearMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.PolarBear">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.PolarBear;
   isStanding(): boolean;
   setStanding(arg0: boolean): void;
@@ -3537,26 +2980,16 @@ export interface CraftPolarBearStatics {
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftProjectile. */
 export interface CraftProjectileMembers {
   readonly __javaSupertypes?: readonly [AbstractProjectile, JavaOpaque<"org.bukkit.entity.Projectile">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
 }
 export type CraftProjectile = CraftProjectileMembers & AbstractProjectile & JavaOpaque<"org.bukkit.entity.Projectile">;
 export interface CraftProjectileStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_projectile.Projectile): CraftProjectile;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftPufferFish. */
 export interface CraftPufferFishMembers {
   readonly __javaSupertypes?: readonly [CraftFish, JavaOpaque<"org.bukkit.entity.PufferFish">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractFish;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
   getHandle(): j_net_minecraft_world_entity_animal.Pufferfish;
-  getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
   getPuffState(): number;
   setPuffState(arg0: number): void;
 }
@@ -3568,13 +3001,6 @@ export interface CraftPufferFishStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftRabbit. */
 export interface CraftRabbitMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Rabbit">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Rabbit;
   getMoreCarrotTicks(): number;
   getRabbitType(): JavaOpaque<"org.bukkit.entity.Rabbit$Type">;
@@ -3590,13 +3016,6 @@ export interface CraftRabbitStatics {
 export interface CraftRaiderMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Raider">];
   getCelebrationSound(): JavaOpaque<"org.bukkit.Sound">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_raid.Raider;
   getPatrolTarget(): JavaOpaque<"org.bukkit.block.Block">;
   getRaid(): JavaOpaque<"org.bukkit.Raid">;
@@ -3615,22 +3034,13 @@ export interface CraftRaiderMembers {
 }
 export type CraftRaider = CraftRaiderMembers & CraftMonster & JavaOpaque<"org.bukkit.entity.Raider">;
 export interface CraftRaiderStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_raid.Raider): CraftRaider;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftRavager. */
 export interface CraftRavagerMembers {
   readonly __javaSupertypes?: readonly [CraftRaider, JavaOpaque<"org.bukkit.entity.Ravager">];
   getAttackTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Ravager;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
   getRoarTicks(): number;
   getStunnedTicks(): number;
   setAttackTicks(arg0: number): void;
@@ -3645,16 +3055,7 @@ export interface CraftRavagerStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSalmon. */
 export interface CraftSalmonMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.papermc.paper.entity.PaperSchoolableFish">, JavaOpaque<"org.bukkit.entity.Salmon">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractFish;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractSchoolingFish;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
   getHandle(): j_net_minecraft_world_entity_animal.Salmon;
-  getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
   getVariant(): JavaOpaque<"org.bukkit.entity.Salmon$Variant">;
   setVariant(arg0: JavaOpaque<"org.bukkit.entity.Salmon$Variant">): void;
 }
@@ -3667,14 +3068,6 @@ export interface CraftSalmonStatics {
 export interface CraftSheepMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"io.papermc.paper.entity.PaperShearable">, JavaOpaque<"org.bukkit.entity.Sheep">];
   getColor(): JavaOpaque<"org.bukkit.DyeColor">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.Shearable;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_sheep.Sheep;
   isSheared(): boolean;
   setColor(arg0: JavaOpaque<"org.bukkit.DyeColor">): void;
@@ -3690,13 +3083,6 @@ export interface CraftShulkerMembers {
   readonly __javaSupertypes?: readonly [CraftGolem, CraftEnemy, JavaOpaque<"org.bukkit.entity.Shulker">];
   getAttachedFace(): JavaOpaque<"org.bukkit.block.BlockFace">;
   getColor(): JavaOpaque<"org.bukkit.DyeColor">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractGolem;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Shulker;
   getPeek(): number;
   setAttachedFace(arg0: JavaOpaque<"org.bukkit.block.BlockFace">): void;
@@ -3713,8 +3099,6 @@ export interface CraftShulkerBulletMembers {
   readonly __javaSupertypes?: readonly [AbstractProjectile, JavaOpaque<"org.bukkit.entity.ShulkerBullet">];
   getCurrentMovementDirection(): JavaOpaque<"org.bukkit.block.BlockFace">;
   getFlightSteps(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ShulkerBullet;
   getTarget(): JavaOpaque<"org.bukkit.entity.Entity">;
   getTargetDelta(): JavaOpaque<"org.bukkit.util.Vector">;
@@ -3731,13 +3115,6 @@ export interface CraftShulkerBulletStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSilverfish. */
 export interface CraftSilverfishMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Silverfish">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Silverfish;
 }
 export type CraftSilverfish = CraftSilverfishMembers & CraftMonster & JavaOpaque<"org.bukkit.entity.Silverfish">;
@@ -3749,10 +3126,7 @@ export interface CraftSilverfishStatics {
 export interface CraftSizedFireballMembers {
   readonly __javaSupertypes?: readonly [CraftFireball, JavaOpaque<"org.bukkit.entity.SizedFireball">];
   getDisplayItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
   getHandle(): j_net_minecraft_world_entity_projectile.Fireball;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   setDisplayItem(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
 }
 export type CraftSizedFireball = CraftSizedFireballMembers & CraftFireball & JavaOpaque<"org.bukkit.entity.SizedFireball">;
@@ -3764,14 +3138,6 @@ export interface CraftSizedFireballStatics {
 export interface CraftSkeletonMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractSkeleton, JavaOpaque<"org.bukkit.entity.Skeleton">];
   getConversionTime(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractSkeleton;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Skeleton;
   getSkeletonType(): JavaOpaque<"org.bukkit.entity.Skeleton$SkeletonType">;
   inPowderedSnowTime(): number;
@@ -3786,14 +3152,6 @@ export interface CraftSkeletonStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSkeletonHorse. */
 export interface CraftSkeletonHorseMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractHorse, JavaOpaque<"org.bukkit.entity.SkeletonHorse">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
   getHandle(): j_net_minecraft_world_entity_animal_horse.SkeletonHorse;
   getTrapTime(): number;
   getVariant(): JavaOpaque<"org.bukkit.entity.Horse$Variant">;
@@ -3810,11 +3168,6 @@ export interface CraftSkeletonHorseStatics {
 export interface CraftSlimeMembers {
   readonly __javaSupertypes?: readonly [CraftMob, CraftEnemy, JavaOpaque<"org.bukkit.entity.Slime">];
   canWander(): boolean;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
   getHandle(): j_net_minecraft_world_entity_monster.Slime;
   getSize(): number;
   setSize(arg0: number): void;
@@ -3828,10 +3181,6 @@ export interface CraftSlimeStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSmallFireball. */
 export interface CraftSmallFireballMembers {
   readonly __javaSupertypes?: readonly [CraftSizedFireball, JavaOpaque<"org.bukkit.entity.SmallFireball">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Fireball;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.SmallFireball;
 }
 export type CraftSmallFireball = CraftSmallFireballMembers & CraftSizedFireball & JavaOpaque<"org.bukkit.entity.SmallFireball">;
@@ -3846,13 +3195,6 @@ export interface CraftSnifferMembers {
   canDig(): boolean;
   findPossibleDigLocation(): JavaOpaque<"org.bukkit.Location">;
   getExploredLocations(): JavaCollection<JavaOpaque<"org.bukkit.Location">>;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_sniffer.Sniffer;
   getState(): JavaOpaque<"org.bukkit.entity.Sniffer$State">;
   removeExploredLocation(arg0: JavaOpaque<"org.bukkit.Location">): void;
@@ -3866,10 +3208,7 @@ export interface CraftSnifferStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSnowball. */
 export interface CraftSnowballMembers {
   readonly __javaSupertypes?: readonly [CraftThrowableProjectile, JavaOpaque<"org.bukkit.entity.Snowball">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.Snowball;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
 }
 export type CraftSnowball = CraftSnowballMembers & CraftThrowableProjectile & JavaOpaque<"org.bukkit.entity.Snowball">;
 export interface CraftSnowballStatics {
@@ -3879,13 +3218,6 @@ export interface CraftSnowballStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSnowman. */
 export interface CraftSnowmanMembers {
   readonly __javaSupertypes?: readonly [CraftGolem, JavaOpaque<"org.bukkit.entity.Snowman">, JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_animal.SnowGolem]>, JavaOpaque<"io.papermc.paper.entity.PaperShearable">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.Shearable;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractGolem;
   getHandle(): j_net_minecraft_world_entity_animal.SnowGolem;
   isDerp(): boolean;
   setDerp(arg0: boolean): void;
@@ -3899,9 +3231,6 @@ export interface CraftSnowmanStatics {
 export interface CraftSpectralArrowMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractArrow, JavaOpaque<"org.bukkit.entity.SpectralArrow">];
   getGlowingTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractArrow;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.SpectralArrow;
   setGlowingTicks(arg0: number): void;
 }
@@ -3913,16 +3242,7 @@ export interface CraftSpectralArrowStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSpellcaster. */
 export interface CraftSpellcasterMembers {
   readonly __javaSupertypes?: readonly [CraftIllager, JavaOpaque<"org.bukkit.entity.Spellcaster">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractIllager;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.SpellcasterIllager;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
   getSpell(): JavaOpaque<"org.bukkit.entity.Spellcaster$Spell">;
   setSpell(arg0: JavaOpaque<"org.bukkit.entity.Spellcaster$Spell">): void;
 }
@@ -3936,13 +3256,6 @@ export interface CraftSpellcasterStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSpider. */
 export interface CraftSpiderMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Spider">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Spider;
 }
 export type CraftSpider = CraftSpiderMembers & CraftMonster & JavaOpaque<"org.bukkit.entity.Spider">;
@@ -3953,12 +3266,6 @@ export interface CraftSpiderStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftSquid. */
 export interface CraftSquidMembers {
   readonly __javaSupertypes?: readonly [CraftAgeable, JavaOpaque<"org.bukkit.entity.Squid">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.Squid;
 }
 export type CraftSquid = CraftSquidMembers & CraftAgeable & JavaOpaque<"org.bukkit.entity.Squid">;
@@ -3981,13 +3288,6 @@ export interface CraftStriderMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Strider">];
   getBoostTicks(): number;
   getCurrentBoostTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_monster.Strider;
   getSteerMaterial(): JavaOpaque<"org.bukkit.Material">;
   hasSaddle(): boolean;
@@ -4007,14 +3307,6 @@ export interface CraftTadpoleMembers {
   readonly __javaSupertypes?: readonly [CraftFish, JavaOpaque<"org.bukkit.entity.Tadpole">];
   getAge(): number;
   getAgeLock(): boolean;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractFish;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
-  getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
   getHandle(): j_net_minecraft_world_entity_animal_frog.Tadpole;
   setAge(arg0: number): void;
   setAgeLock(arg0: boolean): void;
@@ -4027,14 +3319,7 @@ export interface CraftTadpoleStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftTameableAnimal. */
 export interface CraftTameableAnimalMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Creature">, JavaOpaque<"org.bukkit.entity.Tameable">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity.TamableAnimal;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getOwner(): JavaOpaque<"org.bukkit.entity.AnimalTamer">;
   getOwnerUUID(): JavaOpaque<"java.util.UUID">;
   getOwnerUniqueId(): JavaOpaque<"java.util.UUID">;
@@ -4056,8 +3341,6 @@ export interface CraftTextDisplayMembers {
   getAlignment(): JavaOpaque<"org.bukkit.entity.TextDisplay$TextAlignment">;
   getBackgroundColor(): JavaOpaque<"org.bukkit.Color">;
   getHandle(): j_net_minecraft_world_entity.Display_TextDisplay;
-  getHandle(): j_net_minecraft_world_entity.Display;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getLineWidth(): number;
   getText(): string;
   getTextOpacity(): number;
@@ -4083,23 +3366,17 @@ export interface CraftTextDisplayStatics {
 /** JVM abstract org.bukkit.craftbukkit.entity.CraftThrowableProjectile. */
 export interface CraftThrowableProjectileMembers {
   readonly __javaSupertypes?: readonly [CraftProjectile, JavaOpaque<"org.bukkit.entity.ThrowableProjectile">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   setItem(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
 }
 export type CraftThrowableProjectile = CraftThrowableProjectileMembers & CraftProjectile & JavaOpaque<"org.bukkit.entity.ThrowableProjectile">;
 export interface CraftThrowableProjectileStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_projectile.ThrowableItemProjectile): CraftThrowableProjectile;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftThrownExpBottle. */
 export interface CraftThrownExpBottleMembers {
   readonly __javaSupertypes?: readonly [CraftThrowableProjectile, JavaOpaque<"org.bukkit.entity.ThrownExpBottle">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrownExperienceBottle;
 }
 export type CraftThrownExpBottle = CraftThrownExpBottleMembers & CraftThrowableProjectile & JavaOpaque<"org.bukkit.entity.ThrownExpBottle">;
@@ -4110,10 +3387,6 @@ export interface CraftThrownExpBottleStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftThrownLingeringPotion. */
 export interface CraftThrownLingeringPotionMembers {
   readonly __javaSupertypes?: readonly [CraftThrownPotion, JavaOpaque<"org.bukkit.entity.LingeringPotion">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrownLingeringPotion;
   getPotionMeta(): JavaOpaque<"org.bukkit.inventory.meta.PotionMeta">;
   setItem(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
@@ -4127,26 +3400,18 @@ export interface CraftThrownLingeringPotionStatics {
 export interface CraftThrownPotionMembers {
   readonly __javaSupertypes?: readonly [CraftThrowableProjectile, JavaOpaque<"org.bukkit.entity.ThrownPotion">];
   getEffects(): JavaCollection<JavaOpaque<"org.bukkit.potion.PotionEffect">>;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   setPotionMeta(arg0: JavaOpaque<"org.bukkit.inventory.meta.PotionMeta">): void;
   splash(): void;
 }
 export type CraftThrownPotion = CraftThrownPotionMembers & CraftThrowableProjectile & JavaOpaque<"org.bukkit.entity.ThrownPotion">;
 export interface CraftThrownPotionStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity_projectile.AbstractThrownPotion): CraftThrownPotion;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftThrownSplashPotion. */
 export interface CraftThrownSplashPotionMembers {
   readonly __javaSupertypes?: readonly [CraftThrownPotion, JavaOpaque<"org.bukkit.entity.SplashPotion">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractThrownPotion;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.ThrowableItemProjectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrownSplashPotion;
   getPotionMeta(): JavaOpaque<"org.bukkit.inventory.meta.PotionMeta">;
   setItem(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
@@ -4161,7 +3426,6 @@ export interface CraftTNTPrimedMembers {
   readonly __javaSupertypes?: readonly [CraftEntity, JavaOpaque<"org.bukkit.entity.TNTPrimed">];
   getBlockData(): JavaOpaque<"org.bukkit.block.data.BlockData">;
   getFuseTicks(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
   getHandle(): j_net_minecraft_world_entity_item.PrimedTnt;
   getSource(): JavaOpaque<"org.bukkit.entity.Entity">;
   getYield(): number;
@@ -4180,16 +3444,6 @@ export interface CraftTNTPrimedStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftTraderLlama. */
 export interface CraftTraderLlamaMembers {
   readonly __javaSupertypes?: readonly [CraftLlama, JavaOpaque<"org.bukkit.entity.TraderLlama">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractChestedHorse;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.AbstractHorse;
-  getHandle(): j_net_minecraft_world_entity_animal_horse.Llama;
   getHandle(): j_net_minecraft_world_entity_animal_horse.TraderLlama;
 }
 export type CraftTraderLlama = CraftTraderLlamaMembers & CraftLlama & JavaOpaque<"org.bukkit.entity.TraderLlama">;
@@ -4200,9 +3454,6 @@ export interface CraftTraderLlamaStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftTrident. */
 export interface CraftTridentMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractArrow, JavaOpaque<"org.bukkit.entity.Trident">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractArrow;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.ThrownTrident;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getLoyaltyLevel(): number;
@@ -4222,16 +3473,7 @@ export interface CraftTridentStatics {
 export interface CraftTropicalFishMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.papermc.paper.entity.PaperSchoolableFish">, JavaOpaque<"org.bukkit.entity.TropicalFish">];
   getBodyColor(): JavaOpaque<"org.bukkit.DyeColor">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractFish;
-  getHandle(): j_net_minecraft_world_entity_animal.AbstractSchoolingFish;
-  getHandle(): j_net_minecraft_world_entity_animal.Bucketable;
   getHandle(): j_net_minecraft_world_entity_animal.TropicalFish;
-  getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
   getPattern(): JavaOpaque<"org.bukkit.entity.TropicalFish$Pattern">;
   getPatternColor(): JavaOpaque<"org.bukkit.DyeColor">;
   setBodyColor(arg0: JavaOpaque<"org.bukkit.DyeColor">): void;
@@ -4250,13 +3492,6 @@ export interface CraftTropicalFishStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftTurtle. */
 export interface CraftTurtleMembers {
   readonly __javaSupertypes?: readonly [CraftAnimals, JavaOpaque<"org.bukkit.entity.Turtle">];
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal.Turtle;
   getHome(): JavaOpaque<"org.bukkit.Location">;
   hasEgg(): boolean;
@@ -4276,20 +3511,12 @@ export interface CraftVehicleMembers {
 }
 export type CraftVehicle = CraftVehicleMembers & CraftEntity & JavaOpaque<"org.bukkit.entity.Vehicle">;
 export interface CraftVehicleStatics {
-  new(arg0: j_org_bukkit_craftbukkit.CraftServer, arg1: j_net_minecraft_world_entity.Entity): CraftVehicle;
 }
 
 /** JVM class org.bukkit.craftbukkit.entity.CraftVex. */
 export interface CraftVexMembers {
   readonly __javaSupertypes?: readonly [CraftMonster, JavaOpaque<"org.bukkit.entity.Vex">];
   getBound(): JavaOpaque<"org.bukkit.Location">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Vex;
   getLifeTicks(): number;
   getLimitedLifetimeTicks(): number;
@@ -4314,13 +3541,6 @@ export interface CraftVillagerMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractVillager, JavaOpaque<"org.bukkit.entity.Villager">];
   addTrades(arg0: number): boolean;
   clearReputations(): void;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_npc.AbstractVillager;
   getHandle(): j_net_minecraft_world_entity_npc.Villager;
   getProfession(): JavaOpaque<"org.bukkit.entity.Villager$Profession">;
   getReputation(arg0: JavaOpaque<"java.util.UUID">): JavaOpaque<"com.destroystokyo.paper.entity.villager.Reputation">;
@@ -4381,14 +3601,6 @@ export interface CraftVillagerZombieMembers {
   readonly __javaSupertypes?: readonly [CraftZombie, JavaOpaque<"org.bukkit.entity.ZombieVillager">];
   getConversionPlayer(): JavaOpaque<"org.bukkit.OfflinePlayer">;
   getConversionTime(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
-  getHandle(): j_net_minecraft_world_entity_monster.Zombie;
   getHandle(): j_net_minecraft_world_entity_monster.ZombieVillager;
   getVillagerProfession(): JavaOpaque<"org.bukkit.entity.Villager$Profession">;
   getVillagerType(): JavaOpaque<"org.bukkit.entity.Villager$Type">;
@@ -4407,16 +3619,7 @@ export interface CraftVillagerZombieStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftVindicator. */
 export interface CraftVindicatorMembers {
   readonly __javaSupertypes?: readonly [CraftIllager, JavaOpaque<"org.bukkit.entity.Vindicator">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.AbstractIllager;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Vindicator;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
   isJohnny(): boolean;
   setJohnny(arg0: boolean): void;
 }
@@ -4431,13 +3634,6 @@ export interface CraftWanderingTraderMembers {
   canDrinkMilk(): boolean;
   canDrinkPotion(): boolean;
   getDespawnDelay(): number;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_npc.AbstractVillager;
   getHandle(): j_net_minecraft_world_entity_npc.WanderingTrader;
   getWanderingTowards(): JavaOpaque<"org.bukkit.Location">;
   setCanDrinkMilk(arg0: boolean): void;
@@ -4458,13 +3654,6 @@ export interface CraftWardenMembers {
   getAnger(arg0: JavaOpaque<"org.bukkit.entity.Entity">): number;
   getAngerLevel(): JavaOpaque<"org.bukkit.entity.Warden$AngerLevel">;
   getEntityAngryAt(): JavaOpaque<"org.bukkit.entity.LivingEntity">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster_warden.Warden;
   getHighestAnger(): number;
   increaseAnger(arg0: JavaOpaque<"org.bukkit.entity.Entity">, arg1: number): void;
@@ -4479,11 +3668,6 @@ export interface CraftWardenStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftWaterMob. */
 export interface CraftWaterMobMembers {
   readonly __javaSupertypes?: readonly [CraftCreature, JavaOpaque<"org.bukkit.entity.WaterMob">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_animal.WaterAnimal;
 }
 export type CraftWaterMob = CraftWaterMobMembers & CraftCreature & JavaOpaque<"org.bukkit.entity.WaterMob">;
@@ -4494,10 +3678,6 @@ export interface CraftWaterMobStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftWindCharge. */
 export interface CraftWindChargeMembers {
   readonly __javaSupertypes?: readonly [CraftAbstractWindCharge, JavaOpaque<"org.bukkit.entity.WindCharge">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
-  getHandle(): j_net_minecraft_world_entity_projectile_windcharge.AbstractWindCharge;
   getHandle(): j_net_minecraft_world_entity_projectile_windcharge.WindCharge;
 }
 export type CraftWindCharge = CraftWindChargeMembers & CraftAbstractWindCharge & JavaOpaque<"org.bukkit.entity.WindCharge">;
@@ -4509,15 +3689,7 @@ export interface CraftWindChargeStatics {
 export interface CraftWitchMembers {
   readonly __javaSupertypes?: readonly [CraftRaider, JavaOpaque<"org.bukkit.entity.Witch">, JavaOpaque<"com.destroystokyo.paper.entity.CraftRangedEntity", [j_net_minecraft_world_entity_monster.Witch]>];
   getDrinkingPotion(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Witch;
-  getHandle(): j_net_minecraft_world_entity_raid.Raider;
   getPotionUseTimeLeft(): number;
   isDrinkingPotion(): boolean;
   setDrinkingPotion(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
@@ -4534,14 +3706,7 @@ export interface CraftWitherMembers {
   canTravelThroughPortals(): boolean;
   enterInvulnerabilityPhase(): void;
   getBossBar(): JavaOpaque<"org.bukkit.boss.BossBar">;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
   getHandle(): j_net_minecraft_world_entity_boss_wither.WitherBoss;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getInvulnerabilityTicks(): number;
   getInvulnerableTicks(): number;
   getTarget(arg0: JavaOpaque<"org.bukkit.entity.Wither$Head">): JavaOpaque<"org.bukkit.entity.LivingEntity">;
@@ -4569,9 +3734,6 @@ export interface CraftWitherSkeletonStatics {
 /** JVM class org.bukkit.craftbukkit.entity.CraftWitherSkull. */
 export interface CraftWitherSkull_2Members {
   readonly __javaSupertypes?: readonly [CraftFireball, JavaOpaque<"org.bukkit.entity.WitherSkull">];
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity_projectile.AbstractHurtingProjectile;
-  getHandle(): j_net_minecraft_world_entity_projectile.Projectile;
   getHandle(): j_net_minecraft_world_entity_projectile.WitherSkull;
   isCharged(): boolean;
   setCharged(arg0: boolean): void;
@@ -4585,14 +3747,6 @@ export interface CraftWitherSkull_2Statics {
 export interface CraftWolfMembers {
   readonly __javaSupertypes?: readonly [CraftTameableAnimal, JavaOpaque<"org.bukkit.entity.Wolf">];
   getCollarColor(): JavaOpaque<"org.bukkit.DyeColor">;
-  getHandle(): j_net_minecraft_world_entity.AgeableMob;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity.TamableAnimal;
-  getHandle(): j_net_minecraft_world_entity_animal.Animal;
   getHandle(): j_net_minecraft_world_entity_animal_wolf.Wolf;
   getSoundVariant(): JavaOpaque<"org.bukkit.entity.Wolf$SoundVariant">;
   getTailAngle(): number;
@@ -4643,13 +3797,6 @@ export interface CraftZoglinMembers {
   canBreed(): boolean;
   getAge(): number;
   getAgeLock(): boolean;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Zoglin;
   isAdult(): boolean;
   isBaby(): boolean;
@@ -4673,13 +3820,6 @@ export interface CraftZombieMembers {
   getAge(): number;
   getAgeLock(): boolean;
   getConversionTime(): number;
-  getHandle(): j_net_minecraft_world_entity.Entity;
-  getHandle(): j_net_minecraft_world_entity.Leashable;
-  getHandle(): j_net_minecraft_world_entity.LivingEntity;
-  getHandle(): j_net_minecraft_world_entity.Mob;
-  getHandle(): j_net_minecraft_world_entity.PathfinderMob;
-  getHandle(): j_net_minecraft_world_entity_monster.Enemy;
-  getHandle(): j_net_minecraft_world_entity_monster.Monster;
   getHandle(): j_net_minecraft_world_entity_monster.Zombie;
   getVillagerProfession(): JavaOpaque<"org.bukkit.entity.Villager$Profession">;
   isAdult(): boolean;

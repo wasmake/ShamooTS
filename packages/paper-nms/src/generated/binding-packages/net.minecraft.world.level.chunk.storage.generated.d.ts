@@ -45,14 +45,12 @@ export interface ChunkStorageMembers {
   chunkScanner(): ChunkScanAccess;
   /** @throws java.io.IOException */
   close(): void;
-  readonly fixerUpper: JavaOpaque<"com.mojang.datafixers.DataFixer">;
   flushWorker(): void;
-  handleLegacyStructureIndex(arg0: j_net_minecraft_world_level.ChunkPos): void;
   isOldChunkAround(arg0: j_net_minecraft_world_level.ChunkPos, arg1: number): boolean;
   moonrise$getRegionStorage(): RegionFileStorage;
   read(arg0: j_net_minecraft_world_level.ChunkPos): PromiseLike<JavaOptional<j_net_minecraft_nbt.CompoundTag>>;
   storageInfo(): RegionStorageInfo;
-  upgradeChunkTag(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_dimension.LevelStem>, arg1: JavaSupplier<j_net_minecraft_world_level_storage.DimensionDataStorage>, arg2: j_net_minecraft_nbt.CompoundTag, arg3: JavaOptional<j_net_minecraft_resources.ResourceKey<JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_chunk.ChunkGenerator]>>>, arg4: j_net_minecraft_world_level.ChunkPos, arg5: j_net_minecraft_world_level.LevelAccessor | null): j_net_minecraft_nbt.CompoundTag | null;
+  upgradeChunkTag(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_dimension.LevelStem>, arg1: JavaSupplier<j_net_minecraft_world_level_storage.DimensionDataStorage>, arg2: j_net_minecraft_nbt.CompoundTag, arg3: JavaOptional<j_net_minecraft_resources.ResourceKey<JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_level_chunk.ChunkGenerator]>>>, arg4: j_net_minecraft_world_level.ChunkPos, arg5: j_net_minecraft_world_level.LevelAccessor | null): j_net_minecraft_nbt.CompoundTag;
   write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: JavaSupplier<j_net_minecraft_nbt.CompoundTag>): PromiseLike<void>;
 }
 export type ChunkStorage = ChunkStorageMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.storage.ChunkSystemChunkStorage"> & JavaOpaque<"java.lang.AutoCloseable">;
@@ -90,12 +88,11 @@ export interface IOWorkerMembers {
   readonly storage: RegionFileStorage;
   storageInfo(): RegionStorageInfo;
   store(arg0: j_net_minecraft_world_level.ChunkPos, arg1: JavaSupplier<j_net_minecraft_nbt.CompoundTag>): PromiseLike<void>;
-  store(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): PromiseLike<void> | null;
+  store(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): PromiseLike<void>;
   synchronize(arg0: boolean): PromiseLike<void>;
 }
 export type IOWorker = IOWorkerMembers & JavaOpaque<"java.lang.AutoCloseable"> & ChunkScanAccess;
 export interface IOWorkerStatics {
-  new(arg0: RegionStorageInfo, arg1: JavaOpaque<"java.nio.file.Path">, arg2: boolean): IOWorker;
 }
 
 /** JVM class net.minecraft.world.level.chunk.storage.RecreatingChunkStorage. */
@@ -115,7 +112,7 @@ export interface RecreatingSimpleRegionStorageMembers {
   readonly __javaSupertypes?: readonly [SimpleRegionStorage];
   /** @throws java.io.IOException */
   close(): void;
-  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): PromiseLike<void> | null;
+  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): PromiseLike<void>;
 }
 export type RecreatingSimpleRegionStorage = RecreatingSimpleRegionStorageMembers & SimpleRegionStorage;
 export interface RecreatingSimpleRegionStorageStatics {
@@ -155,9 +152,6 @@ export interface RegionFileMembers {
   hasChunk(arg0: j_net_minecraft_world_level.ChunkPos): boolean;
   /** @throws java.io.IOException */
   moonrise$startWrite(arg0: j_net_minecraft_nbt.CompoundTag, arg1: j_net_minecraft_world_level.ChunkPos): JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.io.MoonriseRegionFileIO$RegionDataController$WriteData">;
-  readonly usedSectors: RegionBitmap;
-  /** @throws java.io.IOException */
-  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: JavaOpaque<"java.nio.ByteBuffer">): void;
 }
 export type RegionFile = RegionFileMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.storage.ChunkSystemRegionFile"> & JavaOpaque<"java.lang.AutoCloseable">;
 export interface RegionFileStatics {
@@ -166,7 +160,6 @@ export interface RegionFileStatics {
   /** @throws java.io.IOException */
   new(arg0: RegionStorageInfo, arg1: JavaOpaque<"java.nio.file.Path">, arg2: JavaOpaque<"java.nio.file.Path">, arg3: boolean): RegionFile;
   readonly MAX_CHUNK_SIZE: 524288000;
-  readonly SECTOR_INTS: 1024;
 }
 
 /** JVM class net.minecraft.world.level.chunk.storage.RegionFileStorage. */
@@ -197,11 +190,10 @@ export interface RegionFileStorageMembers {
   /** @throws java.io.IOException */
   scanChunk(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.StreamTagVisitor): void;
   /** @throws java.io.IOException */
-  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): void | null;
+  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): void;
 }
 export type RegionFileStorage = RegionFileStorageMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.io.ChunkSystemRegionFileStorage"> & JavaOpaque<"java.lang.AutoCloseable">;
 export interface RegionFileStorageStatics {
-  new(arg0: RegionStorageInfo, arg1: JavaOpaque<"java.nio.file.Path">, arg2: boolean): RegionFileStorage;
   readonly ANVIL_EXTENSION: ".mca";
   getRegionFileCoordinates(arg0: JavaOpaque<"java.nio.file.Path">): j_net_minecraft_world_level.ChunkPos | null;
   isChunkDataFolder(arg0: JavaOpaque<"java.nio.file.Path">): boolean;
@@ -264,18 +256,13 @@ export interface SectionStorageMembers<R = unknown, P = unknown> {
   flush(arg0: j_net_minecraft_world_level.ChunkPos): void;
   flushAll(): void;
   get(arg0: bigint): JavaOptional<R> | null;
-  getOrCreate(arg0: bigint): R;
   getOrLoad(arg0: bigint): JavaOptional<R>;
   hasWork(): boolean;
-  readonly levelHeightAccessor: j_net_minecraft_world_level.LevelHeightAccessor;
   /** @throws java.io.IOException */
   moonrise$close(): void;
   moonrise$getRegionStorage(): RegionFileStorage;
-  onSectionLoad(arg0: bigint): void;
-  outsideStoredRange(arg0: bigint): boolean;
   prefetch(arg0: j_net_minecraft_world_level.ChunkPos): PromiseLike<object>;
   setDirty(arg0: bigint): void;
-  tick(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
 }
 export type SectionStorage<R = unknown, P = unknown> = SectionStorageMembers<R, P> & JavaOpaque<"java.lang.AutoCloseable"> & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.storage.ChunkSystemSectionStorage">;
 export interface SectionStorageStatics {
@@ -323,7 +310,7 @@ export interface SerializableChunkDataStatics {
   readonly Z_POS_TAG: "zPos";
   copyOf(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_level_chunk.ChunkAccess): SerializableChunkData;
   getChunkCoordinate(arg0: j_net_minecraft_nbt.CompoundTag): j_net_minecraft_world_level.ChunkPos;
-  getChunkStatusFromTag(arg0: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_world_level_chunk_status.ChunkStatus | null;
+  getChunkStatusFromTag(arg0: j_net_minecraft_nbt.CompoundTag | null): j_net_minecraft_world_level_chunk_status.ChunkStatus;
   getLastWorldSaveTime(arg0: j_net_minecraft_nbt.CompoundTag): bigint;
   parse(arg0: j_net_minecraft_world_level.LevelHeightAccessor, arg1: j_net_minecraft_core.RegistryAccess, arg2: j_net_minecraft_nbt.CompoundTag): SerializableChunkData | null;
 }
@@ -365,7 +352,7 @@ export interface SimpleRegionStorageMembers {
   upgradeChunkTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [j_net_minecraft_nbt.Tag]>, arg1: number): JavaOpaque<"com.mojang.serialization.Dynamic", [j_net_minecraft_nbt.Tag]>;
   upgradeChunkTag(arg0: j_net_minecraft_nbt.CompoundTag, arg1: number): j_net_minecraft_nbt.CompoundTag;
   readonly worker: IOWorker;
-  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): PromiseLike<void> | null;
+  write(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_nbt.CompoundTag | null): PromiseLike<void>;
 }
 export type SimpleRegionStorage = SimpleRegionStorageMembers & JavaOpaque<"java.lang.AutoCloseable">;
 export interface SimpleRegionStorageStatics {

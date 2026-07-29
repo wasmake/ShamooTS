@@ -41,7 +41,7 @@ export const PINNED_VELOCITY_MODEL = join(
   VELOCITY_CODEGEN_PACKAGE_DIRECTORY,
   'models/velocity.model.json',
 );
-const PINNED_VELOCITY_CHECKSUM = '3cb1a94fa7a0a73ad73466132b1ba2d4217bf9be537e5441932a8dc648a56490';
+const PINNED_VELOCITY_CHECKSUM = 'eed94c7ccd9a02663f84c04a41bb9765ce0dc97f454c9172dfed70d8ddbe745e';
 async function generate(request: VelocityGenerationRequest): Promise<GeneratedPlatform> {
   if (request.model === undefined)
     await verifyModelChecksum(PINNED_VELOCITY_MODEL, PINNED_VELOCITY_CHECKSUM);

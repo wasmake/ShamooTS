@@ -225,7 +225,6 @@ export interface BiomesMembers {
 }
 export type Biomes = BiomesMembers;
 export interface BiomesStatics {
-  new(): Biomes;
   readonly BADLANDS: j_net_minecraft_resources.ResourceKey<Biome>;
   readonly BAMBOO_JUNGLE: j_net_minecraft_resources.ResourceKey<Biome>;
   readonly BASALT_DELTAS: j_net_minecraft_resources.ResourceKey<Biome>;
@@ -297,8 +296,6 @@ export interface BiomesStatics {
 export interface BiomeSourceMembers {
   readonly __javaSupertypes?: readonly [BiomeResolver];
   addDebugInfo(arg0: JavaList<string>, arg1: j_net_minecraft_core.BlockPos, arg2: Climate_Sampler): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BiomeSource]>;
-  collectPossibleBiomes(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<Biome>]>;
   findBiomeHorizontal(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JavaPredicate<j_net_minecraft_core.Holder<Biome>>, arg6: j_net_minecraft_util.RandomSource, arg7: boolean, arg8: Climate_Sampler): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<Biome>]> | null;
   findBiomeHorizontal(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JavaPredicate<j_net_minecraft_core.Holder<Biome>>, arg5: j_net_minecraft_util.RandomSource, arg6: Climate_Sampler): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<Biome>]> | null;
   findClosestBiome3d(arg0: j_net_minecraft_core.BlockPos, arg1: number, arg2: number, arg3: number, arg4: JavaPredicate<j_net_minecraft_core.Holder<Biome>>, arg5: Climate_Sampler, arg6: j_net_minecraft_world_level.LevelReader): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<Biome>]> | null;
@@ -308,7 +305,6 @@ export interface BiomeSourceMembers {
 }
 export type BiomeSource = BiomeSourceMembers & BiomeResolver;
 export interface BiomeSourceStatics {
-  new(): BiomeSource;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [BiomeSource]>;
 }
 
@@ -349,7 +345,7 @@ export interface BiomeSpecialEffects_BuilderMembers {
   ambientLoopSound(arg0: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>): BiomeSpecialEffects_Builder;
   ambientMoodSound(arg0: AmbientMoodSettings): BiomeSpecialEffects_Builder;
   ambientParticle(arg0: AmbientParticleSettings): BiomeSpecialEffects_Builder;
-  backgroundMusic(arg0: j_net_minecraft_sounds.Music | null): BiomeSpecialEffects_Builder | null;
+  backgroundMusic(arg0: j_net_minecraft_sounds.Music | null): BiomeSpecialEffects_Builder;
   backgroundMusic(arg0: j_net_minecraft_util_random.WeightedList<j_net_minecraft_sounds.Music>): BiomeSpecialEffects_Builder;
   backgroundMusicVolume(arg0: number): BiomeSpecialEffects_Builder;
   build(): BiomeSpecialEffects;
@@ -387,8 +383,6 @@ export interface BiomeSpecialEffects_GrassColorModifierStatics {
 /** JVM class net.minecraft.world.level.biome.CheckerboardColumnBiomeSource. */
 export interface CheckerboardColumnBiomeSourceMembers {
   readonly __javaSupertypes?: readonly [BiomeSource];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BiomeSource]>;
-  collectPossibleBiomes(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<Biome>]>;
   getNoiseBiome(arg0: number, arg1: number, arg2: number, arg3: Climate_Sampler): j_net_minecraft_core.Holder<Biome>;
 }
 export type CheckerboardColumnBiomeSource = CheckerboardColumnBiomeSourceMembers & BiomeSource;
@@ -403,7 +397,6 @@ export interface ClimateMembers {
 export type Climate = ClimateMembers;
 export interface ClimateStatics {
   new(): Climate;
-  readonly PARAMETER_COUNT: 7;
   empty(): Climate_Sampler;
   findSpawnPosition(arg0: JavaList<Climate_ParameterPoint>, arg1: Climate_Sampler): j_net_minecraft_core.BlockPos;
   parameters(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number): Climate_ParameterPoint;
@@ -422,7 +415,7 @@ export interface Climate_ParameterMembers {
   hashCode(): number;
   max(): bigint;
   min(): bigint;
-  span(arg0: Climate_Parameter | null): Climate_Parameter | null;
+  span(arg0: Climate_Parameter | null): Climate_Parameter;
   toString(): string;
 }
 export type Climate_Parameter = Climate_ParameterMembers & JavaOpaque<"java.lang.Record">;
@@ -439,7 +432,6 @@ export interface Climate_ParameterListMembers<T = unknown> {
   findValue(arg0: Climate_TargetPoint): T;
   findValueBruteForce(arg0: Climate_TargetPoint): T;
   findValueIndex(arg0: Climate_TargetPoint): T;
-  findValueIndex(arg0: Climate_TargetPoint, arg1: JavaOpaque<"net.minecraft.world.level.biome.Climate$DistanceMetric", [T]>): T;
   values(): JavaList<JavaOpaque<"com.mojang.datafixers.util.Pair", [Climate_ParameterPoint, T]>>;
 }
 export type Climate_ParameterList<T = unknown> = Climate_ParameterListMembers<T>;
@@ -458,7 +450,6 @@ export interface Climate_ParameterPointMembers {
   hashCode(): number;
   humidity(): Climate_Parameter;
   offset(): bigint;
-  parameterSpace(): JavaList<Climate_Parameter>;
   temperature(): Climate_Parameter;
   toString(): string;
   weirdness(): Climate_Parameter;
@@ -509,7 +500,6 @@ export interface Climate_TargetPointMembers {
   hashCode(): number;
   humidity(): bigint;
   temperature(): bigint;
-  toParameterArray(): Array<bigint>;
   toString(): string;
   weirdness(): bigint;
 }
@@ -544,8 +534,6 @@ export interface FeatureSorter_StepFeatureDataStatics {
 /** JVM class net.minecraft.world.level.biome.FixedBiomeSource. */
 export interface FixedBiomeSourceMembers {
   readonly __javaSupertypes?: readonly [BiomeSource, BiomeManager_NoiseBiomeSource];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BiomeSource]>;
-  collectPossibleBiomes(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<Biome>]>;
   findBiomeHorizontal(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JavaPredicate<j_net_minecraft_core.Holder<Biome>>, arg6: j_net_minecraft_util.RandomSource, arg7: boolean, arg8: Climate_Sampler): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<Biome>]> | null;
   findClosestBiome3d(arg0: j_net_minecraft_core.BlockPos, arg1: number, arg2: number, arg3: number, arg4: JavaPredicate<j_net_minecraft_core.Holder<Biome>>, arg5: Climate_Sampler, arg6: j_net_minecraft_world_level.LevelReader): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<Biome>]> | null;
   getBiomesWithin(arg0: number, arg1: number, arg2: number, arg3: number, arg4: Climate_Sampler): JavaSet<j_net_minecraft_core.Holder<Biome>>;
@@ -638,8 +626,6 @@ export interface MobSpawnSettings_SpawnerDataStatics {
 export interface MultiNoiseBiomeSourceMembers {
   readonly __javaSupertypes?: readonly [BiomeSource];
   addDebugInfo(arg0: JavaList<string>, arg1: j_net_minecraft_core.BlockPos, arg2: Climate_Sampler): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BiomeSource]>;
-  collectPossibleBiomes(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<Biome>]>;
   getNoiseBiome(arg0: number, arg1: number, arg2: number, arg3: Climate_Sampler): j_net_minecraft_core.Holder<Biome>;
   getNoiseBiome(arg0: Climate_TargetPoint): j_net_minecraft_core.Holder<Biome>;
   stable(arg0: j_net_minecraft_resources.ResourceKey<MultiNoiseBiomeSourceParameterList>): boolean;
@@ -695,7 +681,6 @@ export interface MultiNoiseBiomeSourceParameterListsStatics {
 
 /** JVM class net.minecraft.world.level.biome.OverworldBiomeBuilder. */
 export interface OverworldBiomeBuilderMembers {
-  addBiomes(arg0: JavaConsumer<JavaOpaque<"com.mojang.datafixers.util.Pair", [Climate_ParameterPoint, j_net_minecraft_resources.ResourceKey<Biome>]>>): void;
   getContinentalnessThresholds(): Array<Climate_Parameter>;
   getDebugStringForContinentalness(arg0: number): string;
   getDebugStringForErosion(arg0: number): string;
@@ -725,8 +710,6 @@ export interface OverworldBiomeBuilderStatics {
 /** JVM class net.minecraft.world.level.biome.TheEndBiomeSource. */
 export interface TheEndBiomeSourceMembers {
   readonly __javaSupertypes?: readonly [BiomeSource];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BiomeSource]>;
-  collectPossibleBiomes(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_core.Holder<Biome>]>;
   getNoiseBiome(arg0: number, arg1: number, arg2: number, arg3: Climate_Sampler): j_net_minecraft_core.Holder<Biome>;
 }
 export type TheEndBiomeSource = TheEndBiomeSourceMembers & BiomeSource;

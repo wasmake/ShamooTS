@@ -6,15 +6,11 @@ import type * as j_net_minecraft_server from './net.minecraft.server.generated.j
 export interface GenericThreadMembers {
   readonly __javaSupertypes?: readonly [JavaRunnable];
   isRunning(): boolean;
-  readonly name: string;
-  running: boolean;
   start(): boolean;
   stop(): void;
-  thread: JavaOpaque<"java.lang.Thread"> | null;
 }
 export type GenericThread = GenericThreadMembers & JavaRunnable;
 export interface GenericThreadStatics {
-  new(arg0: string): GenericThread;
 }
 
 /** JVM class net.minecraft.server.rcon.thread.QueryThreadGs4. */

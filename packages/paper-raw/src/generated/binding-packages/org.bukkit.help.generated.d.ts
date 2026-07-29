@@ -6,7 +6,6 @@ import type * as j_org_bukkit_command from './org.bukkit.command.generated.js';
 export interface GenericCommandHelpTopicMembers {
   readonly __javaSupertypes?: readonly [HelpTopic];
   canSee(arg0: j_org_bukkit_command.CommandSender): boolean;
-  command: j_org_bukkit_command.Command;
 }
 export type GenericCommandHelpTopic = GenericCommandHelpTopicMembers & HelpTopic;
 export interface GenericCommandHelpTopicStatics {
@@ -28,27 +27,20 @@ export interface HelpMapStatics {
 
 /** JVM abstract org.bukkit.help.HelpTopic. */
 export interface HelpTopicMembers {
-  amendCanSee(arg0: string | null): void | null;
-  amendTopic(arg0: string | null, arg1: string | null): void | null;
-  amendedPermission: string;
-  applyAmendment(arg0: string, arg1: string | null): string | null;
+  amendCanSee(arg0: string | null): void;
+  amendTopic(arg0: string | null, arg1: string | null): void;
   canSee(arg0: j_org_bukkit_command.CommandSender): boolean;
-  fullText: string;
   getFullText(arg0: j_org_bukkit_command.CommandSender): string;
   getName(): string;
   getShortText(): string;
-  name: string;
-  shortText: string;
 }
 export type HelpTopic = HelpTopicMembers;
 export interface HelpTopicStatics {
-  new(): HelpTopic;
 }
 
 /** JVM class org.bukkit.help.HelpTopicComparator. */
 export interface HelpTopicComparatorMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.Comparator", [HelpTopic]>];
-  compare(arg0: object, arg1: object): number;
   compare(arg0: HelpTopic, arg1: HelpTopic): number;
 }
 export type HelpTopicComparator = HelpTopicComparatorMembers & JavaOpaque<"java.util.Comparator", [HelpTopic]>;
@@ -60,7 +52,6 @@ export interface HelpTopicComparatorStatics {
 /** JVM class org.bukkit.help.HelpTopicComparator$TopicNameComparator. */
 export interface HelpTopicComparator_TopicNameComparatorMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.util.Comparator", [string]>];
-  compare(arg0: object, arg1: object): number;
   compare(arg0: string, arg1: string): number;
 }
 export type HelpTopicComparator_TopicNameComparator = HelpTopicComparator_TopicNameComparatorMembers & JavaOpaque<"java.util.Comparator", [string]>;
@@ -78,15 +69,9 @@ export interface HelpTopicFactoryStatics {
 /** JVM class org.bukkit.help.IndexHelpTopic. */
 export interface IndexHelpTopicMembers {
   readonly __javaSupertypes?: readonly [HelpTopic];
-  allTopics: JavaCollection<HelpTopic>;
-  amendCanSee(arg0: string | null): void | null;
-  buildIndexLine(arg0: j_org_bukkit_command.CommandSender, arg1: HelpTopic): string;
-  buildPreamble(arg0: j_org_bukkit_command.CommandSender): string;
+  amendCanSee(arg0: string | null): void;
   canSee(arg0: j_org_bukkit_command.CommandSender): boolean;
   getFullText(arg0: j_org_bukkit_command.CommandSender): string;
-  permission: string;
-  preamble: string;
-  setTopicsCollection(arg0: JavaCollection<HelpTopic>): void;
 }
 export type IndexHelpTopic = IndexHelpTopicMembers & HelpTopic;
 export interface IndexHelpTopicStatics {

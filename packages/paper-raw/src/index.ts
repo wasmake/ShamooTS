@@ -1,5 +1,6 @@
 export * from './generated/bindings.generated.js';
 export * from './generated/events.generated.js';
+export * from './bridge.js';
 
 import type { Plugin, Server } from './generated/bindings.generated.js';
 

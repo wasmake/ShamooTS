@@ -61,7 +61,6 @@ export interface CopyBlockStateMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getReferencedContextParams(): JavaSet<j_net_minecraft_util_context.ContextKey<object>>;
   getType(): LootItemFunctionType<CopyBlockState>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type CopyBlockState = CopyBlockStateMembers & LootItemConditionalFunction;
 export interface CopyBlockStateStatics {
@@ -74,14 +73,9 @@ export interface CopyBlockState_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<CopyBlockState_Builder>];
   build(): LootItemFunction;
   copy(arg0: j_net_minecraft_world_level_block_state_properties.Property<object>): CopyBlockState_Builder;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): CopyBlockState_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): CopyBlockState_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): CopyBlockState_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): CopyBlockState_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type CopyBlockState_Builder = CopyBlockState_BuilderMembers;
 export interface CopyBlockState_BuilderStatics {
@@ -105,15 +99,10 @@ export interface CopyComponentsFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<CopyComponentsFunction_Builder>];
   build(): LootItemFunction;
   exclude(arg0: j_net_minecraft_core_component.DataComponentType<object>): CopyComponentsFunction_Builder;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): CopyComponentsFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   include(arg0: j_net_minecraft_core_component.DataComponentType<object>): CopyComponentsFunction_Builder;
   unwrap(): CopyComponentsFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): CopyComponentsFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): CopyComponentsFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type CopyComponentsFunction_Builder = CopyComponentsFunction_BuilderMembers;
 export interface CopyComponentsFunction_BuilderStatics {
@@ -153,14 +142,9 @@ export interface CopyCustomDataFunction_BuilderMembers {
   build(): LootItemFunction;
   copy(arg0: string, arg1: string): CopyCustomDataFunction_Builder;
   copy(arg0: string, arg1: string, arg2: CopyCustomDataFunction_MergeStrategy): CopyCustomDataFunction_Builder;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): CopyCustomDataFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): CopyCustomDataFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): CopyCustomDataFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): CopyCustomDataFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type CopyCustomDataFunction_Builder = CopyCustomDataFunction_BuilderMembers;
 export interface CopyCustomDataFunction_BuilderStatics {
@@ -228,15 +212,10 @@ export interface EnchantedCountIncreaseFunctionStatics {
 export interface EnchantedCountIncreaseFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<EnchantedCountIncreaseFunction_Builder>];
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): EnchantedCountIncreaseFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   setLimit(arg0: number): EnchantedCountIncreaseFunction_Builder;
   unwrap(): EnchantedCountIncreaseFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): EnchantedCountIncreaseFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): EnchantedCountIncreaseFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type EnchantedCountIncreaseFunction_Builder = EnchantedCountIncreaseFunction_BuilderMembers;
 export interface EnchantedCountIncreaseFunction_BuilderStatics {
@@ -261,14 +240,9 @@ export interface EnchantRandomlyFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<EnchantRandomlyFunction_Builder>];
   allowingIncompatibleEnchantments(): EnchantRandomlyFunction_Builder;
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): EnchantRandomlyFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): EnchantRandomlyFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): EnchantRandomlyFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): EnchantRandomlyFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   withEnchantment(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_item_enchantment.Enchantment>): EnchantRandomlyFunction_Builder;
   withOneOf(arg0: j_net_minecraft_core.HolderSet<j_net_minecraft_world_item_enchantment.Enchantment>): EnchantRandomlyFunction_Builder;
 }
@@ -295,14 +269,9 @@ export interface EnchantWithLevelsFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<EnchantWithLevelsFunction_Builder>];
   build(): LootItemFunction;
   fromOptions(arg0: j_net_minecraft_core.HolderSet<j_net_minecraft_world_item_enchantment.Enchantment>): EnchantWithLevelsFunction_Builder;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): EnchantWithLevelsFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): EnchantWithLevelsFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): EnchantWithLevelsFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): EnchantWithLevelsFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type EnchantWithLevelsFunction_Builder = EnchantWithLevelsFunction_BuilderMembers;
 export interface EnchantWithLevelsFunction_BuilderStatics {
@@ -331,19 +300,14 @@ export interface ExplorationMapFunctionStatics {
 export interface ExplorationMapFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<ExplorationMapFunction_Builder>];
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): ExplorationMapFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   setDestination(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_levelgen_structure.Structure>): ExplorationMapFunction_Builder;
   setMapDecoration(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_saveddata_maps.MapDecorationType>): ExplorationMapFunction_Builder;
   setSearchRadius(arg0: number): ExplorationMapFunction_Builder;
   setSkipKnownStructures(arg0: boolean): ExplorationMapFunction_Builder;
   setZoom(arg0: number): ExplorationMapFunction_Builder;
   unwrap(): ExplorationMapFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): ExplorationMapFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): ExplorationMapFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type ExplorationMapFunction_Builder = ExplorationMapFunction_BuilderMembers;
 export interface ExplorationMapFunction_BuilderStatics {
@@ -380,7 +344,6 @@ export interface FilteredFunctionStatics {
 export interface FunctionReferenceMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getType(): LootItemFunctionType<FunctionReference>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
   validate(arg0: j_net_minecraft_world_level_storage_loot.ValidationContext): void;
 }
 export type FunctionReference = FunctionReferenceMembers & LootItemConditionalFunction;
@@ -518,33 +481,22 @@ export interface ListOperation_TypeStatics {
 /** JVM abstract net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction. */
 export interface LootItemConditionalFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemFunction];
-  apply(arg0: object, arg1: object): object;
   apply(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
   getType(): LootItemFunctionType<LootItemConditionalFunction>;
-  readonly predicates: JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
   validate(arg0: j_net_minecraft_world_level_storage_loot.ValidationContext): void;
 }
 export type LootItemConditionalFunction = LootItemConditionalFunctionMembers & LootItemFunction;
 export interface LootItemConditionalFunctionStatics {
-  new(arg0: JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>): LootItemConditionalFunction;
-  commonFields<T /* extends LootItemConditionalFunction */>(arg0: JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Instance", [T]>): JavaOpaque<"com.mojang.datafixers.Products$P1", [JavaOpaque<"com.mojang.serialization.codecs.RecordCodecBuilder$Mu", [T]>, JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>]>;
-  simpleBuilder(arg0: JavaFunction<JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>, LootItemFunction>): LootItemConditionalFunction_Builder<object>;
 }
 
 /** JVM abstract net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction$Builder. */
 export interface LootItemConditionalFunction_BuilderMembers<T /* extends LootItemConditionalFunction_Builder<T> */ = unknown> {
   readonly __javaSupertypes?: readonly [LootItemFunction_Builder, j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder<T>];
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): T;
   unwrap(): T;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): T;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type LootItemConditionalFunction_Builder<T /* extends LootItemConditionalFunction_Builder<T> */ = unknown> = LootItemConditionalFunction_BuilderMembers<T> & LootItemFunction_Builder & j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder<T>;
 export interface LootItemConditionalFunction_BuilderStatics {
-  new<T /* extends LootItemConditionalFunction_Builder<T> */>(): LootItemConditionalFunction_Builder<T>;
 }
 
 /** JVM interface net.minecraft.world.level.storage.loot.functions.LootItemFunction. */
@@ -646,7 +598,6 @@ export interface ModifyContainerContentsStatics {
 /** JVM class net.minecraft.world.level.storage.loot.functions.SequenceFunction. */
 export interface SequenceFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemFunction];
-  apply(arg0: object, arg1: object): object;
   apply(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
   getType(): LootItemFunctionType<SequenceFunction>;
   validate(arg0: j_net_minecraft_world_level_storage_loot.ValidationContext): void;
@@ -676,14 +627,9 @@ export interface SetAttributesFunctionStatics {
 export interface SetAttributesFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<SetAttributesFunction_Builder>];
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): SetAttributesFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): SetAttributesFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): SetAttributesFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): SetAttributesFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   withModifier(arg0: SetAttributesFunction_ModifierBuilder): SetAttributesFunction_Builder;
 }
 export type SetAttributesFunction_Builder = SetAttributesFunction_BuilderMembers;
@@ -706,7 +652,6 @@ export interface SetAttributesFunction_ModifierBuilderStatics {
 export interface SetBannerPatternFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getType(): LootItemFunctionType<SetBannerPatternFunction>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type SetBannerPatternFunction = SetBannerPatternFunctionMembers & LootItemConditionalFunction;
 export interface SetBannerPatternFunctionStatics {
@@ -719,14 +664,9 @@ export interface SetBannerPatternFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<SetBannerPatternFunction_Builder>];
   addPattern(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_block_entity.BannerPattern>, arg1: j_net_minecraft_world_item.DyeColor): SetBannerPatternFunction_Builder;
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): SetBannerPatternFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): SetBannerPatternFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): SetBannerPatternFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): SetBannerPatternFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type SetBannerPatternFunction_Builder = SetBannerPatternFunction_BuilderMembers;
 export interface SetBannerPatternFunction_BuilderStatics {
@@ -736,7 +676,6 @@ export interface SetBannerPatternFunction_BuilderStatics {
 export interface SetBookCoverFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getType(): LootItemFunctionType<SetBookCoverFunction>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type SetBookCoverFunction = SetBookCoverFunctionMembers & LootItemConditionalFunction;
 export interface SetBookCoverFunctionStatics {
@@ -773,14 +712,9 @@ export interface SetContainerContentsStatics {
 export interface SetContainerContents_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<SetContainerContents_Builder>];
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): SetContainerContents_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): SetContainerContents_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): SetContainerContents_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): SetContainerContents_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   withEntry(arg0: j_net_minecraft_world_level_storage_loot_entries.LootPoolEntryContainer_Builder<object>): SetContainerContents_Builder;
 }
 export type SetContainerContents_Builder = SetContainerContents_BuilderMembers;
@@ -843,14 +777,9 @@ export interface SetEnchantmentsFunctionStatics {
 export interface SetEnchantmentsFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<SetEnchantmentsFunction_Builder>];
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): SetEnchantmentsFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): SetEnchantmentsFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): SetEnchantmentsFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): SetEnchantmentsFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   withEnchantment(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_item_enchantment.Enchantment>, arg1: j_net_minecraft_world_level_storage_loot_providers_number.NumberProvider): SetEnchantmentsFunction_Builder;
 }
 export type SetEnchantmentsFunction_Builder = SetEnchantmentsFunction_BuilderMembers;
@@ -863,7 +792,6 @@ export interface SetEnchantmentsFunction_BuilderStatics {
 export interface SetFireworkExplosionFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getType(): LootItemFunctionType<SetFireworkExplosionFunction>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type SetFireworkExplosionFunction = SetFireworkExplosionFunctionMembers & LootItemConditionalFunction;
 export interface SetFireworkExplosionFunctionStatics {
@@ -876,11 +804,9 @@ export interface SetFireworkExplosionFunctionStatics {
 export interface SetFireworksFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getType(): LootItemFunctionType<SetFireworksFunction>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type SetFireworksFunction = SetFireworksFunctionMembers & LootItemConditionalFunction;
 export interface SetFireworksFunctionStatics {
-  new(arg0: JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>, arg1: JavaOptional<ListOperation_StandAlone<j_net_minecraft_world_item_component.FireworkExplosion>>, arg2: JavaOptional<number>): SetFireworksFunction;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SetFireworksFunction]>;
   readonly DEFAULT_VALUE: j_net_minecraft_world_item_component.Fireworks;
 }
@@ -955,16 +881,11 @@ export interface SetLoreFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<SetLoreFunction_Builder>];
   addLine(arg0: j_net_minecraft_network_chat.Component): SetLoreFunction_Builder;
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): SetLoreFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   setMode(arg0: ListOperation): SetLoreFunction_Builder;
   setResolutionContext(arg0: j_net_minecraft_world_level_storage_loot.LootContext_EntityTarget): SetLoreFunction_Builder;
   unwrap(): SetLoreFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): SetLoreFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): SetLoreFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
 }
 export type SetLoreFunction_Builder = SetLoreFunction_BuilderMembers;
 export interface SetLoreFunction_BuilderStatics {
@@ -981,7 +902,7 @@ export interface SetNameFunctionMembers {
 export type SetNameFunction = SetNameFunctionMembers & LootItemConditionalFunction;
 export interface SetNameFunctionStatics {
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SetNameFunction]>;
-  createResolver(arg0: j_net_minecraft_world_level_storage_loot.LootContext, arg1: j_net_minecraft_world_level_storage_loot.LootContext_EntityTarget | null): JavaOpaque<"java.util.function.UnaryOperator", [j_net_minecraft_network_chat.Component]> | null;
+  createResolver(arg0: j_net_minecraft_world_level_storage_loot.LootContext, arg1: j_net_minecraft_world_level_storage_loot.LootContext_EntityTarget | null): JavaOpaque<"java.util.function.UnaryOperator", [j_net_minecraft_network_chat.Component]>;
   setName(arg0: j_net_minecraft_network_chat.Component, arg1: SetNameFunction_Target): LootItemConditionalFunction_Builder<object>;
   setName(arg0: j_net_minecraft_network_chat.Component, arg1: SetNameFunction_Target, arg2: j_net_minecraft_world_level_storage_loot.LootContext_EntityTarget): LootItemConditionalFunction_Builder<object>;
 }
@@ -1042,14 +963,9 @@ export interface SetStewEffectFunctionStatics {
 export interface SetStewEffectFunction_BuilderMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction_Builder<SetStewEffectFunction_Builder>];
   build(): LootItemFunction;
-  getConditions(): JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>;
-  getThis(): SetStewEffectFunction_Builder;
-  getThis(): LootItemConditionalFunction_Builder;
   unwrap(): SetStewEffectFunction_Builder;
-  unwrap(): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   when<E>(arg0: Iterable<E>, arg1: JavaFunction<E, j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder>): SetStewEffectFunction_Builder;
   when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): SetStewEffectFunction_Builder;
-  when(arg0: j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition_Builder): j_net_minecraft_world_level_storage_loot_predicates.ConditionUserBuilder;
   withEffect(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, arg1: j_net_minecraft_world_level_storage_loot_providers_number.NumberProvider): SetStewEffectFunction_Builder;
 }
 export type SetStewEffectFunction_Builder = SetStewEffectFunction_BuilderMembers;
@@ -1062,11 +978,9 @@ export interface SetWritableBookPagesFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   apply(arg0: j_net_minecraft_world_item_component.WritableBookContent): j_net_minecraft_world_item_component.WritableBookContent;
   getType(): LootItemFunctionType<SetWritableBookPagesFunction>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type SetWritableBookPagesFunction = SetWritableBookPagesFunctionMembers & LootItemConditionalFunction;
 export interface SetWritableBookPagesFunctionStatics {
-  new(arg0: JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>, arg1: JavaList<j_net_minecraft_server_network.Filterable<string>>, arg2: ListOperation): SetWritableBookPagesFunction;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SetWritableBookPagesFunction]>;
 }
 
@@ -1075,11 +989,9 @@ export interface SetWrittenBookPagesFunctionMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   apply(arg0: j_net_minecraft_world_item_component.WrittenBookContent): j_net_minecraft_world_item_component.WrittenBookContent;
   getType(): LootItemFunctionType<SetWrittenBookPagesFunction>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type SetWrittenBookPagesFunction = SetWrittenBookPagesFunctionMembers & LootItemConditionalFunction;
 export interface SetWrittenBookPagesFunctionStatics {
-  new(arg0: JavaList<j_net_minecraft_world_level_storage_loot_predicates.LootItemCondition>, arg1: JavaList<j_net_minecraft_server_network.Filterable<j_net_minecraft_network_chat.Component>>, arg2: ListOperation): SetWrittenBookPagesFunction;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SetWrittenBookPagesFunction]>;
 }
 
@@ -1099,7 +1011,6 @@ export interface SmeltItemFunctionStatics {
 export interface ToggleTooltipsMembers {
   readonly __javaSupertypes?: readonly [LootItemConditionalFunction];
   getType(): LootItemFunctionType<ToggleTooltips>;
-  run(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_storage_loot.LootContext): j_net_minecraft_world_item.ItemStack;
 }
 export type ToggleTooltips = ToggleTooltipsMembers & LootItemConditionalFunction;
 export interface ToggleTooltipsStatics {

@@ -23,7 +23,6 @@ import type * as j_net_minecraft_world_level_material from './net.minecraft.worl
 /** JVM class net.minecraft.data.tags.BannerPatternTagsProvider. */
 export interface BannerPatternTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_level_block_entity.BannerPattern>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type BannerPatternTagsProvider = BannerPatternTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_level_block_entity.BannerPattern>;
 export interface BannerPatternTagsProviderStatics {
@@ -33,7 +32,6 @@ export interface BannerPatternTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.BiomeTagsProvider. */
 export interface BiomeTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_level_biome.Biome>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type BiomeTagsProvider = BiomeTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_level_biome.Biome>;
 export interface BiomeTagsProviderStatics {
@@ -42,18 +40,14 @@ export interface BiomeTagsProviderStatics {
 
 /** JVM abstract net.minecraft.data.tags.BlockItemTagsProvider. */
 export interface BlockItemTagsProviderMembers {
-  run(): void;
-  tag(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_block.Block>, arg1: j_net_minecraft_tags.TagKey<j_net_minecraft_world_item.Item>): TagAppender<j_net_minecraft_world_level_block.Block, j_net_minecraft_world_level_block.Block>;
 }
 export type BlockItemTagsProvider = BlockItemTagsProviderMembers;
 export interface BlockItemTagsProviderStatics {
-  new(): BlockItemTagsProvider;
 }
 
 /** JVM class net.minecraft.data.tags.DamageTypeTagsProvider. */
 export interface DamageTypeTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_damagesource.DamageType>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type DamageTypeTagsProvider = DamageTypeTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_damagesource.DamageType>;
 export interface DamageTypeTagsProviderStatics {
@@ -63,7 +57,6 @@ export interface DamageTypeTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.DialogTagsProvider. */
 export interface DialogTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_server_dialog.Dialog>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type DialogTagsProvider = DialogTagsProviderMembers & KeyTagProvider<j_net_minecraft_server_dialog.Dialog>;
 export interface DialogTagsProviderStatics {
@@ -73,17 +66,14 @@ export interface DialogTagsProviderStatics {
 /** JVM abstract net.minecraft.data.tags.EnchantmentTagsProvider. */
 export interface EnchantmentTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_item_enchantment.Enchantment>];
-  tooltipOrder(arg0: j_net_minecraft_core.HolderLookup_Provider, ...arg1: Array<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item_enchantment.Enchantment>>): void;
 }
 export type EnchantmentTagsProvider = EnchantmentTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_item_enchantment.Enchantment>;
 export interface EnchantmentTagsProviderStatics {
-  new(arg0: j_net_minecraft_data.PackOutput, arg1: PromiseLike<j_net_minecraft_core.HolderLookup_Provider>): EnchantmentTagsProvider;
 }
 
 /** JVM class net.minecraft.data.tags.EntityTypeTagsProvider. */
 export interface EntityTypeTagsProviderMembers {
   readonly __javaSupertypes?: readonly [IntrinsicHolderTagsProvider<j_net_minecraft_world_entity.EntityType<object>>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type EntityTypeTagsProvider = EntityTypeTagsProviderMembers & IntrinsicHolderTagsProvider<j_net_minecraft_world_entity.EntityType<object>>;
 export interface EntityTypeTagsProviderStatics {
@@ -93,7 +83,6 @@ export interface EntityTypeTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.FlatLevelGeneratorPresetTagsProvider. */
 export interface FlatLevelGeneratorPresetTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_level_levelgen_flat.FlatLevelGeneratorPreset>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type FlatLevelGeneratorPresetTagsProvider = FlatLevelGeneratorPresetTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_level_levelgen_flat.FlatLevelGeneratorPreset>;
 export interface FlatLevelGeneratorPresetTagsProviderStatics {
@@ -103,7 +92,6 @@ export interface FlatLevelGeneratorPresetTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.FluidTagsProvider. */
 export interface FluidTagsProviderMembers {
   readonly __javaSupertypes?: readonly [IntrinsicHolderTagsProvider<j_net_minecraft_world_level_material.Fluid>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type FluidTagsProvider = FluidTagsProviderMembers & IntrinsicHolderTagsProvider<j_net_minecraft_world_level_material.Fluid>;
 export interface FluidTagsProviderStatics {
@@ -113,7 +101,6 @@ export interface FluidTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.GameEventTagsProvider. */
 export interface GameEventTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_level_gameevent.GameEvent>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type GameEventTagsProvider = GameEventTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_level_gameevent.GameEvent>;
 export interface GameEventTagsProviderStatics {
@@ -123,7 +110,6 @@ export interface GameEventTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.InstrumentTagsProvider. */
 export interface InstrumentTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_item.Instrument>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type InstrumentTagsProvider = InstrumentTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_item.Instrument>;
 export interface InstrumentTagsProviderStatics {
@@ -133,28 +119,22 @@ export interface InstrumentTagsProviderStatics {
 /** JVM abstract net.minecraft.data.tags.IntrinsicHolderTagsProvider. */
 export interface IntrinsicHolderTagsProviderMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [TagsProvider<T>];
-  tag(arg0: j_net_minecraft_tags.TagKey<T>): TagAppender<T, T>;
 }
 export type IntrinsicHolderTagsProvider<T = unknown> = IntrinsicHolderTagsProviderMembers<T> & TagsProvider<T>;
 export interface IntrinsicHolderTagsProviderStatics {
-  new<T>(arg0: j_net_minecraft_data.PackOutput, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: PromiseLike<j_net_minecraft_core.HolderLookup_Provider>, arg3: PromiseLike<TagsProvider_TagLookup<T>>, arg4: JavaFunction<T, j_net_minecraft_resources.ResourceKey<T>>): IntrinsicHolderTagsProvider<T>;
-  new<T>(arg0: j_net_minecraft_data.PackOutput, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: PromiseLike<j_net_minecraft_core.HolderLookup_Provider>, arg3: JavaFunction<T, j_net_minecraft_resources.ResourceKey<T>>): IntrinsicHolderTagsProvider<T>;
 }
 
 /** JVM abstract net.minecraft.data.tags.KeyTagProvider. */
 export interface KeyTagProviderMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [TagsProvider<T>];
-  tag(arg0: j_net_minecraft_tags.TagKey<T>): TagAppender<j_net_minecraft_resources.ResourceKey<T>, T>;
 }
 export type KeyTagProvider<T = unknown> = KeyTagProviderMembers<T> & TagsProvider<T>;
 export interface KeyTagProviderStatics {
-  new<T>(arg0: j_net_minecraft_data.PackOutput, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: PromiseLike<j_net_minecraft_core.HolderLookup_Provider>): KeyTagProvider<T>;
 }
 
 /** JVM class net.minecraft.data.tags.PaintingVariantTagsProvider. */
 export interface PaintingVariantTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_entity_decoration.PaintingVariant>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type PaintingVariantTagsProvider = PaintingVariantTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_entity_decoration.PaintingVariant>;
 export interface PaintingVariantTagsProviderStatics {
@@ -164,7 +144,6 @@ export interface PaintingVariantTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.PoiTypeTagsProvider. */
 export interface PoiTypeTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_entity_ai_village_poi.PoiType>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type PoiTypeTagsProvider = PoiTypeTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_entity_ai_village_poi.PoiType>;
 export interface PoiTypeTagsProviderStatics {
@@ -174,7 +153,6 @@ export interface PoiTypeTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.StructureTagsProvider. */
 export interface StructureTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_level_levelgen_structure.Structure>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type StructureTagsProvider = StructureTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_level_levelgen_structure.Structure>;
 export interface StructureTagsProviderStatics {
@@ -200,19 +178,12 @@ export interface TagAppenderStatics {
 /** JVM abstract net.minecraft.data.tags.TagsProvider. */
 export interface TagsProviderMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_data.DataProvider];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
   contentsGetter(): PromiseLike<TagsProvider_TagLookup<T>>;
-  createContentsProvider(): PromiseLike<j_net_minecraft_core.HolderLookup_Provider>;
   getName(): string;
-  getOrCreateRawBuilder(arg0: j_net_minecraft_tags.TagKey<T>): j_net_minecraft_tags.TagBuilder;
-  readonly pathProvider: j_net_minecraft_data.PackOutput_PathProvider;
-  readonly registryKey: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>;
   run(arg0: j_net_minecraft_data.CachedOutput): PromiseLike<object>;
 }
 export type TagsProvider<T = unknown> = TagsProviderMembers<T> & j_net_minecraft_data.DataProvider;
 export interface TagsProviderStatics {
-  new<T>(arg0: j_net_minecraft_data.PackOutput, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: PromiseLike<j_net_minecraft_core.HolderLookup_Provider>): TagsProvider<T>;
-  new<T>(arg0: j_net_minecraft_data.PackOutput, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: PromiseLike<j_net_minecraft_core.HolderLookup_Provider>, arg3: PromiseLike<TagsProvider_TagLookup<T>>): TagsProvider<T>;
 }
 
 /** JVM interface net.minecraft.data.tags.TagsProvider$TagLookup. */
@@ -228,7 +199,6 @@ export interface TagsProvider_TagLookupStatics {
 /** JVM class net.minecraft.data.tags.TradeRebalanceEnchantmentTagsProvider. */
 export interface TradeRebalanceEnchantmentTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_item_enchantment.Enchantment>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type TradeRebalanceEnchantmentTagsProvider = TradeRebalanceEnchantmentTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_item_enchantment.Enchantment>;
 export interface TradeRebalanceEnchantmentTagsProviderStatics {
@@ -238,7 +208,6 @@ export interface TradeRebalanceEnchantmentTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.VanillaBlockTagsProvider. */
 export interface VanillaBlockTagsProviderMembers {
   readonly __javaSupertypes?: readonly [IntrinsicHolderTagsProvider<j_net_minecraft_world_level_block.Block>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type VanillaBlockTagsProvider = VanillaBlockTagsProviderMembers & IntrinsicHolderTagsProvider<j_net_minecraft_world_level_block.Block>;
 export interface VanillaBlockTagsProviderStatics {
@@ -248,7 +217,6 @@ export interface VanillaBlockTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.VanillaEnchantmentTagsProvider. */
 export interface VanillaEnchantmentTagsProviderMembers {
   readonly __javaSupertypes?: readonly [EnchantmentTagsProvider];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type VanillaEnchantmentTagsProvider = VanillaEnchantmentTagsProviderMembers & EnchantmentTagsProvider;
 export interface VanillaEnchantmentTagsProviderStatics {
@@ -258,7 +226,6 @@ export interface VanillaEnchantmentTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.VanillaItemTagsProvider. */
 export interface VanillaItemTagsProviderMembers {
   readonly __javaSupertypes?: readonly [IntrinsicHolderTagsProvider<j_net_minecraft_world_item.Item>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type VanillaItemTagsProvider = VanillaItemTagsProviderMembers & IntrinsicHolderTagsProvider<j_net_minecraft_world_item.Item>;
 export interface VanillaItemTagsProviderStatics {
@@ -268,7 +235,6 @@ export interface VanillaItemTagsProviderStatics {
 /** JVM class net.minecraft.data.tags.WorldPresetTagsProvider. */
 export interface WorldPresetTagsProviderMembers {
   readonly __javaSupertypes?: readonly [KeyTagProvider<j_net_minecraft_world_level_levelgen_presets.WorldPreset>];
-  addTags(arg0: j_net_minecraft_core.HolderLookup_Provider): void;
 }
 export type WorldPresetTagsProvider = WorldPresetTagsProviderMembers & KeyTagProvider<j_net_minecraft_world_level_levelgen_presets.WorldPreset>;
 export interface WorldPresetTagsProviderStatics {

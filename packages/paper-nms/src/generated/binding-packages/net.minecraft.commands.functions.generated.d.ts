@@ -9,7 +9,7 @@ import type * as j_net_minecraft_resources from './net.minecraft.resources.gener
 export interface CommandFunctionMembers<T = unknown> {
   id(): j_net_minecraft_resources.ResourceLocation;
   /** @throws net.minecraft.commands.FunctionInstantiationException */
-  instantiate(arg0: j_net_minecraft_nbt.CompoundTag | null, arg1: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>): InstantiatedFunction<T> | null;
+  instantiate(arg0: j_net_minecraft_nbt.CompoundTag | null, arg1: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>): InstantiatedFunction<T>;
 }
 export type CommandFunction<T = unknown> = CommandFunctionMembers<T>;
 export interface CommandFunctionStatics {
@@ -33,7 +33,7 @@ export interface MacroFunctionMembers<T /* extends j_net_minecraft_commands.Exec
   readonly __javaSupertypes?: readonly [CommandFunction<T>];
   id(): j_net_minecraft_resources.ResourceLocation;
   /** @throws net.minecraft.commands.FunctionInstantiationException */
-  instantiate(arg0: j_net_minecraft_nbt.CompoundTag | null, arg1: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>): InstantiatedFunction<T> | null;
+  instantiate(arg0: j_net_minecraft_nbt.CompoundTag | null, arg1: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>): InstantiatedFunction<T>;
 }
 export type MacroFunction<T /* extends j_net_minecraft_commands.ExecutionCommandSource<T> */ = unknown> = MacroFunctionMembers<T> & CommandFunction<T>;
 export interface MacroFunctionStatics {
@@ -48,7 +48,7 @@ export interface PlainTextFunctionMembers<T = unknown> {
   hashCode(): number;
   id(): j_net_minecraft_resources.ResourceLocation;
   /** @throws net.minecraft.commands.FunctionInstantiationException */
-  instantiate(arg0: j_net_minecraft_nbt.CompoundTag | null, arg1: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>): InstantiatedFunction<T> | null;
+  instantiate(arg0: j_net_minecraft_nbt.CompoundTag | null, arg1: JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [T]>): InstantiatedFunction<T>;
   toString(): string;
 }
 export type PlainTextFunction<T = unknown> = PlainTextFunctionMembers<T> & JavaOpaque<"java.lang.Record"> & CommandFunction<T> & InstantiatedFunction<T>;

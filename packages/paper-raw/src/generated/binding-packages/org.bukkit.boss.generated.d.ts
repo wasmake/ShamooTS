@@ -64,7 +64,7 @@ export interface BossBar_2Members {
   setColor(arg0: BarColor): void;
   setProgress(arg0: number): void;
   setStyle(arg0: BarStyle): void;
-  setTitle(arg0: string | null): void | null;
+  setTitle(arg0: string | null): void;
   setVisible(arg0: boolean): void;
   show(): void;
 }
@@ -84,7 +84,7 @@ export interface DragonBattleMembers {
   getRespawnPhase(): DragonBattle_RespawnPhase;
   hasBeenPreviouslyKilled(): boolean;
   initiateRespawn(): void;
-  initiateRespawn(arg0: JavaCollection<j_org_bukkit_entity.EnderCrystal> | null): boolean | null;
+  initiateRespawn(arg0: JavaCollection<j_org_bukkit_entity.EnderCrystal> | null): boolean;
   resetCrystals(): void;
   setPreviouslyKilled(arg0: boolean): void;
   setRespawnPhase(arg0: DragonBattle_RespawnPhase): boolean;

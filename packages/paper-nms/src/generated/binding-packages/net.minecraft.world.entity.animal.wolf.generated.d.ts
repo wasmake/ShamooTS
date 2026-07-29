@@ -5,7 +5,6 @@ import type * as j_net_minecraft_core_component from './net.minecraft.core.compo
 import type * as j_net_minecraft_data_worldgen from './net.minecraft.data.worldgen.generated.js';
 import type * as j_net_minecraft_network from './net.minecraft.network.generated.js';
 import type * as j_net_minecraft_network_codec from './net.minecraft.network.codec.generated.js';
-import type * as j_net_minecraft_network_syncher from './net.minecraft.network.syncher.generated.js';
 import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
@@ -20,28 +19,19 @@ import type * as j_net_minecraft_world_entity_player from './net.minecraft.world
 import type * as j_net_minecraft_world_entity_variant from './net.minecraft.world.entity.variant.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
-import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
-import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.animal.wolf.Wolf. */
 export interface WolfMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity.TamableAnimal, j_net_minecraft_world_entity.NeutralMob];
   actuallyHurt(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number, arg3: JavaOpaque<"org.bukkit.event.entity.EntityDamageEvent">): boolean;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  applyTamingSideEffects(): void;
   canBeLeashed(): boolean;
   canMate(arg0: j_net_minecraft_world_entity_animal.Animal): boolean;
-  canShearEquipment(arg0: j_net_minecraft_world_entity_player.Player): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: j_net_minecraft_world_entity.EntitySpawnReason, arg3: j_net_minecraft_world_entity.SpawnGroupData | null): j_net_minecraft_world_entity.SpawnGroupData | null;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
-  getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): j_net_minecraft_world_entity.AgeableMob | null;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.AgeableMob): Wolf | null;
   getCollarColor(): j_net_minecraft_world_item.DyeColor;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
@@ -60,18 +50,14 @@ export interface WolfMembers {
   getVariant(): j_net_minecraft_core.Holder<WolfVariant>;
   getWetShade(arg0: number): number;
   handleEntityEvent(arg0: number): void;
-  hurtArmor(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): void;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isFood(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   isInterested(): boolean;
   isWet: boolean;
   mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
   setCollarColor(arg0: j_net_minecraft_world_item.DyeColor): void;
   setIsInterested(arg0: boolean): void;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setRemainingPersistentAngerTime(arg0: number): void;
   setSoundVariant(arg0: j_net_minecraft_core.Holder<WolfSoundVariant>): void;
   setVariant(arg0: j_net_minecraft_core.Holder<WolfVariant>): void;

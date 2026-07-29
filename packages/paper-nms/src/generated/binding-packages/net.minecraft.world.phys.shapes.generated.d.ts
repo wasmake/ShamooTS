@@ -3,7 +3,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
-import type * as j_net_minecraft_world_entity_vehicle from './net.minecraft.world.entity.vehicle.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
@@ -19,7 +18,6 @@ export interface ArrayVoxelShapeMembers {
 export type ArrayVoxelShape = ArrayVoxelShapeMembers & VoxelShape;
 export interface ArrayVoxelShapeStatics {
   new(arg0: DiscreteVoxelShape, arg1: JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">, arg2: JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">, arg3: JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">): ArrayVoxelShape;
-  new(arg0: DiscreteVoxelShape, arg1: Array<number>, arg2: Array<number>, arg3: Array<number>): ArrayVoxelShape;
 }
 
 /** JVM class net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape. */
@@ -27,7 +25,6 @@ export interface BitSetDiscreteVoxelShapeMembers {
   readonly __javaSupertypes?: readonly [DiscreteVoxelShape];
   fill(arg0: number, arg1: number, arg2: number): void;
   firstFull(arg0: j_net_minecraft_core.Direction_Axis): number;
-  getIndex(arg0: number, arg1: number, arg2: number): number;
   isEmpty(): boolean;
   isFull(arg0: number, arg1: number, arg2: number): boolean;
   isInterior(arg0: number, arg1: number, arg2: number): boolean;
@@ -86,8 +83,8 @@ export interface CollisionContextStatics {
   empty(): CollisionContext;
   of(arg0: j_net_minecraft_world_entity.Entity): CollisionContext;
   of(arg0: j_net_minecraft_world_entity.Entity, arg1: boolean): CollisionContext;
-  placementContext(arg0: j_net_minecraft_world_entity_player.Player | null): CollisionContext | null;
-  withPosition(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number): CollisionContext | null;
+  placementContext(arg0: j_net_minecraft_world_entity_player.Player | null): CollisionContext;
+  withPosition(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number): CollisionContext;
 }
 
 /** JVM class net.minecraft.world.phys.shapes.CubePointRange. */
@@ -104,12 +101,10 @@ export interface CubePointRangeStatics {
 /** JVM class net.minecraft.world.phys.shapes.CubeVoxelShape. */
 export interface CubeVoxelShapeMembers {
   readonly __javaSupertypes?: readonly [VoxelShape];
-  findIndex(arg0: j_net_minecraft_core.Direction_Axis, arg1: number): number;
   getCoords(arg0: j_net_minecraft_core.Direction_Axis): JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">;
 }
 export type CubeVoxelShape = CubeVoxelShapeMembers & VoxelShape;
 export interface CubeVoxelShapeStatics {
-  new(arg0: DiscreteVoxelShape): CubeVoxelShape;
 }
 
 /** JVM class net.minecraft.world.phys.shapes.DiscreteCubeMerger. */
@@ -145,13 +140,9 @@ export interface DiscreteVoxelShapeMembers {
   lastFull(arg0: j_net_minecraft_core.Direction_Axis, arg1: number, arg2: number): number;
   moonrise$getOrCreateCachedShapeData(): JavaOpaque<"ca.spottedleaf.moonrise.patches.collisions.shape.CachedShapeData">;
   rotate(arg0: JavaOpaque<"com.mojang.math.OctahedralGroup">): DiscreteVoxelShape;
-  readonly xSize: number;
-  readonly ySize: number;
-  readonly zSize: number;
 }
 export type DiscreteVoxelShape = DiscreteVoxelShapeMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.collisions.shape.CollisionDiscreteVoxelShape">;
 export interface DiscreteVoxelShapeStatics {
-  new(arg0: number, arg1: number, arg2: number): DiscreteVoxelShape;
 }
 
 /** JVM interface net.minecraft.world.phys.shapes.DiscreteVoxelShape$IntFaceConsumer. */
@@ -183,9 +174,6 @@ export interface EntityCollisionContextMembers {
 }
 export type EntityCollisionContext = EntityCollisionContextMembers & CollisionContext;
 export interface EntityCollisionContextStatics {
-  new(arg0: j_net_minecraft_world_entity.Entity, arg1: boolean, arg2: boolean): EntityCollisionContext;
-  new(arg0: boolean, arg1: boolean, arg2: number, arg3: j_net_minecraft_world_item.ItemStack, arg4: JavaPredicate<j_net_minecraft_world_level_material.FluidState>, arg5: j_net_minecraft_world_entity.Entity | null): EntityCollisionContext;
-  readonly EMPTY: CollisionContext;
 }
 
 /** JVM class net.minecraft.world.phys.shapes.IdenticalMerger. */
@@ -227,7 +215,6 @@ export interface MinecartCollisionContextMembers {
 }
 export type MinecartCollisionContext = MinecartCollisionContextMembers & EntityCollisionContext;
 export interface MinecartCollisionContextStatics {
-  new(arg0: j_net_minecraft_world_entity_vehicle.AbstractMinecart, arg1: boolean): MinecartCollisionContext;
 }
 
 /** JVM class net.minecraft.world.phys.shapes.NonOverlappingMerger. */
@@ -240,7 +227,6 @@ export interface NonOverlappingMergerMembers {
 }
 export type NonOverlappingMerger = NonOverlappingMergerMembers & JavaOpaque<"it.unimi.dsi.fastutil.doubles.AbstractDoubleList"> & JavaOpaque<"net.minecraft.world.phys.shapes.IndexMerger">;
 export interface NonOverlappingMergerStatics {
-  new(arg0: JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">, arg1: JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">, arg2: boolean): NonOverlappingMerger;
 }
 
 /** JVM class net.minecraft.world.phys.shapes.OffsetDoubleList. */
@@ -274,11 +260,9 @@ export interface ShapesStatics {
   empty(): VoxelShape;
   equal(arg0: VoxelShape, arg1: VoxelShape): boolean;
   faceShapeOccludes(arg0: VoxelShape, arg1: VoxelShape): boolean;
-  findBits(arg0: number, arg1: number): number;
   join(arg0: VoxelShape, arg1: VoxelShape, arg2: BooleanOp): VoxelShape;
   joinIsNotEmpty(arg0: VoxelShape, arg1: VoxelShape, arg2: BooleanOp): boolean;
   joinUnoptimized(arg0: VoxelShape, arg1: VoxelShape, arg2: BooleanOp): VoxelShape;
-  lcm(arg0: number, arg1: number): bigint;
   mergedFaceOccludes(arg0: VoxelShape, arg1: VoxelShape, arg2: j_net_minecraft_core.Direction): boolean;
   or(arg0: VoxelShape, arg1: VoxelShape): VoxelShape;
   or(arg0: VoxelShape, ...arg1: Array<VoxelShape>): VoxelShape;
@@ -323,7 +307,6 @@ export interface SubShapeMembers {
 }
 export type SubShape = SubShapeMembers & DiscreteVoxelShape;
 export interface SubShapeStatics {
-  new(arg0: DiscreteVoxelShape, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number): SubShape;
 }
 
 /** JVM abstract net.minecraft.world.phys.shapes.VoxelShape. */
@@ -333,15 +316,11 @@ export interface VoxelShapeMembers {
   clip(arg0: j_net_minecraft_world_phys.Vec3, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys.BlockHitResult | null;
   closestPointTo(arg0: j_net_minecraft_world_phys.Vec3): JavaOptional<j_net_minecraft_world_phys.Vec3>;
   collide(arg0: j_net_minecraft_core.Direction_Axis, arg1: j_net_minecraft_world_phys.AABB, arg2: number): number;
-  collideX(arg0: j_net_minecraft_core.AxisCycle, arg1: j_net_minecraft_world_phys.AABB, arg2: number): number;
   equals(arg0: object): boolean;
-  findIndex(arg0: j_net_minecraft_core.Direction_Axis, arg1: number): number;
   forAllBoxes(arg0: Shapes_DoubleLineConsumer): void;
   forAllEdges(arg0: Shapes_DoubleLineConsumer): void;
-  get(arg0: j_net_minecraft_core.Direction_Axis, arg1: number): number;
   getCoords(arg0: j_net_minecraft_core.Direction_Axis): JavaOpaque<"it.unimi.dsi.fastutil.doubles.DoubleList">;
   getFaceShape(arg0: j_net_minecraft_core.Direction): VoxelShape;
-  isCubeLike(): boolean;
   isEmpty(): boolean;
   max(arg0: j_net_minecraft_core.Direction_Axis): number;
   max(arg0: j_net_minecraft_core.Direction_Axis, arg1: number, arg2: number): number;
@@ -372,5 +351,4 @@ export interface VoxelShapeMembers {
 }
 export type VoxelShape = VoxelShapeMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.collisions.shape.CollisionVoxelShape">;
 export interface VoxelShapeStatics {
-  new(arg0: DiscreteVoxelShape): VoxelShape;
 }

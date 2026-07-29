@@ -7,7 +7,6 @@ export interface PlayerProfileMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_profile.PlayerProfile_2];
   clearProperties(): void;
   clone(): PlayerProfile;
-  clone(): j_org_bukkit_profile.PlayerProfile_2;
   complete(): boolean;
   complete(arg0: boolean): boolean;
   complete(arg0: boolean, arg1: boolean): boolean;
@@ -18,17 +17,17 @@ export interface PlayerProfileMembers {
   getName(): string | null;
   getProperties(): JavaSet<ProfileProperty>;
   getTextures(): j_org_bukkit_profile.PlayerTextures;
-  hasProperty(arg0: string): boolean | null;
+  hasProperty(arg0: string | null): boolean;
   hasTextures(): boolean;
   isComplete(): boolean;
   removeProperties(arg0: JavaCollection<ProfileProperty>): boolean;
   removeProperty(arg0: ProfileProperty): boolean;
-  removeProperty(arg0: string): boolean | null;
-  setId(arg0: JavaOpaque<"java.util.UUID">): JavaOpaque<"java.util.UUID"> | null;
-  setName(arg0: string): string | null;
+  removeProperty(arg0: string | null): boolean;
+  setId(arg0: JavaOpaque<"java.util.UUID"> | null): JavaOpaque<"java.util.UUID"> | null;
+  setName(arg0: string | null): string;
   setProperties(arg0: JavaCollection<ProfileProperty>): void;
   setProperty(arg0: ProfileProperty): void;
-  setTextures(arg0: j_org_bukkit_profile.PlayerTextures): void | null;
+  setTextures(arg0: j_org_bukkit_profile.PlayerTextures | null): void;
   update(): PromiseLike<PlayerProfile>;
 }
 export type PlayerProfile = PlayerProfileMembers & j_org_bukkit_profile.PlayerProfile_2;
@@ -37,7 +36,7 @@ export interface PlayerProfileStatics {
 
 /** JVM class com.destroystokyo.paper.profile.ProfileProperty. */
 export interface ProfilePropertyMembers {
-  equals(arg0: object): boolean | null;
+  equals(arg0: object | null): boolean;
   getName(): string;
   getSignature(): string | null;
   getValue(): string;
@@ -47,5 +46,5 @@ export interface ProfilePropertyMembers {
 export type ProfileProperty = ProfilePropertyMembers;
 export interface ProfilePropertyStatics {
   new(arg0: string, arg1: string): ProfileProperty;
-  new(arg0: string, arg1: string, arg2: string): ProfileProperty;
+  new(arg0: string, arg1: string, arg2: string | null): ProfileProperty;
 }

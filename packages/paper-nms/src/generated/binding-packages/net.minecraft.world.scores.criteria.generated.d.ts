@@ -10,8 +10,6 @@ export interface ObjectiveCriteriaMembers {
 }
 export type ObjectiveCriteria = ObjectiveCriteriaMembers;
 export interface ObjectiveCriteriaStatics {
-  new(arg0: string): ObjectiveCriteria;
-  new(arg0: string, arg1: boolean, arg2: ObjectiveCriteria_RenderType): ObjectiveCriteria;
   readonly AIR: ObjectiveCriteria;
   readonly ARMOR: ObjectiveCriteria;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [ObjectiveCriteria]>;

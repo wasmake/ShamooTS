@@ -8,38 +8,30 @@ import type * as j_org_bukkit_entity from './org.bukkit.entity.generated.js';
 
 /** JVM abstract io.papermc.paper.tag.BaseTag. */
 export interface BaseTagMembers<T /* extends j_org_bukkit.Keyed */ = unknown, C /* extends BaseTag<T, C> */ = unknown> {
-  readonly __javaSupertypes?: readonly [j_org_bukkit.Tag_2<T>];
+  readonly __javaSupertypes?: readonly [j_org_bukkit.Tag_3<T>];
   add(arg0: JavaCollection<T>): C;
   add(arg0: JavaPredicate<T>): C;
   add(...arg0: Array<T>): C;
-  add(...arg0: Array<j_org_bukkit.Tag_2<T>>): C;
+  add(...arg0: Array<j_org_bukkit.Tag_3<T>>): C;
   contains(arg0: string): C;
   endsWith(arg0: string): C;
   ensureSize(arg0: string, arg1: number): C;
-  getAllPossibleValues(): JavaSet<T>;
   getKey(): j_org_bukkit.NamespacedKey;
-  getName(arg0: T): string;
   getValues(): JavaSet<T>;
   isLocked(): boolean;
   isTagged(arg0: T): boolean;
-  readonly key: j_org_bukkit.NamespacedKey;
   lock(): C;
   not(arg0: JavaCollection<T>): C;
   not(arg0: JavaPredicate<T>): C;
   not(...arg0: Array<T>): C;
-  not(...arg0: Array<j_org_bukkit.Tag_2<T>>): C;
+  not(...arg0: Array<j_org_bukkit.Tag_3<T>>): C;
   notContains(arg0: string): C;
   notEndsWith(arg0: string): C;
   notStartsWith(arg0: string): C;
   startsWith(arg0: string): C;
-  readonly tagged: JavaSet<T>;
 }
-export type BaseTag<T /* extends j_org_bukkit.Keyed */ = unknown, C /* extends BaseTag<T, C> */ = unknown> = BaseTagMembers<T, C> & j_org_bukkit.Tag_2<T>;
+export type BaseTag<T /* extends j_org_bukkit.Keyed */ = unknown, C /* extends BaseTag<T, C> */ = unknown> = BaseTagMembers<T, C> & j_org_bukkit.Tag_3<T>;
 export interface BaseTagStatics {
-  new<T /* extends j_org_bukkit.Keyed */, C /* extends BaseTag<T, C> */>(arg0: JavaClass<T>, arg1: j_org_bukkit.NamespacedKey, arg2: JavaCollection<T>): BaseTag<T, C>;
-  new<T /* extends j_org_bukkit.Keyed */, C /* extends BaseTag<T, C> */>(arg0: JavaClass<T>, arg1: j_org_bukkit.NamespacedKey, arg2: JavaCollection<T>, ...arg3: Array<JavaPredicate<T>>): BaseTag<T, C>;
-  new<T /* extends j_org_bukkit.Keyed */, C /* extends BaseTag<T, C> */>(arg0: JavaClass<T>, arg1: j_org_bukkit.NamespacedKey, arg2: JavaPredicate<T>): BaseTag<T, C>;
-  new<T /* extends j_org_bukkit.Keyed */, C /* extends BaseTag<T, C> */>(arg0: JavaClass<T>, arg1: j_org_bukkit.NamespacedKey, ...arg2: Array<T>): BaseTag<T, C>;
 }
 
 /** JVM class io.papermc.paper.tag.EntitySetTag. */
@@ -48,28 +40,24 @@ export interface EntitySetTagMembers {
   add(arg0: JavaCollection<j_org_bukkit_entity.EntityType>): EntitySetTag;
   add(arg0: JavaPredicate<j_org_bukkit_entity.EntityType>): EntitySetTag;
   add(...arg0: Array<j_org_bukkit_entity.EntityType>): EntitySetTag;
-  add(...arg0: Array<j_org_bukkit.Tag_2<j_org_bukkit_entity.EntityType>>): EntitySetTag;
+  add(...arg0: Array<j_org_bukkit.Tag_3<j_org_bukkit_entity.EntityType>>): EntitySetTag;
   contains(arg0: string): EntitySetTag;
   endsWith(arg0: string): EntitySetTag;
   ensureSize(arg0: string, arg1: number): EntitySetTag;
-  getAllPossibleValues(): JavaSet<j_org_bukkit_entity.EntityType>;
   getKey(): j_org_bukkit.NamespacedKey;
-  getName(arg0: j_org_bukkit_entity.EntityType): string;
-  getName(arg0: j_org_bukkit.Keyed): string;
   getValues(): JavaSet<j_org_bukkit_entity.EntityType>;
   isLocked(): boolean;
   isTagged(arg0: j_org_bukkit_entity.EntityType): boolean;
-  readonly key: (j_org_bukkit.NamespacedKey) & { (): JavaOpaque<"net.kyori.adventure.key.Key"> };
+  key(): JavaOpaque<"net.kyori.adventure.key.Key">;
   lock(): EntitySetTag;
   not(arg0: JavaCollection<j_org_bukkit_entity.EntityType>): EntitySetTag;
   not(arg0: JavaPredicate<j_org_bukkit_entity.EntityType>): EntitySetTag;
   not(...arg0: Array<j_org_bukkit_entity.EntityType>): EntitySetTag;
-  not(...arg0: Array<j_org_bukkit.Tag_2<j_org_bukkit_entity.EntityType>>): EntitySetTag;
+  not(...arg0: Array<j_org_bukkit.Tag_3<j_org_bukkit_entity.EntityType>>): EntitySetTag;
   notContains(arg0: string): EntitySetTag;
   notEndsWith(arg0: string): EntitySetTag;
   notStartsWith(arg0: string): EntitySetTag;
   startsWith(arg0: string): EntitySetTag;
-  readonly tagged: JavaSet<j_org_bukkit_entity.EntityType>;
 }
 export type EntitySetTag = EntitySetTagMembers;
 export interface EntitySetTagStatics {

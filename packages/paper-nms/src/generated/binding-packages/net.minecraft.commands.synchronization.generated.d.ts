@@ -54,13 +54,9 @@ export interface ArgumentUtilsStatics {
 export interface SingletonArgumentInfoMembers<A /* extends JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [object]> */ = unknown> {
   readonly __javaSupertypes?: readonly [ArgumentTypeInfo<A, SingletonArgumentInfo_Template>];
   deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): SingletonArgumentInfo_Template;
-  deserializeFromNetwork(arg0: j_net_minecraft_network.FriendlyByteBuf): ArgumentTypeInfo_Template;
   serializeToJson(arg0: SingletonArgumentInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
-  serializeToJson(arg0: ArgumentTypeInfo_Template, arg1: JavaOpaque<"com.google.gson.JsonObject">): void;
   serializeToNetwork(arg0: SingletonArgumentInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
-  serializeToNetwork(arg0: ArgumentTypeInfo_Template, arg1: j_net_minecraft_network.FriendlyByteBuf): void;
   unpack(arg0: A): SingletonArgumentInfo_Template;
-  unpack(arg0: JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType">): ArgumentTypeInfo_Template;
 }
 export type SingletonArgumentInfo<A /* extends JavaOpaque<"com.mojang.brigadier.arguments.ArgumentType", [object]> */ = unknown> = SingletonArgumentInfoMembers<A>;
 export interface SingletonArgumentInfoStatics {

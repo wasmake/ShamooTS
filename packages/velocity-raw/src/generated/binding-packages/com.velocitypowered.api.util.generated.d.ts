@@ -1,10 +1,10 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
 
 /** JVM class com.velocitypowered.api.util.Favicon. */
 export interface FaviconMembers {
-  equals(arg0: object): boolean | null;
+  equals(arg0: object | null): boolean;
   getBase64Url(): string;
   hashCode(): number;
   toString(): string;
@@ -104,7 +104,7 @@ export interface OrderedStatics {
 
 /** JVM class com.velocitypowered.api.util.ProxyVersion. */
 export interface ProxyVersionMembers {
-  equals(arg0: object): boolean | null;
+  equals(arg0: object | null): boolean;
   getName(): string;
   getVendor(): string;
   getVersion(): string;

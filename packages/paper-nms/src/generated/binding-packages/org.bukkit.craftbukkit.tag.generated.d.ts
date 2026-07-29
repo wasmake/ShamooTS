@@ -13,7 +13,6 @@ import type * as j_net_minecraft_world_level_material from './net.minecraft.worl
 export interface CraftBlockTagMembers {
   readonly __javaSupertypes?: readonly [CraftTag<j_net_minecraft_world_level_block.Block, JavaOpaque<"org.bukkit.Material">>];
   getValues(): JavaSet<JavaOpaque<"org.bukkit.Material">>;
-  isTagged(arg0: JavaOpaque<"org.bukkit.Keyed">): boolean;
   isTagged(arg0: JavaOpaque<"org.bukkit.Material">): boolean;
 }
 export type CraftBlockTag = CraftBlockTagMembers & CraftTag<j_net_minecraft_world_level_block.Block, JavaOpaque<"org.bukkit.Material">>;
@@ -25,7 +24,6 @@ export interface CraftBlockTagStatics {
 export interface CraftDamageTagMembers {
   readonly __javaSupertypes?: readonly [CraftTag<j_net_minecraft_world_damagesource.DamageType, JavaOpaque<"org.bukkit.damage.DamageType">>];
   getValues(): JavaSet<JavaOpaque<"org.bukkit.damage.DamageType">>;
-  isTagged(arg0: JavaOpaque<"org.bukkit.Keyed">): boolean;
   isTagged(arg0: JavaOpaque<"org.bukkit.damage.DamageType">): boolean;
 }
 export type CraftDamageTag = CraftDamageTagMembers & CraftTag<j_net_minecraft_world_damagesource.DamageType, JavaOpaque<"org.bukkit.damage.DamageType">>;
@@ -37,7 +35,6 @@ export interface CraftDamageTagStatics {
 export interface CraftEntityTagMembers {
   readonly __javaSupertypes?: readonly [CraftTag<j_net_minecraft_world_entity.EntityType<object>, JavaOpaque<"org.bukkit.entity.EntityType">>];
   getValues(): JavaSet<JavaOpaque<"org.bukkit.entity.EntityType">>;
-  isTagged(arg0: JavaOpaque<"org.bukkit.Keyed">): boolean;
   isTagged(arg0: JavaOpaque<"org.bukkit.entity.EntityType">): boolean;
 }
 export type CraftEntityTag = CraftEntityTagMembers & CraftTag<j_net_minecraft_world_entity.EntityType<object>, JavaOpaque<"org.bukkit.entity.EntityType">>;
@@ -50,7 +47,6 @@ export interface CraftFluidTagMembers {
   readonly __javaSupertypes?: readonly [CraftTag<j_net_minecraft_world_level_material.Fluid, JavaOpaque<"org.bukkit.Fluid">>];
   getValues(): JavaSet<JavaOpaque<"org.bukkit.Fluid">>;
   isTagged(arg0: JavaOpaque<"org.bukkit.Fluid">): boolean;
-  isTagged(arg0: JavaOpaque<"org.bukkit.Keyed">): boolean;
 }
 export type CraftFluidTag = CraftFluidTagMembers & CraftTag<j_net_minecraft_world_level_material.Fluid, JavaOpaque<"org.bukkit.Fluid">>;
 export interface CraftFluidTagStatics {
@@ -62,7 +58,6 @@ export interface CraftGameEventTagMembers {
   readonly __javaSupertypes?: readonly [CraftTag<j_net_minecraft_world_level_gameevent.GameEvent, JavaOpaque<"org.bukkit.GameEvent">>];
   getValues(): JavaSet<JavaOpaque<"org.bukkit.GameEvent">>;
   isTagged(arg0: JavaOpaque<"org.bukkit.GameEvent">): boolean;
-  isTagged(arg0: JavaOpaque<"org.bukkit.Keyed">): boolean;
 }
 export type CraftGameEventTag = CraftGameEventTagMembers & CraftTag<j_net_minecraft_world_level_gameevent.GameEvent, JavaOpaque<"org.bukkit.GameEvent">>;
 export interface CraftGameEventTagStatics {
@@ -73,7 +68,6 @@ export interface CraftGameEventTagStatics {
 export interface CraftItemTagMembers {
   readonly __javaSupertypes?: readonly [CraftTag<j_net_minecraft_world_item.Item, JavaOpaque<"org.bukkit.Material">>];
   getValues(): JavaSet<JavaOpaque<"org.bukkit.Material">>;
-  isTagged(arg0: JavaOpaque<"org.bukkit.Keyed">): boolean;
   isTagged(arg0: JavaOpaque<"org.bukkit.Material">): boolean;
 }
 export type CraftItemTag = CraftItemTagMembers & CraftTag<j_net_minecraft_world_item.Item, JavaOpaque<"org.bukkit.Material">>;
@@ -88,11 +82,8 @@ export interface CraftTagMembers<N = unknown, B /* extends JavaOpaque<"org.bukki
   getHandle(): j_net_minecraft_core.HolderSet_Named<N>;
   getKey(): JavaOpaque<"org.bukkit.NamespacedKey">;
   hashCode(): number;
-  readonly registry: j_net_minecraft_core.Registry<N>;
-  readonly tag: j_net_minecraft_tags.TagKey<N>;
   toString(): string;
 }
 export type CraftTag<N = unknown, B /* extends JavaOpaque<"org.bukkit.Keyed"> */ = unknown> = CraftTagMembers<N, B> & JavaOpaque<"org.bukkit.Tag", [B]>;
 export interface CraftTagStatics {
-  new<N, B /* extends JavaOpaque<"org.bukkit.Keyed"> */>(arg0: j_net_minecraft_core.Registry<N>, arg1: j_net_minecraft_tags.TagKey<N>): CraftTag<N, B>;
 }

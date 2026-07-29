@@ -6,7 +6,6 @@ import type * as j_net_kyori_adventure_util from './net.kyori.adventure.util.gen
 /** JVM interface net.kyori.adventure.permission.PermissionChecker. */
 export interface PermissionCheckerMembers {
   readonly __javaSupertypes?: readonly [JavaPredicate<string>];
-  test(arg0: object): boolean;
   test(arg0: string): boolean;
   value(arg0: string): j_net_kyori_adventure_util.TriState;
 }

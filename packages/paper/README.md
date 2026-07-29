@@ -23,18 +23,7 @@ See the repository [Paper rich text/UI guide](../../docs/paper-rich-text-ui.md) 
 Paper-Velocity transport; standalone operation remains explicit and sends nothing. One-to-one
 generated Java declarations remain available from `@shamoo/paper-raw`.
 
-`paperManagedLobby(request)` exposes the optional owner-scoped managed-lobby Runtime binding. It
-supports ensure, read, write, reload, status, and bounded native execute operations. Configuration is
-stored and parsed by the Runtime as eight UTF-8 YAML files; TypeScript sends file content, not a
-fabricated normalized configuration object. Requests are validated exactly, while extensible
-`{ ok, state, error?, ... }` response maps are recursively copied, safely validated, and frozen. The
-direct call passes no compiler metadata because the Runtime captures the calling plugin owner when it
-creates the host binding. Missing bindings throw `ManagedLobbyUnavailableError`; malformed requests,
-non-Promise host returns, and malformed results throw `ManagedLobbyProtocolError`. Portal create,
-remove, enable, disable, and destination mutations require the editor player UUID. Portal destinations
-are discriminated as `server` or `menu` with a canonical ID target, or `spawn` with the target omitted.
-Optional request values are always omitted rather than sent as null. The Runtime guarantees a Promise
-for every operation, including `status`; immediate host results are a protocol violation. A successful
-coordinated `reload` result includes `messagesContent`, the exact accepted UTF-8 `messages.yml` text.
-Boundary data is limited to 32 nesting levels, 100,000 values, 10,000 entries per collection, and 1
-MiB per string; result states are bounded to 128 characters and failure errors to 512 characters.
+Executable one-to-one Paper access is exported by `@shamoo/paper-raw` as `paperJava`. Every operation
+is asynchronous, selected from the generated public-member catalog, and routed through the appropriate
+Paper scheduler or synchronous event frame. Runtime-owned Java values remain opaque generation-scoped
+handles; arbitrary Javet reflection is not enabled.

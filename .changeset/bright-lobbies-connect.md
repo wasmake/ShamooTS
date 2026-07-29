@@ -2,4 +2,5 @@
 '@shamoo/paper': minor
 ---
 
-Add the owner-scoped managed-lobby Paper API with strict file, portal administration, and data-only host contracts.
+Add executable generated Paper bindings, scheduler-routed object handles, live cancellable events, functional
+interface callbacks, and policy-confined plugin text files for every Shamoo plugin.

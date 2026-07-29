@@ -27,7 +27,6 @@ export interface CachedParseStateMembers<S = unknown> {
 }
 export type CachedParseState<S = unknown> = CachedParseStateMembers<S> & ParseState<S>;
 export interface CachedParseStateStatics {
-  new<S>(arg0: ErrorCollector<S>): CachedParseState<S>;
 }
 
 /** JVM interface net.minecraft.util.parsing.packrat.Control. */
@@ -197,7 +196,7 @@ export interface ScopeMembers {
   mergeFrame(): void;
   popFrame(): void;
   pushFrame(): void;
-  put<T>(arg0: Atom<T>, arg1: T | null): void | null;
+  put<T>(arg0: Atom<T>, arg1: T | null): void;
   splitFrame(): void;
   toString(): string;
   valueIndexForAny(...arg0: Array<Atom<object>>): number;

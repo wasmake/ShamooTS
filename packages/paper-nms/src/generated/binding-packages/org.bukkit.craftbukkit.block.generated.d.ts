@@ -23,10 +23,7 @@ import type * as j_org_bukkit_craftbukkit_spawner from './org.bukkit.craftbukkit
 /** JVM class org.bukkit.craftbukkit.block.CapturedBlockState. */
 export interface CapturedBlockStateMembers {
   readonly __javaSupertypes?: readonly [CraftBlockState];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CapturedBlockState;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CapturedBlockState;
   place(arg0: number): boolean;
   update(arg0: boolean, arg1: boolean): boolean;
@@ -42,14 +39,8 @@ export interface CraftBannerMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BannerBlockEntity>, JavaOpaque<"org.bukkit.block.Banner">];
   addPattern(arg0: JavaOpaque<"org.bukkit.block.banner.Pattern">): void;
   applyTo(arg0: j_net_minecraft_world_level_block_entity.BannerBlockEntity): void;
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBanner;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBanner;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   customName(): JavaOpaque<"net.kyori.adventure.text.Component">;
   customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component">): void;
   getBaseColor(): JavaOpaque<"org.bukkit.DyeColor">;
@@ -57,7 +48,6 @@ export interface CraftBannerMembers {
   getPattern(arg0: number): JavaOpaque<"org.bukkit.block.banner.Pattern">;
   getPatterns(): JavaList<JavaOpaque<"org.bukkit.block.banner.Pattern">>;
   load(arg0: j_net_minecraft_world_level_block_entity.BannerBlockEntity): void;
-  load(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   numberOfPatterns(): number;
   removePattern(arg0: number): JavaOpaque<"org.bukkit.block.banner.Pattern">;
   setBaseColor(arg0: JavaOpaque<"org.bukkit.DyeColor">): void;
@@ -68,24 +58,14 @@ export interface CraftBannerMembers {
 export type CraftBanner = CraftBannerMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BannerBlockEntity> & JavaOpaque<"org.bukkit.block.Banner">;
 export interface CraftBannerStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BannerBlockEntity): CraftBanner;
-  new(arg0: CraftBanner, arg1: JavaOpaque<"org.bukkit.Location">): CraftBanner;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBarrel. */
 export interface CraftBarrelMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.BarrelBlockEntity>, JavaOpaque<"org.bukkit.block.Barrel">];
   close(): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBarrel;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
-  copy(): CraftLootable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBarrel;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   isOpen(): boolean;
@@ -94,19 +74,13 @@ export interface CraftBarrelMembers {
 export type CraftBarrel = CraftBarrelMembers & CraftLootable<j_net_minecraft_world_level_block_entity.BarrelBlockEntity> & JavaOpaque<"org.bukkit.block.Barrel">;
 export interface CraftBarrelStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BarrelBlockEntity): CraftBarrel;
-  new(arg0: CraftBarrel, arg1: JavaOpaque<"org.bukkit.Location">): CraftBarrel;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBeacon. */
 export interface CraftBeaconMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BeaconBlockEntity>, JavaOpaque<"org.bukkit.block.Beacon">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBeacon;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBeacon;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   customName(): JavaOpaque<"net.kyori.adventure.text.Component">;
   customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component">): void;
   getCustomName(): string;
@@ -128,41 +102,28 @@ export interface CraftBeaconMembers {
 export type CraftBeacon = CraftBeaconMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BeaconBlockEntity> & JavaOpaque<"org.bukkit.block.Beacon">;
 export interface CraftBeaconStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BeaconBlockEntity): CraftBeacon;
-  new(arg0: CraftBeacon, arg1: JavaOpaque<"org.bukkit.Location">): CraftBeacon;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBed. */
 export interface CraftBedMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BedBlockEntity>, JavaOpaque<"org.bukkit.block.Bed">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBed;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBed;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   getColor(): JavaOpaque<"org.bukkit.DyeColor">;
   setColor(arg0: JavaOpaque<"org.bukkit.DyeColor">): void;
 }
 export type CraftBed = CraftBedMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BedBlockEntity> & JavaOpaque<"org.bukkit.block.Bed">;
 export interface CraftBedStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BedBlockEntity): CraftBed;
-  new(arg0: CraftBed, arg1: JavaOpaque<"org.bukkit.Location">): CraftBed;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBeehive. */
 export interface CraftBeehiveMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BeehiveBlockEntity>, JavaOpaque<"org.bukkit.block.Beehive">];
   addEntity(arg0: JavaOpaque<"org.bukkit.entity.Bee">): void;
-  addEntity(arg0: JavaOpaque<"org.bukkit.entity.Entity">): void;
   clearEntities(): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBeehive;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBeehive;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   getEntityCount(): number;
   getFlower(): JavaOpaque<"org.bukkit.Location">;
   getMaxEntities(): number;
@@ -175,19 +136,13 @@ export interface CraftBeehiveMembers {
 export type CraftBeehive = CraftBeehiveMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BeehiveBlockEntity> & JavaOpaque<"org.bukkit.block.Beehive">;
 export interface CraftBeehiveStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BeehiveBlockEntity): CraftBeehive;
-  new(arg0: CraftBeehive, arg1: JavaOpaque<"org.bukkit.Location">): CraftBeehive;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBell. */
 export interface CraftBellMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BellBlockEntity>, JavaOpaque<"org.bukkit.block.Bell">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBell;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBell;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   getResonatingTicks(): number;
   getShakingTicks(): number;
   isResonating(): boolean;
@@ -197,7 +152,6 @@ export interface CraftBellMembers {
 export type CraftBell = CraftBellMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BellBlockEntity> & JavaOpaque<"org.bukkit.block.Bell">;
 export interface CraftBellStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BellBlockEntity): CraftBell;
-  new(arg0: CraftBell, arg1: JavaOpaque<"org.bukkit.Location">): CraftBell;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBiome. */
@@ -216,9 +170,7 @@ export interface CraftBiomeStatics {
 /** JVM class org.bukkit.craftbukkit.block.CraftBiome$LegacyCustomBiomeImpl. */
 export interface CraftBiome_LegacyCustomBiomeImplMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.block.Biome">];
-  compareTo(arg0: object): number;
   compareTo(arg0: JavaOpaque<"org.bukkit.block.Biome">): number;
-  compareTo(arg0: JavaOpaque<"org.bukkit.util.OldEnum">): number;
   equals(arg0: object): boolean;
   getKey(): JavaOpaque<"org.bukkit.NamespacedKey">;
   hashCode(): number;
@@ -234,22 +186,12 @@ export interface CraftBiome_LegacyCustomBiomeImplStatics {
 /** JVM class org.bukkit.craftbukkit.block.CraftBlastFurnace. */
 export interface CraftBlastFurnaceMembers {
   readonly __javaSupertypes?: readonly [CraftFurnace<j_net_minecraft_world_level_block_entity.BlastFurnaceBlockEntity>, JavaOpaque<"org.bukkit.block.BlastFurnace">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBlastFurnace;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
-  copy(): CraftFurnace;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlastFurnace;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftFurnace;
 }
 export type CraftBlastFurnace = CraftBlastFurnaceMembers & CraftFurnace<j_net_minecraft_world_level_block_entity.BlastFurnaceBlockEntity> & JavaOpaque<"org.bukkit.block.BlastFurnace">;
 export interface CraftBlastFurnaceStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BlastFurnaceBlockEntity): CraftBlastFurnace;
-  new(arg0: CraftBlastFurnace, arg1: JavaOpaque<"org.bukkit.Location">): CraftBlastFurnace;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBlock. */
@@ -353,25 +295,17 @@ export interface CraftBlockStatics {
 export interface CraftBlockEntityStateMembers<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [CraftBlockState, JavaOpaque<"org.bukkit.block.TileState">];
   applyComponents(arg0: j_net_minecraft_core_component.DataComponentMap, arg1: j_net_minecraft_core_component.DataComponentPatch): JavaSet<j_net_minecraft_core_component.DataComponentType<object>>;
-  applyTo(arg0: T): void;
   collectComponents(): j_net_minecraft_core_component.DataComponentMap;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBlockEntityState<T>;
-  copy(): CraftBlockState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState<T>;
   getBlockEntity(): T;
-  getBlockEntityFromWorld(): j_net_minecraft_world_level_block_entity.BlockEntity;
-  getPersistentDataContainer(): JavaOpaque<"io.papermc.paper.persistence.PersistentDataContainerView">;
   getPersistentDataContainer(): JavaOpaque<"org.bukkit.persistence.PersistentDataContainer">;
   getRegistryAccess(): j_net_minecraft_core.RegistryAccess;
-  getSnapshot(): T;
   getSnapshotCustomNbtOnly(): j_net_minecraft_nbt.CompoundTag;
   getSnapshotNBT(): j_net_minecraft_nbt.CompoundTag;
   getUpdateNBT(): j_net_minecraft_nbt.CompoundTag;
   getUpdatePacket(arg0: JavaOpaque<"org.bukkit.Location">): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener> | null;
   isSnapshot(): boolean;
-  load(arg0: T): void;
   loadData(arg0: j_net_minecraft_nbt.CompoundTag): void;
   place(arg0: number): boolean;
   snapshotDisabled: boolean;
@@ -379,22 +313,15 @@ export interface CraftBlockEntityStateMembers<T /* extends j_net_minecraft_world
 }
 export type CraftBlockEntityState<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */ = unknown> = CraftBlockEntityStateMembers<T> & CraftBlockState & JavaOpaque<"org.bukkit.block.TileState">;
 export interface CraftBlockEntityStateStatics {
-  new<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: JavaOpaque<"org.bukkit.World">, arg1: T): CraftBlockEntityState<T>;
-  new<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: CraftBlockEntityState<T>, arg1: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState<T>;
   readonly DISABLE_SNAPSHOT: boolean;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBlockState. */
 export interface CraftBlockStateMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.block.BlockState">];
-  capturedFlags: number;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
   copy(): CraftBlockState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  data: j_net_minecraft_world_level_block_state.BlockState;
-  ensureNoWorldGeneration(): void;
   equals(arg0: object): boolean;
-  getBlock(): JavaOpaque<"org.bukkit.block.Block">;
   getBlock(): CraftBlock;
   getBlockData(): JavaOpaque<"org.bukkit.block.data.BlockData">;
   getChunk(): JavaOpaque<"org.bukkit.Chunk">;
@@ -419,10 +346,8 @@ export interface CraftBlockStateMembers {
   isCollidable(): boolean;
   isPlaced(): boolean;
   isSuffocating(): boolean;
-  isWorldGeneration(): boolean;
   place(arg0: number): boolean;
   removeMetadata(arg0: string, arg1: JavaOpaque<"org.bukkit.plugin.Plugin">): void;
-  requirePlaced(): void;
   revertPlace(): boolean;
   setBlockData(arg0: JavaOpaque<"org.bukkit.block.data.BlockData">): void;
   setData(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
@@ -435,14 +360,9 @@ export interface CraftBlockStateMembers {
   update(): boolean;
   update(arg0: boolean): boolean;
   update(arg0: boolean, arg1: boolean): boolean;
-  readonly world: j_org_bukkit_craftbukkit.CraftWorld;
 }
 export type CraftBlockState = CraftBlockStateMembers & JavaOpaque<"org.bukkit.block.BlockState">;
 export interface CraftBlockStateStatics {
-  new(arg0: JavaOpaque<"org.bukkit.World"> | null, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): CraftBlockState;
-  new(arg0: JavaOpaque<"org.bukkit.block.Block">): CraftBlockState;
-  new(arg0: JavaOpaque<"org.bukkit.block.Block">, arg1: number): CraftBlockState;
-  new(arg0: CraftBlockState, arg1: JavaOpaque<"org.bukkit.Location"> | null): CraftBlockState;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBlockStates. */
@@ -452,13 +372,13 @@ export type CraftBlockStates = CraftBlockStatesMembers;
 export interface CraftBlockStatesStatics {
   createNewBlockEntity(arg0: JavaOpaque<"org.bukkit.Material">): j_net_minecraft_world_level_block_entity.BlockEntity;
   getBlockEntityType(arg0: JavaOpaque<"org.bukkit.Material">): j_net_minecraft_world_level_block_entity.BlockEntityType<object> | null;
-  getBlockState(arg0: j_net_minecraft_core.BlockPos, arg1: JavaOpaque<"org.bukkit.Material">, arg2: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState"> | null;
-  getBlockState(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState"> | null;
-  getBlockState(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.bukkit.Material">, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState"> | null;
+  getBlockState(arg0: j_net_minecraft_core.BlockPos, arg1: JavaOpaque<"org.bukkit.Material">, arg2: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState">;
+  getBlockState(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState">;
+  getBlockState(arg0: j_net_minecraft_core.RegistryAccess, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.bukkit.Material">, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState">;
   getBlockState(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos): CraftBlockState;
-  getBlockState(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState"> | null;
-  getBlockState(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.bukkit.Material">, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState"> | null;
-  getBlockState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState"> | null;
+  getBlockState(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState">;
+  getBlockState(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: JavaOpaque<"org.bukkit.Material">, arg3: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState">;
+  getBlockState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_nbt.CompoundTag | null): JavaOpaque<"org.bukkit.block.BlockState">;
   getBlockState(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_block_entity.BlockEntity): CraftBlockState;
   getBlockState(arg0: JavaOpaque<"org.bukkit.block.Block">): JavaOpaque<"org.bukkit.block.BlockState">;
   getBlockState(arg0: JavaOpaque<"org.bukkit.block.Block">, arg1: boolean): JavaOpaque<"org.bukkit.block.BlockState">;
@@ -481,8 +401,8 @@ export interface CraftBlockTypeMembers<B /* extends JavaOpaque<"org.bukkit.block
   readonly __javaSupertypes?: readonly [JavaOpaque<"io.papermc.paper.registry.HolderableBase", [j_net_minecraft_world_level_block.Block]>, JavaOpaque<"org.bukkit.block.BlockType$Typed", [B]>, JavaOpaque<"io.papermc.paper.world.flag.PaperFeatureDependent", [j_net_minecraft_world_level_block.Block]>];
   asMaterial(): JavaOpaque<"org.bukkit.Material"> | null;
   createBlockData(): B;
-  createBlockData(arg0: string): B | null;
-  createBlockData(arg0: JavaConsumer<B>): B | null;
+  createBlockData(arg0: string | null): B;
+  createBlockData(arg0: JavaConsumer<B> | null): B;
   createBlockDataStates(): JavaCollection<B>;
   getBlastResistance(): number;
   getBlockDataClass(): JavaClass<B>;
@@ -516,22 +436,13 @@ export interface CraftBlockTypeStatics {
 /** JVM class org.bukkit.craftbukkit.block.CraftBrewingStand. */
 export interface CraftBrewingStandMembers {
   readonly __javaSupertypes?: readonly [CraftContainer<j_net_minecraft_world_level_block_entity.BrewingStandBlockEntity>, JavaOpaque<"org.bukkit.block.BrewingStand">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftBrewingStand;
-  copy(): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBrewingStand;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   getBrewingTime(): number;
   getFuelLevel(): number;
   getInventory(): JavaOpaque<"org.bukkit.inventory.BrewerInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getRecipeBrewTime(): number;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.BrewerInventory">;
-  getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   setBrewingTime(arg0: number): void;
   setFuelLevel(arg0: number): void;
   setRecipeBrewTime(arg0: number): void;
@@ -539,20 +450,13 @@ export interface CraftBrewingStandMembers {
 export type CraftBrewingStand = CraftBrewingStandMembers & CraftContainer<j_net_minecraft_world_level_block_entity.BrewingStandBlockEntity> & JavaOpaque<"org.bukkit.block.BrewingStand">;
 export interface CraftBrewingStandStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BrewingStandBlockEntity): CraftBrewingStand;
-  new(arg0: CraftBrewingStand, arg1: JavaOpaque<"org.bukkit.Location">): CraftBrewingStand;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftBrushableBlock. */
 export interface CraftBrushableBlockMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BrushableBlockEntity>, JavaOpaque<"org.bukkit.block.BrushableBlock">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   applyTo(arg0: j_net_minecraft_world_level_block_entity.BrushableBlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftBrushableBlock;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBrushableBlock;
   getItem(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
   getLootTable(): JavaOpaque<"org.bukkit.loot.LootTable">;
@@ -565,37 +469,23 @@ export interface CraftBrushableBlockMembers {
 export type CraftBrushableBlock = CraftBrushableBlockMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.BrushableBlockEntity> & JavaOpaque<"org.bukkit.block.BrushableBlock">;
 export interface CraftBrushableBlockStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.BrushableBlockEntity): CraftBrushableBlock;
-  new(arg0: CraftBrushableBlock, arg1: JavaOpaque<"org.bukkit.Location">): CraftBrushableBlock;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftCalibratedSculkSensor. */
 export interface CraftCalibratedSculkSensorMembers {
   readonly __javaSupertypes?: readonly [CraftSculkSensor<j_net_minecraft_world_level_block_entity.CalibratedSculkSensorBlockEntity>, JavaOpaque<"org.bukkit.block.CalibratedSculkSensor">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftCalibratedSculkSensor;
-  copy(): CraftSculkSensor;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftCalibratedSculkSensor;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSculkSensor;
 }
 export type CraftCalibratedSculkSensor = CraftCalibratedSculkSensorMembers & CraftSculkSensor<j_net_minecraft_world_level_block_entity.CalibratedSculkSensorBlockEntity> & JavaOpaque<"org.bukkit.block.CalibratedSculkSensor">;
 export interface CraftCalibratedSculkSensorStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.CalibratedSculkSensorBlockEntity): CraftCalibratedSculkSensor;
-  new(arg0: CraftCalibratedSculkSensor, arg1: JavaOpaque<"org.bukkit.Location">): CraftCalibratedSculkSensor;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftCampfire. */
 export interface CraftCampfireMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.CampfireBlockEntity>, JavaOpaque<"org.bukkit.block.Campfire">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftCampfire;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftCampfire;
   getCookTime(arg0: number): number;
   getCookTimeTotal(arg0: number): number;
@@ -613,24 +503,14 @@ export interface CraftCampfireMembers {
 export type CraftCampfire = CraftCampfireMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.CampfireBlockEntity> & JavaOpaque<"org.bukkit.block.Campfire">;
 export interface CraftCampfireStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.CampfireBlockEntity): CraftCampfire;
-  new(arg0: CraftCampfire, arg1: JavaOpaque<"org.bukkit.Location">): CraftCampfire;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftChest. */
 export interface CraftChestMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.ChestBlockEntity>, JavaOpaque<"org.bukkit.block.Chest">];
   close(): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftChest;
-  copy(): CraftContainer;
-  copy(): CraftLootable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftChest;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   getBlockInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
@@ -641,42 +521,28 @@ export interface CraftChestMembers {
 export type CraftChest = CraftChestMembers & CraftLootable<j_net_minecraft_world_level_block_entity.ChestBlockEntity> & JavaOpaque<"org.bukkit.block.Chest">;
 export interface CraftChestStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.ChestBlockEntity): CraftChest;
-  new(arg0: CraftChest, arg1: JavaOpaque<"org.bukkit.Location">): CraftChest;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftChiseledBookshelf. */
 export interface CraftChiseledBookshelfMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.ChiseledBookShelfBlockEntity>, JavaOpaque<"org.bukkit.block.ChiseledBookshelf">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftChiseledBookshelf;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftChiseledBookshelf;
   getInventory(): JavaOpaque<"org.bukkit.inventory.ChiseledBookshelfInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getLastInteractedSlot(): number;
   getSlot(arg0: JavaOpaque<"org.bukkit.util.Vector">): number;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.ChiseledBookshelfInventory">;
-  getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   setLastInteractedSlot(arg0: number): void;
 }
 export type CraftChiseledBookshelf = CraftChiseledBookshelfMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.ChiseledBookShelfBlockEntity> & JavaOpaque<"org.bukkit.block.ChiseledBookshelf">;
 export interface CraftChiseledBookshelfStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.ChiseledBookShelfBlockEntity): CraftChiseledBookshelf;
-  new(arg0: CraftChiseledBookshelf, arg1: JavaOpaque<"org.bukkit.Location">): CraftChiseledBookshelf;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftCommandBlock. */
 export interface CraftCommandBlockMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.CommandBlockEntity>, JavaOpaque<"org.bukkit.block.CommandBlock">, JavaOpaque<"io.papermc.paper.commands.PaperCommandBlockHolder">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftCommandBlock;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftCommandBlock;
   getCommand(): string;
   getCommandBlockHandle(): j_net_minecraft_world_level.BaseCommandBlock;
@@ -689,35 +555,23 @@ export interface CraftCommandBlockMembers {
 export type CraftCommandBlock = CraftCommandBlockMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.CommandBlockEntity> & JavaOpaque<"org.bukkit.block.CommandBlock"> & JavaOpaque<"io.papermc.paper.commands.PaperCommandBlockHolder">;
 export interface CraftCommandBlockStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.CommandBlockEntity): CraftCommandBlock;
-  new(arg0: CraftCommandBlock, arg1: JavaOpaque<"org.bukkit.Location">): CraftCommandBlock;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftComparator. */
 export interface CraftComparatorMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.ComparatorBlockEntity>, JavaOpaque<"org.bukkit.block.Comparator">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftComparator;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftComparator;
 }
 export type CraftComparator = CraftComparatorMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.ComparatorBlockEntity> & JavaOpaque<"org.bukkit.block.Comparator">;
 export interface CraftComparatorStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.ComparatorBlockEntity): CraftComparator;
-  new(arg0: CraftComparator, arg1: JavaOpaque<"org.bukkit.Location">): CraftComparator;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftConduit. */
 export interface CraftConduitMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.ConduitBlockEntity>, JavaOpaque<"org.bukkit.block.Conduit">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftConduit;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftConduit;
   getFrameBlockCount(): number;
   getFrameBlocks(): JavaCollection<JavaOpaque<"org.bukkit.block.Block">>;
@@ -732,20 +586,13 @@ export interface CraftConduitMembers {
 export type CraftConduit = CraftConduitMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.ConduitBlockEntity> & JavaOpaque<"org.bukkit.block.Conduit">;
 export interface CraftConduitStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.ConduitBlockEntity): CraftConduit;
-  new(arg0: CraftConduit, arg1: JavaOpaque<"org.bukkit.Location">): CraftConduit;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.block.CraftContainer. */
 export interface CraftContainerMembers<T /* extends j_net_minecraft_world_level_block_entity.BaseContainerBlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<T>, JavaOpaque<"org.bukkit.block.Container">];
   applyTo(arg0: T): void;
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftContainer<T>;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer<T>;
   customName(): JavaOpaque<"net.kyori.adventure.text.Component">;
   customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component">): void;
@@ -758,24 +605,13 @@ export interface CraftContainerMembers<T /* extends j_net_minecraft_world_level_
 }
 export type CraftContainer<T /* extends j_net_minecraft_world_level_block_entity.BaseContainerBlockEntity */ = unknown> = CraftContainerMembers<T> & CraftBlockEntityState<T> & JavaOpaque<"org.bukkit.block.Container">;
 export interface CraftContainerStatics {
-  new<T /* extends j_net_minecraft_world_level_block_entity.BaseContainerBlockEntity */>(arg0: JavaOpaque<"org.bukkit.World">, arg1: T): CraftContainer<T>;
-  new<T /* extends j_net_minecraft_world_level_block_entity.BaseContainerBlockEntity */>(arg0: CraftContainer<T>, arg1: JavaOpaque<"org.bukkit.Location">): CraftContainer<T>;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftCrafter. */
 export interface CraftCrafterMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.CrafterBlockEntity>, JavaOpaque<"org.bukkit.block.Crafter">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
   copy(): CraftCrafter;
-  copy(): CraftLootable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftCrafter;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   getCraftingTicks(): number;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
@@ -788,24 +624,17 @@ export interface CraftCrafterMembers {
 export type CraftCrafter = CraftCrafterMembers & CraftLootable<j_net_minecraft_world_level_block_entity.CrafterBlockEntity> & JavaOpaque<"org.bukkit.block.Crafter">;
 export interface CraftCrafterStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.CrafterBlockEntity): CraftCrafter;
-  new(arg0: CraftCrafter, arg1: JavaOpaque<"org.bukkit.Location">): CraftCrafter;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftCreakingHeart. */
 export interface CraftCreakingHeartMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.CreakingHeartBlockEntity>, JavaOpaque<"org.bukkit.block.CreakingHeart">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftCreakingHeart;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftCreakingHeart;
 }
 export type CraftCreakingHeart = CraftCreakingHeartMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.CreakingHeartBlockEntity> & JavaOpaque<"org.bukkit.block.CreakingHeart">;
 export interface CraftCreakingHeartStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.CreakingHeartBlockEntity): CraftCreakingHeart;
-  new(arg0: CraftCreakingHeart, arg1: JavaOpaque<"org.bukkit.Location">): CraftCreakingHeart;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftCreatureSpawner. */
@@ -813,12 +642,7 @@ export interface CraftCreatureSpawnerMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SpawnerBlockEntity>, JavaOpaque<"org.bukkit.block.CreatureSpawner">, j_org_bukkit_craftbukkit_spawner.PaperSharedSpawnerLogic];
   addPotentialSpawn(arg0: JavaOpaque<"org.bukkit.block.spawner.SpawnerEntry">): void;
   addPotentialSpawn(arg0: JavaOpaque<"org.bukkit.entity.EntitySnapshot">, arg1: number, arg2: JavaOpaque<"org.bukkit.block.spawner.SpawnRule">): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftCreatureSpawner;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftCreatureSpawner;
   getCreatureTypeName(): string;
   getDelay(): number;
@@ -853,7 +677,6 @@ export interface CraftCreatureSpawnerMembers {
 export type CraftCreatureSpawner = CraftCreatureSpawnerMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SpawnerBlockEntity> & JavaOpaque<"org.bukkit.block.CreatureSpawner"> & j_org_bukkit_craftbukkit_spawner.PaperSharedSpawnerLogic;
 export interface CraftCreatureSpawnerStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.SpawnerBlockEntity): CraftCreatureSpawner;
-  new(arg0: CraftCreatureSpawner, arg1: JavaOpaque<"org.bukkit.Location">): CraftCreatureSpawner;
   addPotentialSpawn(arg0: j_net_minecraft_world_level.BaseSpawner, arg1: JavaOpaque<"org.bukkit.entity.EntitySnapshot">, arg2: number, arg3: JavaOpaque<"org.bukkit.block.spawner.SpawnRule">, arg4: JavaOpaque<"org.bukkit.block.spawner.SpawnerEntry$Equipment">): void;
   fromMinecraftRule(arg0: j_net_minecraft_world_level.SpawnData_CustomSpawnRules): JavaOpaque<"org.bukkit.block.spawner.SpawnRule">;
   getEquipment(arg0: JavaOptional<j_net_minecraft_world_entity.EquipmentTable>): JavaOpaque<"org.bukkit.block.spawner.SpawnerEntry$Equipment">;
@@ -867,39 +690,26 @@ export interface CraftCreatureSpawnerStatics {
 /** JVM class org.bukkit.craftbukkit.block.CraftDaylightDetector. */
 export interface CraftDaylightDetectorMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.DaylightDetectorBlockEntity>, JavaOpaque<"org.bukkit.block.DaylightDetector">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftDaylightDetector;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftDaylightDetector;
 }
 export type CraftDaylightDetector = CraftDaylightDetectorMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.DaylightDetectorBlockEntity> & JavaOpaque<"org.bukkit.block.DaylightDetector">;
 export interface CraftDaylightDetectorStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.DaylightDetectorBlockEntity): CraftDaylightDetector;
-  new(arg0: CraftDaylightDetector, arg1: JavaOpaque<"org.bukkit.Location">): CraftDaylightDetector;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftDecoratedPot. */
 export interface CraftDecoratedPotMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.DecoratedPotBlockEntity>, JavaOpaque<"org.bukkit.block.DecoratedPot">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftDecoratedPot;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftDecoratedPot;
   getInventory(): JavaOpaque<"org.bukkit.inventory.DecoratedPotInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getLootTable(): JavaOpaque<"org.bukkit.loot.LootTable">;
   getSeed(): bigint;
   getShards(): JavaList<JavaOpaque<"org.bukkit.Material">>;
   getSherd(arg0: JavaOpaque<"org.bukkit.block.DecoratedPot$Side">): JavaOpaque<"org.bukkit.Material">;
   getSherds(): JavaMap<JavaOpaque<"org.bukkit.block.DecoratedPot$Side">, JavaOpaque<"org.bukkit.Material">>;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.DecoratedPotInventory">;
-  getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   setLootTable(arg0: JavaOpaque<"org.bukkit.loot.LootTable">): void;
   setLootTable(arg0: JavaOpaque<"org.bukkit.loot.LootTable">, arg1: bigint): void;
   setSeed(arg0: bigint): void;
@@ -908,23 +718,13 @@ export interface CraftDecoratedPotMembers {
 export type CraftDecoratedPot = CraftDecoratedPotMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.DecoratedPotBlockEntity> & JavaOpaque<"org.bukkit.block.DecoratedPot">;
 export interface CraftDecoratedPotStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.DecoratedPotBlockEntity): CraftDecoratedPot;
-  new(arg0: CraftDecoratedPot, arg1: JavaOpaque<"org.bukkit.Location">): CraftDecoratedPot;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftDispenser. */
 export interface CraftDispenserMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.DispenserBlockEntity>, JavaOpaque<"org.bukkit.block.Dispenser">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
   copy(): CraftDispenser;
-  copy(): CraftLootable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftDispenser;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   dispense(): boolean;
   getBlockProjectileSource(): JavaOpaque<"org.bukkit.projectiles.BlockProjectileSource">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
@@ -933,23 +733,13 @@ export interface CraftDispenserMembers {
 export type CraftDispenser = CraftDispenserMembers & CraftLootable<j_net_minecraft_world_level_block_entity.DispenserBlockEntity> & JavaOpaque<"org.bukkit.block.Dispenser">;
 export interface CraftDispenserStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.DispenserBlockEntity): CraftDispenser;
-  new(arg0: CraftDispenser, arg1: JavaOpaque<"org.bukkit.Location">): CraftDispenser;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftDropper. */
 export interface CraftDropperMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.DropperBlockEntity>, JavaOpaque<"org.bukkit.block.Dropper">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
   copy(): CraftDropper;
-  copy(): CraftLootable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftDropper;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   drop(): void;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
@@ -957,20 +747,13 @@ export interface CraftDropperMembers {
 export type CraftDropper = CraftDropperMembers & CraftLootable<j_net_minecraft_world_level_block_entity.DropperBlockEntity> & JavaOpaque<"org.bukkit.block.Dropper">;
 export interface CraftDropperStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.DropperBlockEntity): CraftDropper;
-  new(arg0: CraftDropper, arg1: JavaOpaque<"org.bukkit.Location">): CraftDropper;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftEnchantingTable. */
 export interface CraftEnchantingTableMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.EnchantingTableBlockEntity>, JavaOpaque<"org.bukkit.block.EnchantingTable">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   applyTo(arg0: j_net_minecraft_world_level_block_entity.EnchantingTableBlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftEnchantingTable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftEnchantingTable;
   customName(): JavaOpaque<"net.kyori.adventure.text.Component">;
   customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component">): void;
@@ -980,19 +763,13 @@ export interface CraftEnchantingTableMembers {
 export type CraftEnchantingTable = CraftEnchantingTableMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.EnchantingTableBlockEntity> & JavaOpaque<"org.bukkit.block.EnchantingTable">;
 export interface CraftEnchantingTableStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.EnchantingTableBlockEntity): CraftEnchantingTable;
-  new(arg0: CraftEnchantingTable, arg1: JavaOpaque<"org.bukkit.Location">): CraftEnchantingTable;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftEnderChest. */
 export interface CraftEnderChestMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.EnderChestBlockEntity>, JavaOpaque<"org.bukkit.block.EnderChest">];
   close(): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftEnderChest;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftEnderChest;
   isBlocked(): boolean;
   isOpen(): boolean;
@@ -1001,20 +778,13 @@ export interface CraftEnderChestMembers {
 export type CraftEnderChest = CraftEnderChestMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.EnderChestBlockEntity> & JavaOpaque<"org.bukkit.block.EnderChest">;
 export interface CraftEnderChestStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.EnderChestBlockEntity): CraftEnderChest;
-  new(arg0: CraftEnderChest, arg1: JavaOpaque<"org.bukkit.Location">): CraftEnderChest;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftEndGateway. */
 export interface CraftEndGatewayMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TheEndGatewayBlockEntity>, JavaOpaque<"org.bukkit.block.EndGateway">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   applyTo(arg0: j_net_minecraft_world_level_block_entity.TheEndGatewayBlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftEndGateway;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftEndGateway;
   getAge(): bigint;
   getExitLocation(): JavaOpaque<"org.bukkit.Location">;
@@ -1026,48 +796,32 @@ export interface CraftEndGatewayMembers {
 export type CraftEndGateway = CraftEndGatewayMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TheEndGatewayBlockEntity> & JavaOpaque<"org.bukkit.block.EndGateway">;
 export interface CraftEndGatewayStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.TheEndGatewayBlockEntity): CraftEndGateway;
-  new(arg0: CraftEndGateway, arg1: JavaOpaque<"org.bukkit.Location">): CraftEndGateway;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftEndPortal. */
 export interface CraftEndPortalMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TheEndPortalBlockEntity>];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftEndPortal;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftEndPortal;
 }
 export type CraftEndPortal = CraftEndPortalMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TheEndPortalBlockEntity>;
 export interface CraftEndPortalStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.TheEndPortalBlockEntity): CraftEndPortal;
-  new(arg0: CraftEndPortal, arg1: JavaOpaque<"org.bukkit.Location">): CraftEndPortal;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.block.CraftFurnace. */
 export interface CraftFurnaceMembers<T /* extends j_net_minecraft_world_level_block_entity.AbstractFurnaceBlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [CraftContainer<T>, JavaOpaque<"org.bukkit.block.Furnace">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
   copy(): CraftFurnace<T>;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftFurnace<T>;
   getBurnTime(): number;
   getCookSpeedMultiplier(): number;
   getCookTime(): number;
   getCookTimeTotal(): number;
   getInventory(): JavaOpaque<"org.bukkit.inventory.FurnaceInventory">;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getRecipeUsedCount(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): number;
   getRecipesUsed(): JavaMap<JavaOpaque<"org.bukkit.inventory.CookingRecipe", [object]>, number>;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.FurnaceInventory">;
-  getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   hasRecipeUsedCount(arg0: JavaOpaque<"org.bukkit.NamespacedKey">): boolean;
   setBurnTime(arg0: number): void;
   setCookSpeedMultiplier(arg0: number): void;
@@ -1078,64 +832,35 @@ export interface CraftFurnaceMembers<T /* extends j_net_minecraft_world_level_bl
 }
 export type CraftFurnace<T /* extends j_net_minecraft_world_level_block_entity.AbstractFurnaceBlockEntity */ = unknown> = CraftFurnaceMembers<T> & CraftContainer<T> & JavaOpaque<"org.bukkit.block.Furnace">;
 export interface CraftFurnaceStatics {
-  new<T /* extends j_net_minecraft_world_level_block_entity.AbstractFurnaceBlockEntity */>(arg0: JavaOpaque<"org.bukkit.World">, arg1: T): CraftFurnace<T>;
-  new<T /* extends j_net_minecraft_world_level_block_entity.AbstractFurnaceBlockEntity */>(arg0: CraftFurnace<T>, arg1: JavaOpaque<"org.bukkit.Location">): CraftFurnace<T>;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftFurnaceFurnace. */
 export interface CraftFurnaceFurnaceMembers {
   readonly __javaSupertypes?: readonly [CraftFurnace<j_net_minecraft_world_level_block_entity.FurnaceBlockEntity>];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
-  copy(): CraftFurnace;
   copy(): CraftFurnaceFurnace;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftFurnace;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftFurnaceFurnace;
 }
 export type CraftFurnaceFurnace = CraftFurnaceFurnaceMembers & CraftFurnace<j_net_minecraft_world_level_block_entity.FurnaceBlockEntity>;
 export interface CraftFurnaceFurnaceStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.FurnaceBlockEntity): CraftFurnaceFurnace;
-  new(arg0: CraftFurnaceFurnace, arg1: JavaOpaque<"org.bukkit.Location">): CraftFurnaceFurnace;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftHangingSign. */
 export interface CraftHangingSignMembers {
   readonly __javaSupertypes?: readonly [CraftSign<j_net_minecraft_world_level_block_entity.HangingSignBlockEntity>, JavaOpaque<"org.bukkit.block.HangingSign">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftHangingSign;
-  copy(): CraftSign;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftHangingSign;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSign;
 }
 export type CraftHangingSign = CraftHangingSignMembers & CraftSign<j_net_minecraft_world_level_block_entity.HangingSignBlockEntity> & JavaOpaque<"org.bukkit.block.HangingSign">;
 export interface CraftHangingSignStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.HangingSignBlockEntity): CraftHangingSign;
-  new(arg0: CraftHangingSign, arg1: JavaOpaque<"org.bukkit.Location">): CraftHangingSign;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftHopper. */
 export interface CraftHopperMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.HopperBlockEntity>, JavaOpaque<"org.bukkit.block.Hopper">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
   copy(): CraftHopper;
-  copy(): CraftLootable;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftHopper;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getTransferCooldown(): number;
@@ -1144,42 +869,28 @@ export interface CraftHopperMembers {
 export type CraftHopper = CraftHopperMembers & CraftLootable<j_net_minecraft_world_level_block_entity.HopperBlockEntity> & JavaOpaque<"org.bukkit.block.Hopper">;
 export interface CraftHopperStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.HopperBlockEntity): CraftHopper;
-  new(arg0: CraftHopper, arg1: JavaOpaque<"org.bukkit.Location">): CraftHopper;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftJigsaw. */
 export interface CraftJigsawMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.JigsawBlockEntity>, JavaOpaque<"org.bukkit.block.Jigsaw">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftJigsaw;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftJigsaw;
 }
 export type CraftJigsaw = CraftJigsawMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.JigsawBlockEntity> & JavaOpaque<"org.bukkit.block.Jigsaw">;
 export interface CraftJigsawStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.JigsawBlockEntity): CraftJigsaw;
-  new(arg0: CraftJigsaw, arg1: JavaOpaque<"org.bukkit.Location">): CraftJigsaw;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftJukebox. */
 export interface CraftJukeboxMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.JukeboxBlockEntity>, JavaOpaque<"org.bukkit.block.Jukebox">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftJukebox;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftJukebox;
   eject(): boolean;
-  getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.JukeboxInventory">;
   getPlaying(): JavaOpaque<"org.bukkit.Material">;
   getRecord(): JavaOpaque<"org.bukkit.inventory.ItemStack">;
-  getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getSnapshotInventory(): JavaOpaque<"org.bukkit.inventory.JukeboxInventory">;
   hasRecord(): boolean;
   isPlaying(): boolean;
@@ -1192,18 +903,12 @@ export interface CraftJukeboxMembers {
 export type CraftJukebox = CraftJukeboxMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.JukeboxBlockEntity> & JavaOpaque<"org.bukkit.block.Jukebox">;
 export interface CraftJukeboxStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.JukeboxBlockEntity): CraftJukebox;
-  new(arg0: CraftJukebox, arg1: JavaOpaque<"org.bukkit.Location">): CraftJukebox;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftLectern. */
 export interface CraftLecternMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.LecternBlockEntity>, JavaOpaque<"org.bukkit.block.Lectern">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftLectern;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLectern;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
   getPage(): number;
@@ -1214,42 +919,25 @@ export interface CraftLecternMembers {
 export type CraftLectern = CraftLecternMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.LecternBlockEntity> & JavaOpaque<"org.bukkit.block.Lectern">;
 export interface CraftLecternStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.LecternBlockEntity): CraftLectern;
-  new(arg0: CraftLectern, arg1: JavaOpaque<"org.bukkit.Location">): CraftLectern;
 }
 
 /** JVM abstract org.bukkit.craftbukkit.block.CraftLootable. */
 export interface CraftLootableMembers<T /* extends j_net_minecraft_world_level_block_entity.RandomizableContainerBlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [CraftContainer<T>, JavaOpaque<"org.bukkit.Nameable">, JavaOpaque<"org.bukkit.loot.Lootable">, JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableBlockInventory">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BaseContainerBlockEntity): void;
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   applyTo(arg0: T): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
   copy(): CraftLootable<T>;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable<T>;
   getNMSWorld(): j_net_minecraft_world_level.Level;
   getRandomizableContainer(): j_net_minecraft_world.RandomizableContainer;
 }
 export type CraftLootable<T /* extends j_net_minecraft_world_level_block_entity.RandomizableContainerBlockEntity */ = unknown> = CraftLootableMembers<T> & CraftContainer<T> & JavaOpaque<"org.bukkit.Nameable"> & JavaOpaque<"org.bukkit.loot.Lootable"> & JavaOpaque<"com.destroystokyo.paper.loottable.PaperLootableBlockInventory">;
 export interface CraftLootableStatics {
-  new<T /* extends j_net_minecraft_world_level_block_entity.RandomizableContainerBlockEntity */>(arg0: JavaOpaque<"org.bukkit.World">, arg1: T): CraftLootable<T>;
-  new<T /* extends j_net_minecraft_world_level_block_entity.RandomizableContainerBlockEntity */>(arg0: CraftLootable<T>, arg1: JavaOpaque<"org.bukkit.Location">): CraftLootable<T>;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftMovingPiston. */
 export interface CraftMovingPistonMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_piston.PistonMovingBlockEntity>, JavaOpaque<"io.papermc.paper.block.MovingPiston">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftMovingPiston;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftMovingPiston;
   getDirection(): JavaOpaque<"org.bukkit.block.BlockFace">;
   getMovingBlock(): JavaOpaque<"org.bukkit.block.data.BlockData">;
@@ -1259,7 +947,6 @@ export interface CraftMovingPistonMembers {
 export type CraftMovingPiston = CraftMovingPistonMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_piston.PistonMovingBlockEntity> & JavaOpaque<"io.papermc.paper.block.MovingPiston">;
 export interface CraftMovingPistonStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_piston.PistonMovingBlockEntity): CraftMovingPiston;
-  new(arg0: CraftMovingPiston, arg1: JavaOpaque<"org.bukkit.Location">): CraftMovingPiston;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftSculkCatalyst. */
@@ -1267,29 +954,18 @@ export interface CraftSculkCatalystMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SculkCatalystBlockEntity>, JavaOpaque<"org.bukkit.block.SculkCatalyst">];
   bloom(arg0: JavaOpaque<"io.papermc.paper.math.Position">, arg1: number): void;
   bloom(arg0: JavaOpaque<"org.bukkit.block.Block">, arg1: number): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftSculkCatalyst;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSculkCatalyst;
 }
 export type CraftSculkCatalyst = CraftSculkCatalystMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SculkCatalystBlockEntity> & JavaOpaque<"org.bukkit.block.SculkCatalyst">;
 export interface CraftSculkCatalystStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.SculkCatalystBlockEntity): CraftSculkCatalyst;
-  new(arg0: CraftSculkCatalyst, arg1: JavaOpaque<"org.bukkit.Location">): CraftSculkCatalyst;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftSculkSensor. */
 export interface CraftSculkSensorMembers<T /* extends j_net_minecraft_world_level_block_entity.SculkSensorBlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<T>, JavaOpaque<"org.bukkit.block.SculkSensor">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftSculkSensor<T>;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSculkSensor<T>;
   getLastVibrationFrequency(): number;
   getListenerRange(): number;
@@ -1299,18 +975,12 @@ export interface CraftSculkSensorMembers<T /* extends j_net_minecraft_world_leve
 export type CraftSculkSensor<T /* extends j_net_minecraft_world_level_block_entity.SculkSensorBlockEntity */ = unknown> = CraftSculkSensorMembers<T> & CraftBlockEntityState<T> & JavaOpaque<"org.bukkit.block.SculkSensor">;
 export interface CraftSculkSensorStatics {
   new<T /* extends j_net_minecraft_world_level_block_entity.SculkSensorBlockEntity */>(arg0: JavaOpaque<"org.bukkit.World">, arg1: T): CraftSculkSensor<T>;
-  new<T /* extends j_net_minecraft_world_level_block_entity.SculkSensorBlockEntity */>(arg0: CraftSculkSensor<T>, arg1: JavaOpaque<"org.bukkit.Location">): CraftSculkSensor<T>;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftSculkShrieker. */
 export interface CraftSculkShriekerMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SculkShriekerBlockEntity>, JavaOpaque<"org.bukkit.block.SculkShrieker">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftSculkShrieker;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSculkShrieker;
   getWarningLevel(): number;
   setWarningLevel(arg0: number): void;
@@ -1319,23 +989,13 @@ export interface CraftSculkShriekerMembers {
 export type CraftSculkShrieker = CraftSculkShriekerMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SculkShriekerBlockEntity> & JavaOpaque<"org.bukkit.block.SculkShrieker">;
 export interface CraftSculkShriekerStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.SculkShriekerBlockEntity): CraftSculkShrieker;
-  new(arg0: CraftSculkShrieker, arg1: JavaOpaque<"org.bukkit.Location">): CraftSculkShrieker;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftShulkerBox. */
 export interface CraftShulkerBoxMembers {
   readonly __javaSupertypes?: readonly [CraftLootable<j_net_minecraft_world_level_block_entity.ShulkerBoxBlockEntity>, JavaOpaque<"org.bukkit.block.ShulkerBox">];
   close(): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
-  copy(): CraftLootable;
   copy(): CraftShulkerBox;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftLootable;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftShulkerBox;
   getColor(): JavaOpaque<"org.bukkit.DyeColor">;
   getInventory(): JavaOpaque<"org.bukkit.inventory.Inventory">;
@@ -1346,20 +1006,13 @@ export interface CraftShulkerBoxMembers {
 export type CraftShulkerBox = CraftShulkerBoxMembers & CraftLootable<j_net_minecraft_world_level_block_entity.ShulkerBoxBlockEntity> & JavaOpaque<"org.bukkit.block.ShulkerBox">;
 export interface CraftShulkerBoxStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.ShulkerBoxBlockEntity): CraftShulkerBox;
-  new(arg0: CraftShulkerBox, arg1: JavaOpaque<"org.bukkit.Location">): CraftShulkerBox;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftSign. */
 export interface CraftSignMembers<T /* extends j_net_minecraft_world_level_block_entity.SignBlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<T>, JavaOpaque<"org.bukkit.block.Sign">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   applyTo(arg0: T): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftSign<T>;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSign<T>;
   getAllowedEditor(): JavaOpaque<"org.bukkit.entity.Player">;
   getAllowedEditorUniqueId(): JavaOpaque<"java.util.UUID">;
@@ -1387,7 +1040,6 @@ export interface CraftSignMembers<T /* extends j_net_minecraft_world_level_block
 export type CraftSign<T /* extends j_net_minecraft_world_level_block_entity.SignBlockEntity */ = unknown> = CraftSignMembers<T> & CraftBlockEntityState<T> & JavaOpaque<"org.bukkit.block.Sign">;
 export interface CraftSignStatics {
   new<T /* extends j_net_minecraft_world_level_block_entity.SignBlockEntity */>(arg0: JavaOpaque<"org.bukkit.World">, arg1: T): CraftSign<T>;
-  new<T /* extends j_net_minecraft_world_level_block_entity.SignBlockEntity */>(arg0: CraftSign<T>, arg1: JavaOpaque<"org.bukkit.Location">): CraftSign<T>;
   openSign(arg0: JavaOpaque<"org.bukkit.block.Sign">, arg1: JavaOpaque<"org.bukkit.entity.Player">, arg2: JavaOpaque<"org.bukkit.block.sign.Side">): void;
   revertComponents(arg0: Array<j_net_minecraft_network_chat.Component>): Array<string>;
   sanitizeLines(arg0: JavaList<JavaOpaque<"net.kyori.adventure.text.Component">>): Array<j_net_minecraft_network_chat.Component>;
@@ -1397,17 +1049,11 @@ export interface CraftSignStatics {
 /** JVM class org.bukkit.craftbukkit.block.CraftSkull. */
 export interface CraftSkullMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SkullBlockEntity>, JavaOpaque<"org.bukkit.block.Skull">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   applyTo(arg0: j_net_minecraft_world_level_block_entity.SkullBlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftSkull;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSkull;
   customName(): JavaOpaque<"net.kyori.adventure.text.Component"> | null;
-  customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component"> | null): void | null;
+  customName(arg0: JavaOpaque<"net.kyori.adventure.text.Component"> | null): void;
   getNoteBlockSound(): JavaOpaque<"org.bukkit.NamespacedKey">;
   getOwner(): string;
   getOwnerProfile(): JavaOpaque<"org.bukkit.profile.PlayerProfile">;
@@ -1416,9 +1062,8 @@ export interface CraftSkullMembers {
   getRotation(): JavaOpaque<"org.bukkit.block.BlockFace">;
   getSkullType(): JavaOpaque<"org.bukkit.SkullType">;
   hasOwner(): boolean;
-  load(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
   load(arg0: j_net_minecraft_world_level_block_entity.SkullBlockEntity): void;
-  setNoteBlockSound(arg0: JavaOpaque<"org.bukkit.NamespacedKey"> | null): void | null;
+  setNoteBlockSound(arg0: JavaOpaque<"org.bukkit.NamespacedKey"> | null): void;
   setOwner(arg0: string): boolean;
   setOwnerProfile(arg0: JavaOpaque<"org.bukkit.profile.PlayerProfile">): void;
   setOwningPlayer(arg0: JavaOpaque<"org.bukkit.OfflinePlayer">): void;
@@ -1429,41 +1074,23 @@ export interface CraftSkullMembers {
 export type CraftSkull = CraftSkullMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.SkullBlockEntity> & JavaOpaque<"org.bukkit.block.Skull">;
 export interface CraftSkullStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.SkullBlockEntity): CraftSkull;
-  new(arg0: CraftSkull, arg1: JavaOpaque<"org.bukkit.Location">): CraftSkull;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftSmoker. */
 export interface CraftSmokerMembers {
   readonly __javaSupertypes?: readonly [CraftFurnace<j_net_minecraft_world_level_block_entity.SmokerBlockEntity>, JavaOpaque<"org.bukkit.block.Smoker">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
-  copy(): CraftContainer;
-  copy(): CraftFurnace;
   copy(): CraftSmoker;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftContainer;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftFurnace;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftSmoker;
 }
 export type CraftSmoker = CraftSmokerMembers & CraftFurnace<j_net_minecraft_world_level_block_entity.SmokerBlockEntity> & JavaOpaque<"org.bukkit.block.Smoker">;
 export interface CraftSmokerStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.SmokerBlockEntity): CraftSmoker;
-  new(arg0: CraftSmoker, arg1: JavaOpaque<"org.bukkit.Location">): CraftSmoker;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftStructureBlock. */
 export interface CraftStructureBlockMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.StructureBlockEntity>, JavaOpaque<"org.bukkit.block.Structure">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.StructureBlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftStructureBlock;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftStructureBlock;
   getAuthor(): string;
   getIntegrity(): number;
@@ -1496,54 +1123,34 @@ export interface CraftStructureBlockMembers {
 export type CraftStructureBlock = CraftStructureBlockMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.StructureBlockEntity> & JavaOpaque<"org.bukkit.block.Structure">;
 export interface CraftStructureBlockStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.StructureBlockEntity): CraftStructureBlock;
-  new(arg0: CraftStructureBlock, arg1: JavaOpaque<"org.bukkit.Location">): CraftStructureBlock;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftTestBlock. */
 export interface CraftTestBlockMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TestBlockEntity>, JavaOpaque<"org.bukkit.block.TestBlock">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftTestBlock;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftTestBlock;
 }
 export type CraftTestBlock = CraftTestBlockMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TestBlockEntity> & JavaOpaque<"org.bukkit.block.TestBlock">;
 export interface CraftTestBlockStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.TestBlockEntity): CraftTestBlock;
-  new(arg0: CraftTestBlock, arg1: JavaOpaque<"org.bukkit.Location">): CraftTestBlock;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftTestInstanceBlock. */
 export interface CraftTestInstanceBlockMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TestInstanceBlockEntity>, JavaOpaque<"org.bukkit.block.TestInstanceBlock">];
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftTestInstanceBlock;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftTestInstanceBlock;
 }
 export type CraftTestInstanceBlock = CraftTestInstanceBlockMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TestInstanceBlockEntity> & JavaOpaque<"org.bukkit.block.TestInstanceBlock">;
 export interface CraftTestInstanceBlockStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.TestInstanceBlockEntity): CraftTestInstanceBlock;
-  new(arg0: CraftTestInstanceBlock, arg1: JavaOpaque<"org.bukkit.Location">): CraftTestInstanceBlock;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftTrialSpawner. */
 export interface CraftTrialSpawnerMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TrialSpawnerBlockEntity>, JavaOpaque<"org.bukkit.block.TrialSpawner">];
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.BlockEntity): void;
-  applyTo(arg0: j_net_minecraft_world_level_block_entity.TrialSpawnerBlockEntity): void;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftTrialSpawner;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftTrialSpawner;
   getCooldownEnd(): bigint;
   getCooldownLength(): number;
@@ -1569,7 +1176,6 @@ export interface CraftTrialSpawnerMembers {
 export type CraftTrialSpawner = CraftTrialSpawnerMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity.TrialSpawnerBlockEntity> & JavaOpaque<"org.bukkit.block.TrialSpawner">;
 export interface CraftTrialSpawnerStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity.TrialSpawnerBlockEntity): CraftTrialSpawner;
-  new(arg0: CraftTrialSpawner, arg1: JavaOpaque<"org.bukkit.Location">): CraftTrialSpawner;
 }
 
 /** JVM class org.bukkit.craftbukkit.block.CraftTrialSpawnerConfiguration. */
@@ -1602,7 +1208,6 @@ export interface CraftTrialSpawnerConfigurationMembers {
   setSpawnedEntity(arg0: JavaOpaque<"org.bukkit.block.spawner.SpawnerEntry">): void;
   setSpawnedEntity(arg0: JavaOpaque<"org.bukkit.entity.EntitySnapshot">): void;
   setSpawnedType(arg0: JavaOpaque<"org.bukkit.entity.EntityType">): void;
-  toMinecraft(): j_net_minecraft_world_level_block_entity_trialspawner.TrialSpawnerConfig;
 }
 export type CraftTrialSpawnerConfiguration = CraftTrialSpawnerConfigurationMembers & JavaOpaque<"org.bukkit.spawner.TrialSpawnerConfiguration">;
 export interface CraftTrialSpawnerConfigurationStatics {
@@ -1613,12 +1218,7 @@ export interface CraftTrialSpawnerConfigurationStatics {
 export interface CraftVaultMembers {
   readonly __javaSupertypes?: readonly [CraftBlockEntityState<j_net_minecraft_world_level_block_entity_vault.VaultBlockEntity>, JavaOpaque<"org.bukkit.block.Vault">];
   addRewardedPlayer(arg0: JavaOpaque<"java.util.UUID">): boolean;
-  copy(): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(): CraftBlockEntityState;
-  copy(): CraftBlockState;
   copy(): CraftVault;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): JavaOpaque<"org.bukkit.block.BlockState">;
-  copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftBlockEntityState;
   copy(arg0: JavaOpaque<"org.bukkit.Location">): CraftVault;
   getActivationRange(): number;
   getConnectedPlayers(): JavaSet<JavaOpaque<"java.util.UUID">>;
@@ -1635,7 +1235,7 @@ export interface CraftVaultMembers {
   setActivationRange(arg0: number): void;
   setDeactivationRange(arg0: number): void;
   setDisplayedItem(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
-  setDisplayedLootTable(arg0: JavaOpaque<"org.bukkit.loot.LootTable">): void | null;
+  setDisplayedLootTable(arg0: JavaOpaque<"org.bukkit.loot.LootTable"> | null): void;
   setKeyItem(arg0: JavaOpaque<"org.bukkit.inventory.ItemStack">): void;
   setLootTable(arg0: JavaOpaque<"org.bukkit.loot.LootTable">): void;
   setNextStateUpdateTime(arg0: bigint): void;
@@ -1643,5 +1243,4 @@ export interface CraftVaultMembers {
 export type CraftVault = CraftVaultMembers & CraftBlockEntityState<j_net_minecraft_world_level_block_entity_vault.VaultBlockEntity> & JavaOpaque<"org.bukkit.block.Vault">;
 export interface CraftVaultStatics {
   new(arg0: JavaOpaque<"org.bukkit.World">, arg1: j_net_minecraft_world_level_block_entity_vault.VaultBlockEntity): CraftVault;
-  new(arg0: CraftVault, arg1: JavaOpaque<"org.bukkit.Location">): CraftVault;
 }

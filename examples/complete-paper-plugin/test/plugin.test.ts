@@ -1,16 +1,19 @@
 import { describe, expect, it } from 'vitest';
 
 import type { PaperCommandContext } from '@shamoo/paper';
+import type { PaperHandle, PlayerJoinEvent } from '@shamoo/paper-raw';
 
 import { CompletePaperPlugin } from '../src/plugin.js';
 
 describe('complete Paper plugin', () => {
-  it('consumes Runtime event DTOs and runs the immediate scheduled callback', async () => {
+  it('consumes a generated event handle and runs the immediate scheduled callback', async () => {
     const plugin = new CompletePaperPlugin();
     plugin.loaded();
     plugin.enabled();
     plugin.becameReady();
-    plugin.playerJoined({ type: 'PlayerJoinEvent', asynchronous: false });
+    plugin.playerJoined({
+      $type: 'org.bukkit.event.player.PlayerJoinEvent',
+    } as PaperHandle<PlayerJoinEvent>);
     plugin.runImmediateTask();
 
     expect(plugin.state).toEqual({ ready: true, joins: 1, scheduledRuns: 1 });

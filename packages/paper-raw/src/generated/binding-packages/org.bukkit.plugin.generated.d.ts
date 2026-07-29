@@ -125,7 +125,6 @@ export interface PluginBaseMembers {
 }
 export type PluginBase = PluginBaseMembers & Plugin;
 export interface PluginBaseStatics {
-  new(): PluginBase;
 }
 
 /** JVM class org.bukkit.plugin.PluginDescriptionFile. */
@@ -227,13 +226,13 @@ export interface PluginManagerMembers {
   getPlugin(arg0: string): Plugin | null;
   getPlugins(): Array<Plugin>;
   isPluginEnabled(arg0: string): boolean;
-  isPluginEnabled(arg0: Plugin | null): boolean | null;
+  isPluginEnabled(arg0: Plugin | null): boolean;
   isTransitiveDependency(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: j_io_papermc_paper_plugin_configuration.PluginMeta): boolean;
   /** @throws org.bukkit.plugin.InvalidDescriptionException @throws org.bukkit.plugin.InvalidPluginException @throws org.bukkit.plugin.UnknownDependencyException */
   loadPlugin(arg0: JavaOpaque<"java.io.File">): Plugin | null;
   loadPlugins(arg0: JavaOpaque<"java.io.File">): Array<Plugin>;
   loadPlugins(arg0: Array<JavaOpaque<"java.io.File">>): Array<Plugin>;
-  overridePermissionManager(arg0: Plugin, arg1: j_io_papermc_paper_plugin.PermissionManager | null): void | null;
+  overridePermissionManager(arg0: Plugin, arg1: j_io_papermc_paper_plugin.PermissionManager | null): void;
   recalculatePermissionDefaults(arg0: j_org_bukkit_permissions.Permission): void;
   registerEvent(arg0: JavaClass<j_org_bukkit_event.Event>, arg1: j_org_bukkit_event.Listener, arg2: j_org_bukkit_event.EventPriority, arg3: EventExecutor, arg4: Plugin): void;
   registerEvent(arg0: JavaClass<j_org_bukkit_event.Event>, arg1: j_org_bukkit_event.Listener, arg2: j_org_bukkit_event.EventPriority, arg3: EventExecutor, arg4: Plugin, arg5: boolean): void;
@@ -271,7 +270,6 @@ export interface RegisteredListenerStatics {
 /** JVM class org.bukkit.plugin.RegisteredServiceProvider. */
 export interface RegisteredServiceProviderMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [RegisteredServiceProvider<object>]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: RegisteredServiceProvider<object>): number;
   getPlugin(): Plugin;
   getPriority(): ServicePriority;
@@ -337,7 +335,7 @@ export interface SimplePluginManagerMembers {
   getPlugin(arg0: string): Plugin | null;
   getPlugins(): Array<Plugin>;
   isPluginEnabled(arg0: string): boolean;
-  isPluginEnabled(arg0: Plugin | null): boolean | null;
+  isPluginEnabled(arg0: Plugin | null): boolean;
   isTransitiveDepend(arg0: PluginDescriptionFile, arg1: PluginDescriptionFile): boolean;
   isTransitiveDependency(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: j_io_papermc_paper_plugin_configuration.PluginMeta): boolean;
   /** @throws org.bukkit.plugin.InvalidPluginException @throws org.bukkit.plugin.UnknownDependencyException */
@@ -345,7 +343,7 @@ export interface SimplePluginManagerMembers {
   loadPlugins(arg0: JavaOpaque<"java.io.File">): Array<Plugin>;
   loadPlugins(arg0: JavaOpaque<"java.io.File">, arg1: JavaList<JavaOpaque<"java.io.File">>): Array<Plugin>;
   loadPlugins(arg0: Array<JavaOpaque<"java.io.File">>): Array<Plugin>;
-  overridePermissionManager(arg0: Plugin, arg1: j_io_papermc_paper_plugin.PermissionManager | null): void | null;
+  overridePermissionManager(arg0: Plugin, arg1: j_io_papermc_paper_plugin.PermissionManager | null): void;
   paperPluginManager: PluginManager;
   readonly permSubs: JavaMap<string, JavaMap<j_org_bukkit_permissions.Permissible, boolean>>;
   readonly permissions: JavaMap<string, j_org_bukkit_permissions.Permission>;
@@ -372,10 +370,8 @@ export interface SimplePluginManagerStatics {
 /** JVM class org.bukkit.plugin.SimpleServicesManager. */
 export interface SimpleServicesManagerMembers {
   readonly __javaSupertypes?: readonly [ServicesManager];
-  getKnownServices(): JavaCollection<object>;
   getKnownServices(): JavaSet<JavaClass<object>>;
   getRegistration<T>(arg0: JavaClass<T>): RegisteredServiceProvider<T> | null;
-  getRegistrations(arg0: JavaClass<object>): JavaCollection<object>;
   getRegistrations<T>(arg0: JavaClass<T>): JavaList<RegisteredServiceProvider<T>>;
   getRegistrations(arg0: Plugin): JavaList<RegisteredServiceProvider<object>>;
   isProvidedFor<T>(arg0: JavaClass<T>): boolean;

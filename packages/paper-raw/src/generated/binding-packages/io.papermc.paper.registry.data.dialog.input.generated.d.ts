@@ -33,11 +33,11 @@ export type DialogInput = DialogInputMembers;
 export interface DialogInputStatics {
   bool(arg0: string, arg1: j_net_kyori_adventure_text.Component): BooleanDialogInput_Builder;
   bool(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: boolean, arg3: string, arg4: string): BooleanDialogInput;
-  numberRange(arg0: string, arg1: number, arg2: j_net_kyori_adventure_text.Component, arg3: string, arg4: number, arg5: number, arg6: number, arg7: number): NumberRangeDialogInput | null;
+  numberRange(arg0: string, arg1: number, arg2: j_net_kyori_adventure_text.Component, arg3: string, arg4: number, arg5: number, arg6: number | null, arg7: number | null): NumberRangeDialogInput;
   numberRange(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: number, arg3: number): NumberRangeDialogInput_Builder;
   singleOption(arg0: string, arg1: number, arg2: JavaList<SingleOptionDialogInput_OptionEntry>, arg3: j_net_kyori_adventure_text.Component, arg4: boolean): SingleOptionDialogInput;
   singleOption(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: JavaList<SingleOptionDialogInput_OptionEntry>): SingleOptionDialogInput_Builder;
-  text(arg0: string, arg1: number, arg2: j_net_kyori_adventure_text.Component, arg3: boolean, arg4: string, arg5: number, arg6: TextDialogInput_MultilineOptions): TextDialogInput | null;
+  text(arg0: string, arg1: number, arg2: j_net_kyori_adventure_text.Component, arg3: boolean, arg4: string, arg5: number, arg6: TextDialogInput_MultilineOptions | null): TextDialogInput;
   text(arg0: string, arg1: j_net_kyori_adventure_text.Component): TextDialogInput_Builder;
 }
 
@@ -59,9 +59,9 @@ export interface NumberRangeDialogInputStatics {
 /** JVM interface io.papermc.paper.registry.data.dialog.input.NumberRangeDialogInput$Builder. */
 export interface NumberRangeDialogInput_BuilderMembers {
   build(): NumberRangeDialogInput;
-  initial(arg0: number): NumberRangeDialogInput_Builder | null;
+  initial(arg0: number | null): NumberRangeDialogInput_Builder;
   labelFormat(arg0: string): NumberRangeDialogInput_Builder;
-  step(arg0: number): NumberRangeDialogInput_Builder | null;
+  step(arg0: number | null): NumberRangeDialogInput_Builder;
   width(arg0: number): NumberRangeDialogInput_Builder;
 }
 export type NumberRangeDialogInput_Builder = NumberRangeDialogInput_BuilderMembers;
@@ -98,7 +98,7 @@ export interface SingleOptionDialogInput_OptionEntryMembers {
 }
 export type SingleOptionDialogInput_OptionEntry = SingleOptionDialogInput_OptionEntryMembers;
 export interface SingleOptionDialogInput_OptionEntryStatics {
-  create(arg0: string, arg1: j_net_kyori_adventure_text.Component, arg2: boolean): SingleOptionDialogInput_OptionEntry | null;
+  create(arg0: string, arg1: j_net_kyori_adventure_text.Component | null, arg2: boolean): SingleOptionDialogInput_OptionEntry;
 }
 
 /** JVM interface io.papermc.paper.registry.data.dialog.input.TextDialogInput. */
@@ -121,7 +121,7 @@ export interface TextDialogInput_BuilderMembers {
   initial(arg0: string): TextDialogInput_Builder;
   labelVisible(arg0: boolean): TextDialogInput_Builder;
   maxLength(arg0: number): TextDialogInput_Builder;
-  multiline(arg0: TextDialogInput_MultilineOptions): TextDialogInput_Builder | null;
+  multiline(arg0: TextDialogInput_MultilineOptions | null): TextDialogInput_Builder;
   width(arg0: number): TextDialogInput_Builder;
 }
 export type TextDialogInput_Builder = TextDialogInput_BuilderMembers;
@@ -135,5 +135,5 @@ export interface TextDialogInput_MultilineOptionsMembers {
 }
 export type TextDialogInput_MultilineOptions = TextDialogInput_MultilineOptionsMembers;
 export interface TextDialogInput_MultilineOptionsStatics {
-  create(arg0: number, arg1: number): TextDialogInput_MultilineOptions | null;
+  create(arg0: number | null, arg1: number | null): TextDialogInput_MultilineOptions;
 }

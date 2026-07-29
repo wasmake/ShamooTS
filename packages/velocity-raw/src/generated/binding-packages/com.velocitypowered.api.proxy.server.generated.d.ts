@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_com_velocitypowered_api_network from './com.velocitypowered.api.network.generated.js';
 import type * as j_com_velocitypowered_api_proxy from './com.velocitypowered.api.proxy.generated.js';
@@ -27,11 +27,10 @@ export interface PingOptionsStatics {
 export interface PingOptions_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_builder.AbstractBuilder<PingOptions>];
   build(): PingOptions;
-  build(): object;
   timeout(arg0: bigint, arg1: JavaOpaque<"java.util.concurrent.TimeUnit">): PingOptions_Builder;
   timeout(arg0: JavaOpaque<"java.time.Duration">): PingOptions_Builder;
   version(arg0: j_com_velocitypowered_api_network.ProtocolVersion): PingOptions_Builder;
-  virtualHost(arg0: string | null): PingOptions_Builder | null;
+  virtualHost(arg0: string | null): PingOptions_Builder;
 }
 export type PingOptions_Builder = PingOptions_BuilderMembers & j_net_kyori_adventure_builder.AbstractBuilder<PingOptions>;
 export interface PingOptions_BuilderStatics {
@@ -91,7 +90,7 @@ export interface QueryResponse_PluginInformationMembers {
 }
 export type QueryResponse_PluginInformation = QueryResponse_PluginInformationMembers;
 export interface QueryResponse_PluginInformationStatics {
-  of(arg0: string, arg1: string): QueryResponse_PluginInformation | null;
+  of(arg0: string, arg1: string | null): QueryResponse_PluginInformation;
 }
 
 /** JVM interface com.velocitypowered.api.proxy.server.RegisteredServer. */
@@ -110,8 +109,7 @@ export interface RegisteredServerStatics {
 export interface ServerInfoMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [ServerInfo]>];
   compareTo(arg0: ServerInfo): number;
-  compareTo(arg0: object): number;
-  equals(arg0: object): boolean | null;
+  equals(arg0: object | null): boolean;
   getAddress(): JavaOpaque<"java.net.InetSocketAddress">;
   getName(): string;
   hashCode(): number;
@@ -136,8 +134,8 @@ export interface ServerPingMembers {
 }
 export type ServerPing = ServerPingMembers;
 export interface ServerPingStatics {
-  new(arg0: ServerPing_Version, arg1: ServerPing_Players, arg2: j_net_kyori_adventure_text.Component, arg3: j_com_velocitypowered_api_util.Favicon): ServerPing;
-  new(arg0: ServerPing_Version, arg1: ServerPing_Players, arg2: j_net_kyori_adventure_text.Component, arg3: j_com_velocitypowered_api_util.Favicon, arg4: j_com_velocitypowered_api_util.ModInfo): ServerPing;
+  new(arg0: ServerPing_Version, arg1: ServerPing_Players | null, arg2: j_net_kyori_adventure_text.Component, arg3: j_com_velocitypowered_api_util.Favicon | null): ServerPing;
+  new(arg0: ServerPing_Version, arg1: ServerPing_Players | null, arg2: j_net_kyori_adventure_text.Component, arg3: j_com_velocitypowered_api_util.Favicon | null, arg4: j_com_velocitypowered_api_util.ModInfo | null): ServerPing;
   builder(): ServerPing_Builder;
 }
 

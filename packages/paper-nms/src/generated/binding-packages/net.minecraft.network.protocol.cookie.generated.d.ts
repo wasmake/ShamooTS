@@ -10,7 +10,6 @@ import type * as j_net_minecraft_resources from './net.minecraft.resources.gener
 export interface ClientboundCookieRequestPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ClientCookiePacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ClientCookiePacketListener): void;
   hashCode(): number;
   key(): j_net_minecraft_resources.ResourceLocation;
@@ -46,7 +45,6 @@ export interface CookiePacketTypesStatics {
 export interface ServerboundCookieResponsePacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, j_net_minecraft_network_protocol.Packet<ServerCookiePacketListener>];
   equals(arg0: object): boolean;
-  handle(arg0: j_net_minecraft_network.PacketListener): void;
   handle(arg0: ServerCookiePacketListener): void;
   hashCode(): number;
   key(): j_net_minecraft_resources.ResourceLocation;

@@ -30,8 +30,6 @@ export interface PoiManagerMembers {
   getInChunk(arg0: JavaPredicate<j_net_minecraft_core.Holder<PoiType>>, arg1: j_net_minecraft_world_level.ChunkPos, arg2: PoiManager_Occupancy): JavaOpaque<"java.util.stream.Stream", [PoiRecord]>;
   getInRange(arg0: JavaPredicate<j_net_minecraft_core.Holder<PoiType>>, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: PoiManager_Occupancy): JavaOpaque<"java.util.stream.Stream", [PoiRecord]>;
   getInSquare(arg0: JavaPredicate<j_net_minecraft_core.Holder<PoiType>>, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: PoiManager_Occupancy): JavaOpaque<"java.util.stream.Stream", [PoiRecord]>;
-  getOrCreate(arg0: bigint): object;
-  getOrCreate(arg0: bigint): PoiSection;
   getOrLoad(arg0: bigint): JavaOptional<PoiSection>;
   getRandom(arg0: JavaPredicate<j_net_minecraft_core.Holder<PoiType>>, arg1: JavaPredicate<j_net_minecraft_core.BlockPos>, arg2: PoiManager_Occupancy, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: j_net_minecraft_util.RandomSource): JavaOptional<j_net_minecraft_core.BlockPos>;
   getType(arg0: j_net_minecraft_core.BlockPos): JavaOptional<j_net_minecraft_core.Holder<PoiType>>;
@@ -39,7 +37,6 @@ export interface PoiManagerMembers {
   moonrise$getWorld(): j_net_minecraft_server_level.ServerLevel;
   moonrise$loadInPoiChunk(arg0: JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.poi.PoiChunk">): void;
   moonrise$onUnload(arg0: bigint): void;
-  onSectionLoad(arg0: bigint): void;
   release(arg0: j_net_minecraft_core.BlockPos): boolean;
   remove(arg0: j_net_minecraft_core.BlockPos): void;
   sectionsToVillage(arg0: j_net_minecraft_core.SectionPos): number;
@@ -69,7 +66,6 @@ export interface PoiManager_OccupancyStatics {
 
 /** JVM class net.minecraft.world.entity.ai.village.poi.PoiRecord. */
 export interface PoiRecordMembers {
-  acquireTicket(): boolean;
   equals(arg0: object): boolean;
   getFreeTickets(): number;
   getPoiType(): j_net_minecraft_core.Holder<PoiType>;
@@ -78,7 +74,6 @@ export interface PoiRecordMembers {
   hashCode(): number;
   isOccupied(): boolean;
   pack(): PoiRecord_Packed;
-  releaseTicket(): boolean;
 }
 export type PoiRecord = PoiRecordMembers;
 export interface PoiRecordStatics {

@@ -10,8 +10,8 @@ import type * as j_org_bukkit_spawner from './org.bukkit.spawner.generated.js';
 export interface CommandMinecartMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_command.CommandBlockHolder, j_org_bukkit_entity.Minecart];
   getCommand(): string;
-  setCommand(arg0: string | null): void | null;
-  setName(arg0: string | null): void | null;
+  setCommand(arg0: string | null): void;
+  setName(arg0: string | null): void;
 }
 export type CommandMinecart = CommandMinecartMembers & j_io_papermc_paper_command.CommandBlockHolder & j_org_bukkit_entity.Minecart;
 export interface CommandMinecartStatics {

@@ -137,8 +137,6 @@ export interface LegacyQueryHandlerStatics {
 export interface LegacyTextFilterMembers {
   readonly __javaSupertypes?: readonly [ServerTextFilter];
   createContext(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): TextFilter;
-  filterText(arg0: string, arg1: ServerTextFilter_IgnoreStrategy, arg2: JavaOpaque<"com.google.gson.JsonObject">): FilteredText;
-  setAuthorizationProperty(arg0: JavaOpaque<"java.net.HttpURLConnection">): void;
 }
 export type LegacyTextFilter = LegacyTextFilterMembers & ServerTextFilter;
 export interface LegacyTextFilterStatics {
@@ -176,9 +174,6 @@ export interface PlayerChunkSenderStatics {
 /** JVM class net.minecraft.server.network.PlayerSafetyServiceTextFilter. */
 export interface PlayerSafetyServiceTextFilterMembers {
   readonly __javaSupertypes?: readonly [ServerTextFilter];
-  connectionReadTimeout(): number;
-  filterText(arg0: string, arg1: ServerTextFilter_IgnoreStrategy, arg2: JavaOpaque<"com.google.gson.JsonObject">): FilteredText;
-  setAuthorizationProperty(arg0: JavaOpaque<"java.net.HttpURLConnection">): void;
 }
 export type PlayerSafetyServiceTextFilter = PlayerSafetyServiceTextFilterMembers & ServerTextFilter;
 export interface PlayerSafetyServiceTextFilterStatics {
@@ -189,7 +184,6 @@ export interface PlayerSafetyServiceTextFilterStatics {
 export interface ServerCommonPacketListenerImplMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network_protocol_common.ServerCommonPacketListener];
   readonly connection: j_net_minecraft_network.Connection;
-  createCookie(arg0: j_net_minecraft_server_level.ClientInformation): CommonListenerCookie;
   readonly cserver: j_org_bukkit_craftbukkit.CraftServer;
   disconnect(arg0: j_net_minecraft_network.DisconnectionDetails): void;
   disconnect(arg0: j_net_minecraft_network_chat.Component): void;
@@ -206,9 +200,7 @@ export interface ServerCommonPacketListenerImplMembers {
   handleKeepAlive(arg0: j_net_minecraft_network_protocol_common.ServerboundKeepAlivePacket): void;
   handlePong(arg0: j_net_minecraft_network_protocol_common.ServerboundPongPacket): void;
   handleResourcePackResponse(arg0: j_net_minecraft_network_protocol_common.ServerboundResourcePackPacket): void;
-  isSingleplayerOwner(): boolean;
   isTransferred(): boolean;
-  keepConnectionAlive(): void;
   latency(): number;
   onDisconnect(arg0: j_net_minecraft_network.DisconnectionDetails): void;
   /** @throws net.minecraft.ReportedException */
@@ -216,21 +208,17 @@ export interface ServerCommonPacketListenerImplMembers {
   readonly packCallbacks: JavaMap<JavaOpaque<"java.util.UUID">, JavaOpaque<"net.kyori.adventure.resource.ResourcePackCallback">>;
   paperConnection(): JavaOpaque<"io.papermc.paper.connection.PaperCommonConnection", [object]>;
   playerBrand: string | null;
-  playerProfile(): JavaOpaque<"com.mojang.authlib.GameProfile">;
   readonly pluginMessagerChannels: JavaSet<string>;
   processedDisconnect: boolean;
   resumeFlushing(): void;
   send(arg0: j_net_minecraft_network_protocol.Packet<object>): void;
-  send(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: JavaOpaque<"io.netty.channel.ChannelFutureListener"> | null): void | null;
-  readonly server: j_net_minecraft_server.MinecraftServer;
+  send(arg0: j_net_minecraft_network_protocol.Packet<object>, arg1: JavaOpaque<"io.netty.channel.ChannelFutureListener"> | null): void;
   suspendFlushing(): void;
 }
 export type ServerCommonPacketListenerImpl = ServerCommonPacketListenerImplMembers & j_net_minecraft_network_protocol_common.ServerCommonPacketListener;
 export interface ServerCommonPacketListenerImplStatics {
-  new(arg0: j_net_minecraft_server.MinecraftServer, arg1: j_net_minecraft_network.Connection, arg2: CommonListenerCookie): ServerCommonPacketListenerImpl;
   readonly CUSTOM_REGISTER: j_net_minecraft_resources.ResourceLocation;
   readonly LATENCY_CHECK_INTERVAL: 15000;
-  readonly MINECRAFT_BRAND: j_net_minecraft_resources.ResourceLocation;
 }
 
 /** JVM class net.minecraft.server.network.ServerConfigurationPacketListenerImpl. */
@@ -249,8 +237,7 @@ export interface ServerConfigurationPacketListenerImplMembers {
   handleSelectKnownPacks(arg0: j_net_minecraft_network_protocol_configuration.ServerboundSelectKnownPacks): void;
   isAcceptingMessages(): boolean;
   onDisconnect(arg0: j_net_minecraft_network.DisconnectionDetails): void;
-  paperConnection: (JavaOpaque<"io.papermc.paper.connection.PaperPlayerConfigurationConnection">) & { (): JavaOpaque<"io.papermc.paper.connection.PaperCommonConnection">; (): JavaOpaque<"io.papermc.paper.connection.PaperPlayerConfigurationConnection"> };
-  playerProfile(): JavaOpaque<"com.mojang.authlib.GameProfile">;
+  paperConnection: (JavaOpaque<"io.papermc.paper.connection.PaperPlayerConfigurationConnection">) & { (): JavaOpaque<"io.papermc.paper.connection.PaperPlayerConfigurationConnection"> };
   returnToWorld(): void;
   startConfiguration(): void;
   tick(): void;
@@ -268,7 +255,7 @@ export interface ServerConnectionListenerMembers {
   running: boolean;
   startMemoryChannel(): JavaOpaque<"java.net.SocketAddress">;
   /** @throws java.io.IOException */
-  startTcpServerListener(arg0: JavaOpaque<"java.net.InetAddress"> | null, arg1: number): void | null;
+  startTcpServerListener(arg0: JavaOpaque<"java.net.InetAddress"> | null, arg1: number): void;
   /** @throws java.io.IOException */
   startTcpServerListener(arg0: JavaOpaque<"java.net.SocketAddress">): void;
   stop(): void;
@@ -365,11 +352,9 @@ export interface ServerGamePacketListenerImplMembers {
   isAcceptingMessages(): boolean;
   isDisconnected(): boolean;
   onDisconnect(arg0: j_net_minecraft_network.DisconnectionDetails): void;
-  paperConnection(): JavaOpaque<"io.papermc.paper.connection.PaperCommonConnection">;
   paperConnection(): JavaOpaque<"io.papermc.paper.connection.PaperPlayerGameConnection">;
   player: j_net_minecraft_server_level.ServerPlayer;
   readonly playerGameConnection: JavaOpaque<"io.papermc.paper.connection.PaperPlayerGameConnection">;
-  playerProfile(): JavaOpaque<"com.mojang.authlib.GameProfile">;
   resetPosition(): void;
   sendDisguisedChatMessage(arg0: j_net_minecraft_network_chat.Component, arg1: j_net_minecraft_network_chat.ChatType_Bound): void;
   sendPlayerChatMessage(arg0: j_net_minecraft_network_chat.PlayerChatMessage, arg1: j_net_minecraft_network_chat.ChatType_Bound): void;
@@ -405,7 +390,6 @@ export interface ServerLoginPacketListenerImplMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_network.TickablePacketListener, j_net_minecraft_network_protocol_login.ServerLoginPacketListener];
   authenticatedProfile: JavaOpaque<"com.mojang.authlib.GameProfile"> | null;
   readonly connection: j_net_minecraft_network.Connection;
-  createOfflineProfile(arg0: string): JavaOpaque<"com.mojang.authlib.GameProfile">;
   disconnect(arg0: string): void;
   disconnect(arg0: j_net_minecraft_network_chat.Component): void;
   fillListenerSpecificCrashDetails(arg0: j_net_minecraft.CrashReport, arg1: j_net_minecraft.CrashReportCategory): void;
@@ -473,28 +457,11 @@ export interface ServerStatusPacketListenerImplStatics {
 export interface ServerTextFilterMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.AutoCloseable">];
   close(): void;
-  connectionReadTimeout(): number;
   createContext(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): TextFilter;
-  /** @throws java.io.IOException */
-  drainStream(arg0: JavaOpaque<"java.io.InputStream">): void;
-  filterText(arg0: string, arg1: ServerTextFilter_IgnoreStrategy, arg2: JavaOpaque<"com.google.gson.JsonObject">): FilteredText;
-  /** @throws java.io.IOException */
-  getURLConnection(arg0: JavaOpaque<"java.net.URL">): JavaOpaque<"java.net.HttpURLConnection">;
-  /** @throws java.io.IOException */
-  makeRequest(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: JavaOpaque<"java.net.URL">): JavaOpaque<"java.net.HttpURLConnection">;
-  parseMask(arg0: string, arg1: JavaOpaque<"com.google.gson.JsonArray">, arg2: ServerTextFilter_IgnoreStrategy): j_net_minecraft_network_chat.FilterMask;
-  requestMessageProcessing(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">, arg1: string, arg2: ServerTextFilter_IgnoreStrategy, arg3: JavaOpaque<"java.util.concurrent.Executor">): PromiseLike<FilteredText>;
-  setAuthorizationProperty(arg0: JavaOpaque<"java.net.HttpURLConnection">): void;
 }
 export type ServerTextFilter = ServerTextFilterMembers & JavaOpaque<"java.lang.AutoCloseable">;
 export interface ServerTextFilterStatics {
-  new(arg0: JavaOpaque<"java.net.URL">, arg1: ServerTextFilter_MessageEncoder, arg2: ServerTextFilter_IgnoreStrategy, arg3: JavaOpaque<"java.util.concurrent.ExecutorService">): ServerTextFilter;
-  readonly LOGGER: JavaOpaque<"org.slf4j.Logger">;
   createFromConfig(arg0: j_net_minecraft_server_dedicated.DedicatedServerProperties): ServerTextFilter | null;
-  createWorkerPool(arg0: number): JavaOpaque<"java.util.concurrent.ExecutorService">;
-  /** @throws java.net.MalformedURLException */
-  getEndpoint(arg0: JavaOpaque<"java.net.URI">, arg1: JavaOpaque<"com.google.gson.JsonObject"> | null, arg2: string, arg3: string): JavaOpaque<"java.net.URL"> | null;
-  getEndpointFromConfig(arg0: JavaOpaque<"com.google.gson.JsonObject"> | null, arg1: string, arg2: string): string | null;
 }
 
 /** JVM interface net.minecraft.server.network.ServerTextFilter$IgnoreStrategy. */
@@ -522,12 +489,9 @@ export interface ServerTextFilter_PlayerContextMembers {
   readonly __javaSupertypes?: readonly [TextFilter];
   processMessageBundle(arg0: JavaList<string>): PromiseLike<JavaList<FilteredText>>;
   processStreamMessage(arg0: string): PromiseLike<FilteredText>;
-  readonly profile: JavaOpaque<"com.mojang.authlib.GameProfile">;
-  readonly streamExecutor: JavaOpaque<"java.util.concurrent.Executor">;
 }
 export type ServerTextFilter_PlayerContext = ServerTextFilter_PlayerContextMembers & TextFilter;
 export interface ServerTextFilter_PlayerContextStatics {
-  new(arg0: ServerTextFilter, arg1: JavaOpaque<"com.mojang.authlib.GameProfile">): ServerTextFilter_PlayerContext;
 }
 
 /** JVM class net.minecraft.server.network.ServerTextFilter$RequestFailedException. */
@@ -536,7 +500,6 @@ export interface ServerTextFilter_RequestFailedExceptionMembers {
 }
 export type ServerTextFilter_RequestFailedException = ServerTextFilter_RequestFailedExceptionMembers & JavaOpaque<"java.lang.RuntimeException">;
 export interface ServerTextFilter_RequestFailedExceptionStatics {
-  new(arg0: string): ServerTextFilter_RequestFailedException;
 }
 
 /** JVM interface net.minecraft.server.network.TextFilter. */

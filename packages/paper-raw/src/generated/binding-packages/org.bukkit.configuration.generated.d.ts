@@ -10,7 +10,7 @@ import type * as j_org_bukkit_util from './org.bukkit.util.generated.js';
 /** JVM interface org.bukkit.configuration.Configuration. */
 export interface ConfigurationMembers {
   readonly __javaSupertypes?: readonly [ConfigurationSection];
-  addDefault(arg0: string, arg1: object | null): void | null;
+  addDefault(arg0: string, arg1: object | null): void;
   addDefaults(arg0: JavaMap<string, object>): void;
   addDefaults(arg0: Configuration): void;
   getDefaults(): Configuration | null;
@@ -31,12 +31,11 @@ export interface ConfigurationOptionsMembers {
 }
 export type ConfigurationOptions = ConfigurationOptionsMembers;
 export interface ConfigurationOptionsStatics {
-  new(arg0: Configuration): ConfigurationOptions;
 }
 
 /** JVM interface org.bukkit.configuration.ConfigurationSection. */
 export interface ConfigurationSectionMembers {
-  addDefault(arg0: string, arg1: object | null): void | null;
+  addDefault(arg0: string, arg1: object | null): void;
   contains(arg0: string): boolean;
   contains(arg0: string, arg1: boolean): boolean;
   createSection(arg0: string): ConfigurationSection;
@@ -82,7 +81,7 @@ export interface ConfigurationSectionMembers {
   getOfflinePlayer(arg0: string, arg1: j_org_bukkit.OfflinePlayer | null): j_org_bukkit.OfflinePlayer | null;
   getParent(): ConfigurationSection | null;
   getRichMessage(arg0: string): j_net_kyori_adventure_text.Component | null;
-  getRichMessage(arg0: string, arg1: j_net_kyori_adventure_text.Component): j_net_kyori_adventure_text.Component | null;
+  getRichMessage(arg0: string, arg1: j_net_kyori_adventure_text.Component | null): j_net_kyori_adventure_text.Component | null;
   getRoot(): Configuration | null;
   getSerializable<T /* extends j_org_bukkit_configuration_serialization.ConfigurationSerializable */>(arg0: string, arg1: JavaClass<T>): T | null;
   getSerializable<T /* extends j_org_bukkit_configuration_serialization.ConfigurationSerializable */>(arg0: string, arg1: JavaClass<T>, arg2: T | null): T | null;
@@ -106,11 +105,11 @@ export interface ConfigurationSectionMembers {
   isSet(arg0: string): boolean;
   isString(arg0: string): boolean;
   isVector(arg0: string): boolean;
-  set(arg0: string, arg1: object | null): void | null;
-  setComments(arg0: string, arg1: JavaList<string> | null): void | null;
-  setComponent<C /* extends j_net_kyori_adventure_text.Component */>(arg0: string, arg1: j_net_kyori_adventure_text_serializer.ComponentEncoder<C, string>, arg2: C | null): void | null;
-  setInlineComments(arg0: string, arg1: JavaList<string> | null): void | null;
-  setRichMessage(arg0: string, arg1: j_net_kyori_adventure_text.Component): void | null;
+  set(arg0: string, arg1: object | null): void;
+  setComments(arg0: string, arg1: JavaList<string> | null): void;
+  setComponent<C /* extends j_net_kyori_adventure_text.Component */>(arg0: string, arg1: j_net_kyori_adventure_text_serializer.ComponentEncoder<C, string>, arg2: C | null): void;
+  setInlineComments(arg0: string, arg1: JavaList<string> | null): void;
+  setRichMessage(arg0: string, arg1: j_net_kyori_adventure_text.Component | null): void;
 }
 export type ConfigurationSection = ConfigurationSectionMembers;
 export interface ConfigurationSectionStatics {
@@ -131,13 +130,12 @@ export interface InvalidConfigurationExceptionStatics {
 /** JVM class org.bukkit.configuration.MemoryConfiguration. */
 export interface MemoryConfigurationMembers {
   readonly __javaSupertypes?: readonly [MemorySection, Configuration];
-  addDefault(arg0: string, arg1: object | null): void | null;
+  addDefault(arg0: string, arg1: object | null): void;
   addDefaults(arg0: JavaMap<string, object>): void;
   addDefaults(arg0: Configuration): void;
-  defaults: Configuration;
   getDefaults(): Configuration | null;
   getParent(): ConfigurationSection | null;
-  options: (MemoryConfigurationOptions) & { (): ConfigurationOptions; (): MemoryConfigurationOptions };
+  options(): MemoryConfigurationOptions;
   setDefaults(arg0: Configuration): void;
 }
 export type MemoryConfiguration = MemoryConfigurationMembers & MemorySection & Configuration;
@@ -149,22 +147,18 @@ export interface MemoryConfigurationStatics {
 /** JVM class org.bukkit.configuration.MemoryConfigurationOptions. */
 export interface MemoryConfigurationOptionsMembers {
   readonly __javaSupertypes?: readonly [ConfigurationOptions];
-  configuration(): Configuration;
   configuration(): MemoryConfiguration;
-  copyDefaults(arg0: boolean): ConfigurationOptions;
   copyDefaults(arg0: boolean): MemoryConfigurationOptions;
-  pathSeparator(arg0: string): ConfigurationOptions;
   pathSeparator(arg0: string): MemoryConfigurationOptions;
 }
 export type MemoryConfigurationOptions = MemoryConfigurationOptionsMembers & ConfigurationOptions;
 export interface MemoryConfigurationOptionsStatics {
-  new(arg0: MemoryConfiguration): MemoryConfigurationOptions;
 }
 
 /** JVM class org.bukkit.configuration.MemorySection. */
 export interface MemorySectionMembers {
   readonly __javaSupertypes?: readonly [ConfigurationSection];
-  addDefault(arg0: string, arg1: object | null): void | null;
+  addDefault(arg0: string, arg1: object | null): void;
   contains(arg0: string): boolean;
   contains(arg0: string, arg1: boolean): boolean;
   createSection(arg0: string): ConfigurationSection;
@@ -181,7 +175,6 @@ export interface MemorySectionMembers {
   getComments(arg0: string): JavaList<string>;
   getConfigurationSection(arg0: string): ConfigurationSection | null;
   getCurrentPath(): string;
-  getDefault(arg0: string): object | null;
   getDefaultSection(): ConfigurationSection | null;
   getDouble(arg0: string): number;
   getDouble(arg0: string, arg1: number): number;
@@ -228,22 +221,16 @@ export interface MemorySectionMembers {
   isLocation(arg0: string): boolean;
   isLong(arg0: string): boolean;
   isOfflinePlayer(arg0: string): boolean;
-  isPrimitiveWrapper(arg0: object | null): boolean | null;
   isSet(arg0: string): boolean;
   isString(arg0: string): boolean;
   isVector(arg0: string): boolean;
-  readonly map: JavaMap<string, JavaOpaque<"org.bukkit.configuration.SectionPathData">>;
-  mapChildrenKeys(arg0: JavaSet<string>, arg1: ConfigurationSection, arg2: boolean): void;
-  mapChildrenValues(arg0: JavaMap<string, object>, arg1: ConfigurationSection, arg2: boolean): void;
-  set(arg0: string, arg1: object | null): void | null;
-  setComments(arg0: string, arg1: JavaList<string> | null): void | null;
-  setInlineComments(arg0: string, arg1: JavaList<string> | null): void | null;
+  set(arg0: string, arg1: object | null): void;
+  setComments(arg0: string, arg1: JavaList<string> | null): void;
+  setInlineComments(arg0: string, arg1: JavaList<string> | null): void;
   toString(): string;
 }
 export type MemorySection = MemorySectionMembers & ConfigurationSection;
 export interface MemorySectionStatics {
-  new(): MemorySection;
-  new(arg0: ConfigurationSection, arg1: string): MemorySection;
-  createPath(arg0: ConfigurationSection, arg1: string | null): string | null;
-  createPath(arg0: ConfigurationSection, arg1: string | null, arg2: ConfigurationSection | null): string | null;
+  createPath(arg0: ConfigurationSection, arg1: string | null): string;
+  createPath(arg0: ConfigurationSection, arg1: string | null, arg2: ConfigurationSection | null): string;
 }

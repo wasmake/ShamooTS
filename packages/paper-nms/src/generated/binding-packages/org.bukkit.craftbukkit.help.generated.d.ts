@@ -71,7 +71,6 @@ export interface MultipleCommandAliasHelpTopicStatics {
 /** JVM class org.bukkit.craftbukkit.help.MultipleCommandAliasHelpTopicFactory. */
 export interface MultipleCommandAliasHelpTopicFactoryMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.help.HelpTopicFactory", [JavaOpaque<"org.bukkit.command.MultipleCommandAlias">]>];
-  createTopic(arg0: JavaOpaque<"org.bukkit.command.Command">): JavaOpaque<"org.bukkit.help.HelpTopic">;
   createTopic(arg0: JavaOpaque<"org.bukkit.command.MultipleCommandAlias">): JavaOpaque<"org.bukkit.help.HelpTopic">;
 }
 export type MultipleCommandAliasHelpTopicFactory = MultipleCommandAliasHelpTopicFactoryMembers & JavaOpaque<"org.bukkit.help.HelpTopicFactory", [JavaOpaque<"org.bukkit.command.MultipleCommandAlias">]>;

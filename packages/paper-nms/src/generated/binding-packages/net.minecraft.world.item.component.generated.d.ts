@@ -532,7 +532,7 @@ export interface ItemAttributeModifiers_BuilderStatics {
 
 /** JVM interface net.minecraft.world.item.component.ItemAttributeModifiers$Display. */
 export interface ItemAttributeModifiers_DisplayMembers {
-  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void | null;
+  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void;
   type(): ItemAttributeModifiers_Display_Type;
 }
 export type ItemAttributeModifiers_Display = ItemAttributeModifiers_DisplayMembers;
@@ -547,7 +547,7 @@ export interface ItemAttributeModifiers_DisplayStatics {
 /** JVM record net.minecraft.world.item.component.ItemAttributeModifiers$Display$Default. */
 export interface ItemAttributeModifiers_Display_DefaultMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, ItemAttributeModifiers_Display];
-  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void | null;
+  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void;
   equals(arg0: object): boolean;
   hashCode(): number;
   toString(): string;
@@ -561,7 +561,7 @@ export interface ItemAttributeModifiers_Display_DefaultStatics {
 /** JVM record net.minecraft.world.item.component.ItemAttributeModifiers$Display$Hidden. */
 export interface ItemAttributeModifiers_Display_HiddenMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, ItemAttributeModifiers_Display];
-  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void | null;
+  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void;
   equals(arg0: object): boolean;
   hashCode(): number;
   toString(): string;
@@ -575,7 +575,7 @@ export interface ItemAttributeModifiers_Display_HiddenStatics {
 /** JVM record net.minecraft.world.item.component.ItemAttributeModifiers$Display$OverrideText. */
 export interface ItemAttributeModifiers_Display_OverrideTextMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, ItemAttributeModifiers_Display];
-  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void | null;
+  apply(arg0: JavaConsumer<j_net_minecraft_network_chat.Component>, arg1: j_net_minecraft_world_entity_player.Player | null, arg2: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>, arg3: j_net_minecraft_world_entity_ai_attributes.AttributeModifier): void;
   component(): j_net_minecraft_network_chat.Component;
   equals(arg0: object): boolean;
   hashCode(): number;
@@ -997,7 +997,6 @@ export interface WritableBookContentMembers {
   pages(): JavaList<j_net_minecraft_server_network.Filterable<string>>;
   toString(): string;
   withReplacedPages(arg0: JavaList<j_net_minecraft_server_network.Filterable<string>>): WritableBookContent;
-  withReplacedPages(arg0: JavaList<object>): object;
 }
 export type WritableBookContent = WritableBookContentMembers & JavaOpaque<"java.lang.Record">;
 export interface WritableBookContentStatics {
@@ -1027,7 +1026,6 @@ export interface WrittenBookContentMembers {
   toString(): string;
   tryCraftCopy(): WrittenBookContent | null;
   withReplacedPages(arg0: JavaList<j_net_minecraft_server_network.Filterable<j_net_minecraft_network_chat.Component>>): WrittenBookContent;
-  withReplacedPages(arg0: JavaList<object>): object;
 }
 export type WrittenBookContent = WrittenBookContentMembers & JavaOpaque<"java.lang.Record"> & TooltipProvider;
 export interface WrittenBookContentStatics {
@@ -1043,5 +1041,5 @@ export interface WrittenBookContentStatics {
   readonly TITLE_LENGTH: 16;
   readonly TITLE_MAX_LENGTH: 32;
   pagesCodec(arg0: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_network_chat.Component]>): JavaOpaque<"com.mojang.serialization.Codec", [JavaList<j_net_minecraft_server_network.Filterable<j_net_minecraft_network_chat.Component>>]>;
-  resolveForItem(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_commands.CommandSourceStack, arg2: j_net_minecraft_world_entity_player.Player | null): boolean | null;
+  resolveForItem(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_commands.CommandSourceStack, arg2: j_net_minecraft_world_entity_player.Player | null): boolean;
 }

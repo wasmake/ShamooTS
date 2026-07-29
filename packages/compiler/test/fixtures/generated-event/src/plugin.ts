@@ -1,10 +1,16 @@
 import { Context, Plugin } from '@shamoo/decorators';
-import { OnPlayerJoinEvent, type PlayerJoinEvent } from '@shamoo/paper-raw';
+import {
+  OnPlayerJoinEvent,
+  OnPlayerRecipeBookClickEvent_2,
+  type PaperHandle,
+  type PlayerJoinEvent,
+} from '@shamoo/paper-raw';
 
 @Plugin()
 export class GeneratedEventPlugin {
   @OnPlayerJoinEvent()
-  public joined(@Context() event: PlayerJoinEvent): void {
-    void event.getPlayer();
+  @OnPlayerRecipeBookClickEvent_2('HIGHEST', true)
+  public joined(@Context() event: PaperHandle<PlayerJoinEvent>): void {
+    void event.$invoke('getPlayer', '()Lorg/bukkit/entity/Player;');
   }
 }

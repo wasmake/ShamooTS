@@ -250,7 +250,10 @@ describe('Paper Velocity communication', () => {
         return Promise.resolve(true);
       },
     });
-    api.on('PlayerJoinEvent', () => undefined);
+    let eventValue: unknown;
+    api.on('PlayerJoinEvent', (value) => {
+      eventValue = value;
+    });
     api.schedule(() => undefined);
     api.packet(() => undefined);
     api.provideService('example.service', '1.0.0', () => undefined);
@@ -266,6 +269,17 @@ describe('Paper Velocity communication', () => {
     ]);
     expect(calls[0]?.values.at(-1)).toEqual({ $callback: 'paper.api.event.0' });
     expect(callbacks.size).toBe(5);
+    const eventCallback = callbacks.get('paper.api.event.0');
+    if (eventCallback === undefined) throw new Error('Paper event callback was not registered.');
+    invokeCallback(eventCallback, {
+      $paperHandle: 'event',
+      $paperObject: 'event-object',
+      $paperFrame: 'event-frame',
+      type: 'org.bukkit.event.player.PlayerJoinEvent',
+    });
+    expect(Reflect.get(eventValue as object, '$type')).toBe(
+      'org.bukkit.event.player.PlayerJoinEvent',
+    );
   });
 
   it('registers data-only command contexts and routes asynchronous operations', async () => {

@@ -967,12 +967,12 @@ function isNamedExportedTopLevelClass(checker: ts.TypeChecker, node: ts.ClassDec
   });
 }
 
+function generatedEventDecorator(name: string): boolean {
+  return /^On.+Event(?:_\d+)?$/.test(name);
+}
+
 function executableDecorator(name: string): boolean {
-  return (
-    lifecycleStages.has(name) ||
-    invocationKinds.has(name) ||
-    (name.startsWith('On') && name.endsWith('Event'))
-  );
+  return lifecycleStages.has(name) || invocationKinds.has(name) || generatedEventDecorator(name);
 }
 
 function discover(
@@ -1048,8 +1048,10 @@ function discover(
           location: location(root, node),
         });
       const executableNames = names.filter(executableDecorator);
+      const compatibleGeneratedEvents =
+        executableNames.length > 1 && executableNames.every(generatedEventDecorator);
       const conflictGroups = [
-        [...new Set(executableNames)],
+        compatibleGeneratedEvents ? [] : [...new Set(executableNames)],
         names.filter((name) =>
           ['Inject', 'ConfigValue', 'Argument', 'Option', 'Sender', 'Context'].includes(name),
         ),
@@ -1141,9 +1143,7 @@ function discover(
                     metadata
                       .map((item) => invocationKinds.get(item.name))
                       .find((item) => item !== undefined) ??
-                    (metadata.some(
-                      (item) => item.name.startsWith('On') && item.name.endsWith('Event'),
-                    )
+                    (metadata.some((item) => generatedEventDecorator(item.name))
                       ? 'event'
                       : undefined);
                   return {

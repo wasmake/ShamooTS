@@ -2,12 +2,10 @@
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_nbt from './net.minecraft.nbt.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
-import type * as j_net_minecraft_util_datafix from './net.minecraft.util.datafix.generated.js';
 
 /** JVM class net.minecraft.util.datafix.fixes.AbstractArrowPickupFix. */
 export interface AbstractArrowPickupFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type AbstractArrowPickupFix = AbstractArrowPickupFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AbstractArrowPickupFixStatics {
@@ -17,48 +15,30 @@ export interface AbstractArrowPickupFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.AbstractBlockPropertyFix. */
 export interface AbstractBlockPropertyFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  fixProperties<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
-  shouldFix(arg0: string): boolean;
 }
 export type AbstractBlockPropertyFix = AbstractBlockPropertyFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AbstractBlockPropertyFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string): AbstractBlockPropertyFix;
 }
 
 /** JVM abstract net.minecraft.util.datafix.fixes.AbstractPoiSectionFix. */
 export interface AbstractPoiSectionFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
-  processRecords<T>(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.serialization.Dynamic", [T]>]>): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.serialization.Dynamic", [T]>]>;
 }
 export type AbstractPoiSectionFix = AbstractPoiSectionFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AbstractPoiSectionFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string): AbstractPoiSectionFix;
 }
 
 /** JVM abstract net.minecraft.util.datafix.fixes.AbstractUUIDFix. */
 export interface AbstractUUIDFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  typeReference: JavaOpaque<"com.mojang.datafixers.DSL$TypeReference">;
-  updateNamedChoice(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>, arg1: string, arg2: JavaFunction<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type AbstractUUIDFix = AbstractUUIDFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AbstractUUIDFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: JavaOpaque<"com.mojang.datafixers.DSL$TypeReference">): AbstractUUIDFix;
-  createUUIDFromLongs(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: string, arg2: string): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  createUUIDFromML(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  createUUIDFromString(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: string): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  createUUIDTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: bigint, arg2: bigint): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  replaceUUIDLeastMost(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: string, arg2: string): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  replaceUUIDMLTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: string, arg2: string): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  replaceUUIDString(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>, arg1: string, arg2: string): JavaOptional<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.AddFlagIfNotPresentFix. */
 export interface AddFlagIfNotPresentFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type AddFlagIfNotPresentFix = AddFlagIfNotPresentFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AddFlagIfNotPresentFixStatics {
@@ -87,7 +67,6 @@ export interface AdvancementsFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.AdvancementsRenameFix. */
 export interface AdvancementsRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type AdvancementsRenameFix = AdvancementsRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AdvancementsRenameFixStatics {
@@ -97,7 +76,6 @@ export interface AdvancementsRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.AreaEffectCloudDurationScaleFix. */
 export interface AreaEffectCloudDurationScaleFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type AreaEffectCloudDurationScaleFix = AreaEffectCloudDurationScaleFixMembers & NamedEntityFix;
 export interface AreaEffectCloudDurationScaleFixStatics {
@@ -107,7 +85,6 @@ export interface AreaEffectCloudDurationScaleFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.AreaEffectCloudPotionFix. */
 export interface AreaEffectCloudPotionFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type AreaEffectCloudPotionFix = AreaEffectCloudPotionFixMembers & NamedEntityFix;
 export interface AreaEffectCloudPotionFixStatics {
@@ -126,7 +103,6 @@ export interface AttributeIdPrefixFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.AttributeModifierIdFix. */
 export interface AttributeModifierIdFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type AttributeModifierIdFix = AttributeModifierIdFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AttributeModifierIdFixStatics {
@@ -137,7 +113,6 @@ export interface AttributeModifierIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.AttributesRenameFix. */
 export interface AttributesRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type AttributesRenameFix = AttributesRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AttributesRenameFixStatics {
@@ -147,7 +122,6 @@ export interface AttributesRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.AttributesRenameLegacy. */
 export interface AttributesRenameLegacyMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type AttributesRenameLegacy = AttributesRenameLegacyMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface AttributesRenameLegacyStatics {
@@ -167,7 +141,6 @@ export interface BannerEntityCustomNameToOverrideComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BannerPatternFormatFix. */
 export interface BannerPatternFormatFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type BannerPatternFormatFix = BannerPatternFormatFixMembers & NamedEntityFix;
 export interface BannerPatternFormatFixStatics {
@@ -206,7 +179,6 @@ export interface BiomeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BitStorageAlignFix. */
 export interface BitStorageAlignFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type BitStorageAlignFix = BitStorageAlignFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface BitStorageAlignFixStatics {
@@ -217,7 +189,6 @@ export interface BitStorageAlignFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlendingDataFix. */
 export interface BlendingDataFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type BlendingDataFix = BlendingDataFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface BlendingDataFixStatics {
@@ -227,7 +198,6 @@ export interface BlendingDataFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlendingDataRemoveFromNetherEndFix. */
 export interface BlendingDataRemoveFromNetherEndFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type BlendingDataRemoveFromNetherEndFix = BlendingDataRemoveFromNetherEndFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface BlendingDataRemoveFromNetherEndFixStatics {
@@ -237,7 +207,6 @@ export interface BlendingDataRemoveFromNetherEndFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityBannerColorFix. */
 export interface BlockEntityBannerColorFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type BlockEntityBannerColorFix = BlockEntityBannerColorFixMembers & NamedEntityFix;
@@ -248,7 +217,6 @@ export interface BlockEntityBannerColorFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityBlockStateFix. */
 export interface BlockEntityBlockStateFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type BlockEntityBlockStateFix = BlockEntityBlockStateFixMembers & NamedEntityFix;
 export interface BlockEntityBlockStateFixStatics {
@@ -269,7 +237,6 @@ export interface BlockEntityCustomNameToComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityFurnaceBurnTimeFix. */
 export interface BlockEntityFurnaceBurnTimeFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixBurnTime(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type BlockEntityFurnaceBurnTimeFix = BlockEntityFurnaceBurnTimeFixMembers & NamedEntityFix;
@@ -291,7 +258,6 @@ export interface BlockEntityIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityJukeboxFix. */
 export interface BlockEntityJukeboxFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type BlockEntityJukeboxFix = BlockEntityJukeboxFixMembers & NamedEntityFix;
 export interface BlockEntityJukeboxFixStatics {
@@ -301,7 +267,6 @@ export interface BlockEntityJukeboxFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityKeepPacked. */
 export interface BlockEntityKeepPackedMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type BlockEntityKeepPacked = BlockEntityKeepPackedMembers & NamedEntityFix;
 export interface BlockEntityKeepPackedStatics {
@@ -321,7 +286,6 @@ export interface BlockEntityRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityShulkerBoxColorFix. */
 export interface BlockEntityShulkerBoxColorFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type BlockEntityShulkerBoxColorFix = BlockEntityShulkerBoxColorFixMembers & NamedEntityFix;
 export interface BlockEntityShulkerBoxColorFixStatics {
@@ -331,7 +295,6 @@ export interface BlockEntityShulkerBoxColorFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntitySignDoubleSidedEditableTextFix. */
 export interface BlockEntitySignDoubleSidedEditableTextFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type BlockEntitySignDoubleSidedEditableTextFix = BlockEntitySignDoubleSidedEditableTextFixMembers & NamedEntityWriteReadFix;
 export interface BlockEntitySignDoubleSidedEditableTextFixStatics {
@@ -343,7 +306,6 @@ export interface BlockEntitySignDoubleSidedEditableTextFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockEntityUUIDFix. */
 export interface BlockEntityUUIDFixMembers {
   readonly __javaSupertypes?: readonly [AbstractUUIDFix];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type BlockEntityUUIDFix = BlockEntityUUIDFixMembers & AbstractUUIDFix;
 export interface BlockEntityUUIDFixStatics {
@@ -373,8 +335,6 @@ export interface BlockPosFormatAndRenamesFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.BlockPropertyRenameAndFix. */
 export interface BlockPropertyRenameAndFixMembers {
   readonly __javaSupertypes?: readonly [AbstractBlockPropertyFix];
-  fixProperties<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
-  shouldFix(arg0: string): boolean;
 }
 export type BlockPropertyRenameAndFix = BlockPropertyRenameAndFixMembers & AbstractBlockPropertyFix;
 export interface BlockPropertyRenameAndFixStatics {
@@ -385,11 +345,9 @@ export interface BlockPropertyRenameAndFixStatics {
 export interface BlockRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
-  renameBlock(arg0: string): string;
 }
 export type BlockRenameFix = BlockRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface BlockRenameFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string): BlockRenameFix;
   create(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string, arg2: JavaFunction<string, string>): JavaOpaque<"com.mojang.datafixers.DataFix">;
 }
 
@@ -429,7 +387,6 @@ export interface BoatSplitFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.CarvingStepRemoveFix. */
 export interface CarvingStepRemoveFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type CarvingStepRemoveFix = CarvingStepRemoveFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface CarvingStepRemoveFixStatics {
@@ -439,7 +396,6 @@ export interface CarvingStepRemoveFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.CatTypeFix. */
 export interface CatTypeFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type CatTypeFix = CatTypeFixMembers & NamedEntityFix;
@@ -450,7 +406,6 @@ export interface CatTypeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.CauldronRenameFix. */
 export interface CauldronRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type CauldronRenameFix = CauldronRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface CauldronRenameFixStatics {
@@ -468,7 +423,6 @@ export interface CavesAndCliffsRenamesStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChestedHorsesInventoryZeroIndexingFix. */
 export interface ChestedHorsesInventoryZeroIndexingFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChestedHorsesInventoryZeroIndexingFix = ChestedHorsesInventoryZeroIndexingFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChestedHorsesInventoryZeroIndexingFixStatics {
@@ -488,7 +442,6 @@ export interface ChunkBedBlockEntityInjecterFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkBiomeFix. */
 export interface ChunkBiomeFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkBiomeFix = ChunkBiomeFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkBiomeFixStatics {
@@ -498,7 +451,6 @@ export interface ChunkBiomeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkDeleteIgnoredLightDataFix. */
 export interface ChunkDeleteIgnoredLightDataFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkDeleteIgnoredLightDataFix = ChunkDeleteIgnoredLightDataFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkDeleteIgnoredLightDataFixStatics {
@@ -508,7 +460,6 @@ export interface ChunkDeleteIgnoredLightDataFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkDeleteLightFix. */
 export interface ChunkDeleteLightFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkDeleteLightFix = ChunkDeleteLightFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkDeleteLightFixStatics {
@@ -518,7 +469,6 @@ export interface ChunkDeleteLightFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkHeightAndBiomeFix. */
 export interface ChunkHeightAndBiomeFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkHeightAndBiomeFix = ChunkHeightAndBiomeFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkHeightAndBiomeFixStatics {
@@ -532,7 +482,6 @@ export interface ChunkHeightAndBiomeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkLightRemoveFix. */
 export interface ChunkLightRemoveFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkLightRemoveFix = ChunkLightRemoveFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkLightRemoveFixStatics {
@@ -597,7 +546,6 @@ export interface ChunkPalettedStorageFix_Direction_AxisDirectionStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkProtoTickListFix. */
 export interface ChunkProtoTickListFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkProtoTickListFix = ChunkProtoTickListFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkProtoTickListFixStatics {
@@ -618,7 +566,6 @@ export interface ChunkProtoTickListFix_PoorMansPalettedContainerStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkRenamesFix. */
 export interface ChunkRenamesFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkRenamesFix = ChunkRenamesFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkRenamesFixStatics {
@@ -628,7 +575,6 @@ export interface ChunkRenamesFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkStatusFix. */
 export interface ChunkStatusFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkStatusFix = ChunkStatusFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkStatusFixStatics {
@@ -638,7 +584,6 @@ export interface ChunkStatusFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkStatusFix2. */
 export interface ChunkStatusFix2Members {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkStatusFix2 = ChunkStatusFix2Members & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkStatusFix2Statics {
@@ -658,7 +603,6 @@ export interface ChunkStructuresTemplateRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ChunkTicketUnpackPosFix. */
 export interface ChunkTicketUnpackPosFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ChunkTicketUnpackPosFix = ChunkTicketUnpackPosFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ChunkTicketUnpackPosFixStatics {
@@ -678,7 +622,6 @@ export interface ChunkToProtochunkFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ColorlessShulkerEntityFix. */
 export interface ColorlessShulkerEntityFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type ColorlessShulkerEntityFix = ColorlessShulkerEntityFixMembers & NamedEntityFix;
 export interface ColorlessShulkerEntityFixStatics {
@@ -688,7 +631,6 @@ export interface ColorlessShulkerEntityFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ContainerBlockEntityLockPredicateFix. */
 export interface ContainerBlockEntityLockPredicateFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ContainerBlockEntityLockPredicateFix = ContainerBlockEntityLockPredicateFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ContainerBlockEntityLockPredicateFixStatics {
@@ -698,7 +640,6 @@ export interface ContainerBlockEntityLockPredicateFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.CriteriaRenameFix. */
 export interface CriteriaRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type CriteriaRenameFix = CriteriaRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface CriteriaRenameFixStatics {
@@ -708,7 +649,6 @@ export interface CriteriaRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.CustomModelDataExpandFix. */
 export interface CustomModelDataExpandFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type CustomModelDataExpandFix = CustomModelDataExpandFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface CustomModelDataExpandFixStatics {
@@ -718,19 +658,15 @@ export interface CustomModelDataExpandFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.DataComponentRemainderFix. */
 export interface DataComponentRemainderFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  fixComponent<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]> | null;
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type DataComponentRemainderFix = DataComponentRemainderFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface DataComponentRemainderFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string, arg2: string): DataComponentRemainderFix;
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string, arg2: string, arg3: string): DataComponentRemainderFix;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.DecoratedPotFieldRenameFix. */
 export interface DecoratedPotFieldRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type DecoratedPotFieldRenameFix = DecoratedPotFieldRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface DecoratedPotFieldRenameFixStatics {
@@ -740,7 +676,6 @@ export interface DecoratedPotFieldRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.DropChancesFormatFix. */
 export interface DropChancesFormatFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type DropChancesFormatFix = DropChancesFormatFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface DropChancesFormatFixStatics {
@@ -769,7 +704,6 @@ export interface DyeItemRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EffectDurationFix. */
 export interface EffectDurationFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type EffectDurationFix = EffectDurationFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface EffectDurationFixStatics {
@@ -799,7 +733,6 @@ export interface EmptyItemInVillagerTradeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityArmorStandSilentFix. */
 export interface EntityArmorStandSilentFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityArmorStandSilentFix = EntityArmorStandSilentFixMembers & NamedEntityFix;
@@ -810,7 +743,6 @@ export interface EntityArmorStandSilentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityAttributeBaseValueFix. */
 export interface EntityAttributeBaseValueFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type EntityAttributeBaseValueFix = EntityAttributeBaseValueFixMembers & NamedEntityFix;
 export interface EntityAttributeBaseValueFixStatics {
@@ -831,7 +763,6 @@ export interface EntityBlockStateFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityBrushableBlockFieldsRenameFix. */
 export interface EntityBrushableBlockFieldsRenameFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityBrushableBlockFieldsRenameFix = EntityBrushableBlockFieldsRenameFixMembers & NamedEntityFix;
@@ -842,7 +773,6 @@ export interface EntityBrushableBlockFieldsRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityCatSplitFix. */
 export interface EntityCatSplitFixMembers {
   readonly __javaSupertypes?: readonly [SimpleEntityRenameFix];
-  getNewNameAndTag(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>;
 }
 export type EntityCatSplitFix = EntityCatSplitFixMembers & SimpleEntityRenameFix;
 export interface EntityCatSplitFixStatics {
@@ -852,7 +782,6 @@ export interface EntityCatSplitFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityCodSalmonFix. */
 export interface EntityCodSalmonFixMembers {
   readonly __javaSupertypes?: readonly [SimplestEntityRenameFix];
-  rename(arg0: string): string;
 }
 export type EntityCodSalmonFix = EntityCodSalmonFixMembers & SimplestEntityRenameFix;
 export interface EntityCodSalmonFixStatics {
@@ -874,7 +803,6 @@ export interface EntityCustomNameToComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityElderGuardianSplitFix. */
 export interface EntityElderGuardianSplitFixMembers {
   readonly __javaSupertypes?: readonly [SimpleEntityRenameFix];
-  getNewNameAndTag(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>;
 }
 export type EntityElderGuardianSplitFix = EntityElderGuardianSplitFixMembers & SimpleEntityRenameFix;
 export interface EntityElderGuardianSplitFixStatics {
@@ -894,7 +822,6 @@ export interface EntityEquipmentToArmorAndHandFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityFallDistanceFloatToDoubleFix. */
 export interface EntityFallDistanceFloatToDoubleFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type EntityFallDistanceFloatToDoubleFix = EntityFallDistanceFloatToDoubleFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface EntityFallDistanceFloatToDoubleFixStatics {
@@ -904,7 +831,6 @@ export interface EntityFallDistanceFloatToDoubleFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityFieldsRenameFix. */
 export interface EntityFieldsRenameFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityFieldsRenameFix = EntityFieldsRenameFixMembers & NamedEntityFix;
@@ -915,7 +841,6 @@ export interface EntityFieldsRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityGoatMissingStateFix. */
 export interface EntityGoatMissingStateFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type EntityGoatMissingStateFix = EntityGoatMissingStateFixMembers & NamedEntityFix;
 export interface EntityGoatMissingStateFixStatics {
@@ -936,7 +861,6 @@ export interface EntityHealthFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityHorseSaddleFix. */
 export interface EntityHorseSaddleFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type EntityHorseSaddleFix = EntityHorseSaddleFixMembers & NamedEntityFix;
 export interface EntityHorseSaddleFixStatics {
@@ -946,7 +870,6 @@ export interface EntityHorseSaddleFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityHorseSplitFix. */
 export interface EntityHorseSplitFixMembers {
   readonly __javaSupertypes?: readonly [EntityRenameFix];
-  fix(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
 }
 export type EntityHorseSplitFix = EntityHorseSplitFixMembers & EntityRenameFix;
 export interface EntityHorseSplitFixStatics {
@@ -966,7 +889,6 @@ export interface EntityIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityItemFrameDirectionFix. */
 export interface EntityItemFrameDirectionFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityItemFrameDirectionFix = EntityItemFrameDirectionFixMembers & NamedEntityFix;
@@ -977,7 +899,6 @@ export interface EntityItemFrameDirectionFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityMinecartIdentifiersFix. */
 export interface EntityMinecartIdentifiersFixMembers {
   readonly __javaSupertypes?: readonly [EntityRenameFix];
-  fix(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
 }
 export type EntityMinecartIdentifiersFix = EntityMinecartIdentifiersFixMembers & EntityRenameFix;
 export interface EntityMinecartIdentifiersFixStatics {
@@ -997,7 +918,6 @@ export interface EntityPaintingItemFrameDirectionFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityPaintingMotiveFix. */
 export interface EntityPaintingMotiveFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityPaintingMotiveFix = EntityPaintingMotiveFixMembers & NamedEntityFix;
@@ -1008,7 +928,6 @@ export interface EntityPaintingMotiveFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityProjectileOwnerFix. */
 export interface EntityProjectileOwnerFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type EntityProjectileOwnerFix = EntityProjectileOwnerFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface EntityProjectileOwnerFixStatics {
@@ -1018,7 +937,6 @@ export interface EntityProjectileOwnerFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityPufferfishRenameFix. */
 export interface EntityPufferfishRenameFixMembers {
   readonly __javaSupertypes?: readonly [SimplestEntityRenameFix];
-  rename(arg0: string): string;
 }
 export type EntityPufferfishRenameFix = EntityPufferfishRenameFixMembers & SimplestEntityRenameFix;
 export interface EntityPufferfishRenameFixStatics {
@@ -1029,7 +947,6 @@ export interface EntityPufferfishRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityRavagerRenameFix. */
 export interface EntityRavagerRenameFixMembers {
   readonly __javaSupertypes?: readonly [SimplestEntityRenameFix];
-  rename(arg0: string): string;
 }
 export type EntityRavagerRenameFix = EntityRavagerRenameFixMembers & SimplestEntityRenameFix;
 export interface EntityRavagerRenameFixStatics {
@@ -1050,13 +967,10 @@ export interface EntityRedundantChanceTagsFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.EntityRenameFix. */
 export interface EntityRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  fix(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
-  readonly name: string;
 }
 export type EntityRenameFix = EntityRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface EntityRenameFixStatics {
-  new(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg2: boolean): EntityRenameFix;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.EntityRidingToPassengersFix. */
@@ -1072,7 +986,6 @@ export interface EntityRidingToPassengersFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntitySalmonSizeFix. */
 export interface EntitySalmonSizeFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type EntitySalmonSizeFix = EntitySalmonSizeFixMembers & NamedEntityFix;
 export interface EntitySalmonSizeFixStatics {
@@ -1082,7 +995,6 @@ export interface EntitySalmonSizeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityShulkerColorFix. */
 export interface EntityShulkerColorFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityShulkerColorFix = EntityShulkerColorFixMembers & NamedEntityFix;
@@ -1093,7 +1005,6 @@ export interface EntityShulkerColorFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityShulkerRotationFix. */
 export interface EntityShulkerRotationFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityShulkerRotationFix = EntityShulkerRotationFixMembers & NamedEntityFix;
@@ -1104,7 +1015,6 @@ export interface EntityShulkerRotationFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntitySkeletonSplitFix. */
 export interface EntitySkeletonSplitFixMembers {
   readonly __javaSupertypes?: readonly [SimpleEntityRenameFix];
-  getNewNameAndTag(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>;
 }
 export type EntitySkeletonSplitFix = EntitySkeletonSplitFixMembers & SimpleEntityRenameFix;
 export interface EntitySkeletonSplitFixStatics {
@@ -1134,7 +1044,6 @@ export interface EntityStringUuidFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityTheRenameningFix. */
 export interface EntityTheRenameningFixMembers {
   readonly __javaSupertypes?: readonly [SimplestEntityRenameFix];
-  rename(arg0: string): string;
 }
 export type EntityTheRenameningFix = EntityTheRenameningFixMembers & SimplestEntityRenameFix;
 export interface EntityTheRenameningFixStatics {
@@ -1147,7 +1056,6 @@ export interface EntityTheRenameningFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityTippedArrowFix. */
 export interface EntityTippedArrowFixMembers {
   readonly __javaSupertypes?: readonly [SimplestEntityRenameFix];
-  rename(arg0: string): string;
 }
 export type EntityTippedArrowFix = EntityTippedArrowFixMembers & SimplestEntityRenameFix;
 export interface EntityTippedArrowFixStatics {
@@ -1157,7 +1065,6 @@ export interface EntityTippedArrowFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityUUIDFix. */
 export interface EntityUUIDFixMembers {
   readonly __javaSupertypes?: readonly [AbstractUUIDFix];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type EntityUUIDFix = EntityUUIDFixMembers & AbstractUUIDFix;
 export interface EntityUUIDFixStatics {
@@ -1169,7 +1076,6 @@ export interface EntityUUIDFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityVariantFix. */
 export interface EntityVariantFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type EntityVariantFix = EntityVariantFixMembers & NamedEntityFix;
 export interface EntityVariantFixStatics {
@@ -1179,7 +1085,6 @@ export interface EntityVariantFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityWolfColorFix. */
 export interface EntityWolfColorFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityWolfColorFix = EntityWolfColorFixMembers & NamedEntityFix;
@@ -1190,7 +1095,6 @@ export interface EntityWolfColorFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityZombieSplitFix. */
 export interface EntityZombieSplitFixMembers {
   readonly __javaSupertypes?: readonly [EntityRenameFix];
-  fix(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
 }
 export type EntityZombieSplitFix = EntityZombieSplitFixMembers & EntityRenameFix;
 export interface EntityZombieSplitFixStatics {
@@ -1200,7 +1104,6 @@ export interface EntityZombieSplitFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityZombieVillagerTypeFix. */
 export interface EntityZombieVillagerTypeFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type EntityZombieVillagerTypeFix = EntityZombieVillagerTypeFixMembers & NamedEntityFix;
@@ -1211,7 +1114,6 @@ export interface EntityZombieVillagerTypeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EntityZombifiedPiglinRenameFix. */
 export interface EntityZombifiedPiglinRenameFixMembers {
   readonly __javaSupertypes?: readonly [SimplestEntityRenameFix];
-  rename(arg0: string): string;
 }
 export type EntityZombifiedPiglinRenameFix = EntityZombifiedPiglinRenameFixMembers & SimplestEntityRenameFix;
 export interface EntityZombifiedPiglinRenameFixStatics {
@@ -1222,7 +1124,6 @@ export interface EntityZombifiedPiglinRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EquipmentFormatFix. */
 export interface EquipmentFormatFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type EquipmentFormatFix = EquipmentFormatFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface EquipmentFormatFixStatics {
@@ -1232,7 +1133,6 @@ export interface EquipmentFormatFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.EquippableAssetRenameFix. */
 export interface EquippableAssetRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type EquippableAssetRenameFix = EquippableAssetRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface EquippableAssetRenameFixStatics {
@@ -1242,7 +1142,6 @@ export interface EquippableAssetRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FeatureFlagRemoveFix. */
 export interface FeatureFlagRemoveFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type FeatureFlagRemoveFix = FeatureFlagRemoveFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface FeatureFlagRemoveFixStatics {
@@ -1252,7 +1151,6 @@ export interface FeatureFlagRemoveFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FilteredBooksFix. */
 export interface FilteredBooksFixMembers {
   readonly __javaSupertypes?: readonly [ItemStackTagFix];
-  fixItemStackTag(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type FilteredBooksFix = FilteredBooksFixMembers & ItemStackTagFix;
 export interface FilteredBooksFixStatics {
@@ -1262,7 +1160,6 @@ export interface FilteredBooksFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FilteredSignsFix. */
 export interface FilteredSignsFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type FilteredSignsFix = FilteredSignsFixMembers & NamedEntityWriteReadFix;
 export interface FilteredSignsFixStatics {
@@ -1272,7 +1169,6 @@ export interface FilteredSignsFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FireResistantToDamageResistantComponentFix. */
 export interface FireResistantToDamageResistantComponentFixMembers {
   readonly __javaSupertypes?: readonly [DataComponentRemainderFix];
-  fixComponent<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type FireResistantToDamageResistantComponentFix = FireResistantToDamageResistantComponentFixMembers & DataComponentRemainderFix;
 export interface FireResistantToDamageResistantComponentFixStatics {
@@ -1282,7 +1178,6 @@ export interface FireResistantToDamageResistantComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FixProjectileStoredItem. */
 export interface FixProjectileStoredItemMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type FixProjectileStoredItem = FixProjectileStoredItemMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface FixProjectileStoredItemStatics {
@@ -1292,7 +1187,6 @@ export interface FixProjectileStoredItemStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FixWolfHealth. */
 export interface FixWolfHealthMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type FixWolfHealth = FixWolfHealthMembers & NamedEntityFix;
 export interface FixWolfHealthStatics {
@@ -1302,7 +1196,6 @@ export interface FixWolfHealthStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FoodToConsumableFix. */
 export interface FoodToConsumableFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type FoodToConsumableFix = FoodToConsumableFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface FoodToConsumableFixStatics {
@@ -1312,7 +1205,6 @@ export interface FoodToConsumableFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ForcedChunkToTicketFix. */
 export interface ForcedChunkToTicketFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ForcedChunkToTicketFix = ForcedChunkToTicketFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ForcedChunkToTicketFixStatics {
@@ -1322,7 +1214,6 @@ export interface ForcedChunkToTicketFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ForcePoiRebuild. */
 export interface ForcePoiRebuildMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ForcePoiRebuild = ForcePoiRebuildMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ForcePoiRebuildStatics {
@@ -1332,7 +1223,6 @@ export interface ForcePoiRebuildStatics {
 /** JVM class net.minecraft.util.datafix.fixes.FurnaceRecipeFix. */
 export interface FurnaceRecipeFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type FurnaceRecipeFix = FurnaceRecipeFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface FurnaceRecipeFixStatics {
@@ -1342,7 +1232,6 @@ export interface FurnaceRecipeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.GoatHornIdFix. */
 export interface GoatHornIdFixMembers {
   readonly __javaSupertypes?: readonly [ItemStackTagRemainderFix];
-  fixItemStackTag<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type GoatHornIdFix = GoatHornIdFixMembers & ItemStackTagRemainderFix;
 export interface GoatHornIdFixStatics {
@@ -1352,7 +1241,6 @@ export interface GoatHornIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.GossipUUIDFix. */
 export interface GossipUUIDFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type GossipUUIDFix = GossipUUIDFixMembers & NamedEntityFix;
 export interface GossipUUIDFixStatics {
@@ -1362,7 +1250,6 @@ export interface GossipUUIDFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.HeightmapRenamingFix. */
 export interface HeightmapRenamingFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type HeightmapRenamingFix = HeightmapRenamingFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface HeightmapRenamingFixStatics {
@@ -1372,7 +1259,6 @@ export interface HeightmapRenamingFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.HorseBodyArmorItemFix. */
 export interface HorseBodyArmorItemFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type HorseBodyArmorItemFix = HorseBodyArmorItemFixMembers & NamedEntityWriteReadFix;
 export interface HorseBodyArmorItemFixStatics {
@@ -1382,7 +1268,6 @@ export interface HorseBodyArmorItemFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.IglooMetadataRemovalFix. */
 export interface IglooMetadataRemovalFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type IglooMetadataRemovalFix = IglooMetadataRemovalFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface IglooMetadataRemovalFixStatics {
@@ -1402,7 +1287,6 @@ export interface InlineBlockPosFormatFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.InvalidBlockEntityLockFix. */
 export interface InvalidBlockEntityLockFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type InvalidBlockEntityLockFix = InvalidBlockEntityLockFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface InvalidBlockEntityLockFixStatics {
@@ -1412,7 +1296,6 @@ export interface InvalidBlockEntityLockFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.InvalidLockComponentFix. */
 export interface InvalidLockComponentFixMembers {
   readonly __javaSupertypes?: readonly [DataComponentRemainderFix];
-  fixComponent<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]> | null;
 }
 export type InvalidLockComponentFix = InvalidLockComponentFixMembers & DataComponentRemainderFix;
 export interface InvalidLockComponentFixStatics {
@@ -1455,7 +1338,6 @@ export interface ItemIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ItemLoreFix. */
 export interface ItemLoreFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ItemLoreFix = ItemLoreFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ItemLoreFixStatics {
@@ -1476,12 +1358,10 @@ export interface ItemPotionFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.ItemRenameFix. */
 export interface ItemRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  fixItem(arg0: string): string;
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ItemRenameFix = ItemRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ItemRenameFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string): ItemRenameFix;
   create(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string, arg2: JavaFunction<string, string>): JavaOpaque<"com.mojang.datafixers.DataFix">;
 }
 
@@ -1510,7 +1390,6 @@ export interface ItemSpawnEggFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ItemStackComponentizationFix. */
 export interface ItemStackComponentizationFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ItemStackComponentizationFix = ItemStackComponentizationFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ItemStackComponentizationFixStatics {
@@ -1531,7 +1410,6 @@ export interface ItemStackCustomNameToOverrideComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ItemStackEnchantmentNamesFix. */
 export interface ItemStackEnchantmentNamesFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ItemStackEnchantmentNamesFix = ItemStackEnchantmentNamesFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ItemStackEnchantmentNamesFixStatics {
@@ -1561,24 +1439,19 @@ export interface ItemStackSpawnEggFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.ItemStackTagFix. */
 export interface ItemStackTagFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  fixItemStackTag(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ItemStackTagFix = ItemStackTagFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ItemStackTagFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string, arg2: JavaPredicate<string>): ItemStackTagFix;
   createFixer(arg0: JavaOpaque<"com.mojang.datafixers.types.Type", [object]>, arg1: JavaPredicate<string>, arg2: JavaOpaque<"java.util.function.UnaryOperator", [JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>): JavaOpaque<"java.util.function.UnaryOperator", [JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
 }
 
 /** JVM abstract net.minecraft.util.datafix.fixes.ItemStackTagRemainderFix. */
 export interface ItemStackTagRemainderFixMembers {
   readonly __javaSupertypes?: readonly [ItemStackTagFix];
-  fixItemStackTag(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
-  fixItemStackTag<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type ItemStackTagRemainderFix = ItemStackTagRemainderFixMembers & ItemStackTagFix;
 export interface ItemStackTagRemainderFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: string, arg2: JavaPredicate<string>): ItemStackTagRemainderFix;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.ItemStackTheFlatteningFix. */
@@ -1615,7 +1488,6 @@ export interface ItemWaterPotionFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.JigsawPropertiesFix. */
 export interface JigsawPropertiesFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type JigsawPropertiesFix = JigsawPropertiesFixMembers & NamedEntityFix;
 export interface JigsawPropertiesFixStatics {
@@ -1625,8 +1497,6 @@ export interface JigsawPropertiesFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.JigsawRotationFix. */
 export interface JigsawRotationFixMembers {
   readonly __javaSupertypes?: readonly [AbstractBlockPropertyFix];
-  fixProperties<T>(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
-  shouldFix(arg0: string): boolean;
 }
 export type JigsawRotationFix = JigsawRotationFixMembers & AbstractBlockPropertyFix;
 export interface JigsawRotationFixStatics {
@@ -1636,7 +1506,6 @@ export interface JigsawRotationFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.JukeboxTicksSinceSongStartedFix. */
 export interface JukeboxTicksSinceSongStartedFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type JukeboxTicksSinceSongStartedFix = JukeboxTicksSinceSongStartedFixMembers & NamedEntityFix;
@@ -1647,7 +1516,6 @@ export interface JukeboxTicksSinceSongStartedFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LeavesFix. */
 export interface LeavesFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type LeavesFix = LeavesFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface LeavesFixStatics {
@@ -1661,7 +1529,6 @@ export interface LeavesFix_LeavesSectionMembers {
   readonly __javaSupertypes?: readonly [LeavesFix_Section];
   isLeaf(arg0: number): boolean;
   isLog(arg0: number): boolean;
-  skippable(): boolean;
 }
 export type LeavesFix_LeavesSection = LeavesFix_LeavesSectionMembers & LeavesFix_Section;
 export interface LeavesFix_LeavesSectionStatics {
@@ -1671,22 +1538,11 @@ export interface LeavesFix_LeavesSectionStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.LeavesFix$Section. */
 export interface LeavesFix_SectionMembers {
   getBlock(arg0: number): number;
-  getStateId(arg0: string, arg1: boolean, arg2: number): number;
-  readonly index: number;
   isSkippable(): boolean;
-  readonly palette: JavaList<JavaOpaque<"com.mojang.serialization.Dynamic", [object]>>;
-  readonly paletteFinder: JavaOpaque<"com.mojang.datafixers.OpticFinder", [JavaList<JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>>]>;
-  readStorage(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): void;
-  skippable(): boolean;
-  storage: j_net_minecraft_util_datafix.PackedBitStorage | null;
   write(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type LeavesFix_Section = LeavesFix_SectionMembers;
 export interface LeavesFix_SectionStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): LeavesFix_Section;
-  readonly BLOCK_STATES_TAG: "BlockStates";
-  readonly NAME_TAG: "Name";
-  readonly PROPERTIES_TAG: "Properties";
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.LegacyDimensionIdFix. */
@@ -1702,7 +1558,6 @@ export interface LegacyDimensionIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LegacyDragonFightFix. */
 export interface LegacyDragonFightFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type LegacyDragonFightFix = LegacyDragonFightFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface LegacyDragonFightFixStatics {
@@ -1712,7 +1567,6 @@ export interface LegacyDragonFightFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LegacyHoverEventFix. */
 export interface LegacyHoverEventFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type LegacyHoverEventFix = LegacyHoverEventFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface LegacyHoverEventFixStatics {
@@ -1722,7 +1576,6 @@ export interface LegacyHoverEventFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LevelDataGeneratorOptionsFix. */
 export interface LevelDataGeneratorOptionsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type LevelDataGeneratorOptionsFix = LevelDataGeneratorOptionsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface LevelDataGeneratorOptionsFixStatics {
@@ -1743,7 +1596,6 @@ export interface LevelFlatGeneratorInfoFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LevelLegacyWorldGenSettingsFix. */
 export interface LevelLegacyWorldGenSettingsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type LevelLegacyWorldGenSettingsFix = LevelLegacyWorldGenSettingsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface LevelLegacyWorldGenSettingsFixStatics {
@@ -1753,7 +1605,6 @@ export interface LevelLegacyWorldGenSettingsFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LevelUUIDFix. */
 export interface LevelUUIDFixMembers {
   readonly __javaSupertypes?: readonly [AbstractUUIDFix];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type LevelUUIDFix = LevelUUIDFixMembers & AbstractUUIDFix;
 export interface LevelUUIDFixStatics {
@@ -1763,7 +1614,6 @@ export interface LevelUUIDFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LockComponentPredicateFix. */
 export interface LockComponentPredicateFixMembers {
   readonly __javaSupertypes?: readonly [DataComponentRemainderFix];
-  fixComponent<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]> | null;
 }
 export type LockComponentPredicateFix = LockComponentPredicateFixMembers & DataComponentRemainderFix;
 export interface LockComponentPredicateFixStatics {
@@ -1775,7 +1625,6 @@ export interface LockComponentPredicateFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.LodestoneCompassComponentFix. */
 export interface LodestoneCompassComponentFixMembers {
   readonly __javaSupertypes?: readonly [DataComponentRemainderFix];
-  fixComponent<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type LodestoneCompassComponentFix = LodestoneCompassComponentFixMembers & DataComponentRemainderFix;
 export interface LodestoneCompassComponentFixStatics {
@@ -1785,7 +1634,6 @@ export interface LodestoneCompassComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.MapBannerBlockPosFormatFix. */
 export interface MapBannerBlockPosFormatFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type MapBannerBlockPosFormatFix = MapBannerBlockPosFormatFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface MapBannerBlockPosFormatFixStatics {
@@ -1795,7 +1643,6 @@ export interface MapBannerBlockPosFormatFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.MapIdFix. */
 export interface MapIdFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type MapIdFix = MapIdFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface MapIdFixStatics {
@@ -1805,7 +1652,6 @@ export interface MapIdFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.MemoryExpiryDataFix. */
 export interface MemoryExpiryDataFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type MemoryExpiryDataFix = MemoryExpiryDataFixMembers & NamedEntityFix;
@@ -1816,21 +1662,15 @@ export interface MemoryExpiryDataFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.MissingDimensionFix. */
 export interface MissingDimensionFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type MissingDimensionFix = MissingDimensionFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface MissingDimensionFixStatics {
   new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: boolean): MissingDimensionFix;
-  fields<A>(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.types.Type", [A]>): JavaOpaque<"com.mojang.datafixers.types.Type", [JavaOpaque<"com.mojang.datafixers.util.Pair", [A, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>]>;
-  flatType(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): JavaOpaque<"com.mojang.datafixers.types.Type", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [object, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [JavaList<JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [object, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>>, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>]>, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>]>;
-  optionalFields<A>(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.types.Type", [A]>): JavaOpaque<"com.mojang.datafixers.types.Type", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [A, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>]>;
-  optionalFields<A1, A2>(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.types.Type", [A1]>, arg2: string, arg3: JavaOpaque<"com.mojang.datafixers.types.Type", [A2]>): JavaOpaque<"com.mojang.datafixers.types.Type", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [A1, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.mojang.datafixers.util.Either", [A2, JavaOpaque<"com.mojang.datafixers.util.Unit">]>, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>]>]>;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.MobEffectIdFix. */
 export interface MobEffectIdFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type MobEffectIdFix = MobEffectIdFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface MobEffectIdFixStatics {
@@ -1850,7 +1690,6 @@ export interface MobSpawnerEntityIdentifiersFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.NamedEntityConvertUncheckedFix. */
 export interface NamedEntityConvertUncheckedFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type NamedEntityConvertUncheckedFix = NamedEntityConvertUncheckedFixMembers & NamedEntityFix;
 export interface NamedEntityConvertUncheckedFixStatics {
@@ -1860,31 +1699,24 @@ export interface NamedEntityConvertUncheckedFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.NamedEntityFix. */
 export interface NamedEntityFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  readonly entityName: string;
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
-  readonly type: JavaOpaque<"com.mojang.datafixers.DSL$TypeReference">;
 }
 export type NamedEntityFix = NamedEntityFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface NamedEntityFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: boolean, arg2: string, arg3: JavaOpaque<"com.mojang.datafixers.DSL$TypeReference">, arg4: string): NamedEntityFix;
 }
 
 /** JVM abstract net.minecraft.util.datafix.fixes.NamedEntityWriteReadFix. */
 export interface NamedEntityWriteReadFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type NamedEntityWriteReadFix = NamedEntityWriteReadFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface NamedEntityWriteReadFixStatics {
-  new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg1: boolean, arg2: string, arg3: JavaOpaque<"com.mojang.datafixers.DSL$TypeReference">, arg4: string): NamedEntityWriteReadFix;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.NamespacedTypeRenameFix. */
 export interface NamespacedTypeRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type NamespacedTypeRenameFix = NamespacedTypeRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface NamespacedTypeRenameFixStatics {
@@ -1894,7 +1726,6 @@ export interface NamespacedTypeRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.NewVillageFix. */
 export interface NewVillageFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type NewVillageFix = NewVillageFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface NewVillageFixStatics {
@@ -1904,7 +1735,6 @@ export interface NewVillageFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ObjectiveRenderTypeFix. */
 export interface ObjectiveRenderTypeFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ObjectiveRenderTypeFix = ObjectiveRenderTypeFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ObjectiveRenderTypeFixStatics {
@@ -1914,7 +1744,6 @@ export interface ObjectiveRenderTypeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.OminousBannerBlockEntityRenameFix. */
 export interface OminousBannerBlockEntityRenameFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type OminousBannerBlockEntityRenameFix = OminousBannerBlockEntityRenameFixMembers & NamedEntityFix;
 export interface OminousBannerBlockEntityRenameFixStatics {
@@ -1934,7 +1763,6 @@ export interface OminousBannerRarityFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.OminousBannerRenameFix. */
 export interface OminousBannerRenameFixMembers {
   readonly __javaSupertypes?: readonly [ItemStackTagFix];
-  fixItemStackTag(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type OminousBannerRenameFix = OminousBannerRenameFixMembers & ItemStackTagFix;
 export interface OminousBannerRenameFixStatics {
@@ -1944,7 +1772,6 @@ export interface OminousBannerRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.OptionsAccessibilityOnboardFix. */
 export interface OptionsAccessibilityOnboardFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type OptionsAccessibilityOnboardFix = OptionsAccessibilityOnboardFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface OptionsAccessibilityOnboardFixStatics {
@@ -2045,7 +1872,6 @@ export interface OptionsRenameFieldFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.OverreachingTickFix. */
 export interface OverreachingTickFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type OverreachingTickFix = OverreachingTickFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface OverreachingTickFixStatics {
@@ -2055,7 +1881,6 @@ export interface OverreachingTickFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ParticleUnflatteningFix. */
 export interface ParticleUnflatteningFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ParticleUnflatteningFix = ParticleUnflatteningFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ParticleUnflatteningFixStatics {
@@ -2065,7 +1890,6 @@ export interface ParticleUnflatteningFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.PlayerEquipmentFix. */
 export interface PlayerEquipmentFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type PlayerEquipmentFix = PlayerEquipmentFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface PlayerEquipmentFixStatics {
@@ -2075,7 +1899,6 @@ export interface PlayerEquipmentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.PlayerHeadBlockProfileFix. */
 export interface PlayerHeadBlockProfileFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type PlayerHeadBlockProfileFix = PlayerHeadBlockProfileFixMembers & NamedEntityFix;
 export interface PlayerHeadBlockProfileFixStatics {
@@ -2085,7 +1908,6 @@ export interface PlayerHeadBlockProfileFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.PlayerUUIDFix. */
 export interface PlayerUUIDFixMembers {
   readonly __javaSupertypes?: readonly [AbstractUUIDFix];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type PlayerUUIDFix = PlayerUUIDFixMembers & AbstractUUIDFix;
 export interface PlayerUUIDFixStatics {
@@ -2095,7 +1917,6 @@ export interface PlayerUUIDFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.PoiTypeRemoveFix. */
 export interface PoiTypeRemoveFixMembers {
   readonly __javaSupertypes?: readonly [AbstractPoiSectionFix];
-  processRecords<T>(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.serialization.Dynamic", [T]>]>): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.serialization.Dynamic", [T]>]>;
 }
 export type PoiTypeRemoveFix = PoiTypeRemoveFixMembers & AbstractPoiSectionFix;
 export interface PoiTypeRemoveFixStatics {
@@ -2105,7 +1926,6 @@ export interface PoiTypeRemoveFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.PoiTypeRenameFix. */
 export interface PoiTypeRenameFixMembers {
   readonly __javaSupertypes?: readonly [AbstractPoiSectionFix];
-  processRecords<T>(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.serialization.Dynamic", [T]>]>): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.serialization.Dynamic", [T]>]>;
 }
 export type PoiTypeRenameFix = PoiTypeRenameFixMembers & AbstractPoiSectionFix;
 export interface PoiTypeRenameFixStatics {
@@ -2115,7 +1935,6 @@ export interface PoiTypeRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.PrimedTntBlockStateFixer. */
 export interface PrimedTntBlockStateFixerMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type PrimedTntBlockStateFixer = PrimedTntBlockStateFixerMembers & NamedEntityWriteReadFix;
 export interface PrimedTntBlockStateFixerStatics {
@@ -2125,7 +1944,6 @@ export interface PrimedTntBlockStateFixerStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ProjectileStoredWeaponFix. */
 export interface ProjectileStoredWeaponFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ProjectileStoredWeaponFix = ProjectileStoredWeaponFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ProjectileStoredWeaponFixStatics {
@@ -2135,7 +1953,6 @@ export interface ProjectileStoredWeaponFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RaidRenamesDataFix. */
 export interface RaidRenamesDataFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type RaidRenamesDataFix = RaidRenamesDataFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface RaidRenamesDataFixStatics {
@@ -2145,7 +1962,6 @@ export interface RaidRenamesDataFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RandomSequenceSettingsFix. */
 export interface RandomSequenceSettingsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type RandomSequenceSettingsFix = RandomSequenceSettingsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface RandomSequenceSettingsFixStatics {
@@ -2173,7 +1989,6 @@ export interface RecipesRenameningFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RedstoneWireConnectionsFix. */
 export interface RedstoneWireConnectionsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type RedstoneWireConnectionsFix = RedstoneWireConnectionsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface RedstoneWireConnectionsFixStatics {
@@ -2234,7 +2049,6 @@ export interface ReferencesStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RemapChunkStatusFix. */
 export interface RemapChunkStatusFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type RemapChunkStatusFix = RemapChunkStatusFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface RemapChunkStatusFixStatics {
@@ -2254,7 +2068,6 @@ export interface RemoveBlockEntityTagFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RemoveEmptyItemInBrushableBlockFix. */
 export interface RemoveEmptyItemInBrushableBlockFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type RemoveEmptyItemInBrushableBlockFix = RemoveEmptyItemInBrushableBlockFixMembers & NamedEntityWriteReadFix;
 export interface RemoveEmptyItemInBrushableBlockFixStatics {
@@ -2264,7 +2077,6 @@ export interface RemoveEmptyItemInBrushableBlockFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RemoveGolemGossipFix. */
 export interface RemoveGolemGossipFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type RemoveGolemGossipFix = RemoveGolemGossipFixMembers & NamedEntityFix;
 export interface RemoveGolemGossipFixStatics {
@@ -2292,7 +2104,6 @@ export interface RenamedCoralFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.RenameEnchantmentsFix. */
 export interface RenameEnchantmentsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type RenameEnchantmentsFix = RenameEnchantmentsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface RenameEnchantmentsFixStatics {
@@ -2302,7 +2113,6 @@ export interface RenameEnchantmentsFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ReorganizePoi. */
 export interface ReorganizePoiMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ReorganizePoi = ReorganizePoiMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ReorganizePoiStatics {
@@ -2312,7 +2122,6 @@ export interface ReorganizePoiStatics {
 /** JVM class net.minecraft.util.datafix.fixes.SaddleEquipmentSlotFix. */
 export interface SaddleEquipmentSlotFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type SaddleEquipmentSlotFix = SaddleEquipmentSlotFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface SaddleEquipmentSlotFixStatics {
@@ -2327,13 +2136,11 @@ export interface SavedDataFeaturePoolElementFixMembers {
 export type SavedDataFeaturePoolElementFix = SavedDataFeaturePoolElementFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface SavedDataFeaturePoolElementFixStatics {
   new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): SavedDataFeaturePoolElementFix;
-  fixFeature(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.SavedDataUUIDFix. */
 export interface SavedDataUUIDFixMembers {
   readonly __javaSupertypes?: readonly [AbstractUUIDFix];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type SavedDataUUIDFix = SavedDataUUIDFixMembers & AbstractUUIDFix;
 export interface SavedDataUUIDFixStatics {
@@ -2343,7 +2150,6 @@ export interface SavedDataUUIDFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ScoreboardDisplayNameFix. */
 export interface ScoreboardDisplayNameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ScoreboardDisplayNameFix = ScoreboardDisplayNameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ScoreboardDisplayNameFixStatics {
@@ -2353,7 +2159,6 @@ export interface ScoreboardDisplayNameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ScoreboardDisplaySlotFix. */
 export interface ScoreboardDisplaySlotFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type ScoreboardDisplaySlotFix = ScoreboardDisplaySlotFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface ScoreboardDisplaySlotFixStatics {
@@ -2363,7 +2168,6 @@ export interface ScoreboardDisplaySlotFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.SignTextStrictJsonFix. */
 export interface SignTextStrictJsonFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type SignTextStrictJsonFix = SignTextStrictJsonFixMembers & NamedEntityFix;
 export interface SignTextStrictJsonFixStatics {
@@ -2373,29 +2177,23 @@ export interface SignTextStrictJsonFixStatics {
 /** JVM abstract net.minecraft.util.datafix.fixes.SimpleEntityRenameFix. */
 export interface SimpleEntityRenameFixMembers {
   readonly __javaSupertypes?: readonly [EntityRenameFix];
-  fix(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
-  getNewNameAndTag(arg0: string, arg1: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.serialization.Dynamic", [object]>]>;
 }
 export type SimpleEntityRenameFix = SimpleEntityRenameFixMembers & EntityRenameFix;
 export interface SimpleEntityRenameFixStatics {
-  new(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg2: boolean): SimpleEntityRenameFix;
 }
 
 /** JVM abstract net.minecraft.util.datafix.fixes.SimplestEntityRenameFix. */
 export interface SimplestEntityRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
   makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
-  rename(arg0: string): string;
 }
 export type SimplestEntityRenameFix = SimplestEntityRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface SimplestEntityRenameFixStatics {
-  new(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.schemas.Schema">, arg2: boolean): SimplestEntityRenameFix;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.SpawnerDataFix. */
 export interface SpawnerDataFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type SpawnerDataFix = SpawnerDataFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface SpawnerDataFixStatics {
@@ -2415,7 +2213,6 @@ export interface StatsCounterFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.StatsRenameFix. */
 export interface StatsRenameFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type StatsRenameFix = StatsRenameFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface StatsRenameFixStatics {
@@ -2425,7 +2222,6 @@ export interface StatsRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.StriderGravityFix. */
 export interface StriderGravityFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type StriderGravityFix = StriderGravityFixMembers & NamedEntityFix;
@@ -2436,7 +2232,6 @@ export interface StriderGravityFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.StructureReferenceCountFix. */
 export interface StructureReferenceCountFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type StructureReferenceCountFix = StructureReferenceCountFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface StructureReferenceCountFixStatics {
@@ -2446,7 +2241,6 @@ export interface StructureReferenceCountFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.StructuresBecomeConfiguredFix. */
 export interface StructuresBecomeConfiguredFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type StructuresBecomeConfiguredFix = StructuresBecomeConfiguredFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface StructuresBecomeConfiguredFixStatics {
@@ -2456,7 +2250,6 @@ export interface StructuresBecomeConfiguredFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.StructureSettingsFlattenFix. */
 export interface StructureSettingsFlattenFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type StructureSettingsFlattenFix = StructureSettingsFlattenFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface StructureSettingsFlattenFixStatics {
@@ -2466,7 +2259,6 @@ export interface StructureSettingsFlattenFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.TextComponentHoverAndClickEventFix. */
 export interface TextComponentHoverAndClickEventFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type TextComponentHoverAndClickEventFix = TextComponentHoverAndClickEventFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface TextComponentHoverAndClickEventFixStatics {
@@ -2476,7 +2268,6 @@ export interface TextComponentHoverAndClickEventFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.TextComponentStringifiedFlagsFix. */
 export interface TextComponentStringifiedFlagsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type TextComponentStringifiedFlagsFix = TextComponentStringifiedFlagsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface TextComponentStringifiedFlagsFixStatics {
@@ -2486,7 +2277,6 @@ export interface TextComponentStringifiedFlagsFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ThrownPotionSplitFix. */
 export interface ThrownPotionSplitFixMembers {
   readonly __javaSupertypes?: readonly [EntityRenameFix];
-  fix(arg0: string, arg1: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.util.Pair", [string, JavaOpaque<"com.mojang.datafixers.Typed", [object]>]>;
 }
 export type ThrownPotionSplitFix = ThrownPotionSplitFixMembers & EntityRenameFix;
 export interface ThrownPotionSplitFixStatics {
@@ -2496,7 +2286,6 @@ export interface ThrownPotionSplitFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.TippedArrowPotionToItemFix. */
 export interface TippedArrowPotionToItemFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type TippedArrowPotionToItemFix = TippedArrowPotionToItemFixMembers & NamedEntityWriteReadFix;
 export interface TippedArrowPotionToItemFixStatics {
@@ -2506,7 +2295,6 @@ export interface TippedArrowPotionToItemFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.TooltipDisplayComponentFix. */
 export interface TooltipDisplayComponentFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type TooltipDisplayComponentFix = TooltipDisplayComponentFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface TooltipDisplayComponentFixStatics {
@@ -2527,7 +2315,6 @@ export interface TrappedChestBlockEntityFixStatics {
 export interface TrappedChestBlockEntityFix_TrappedChestSectionMembers {
   readonly __javaSupertypes?: readonly [LeavesFix_Section];
   isTrappedChest(arg0: number): boolean;
-  skippable(): boolean;
 }
 export type TrappedChestBlockEntityFix_TrappedChestSection = TrappedChestBlockEntityFix_TrappedChestSectionMembers & LeavesFix_Section;
 export interface TrappedChestBlockEntityFix_TrappedChestSectionStatics {
@@ -2537,7 +2324,6 @@ export interface TrappedChestBlockEntityFix_TrappedChestSectionStatics {
 /** JVM class net.minecraft.util.datafix.fixes.TrialSpawnerConfigFix. */
 export interface TrialSpawnerConfigFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityWriteReadFix];
-  fix<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
 }
 export type TrialSpawnerConfigFix = TrialSpawnerConfigFixMembers & NamedEntityWriteReadFix;
 export interface TrialSpawnerConfigFixStatics {
@@ -2547,7 +2333,6 @@ export interface TrialSpawnerConfigFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.TrialSpawnerConfigInRegistryFix. */
 export interface TrialSpawnerConfigInRegistryFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
   fixTag(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [j_net_minecraft_nbt.Tag]>): JavaOpaque<"com.mojang.serialization.Dynamic", [object]>;
 }
 export type TrialSpawnerConfigInRegistryFix = TrialSpawnerConfigInRegistryFixMembers & NamedEntityFix;
@@ -2558,7 +2343,6 @@ export interface TrialSpawnerConfigInRegistryFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.UnflattenTextComponentFix. */
 export interface UnflattenTextComponentFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type UnflattenTextComponentFix = UnflattenTextComponentFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface UnflattenTextComponentFixStatics {
@@ -2568,7 +2352,6 @@ export interface UnflattenTextComponentFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.VariantRenameFix. */
 export interface VariantRenameFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type VariantRenameFix = VariantRenameFixMembers & NamedEntityFix;
 export interface VariantRenameFixStatics {
@@ -2578,7 +2361,6 @@ export interface VariantRenameFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.VillagerDataFix. */
 export interface VillagerDataFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type VillagerDataFix = VillagerDataFixMembers & NamedEntityFix;
 export interface VillagerDataFixStatics {
@@ -2588,7 +2370,6 @@ export interface VillagerDataFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.VillagerFollowRangeFix. */
 export interface VillagerFollowRangeFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type VillagerFollowRangeFix = VillagerFollowRangeFixMembers & NamedEntityFix;
 export interface VillagerFollowRangeFixStatics {
@@ -2609,7 +2390,6 @@ export interface VillagerRebuildLevelAndXpFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.VillagerSetCanPickUpLootFix. */
 export interface VillagerSetCanPickUpLootFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type VillagerSetCanPickUpLootFix = VillagerSetCanPickUpLootFixMembers & NamedEntityFix;
 export interface VillagerSetCanPickUpLootFixStatics {
@@ -2619,7 +2399,6 @@ export interface VillagerSetCanPickUpLootFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.VillagerTradeFix. */
 export interface VillagerTradeFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type VillagerTradeFix = VillagerTradeFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface VillagerTradeFixStatics {
@@ -2639,7 +2418,6 @@ export interface WallPropertyFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.WeaponSmithChestLootTableFix. */
 export interface WeaponSmithChestLootTableFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type WeaponSmithChestLootTableFix = WeaponSmithChestLootTableFixMembers & NamedEntityFix;
 export interface WeaponSmithChestLootTableFixStatics {
@@ -2649,7 +2427,6 @@ export interface WeaponSmithChestLootTableFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.WorldGenSettingsDisallowOldCustomWorldsFix. */
 export interface WorldGenSettingsDisallowOldCustomWorldsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type WorldGenSettingsDisallowOldCustomWorldsFix = WorldGenSettingsDisallowOldCustomWorldsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface WorldGenSettingsDisallowOldCustomWorldsFixStatics {
@@ -2659,19 +2436,15 @@ export interface WorldGenSettingsDisallowOldCustomWorldsFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.WorldGenSettingsFix. */
 export interface WorldGenSettingsFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type WorldGenSettingsFix = WorldGenSettingsFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface WorldGenSettingsFixStatics {
   new(arg0: JavaOpaque<"com.mojang.datafixers.schemas.Schema">): WorldGenSettingsFix;
-  defaultOverworld<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>, arg1: bigint): JavaOpaque<"com.mojang.serialization.Dynamic", [T]>;
-  vanillaLevels<T>(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>, arg1: bigint, arg2: JavaOpaque<"com.mojang.serialization.Dynamic", [T]>, arg3: boolean): T;
 }
 
 /** JVM class net.minecraft.util.datafix.fixes.WorldGenSettingsHeightAndBiomeFix. */
 export interface WorldGenSettingsHeightAndBiomeFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type WorldGenSettingsHeightAndBiomeFix = WorldGenSettingsHeightAndBiomeFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface WorldGenSettingsHeightAndBiomeFixStatics {
@@ -2682,7 +2455,6 @@ export interface WorldGenSettingsHeightAndBiomeFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.WriteAndReadFix. */
 export interface WriteAndReadFixMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.datafixers.DataFix">];
-  makeRule(): JavaOpaque<"com.mojang.datafixers.TypeRewriteRule">;
 }
 export type WriteAndReadFix = WriteAndReadFixMembers & JavaOpaque<"com.mojang.datafixers.DataFix">;
 export interface WriteAndReadFixStatics {
@@ -2692,7 +2464,6 @@ export interface WriteAndReadFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.WrittenBookPagesStrictJsonFix. */
 export interface WrittenBookPagesStrictJsonFixMembers {
   readonly __javaSupertypes?: readonly [ItemStackTagFix];
-  fixItemStackTag(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type WrittenBookPagesStrictJsonFix = WrittenBookPagesStrictJsonFixMembers & ItemStackTagFix;
 export interface WrittenBookPagesStrictJsonFixStatics {
@@ -2702,7 +2473,6 @@ export interface WrittenBookPagesStrictJsonFixStatics {
 /** JVM class net.minecraft.util.datafix.fixes.ZombieVillagerRebuildXpFix. */
 export interface ZombieVillagerRebuildXpFixMembers {
   readonly __javaSupertypes?: readonly [NamedEntityFix];
-  fix(arg0: JavaOpaque<"com.mojang.datafixers.Typed", [object]>): JavaOpaque<"com.mojang.datafixers.Typed", [object]>;
 }
 export type ZombieVillagerRebuildXpFix = ZombieVillagerRebuildXpFixMembers & NamedEntityFix;
 export interface ZombieVillagerRebuildXpFixStatics {

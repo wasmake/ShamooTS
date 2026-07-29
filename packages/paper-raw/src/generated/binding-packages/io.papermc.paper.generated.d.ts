@@ -9,7 +9,7 @@ import type * as j_org_bukkit_entity from './org.bukkit.entity.generated.js';
 /** JVM interface io.papermc.paper.InternalAPIBridge. */
 export interface InternalAPIBridgeMembers {
   constructLegacyCustomBiome(): j_org_bukkit_block.Biome;
-  createCombatEntry(arg0: j_org_bukkit_damage.DamageSource, arg1: number, arg2: j_io_papermc_paper_world_damagesource.FallLocationType, arg3: number): j_io_papermc_paper_world_damagesource.CombatEntry | null;
+  createCombatEntry(arg0: j_org_bukkit_damage.DamageSource, arg1: number, arg2: j_io_papermc_paper_world_damagesource.FallLocationType | null, arg3: number): j_io_papermc_paper_world_damagesource.CombatEntry;
   createCombatEntry(arg0: j_org_bukkit_entity.LivingEntity, arg1: j_org_bukkit_damage.DamageSource, arg2: number): j_io_papermc_paper_world_damagesource.CombatEntry;
   getDamageEffect(arg0: string): j_org_bukkit_damage.DamageEffect;
   restricted(arg0: JavaPredicate<j_io_papermc_paper_command_brigadier.CommandSourceStack>): JavaPredicate<j_io_papermc_paper_command_brigadier.CommandSourceStack>;

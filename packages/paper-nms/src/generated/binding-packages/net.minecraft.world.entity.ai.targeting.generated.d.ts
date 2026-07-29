@@ -9,8 +9,8 @@ export interface TargetingConditionsMembers {
   ignoreInvisibilityTesting(): TargetingConditions;
   ignoreLineOfSight(): TargetingConditions;
   range(arg0: number): TargetingConditions;
-  selector(arg0: TargetingConditions_Selector | null): TargetingConditions | null;
-  test(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity | null, arg2: j_net_minecraft_world_entity.LivingEntity): boolean | null;
+  selector(arg0: TargetingConditions_Selector | null): TargetingConditions;
+  test(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.LivingEntity | null, arg2: j_net_minecraft_world_entity.LivingEntity): boolean;
 }
 export type TargetingConditions = TargetingConditionsMembers;
 export interface TargetingConditionsStatics {

@@ -45,8 +45,8 @@ export interface PointersStatics {
 export interface Pointers_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_builder.AbstractBuilder<Pointers>, j_net_kyori_adventure_util.Buildable_Builder<Pointers>];
   build(): Pointers;
-  withDynamic<T>(arg0: Pointer<T>, arg1: JavaSupplier<T>): Pointers_Builder | null;
-  withStatic<T>(arg0: Pointer<T>, arg1: T | null): Pointers_Builder | null;
+  withDynamic<T>(arg0: Pointer<T>, arg1: JavaSupplier<T> | null): Pointers_Builder;
+  withStatic<T>(arg0: Pointer<T>, arg1: T | null): Pointers_Builder;
 }
 export type Pointers_Builder = Pointers_BuilderMembers;
 export interface Pointers_BuilderStatics {
@@ -66,7 +66,7 @@ export interface PointersSupplierStatics {
 /** JVM interface net.kyori.adventure.pointer.PointersSupplier$Builder. */
 export interface PointersSupplier_BuilderMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_builder.AbstractBuilder<PointersSupplier<T>>];
-  parent(arg0: PointersSupplier<T> | null): PointersSupplier_Builder<T> | null;
+  parent(arg0: PointersSupplier<T> | null): PointersSupplier_Builder<T>;
   resolving<P>(arg0: Pointer<P>, arg1: JavaFunction<T, P>): PointersSupplier_Builder<T>;
 }
 export type PointersSupplier_Builder<T = unknown> = PointersSupplier_BuilderMembers<T> & j_net_kyori_adventure_builder.AbstractBuilder<PointersSupplier<T>>;

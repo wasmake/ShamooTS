@@ -31,7 +31,6 @@ export type BlockPattern = BlockPatternMembers;
 export interface BlockPatternStatics {
   new(arg0: Array<Array<Array<JavaPredicate<BlockInWorld>>>>): BlockPattern;
   createLevelCache(arg0: j_net_minecraft_world_level.LevelReader, arg1: boolean): JavaOpaque<"com.google.common.cache.LoadingCache", [j_net_minecraft_core.BlockPos, BlockInWorld]>;
-  translateAndRotate(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_core.Direction, arg3: number, arg4: number, arg5: number): j_net_minecraft_core.BlockPos;
 }
 
 /** JVM class net.minecraft.world.level.block.state.pattern.BlockPattern$BlockPatternMatch. */

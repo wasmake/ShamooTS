@@ -4,13 +4,9 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 /** JVM class org.bukkit.util.io.BukkitObjectInputStream. */
 export interface BukkitObjectInputStreamMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.io.ObjectInputStream">];
-  /** @throws java.io.IOException */
-  resolveObject(arg0: object): object;
 }
 export type BukkitObjectInputStream = BukkitObjectInputStreamMembers & JavaOpaque<"java.io.ObjectInputStream">;
 export interface BukkitObjectInputStreamStatics {
-  /** @throws java.io.IOException @throws java.lang.SecurityException */
-  new(): BukkitObjectInputStream;
   /** @throws java.io.IOException */
   new(arg0: JavaOpaque<"java.io.InputStream">): BukkitObjectInputStream;
 }
@@ -18,13 +14,9 @@ export interface BukkitObjectInputStreamStatics {
 /** JVM class org.bukkit.util.io.BukkitObjectOutputStream. */
 export interface BukkitObjectOutputStreamMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.io.ObjectOutputStream">];
-  /** @throws java.io.IOException */
-  replaceObject(arg0: object): object;
 }
 export type BukkitObjectOutputStream = BukkitObjectOutputStreamMembers & JavaOpaque<"java.io.ObjectOutputStream">;
 export interface BukkitObjectOutputStreamStatics {
-  /** @throws java.io.IOException @throws java.lang.SecurityException */
-  new(): BukkitObjectOutputStream;
   /** @throws java.io.IOException */
   new(arg0: JavaOpaque<"java.io.OutputStream">): BukkitObjectOutputStream;
 }

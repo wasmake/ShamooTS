@@ -25,9 +25,7 @@ import type * as j_net_minecraft_util_thread from './net.minecraft.util.thread.g
 import type * as j_net_minecraft_util_valueproviders from './net.minecraft.util.valueproviders.generated.js';
 import type * as j_net_minecraft_world from './net.minecraft.world.generated.js';
 import type * as j_net_minecraft_world_damagesource from './net.minecraft.world.damagesource.generated.js';
-import type * as j_net_minecraft_world_effect from './net.minecraft.world.effect.generated.js';
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
-import type * as j_net_minecraft_world_entity_ai_attributes from './net.minecraft.world.entity.ai.attributes.generated.js';
 import type * as j_net_minecraft_world_entity_ai_targeting from './net.minecraft.world.entity.ai.targeting.generated.js';
 import type * as j_net_minecraft_world_entity_ai_village from './net.minecraft.world.entity.ai.village.generated.js';
 import type * as j_net_minecraft_world_entity_ai_village_poi from './net.minecraft.world.entity.ai.village.poi.generated.js';
@@ -78,7 +76,6 @@ import type * as j_org_bukkit_craftbukkit_event from './org.bukkit.craftbukkit.e
 /** JVM class net.minecraft.server.level.BlockDestructionProgress. */
 export interface BlockDestructionProgressMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [BlockDestructionProgress]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: BlockDestructionProgress): number;
   equals(arg0: object): boolean;
   getId(): number;
@@ -109,11 +106,9 @@ export interface ChunkGenerationTaskStatics {
 /** JVM class net.minecraft.server.level.ChunkHolder. */
 export interface ChunkHolderMembers {
   readonly __javaSupertypes?: readonly [GenerationChunkHolder, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemChunkHolder">];
-  addSaveDependency(arg0: PromiseLike<object>): void;
   addSendDependency(arg0: PromiseLike<object>): void;
   blockChanged(arg0: j_net_minecraft_core.BlockPos): boolean;
   broadcastChanges(arg0: j_net_minecraft_world_level_chunk.LevelChunk): void;
-  callEventIfUnloading(arg0: ChunkMap): void;
   getChunkToSend(): j_net_minecraft_world_level_chunk.LevelChunk | null;
   getEntityTickingChunkFuture(): PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.LevelChunk>>;
   getFullChunkFuture(): PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.LevelChunk>>;
@@ -139,7 +134,6 @@ export interface ChunkHolderMembers {
   refreshAccessibility(): void;
   sectionLightChanged(arg0: j_net_minecraft_world_level.LightLayer, arg1: number): boolean;
   setTicketLevel(arg0: number): void;
-  updateFutures(arg0: ChunkMap, arg1: JavaOpaque<"java.util.concurrent.Executor">): void;
   wasAccessibleSinceLastSave(): boolean;
 }
 export type ChunkHolder = ChunkHolderMembers & GenerationChunkHolder & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemChunkHolder">;
@@ -194,7 +188,6 @@ export interface ChunkMapMembers {
   anyPlayerCloseEnoughForSpawning(arg0: j_net_minecraft_world_level.ChunkPos): boolean;
   applyStep(arg0: GenerationChunkHolder, arg1: j_net_minecraft_world_level_chunk_status.ChunkStep, arg2: j_net_minecraft_util.StaticCache2D<GenerationChunkHolder>): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   broadcast(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_network_protocol.Packet<object>): void;
-  broadcastAndSend(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_network_protocol.Packet<object>): void;
   readonly callbackExecutor: ChunkMap_CallbackExecutor;
   /** @throws java.io.IOException */
   close(): void;
@@ -202,18 +195,12 @@ export interface ChunkMapMembers {
   readonly distanceManager: ChunkMap_DistanceManager;
   readonly entityMap: JavaOpaque<"it.unimi.dsi.fastutil.ints.Int2ObjectMap", [ChunkMap_TrackedEntity]>;
   flushWorker(): void;
-  generator(): j_net_minecraft_world_level_chunk.ChunkGenerator;
-  generatorState(): j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState;
   getChunkDebugData(arg0: j_net_minecraft_world_level.ChunkPos): string;
-  getChunkQueueLevel(arg0: bigint): JavaOpaque<"java.util.function.IntSupplier">;
   getChunkToSend(arg0: bigint): j_net_minecraft_world_level_chunk.LevelChunk | null;
-  getChunks(): Iterable<ChunkHolder>;
   getDistanceManager(): DistanceManager;
-  getLightEngine(): ThreadedLevelLightEngine;
   getMobCountNear(arg0: ServerPlayer, arg1: j_net_minecraft_world_entity.MobCategory): number;
   getPlayers(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): JavaList<ServerPlayer>;
   getPlayersCloseForSpawning(arg0: j_net_minecraft_world_level.ChunkPos): JavaList<ServerPlayer>;
-  getPoiManager(): j_net_minecraft_world_entity_ai_village_poi.PoiManager;
   getStorageName(): string;
   getTickingGenerated(): number;
   getUnloadingChunkHolder(arg0: number, arg1: number): ChunkHolder;
@@ -229,21 +216,15 @@ export interface ChunkMapMembers {
   prepareEntityTickingChunk(arg0: ChunkHolder): PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.LevelChunk>>;
   prepareTickingChunk(arg0: ChunkHolder): PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.LevelChunk>>;
   readonly progressListener: j_net_minecraft_server_level_progress.ChunkProgressListener;
-  promoteChunkMap(): boolean;
-  randomState(): j_net_minecraft_world_level_levelgen.RandomState;
   read(arg0: j_net_minecraft_world_level.ChunkPos): PromiseLike<JavaOptional<j_net_minecraft_nbt.CompoundTag>>;
   releaseGeneration(arg0: GenerationChunkHolder): void;
-  removeEntity(arg0: j_net_minecraft_world_entity.Entity): void;
   resendBiomesForChunks(arg0: JavaList<j_net_minecraft_world_level_chunk.ChunkAccess>): void;
   runGenerationTasks(): void;
   save(arg0: j_net_minecraft_world_level_chunk.ChunkAccess): boolean;
-  saveAllChunks(arg0: boolean): void;
   scheduleGenerationTask(arg0: j_net_minecraft_world_level_chunk_status.ChunkStatus, arg1: j_net_minecraft_world_level.ChunkPos): ChunkGenerationTask;
   serverViewDistance: number;
   setServerViewDistance(arg0: number): void;
   size(): number;
-  tick(): void;
-  tick(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
   readonly tickingGenerated: JavaOpaque<"java.util.concurrent.atomic.AtomicInteger">;
   readonly toDrop: JavaOpaque<"it.unimi.dsi.fastutil.longs.LongSet">;
   updateFailurePlayerMobTypeMap(arg0: number, arg1: number, arg2: j_net_minecraft_world_entity.MobCategory): void;
@@ -275,14 +256,10 @@ export interface ChunkMap_CallbackExecutorStatics {
 /** JVM class net.minecraft.server.level.ChunkMap$DistanceManager. */
 export interface ChunkMap_DistanceManagerMembers {
   readonly __javaSupertypes?: readonly [DistanceManager, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemDistanceManager">];
-  getChunk(arg0: bigint): ChunkHolder | null;
-  isChunkToRemove(arg0: bigint): boolean;
   moonrise$getChunkMap(): ChunkMap;
-  updateChunkScheduling(arg0: bigint, arg1: number, arg2: ChunkHolder | null, arg3: number): ChunkHolder | null;
 }
 export type ChunkMap_DistanceManager = ChunkMap_DistanceManagerMembers & DistanceManager & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemDistanceManager">;
 export interface ChunkMap_DistanceManagerStatics {
-  new(arg0: ChunkMap, arg1: j_net_minecraft_world_level.TicketStorage, arg2: JavaOpaque<"java.util.concurrent.Executor">, arg3: JavaOpaque<"java.util.concurrent.Executor">): ChunkMap_DistanceManager;
 }
 
 /** JVM class net.minecraft.server.level.ChunkMap$TrackedEntity. */
@@ -356,7 +333,7 @@ export interface ChunkResult_SuccessMembers<T = unknown> {
   ifSuccess(arg0: JavaConsumer<T>): ChunkResult<T>;
   isSuccess(): boolean;
   map<R>(arg0: JavaFunction<T, R>): ChunkResult<R>;
-  orElse(arg0: T | null): T | null;
+  orElse(arg0: T | null): T;
   /** @throws java.lang.Throwable */
   orElseThrow<E /* extends JavaOpaque<"java.lang.Throwable"> */>(arg0: JavaSupplier<E>): T;
   toString(): string;
@@ -373,12 +350,7 @@ export interface ChunkTaskDispatcherMembers {
   close(): void;
   hasWork(): boolean;
   onLevelChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: JavaOpaque<"java.util.function.IntSupplier">, arg2: number, arg3: JavaOpaque<"java.util.function.IntConsumer">): void;
-  onRelease(arg0: bigint): void;
-  pollTask(): void;
-  popTasks(): ChunkTaskPriorityQueue_TasksForChunk | null;
   release(arg0: bigint, arg1: JavaRunnable, arg2: boolean): void;
-  scheduleForExecution(arg0: ChunkTaskPriorityQueue_TasksForChunk): void;
-  sleeping: boolean;
   submit(arg0: JavaRunnable, arg1: bigint, arg2: JavaOpaque<"java.util.function.IntSupplier">): void;
 }
 export type ChunkTaskDispatcher = ChunkTaskDispatcherMembers & JavaOpaque<"java.lang.AutoCloseable"> & ChunkHolder_LevelChangeListener;
@@ -391,9 +363,6 @@ export interface ChunkTaskDispatcherStatics {
 export interface ChunkTaskPriorityQueueMembers {
   hasWork(): boolean;
   pop(): ChunkTaskPriorityQueue_TasksForChunk | null;
-  release(arg0: bigint, arg1: boolean): void;
-  resortChunkTasks(arg0: number, arg1: j_net_minecraft_world_level.ChunkPos, arg2: number): void;
-  submit(arg0: JavaRunnable, arg1: bigint, arg2: number): void;
   toString(): string;
 }
 export type ChunkTaskPriorityQueue = ChunkTaskPriorityQueueMembers;
@@ -419,16 +388,10 @@ export interface ChunkTaskPriorityQueue_TasksForChunkStatics {
 /** JVM abstract net.minecraft.server.level.ChunkTracker. */
 export interface ChunkTrackerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level_lighting.DynamicGraphMinFixedPoint];
-  checkNeighborsAfterUpdate(arg0: bigint, arg1: number, arg2: boolean): void;
-  computeLevelFromNeighbor(arg0: bigint, arg1: bigint, arg2: number): number;
-  getComputedLevel(arg0: bigint, arg1: bigint, arg2: number): number;
-  getLevelFromSource(arg0: bigint): number;
-  isSource(arg0: bigint): boolean;
   update(arg0: bigint, arg1: number, arg2: boolean): void;
 }
 export type ChunkTracker = ChunkTrackerMembers & j_net_minecraft_world_level_lighting.DynamicGraphMinFixedPoint;
 export interface ChunkTrackerStatics {
-  new(arg0: number, arg1: number, arg2: number): ChunkTracker;
 }
 
 /** JVM interface net.minecraft.server.level.ChunkTrackingView. */
@@ -456,7 +419,6 @@ export interface ChunkTrackingView_PositionedMembers {
   equals(arg0: object): boolean;
   forEach(arg0: JavaConsumer<j_net_minecraft_world_level.ChunkPos>): void;
   hashCode(): number;
-  squareIntersects(arg0: ChunkTrackingView_Positioned): boolean;
   toString(): string;
   viewDistance(): number;
 }
@@ -529,7 +491,6 @@ export interface DistanceManagerMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemDistanceManager">, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_tick_iteration.ChunkTickDistanceManager">];
   addPlayer(arg0: j_net_minecraft_core.SectionPos, arg1: ServerPlayer): void;
   forEachEntityTickingChunk(arg0: JavaOpaque<"it.unimi.dsi.fastutil.longs.LongConsumer">): void;
-  getChunk(arg0: bigint): ChunkHolder | null;
   getChunkLevel(arg0: bigint, arg1: boolean): number;
   getDebugStatus(): string;
   getNaturalSpawnChunkCount(): number;
@@ -538,7 +499,6 @@ export interface DistanceManagerMembers {
   hasTickets(): boolean;
   inBlockTickingRange(arg0: bigint): boolean;
   inEntityTickingRange(arg0: bigint): boolean;
-  isChunkToRemove(arg0: bigint): boolean;
   moonrise$addPlayer(arg0: ServerPlayer, arg1: j_net_minecraft_core.SectionPos): void;
   moonrise$getChunkHolderManager(): JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.scheduling.ChunkHolderManager">;
   moonrise$hasAnyNearbyNarrow(arg0: number, arg1: number): boolean;
@@ -547,13 +507,10 @@ export interface DistanceManagerMembers {
   removePlayer(arg0: j_net_minecraft_core.SectionPos, arg1: ServerPlayer): void;
   runAllUpdates(arg0: ChunkMap): boolean;
   readonly ticketStorage: j_net_minecraft_world_level.TicketStorage;
-  updateChunkScheduling(arg0: bigint, arg1: number, arg2: ChunkHolder | null, arg3: number): ChunkHolder | null;
-  updatePlayerTickets(arg0: number): void;
   updateSimulationDistance(arg0: number): void;
 }
 export type DistanceManager = DistanceManagerMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkSystemDistanceManager"> & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_tick_iteration.ChunkTickDistanceManager">;
 export interface DistanceManagerStatics {
-  new(arg0: j_net_minecraft_world_level.TicketStorage, arg1: JavaOpaque<"java.util.concurrent.Executor">, arg2: JavaOpaque<"java.util.concurrent.Executor">): DistanceManager;
 }
 
 /** Live JVM enum net.minecraft.server.level.FullChunkStatus; constants are host handles, not strings. */
@@ -584,7 +541,6 @@ export interface GeneratingChunkMapStatics {
 
 /** JVM abstract net.minecraft.server.level.GenerationChunkHolder. */
 export interface GenerationChunkHolderMembers {
-  addSaveDependency(arg0: PromiseLike<object>): void;
   decreaseGenerationRefCount(): void;
   getAllFutures(): JavaList<JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_world_level_chunk_status.ChunkStatus, PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.ChunkAccess>>]>>;
   getChunkIfPresent(arg0: j_net_minecraft_world_level_chunk_status.ChunkStatus): j_net_minecraft_world_level_chunk.ChunkAccess | null;
@@ -597,14 +553,11 @@ export interface GenerationChunkHolderMembers {
   getQueueLevel(): number;
   getTicketLevel(): number;
   increaseGenerationRefCount(): void;
-  readonly pos: j_net_minecraft_world_level.ChunkPos;
   replaceProtoChunk(arg0: j_net_minecraft_world_level_chunk.ImposterProtoChunk): void;
   scheduleChunkGenerationTask(arg0: j_net_minecraft_world_level_chunk_status.ChunkStatus, arg1: ChunkMap): PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.ChunkAccess>>;
-  updateHighestAllowedStatus(arg0: ChunkMap): void;
 }
 export type GenerationChunkHolder = GenerationChunkHolderMembers;
 export interface GenerationChunkHolderStatics {
-  new(arg0: j_net_minecraft_world_level.ChunkPos): GenerationChunkHolder;
   readonly UNLOADED_CHUNK: ChunkResult<j_net_minecraft_world_level_chunk.ChunkAccess>;
   readonly UNLOADED_CHUNK_FUTURE: PromiseLike<ChunkResult<j_net_minecraft_world_level_chunk.ChunkAccess>>;
 }
@@ -646,22 +599,16 @@ export interface PlayerRespawnLogicMembers {
 export type PlayerRespawnLogic = PlayerRespawnLogicMembers;
 export interface PlayerRespawnLogicStatics {
   new(): PlayerRespawnLogic;
-  getOverworldRespawnPos(arg0: ServerLevel, arg1: number, arg2: number): j_net_minecraft_core.BlockPos | null;
   getSpawnPosInChunk(arg0: ServerLevel, arg1: j_net_minecraft_world_level.ChunkPos): j_net_minecraft_core.BlockPos | null;
 }
 
 /** JVM abstract net.minecraft.server.level.SectionTracker. */
 export interface SectionTrackerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level_lighting.DynamicGraphMinFixedPoint];
-  checkNeighborsAfterUpdate(arg0: bigint, arg1: number, arg2: boolean): void;
-  computeLevelFromNeighbor(arg0: bigint, arg1: bigint, arg2: number): number;
-  getComputedLevel(arg0: bigint, arg1: bigint, arg2: number): number;
-  getLevelFromSource(arg0: bigint): number;
   update(arg0: bigint, arg1: number, arg2: boolean): void;
 }
 export type SectionTracker = SectionTrackerMembers & j_net_minecraft_world_level_lighting.DynamicGraphMinFixedPoint;
 export interface SectionTrackerStatics {
-  new(arg0: number, arg1: number, arg2: number): SectionTracker;
 }
 
 /** JVM class net.minecraft.server.level.ServerBossEvent. */
@@ -721,10 +668,8 @@ export interface ServerChunkCacheMembers {
   getGenerator(): j_net_minecraft_world_level_chunk.ChunkGenerator;
   getGeneratorState(): j_net_minecraft_world_level_chunk.ChunkGeneratorStructureState;
   getLastSpawnState(): j_net_minecraft_world_level.NaturalSpawner_SpawnState | null;
-  getLevel(): j_net_minecraft_world_level.BlockGetter;
   getLevel(): j_net_minecraft_world_level.Level;
   getLightEngine(): ThreadedLevelLightEngine;
-  getLightEngine(): j_net_minecraft_world_level_lighting.LevelLightEngine;
   getLoadedChunksCount(): number;
   getPendingTasksCount(): number;
   getPoiManager(): j_net_minecraft_world_entity_ai_village_poi.PoiManager;
@@ -765,12 +710,8 @@ export interface ServerChunkCacheStatics {
 /** JVM class net.minecraft.server.level.ServerChunkCache$MainThreadExecutor. */
 export interface ServerChunkCache_MainThreadExecutorMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_thread.BlockableEventLoop<JavaRunnable>];
-  doRunTask(arg0: JavaRunnable): void;
-  getRunningThread(): JavaOpaque<"java.lang.Thread">;
   managedBlock(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
   pollTask(): boolean;
-  scheduleExecutables(): boolean;
-  shouldRun(arg0: JavaRunnable): boolean;
   wrapRunnable(arg0: JavaRunnable): JavaRunnable;
 }
 export type ServerChunkCache_MainThreadExecutor = ServerChunkCache_MainThreadExecutorMembers & j_net_minecraft_util_thread.BlockableEventLoop<JavaRunnable>;
@@ -816,15 +757,15 @@ export interface ServerEntityGetterStatics {
 export interface ServerLevelMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level.Level, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.ChunkSystemLevelReader">, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.ChunkSystemServerLevel">, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_tick_iteration.ChunkTickServerLevel">, ServerEntityGetter, j_net_minecraft_world_level.WorldGenLevel];
   addDuringTeleport(arg0: j_net_minecraft_world_entity.Entity): void;
-  addDuringTeleport(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): void | null;
+  addDuringTeleport(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): void;
   addFreshEntity(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean | null;
+  addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean;
   addLegacyChunkEntities(arg0: JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_world_entity.Entity]>): void;
   addLegacyChunkEntities(arg0: JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_world_entity.Entity]>, arg1: j_net_minecraft_world_level.ChunkPos): void;
   addNewPlayer(arg0: ServerPlayer): void;
   addRespawnedPlayer(arg0: ServerPlayer): void;
   addWithUUID(arg0: j_net_minecraft_world_entity.Entity): boolean;
-  addWithUUID(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean | null;
+  addWithUUID(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): boolean;
   addWorldGenChunkEntities(arg0: JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_world_entity.Entity]>): void;
   addWorldGenChunkEntities(arg0: JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_world_entity.Entity]>, arg1: j_net_minecraft_world_level.ChunkPos): void;
   anyPlayerCloseEnoughForSpawning(arg0: j_net_minecraft_core.BlockPos): boolean;
@@ -845,24 +786,21 @@ export interface ServerLevelMembers {
   destroyBlockProgress(arg0: number, arg1: j_net_minecraft_core.BlockPos, arg2: number): void;
   dragonParts(): JavaCollection<j_net_minecraft_world_entity_boss.EnderDragonPart>;
   enabledFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
-  explode(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: j_net_minecraft_world_level.ExplosionDamageCalculator | null, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_level.Level_ExplosionInteraction, arg9: j_net_minecraft_core_particles.ParticleOptions, arg10: j_net_minecraft_core_particles.ParticleOptions, arg11: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>): void | null;
-  explode0(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: j_net_minecraft_world_level.ExplosionDamageCalculator | null, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_level.Level_ExplosionInteraction, arg9: j_net_minecraft_core_particles.ParticleOptions, arg10: j_net_minecraft_core_particles.ParticleOptions, arg11: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>): j_net_minecraft_world_level.ServerExplosion | null;
-  explode0(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: j_net_minecraft_world_level.ExplosionDamageCalculator | null, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_level.Level_ExplosionInteraction, arg9: j_net_minecraft_core_particles.ParticleOptions, arg10: j_net_minecraft_core_particles.ParticleOptions, arg11: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>, arg12: JavaConsumer<j_net_minecraft_world_level.ServerExplosion> | null): j_net_minecraft_world_level.ServerExplosion | null;
+  explode(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: j_net_minecraft_world_level.ExplosionDamageCalculator | null, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_level.Level_ExplosionInteraction, arg9: j_net_minecraft_core_particles.ParticleOptions, arg10: j_net_minecraft_core_particles.ParticleOptions, arg11: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>): void;
+  explode0(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: j_net_minecraft_world_level.ExplosionDamageCalculator | null, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_level.Level_ExplosionInteraction, arg9: j_net_minecraft_core_particles.ParticleOptions, arg10: j_net_minecraft_core_particles.ParticleOptions, arg11: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>): j_net_minecraft_world_level.ServerExplosion;
+  explode0(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_damagesource.DamageSource | null, arg2: j_net_minecraft_world_level.ExplosionDamageCalculator | null, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: j_net_minecraft_world_level.Level_ExplosionInteraction, arg9: j_net_minecraft_core_particles.ParticleOptions, arg10: j_net_minecraft_core_particles.ParticleOptions, arg11: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>, arg12: JavaConsumer<j_net_minecraft_world_level.ServerExplosion> | null): j_net_minecraft_world_level.ServerExplosion;
   fillReportDetails(arg0: j_net_minecraft.CrashReport): j_net_minecraft.CrashReportCategory;
   findClosestBiome3d(arg0: JavaPredicate<j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>>, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: number, arg4: number): JavaOpaque<"com.mojang.datafixers.util.Pair", [j_net_minecraft_core.BlockPos, j_net_minecraft_core.Holder<j_net_minecraft_world_level_biome.Biome>]> | null;
   findLightningRod(arg0: j_net_minecraft_core.BlockPos): JavaOptional<j_net_minecraft_core.BlockPos>;
-  findLightningTargetAround(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
   findLightningTargetAround(arg0: j_net_minecraft_core.BlockPos, arg1: boolean): j_net_minecraft_core.BlockPos;
   findNearestMapStructure(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_levelgen_structure.Structure>, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: boolean): j_net_minecraft_core.BlockPos | null;
   fuelValues(): j_net_minecraft_world_level_block_entity.FuelValues;
   gameEvent(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_level_gameevent.GameEvent_Context): void;
   gatherChunkSourceStats(): string;
   getAllEntities(): Iterable<j_net_minecraft_world_entity.Entity>;
-  getBlockTicks(): j_net_minecraft_world_ticks.LevelTickAccess;
   getBlockTicks(): j_net_minecraft_world_ticks.LevelTicks<j_net_minecraft_world_level_block.Block>;
   getChunkIfLoaded(arg0: number, arg1: number): j_net_minecraft_world_level_chunk.LevelChunk | null;
   getChunkSource(): ServerChunkCache;
-  getChunkSource(): j_net_minecraft_world_level_chunk.ChunkSource;
   getDataStorage(): j_net_minecraft_world_level_storage.DimensionDataStorage;
   getDragonFight(): j_net_minecraft_world_level_dimension_end.EndDragonFight | null;
   getDragons(): JavaList<j_net_minecraft_world_entity_boss_enderdragon.EnderDragon>;
@@ -872,7 +810,6 @@ export interface ServerLevelMembers {
   getEntities<T /* extends j_net_minecraft_world_entity.Entity */>(arg0: j_net_minecraft_world_level_entity.EntityTypeTest<j_net_minecraft_world_entity.Entity, T>, arg1: JavaPredicate<T>, arg2: JavaList<T>, arg3: number): void;
   getEntity(arg0: number): j_net_minecraft_world_entity.Entity | null;
   getEntityOrPart(arg0: number): j_net_minecraft_world_entity.Entity | null;
-  getFluidTicks(): j_net_minecraft_world_ticks.LevelTickAccess;
   getFluidTicks(): j_net_minecraft_world_ticks.LevelTicks<j_net_minecraft_world_level_material.Fluid>;
   getForceLoadedChunks(): JavaOpaque<"it.unimi.dsi.fastutil.longs.LongSet">;
   getFreeMapId(): j_net_minecraft_world_level_saveddata_maps.MapId;
@@ -896,7 +833,6 @@ export interface ServerLevelMembers {
   getRandomSequence(arg0: j_net_minecraft_resources.ResourceLocation): j_net_minecraft_util.RandomSource;
   getRandomSequences(): j_net_minecraft_world.RandomSequences;
   getScoreboard(): j_net_minecraft_server.ServerScoreboard;
-  getScoreboard(): j_net_minecraft_world_scores.Scoreboard;
   getSeaLevel(): number;
   getSeed(): bigint;
   getServer(): j_net_minecraft_server.MinecraftServer;
@@ -919,7 +855,7 @@ export interface ServerLevelMembers {
   isRaided(arg0: j_net_minecraft_core.BlockPos): boolean;
   isVillage(arg0: j_net_minecraft_core.BlockPos): boolean;
   isVillage(arg0: j_net_minecraft_core.SectionPos): boolean;
-  levelEvent(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: j_net_minecraft_core.BlockPos, arg3: number): void | null;
+  levelEvent(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: j_net_minecraft_core.BlockPos, arg3: number): void;
   readonly levelStorageAccess: j_net_minecraft_world_level_storage.LevelStorageSource_LevelStorageAccess;
   loadChunks(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JavaOpaque<"ca.spottedleaf.concurrentutil.util.Priority">, arg5: JavaConsumer<JavaList<j_net_minecraft_world_level_chunk.ChunkAccess>>): void;
   loadChunksForMoveAsync(arg0: j_net_minecraft_world_phys.AABB, arg1: JavaOpaque<"ca.spottedleaf.concurrentutil.util.Priority">, arg2: JavaConsumer<JavaList<j_net_minecraft_world_level_chunk.ChunkAccess>>): void;
@@ -952,23 +888,21 @@ export interface ServerLevelMembers {
   moonrise$removePlayerTickingRequest(arg0: number, arg1: number): void;
   moonrise$setLastMidTickFailure(arg0: bigint): void;
   moonrise$syncLoadNonFull(arg0: number, arg1: number, arg2: j_net_minecraft_world_level_chunk_status.ChunkStatus): j_net_minecraft_world_level_chunk.ChunkAccess;
-  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_world_level_redstone.Orientation | null): void | null;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: j_net_minecraft_world_level_redstone.Orientation | null, arg4: boolean): void | null;
+  neighborChanged(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_world_level_redstone.Orientation | null): void;
+  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block.Block, arg3: j_net_minecraft_world_level_redstone.Orientation | null, arg4: boolean): void;
   noSave: (boolean) & { (): boolean };
   onReputationEvent(arg0: j_net_minecraft_world_entity_ai_village.ReputationEventType, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_world_entity.ReputationEventHandler): void;
   onStructureStartsAvailable(arg0: j_net_minecraft_world_level_chunk.ChunkAccess): void;
-  playSeededSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>, arg5: j_net_minecraft_sounds.SoundSource, arg6: number, arg7: number, arg8: bigint): void | null;
-  playSeededSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>, arg3: j_net_minecraft_sounds.SoundSource, arg4: number, arg5: number, arg6: bigint): void | null;
+  playSeededSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: number, arg3: number, arg4: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>, arg5: j_net_minecraft_sounds.SoundSource, arg6: number, arg7: number, arg8: bigint): void;
+  playSeededSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>, arg3: j_net_minecraft_sounds.SoundSource, arg4: number, arg5: number, arg6: bigint): void;
   players(): JavaList<ServerPlayer>;
   potionBrewing(): j_net_minecraft_world_item_alchemy.PotionBrewing;
-  readonly raids: j_net_minecraft_world_entity_raid.Raids;
-  recipeAccess(): j_net_minecraft_world_item_crafting.RecipeAccess;
   recipeAccess(): j_net_minecraft_world_item_crafting.RecipeManager;
   removePlayerImmediately(arg0: ServerPlayer, arg1: j_net_minecraft_world_entity.Entity_RemovalReason): void;
   resetEmptyTime(): void;
   resetWeatherCycle(): void;
-  save(arg0: j_net_minecraft_util.ProgressListener | null, arg1: boolean, arg2: boolean): void | null;
-  save(arg0: j_net_minecraft_util.ProgressListener | null, arg1: boolean, arg2: boolean, arg3: boolean): void | null;
+  save(arg0: j_net_minecraft_util.ProgressListener | null, arg1: boolean, arg2: boolean): void;
+  save(arg0: j_net_minecraft_util.ProgressListener | null, arg1: boolean, arg2: boolean, arg3: boolean): void;
   /** @throws java.io.IOException */
   saveDebugReport(arg0: JavaOpaque<"java.nio.file.Path">): void;
   saveIncrementally(arg0: boolean): void;
@@ -977,13 +911,13 @@ export interface ServerLevelMembers {
   sendParticles<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: T, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number): number;
   sendParticles<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: T, arg1: boolean, arg2: boolean, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number): number;
   sendParticles<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: ServerPlayer, arg1: T, arg2: boolean, arg3: boolean, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number): boolean;
-  sendParticlesSource<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: JavaList<ServerPlayer>, arg1: j_net_minecraft_world_entity.Entity | null, arg2: T, arg3: boolean, arg4: boolean, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number, arg12: number): number | null;
-  sendParticlesSource<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: j_net_minecraft_world_entity.Entity | null, arg1: T, arg2: boolean, arg3: boolean, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number): number | null;
+  sendParticlesSource<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: JavaList<ServerPlayer>, arg1: j_net_minecraft_world_entity.Entity | null, arg2: T, arg3: boolean, arg4: boolean, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number, arg12: number): number;
+  sendParticlesSource<T /* extends j_net_minecraft_core_particles.ParticleOptions */>(arg0: j_net_minecraft_world_entity.Entity | null, arg1: T, arg2: boolean, arg3: boolean, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number): number;
   readonly serverLevelData: j_net_minecraft_world_level_storage.PrimaryLevelData;
   setChunkForced(arg0: number, arg1: number, arg2: boolean): boolean;
   setDayTime(arg0: bigint): void;
   setDefaultSpawnPos(arg0: j_net_minecraft_core.BlockPos, arg1: number): void;
-  setDragonFight(arg0: j_net_minecraft_world_level_dimension_end.EndDragonFight | null): void | null;
+  setDragonFight(arg0: j_net_minecraft_world_level_dimension_end.EndDragonFight | null): void;
   setMapData(arg0: j_net_minecraft_world_level_saveddata_maps.MapId, arg1: j_net_minecraft_world_level_saveddata_maps.MapItemSavedData): void;
   setWeatherParameters(arg0: number, arg1: number, arg2: boolean, arg3: boolean): void;
   shouldTickBlocksAt(arg0: bigint): boolean;
@@ -998,15 +932,14 @@ export interface ServerLevelMembers {
   tickPrecipitation(arg0: j_net_minecraft_core.BlockPos): void;
   tickRateManager(): j_net_minecraft_world.TickRateManager;
   tickThunder(arg0: j_net_minecraft_world_level_chunk.LevelChunk): void;
-  tickTime(): void;
   toString(): string;
   tryAddFreshEntityWithPassengers(arg0: j_net_minecraft_world_entity.Entity): boolean;
   tryAddFreshEntityWithPassengers(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">): boolean;
   unload(arg0: j_net_minecraft_world_level_chunk.LevelChunk): void;
   updateLagCompensationTick(): void;
   updateNeighborsAt(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block): void;
-  updateNeighborsAt(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_world_level_redstone.Orientation | null): void | null;
-  updateNeighborsAtExceptFromFacing(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_core.Direction, arg3: j_net_minecraft_world_level_redstone.Orientation | null): void | null;
+  updateNeighborsAt(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_world_level_redstone.Orientation | null): void;
+  updateNeighborsAtExceptFromFacing(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block.Block, arg2: j_net_minecraft_core.Direction, arg3: j_net_minecraft_world_level_redstone.Orientation | null): void;
   updateNeighboursOnBlockSet(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
   updatePOIOnBlockStateChange(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   updateSleepingPlayerList(): void;
@@ -1026,7 +959,6 @@ export interface ServerLevelStatics {
 /** JVM class net.minecraft.server.level.ServerPlayer. */
 export interface ServerPlayerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_player.Player, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.player.ChunkSystemServerPlayer">];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   adjustSpawnLocation(arg0: ServerLevel, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
   adventure$displayName: JavaOpaque<"net.kyori.adventure.text.Component">;
   adventure$locale: JavaOpaque<"java.util.Locale">;
@@ -1040,7 +972,6 @@ export interface ServerPlayerMembers {
   callPortalEvent(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.Location">, arg2: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">, arg3: number, arg4: number): j_org_bukkit_craftbukkit_event.CraftPortalEvent | null;
   canChatInColor(): boolean;
   canHarmPlayer(arg0: j_net_minecraft_world_entity_player.Player): boolean;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
   checkMovementStatistics(arg0: number, arg1: number, arg2: number): void;
   clearRaidOmenPosition(): void;
   clientInformation(): ClientInformation;
@@ -1055,7 +986,6 @@ export interface ServerPlayerMembers {
   copyRespawnPosition(arg0: ServerPlayer): void;
   createCommandSourceStack(): j_net_minecraft_commands.CommandSourceStack;
   createCommonSpawnInfo(arg0: ServerLevel): j_net_minecraft_network_protocol_game.CommonPlayerSpawnInfo;
-  createItemCooldowns(): j_net_minecraft_world_item.ItemCooldowns;
   crit(arg0: j_net_minecraft_world_entity.Entity): void;
   deregisterEnderPearl(arg0: j_net_minecraft_world_entity_projectile.ThrownEnderpearl): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
@@ -1064,21 +994,18 @@ export interface ServerPlayerMembers {
   displayName: string;
   doCloseContainer(): void;
   doTick(): void;
-  drop(arg0: j_net_minecraft_world_item.ItemStack, arg1: boolean, arg2: boolean, arg3: boolean, arg4: JavaConsumer<JavaOpaque<"org.bukkit.entity.Item">> | null): j_net_minecraft_world_entity_item.ItemEntity | null;
+  drop(arg0: j_net_minecraft_world_item.ItemStack, arg1: boolean, arg2: boolean, arg3: boolean, arg4: JavaConsumer<JavaOpaque<"org.bukkit.entity.Item">> | null): j_net_minecraft_world_entity_item.ItemEntity;
   drop(arg0: boolean): boolean;
   findRespawnPositionAndUseSpawnBlock(arg0: boolean, arg1: j_net_minecraft_world_level_portal.TeleportTransition_PostTeleportTransition, arg2: JavaOpaque<"org.bukkit.event.player.PlayerRespawnEvent$RespawnReason"> | null): j_net_minecraft_world_level_portal.TeleportTransition | null;
   forceSetPositionRotation(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): void;
   forceSetRotation(arg0: number, arg1: number): void;
   readonly gameMode: (ServerPlayerGameMode) & { (): j_net_minecraft_world_level.GameType };
   getAdvancements(): j_net_minecraft_server.PlayerAdvancements;
-  getBukkitEntity(): j_org_bukkit_craftbukkit_entity.CraftEntity;
-  getBukkitEntity(): j_org_bukkit_craftbukkit_entity.CraftHumanEntity;
   getBukkitEntity(): j_org_bukkit_craftbukkit_entity.CraftPlayer;
   getCamera(): j_net_minecraft_world_entity.Entity;
   getChatSession(): j_net_minecraft_network_chat.RemoteChatSession | null;
   getChatVisibility(): j_net_minecraft_world_entity_player.ChatVisiblity;
   getChunkTrackingView(): ChunkTrackingView;
-  getEnchantedDamage(arg0: j_net_minecraft_world_entity.Entity, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): number;
   getEnderPearls(): JavaSet<j_net_minecraft_world_entity_projectile.ThrownEnderpearl>;
   getIpAddress(): string;
   getKnownMovement(): j_net_minecraft_world_phys.Vec3;
@@ -1119,12 +1046,11 @@ export interface ServerPlayerMembers {
   lastSave: bigint;
   lastSentExp: number;
   level(): ServerLevel;
-  level(): j_net_minecraft_world_level.Level;
   listName: j_net_minecraft_network_chat.Component | null;
   listOrder: number;
   loadAndSpawnEnderPearls(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   loadAndSpawnParentVehicle(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  loadGameTypes(arg0: j_net_minecraft_world_level_storage.ValueInput | null): void | null;
+  loadGameTypes(arg0: j_net_minecraft_world_level_storage.ValueInput | null): void;
   loginTime: bigint;
   lookAt(arg0: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor): void;
   lookAt(arg0: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor, arg1: j_net_minecraft_world_phys.Vec3): void;
@@ -1143,15 +1069,10 @@ export interface ServerPlayerMembers {
   newTotalExp: number;
   nextContainerCounter(): number;
   readonly object: object | null;
-  onAttributeUpdated(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>): void;
-  onChangedBlock(arg0: ServerLevel, arg1: j_net_minecraft_core.BlockPos): void;
-  onEffectAdded(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: j_net_minecraft_world_entity.Entity | null): void | null;
-  onEffectUpdated(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity | null): void | null;
-  onEffectsRemoved(arg0: JavaCollection<j_net_minecraft_world_effect.MobEffectInstance>): void;
   onEnchantmentPerformed(arg0: j_net_minecraft_world_item.ItemStack, arg1: number): void;
   onEnterCombat(): void;
   onEquippedItemBroken(arg0: j_net_minecraft_world_item.Item, arg1: j_net_minecraft_world_entity.EquipmentSlot): void;
-  onExplosionHit(arg0: j_net_minecraft_world_entity.Entity | null): void | null;
+  onExplosionHit(arg0: j_net_minecraft_world_entity.Entity | null): void;
   onInsideBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
   onItemPickup(arg0: j_net_minecraft_world_entity_item.ItemEntity): void;
   onLeaveCombat(): void;
@@ -1160,18 +1081,15 @@ export interface ServerPlayerMembers {
   openDialog(arg0: j_net_minecraft_core.Holder<j_net_minecraft_server_dialog.Dialog>): void;
   openHorseInventory(arg0: j_net_minecraft_world_entity_animal_horse.AbstractHorse, arg1: j_net_minecraft_world.Container): void;
   openItemGui(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world.InteractionHand): void;
-  openMenu(arg0: j_net_minecraft_world.MenuProvider | null): JavaOptionalNumber | null;
+  openMenu(arg0: j_net_minecraft_world.MenuProvider | null): JavaOptionalNumber;
   openTextEdit(arg0: j_net_minecraft_world_level_block_entity.SignBlockEntity, arg1: boolean): void;
   particleStatus: ParticleStatus;
   patrolSpawnDelay: number;
   playNotifySound(arg0: j_net_minecraft_sounds.SoundEvent, arg1: j_net_minecraft_sounds.SoundSource, arg2: number, arg3: number): void;
   playerNaturallySpawnedEvent: JavaOpaque<"com.destroystokyo.paper.event.entity.PlayerNaturallySpawnCreaturesEvent"> | null;
-  processPortalCooldown(): void;
-  pushEntities(): void;
   queueHealthUpdatePacket: boolean;
   queuedHealthUpdatePacket: j_net_minecraft_network_protocol_game.ClientboundSetHealthPacket | null;
   quitReason: JavaOpaque<"org.bukkit.event.player.PlayerQuitEvent$QuitReason"> | null;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   registerAndUpdateEnderPearlTicket(arg0: j_net_minecraft_world_entity_projectile.ThrownEnderpearl): bigint;
   registerEnderPearl(arg0: j_net_minecraft_world_entity_projectile.ThrownEnderpearl): void;
   relativeTime: boolean;
@@ -1189,13 +1107,13 @@ export interface ServerPlayerMembers {
   rideTick(): void;
   seenCredits: boolean;
   sendChatMessage(arg0: j_net_minecraft_network_chat.OutgoingChatMessage, arg1: boolean, arg2: j_net_minecraft_network_chat.ChatType_Bound): void;
-  sendChatMessage(arg0: j_net_minecraft_network_chat.OutgoingChatMessage, arg1: boolean, arg2: j_net_minecraft_network_chat.ChatType_Bound, arg3: j_net_minecraft_network_chat.Component | null): void | null;
+  sendChatMessage(arg0: j_net_minecraft_network_chat.OutgoingChatMessage, arg1: boolean, arg2: j_net_minecraft_network_chat.ChatType_Bound, arg3: j_net_minecraft_network_chat.Component | null): void;
   sendMerchantOffers(arg0: number, arg1: j_net_minecraft_world_item_trading.MerchantOffers, arg2: number, arg3: number, arg4: boolean, arg5: boolean): void;
   sendServerStatus(arg0: j_net_minecraft_network_protocol_status.ServerStatus): void;
   sendSystemMessage(arg0: j_net_minecraft_network_chat.Component): void;
   sendSystemMessage(arg0: j_net_minecraft_network_chat.Component, arg1: boolean): void;
   sentListPacket: boolean;
-  setCamera(arg0: j_net_minecraft_world_entity.Entity | null): void | null;
+  setCamera(arg0: j_net_minecraft_world_entity.Entity | null): void;
   setChatSession(arg0: j_net_minecraft_network_chat.RemoteChatSession): void;
   setChunkTrackingView(arg0: ChunkTrackingView): void;
   setExperienceLevels(arg0: number): void;
@@ -1207,8 +1125,8 @@ export interface ServerPlayerMembers {
   setLastSectionPos(arg0: j_net_minecraft_core.SectionPos): void;
   setPlayerWeather(arg0: JavaOpaque<"org.bukkit.WeatherType">, arg1: boolean): void;
   setRaidOmenPosition(arg0: j_net_minecraft_core.BlockPos): void;
-  setRespawnPosition(arg0: ServerPlayer_RespawnConfig | null, arg1: boolean): void | null;
-  setRespawnPosition(arg0: ServerPlayer_RespawnConfig | null, arg1: boolean, arg2: JavaOpaque<"com.destroystokyo.paper.event.player.PlayerSetSpawnEvent$Cause">): boolean | null;
+  setRespawnPosition(arg0: ServerPlayer_RespawnConfig | null, arg1: boolean): void;
+  setRespawnPosition(arg0: ServerPlayer_RespawnConfig | null, arg1: boolean, arg2: JavaOpaque<"com.destroystokyo.paper.event.player.PlayerSetSpawnEvent$Cause">): boolean;
   setServerLevel(arg0: ServerLevel): void;
   setSpawnExtraParticlesOnFall(arg0: boolean): void;
   shouldFilterMessageTo(arg0: ServerPlayer): boolean;
@@ -1223,12 +1141,10 @@ export interface ServerPlayerMembers {
   swing(arg0: j_net_minecraft_world.InteractionHand): void;
   take(arg0: j_net_minecraft_world_entity.Entity, arg1: number): void;
   teleport(arg0: j_net_minecraft_world_level_portal.TeleportTransition): ServerPlayer | null;
-  teleport(arg0: j_net_minecraft_world_level_portal.TeleportTransition): j_net_minecraft_world_entity.Entity | null;
   teleportRelative(arg0: number, arg1: number, arg2: number): void;
   teleportTo(arg0: number, arg1: number, arg2: number): void;
   teleportTo(arg0: ServerLevel, arg1: number, arg2: number, arg3: number, arg4: JavaSet<j_net_minecraft_world_entity.Relative>, arg5: number, arg6: number, arg7: boolean, arg8: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">): boolean;
   tick(): void;
-  tickRegeneration(): void;
   tickWeather(): void;
   timeOffset: bigint;
   toString(): string;
@@ -1236,10 +1152,8 @@ export interface ServerPlayerMembers {
   trackStartFallingPosition(): void;
   triggerDimensionChangeTriggers(arg0: ServerLevel): void;
   triggerRecipeCrafted(arg0: j_net_minecraft_world_item_crafting.RecipeHolder<object>, arg1: JavaList<j_net_minecraft_world_item.ItemStack>): void;
-  updateInvisibilityStatus(): void;
   updateOptions(arg0: ClientInformation): void;
   updateOptionsNoEvents(arg0: ClientInformation): void;
-  updateUsingItem(arg0: j_net_minecraft_world_item.ItemStack): void;
   updateWeather(arg0: number, arg1: number, arg2: number, arg3: number): void;
   wardenSpawnTracker: j_net_minecraft_world_entity_monster_warden.WardenSpawnTracker;
   weatherType: JavaOpaque<"org.bukkit.WeatherType"> | null;
@@ -1267,7 +1181,7 @@ export interface ServerPlayer_RespawnConfigMembers {
   equals(arg0: object): boolean;
   forced(): boolean;
   hashCode(): number;
-  isSamePosition(arg0: ServerPlayer_RespawnConfig | null): boolean | null;
+  isSamePosition(arg0: ServerPlayer_RespawnConfig | null): boolean;
   pos(): j_net_minecraft_core.BlockPos;
   toString(): string;
 }
@@ -1292,7 +1206,7 @@ export interface ServerPlayer_RespawnPosAngleMembers {
 export type ServerPlayer_RespawnPosAngle = ServerPlayer_RespawnPosAngleMembers & JavaOpaque<"java.lang.Record">;
 export interface ServerPlayer_RespawnPosAngleStatics {
   new(arg0: j_net_minecraft_world_phys.Vec3, arg1: number, arg2: boolean, arg3: boolean, arg4: JavaRunnable | null): ServerPlayer_RespawnPosAngle;
-  of(arg0: j_net_minecraft_world_phys.Vec3, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: boolean, arg4: JavaRunnable | null): ServerPlayer_RespawnPosAngle | null;
+  of(arg0: j_net_minecraft_world_phys.Vec3, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: boolean, arg4: JavaRunnable | null): ServerPlayer_RespawnPosAngle;
 }
 
 /** JVM class net.minecraft.server.level.ServerPlayerGameMode. */
@@ -1314,8 +1228,6 @@ export interface ServerPlayerGameModeMembers {
   isCreative(): boolean;
   isSurvival(): boolean;
   level: ServerLevel;
-  readonly player: ServerPlayer;
-  setGameModeForPlayer(arg0: j_net_minecraft_world_level.GameType, arg1: j_net_minecraft_world_level.GameType | null): void | null;
   setLevel(arg0: ServerLevel): void;
   tick(): void;
   useItem(arg0: ServerPlayer, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_item.ItemStack, arg3: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
@@ -1329,12 +1241,8 @@ export interface ServerPlayerGameModeStatics {
 /** JVM class net.minecraft.server.level.SimulationChunkTracker. */
 export interface SimulationChunkTrackerMembers {
   readonly __javaSupertypes?: readonly [ChunkTracker];
-  readonly chunks: JavaOpaque<"it.unimi.dsi.fastutil.longs.Long2ByteMap">;
-  getLevel(arg0: bigint): number;
   getLevel(arg0: j_net_minecraft_world_level.ChunkPos): number;
-  getLevelFromSource(arg0: bigint): number;
   runAllUpdates(): void;
-  setLevel(arg0: bigint, arg1: number): void;
 }
 export type SimulationChunkTracker = SimulationChunkTrackerMembers & ChunkTracker;
 export interface SimulationChunkTrackerStatics {
@@ -1350,13 +1258,12 @@ export interface ThreadedLevelLightEngineMembers {
   initializeLight(arg0: j_net_minecraft_world_level_chunk.ChunkAccess, arg1: boolean): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   lightChunk(arg0: j_net_minecraft_world_level_chunk.ChunkAccess, arg1: boolean): PromiseLike<j_net_minecraft_world_level_chunk.ChunkAccess>;
   propagateLightSources(arg0: j_net_minecraft_world_level.ChunkPos): void;
-  queueSectionData(arg0: j_net_minecraft_world_level.LightLayer, arg1: j_net_minecraft_core.SectionPos, arg2: j_net_minecraft_world_level_chunk.DataLayer | null): void | null;
+  queueSectionData(arg0: j_net_minecraft_world_level.LightLayer, arg1: j_net_minecraft_core.SectionPos, arg2: j_net_minecraft_world_level_chunk.DataLayer | null): void;
   retainData(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
   runLightUpdates(): number;
   setLightEnabled(arg0: j_net_minecraft_world_level.ChunkPos, arg1: boolean): void;
   starlight$serverRelightChunks(arg0: JavaCollection<j_net_minecraft_world_level.ChunkPos>, arg1: JavaConsumer<j_net_minecraft_world_level.ChunkPos>, arg2: JavaOpaque<"java.util.function.IntConsumer">): number;
   tryScheduleUpdate(): void;
-  updateChunkStatus(arg0: j_net_minecraft_world_level.ChunkPos): void;
   updateSectionStatus(arg0: j_net_minecraft_core.SectionPos, arg1: boolean): void;
   waitForPendingTasks(arg0: number, arg1: number): PromiseLike<object>;
 }
@@ -1370,9 +1277,6 @@ export interface ThreadedLevelLightEngineStatics {
 export interface ThrottlingChunkTaskDispatcherMembers {
   readonly __javaSupertypes?: readonly [ChunkTaskDispatcher];
   getDebugStatus(): string;
-  onRelease(arg0: bigint): void;
-  popTasks(): ChunkTaskPriorityQueue_TasksForChunk | null;
-  scheduleForExecution(arg0: ChunkTaskPriorityQueue_TasksForChunk): void;
 }
 export type ThrottlingChunkTaskDispatcher = ThrottlingChunkTaskDispatcherMembers & ChunkTaskDispatcher;
 export interface ThrottlingChunkTaskDispatcherStatics {
@@ -1382,7 +1286,6 @@ export interface ThrottlingChunkTaskDispatcherStatics {
 /** JVM class net.minecraft.server.level.Ticket. */
 export interface TicketMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [Ticket]>, JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.ticket.ChunkSystemTicket", [T]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: Ticket): number;
   decreaseTicksLeft(): void;
   getIdentifier(): object;
@@ -1461,7 +1364,7 @@ export interface WorldGenRegionMembers {
   addFreshEntity(arg0: j_net_minecraft_world_entity.Entity): boolean;
   addFreshEntity(arg0: j_net_minecraft_world_entity.Entity, arg1: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">): boolean;
   addParticle(arg0: j_net_minecraft_core_particles.ParticleOptions, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number): void;
-  destroyBlock(arg0: j_net_minecraft_core.BlockPos, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): boolean | null;
+  destroyBlock(arg0: j_net_minecraft_core.BlockPos, arg1: boolean, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): boolean;
   dimensionType(): j_net_minecraft_world_level_dimension.DimensionType;
   enabledFeatures(): j_net_minecraft_world_flag.FeatureFlagSet;
   ensureCanWrite(arg0: j_net_minecraft_core.BlockPos): boolean;
@@ -1478,7 +1381,7 @@ export interface WorldGenRegionMembers {
   getChunkIfLoadedImmediately(arg0: number, arg1: number): j_net_minecraft_world_level_chunk.ChunkAccess | null;
   getChunkSource(): j_net_minecraft_world_level_chunk.ChunkSource;
   getCurrentDifficultyAt(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_world.DifficultyInstance;
-  getEntities(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_phys.AABB, arg2: JavaPredicate<j_net_minecraft_world_entity.Entity> | null): JavaList<j_net_minecraft_world_entity.Entity> | null;
+  getEntities(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_phys.AABB, arg2: JavaPredicate<j_net_minecraft_world_entity.Entity> | null): JavaList<j_net_minecraft_world_entity.Entity>;
   getEntities<T /* extends j_net_minecraft_world_entity.Entity */>(arg0: j_net_minecraft_world_level_entity.EntityTypeTest<j_net_minecraft_world_entity.Entity, T>, arg1: j_net_minecraft_world_phys.AABB, arg2: JavaPredicate<T>): JavaList<T>;
   getFluidIfLoaded(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_material.FluidState | null;
   getFluidState(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_material.FluidState;
@@ -1504,14 +1407,14 @@ export interface WorldGenRegionMembers {
   isFluidAtPosition(arg0: j_net_minecraft_core.BlockPos, arg1: JavaPredicate<j_net_minecraft_world_level_material.FluidState>): boolean;
   isOldChunkAround(arg0: j_net_minecraft_world_level.ChunkPos, arg1: number): boolean;
   isStateAtPosition(arg0: j_net_minecraft_core.BlockPos, arg1: JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>): boolean;
-  levelEvent(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: j_net_minecraft_core.BlockPos, arg3: number): void | null;
+  levelEvent(arg0: j_net_minecraft_world_entity.Entity | null, arg1: number, arg2: j_net_minecraft_core.BlockPos, arg3: number): void;
   nextSubTickCount(): bigint;
-  playSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_sounds.SoundEvent, arg3: j_net_minecraft_sounds.SoundSource, arg4: number, arg5: number): void | null;
+  playSound(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_sounds.SoundEvent, arg3: j_net_minecraft_sounds.SoundSource, arg4: number, arg5: number): void;
   players(): JavaList<j_net_minecraft_world_entity_player.Player>;
   registryAccess(): j_net_minecraft_core.RegistryAccess;
   removeBlock(arg0: j_net_minecraft_core.BlockPos, arg1: boolean): boolean;
   setBlock(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: number, arg3: number): boolean;
-  setCurrentlyGenerating(arg0: JavaSupplier<string> | null): void | null;
+  setCurrentlyGenerating(arg0: JavaSupplier<string> | null): void;
 }
 export type WorldGenRegion = WorldGenRegionMembers & j_net_minecraft_world_level.WorldGenLevel;
 export interface WorldGenRegionStatics {

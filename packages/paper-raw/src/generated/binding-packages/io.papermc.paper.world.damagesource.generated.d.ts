@@ -14,7 +14,7 @@ export interface CombatEntryMembers {
 }
 export type CombatEntry = CombatEntryMembers;
 export interface CombatEntryStatics {
-  combatEntry(arg0: j_org_bukkit_damage.DamageSource, arg1: number, arg2: FallLocationType, arg3: number): CombatEntry | null;
+  combatEntry(arg0: j_org_bukkit_damage.DamageSource, arg1: number, arg2: FallLocationType | null, arg3: number): CombatEntry;
   combatEntry(arg0: j_org_bukkit_entity.LivingEntity, arg1: j_org_bukkit_damage.DamageSource, arg2: number): CombatEntry;
 }
 

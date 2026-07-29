@@ -210,7 +210,6 @@ export interface TrialSpawnerStateDataMembers {
   readonly detectedPlayers: JavaSet<JavaOpaque<"java.util.UUID">>;
   getOSpin(): number;
   getOrCreateDisplayEntity(arg0: TrialSpawner, arg1: j_net_minecraft_world_level.Level, arg2: TrialSpawnerState): j_net_minecraft_world_entity.Entity | null;
-  getOrCreateNextSpawnData(arg0: TrialSpawner, arg1: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level.SpawnData;
   getSpin(): number;
   getUpdateTag(arg0: TrialSpawnerState): j_net_minecraft_nbt.CompoundTag;
   hasFinishedSpawningAllMobs(arg0: TrialSpawnerConfig, arg1: number): boolean;

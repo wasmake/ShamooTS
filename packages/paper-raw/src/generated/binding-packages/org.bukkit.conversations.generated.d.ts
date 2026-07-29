@@ -1,19 +1,14 @@
 // Generated from paper 1.21.8-R0.1-20250906.215025-55 (paper-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_org_bukkit from './org.bukkit.generated.js';
-import type * as j_org_bukkit_entity from './org.bukkit.entity.generated.js';
 import type * as j_org_bukkit_plugin from './org.bukkit.plugin.generated.js';
 
 /** JVM abstract org.bukkit.conversations.BooleanPrompt. */
 export interface BooleanPromptMembers {
   readonly __javaSupertypes?: readonly [ValidatingPrompt];
-  acceptValidatedInput(arg0: ConversationContext, arg1: string): Prompt | null;
-  acceptValidatedInput(arg0: ConversationContext, arg1: boolean): Prompt | null;
-  isInputValid(arg0: ConversationContext, arg1: string): boolean;
 }
 export type BooleanPrompt = BooleanPromptMembers & ValidatingPrompt;
 export interface BooleanPromptStatics {
-  new(): BooleanPrompt;
 }
 
 /** JVM interface org.bukkit.conversations.Conversable. */
@@ -24,7 +19,7 @@ export interface ConversableMembers {
   beginConversation(arg0: Conversation): boolean;
   isConversing(): boolean;
   sendRawMessage(arg0: string): void;
-  sendRawMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string): void | null;
+  sendRawMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string): void;
 }
 export type Conversable = ConversableMembers;
 export interface ConversableStatics {
@@ -34,13 +29,9 @@ export interface ConversableStatics {
 export interface ConversationMembers {
   abandon(): void;
   abandon(arg0: ConversationAbandonedEvent): void;
-  abandonedListeners: JavaList<ConversationAbandonedListener>;
   acceptInput(arg0: string): void;
   addConversationAbandonedListener(arg0: ConversationAbandonedListener): void;
   begin(): void;
-  cancellers: JavaList<ConversationCanceller>;
-  context: ConversationContext;
-  currentPrompt: Prompt;
   getCancellers(): JavaList<ConversationCanceller>;
   getContext(): ConversationContext;
   getForWhom(): Conversable;
@@ -48,10 +39,7 @@ export interface ConversationMembers {
   getState(): Conversation_ConversationState;
   isLocalEchoEnabled(): boolean;
   isModal(): boolean;
-  localEchoEnabled: boolean;
-  modal: boolean;
   outputNextPrompt(): void;
-  prefix: ConversationPrefix;
   removeConversationAbandonedListener(arg0: ConversationAbandonedListener): void;
   setLocalEchoEnabled(arg0: boolean): void;
 }
@@ -112,7 +100,7 @@ export interface ConversationContextMembers {
   getForWhom(): Conversable;
   getPlugin(): j_org_bukkit_plugin.Plugin | null;
   getSessionData(arg0: object): object | null;
-  setSessionData(arg0: object, arg1: object | null): void | null;
+  setSessionData(arg0: object, arg1: object | null): void;
 }
 export type ConversationContext = ConversationContextMembers;
 export interface ConversationContextStatics {
@@ -121,21 +109,12 @@ export interface ConversationContextStatics {
 
 /** JVM class org.bukkit.conversations.ConversationFactory. */
 export interface ConversationFactoryMembers {
-  abandonedListeners: JavaList<ConversationAbandonedListener>;
   addConversationAbandonedListener(arg0: ConversationAbandonedListener): ConversationFactory;
   buildConversation(arg0: Conversable): Conversation;
-  cancellers: JavaList<ConversationCanceller>;
-  firstPrompt: Prompt;
-  initialSessionData: JavaMap<object, object>;
-  isModal: boolean;
-  localEchoEnabled: boolean;
-  playerOnlyMessage: string;
-  plugin: j_org_bukkit_plugin.Plugin;
-  prefix: ConversationPrefix;
-  thatExcludesNonPlayersWithMessage(arg0: string | null): ConversationFactory | null;
+  thatExcludesNonPlayersWithMessage(arg0: string | null): ConversationFactory;
   withConversationCanceller(arg0: ConversationCanceller): ConversationFactory;
   withEscapeSequence(arg0: string): ConversationFactory;
-  withFirstPrompt(arg0: Prompt | null): ConversationFactory | null;
+  withFirstPrompt(arg0: Prompt | null): ConversationFactory;
   withInitialSessionData(arg0: JavaMap<object, object>): ConversationFactory;
   withLocalEcho(arg0: boolean): ConversationFactory;
   withModality(arg0: boolean): ConversationFactory;
@@ -159,8 +138,6 @@ export interface ConversationPrefixStatics {
 export interface ExactMatchConversationCancellerMembers {
   readonly __javaSupertypes?: readonly [ConversationCanceller];
   cancelBasedOnInput(arg0: ConversationContext, arg1: string): boolean;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ConversationCanceller;
   setConversation(arg0: Conversation): void;
 }
@@ -172,27 +149,17 @@ export interface ExactMatchConversationCancellerStatics {
 /** JVM abstract org.bukkit.conversations.FixedSetPrompt. */
 export interface FixedSetPromptMembers {
   readonly __javaSupertypes?: readonly [ValidatingPrompt];
-  fixedSet: JavaList<string>;
-  formatFixedSet(): string;
-  isInputValid(arg0: ConversationContext, arg1: string): boolean;
 }
 export type FixedSetPrompt = FixedSetPromptMembers & ValidatingPrompt;
 export interface FixedSetPromptStatics {
-  new(...arg0: Array<string>): FixedSetPrompt;
 }
 
 /** JVM class org.bukkit.conversations.InactivityConversationCanceller. */
 export interface InactivityConversationCancellerMembers {
   readonly __javaSupertypes?: readonly [ConversationCanceller];
   cancelBasedOnInput(arg0: ConversationContext, arg1: string): boolean;
-  cancelling(arg0: Conversation): void;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ConversationCanceller;
-  conversation: Conversation;
-  plugin: j_org_bukkit_plugin.Plugin;
   setConversation(arg0: Conversation): void;
-  timeoutSeconds: number;
 }
 export type InactivityConversationCanceller = InactivityConversationCancellerMembers & ConversationCanceller;
 export interface InactivityConversationCancellerStatics {
@@ -203,8 +170,6 @@ export interface InactivityConversationCancellerStatics {
 export interface ManuallyAbandonedConversationCancellerMembers {
   readonly __javaSupertypes?: readonly [ConversationCanceller];
   cancelBasedOnInput(arg0: ConversationContext, arg1: string): boolean;
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ConversationCanceller;
   setConversation(arg0: Conversation): void;
 }
@@ -218,11 +183,9 @@ export interface MessagePromptMembers {
   readonly __javaSupertypes?: readonly [Prompt];
   acceptInput(arg0: ConversationContext, arg1: string | null): Prompt | null;
   blocksForInput(arg0: ConversationContext): boolean;
-  getNextPrompt(arg0: ConversationContext): Prompt | null;
 }
 export type MessagePrompt = MessagePromptMembers & Prompt;
 export interface MessagePromptStatics {
-  new(): MessagePrompt;
 }
 
 /** JVM class org.bukkit.conversations.NullConversationPrefix. */
@@ -238,38 +201,23 @@ export interface NullConversationPrefixStatics {
 /** JVM abstract org.bukkit.conversations.NumericPrompt. */
 export interface NumericPromptMembers {
   readonly __javaSupertypes?: readonly [ValidatingPrompt];
-  acceptValidatedInput(arg0: ConversationContext, arg1: number): Prompt | null;
-  acceptValidatedInput(arg0: ConversationContext, arg1: string): Prompt | null;
-  getFailedValidationText(arg0: ConversationContext, arg1: number): string | null;
-  getFailedValidationText(arg0: ConversationContext, arg1: string): string | null;
-  getInputNotNumericText(arg0: ConversationContext, arg1: string): string | null;
-  isInputValid(arg0: ConversationContext, arg1: string): boolean;
-  isNumberValid(arg0: ConversationContext, arg1: number): boolean;
 }
 export type NumericPrompt = NumericPromptMembers & ValidatingPrompt;
 export interface NumericPromptStatics {
-  new(): NumericPrompt;
 }
 
 /** JVM abstract org.bukkit.conversations.PlayerNamePrompt. */
 export interface PlayerNamePromptMembers {
   readonly __javaSupertypes?: readonly [ValidatingPrompt];
-  acceptValidatedInput(arg0: ConversationContext, arg1: string): Prompt | null;
-  acceptValidatedInput(arg0: ConversationContext, arg1: j_org_bukkit_entity.Player): Prompt | null;
-  isInputValid(arg0: ConversationContext, arg1: string): boolean;
 }
 export type PlayerNamePrompt = PlayerNamePromptMembers & ValidatingPrompt;
 export interface PlayerNamePromptStatics {
-  new(arg0: j_org_bukkit_plugin.Plugin): PlayerNamePrompt;
 }
 
 /** JVM class org.bukkit.conversations.PluginNameConversationPrefix. */
 export interface PluginNameConversationPrefixMembers {
   readonly __javaSupertypes?: readonly [ConversationPrefix];
   getPrefix(arg0: ConversationContext): string;
-  plugin: j_org_bukkit_plugin.Plugin;
-  prefixColor: j_org_bukkit.ChatColor;
-  separator: string;
 }
 export type PluginNameConversationPrefix = PluginNameConversationPrefixMembers & ConversationPrefix;
 export interface PluginNameConversationPrefixStatics {
@@ -292,12 +240,9 @@ export interface PromptStatics {
 /** JVM abstract org.bukkit.conversations.RegexPrompt. */
 export interface RegexPromptMembers {
   readonly __javaSupertypes?: readonly [ValidatingPrompt];
-  isInputValid(arg0: ConversationContext, arg1: string): boolean;
 }
 export type RegexPrompt = RegexPromptMembers & ValidatingPrompt;
 export interface RegexPromptStatics {
-  new(arg0: string): RegexPrompt;
-  new(arg0: JavaOpaque<"java.util.regex.Pattern">): RegexPrompt;
 }
 
 /** JVM abstract org.bukkit.conversations.StringPrompt. */
@@ -307,19 +252,14 @@ export interface StringPromptMembers {
 }
 export type StringPrompt = StringPromptMembers & Prompt;
 export interface StringPromptStatics {
-  new(): StringPrompt;
 }
 
 /** JVM abstract org.bukkit.conversations.ValidatingPrompt. */
 export interface ValidatingPromptMembers {
   readonly __javaSupertypes?: readonly [Prompt];
   acceptInput(arg0: ConversationContext, arg1: string | null): Prompt | null;
-  acceptValidatedInput(arg0: ConversationContext, arg1: string): Prompt | null;
   blocksForInput(arg0: ConversationContext): boolean;
-  getFailedValidationText(arg0: ConversationContext, arg1: string): string | null;
-  isInputValid(arg0: ConversationContext, arg1: string): boolean;
 }
 export type ValidatingPrompt = ValidatingPromptMembers & Prompt;
 export interface ValidatingPromptStatics {
-  new(): ValidatingPrompt;
 }

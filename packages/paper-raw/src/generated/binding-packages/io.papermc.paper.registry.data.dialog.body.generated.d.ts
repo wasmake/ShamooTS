@@ -9,7 +9,7 @@ export interface DialogBodyMembers {
 export type DialogBody = DialogBodyMembers;
 export interface DialogBodyStatics {
   item(arg0: j_org_bukkit_inventory.ItemStack): ItemDialogBody_Builder;
-  item(arg0: j_org_bukkit_inventory.ItemStack, arg1: PlainMessageDialogBody, arg2: boolean, arg3: boolean, arg4: number, arg5: number): ItemDialogBody | null;
+  item(arg0: j_org_bukkit_inventory.ItemStack, arg1: PlainMessageDialogBody | null, arg2: boolean, arg3: boolean, arg4: number, arg5: number): ItemDialogBody;
   plainMessage(arg0: j_net_kyori_adventure_text.Component): PlainMessageDialogBody;
   plainMessage(arg0: j_net_kyori_adventure_text.Component, arg1: number): PlainMessageDialogBody;
 }
@@ -31,7 +31,7 @@ export interface ItemDialogBodyStatics {
 /** JVM interface io.papermc.paper.registry.data.dialog.body.ItemDialogBody$Builder. */
 export interface ItemDialogBody_BuilderMembers {
   build(): ItemDialogBody;
-  description(arg0: PlainMessageDialogBody): ItemDialogBody_Builder | null;
+  description(arg0: PlainMessageDialogBody | null): ItemDialogBody_Builder;
   height(arg0: number): ItemDialogBody_Builder;
   showDecorations(arg0: boolean): ItemDialogBody_Builder;
   showTooltip(arg0: boolean): ItemDialogBody_Builder;

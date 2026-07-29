@@ -17,36 +17,27 @@ export interface AbstractConsecutiveExecutorMembers<T /* extends JavaRunnable */
 }
 export type AbstractConsecutiveExecutor<T /* extends JavaRunnable */ = unknown> = AbstractConsecutiveExecutorMembers<T> & j_net_minecraft_util_profiling_metrics.ProfilerMeasured & TaskScheduler<T> & JavaRunnable;
 export interface AbstractConsecutiveExecutorStatics {
-  new<T /* extends JavaRunnable */>(arg0: StrictQueue<T>, arg1: JavaOpaque<"java.util.concurrent.Executor">, arg2: string): AbstractConsecutiveExecutor<T>;
 }
 
 /** JVM abstract net.minecraft.util.thread.BlockableEventLoop. */
 export interface BlockableEventLoopMembers<R /* extends JavaRunnable */ = unknown> {
   readonly __javaSupertypes?: readonly [j_net_minecraft_util_profiling_metrics.ProfilerMeasured, TaskScheduler<R>, JavaOpaque<"java.util.concurrent.Executor">];
-  doRunTask(arg0: R): void;
-  dropAllTasks(): void;
   execute(arg0: JavaRunnable): void;
   executeBlocking(arg0: JavaRunnable): void;
   executeIfPossible(arg0: JavaRunnable): void;
   getPendingTasksCount(): number;
-  getRunningThread(): JavaOpaque<"java.lang.Thread">;
   isSameThread(): boolean;
   managedBlock(arg0: JavaOpaque<"java.util.function.BooleanSupplier">): void;
   name(): string;
   pollTask(): boolean;
   profiledMetrics(): JavaList<j_net_minecraft_util_profiling_metrics.MetricSampler>;
-  runAllTasks(): void;
   schedule(arg0: R): void;
-  scheduleExecutables(): boolean;
   scheduleOnMain(arg0: JavaRunnable): void;
-  shouldRun(arg0: R): boolean;
   submit(arg0: JavaRunnable): PromiseLike<void>;
   submit<V>(arg0: JavaSupplier<V>): PromiseLike<V>;
-  waitForTasks(): void;
 }
 export type BlockableEventLoop<R /* extends JavaRunnable */ = unknown> = BlockableEventLoopMembers<R> & j_net_minecraft_util_profiling_metrics.ProfilerMeasured & TaskScheduler<R> & JavaOpaque<"java.util.concurrent.Executor">;
 export interface BlockableEventLoopStatics {
-  new<R /* extends JavaRunnable */>(arg0: string): BlockableEventLoop<R>;
   readonly BLOCK_TIME_NANOS: 100000;
   isNonRecoverable(arg0: JavaOpaque<"java.lang.Throwable">): boolean;
 }
@@ -85,7 +76,6 @@ export interface ParallelMapTransformStatics {
 export interface PriorityConsecutiveExecutorMembers {
   readonly __javaSupertypes?: readonly [AbstractConsecutiveExecutor<StrictQueue_RunnableWithPriority>];
   scheduleWithResult<Source>(arg0: number, arg1: JavaConsumer<PromiseLike<Source>>): PromiseLike<Source>;
-  wrapRunnable(arg0: JavaRunnable): JavaRunnable;
   wrapRunnable(arg0: JavaRunnable): StrictQueue_RunnableWithPriority;
 }
 export type PriorityConsecutiveExecutor = PriorityConsecutiveExecutorMembers & AbstractConsecutiveExecutor<StrictQueue_RunnableWithPriority>;
@@ -97,12 +87,10 @@ export interface PriorityConsecutiveExecutorStatics {
 export interface ReentrantBlockableEventLoopMembers<R /* extends JavaRunnable */ = unknown> {
   readonly __javaSupertypes?: readonly [BlockableEventLoop<R>];
   doRunTask(arg0: R): void;
-  runningTask(): boolean;
   scheduleExecutables(): boolean;
 }
 export type ReentrantBlockableEventLoop<R /* extends JavaRunnable */ = unknown> = ReentrantBlockableEventLoopMembers<R> & BlockableEventLoop<R>;
 export interface ReentrantBlockableEventLoopStatics {
-  new<R /* extends JavaRunnable */>(arg0: string): ReentrantBlockableEventLoop<R>;
 }
 
 /** JVM interface net.minecraft.util.thread.StrictQueue. */
@@ -121,7 +109,6 @@ export interface StrictQueue_FixedPriorityQueueMembers {
   readonly __javaSupertypes?: readonly [StrictQueue<StrictQueue_RunnableWithPriority>];
   isEmpty(): boolean;
   pop(): JavaRunnable | null;
-  push(arg0: JavaRunnable): boolean;
   push(arg0: StrictQueue_RunnableWithPriority): boolean;
   size(): number;
 }

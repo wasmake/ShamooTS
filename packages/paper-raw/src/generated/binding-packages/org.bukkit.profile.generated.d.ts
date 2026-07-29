@@ -10,7 +10,7 @@ export interface PlayerProfile_2Members {
   getTextures(): PlayerTextures;
   getUniqueId(): JavaOpaque<"java.util.UUID"> | null;
   isComplete(): boolean;
-  setTextures(arg0: PlayerTextures | null): void | null;
+  setTextures(arg0: PlayerTextures | null): void;
   update(): PromiseLike<PlayerProfile_2>;
 }
 export type PlayerProfile_2 = PlayerProfile_2Members & JavaOpaque<"java.lang.Cloneable"> & j_org_bukkit_configuration_serialization.ConfigurationSerializable;
@@ -26,9 +26,9 @@ export interface PlayerTexturesMembers {
   getTimestamp(): bigint;
   isEmpty(): boolean;
   isSigned(): boolean;
-  setCape(arg0: JavaOpaque<"java.net.URL"> | null): void | null;
-  setSkin(arg0: JavaOpaque<"java.net.URL"> | null): void | null;
-  setSkin(arg0: JavaOpaque<"java.net.URL"> | null, arg1: PlayerTextures_SkinModel | null): void | null;
+  setCape(arg0: JavaOpaque<"java.net.URL"> | null): void;
+  setSkin(arg0: JavaOpaque<"java.net.URL"> | null): void;
+  setSkin(arg0: JavaOpaque<"java.net.URL"> | null, arg1: PlayerTextures_SkinModel | null): void;
 }
 export type PlayerTextures = PlayerTexturesMembers;
 export interface PlayerTexturesStatics {

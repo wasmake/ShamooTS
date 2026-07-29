@@ -20,8 +20,8 @@ import type * as j_net_minecraft_world_level from './net.minecraft.world.level.g
 
 /** JVM interface net.minecraft.network.chat.ChatDecorator. */
 export interface ChatDecoratorMembers {
-  decorate(arg0: j_net_minecraft_server_level.ServerPlayer | null, arg1: j_net_minecraft_commands.CommandSourceStack | null, arg2: Component): PromiseLike<Component> | null;
-  decorate(arg0: j_net_minecraft_server_level.ServerPlayer | null, arg1: Component): PromiseLike<Component> | null;
+  decorate(arg0: j_net_minecraft_server_level.ServerPlayer | null, arg1: j_net_minecraft_commands.CommandSourceStack | null, arg2: Component): PromiseLike<Component>;
+  decorate(arg0: j_net_minecraft_server_level.ServerPlayer | null, arg1: Component): PromiseLike<Component>;
 }
 export type ChatDecorator = ChatDecoratorMembers;
 export interface ChatDecoratorStatics {
@@ -346,15 +346,15 @@ export interface ComponentStatics {
   keybind(arg0: string): MutableComponent;
   literal(arg0: string): MutableComponent;
   nbt(arg0: string, arg1: boolean, arg2: JavaOptional<Component>, arg3: j_net_minecraft_network_chat_contents.DataSource): MutableComponent;
-  nullToEmpty(arg0: string | null): Component | null;
+  nullToEmpty(arg0: string | null): Component;
   score(arg0: string, arg1: string): MutableComponent;
   score(arg0: j_net_minecraft_commands_arguments_selector.SelectorPattern, arg1: string): MutableComponent;
   selector(arg0: j_net_minecraft_commands_arguments_selector.SelectorPattern, arg1: JavaOptional<Component>): MutableComponent;
   translatable(arg0: string): MutableComponent;
   translatable(arg0: string, ...arg1: Array<object>): MutableComponent;
   translatableEscape(arg0: string, ...arg1: Array<object>): MutableComponent;
-  translatableWithFallback(arg0: string, arg1: string | null): MutableComponent | null;
-  translatableWithFallback(arg0: string, arg1: string | null, ...arg2: Array<object>): MutableComponent | null;
+  translatableWithFallback(arg0: string, arg1: string | null): MutableComponent;
+  translatableWithFallback(arg0: string, arg1: string | null, ...arg2: Array<object>): MutableComponent;
   translationArg(arg0: JavaOpaque<"com.mojang.brigadier.Message">): Component;
   translationArg(arg0: JavaOpaque<"java.net.URI">): Component;
   translationArg(arg0: JavaOpaque<"java.util.Date">): Component;
@@ -366,7 +366,7 @@ export interface ComponentStatics {
 /** JVM interface net.minecraft.network.chat.ComponentContents. */
 export interface ComponentContentsMembers {
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): MutableComponent | null;
+  resolve(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: j_net_minecraft_world_entity.Entity | null, arg2: number): MutableComponent;
   type(): ComponentContents_Type<object>;
   visit<T>(arg0: FormattedText_ContentConsumer<T>): JavaOptional<T>;
   visit<T>(arg0: FormattedText_StyledContentConsumer<T>, arg1: Style): JavaOptional<T>;
@@ -405,7 +405,7 @@ export interface ComponentSerializationStatics {
   readonly TRUSTED_STREAM_CODEC: j_net_minecraft_network_codec.StreamCodec<j_net_minecraft_network.RegistryFriendlyByteBuf, Component>;
   createLegacyComponentMatcher<T /* extends j_net_minecraft_util.StringRepresentable */, E>(arg0: Array<T>, arg1: JavaFunction<T, JavaOpaque<"com.mojang.serialization.MapCodec", [E]>>, arg2: JavaFunction<E, T>, arg3: string): JavaOpaque<"com.mojang.serialization.MapCodec", [E]>;
   flatRestrictedCodec(arg0: number): JavaOpaque<"com.mojang.serialization.Codec", [Component]>;
-  localizedCodec(arg0: JavaOpaque<"java.util.Locale">): JavaOpaque<"com.mojang.serialization.Codec", [Component]> | null;
+  localizedCodec(arg0: JavaOpaque<"java.util.Locale"> | null): JavaOpaque<"com.mojang.serialization.Codec", [Component]>;
 }
 
 /** JVM class net.minecraft.network.chat.ComponentUtils. */
@@ -425,15 +425,15 @@ export interface ComponentUtilsStatics {
   formatList(arg0: JavaCollection<Component>, arg1: Component): Component;
   formatList<T>(arg0: JavaCollection<T>, arg1: Component, arg2: JavaFunction<T, Component>): MutableComponent;
   fromMessage(arg0: JavaOpaque<"com.mojang.brigadier.Message">): Component;
-  isTranslationResolvable(arg0: Component | null): boolean | null;
+  isTranslationResolvable(arg0: Component | null): boolean;
   isValidSelector(arg0: Component): boolean;
   mergeStyles(arg0: MutableComponent, arg1: Style): MutableComponent;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  updateForEntity(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: JavaOptional<Component>, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): JavaOptional<MutableComponent> | null;
+  updateForEntity(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: JavaOptional<Component>, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): JavaOptional<MutableComponent>;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  updateForEntity(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: Component, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): MutableComponent | null;
+  updateForEntity(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: Component, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): MutableComponent;
   /** @throws com.mojang.brigadier.exceptions.CommandSyntaxException */
-  updateSeparatorForEntity(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: JavaOptional<Component>, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): JavaOptional<MutableComponent> | null;
+  updateSeparatorForEntity(arg0: j_net_minecraft_commands.CommandSourceStack | null, arg1: JavaOptional<Component>, arg2: j_net_minecraft_world_entity.Entity | null, arg3: number): JavaOptional<MutableComponent>;
   wrapInSquareBrackets(arg0: Component): MutableComponent;
 }
 
@@ -733,7 +733,7 @@ export interface MessageSignatureStatics {
   new(arg0: Array<number>): MessageSignature;
   readonly BYTES: 256;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [MessageSignature]>;
-  describe(arg0: MessageSignature | null): string | null;
+  describe(arg0: MessageSignature | null): string;
   read(arg0: j_net_minecraft_network.FriendlyByteBuf): MessageSignature;
   write(arg0: j_net_minecraft_network.FriendlyByteBuf, arg1: MessageSignature): void;
 }
@@ -761,7 +761,7 @@ export interface MessageSignature_PackedStatics {
 /** JVM class net.minecraft.network.chat.MessageSignatureCache. */
 export interface MessageSignatureCacheMembers {
   pack(arg0: MessageSignature): number;
-  push(arg0: SignedMessageBody, arg1: MessageSignature | null): void | null;
+  push(arg0: SignedMessageBody, arg1: MessageSignature | null): void;
   unpack(arg0: number): MessageSignature | null;
 }
 export type MessageSignatureCache = MessageSignatureCacheMembers;
@@ -799,7 +799,7 @@ export interface MutableComponentStatics {
 export interface OutgoingChatMessageMembers {
   content(): Component;
   sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound): void;
-  sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound, arg3: Component | null): void | null;
+  sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound, arg3: Component | null): void;
 }
 export type OutgoingChatMessage = OutgoingChatMessageMembers;
 export interface OutgoingChatMessageStatics {
@@ -813,7 +813,7 @@ export interface OutgoingChatMessage_DisguisedMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound): void;
-  sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound, arg3: Component | null): void | null;
+  sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound, arg3: Component | null): void;
   toString(): string;
 }
 export type OutgoingChatMessage_Disguised = OutgoingChatMessage_DisguisedMembers & JavaOpaque<"java.lang.Record"> & OutgoingChatMessage;
@@ -829,7 +829,7 @@ export interface OutgoingChatMessage_PlayerMembers {
   hashCode(): number;
   message(): PlayerChatMessage;
   sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound): void;
-  sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound, arg3: Component | null): void | null;
+  sendToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer, arg1: boolean, arg2: ChatType_Bound, arg3: Component | null): void;
   toString(): string;
 }
 export type OutgoingChatMessage_Player = OutgoingChatMessage_PlayerMembers & JavaOpaque<"java.lang.Record"> & OutgoingChatMessage;
@@ -1027,7 +1027,7 @@ export interface SignedMessageChain_DecodeExceptionStatics {
 export interface SignedMessageChain_DecoderMembers {
   setChainBroken(): void;
   /** @throws net.minecraft.network.chat.SignedMessageChain$DecodeException */
-  unpack(arg0: MessageSignature | null, arg1: SignedMessageBody): PlayerChatMessage | null;
+  unpack(arg0: MessageSignature | null, arg1: SignedMessageBody): PlayerChatMessage;
 }
 export type SignedMessageChain_Decoder = SignedMessageChain_DecoderMembers;
 export interface SignedMessageChain_DecoderStatics {
@@ -1107,19 +1107,19 @@ export interface StyleMembers {
   isStrikethrough(): boolean;
   isUnderlined(): boolean;
   toString(): string;
-  withBold(arg0: boolean | null): Style | null;
-  withClickEvent(arg0: ClickEvent | null): Style | null;
+  withBold(arg0: boolean | null): Style;
+  withClickEvent(arg0: ClickEvent | null): Style;
   withColor(arg0: number): Style;
-  withColor(arg0: j_net_minecraft.ChatFormatting | null): Style | null;
-  withColor(arg0: TextColor | null): Style | null;
-  withFont(arg0: j_net_minecraft_resources.ResourceLocation | null): Style | null;
-  withHoverEvent(arg0: HoverEvent | null): Style | null;
-  withInsertion(arg0: string | null): Style | null;
-  withItalic(arg0: boolean | null): Style | null;
-  withObfuscated(arg0: boolean | null): Style | null;
+  withColor(arg0: j_net_minecraft.ChatFormatting | null): Style;
+  withColor(arg0: TextColor | null): Style;
+  withFont(arg0: j_net_minecraft_resources.ResourceLocation | null): Style;
+  withHoverEvent(arg0: HoverEvent | null): Style;
+  withInsertion(arg0: string | null): Style;
+  withItalic(arg0: boolean | null): Style;
+  withObfuscated(arg0: boolean | null): Style;
   withShadowColor(arg0: number): Style;
-  withStrikethrough(arg0: boolean | null): Style | null;
-  withUnderlined(arg0: boolean | null): Style | null;
+  withStrikethrough(arg0: boolean | null): Style;
+  withUnderlined(arg0: boolean | null): Style;
 }
 export type Style = StyleMembers;
 export interface StyleStatics {

@@ -18,7 +18,6 @@ export interface BiomeCheckMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   requiredBiomes(): j_net_minecraft_core.HolderSet<j_net_minecraft_world_level_biome.Biome>;
-  test(arg0: object): boolean;
   test(arg0: SpawnContext): boolean;
   toString(): string;
 }
@@ -52,7 +51,6 @@ export interface MoonBrightnessCheckMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   range(): j_net_minecraft_advancements_critereon.MinMaxBounds_Doubles;
-  test(arg0: object): boolean;
   test(arg0: SpawnContext): boolean;
   toString(): string;
 }
@@ -175,7 +173,6 @@ export interface StructureCheckMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   requiredStructures(): j_net_minecraft_core.HolderSet<j_net_minecraft_world_level_levelgen_structure.Structure>;
-  test(arg0: object): boolean;
   test(arg0: SpawnContext): boolean;
   toString(): string;
 }

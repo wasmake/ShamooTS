@@ -4,7 +4,6 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 /** JVM class net.minecraft.network.protocol.configuration.ClientboundFinishConfigurationPacket. */
 export interface ClientboundFinishConfigurationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">): void;
   isTerminal(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundFinishConfigurationPacket]>;
@@ -20,7 +19,6 @@ export interface ClientboundRegistryDataPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">]>];
   entries(): JavaList<JavaOpaque<"net.minecraft.core.RegistrySynchronization$PackedRegistryEntry">>;
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">): void;
   hashCode(): number;
   registry(): JavaOpaque<"net.minecraft.resources.ResourceKey", [JavaOpaque<"net.minecraft.core.Registry", [object]>]>;
@@ -36,7 +34,6 @@ export interface ClientboundRegistryDataPacketStatics {
 /** JVM class net.minecraft.network.protocol.configuration.ClientboundResetChatPacket. */
 export interface ClientboundResetChatPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">): void;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ClientboundResetChatPacket]>;
 }
@@ -50,7 +47,6 @@ export interface ClientboundResetChatPacketStatics {
 export interface ClientboundSelectKnownPacksMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">): void;
   hashCode(): number;
   knownPacks(): JavaList<JavaOpaque<"net.minecraft.server.packs.repository.KnownPack">>;
@@ -68,7 +64,6 @@ export interface ClientboundUpdateEnabledFeaturesPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">]>];
   equals(arg0: object): boolean;
   features(): JavaSet<JavaOpaque<"net.minecraft.resources.ResourceLocation">>;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ClientConfigurationPacketListener">): void;
   hashCode(): number;
   toString(): string;
@@ -83,7 +78,6 @@ export interface ClientboundUpdateEnabledFeaturesPacketStatics {
 /** JVM class net.minecraft.network.protocol.configuration.ServerboundFinishConfigurationPacket. */
 export interface ServerboundFinishConfigurationPacketMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener">]>];
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener">): void;
   isTerminal(): boolean;
   type(): JavaOpaque<"net.minecraft.network.protocol.PacketType", [ServerboundFinishConfigurationPacket]>;
@@ -98,7 +92,6 @@ export interface ServerboundFinishConfigurationPacketStatics {
 export interface ServerboundSelectKnownPacksMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, JavaOpaque<"net.minecraft.network.protocol.Packet", [JavaOpaque<"net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener">]>];
   equals(arg0: object): boolean;
-  handle(arg0: JavaOpaque<"net.minecraft.network.PacketListener">): void;
   handle(arg0: JavaOpaque<"net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener">): void;
   hashCode(): number;
   knownPacks(): JavaList<JavaOpaque<"net.minecraft.server.packs.repository.KnownPack">>;

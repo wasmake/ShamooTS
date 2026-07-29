@@ -11,7 +11,6 @@ export interface BlockPositionMembers {
   isFine(): boolean;
   offset(arg0: number, arg1: number, arg2: number): FinePosition;
   offset(arg0: number, arg1: number, arg2: number): BlockPosition;
-  offset(arg0: number, arg1: number, arg2: number): Position;
   offset(arg0: j_org_bukkit.Axis, arg1: number): BlockPosition;
   offset(arg0: j_org_bukkit_block.BlockFace): BlockPosition;
   offset(arg0: j_org_bukkit_block.BlockFace, arg1: number): BlockPosition;
@@ -34,7 +33,6 @@ export interface FinePositionMembers {
   isFine(): boolean;
   offset(arg0: number, arg1: number, arg2: number): FinePosition;
   offset(arg0: number, arg1: number, arg2: number): FinePosition;
-  offset(arg0: number, arg1: number, arg2: number): Position;
   toBlock(): BlockPosition;
 }
 export type FinePosition = FinePositionMembers & Position;

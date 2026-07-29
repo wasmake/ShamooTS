@@ -16,7 +16,7 @@ export interface AsyncSchedulerStatics {
 
 /** JVM interface io.papermc.paper.threadedregions.scheduler.EntityScheduler. */
 export interface EntitySchedulerMembers {
-  execute(arg0: j_org_bukkit_plugin.Plugin, arg1: JavaRunnable, arg2: JavaRunnable | null, arg3: bigint): boolean | null;
+  execute(arg0: j_org_bukkit_plugin.Plugin, arg1: JavaRunnable, arg2: JavaRunnable | null, arg3: bigint): boolean;
   run(arg0: j_org_bukkit_plugin.Plugin, arg1: JavaConsumer<ScheduledTask>, arg2: JavaRunnable | null): ScheduledTask | null;
   runAtFixedRate(arg0: j_org_bukkit_plugin.Plugin, arg1: JavaConsumer<ScheduledTask>, arg2: JavaRunnable | null, arg3: bigint, arg4: bigint): ScheduledTask | null;
   runDelayed(arg0: j_org_bukkit_plugin.Plugin, arg1: JavaConsumer<ScheduledTask>, arg2: JavaRunnable | null, arg3: bigint): ScheduledTask | null;

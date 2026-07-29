@@ -5,7 +5,6 @@ import type * as j_net_minecraft_server_players from './net.minecraft.server.pla
 /** JVM class org.bukkit.craftbukkit.ban.CraftIpBanEntry. */
 export interface CraftIpBanEntryMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>];
-  getBanTarget(): object;
   getBanTarget(): JavaOpaque<"java.net.InetAddress">;
   getCreated(): JavaOpaque<"java.util.Date">;
   getExpiration(): JavaOpaque<"java.util.Date">;
@@ -27,22 +26,16 @@ export interface CraftIpBanEntryStatics {
 /** JVM class org.bukkit.craftbukkit.ban.CraftIpBanList. */
 export interface CraftIpBanListMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.ban.IpBanList">];
-  addBan(arg0: object, arg1: string, arg2: JavaOpaque<"java.time.Duration">, arg3: string): JavaOpaque<"org.bukkit.BanEntry">;
-  addBan(arg0: object, arg1: string, arg2: JavaOpaque<"java.time.Instant">, arg3: string): JavaOpaque<"org.bukkit.BanEntry">;
-  addBan(arg0: object, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry">;
   addBan(arg0: string, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>;
   addBan(arg0: JavaOpaque<"java.net.InetAddress">, arg1: string, arg2: JavaOpaque<"java.time.Duration">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>;
   addBan(arg0: JavaOpaque<"java.net.InetAddress">, arg1: string, arg2: JavaOpaque<"java.time.Instant">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>;
   addBan(arg0: JavaOpaque<"java.net.InetAddress">, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>;
   getBanEntries(): JavaSet<JavaOpaque<"org.bukkit.BanEntry">>;
-  getBanEntry(arg0: object): JavaOpaque<"org.bukkit.BanEntry">;
   getBanEntry(arg0: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>;
   getBanEntry(arg0: JavaOpaque<"java.net.InetAddress">): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>;
   getEntries(): JavaSet<JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"java.net.InetAddress">]>>;
-  isBanned(arg0: object): boolean;
   isBanned(arg0: string): boolean;
   isBanned(arg0: JavaOpaque<"java.net.InetAddress">): boolean;
-  pardon(arg0: object): void;
   pardon(arg0: string): void;
   pardon(arg0: JavaOpaque<"java.net.InetAddress">): void;
 }
@@ -55,7 +48,6 @@ export interface CraftIpBanListStatics {
 export interface CraftProfileBanEntryMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>];
   getBanTarget(): JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">;
-  getBanTarget(): object;
   getCreated(): JavaOpaque<"java.util.Date">;
   getExpiration(): JavaOpaque<"java.util.Date">;
   getReason(): string;
@@ -80,9 +72,6 @@ export interface CraftProfileBanListMembers {
   addBan(arg0: JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">, arg1: string, arg2: JavaOpaque<"java.time.Instant">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   addBan(arg0: JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   addBan(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
-  addBan(arg0: object, arg1: string, arg2: JavaOpaque<"java.time.Duration">, arg3: string): JavaOpaque<"org.bukkit.BanEntry">;
-  addBan(arg0: object, arg1: string, arg2: JavaOpaque<"java.time.Instant">, arg3: string): JavaOpaque<"org.bukkit.BanEntry">;
-  addBan(arg0: object, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry">;
   addBan(arg0: string, arg1: string, arg2: JavaOpaque<"java.util.Date">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   addBan(arg0: JavaOpaque<"org.bukkit.profile.PlayerProfile">, arg1: string, arg2: JavaOpaque<"java.time.Duration">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   addBan(arg0: JavaOpaque<"org.bukkit.profile.PlayerProfile">, arg1: string, arg2: JavaOpaque<"java.time.Instant">, arg3: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
@@ -90,16 +79,13 @@ export interface CraftProfileBanListMembers {
   getBanEntries(): JavaSet<JavaOpaque<"org.bukkit.BanEntry">>;
   getBanEntry(arg0: JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   getBanEntry(arg0: JavaOpaque<"com.mojang.authlib.GameProfile">): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
-  getBanEntry(arg0: object): JavaOpaque<"org.bukkit.BanEntry">;
   getBanEntry(arg0: string): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   getBanEntry(arg0: JavaOpaque<"org.bukkit.profile.PlayerProfile">): JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>;
   getEntries(): JavaSet<JavaOpaque<"org.bukkit.BanEntry", [JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">]>>;
   isBanned(arg0: JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">): boolean;
-  isBanned(arg0: object): boolean;
   isBanned(arg0: string): boolean;
   isBanned(arg0: JavaOpaque<"org.bukkit.profile.PlayerProfile">): boolean;
   pardon(arg0: JavaOpaque<"com.destroystokyo.paper.profile.PlayerProfile">): void;
-  pardon(arg0: object): void;
   pardon(arg0: string): void;
   pardon(arg0: JavaOpaque<"org.bukkit.profile.PlayerProfile">): void;
 }

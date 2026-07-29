@@ -18,8 +18,8 @@ export interface BlenderStatics {
   addAroundOldChunksCarvingMaskFilter(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_chunk.ProtoChunk): void;
   empty(): Blender;
   generateBorderTicks(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: j_net_minecraft_world_level_chunk.ChunkAccess): void;
-  makeOldChunkDistanceGetter(arg0: BlendingData | null, arg1: JavaMap<j_net_minecraft_core.Direction8, BlendingData>): Blender_DistanceGetter | null;
-  of(arg0: j_net_minecraft_server_level.WorldGenRegion | null): Blender | null;
+  makeOldChunkDistanceGetter(arg0: BlendingData | null, arg1: JavaMap<j_net_minecraft_core.Direction8, BlendingData>): Blender_DistanceGetter;
+  of(arg0: j_net_minecraft_server_level.WorldGenRegion | null): Blender;
 }
 
 /** JVM record net.minecraft.world.level.levelgen.blending.Blender$BlendingOutput. */
@@ -47,19 +47,10 @@ export interface Blender_DistanceGetterStatics {
 /** JVM class net.minecraft.world.level.levelgen.blending.BlendingData. */
 export interface BlendingDataMembers {
   getAreaWithOldGeneration(): j_net_minecraft_world_level.LevelHeightAccessor;
-  getDensity(arg0: number, arg1: number, arg2: number): number;
-  getHeight(arg0: number, arg1: number, arg2: number): number;
-  iterateBiomes(arg0: number, arg1: number, arg2: number, arg3: BlendingData_BiomeConsumer): void;
-  iterateDensities(arg0: number, arg1: number, arg2: number, arg3: number, arg4: BlendingData_DensityConsumer): void;
-  iterateHeights(arg0: number, arg1: number, arg2: BlendingData_HeightConsumer): void;
   pack(): BlendingData_Packed;
 }
 export type BlendingData = BlendingDataMembers;
 export interface BlendingDataStatics {
-  readonly CELL_HEIGHT: 8;
-  readonly CELL_RATIO: 2;
-  readonly CELL_WIDTH: 4;
-  readonly NO_VALUE: 1.7976931348623157e+308;
   getOrUpdateBlendingData(arg0: j_net_minecraft_server_level.WorldGenRegion, arg1: number, arg2: number): BlendingData | null;
   sideByGenerationAge(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: number, arg2: number, arg3: boolean): JavaSet<j_net_minecraft_core.Direction8>;
   unpack(arg0: BlendingData_Packed | null): BlendingData | null;

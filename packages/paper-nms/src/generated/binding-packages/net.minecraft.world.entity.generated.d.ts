@@ -62,7 +62,6 @@ import type * as j_net_minecraft_world_item_alchemy from './net.minecraft.world.
 import type * as j_net_minecraft_world_item_component from './net.minecraft.world.item.component.generated.js';
 import type * as j_net_minecraft_world_item_enchantment from './net.minecraft.world.item.enchantment.generated.js';
 import type * as j_net_minecraft_world_item_enchantment_effects from './net.minecraft.world.item.enchantment.effects.generated.js';
-import type * as j_net_minecraft_world_item_equipment from './net.minecraft.world.item.equipment.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_block from './net.minecraft.world.level.block.generated.js';
 import type * as j_net_minecraft_world_level_block_state from './net.minecraft.world.level.block.state.generated.js';
@@ -85,18 +84,12 @@ import type * as j_org_bukkit_craftbukkit_event from './org.bukkit.craftbukkit.e
 /** JVM abstract net.minecraft.world.entity.AgeableMob. */
 export interface AgeableMobMembers {
   readonly __javaSupertypes?: readonly [PathfinderMob];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  age: number;
-  ageBoundaryReached(): void;
   ageLocked: boolean;
   ageUp(arg0: number): void;
   ageUp(arg0: number, arg1: boolean): void;
   aiStep(): void;
   canBreed(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: EntitySpawnReason, arg3: SpawnGroupData | null): SpawnGroupData | null;
-  forcedAge: number;
-  forcedAgeTimer: number;
+  finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: EntitySpawnReason, arg3: SpawnGroupData | null): SpawnGroupData;
   getAge(): number;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: AgeableMob): AgeableMob | null;
   getForcedAge(): number;
@@ -104,16 +97,12 @@ export interface AgeableMobMembers {
   inactiveTick(): void;
   isBaby(): boolean;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setAge(arg0: number): void;
   setBaby(arg0: boolean): void;
 }
 export type AgeableMob = AgeableMobMembers & PathfinderMob;
 export interface AgeableMobStatics {
-  new(arg0: EntityType<AgeableMob>, arg1: j_net_minecraft_world_level.Level): AgeableMob;
   readonly BABY_START_AGE: -24000;
-  readonly DEFAULT_AGE: 0;
-  readonly DEFAULT_FORCED_AGE: 0;
   getSpeedUpSecondsWhenFeeding(arg0: number): number;
 }
 
@@ -152,17 +141,12 @@ export interface AnimationStateStatics {
 /** JVM class net.minecraft.world.entity.AreaEffectCloud. */
 export interface AreaEffectCloudMembers {
   readonly __javaSupertypes?: readonly [Entity, TraceableEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   durationOnUse: number;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getDimensions(arg0: Pose): EntityDimensions;
   getDuration(): number;
   getDurationOnUse(): number;
-  getOwner(): Entity | null;
   getOwner(): LivingEntity | null;
   getParticle(): j_net_minecraft_core_particles.ParticleOptions;
   getPistonPushReaction(): j_net_minecraft_world_level_material.PushReaction;
@@ -178,20 +162,18 @@ export interface AreaEffectCloudMembers {
   potionContents: j_net_minecraft_world_item_alchemy.PotionContents;
   radiusOnUse: number;
   radiusPerTick: number;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   reapplicationDelay: number;
   refreshDimensions(): void;
-  setCustomParticle(arg0: j_net_minecraft_core_particles.ParticleOptions | null): void | null;
+  setCustomParticle(arg0: j_net_minecraft_core_particles.ParticleOptions | null): void;
   setDuration(arg0: number): void;
   setDurationOnUse(arg0: number): void;
-  setOwner(arg0: LivingEntity | null): void | null;
+  setOwner(arg0: LivingEntity | null): void;
   setPotionContents(arg0: j_net_minecraft_world_item_alchemy.PotionContents): void;
   setPotionDurationScale(arg0: number): void;
   setRadius(arg0: number): void;
   setRadiusOnUse(arg0: number): void;
   setRadiusPerTick(arg0: number): void;
   setWaitTime(arg0: number): void;
-  setWaiting(arg0: boolean): void;
   tick(): void;
   waitTime: number;
 }
@@ -286,10 +268,8 @@ export interface Crackiness_LevelStatics {
 /** JVM abstract net.minecraft.world.entity.Display. */
 export interface DisplayMembers {
   readonly __javaSupertypes?: readonly [Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   affectedByCulling(): boolean;
   calculateInterpolationProgress(arg0: number): number;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getBillboardConstraints(): Display_BillboardConstraints;
   getBoundingBoxForCulling(): j_net_minecraft_world_phys.AABB;
   getBrightnessOverride(): j_net_minecraft_util.Brightness | null;
@@ -307,10 +287,9 @@ export interface DisplayMembers {
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isIgnoringBlockTriggers(): boolean;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   renderState(): Display_RenderState | null;
   setBillboardConstraints(arg0: Display_BillboardConstraints): void;
-  setBrightnessOverride(arg0: j_net_minecraft_util.Brightness | null): void | null;
+  setBrightnessOverride(arg0: j_net_minecraft_util.Brightness | null): void;
   setGlowColorOverride(arg0: number): void;
   setHeight(arg0: number): void;
   setPos(arg0: number, arg1: number, arg2: number): void;
@@ -323,12 +302,9 @@ export interface DisplayMembers {
   setWidth(arg0: number): void;
   shouldRenderAtSqrDistance(arg0: number): boolean;
   tick(): void;
-  updateRenderState: boolean;
-  updateRenderSubState(arg0: boolean, arg1: number): void;
 }
 export type Display = DisplayMembers & Entity;
 export interface DisplayStatics {
-  new(arg0: EntityType<object>, arg1: j_net_minecraft_world_level.Level): Display;
   readonly DATA_POS_ROT_INTERPOLATION_DURATION_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   readonly NO_BRIGHTNESS_OVERRIDE: -1;
   readonly TAG_BILLBOARD: "billboard";
@@ -365,14 +341,10 @@ export interface Display_BillboardConstraintsStatics {
 /** JVM class net.minecraft.world.entity.Display$BlockDisplay. */
 export interface Display_BlockDisplayMembers {
   readonly __javaSupertypes?: readonly [Display];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   blockRenderState(): Display_BlockDisplay_BlockRenderState | null;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getBlockState(): j_net_minecraft_world_level_block_state.BlockState;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setBlockState(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
-  updateRenderSubState(arg0: boolean, arg1: number): void;
 }
 export type Display_BlockDisplay = Display_BlockDisplayMembers & Display;
 export interface Display_BlockDisplayStatics {
@@ -423,17 +395,13 @@ export interface Display_IntInterpolatorStatics {
 /** JVM class net.minecraft.world.entity.Display$ItemDisplay. */
 export interface Display_ItemDisplayMembers {
   readonly __javaSupertypes?: readonly [Display];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getItemStack(): j_net_minecraft_world_item.ItemStack;
   getItemTransform(): j_net_minecraft_world_item.ItemDisplayContext;
   getSlot(arg0: number): SlotAccess;
   itemRenderState(): Display_ItemDisplay_ItemRenderState | null;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setItemStack(arg0: j_net_minecraft_world_item.ItemStack): void;
   setItemTransform(arg0: j_net_minecraft_world_item.ItemDisplayContext): void;
-  updateRenderSubState(arg0: boolean, arg1: number): void;
 }
 export type Display_ItemDisplay = Display_ItemDisplayMembers & Display;
 export interface Display_ItemDisplayStatics {
@@ -475,21 +443,17 @@ export interface Display_RenderStateStatics {
 /** JVM class net.minecraft.world.entity.Display$TextDisplay. */
 export interface Display_TextDisplayMembers {
   readonly __javaSupertypes?: readonly [Display];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   cacheDisplay(arg0: Display_TextDisplay_LineSplitter): Display_TextDisplay_CachedInfo;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getBackgroundColor(): number;
   getFlags(): number;
   getLineWidth(): number;
   getText(): j_net_minecraft_network_chat.Component;
   getTextOpacity(): number;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setFlags(arg0: number): void;
   setText(arg0: j_net_minecraft_network_chat.Component): void;
   setTextOpacity(arg0: number): void;
   textRenderState(): Display_TextDisplay_TextRenderState | null;
-  updateRenderSubState(arg0: boolean, arg1: number): void;
 }
 export type Display_TextDisplay = Display_TextDisplayMembers & Display;
 export interface Display_TextDisplayStatics {
@@ -616,37 +580,25 @@ export interface EntityMembers {
   activatedImmunityTick: bigint;
   activatedTick: bigint;
   readonly activationType: JavaOpaque<"io.papermc.paper.entity.activation.ActivationType">;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: boolean): void;
   addDeltaMovement(arg0: j_net_minecraft_world_phys.Vec3): void;
-  addPassenger(arg0: Entity): void;
   addTag(arg0: string): boolean;
   adjustSpawnLocation(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
   animateHurt(arg0: number): void;
   applyComponentsFromItemStack(arg0: j_net_minecraft_world_item.ItemStack): void;
-  applyEffectsFromBlocks(): void;
   applyEffectsFromBlocks(arg0: j_net_minecraft_world_phys.Vec3, arg1: j_net_minecraft_world_phys.Vec3): void;
-  applyGravity(): void;
-  applyImplicitComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): boolean;
-  applyImplicitComponentIfPresent<T>(arg0: j_net_minecraft_core_component.DataComponentGetter, arg1: j_net_minecraft_core_component.DataComponentType<T>): boolean;
-  applyImplicitComponents(arg0: j_net_minecraft_core_component.DataComponentGetter): void;
   awardKillScore(arg0: Entity, arg1: j_net_minecraft_world_damagesource.DamageSource): void;
   baseTick(): void;
   blockPosition(): j_net_minecraft_core.BlockPos;
   blocksBuilding: boolean;
-  boardingCooldown: number;
   broadcastToPlayer(arg0: j_net_minecraft_server_level.ServerPlayer): boolean;
-  calculateUpVector(arg0: number, arg1: number): j_net_minecraft_world_phys.Vec3;
   calculateViewVector(arg0: number, arg1: number): j_net_minecraft_world_phys.Vec3;
   callPortalEvent(arg0: Entity, arg1: JavaOpaque<"org.bukkit.Location">, arg2: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">, arg3: number, arg4: number): j_org_bukkit_craftbukkit_event.CraftPortalEvent | null;
-  canAddPassenger(arg0: Entity): boolean;
-  canBeCollidedWith(arg0: Entity | null): boolean | null;
+  canBeCollidedWith(arg0: Entity | null): boolean;
   canBeHitByProjectile(): boolean;
   canCollideWith(arg0: Entity): boolean;
   canCollideWithBukkit(arg0: Entity): boolean;
   canControlVehicle(): boolean;
   canFreeze(): boolean;
-  canRide(arg0: Entity): boolean;
   canSimulateMovement(): boolean;
   canSpawnSprintParticle(): boolean;
   canSprint(): boolean;
@@ -655,31 +607,24 @@ export interface EntityMembers {
   causeFallDamage(arg0: number, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): boolean;
   checkBelowWorld(): void;
   checkDespawn(): void;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
   checkFallDistanceAccumulation(): void;
-  checkSupportingBlock(arg0: boolean, arg1: j_net_minecraft_world_phys.Vec3 | null): void | null;
   chunkPosition(): j_net_minecraft_world_level.ChunkPos;
   clearFire(): void;
   clearFreeze(): void;
-  clearMovementThisTick(): void;
   closerThan(arg0: Entity, arg1: number): boolean;
   closerThan(arg0: Entity, arg1: number, arg2: number): boolean;
   collidedWithFluid(arg0: j_net_minecraft_world_level_material.FluidState, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_phys.Vec3, arg3: j_net_minecraft_world_phys.Vec3): boolean;
   collidedWithShapeMovingFrom(arg0: j_net_minecraft_world_phys.Vec3, arg1: j_net_minecraft_world_phys.Vec3, arg2: JavaList<j_net_minecraft_world_phys.AABB>): boolean;
   collisionLoadChunks: boolean;
-  considersEntityAsAlly(arg0: Entity): boolean;
   copyPosition(arg0: Entity): void;
-  couldAcceptPassenger(): boolean;
   countPlayerPassengers(): number;
   createCommandSourceStackForNameResolution(arg0: j_net_minecraft_server_level.ServerLevel): j_net_minecraft_commands.CommandSourceStack;
-  createHoverEvent(): j_net_minecraft_network_chat.HoverEvent;
   damageSources(): j_net_minecraft_world_damagesource.DamageSources;
   dampensVibrations(): boolean;
   readonly defaultActivationState: boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   deflection(arg0: j_net_minecraft_world_entity_projectile.Projectile): j_net_minecraft_world_entity_projectile.ProjectileDeflection;
   discard(): void;
-  discard(arg0: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  discard(arg0: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   dismountTo(arg0: number, arg1: number, arg2: number): void;
   dismountsUnderwater(): boolean;
   displayFireAnimation(): boolean;
@@ -688,20 +633,15 @@ export interface EntityMembers {
   distanceToSqr(arg0: Entity): number;
   distanceToSqr(arg0: j_net_minecraft_world_phys.Vec3): number;
   doCheckFallDamage(arg0: number, arg1: number, arg2: number, arg3: boolean): void;
-  doWaterSplashEffect(): void;
-  dropAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null): boolean | null;
-  dropAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world.InteractionHand | null): boolean | null;
+  dropAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null): boolean;
+  dropAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world.InteractionHand | null): boolean;
   ejectPassengers(): void;
-  readonly entityData: j_net_minecraft_network_syncher.SynchedEntityData;
   equals(arg0: object): boolean;
   extinguishFire(): void;
   fallDistance: number;
   fillCrashReportCategory(arg0: j_net_minecraft.CrashReportCategory): void;
   fireImmune(): boolean;
-  firstTick: boolean;
   fixedPose: boolean;
-  fixupDimensions(): void;
-  fluidHeight: JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2DoubleMap", [j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>]>;
   flyDist: number;
   forceDrops: boolean;
   forceSetRotation(arg0: number, arg1: number): void;
@@ -709,7 +649,7 @@ export interface EntityMembers {
   fromNetherPortal: boolean;
   fudgePositionAfterSizeChange(arg0: EntityDimensions): boolean;
   gameEvent(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>): void;
-  gameEvent(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg1: Entity | null): void | null;
+  gameEvent(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_level_gameevent.GameEvent>, arg1: Entity | null): void;
   generation: boolean;
   get<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>): T | null;
   getAddEntityPacket(arg0: j_net_minecraft_server_level.ServerEntity): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>;
@@ -718,11 +658,8 @@ export interface EntityMembers {
   getBbHeight(): number;
   getBbWidth(): number;
   getBlockExplosionResistance(arg0: j_net_minecraft_world_level.Explosion, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.FluidState, arg5: number): number;
-  getBlockJumpFactor(): number;
   getBlockPosBelowThatAffectsMyMovement(): j_net_minecraft_core.BlockPos;
-  getBlockSpeedFactor(): number;
   getBlockStateOn(): j_net_minecraft_world_level_block_state.BlockState;
-  getBlockStateOnLegacy(): j_net_minecraft_world_level_block_state.BlockState;
   getBlockX(): number;
   getBlockY(): number;
   getBlockZ(): number;
@@ -734,7 +671,6 @@ export interface EntityMembers {
   getControlledVehicle(): Entity | null;
   getControllingPassenger(): LivingEntity | null;
   getCustomName(): j_net_minecraft_network_chat.Component | null;
-  getDefaultGravity(): number;
   getDefaultMaxAirSupply(): number;
   getDeltaMovement(): j_net_minecraft_world_phys.Vec3;
   getDimensionChangingDelay(): number;
@@ -769,13 +705,10 @@ export interface EntityMembers {
   getMaxAirSupply(): number;
   getMaxFallDistance(): number;
   getMotionDirection(): j_net_minecraft_core.Direction;
-  getMovementEmission(): Entity_MovementEmission;
   getName(): j_net_minecraft_network_chat.Component;
   getNearestViewDirection(): j_net_minecraft_core.Direction;
   getOnPos(): j_net_minecraft_core.BlockPos;
-  getOnPos(arg0: number): j_net_minecraft_core.BlockPos;
   getOnPosLegacy(): j_net_minecraft_core.BlockPos;
-  getPassengerAttachmentPoint(arg0: Entity, arg1: EntityDimensions, arg2: number): j_net_minecraft_world_phys.Vec3;
   getPassengerRidingPosition(arg0: Entity): j_net_minecraft_world_phys.Vec3;
   getPassengers(): JavaList<Entity>;
   getPassengersAndSelf(): JavaOpaque<"java.util.stream.Stream", [Entity]>;
@@ -788,7 +721,6 @@ export interface EntityMembers {
   getPosition(arg0: number): j_net_minecraft_world_phys.Vec3;
   getPositionCodec(): j_net_minecraft_network_protocol_game.VecDeltaCodec;
   getPreciseBodyRotation(arg0: number): number;
-  getPrimaryStepSoundBlockPos(arg0: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
   getQuadLeashHolderOffsets(): Array<j_net_minecraft_world_phys.Vec3>;
   getRandom(): j_net_minecraft_util.RandomSource;
   getRandomX(arg0: number): number;
@@ -817,7 +749,6 @@ export interface EntityMembers {
   getTicksFrozen(): number;
   getTicksRequiredToFreeze(): number;
   getType(): EntityType<object>;
-  getTypeName(): j_net_minecraft_network_chat.Component;
   getUUID(): JavaOpaque<"java.util.UUID">;
   getUpVector(arg0: number): j_net_minecraft_world_phys.Vec3;
   getVehicle(): Entity | null;
@@ -840,7 +771,6 @@ export interface EntityMembers {
   getZ(arg0: number): number;
   handleDamageEvent(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   handleEntityEvent(arg0: number): void;
-  handlePortal(): void;
   hasControllingPassenger(): boolean;
   hasCustomName(): boolean;
   hasExactlyOnePlayerPassenger(): boolean;
@@ -869,8 +799,8 @@ export interface EntityMembers {
   is(arg0: Entity): boolean;
   isAffectedByBlocks(): boolean;
   isAlive(): boolean;
-  isAlliedTo(arg0: Entity | null): boolean | null;
-  isAlliedTo(arg0: j_net_minecraft_world_scores.Team | null): boolean | null;
+  isAlliedTo(arg0: Entity | null): boolean;
+  isAlliedTo(arg0: j_net_minecraft_world_scores.Team | null): boolean;
   isAlwaysTicking(): boolean;
   isAttackable(): boolean;
   isClientAuthoritative(): boolean;
@@ -883,12 +813,10 @@ export interface EntityMembers {
   isDiscrete(): boolean;
   isEffectiveAi(): boolean;
   isEyeInFluid(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>): boolean;
-  isFlapping(): boolean;
   isFlyingVehicle(): boolean;
   isFree(arg0: number, arg1: number, arg2: number): boolean;
   isFreezing(): boolean;
   isFullyFrozen(): boolean;
-  isHorizontalCollisionMinor(arg0: j_net_minecraft_world_phys.Vec3): boolean;
   isIgnoringBlockTriggers(): boolean;
   isInClouds(): boolean;
   isInLava(): boolean;
@@ -903,7 +831,6 @@ export interface EntityMembers {
   isInvisibleTo(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   isInvulnerable(): boolean;
   isInvulnerableToBase(arg0: j_net_minecraft_world_damagesource.DamageSource): boolean;
-  isLocalClientAuthoritative(): boolean;
   isLocalInstanceAuthoritative(): boolean;
   isNoGravity(): boolean;
   isOnFire(): boolean;
@@ -934,25 +861,19 @@ export interface EntityMembers {
   lastDamageCancelled: boolean;
   lastLavaContact: j_net_minecraft_core.BlockPos | null;
   lavaHurt(): void;
-  lavaHurt(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  lavaHurt(arg0: j_net_minecraft_core.BlockPos | null): void;
   lavaIgnite(): void;
-  lavaIgnite(arg0: j_net_minecraft_core.BlockPos | null): void | null;
+  lavaIgnite(arg0: j_net_minecraft_core.BlockPos | null): void;
   lerpHeadTo(arg0: number, arg1: number): void;
   lerpMotion(arg0: number, arg1: number, arg2: number): void;
-  lerpPositionAndRotationStep(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): void;
   level(): j_net_minecraft_world_level.Level;
-  limitPistonMovement(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
   load(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   lookAt(arg0: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor, arg1: j_net_minecraft_world_phys.Vec3): void;
   mainSupportingBlockPos: JavaOptional<j_net_minecraft_core.BlockPos>;
-  makeBoundingBox(): j_net_minecraft_world_phys.AABB;
-  makeBoundingBox(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.AABB;
   makeStuckInBlock(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_phys.Vec3): void;
-  markHurt(): void;
   maxAirTicks: number;
   maxUpStep(): number;
   mayInteract(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos): boolean;
-  maybeBackOffFromEdge(arg0: j_net_minecraft_world_phys.Vec3, arg1: MoverType): j_net_minecraft_world_phys.Vec3;
   minorHorizontalCollision: boolean;
   mirror(arg0: j_net_minecraft_world_level_block.Mirror): number;
   moonrise$getChunkData(): JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.level.chunk.ChunkData">;
@@ -975,20 +896,14 @@ export interface EntityMembers {
   moveDist: number;
   moveOrInterpolateTo(arg0: j_net_minecraft_world_phys.Vec3, arg1: number, arg2: number): void;
   moveRelative(arg0: number, arg1: j_net_minecraft_world_phys.Vec3): void;
-  moveTowardsClosestSpace(arg0: number, arg1: number, arg2: number): void;
-  nextStep(): number;
   noPhysics: boolean;
   notifyLeashHolder(arg0: Leashable): void;
   notifyLeasheeRemoved(arg0: Leashable): void;
-  numCollisions: number;
   oldPosition(): j_net_minecraft_world_phys.Vec3;
   onAboveBubbleColumn(arg0: boolean, arg1: j_net_minecraft_core.BlockPos): void;
-  onBelowWorld(): void;
   onClientRemoval(): void;
-  onExplosionHit(arg0: Entity | null): void | null;
-  onFlap(): void;
+  onExplosionHit(arg0: Entity | null): void;
   onGround: (boolean) & { (): boolean };
-  onInsideBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
   onInsideBubbleColumn(arg0: boolean): void;
   onPassengerTurned(arg0: Entity): void;
   onRemoval(arg0: Entity_RemovalReason): void;
@@ -1001,13 +916,8 @@ export interface EntityMembers {
   persistentInvisibility: boolean;
   pick(arg0: number, arg1: number, arg2: boolean): j_net_minecraft_world_phys.HitResult;
   placePortalTicket(arg0: j_net_minecraft_core.BlockPos): void;
-  playCombinationStepSounds(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  playEntityOnFireExtinguishedSound(): void;
-  playMuffledStepSound(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
   playSound(arg0: j_net_minecraft_sounds.SoundEvent): void;
   playSound(arg0: j_net_minecraft_sounds.SoundEvent, arg1: number, arg2: number): void;
-  playStepSound(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): void;
-  playSwimSound(arg0: number): void;
   playerTouch(arg0: j_net_minecraft_world_entity_player.Player): void;
   pluginRemoved: boolean;
   portalCooldown: number;
@@ -1015,36 +925,26 @@ export interface EntityMembers {
   readonly posLock: object;
   position(): j_net_minecraft_world_phys.Vec3;
   positionRider(arg0: Entity): void;
-  positionRider(arg0: Entity, arg1: Entity_MoveFunction): void;
   postTick(): void;
   preserveMotion: boolean;
   problemPath(): j_net_minecraft_util.ProblemReporter_PathElement;
-  processFlappingMovement(): void;
-  processPortalCooldown(): void;
   projectileSource: JavaOpaque<"org.bukkit.projectiles.ProjectileSource"> | null;
-  propagateFallToPassengers(arg0: number, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): void;
   push(arg0: number, arg1: number, arg2: number): void;
-  push(arg0: number, arg1: number, arg2: number, arg3: Entity | null): void | null;
+  push(arg0: number, arg1: number, arg2: number, arg3: Entity | null): void;
   push(arg0: Entity): void;
   push(arg0: j_net_minecraft_world_phys.Vec3): void;
   readonly random: j_net_minecraft_util.RandomSource;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  reapplyPosition(): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
   refreshDimensions(): void;
   refreshEntityData(arg0: j_net_minecraft_server_level.ServerPlayer): void;
   registerScheduler(): void;
   registryAccess(): j_net_minecraft_core.RegistryAccess;
   remove(arg0: Entity_RemovalReason): void;
-  remove(arg0: Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
-  removeAfterChangingDimensions(): void;
+  remove(arg0: Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   removeLatestMovementRecording(): void;
-  removePassenger(arg0: Entity): boolean;
-  removePassenger(arg0: Entity, arg1: boolean): boolean;
   removeTag(arg0: string): boolean;
   removeVehicle(): void;
   removeVehicle(arg0: boolean): void;
-  repositionEntityAfterLoad(): boolean;
   resendPossiblyDesyncedDataValues(arg0: JavaList<j_net_minecraft_network_syncher.EntityDataAccessor<object>>, arg1: j_net_minecraft_server_level.ServerPlayer): void;
   resendPossiblyDesyncedEntityData(arg0: j_net_minecraft_server_level.ServerPlayer): void;
   resetFallDistance(): void;
@@ -1061,7 +961,7 @@ export interface EntityMembers {
   setAsInsidePortal(arg0: j_net_minecraft_world_level_block.Portal, arg1: j_net_minecraft_core.BlockPos): void;
   setBoundingBox(arg0: j_net_minecraft_world_phys.AABB): void;
   setComponent<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: T): void;
-  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void | null;
+  setCustomName(arg0: j_net_minecraft_network_chat.Component | null): void;
   setCustomNameVisible(arg0: boolean): void;
   setDeltaMovement(arg0: number, arg1: number, arg2: number): void;
   setDeltaMovement(arg0: j_net_minecraft_world_phys.Vec3): void;
@@ -1073,7 +973,6 @@ export interface EntityMembers {
   setLevel(arg0: j_net_minecraft_world_level.Level): void;
   setLevelCallback(arg0: j_net_minecraft_world_level_entity.EntityInLevelCallback): void;
   setNoGravity(arg0: boolean): void;
-  setOldPos(): void;
   setOldPosAndRot(): void;
   setOldPosAndRot(arg0: j_net_minecraft_world_phys.Vec3, arg1: number, arg2: number): void;
   setOldRot(): void;
@@ -1088,7 +987,7 @@ export interface EntityMembers {
   setPosRaw(arg0: number, arg1: number, arg2: number, arg3: boolean): void;
   setPose(arg0: Pose): void;
   setRemainingFireTicks(arg0: number): void;
-  setRemoved(arg0: Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  setRemoved(arg0: Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   setRequiresPrecisePosition(arg0: boolean): void;
   setRot(arg0: number, arg1: number): void;
   setSharedFlag(arg0: number, arg1: boolean): void;
@@ -1103,11 +1002,10 @@ export interface EntityMembers {
   setYBodyRot(arg0: number): void;
   setYHeadRot(arg0: number): void;
   setYRot(arg0: number): void;
-  shearOffAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null): boolean | null;
-  shearOffAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world.InteractionHand | null): boolean | null;
+  shearOffAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null): boolean;
+  shearOffAllLeashConnections(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world.InteractionHand | null): boolean;
   shouldBeSaved(): boolean;
   shouldBlockExplode(arg0: j_net_minecraft_world_level.Explosion, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: number): boolean;
-  shouldPlayLavaHurtSound(): boolean;
   shouldRender(arg0: number, arg1: number, arg2: number): boolean;
   shouldRenderAtSqrDistance(arg0: number): boolean;
   shouldShowName(): boolean;
@@ -1126,7 +1024,6 @@ export interface EntityMembers {
   spawnAtLocation(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_level.ItemLike): j_net_minecraft_world_entity_item.ItemEntity | null;
   spawnAtLocation(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_level.ItemLike, arg2: number): j_net_minecraft_world_entity_item.ItemEntity | null;
   spawnReason: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null;
-  spawnSprintParticle(): void;
   spawnedViaMobSpawner: boolean;
   startRiding(arg0: Entity): boolean;
   startRiding(arg0: Entity, arg1: boolean): boolean;
@@ -1134,15 +1031,12 @@ export interface EntityMembers {
   stopRiding(): void;
   stopRiding(arg0: boolean): void;
   stopSeenByPlayer(arg0: j_net_minecraft_server_level.ServerPlayer): void;
-  stringUUID: string;
-  stuckSpeedMultiplier: j_net_minecraft_world_phys.Vec3;
   supportQuadLeashAsHolder(): boolean;
   syncPacketPositionCodec(arg0: number, arg1: number, arg2: number): void;
   teleport(arg0: j_net_minecraft_world_level_portal.TeleportTransition): Entity | null;
   teleportPassengers(): void;
   teleportRelative(arg0: number, arg1: number, arg2: number): void;
   teleportSetPosition(arg0: PositionMoveRotation, arg1: JavaSet<Relative>): void;
-  teleportSpectators(arg0: j_net_minecraft_world_level_portal.TeleportTransition, arg1: j_net_minecraft_server_level.ServerLevel): void;
   teleportTo(arg0: number, arg1: number, arg2: number): void;
   teleportTo(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: number, arg3: number, arg4: JavaSet<Relative>, arg5: number, arg6: number, arg7: boolean): boolean;
   teleportTo(arg0: j_net_minecraft_server_level.ServerLevel, arg1: number, arg2: number, arg3: number, arg4: JavaSet<Relative>, arg5: number, arg6: number, arg7: boolean, arg8: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">): boolean;
@@ -1158,18 +1052,14 @@ export interface EntityMembers {
   unsetRemoved(): void;
   updateDynamicGameEventListener(arg0: JavaBiConsumer<j_net_minecraft_world_level_gameevent.DynamicGameEventListener<object>, j_net_minecraft_server_level.ServerLevel>): void;
   updateFluidHeightAndDoFluidPushing(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>, arg1: number): boolean;
-  updateInWaterStateAndDoFluidPushing(): boolean;
   updateSwimming(): void;
-  uuid: JavaOpaque<"java.util.UUID">;
   valid: boolean;
   verticalCollision: boolean;
   verticalCollisionBelow: boolean;
   visibleByDefault: boolean;
   visualFire: JavaOpaque<"net.kyori.adventure.util.TriState">;
-  wasEyeInWater: boolean;
   wasInPowderSnow: boolean;
   wasTouchingWater: boolean;
-  waterSwimSound(): void;
   xOld: number;
   xRotO: number;
   xo: number;
@@ -1181,23 +1071,17 @@ export interface EntityMembers {
 }
 export type Entity = EntityMembers & JavaOpaque<"ca.spottedleaf.moonrise.patches.chunk_system.entity.ChunkSystemEntity"> & JavaOpaque<"ca.spottedleaf.moonrise.patches.entity_tracker.EntityTrackerEntity"> & j_net_minecraft_core_component.DataComponentGetter & j_net_minecraft_network_syncher.SyncedDataHolder & j_net_minecraft_world.Nameable & j_net_minecraft_world_level_entity.EntityAccess & j_net_minecraft_world_scores.ScoreHolder;
 export interface EntityStatics {
-  new(arg0: EntityType<object>, arg1: j_net_minecraft_world_level.Level): Entity;
   readonly BASE_SAFE_FALL_DISTANCE: 3;
   readonly BASE_TICKS_REQUIRED_TO_FREEZE: 140;
   readonly BOARDING_COOLDOWN: 60;
   readonly CONTENTS_SLOT_INDEX: 0;
-  readonly DATA_POSE: j_net_minecraft_network_syncher.EntityDataAccessor<Pose>;
-  readonly DATA_SHARED_FLAGS_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   readonly DATA_TICKS_FROZEN: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   readonly DEFAULT_BB_HEIGHT: 1.8;
   readonly DEFAULT_BB_WIDTH: 0.6;
   readonly DELTA_AFFECTED_BY_BLOCKS_BELOW_0_2: 0.2;
   readonly DELTA_AFFECTED_BY_BLOCKS_BELOW_0_5: 0.500001;
   readonly DELTA_AFFECTED_BY_BLOCKS_BELOW_1_0: 0.999999;
-  readonly FLAG_FALL_FLYING: 7;
-  readonly FLAG_GLOWING: 6;
   readonly FLAG_INVISIBLE: 5;
-  readonly FLAG_ONFIRE: 0;
   readonly FREEZE_HURT_FREQUENCY: 40;
   readonly MAX_ENTITY_TAG_COUNT: 1024;
   readonly MAX_MOVEMENTS_HANDELED_PER_TICK: 100;
@@ -1219,17 +1103,10 @@ export interface EntityStatics {
   readonly TAG_SILENT: "Silent";
   readonly TAG_UUID: "UUID";
   readonly TOTAL_AIR_SUPPLY: 300;
-  castComponentValue<T>(arg0: j_net_minecraft_core_component.DataComponentType<T>, arg1: object | null): T | null;
   checkPosition(arg0: Entity, arg1: number, arg2: number, arg3: number): boolean;
-  collideBoundingBox(arg0: Entity | null, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.AABB, arg3: j_net_minecraft_world_level.Level, arg4: JavaList<j_net_minecraft_world_phys_shapes.VoxelShape>): j_net_minecraft_world_phys.Vec3 | null;
-  getCollisionHorizontalEscapeVector(arg0: number, arg1: number, arg2: number): j_net_minecraft_world_phys.Vec3;
-  getDefaultPassengerAttachmentPoint(arg0: Entity, arg1: Entity, arg2: EntityAttachments): j_net_minecraft_world_phys.Vec3;
-  getInputVector(arg0: j_net_minecraft_world_phys.Vec3, arg1: number, arg2: number): j_net_minecraft_world_phys.Vec3;
+  collideBoundingBox(arg0: Entity | null, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.AABB, arg3: j_net_minecraft_world_level.Level, arg4: JavaList<j_net_minecraft_world_phys_shapes.VoxelShape>): j_net_minecraft_world_phys.Vec3;
   getViewScale(): number;
-  handleOnAboveBubbleColumn(arg0: Entity, arg1: boolean, arg2: j_net_minecraft_core.BlockPos): void;
-  handleOnInsideBubbleColumn(arg0: Entity, arg1: boolean): void;
   nextEntityId(): number;
-  sendBubbleColumnParticles(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): void;
   setViewScale(arg0: number): void;
 }
 
@@ -1467,7 +1344,7 @@ export interface EntityReferenceStatics {
   get<StoredEntityType /* extends j_net_minecraft_world_level_entity.UniquelyIdentifyable */>(arg0: EntityReference<StoredEntityType> | null, arg1: j_net_minecraft_world_level_entity.UUIDLookup<StoredEntityType>, arg2: JavaClass<StoredEntityType>): StoredEntityType | null;
   read<StoredEntityType /* extends j_net_minecraft_world_level_entity.UniquelyIdentifyable */>(arg0: j_net_minecraft_world_level_storage.ValueInput, arg1: string): EntityReference<StoredEntityType> | null;
   readWithOldOwnerConversion<StoredEntityType /* extends j_net_minecraft_world_level_entity.UniquelyIdentifyable */>(arg0: j_net_minecraft_world_level_storage.ValueInput, arg1: string, arg2: j_net_minecraft_world_level.Level): EntityReference<StoredEntityType> | null;
-  store(arg0: EntityReference<object> | null, arg1: j_net_minecraft_world_level_storage.ValueOutput, arg2: string): void | null;
+  store(arg0: EntityReference<object> | null, arg1: j_net_minecraft_world_level_storage.ValueOutput, arg2: string): void;
   streamCodec<Type /* extends j_net_minecraft_world_level_entity.UniquelyIdentifyable */>(): j_net_minecraft_network_codec.StreamCodec<JavaOpaque<"io.netty.buffer.ByteBuf">, EntityReference<Type>>;
 }
 
@@ -1556,7 +1433,6 @@ export interface EntityTypeMembers<T /* extends Entity */ = unknown> {
   toShortString(): string;
   toString(): string;
   trackDeltas(): boolean;
-  tryCast(arg0: object): object | null;
   tryCast(arg0: Entity): T | null;
   updateInterval(): number;
 }
@@ -1716,19 +1592,18 @@ export interface EntityTypeStatics {
   readonly ZOMBIE_VILLAGER: EntityType<j_net_minecraft_world_entity_monster.ZombieVillager>;
   readonly ZOMBIFIED_PIGLIN: EntityType<j_net_minecraft_world_entity_monster.ZombifiedPiglin>;
   appendComponentsConfig<T /* extends Entity */>(arg0: JavaConsumer<T>, arg1: j_net_minecraft_world_item.ItemStack): JavaConsumer<T>;
-  appendCustomEntityStackConfig<T /* extends Entity */>(arg0: JavaConsumer<T>, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_item.ItemStack, arg3: LivingEntity | null): JavaConsumer<T> | null;
-  appendDefaultStackConfig<T /* extends Entity */>(arg0: JavaConsumer<T>, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_item.ItemStack, arg3: LivingEntity | null): JavaConsumer<T> | null;
+  appendCustomEntityStackConfig<T /* extends Entity */>(arg0: JavaConsumer<T>, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_item.ItemStack, arg3: LivingEntity | null): JavaConsumer<T>;
+  appendDefaultStackConfig<T /* extends Entity */>(arg0: JavaConsumer<T>, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_item.ItemStack, arg3: LivingEntity | null): JavaConsumer<T>;
   by(arg0: j_net_minecraft_world_level_storage.ValueInput): JavaOptional<EntityType<object>>;
   byString(arg0: string): JavaOptional<EntityType<object>>;
   create(arg0: j_net_minecraft_world_level_storage.ValueInput, arg1: j_net_minecraft_world_level.Level, arg2: EntitySpawnReason): JavaOptional<Entity>;
   create(arg0: j_net_minecraft_world_level_storage.ValueInput, arg1: j_net_minecraft_world_level.Level, arg2: EntitySpawnReason, arg3: boolean): JavaOptional<Entity>;
-  createDefaultStackConfig<T /* extends Entity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_item.ItemStack, arg2: LivingEntity | null): JavaConsumer<T> | null;
+  createDefaultStackConfig<T /* extends Entity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_item.ItemStack, arg2: LivingEntity | null): JavaConsumer<T>;
   getKey(arg0: EntityType<object>): j_net_minecraft_resources.ResourceLocation;
-  getYOffset(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: j_net_minecraft_world_phys.AABB): number;
   loadEntitiesRecursive(arg0: j_net_minecraft_world_level_storage.ValueInput_ValueInputList, arg1: j_net_minecraft_world_level.Level, arg2: EntitySpawnReason): JavaOpaque<"java.util.stream.Stream", [Entity]>;
   loadEntityRecursive(arg0: j_net_minecraft_nbt.CompoundTag, arg1: j_net_minecraft_world_level.Level, arg2: EntitySpawnReason, arg3: JavaFunction<Entity, Entity>): Entity | null;
   loadEntityRecursive(arg0: j_net_minecraft_world_level_storage.ValueInput, arg1: j_net_minecraft_world_level.Level, arg2: EntitySpawnReason, arg3: JavaFunction<Entity, Entity>): Entity | null;
-  updateCustomEntityTag(arg0: j_net_minecraft_world_level.Level, arg1: LivingEntity | null, arg2: Entity | null, arg3: j_net_minecraft_world_item_component.CustomData): void | null;
+  updateCustomEntityTag(arg0: j_net_minecraft_world_level.Level, arg1: LivingEntity | null, arg2: Entity | null, arg3: j_net_minecraft_world_item_component.CustomData): void;
 }
 
 /** JVM class net.minecraft.world.entity.EntityType$Builder. */
@@ -1876,28 +1751,21 @@ export interface EquipmentUserStatics {
 /** JVM class net.minecraft.world.entity.ExperienceOrb. */
 export interface ExperienceOrbMembers {
   readonly __javaSupertypes?: readonly [Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   count: number;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
-  doWaterSplashEffect(): void;
   getBlockPosBelowThatAffectsMyMovement(): j_net_minecraft_core.BlockPos;
-  getDefaultGravity(): number;
   getIcon(): number;
   getInterpolation(): InterpolationHandler;
-  getMovementEmission(): Entity_MovementEmission;
   getSoundSource(): j_net_minecraft_sounds.SoundSource;
   getValue(): number;
   hurtClient(arg0: j_net_minecraft_world_damagesource.DamageSource): boolean;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isAttackable(): boolean;
   playerTouch(arg0: j_net_minecraft_world_entity_player.Player): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setValue(arg0: number): void;
   sourceEntityId: JavaOpaque<"java.util.UUID"> | null;
   spawnReason: JavaOpaque<"org.bukkit.entity.ExperienceOrb$SpawnReason">;
   tick(): void;
   triggerEntityId: JavaOpaque<"java.util.UUID"> | null;
-  unstuckIfPossible(arg0: number): void;
 }
 export type ExperienceOrb = ExperienceOrbMembers & Entity;
 export interface ExperienceOrbStatics {
@@ -1906,28 +1774,22 @@ export interface ExperienceOrbStatics {
   new(arg0: j_net_minecraft_world_level.Level, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JavaOpaque<"org.bukkit.entity.ExperienceOrb$SpawnReason"> | null, arg6: Entity | null, arg7: Entity | null): ExperienceOrb;
   new(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: number): ExperienceOrb;
   new(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: JavaOpaque<"org.bukkit.entity.ExperienceOrb$SpawnReason"> | null, arg5: Entity | null, arg6: Entity | null): ExperienceOrb;
-  readonly DATA_VALUE: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   award(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: number): void;
   awardWithDirection(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: number): void;
-  awardWithDirection(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: JavaOpaque<"org.bukkit.entity.ExperienceOrb$SpawnReason"> | null, arg5: Entity | null, arg6: Entity | null): void | null;
+  awardWithDirection(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_phys.Vec3, arg2: j_net_minecraft_world_phys.Vec3, arg3: number, arg4: JavaOpaque<"org.bukkit.entity.ExperienceOrb$SpawnReason"> | null, arg5: Entity | null, arg6: Entity | null): void;
   getExperienceValue(arg0: number): number;
 }
 
 /** JVM class net.minecraft.world.entity.GlowSquid. */
 export interface GlowSquidMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Squid];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent;
   getBreedOffspring(arg0: j_net_minecraft_server_level.ServerLevel, arg1: AgeableMob): AgeableMob | null;
   getDarkTicksRemaining(): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent;
-  getInkParticle(): j_net_minecraft_core_particles.ParticleOptions;
-  getSquirtSound(): j_net_minecraft_sounds.SoundEvent;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setDarkTicks(arg0: number): void;
 }
 export type GlowSquid = GlowSquidMembers & j_net_minecraft_world_entity_animal.Squid;
@@ -2012,10 +1874,8 @@ export interface InsideBlockEffectType_ApplierStatics {
 /** JVM class net.minecraft.world.entity.Interaction. */
 export interface InteractionMembers {
   readonly __javaSupertypes?: readonly [Entity, Attackable, Targeting];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   attack: Interaction_PlayerAction | null;
   canBeHitByProjectile(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getDimensions(arg0: Pose): EntityDimensions;
   getHeight(): number;
   getLastAttacker(): LivingEntity | null;
@@ -2028,9 +1888,7 @@ export interface InteractionMembers {
   interaction: Interaction_PlayerAction | null;
   isIgnoringBlockTriggers(): boolean;
   isPickable(): boolean;
-  makeBoundingBox(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.AABB;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setHeight(arg0: number): void;
   setResponse(arg0: boolean): void;
   setWidth(arg0: number): void;
@@ -2125,11 +1983,11 @@ export interface LeashableMembers {
   readLeashData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   removeLeash(): void;
   setDelayedLeashHolderId(arg0: number): void;
-  setLeashData(arg0: Leashable_LeashData | null): void | null;
+  setLeashData(arg0: Leashable_LeashData | null): void;
   setLeashedTo(arg0: Entity, arg1: boolean): void;
   supportQuadLeash(): boolean;
   whenLeashedTo(arg0: Entity): void;
-  writeLeashData(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: Leashable_LeashData | null): void | null;
+  writeLeashData(arg0: j_net_minecraft_world_level_storage.ValueOutput, arg1: Leashable_LeashData | null): void;
 }
 export type Leashable = LeashableMembers;
 export interface LeashableStatics {
@@ -2182,8 +2040,6 @@ export interface Leashable_WrenchStatics {
 /** JVM class net.minecraft.world.entity.LightningBolt. */
 export interface LightningBoltMembers {
   readonly __javaSupertypes?: readonly [Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   flashes: number;
   getBlocksSetOnFire(): number;
   getCause(): j_net_minecraft_server_level.ServerPlayer | null;
@@ -2192,9 +2048,8 @@ export interface LightningBoltMembers {
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isEffect: boolean;
   life: number;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   seed: bigint;
-  setCause(arg0: j_net_minecraft_server_level.ServerPlayer | null): void | null;
+  setCause(arg0: j_net_minecraft_server_level.ServerPlayer | null): void;
   setVisualOnly(arg0: boolean): void;
   shouldRenderAtSqrDistance(arg0: number): boolean;
   tick(): void;
@@ -2210,33 +2065,21 @@ export interface LivingEntityMembers {
   readonly __javaSupertypes?: readonly [Entity, Attackable, j_net_minecraft_world_waypoints.WaypointTransmitter];
   readonly activeEffects: JavaMap<j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, j_net_minecraft_world_effect.MobEffectInstance>;
   activeLocationDependentEnchantments(arg0: EquipmentSlot): JavaMap<j_net_minecraft_world_item_enchantment.Enchantment, JavaSet<j_net_minecraft_world_item_enchantment_effects.EnchantmentLocationBasedEffect>>;
-  actuallyHurt(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number, arg3: JavaOpaque<"org.bukkit.event.entity.EntityDamageEvent">): boolean;
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance): boolean;
-  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null): boolean | null;
-  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null, arg2: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): boolean | null;
-  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null, arg2: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">, arg3: boolean): boolean | null;
+  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null): boolean;
+  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null, arg2: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): boolean;
+  addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null, arg2: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">, arg3: boolean): boolean;
   addEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): boolean;
   aiStep(): void;
   animateHurt(arg0: number): void;
-  applyInput(): void;
   applyItemBlocking(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): number;
   applyItemBlocking(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number, arg3: boolean): number;
   attackAnim: number;
-  attackStrengthTicker: number;
   attackable(): boolean;
-  autoSpinAttackDmg: number;
-  autoSpinAttackItemStack: j_net_minecraft_world_item.ItemStack | null;
-  autoSpinAttackTicks: number;
   baseTick(): void;
-  blockUsingItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: LivingEntity): void;
-  blockedByItem(arg0: LivingEntity): void;
   blockingItemEffects(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): void;
-  brain: j_net_minecraft_world_entity_ai.Brain<object>;
-  brainProvider(): j_net_minecraft_world_entity_ai.Brain_Provider<object>;
   bukkitPickUpLoot: boolean;
   calculateEntityAnimation(arg0: boolean): void;
-  calculateFallDamage(arg0: number, arg1: number): number;
   canAttack(arg0: LivingEntity): boolean;
   canAttackType(arg0: EntityType<object>): boolean;
   canBeAffected(arg0: j_net_minecraft_world_effect.MobEffectInstance): boolean;
@@ -2245,57 +2088,32 @@ export interface LivingEntityMembers {
   canBlockAttack(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): boolean;
   canBreatheUnderwater(): boolean;
   canCollideWithBukkit(arg0: Entity): boolean;
-  canDispenserEquipIntoSlot(arg0: EquipmentSlot): boolean;
   canEquipWithDispenser(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   canFreeze(): boolean;
-  canGlide(): boolean;
   canPickUpLoot(): boolean;
   canStandOnFluid(arg0: j_net_minecraft_world_level_material.FluidState): boolean;
   canUsePortal(arg0: boolean): boolean;
   canUseSlot(arg0: EquipmentSlot): boolean;
   causeFallDamage(arg0: number, arg1: number, arg2: j_net_minecraft_world_damagesource.DamageSource): boolean;
-  checkAutoSpinAttack(arg0: j_net_minecraft_world_phys.AABB, arg1: j_net_minecraft_world_phys.AABB): void;
-  checkFallDamage(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  clearEquipmentSlots: boolean;
   clearSleepingPos(): void;
-  clearedEquipmentSlots: JavaSet<EquipmentSlot>;
   collidableExemptions: JavaSet<JavaOpaque<"java.util.UUID">>;
   collides: boolean;
   combatTracker: j_net_minecraft_world_damagesource.CombatTracker;
   completeUsingItem(): void;
   readonly craftAttributes: j_org_bukkit_craftbukkit_attribute.CraftAttributeMap;
-  createEquipment(): EntityEquipment;
-  createWitherRose(arg0: LivingEntity | null): void | null;
-  dead: boolean;
   deathTime: number;
-  decreaseAirSupply(arg0: number): number;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   detectEquipmentUpdates(): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
-  doAutoAttackOnTouch(arg0: LivingEntity): void;
-  doHurtEquipment(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number, ...arg2: Array<EquipmentSlot>): void;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity): boolean;
-  doPush(arg0: Entity): void;
-  doesEmitEquipEvent(arg0: EquipmentSlot): boolean;
   drop(arg0: j_net_minecraft_world_item.ItemStack, arg1: boolean, arg2: boolean): j_net_minecraft_world_entity_item.ItemEntity | null;
   drop(arg0: j_net_minecraft_world_item.ItemStack, arg1: boolean, arg2: boolean, arg3: boolean, arg4: JavaConsumer<JavaOpaque<"org.bukkit.entity.Item">> | null): j_net_minecraft_world_entity_item.ItemEntity | null;
-  dropAllDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): JavaOpaque<"org.bukkit.event.entity.EntityDeathEvent">;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
-  dropEquipment(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  dropExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity | null): void | null;
   dropFromGiftLootTable(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg2: JavaBiConsumer<j_net_minecraft_server_level.ServerLevel, j_net_minecraft_world_item.ItemStack>): boolean;
-  dropFromLootTable(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg2: JavaFunction<j_net_minecraft_world_level_storage_loot.LootParams_Builder, j_net_minecraft_world_level_storage_loot.LootParams>, arg3: JavaBiConsumer<j_net_minecraft_server_level.ServerLevel, j_net_minecraft_world_item.ItemStack>): boolean;
-  dropFromLootTable(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
-  dropFromShearingLootTable(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg2: j_net_minecraft_world_item.ItemStack, arg3: JavaBiConsumer<j_net_minecraft_server_level.ServerLevel, j_net_minecraft_world_item.ItemStack>): void;
   drops: JavaList<Entity_DefaultDrop>;
-  eatStartTime: bigint;
   effectsDirty: boolean;
   readonly elytraAnimationState: ElytraAnimationState;
-  readonly equipment: EntityEquipment;
   equipmentHasChanged(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_item.ItemStack): boolean;
   expToDrop: number;
-  fallFlyTicks: number;
-  forceAddEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null): void | null;
+  forceAddEffect(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null): void;
   frictionState: JavaOpaque<"net.kyori.adventure.util.TriState">;
   getAbsorptionAmount(): number;
   getActiveEffects(): JavaCollection<j_net_minecraft_world_effect.MobEffectInstance>;
@@ -2309,35 +2127,24 @@ export interface LivingEntityMembers {
   getAttributeBaseValue(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>): number;
   getAttributeValue(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>): number;
   getAttributes(): j_net_minecraft_world_entity_ai_attributes.AttributeMap;
-  getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
   getBedOrientation(): j_net_minecraft_core.Direction | null;
-  getBlockSpeedFactor(): number;
   getBrain(): j_net_minecraft_world_entity_ai.Brain<object>;
   getBukkitLivingEntity(): j_org_bukkit_craftbukkit_entity.CraftLivingEntity;
   getBukkitYaw(): number;
   getCombatTracker(): j_net_minecraft_world_damagesource.CombatTracker;
-  getComfortableFallDistance(arg0: number): number;
-  getDamageAfterArmorAbsorb(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): number;
-  getDamageAfterMagicAbsorb(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): number;
   getDeathSound(): j_net_minecraft_sounds.SoundEvent | null;
-  getDefaultDimensions(arg0: Pose): EntityDimensions;
-  getDefaultGravity(): number;
   getDimensions(arg0: Pose): EntityDimensions;
   getDismountPoses(): JavaOpaque<"com.google.common.collect.ImmutableList", [Pose]>;
   getEffect(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>): j_net_minecraft_world_effect.MobEffectInstance | null;
   getEffectBlendFactor(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, arg1: number): number;
-  getEffectiveGravity(): number;
-  getEquipSound(arg0: EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item_equipment.Equippable): j_net_minecraft_core.Holder<j_net_minecraft_sounds.SoundEvent>;
   getEquipmentSlotForItem(arg0: j_net_minecraft_world_item.ItemStack): EquipmentSlot;
-  getExpReward(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity | null): number | null;
-  getExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity | null): number | null;
+  getExpReward(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity | null): number;
+  getExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity | null): number;
   getFallDamageSound(arg0: number): j_net_minecraft_sounds.SoundEvent;
   getFallFlyingTicks(): number;
   getFallSounds(): LivingEntity_Fallsounds;
   getFluidFallingAdjustedMovement(arg0: number, arg1: boolean, arg2: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
-  getFlyingSpeed(): number;
   getHealth(): number;
-  getHitbox(): j_net_minecraft_world_phys.AABB;
   getHurtDir(): number;
   getHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_sounds.SoundEvent | null;
   getInterpolation(): InterpolationHandler;
@@ -2346,10 +2153,7 @@ export interface LivingEntityMembers {
   getItemHeldByArm(arg0: HumanoidArm): j_net_minecraft_world_item.ItemStack;
   getItemInHand(arg0: j_net_minecraft_world.InteractionHand): j_net_minecraft_world_item.ItemStack;
   getJumpBoostPower(): number;
-  getJumpPower(): number;
-  getJumpPower(arg0: number): number;
   getKillCredit(): LivingEntity | null;
-  getKnockback(arg0: Entity, arg1: j_net_minecraft_world_damagesource.DamageSource): number;
   getLastAttacker(): LivingEntity;
   getLastClimbablePos(): JavaOptional<j_net_minecraft_core.BlockPos>;
   getLastDamageSource(): j_net_minecraft_world_damagesource.DamageSource | null;
@@ -2366,7 +2170,6 @@ export interface LivingEntityMembers {
   getMainHandItem(): j_net_minecraft_world_item.ItemStack;
   getMaxAbsorption(): number;
   getMaxFallDistance(): number;
-  getMaxHeadRotationRelativeToBody(): number;
   getMaxHealth(): number;
   getNoActionTime(): number;
   getOffhandItem(): j_net_minecraft_world_item.ItemStack;
@@ -2375,8 +2178,6 @@ export interface LivingEntityMembers {
   getProjectile(arg0: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
   getRayTrace(arg0: number, arg1: j_net_minecraft_world_level.ClipContext_Fluid): j_net_minecraft_world_phys.HitResult;
   getRelativePortalPosition(arg0: j_net_minecraft_core.Direction_Axis, arg1: j_net_minecraft.BlockUtil_FoundRectangle): j_net_minecraft_world_phys.Vec3;
-  getRiddenInput(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
-  getRiddenSpeed(arg0: j_net_minecraft_world_entity_player.Player): number;
   getScale(): number;
   getSecondsToDisableBlocking(): number;
   getSleepingPos(): JavaOptional<j_net_minecraft_core.BlockPos>;
@@ -2391,13 +2192,11 @@ export interface LivingEntityMembers {
   getUseItemRemainingTicks(): number;
   getUsedItemHand(): j_net_minecraft_world.InteractionHand;
   getViewYRot(arg0: number): number;
-  getVisibilityPercent(arg0: Entity | null): number | null;
+  getVisibilityPercent(arg0: Entity | null): number;
   getVisualRotationYInDegrees(): number;
   getVoicePitch(): number;
-  getWaterSlowDown(): number;
   getWeaponItem(): j_net_minecraft_world_item.ItemStack;
   getYHeadRot(): number;
-  goDownInWater(): void;
   handleDamageEvent(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   handleEntityEvent(arg0: number): void;
   handleExtraItemsCreatedOnUse(arg0: j_net_minecraft_world_item.ItemStack): void;
@@ -2410,22 +2209,16 @@ export interface LivingEntityMembers {
   heal(arg0: number): void;
   heal(arg0: number, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRegainHealthEvent$RegainReason">): void;
   heal(arg0: number, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRegainHealthEvent$RegainReason">, arg2: boolean): void;
-  hurtArmor(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): void;
   hurtDuration: number;
-  hurtHelmet(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): void;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   hurtTime: number;
   igniteForTicks(arg0: number): void;
   inactiveTick(): void;
-  increaseAirSupply(arg0: number): number;
   indicateDamage(arg0: number, arg1: number): void;
-  internalSetAbsorptionAmount(arg0: number): void;
-  interpolation: InterpolationHandler;
   invulnerableDuration: number;
   isAffectedByFluids(): boolean;
   isAffectedByPotions(): boolean;
   isAlive(): boolean;
-  isAlwaysExperienceDropper(): boolean;
   isAutoSpinAttack(): boolean;
   isBaby(): boolean;
   isBlocking(): boolean;
@@ -2436,7 +2229,6 @@ export interface LivingEntityMembers {
   isFallFlying(): boolean;
   isHolding(arg0: JavaPredicate<j_net_minecraft_world_item.ItemStack>): boolean;
   isHolding(arg0: j_net_minecraft_world_item.Item): boolean;
-  isImmobile(): boolean;
   isInWall(): boolean;
   isInvertedHealAndHarm(): boolean;
   isInvulnerableTo(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource): boolean;
@@ -2451,36 +2243,23 @@ export interface LivingEntityMembers {
   isUsingItem(): boolean;
   isVisuallySwimming(): boolean;
   jumpFromGround(): void;
-  jumpInLiquid(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>): void;
   jumping: boolean;
   kill(arg0: j_net_minecraft_server_level.ServerLevel): void;
   knockback(arg0: number, arg1: number, arg2: number): void;
-  knockback(arg0: number, arg1: number, arg2: number, arg3: Entity | null, arg4: JavaOpaque<"io.papermc.paper.event.entity.EntityKnockbackEvent$Cause">): void | null;
+  knockback(arg0: number, arg1: number, arg2: number, arg3: Entity | null, arg4: JavaOpaque<"io.papermc.paper.event.entity.EntityKnockbackEvent$Cause">): void;
   lastHurt: number;
   lastHurtByMob: EntityReference<LivingEntity> | null;
   lastHurtByMobTimestamp: number;
   lastHurtByPlayer: EntityReference<j_net_minecraft_world_entity_player.Player> | null;
   lastHurtByPlayerMemoryTime: number;
-  lastJumpTime: bigint;
-  lerpHeadRotationStep(arg0: number, arg1: number): void;
-  lerpHeadSteps: number;
   lerpHeadTo(arg0: number, arg1: number): void;
-  lerpYHeadRot: number;
   lookAt(arg0: j_net_minecraft_commands_arguments.EntityAnchorArgument_Anchor, arg1: j_net_minecraft_world_phys.Vec3): void;
-  makeBrain(arg0: JavaOpaque<"com.mojang.serialization.Dynamic", [object]>): j_net_minecraft_world_entity_ai.Brain<object>;
   makePoofParticles(): void;
-  makeSound(arg0: j_net_minecraft_sounds.SoundEvent | null): void | null;
+  makeSound(arg0: j_net_minecraft_sounds.SoundEvent | null): void;
   makeWaypointConnectionWith(arg0: j_net_minecraft_server_level.ServerPlayer): JavaOptional<j_net_minecraft_world_waypoints.WaypointTransmitter_Connection>;
   maxUpStep(): number;
-  noActionTime: number;
   oAttackAnim: number;
-  onAttributeUpdated(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>): void;
-  onBelowWorld(): void;
-  onChangedBlock(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos): void;
   onClimbable(): boolean;
-  onEffectAdded(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: Entity | null): void | null;
-  onEffectUpdated(arg0: j_net_minecraft_world_effect.MobEffectInstance, arg1: boolean, arg2: Entity | null): void | null;
-  onEffectsRemoved(arg0: JavaCollection<j_net_minecraft_world_effect.MobEffectInstance>): void;
   onEnterCombat(): void;
   onEquipItem(arg0: EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item.ItemStack): void;
   onEquipItem(arg0: EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_item.ItemStack, arg3: boolean): void;
@@ -2489,18 +2268,13 @@ export interface LivingEntityMembers {
   onLeaveCombat(): void;
   onRemoval(arg0: Entity_RemovalReason): void;
   onSyncedDataUpdated(arg0: j_net_minecraft_network_syncher.EntityDataAccessor<object>): void;
-  playBlockFallSound(): void;
-  playHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   playSecondaryHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
-  postDeathDropItems(arg0: JavaOpaque<"org.bukkit.event.entity.EntityDeathEvent">): void;
   push(arg0: Entity): void;
-  pushEntities(): void;
   randomTeleport(arg0: number, arg1: number, arg2: number, arg3: boolean): boolean;
   randomTeleport(arg0: number, arg1: number, arg2: number, arg3: boolean, arg4: JavaOpaque<"org.bukkit.event.player.PlayerTeleportEvent$TeleportCause">): JavaOptional<boolean>;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   recreateFromPacket(arg0: j_net_minecraft_network_protocol_game.ClientboundAddEntityPacket): void;
   releaseUsingItem(): void;
-  remove(arg0: Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void | null;
+  remove(arg0: Entity_RemovalReason, arg1: JavaOpaque<"org.bukkit.event.entity.EntityRemoveEvent$Cause"> | null): void;
   removeAllEffects(): boolean;
   removeAllEffects(arg0: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): boolean;
   removeArrowTime: number;
@@ -2508,17 +2282,11 @@ export interface LivingEntityMembers {
   removeEffect(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, arg1: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): boolean;
   removeEffectNoUpdate(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>): j_net_minecraft_world_effect.MobEffectInstance | null;
   removeEffectNoUpdate(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, arg1: JavaOpaque<"org.bukkit.event.entity.EntityPotionEffectEvent$Cause">): j_net_minecraft_world_effect.MobEffectInstance | null;
-  removeEffectParticles(): void;
-  removeFrost(): void;
   removeStingerTime: number;
   resolveBlockedDamage(arg0: j_net_minecraft_world_damagesource.DamageSource, arg1: number): number;
-  resolveMobResponsibleForDamage(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
-  resolvePlayerResponsibleForDamage(arg0: j_net_minecraft_world_damagesource.DamageSource): j_net_minecraft_world_entity_player.Player | null;
   resyncUsingItem(arg0: j_net_minecraft_server_level.ServerPlayer): void;
   rideTick(): void;
-  sanitizeScale(arg0: number): number;
   sendEffectToPassengers(arg0: j_net_minecraft_world_effect.MobEffectInstance): void;
-  serverAiStep(): void;
   setAbsorptionAmount(arg0: number): void;
   setArrowCount(arg0: number): void;
   setArrowCount(arg0: number, arg1: boolean): void;
@@ -2528,7 +2296,7 @@ export interface LivingEntityMembers {
   setItemSlot(arg0: EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack): void;
   setItemSlot(arg0: EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack, arg2: boolean): void;
   setJumping(arg0: boolean): void;
-  setLastHurtByMob(arg0: LivingEntity | null): void | null;
+  setLastHurtByMob(arg0: LivingEntity | null): void;
   setLastHurtByPlayer(arg0: JavaOpaque<"java.util.UUID">, arg1: number): void;
   setLastHurtByPlayer(arg0: j_net_minecraft_world_entity_player.Player, arg1: number): void;
   setLastHurtMob(arg0: Entity): void;
@@ -2544,10 +2312,9 @@ export interface LivingEntityMembers {
   shieldBlockingDelay: number;
   shouldDiscardFriction(): boolean;
   shouldDropExperience(): boolean;
-  shouldDropLoot(): boolean;
   shouldShowName(): boolean;
   silentDeath: boolean;
-  skipDropExperience: (boolean) & { (): void };
+  skipDropExperience(): void;
   spawnItemParticles(arg0: j_net_minecraft_world_item.ItemStack, arg1: number): void;
   startSleeping(arg0: j_net_minecraft_core.BlockPos): void;
   startUsingItem(arg0: j_net_minecraft_world.InteractionHand): void;
@@ -2564,28 +2331,11 @@ export interface LivingEntityMembers {
   swingingArm: j_net_minecraft_world.InteractionHand;
   take(arg0: Entity, arg1: number): void;
   tick(): void;
-  tickDeath(): void;
-  tickEffects(): void;
-  tickHeadTurn(arg0: number): void;
-  tickRidden(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_phys.Vec3): void;
-  totalEatTimeTicks: number;
   travel(arg0: j_net_minecraft_world_phys.Vec3): void;
-  travelFlying(arg0: j_net_minecraft_world_phys.Vec3, arg1: number): void;
-  travelFlying(arg0: j_net_minecraft_world_phys.Vec3, arg1: number, arg2: number, arg3: number): void;
-  triggerOnDeathMobEffects(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity_RemovalReason): void;
-  tryAddFrost(): void;
-  updateEffectVisibility(): void;
-  updateFallFlying(): void;
-  updateInvisibilityStatus(): void;
-  updateSwingTime(): void;
-  updateUsingItem(arg0: j_net_minecraft_world_item.ItemStack): void;
-  updateWalkAnimation(arg0: number): void;
-  useItem: j_net_minecraft_world_item.ItemStack;
   useItemRemaining: number;
   readonly walkAnimation: WalkAnimationState;
   wasExperienceConsumed(): boolean;
   waypointIcon(): j_net_minecraft_world_waypoints.Waypoint_Icon;
-  wouldNotSuffocateAtTargetPose(arg0: Pose): boolean;
   xxa: number;
   yBodyRot: number;
   yBodyRotO: number;
@@ -2596,27 +2346,21 @@ export interface LivingEntityMembers {
 }
 export type LivingEntity = LivingEntityMembers & Entity & Attackable & j_net_minecraft_world_waypoints.WaypointTransmitter;
 export interface LivingEntityStatics {
-  new(arg0: EntityType<LivingEntity>, arg1: j_net_minecraft_world_level.Level): LivingEntity;
   readonly ARMOR_SLOT_OFFSET: 100;
   readonly BASE_JUMP_POWER: 0.42;
   readonly BODY_ARMOR_OFFSET: 105;
   readonly DATA_ARROW_COUNT_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   readonly DATA_HEALTH_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
-  readonly DATA_LIVING_ENTITY_FLAGS: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
   readonly DEATH_DURATION: 20;
   readonly DEFAULT_BABY_SCALE: 0.5;
   readonly DEFAULT_BASE_GRAVITY: 0.08;
   readonly EQUIPMENT_SLOT_OFFSET: 98;
   readonly EXTRA_RENDER_CULLING_SIZE_WITH_BIG_HAT: 0.5;
-  readonly INPUT_FRICTION: 0.98;
-  readonly LIVING_ENTITY_FLAG_IS_USING: 1;
-  readonly LIVING_ENTITY_FLAG_OFF_HAND: 2;
   readonly LIVING_ENTITY_FLAG_SPIN_ATTACK: 4;
   readonly MIN_MOVEMENT_DISTANCE: 0.003;
   readonly PLAYER_HURT_EXPERIENCE_TIME: 100;
   readonly PLAYER_NOT_WEARING_DISGUISE_ITEM: JavaPredicate<LivingEntity>;
   readonly SADDLE_OFFSET: 106;
-  readonly SLEEPING_DIMENSIONS: EntityDimensions;
   readonly SWING_DURATION: 6;
   readonly TAG_ATTRIBUTES: "attributes";
   readonly TAG_BRAIN: "Brain";
@@ -2652,16 +2396,10 @@ export interface LivingEntity_FallsoundsStatics {
 /** JVM class net.minecraft.world.entity.Marker. */
 export interface MarkerMembers {
   readonly __javaSupertypes?: readonly [Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  addPassenger(arg0: Entity): void;
-  canAddPassenger(arg0: Entity): boolean;
-  couldAcceptPassenger(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getAddEntityPacket(arg0: j_net_minecraft_server_level.ServerEntity): j_net_minecraft_network_protocol.Packet<j_net_minecraft_network_protocol_game.ClientGamePacketListener>;
   getPistonPushReaction(): j_net_minecraft_world_level_material.PushReaction;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isIgnoringBlockTriggers(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   tick(): void;
 }
 export type Marker = MarkerMembers & Entity;
@@ -2672,7 +2410,6 @@ export interface MarkerStatics {
 /** JVM abstract net.minecraft.world.entity.Mob. */
 export interface MobMembers {
   readonly __javaSupertypes?: readonly [LivingEntity, EquipmentUser, Leashable, Targeting];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   aiStep(): void;
   ambientSoundTime: number;
   ate(): void;
@@ -2680,17 +2417,13 @@ export interface MobMembers {
   baseTick(): void;
   canAttackType(arg0: EntityType<object>): boolean;
   canBeLeashed(): boolean;
-  canDispenserEquipIntoSlot(arg0: EquipmentSlot): boolean;
   canFireProjectileWeapon(arg0: j_net_minecraft_world_item.ProjectileWeaponItem): boolean;
   canHoldItem(arg0: j_net_minecraft_world_item.ItemStack): boolean;
   canPickUpLoot(): boolean;
-  canReplaceCurrentItem(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_item.ItemStack, arg2: EquipmentSlot): boolean;
   canReplaceEqualItem(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_item.ItemStack): boolean;
-  canShearEquipment(arg0: j_net_minecraft_world_entity_player.Player): boolean;
   checkDespawn(): void;
   checkSpawnObstruction(arg0: j_net_minecraft_world_level.LevelReader): boolean;
   checkSpawnRules(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: EntitySpawnReason): boolean;
-  clampHeadRotationToBody(): void;
   clearHome(): void;
   convertTo<T /* extends Mob */>(arg0: EntityType<T>, arg1: ConversionParams, arg2: ConversionParams_AfterConversion<T>): T | null;
   convertTo<T /* extends Mob */>(arg0: EntityType<T>, arg1: ConversionParams, arg2: ConversionParams_AfterConversion<T>, arg3: JavaOpaque<"org.bukkit.event.entity.EntityTransformEvent$TransformReason"> | null, arg4: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): T | null;
@@ -2698,28 +2431,18 @@ export interface MobMembers {
   convertTo<T /* extends Mob */>(arg0: EntityType<T>, arg1: ConversionParams, arg2: EntitySpawnReason, arg3: ConversionParams_AfterConversion<T>): T | null;
   convertTo<T /* extends Mob */>(arg0: EntityType<T>, arg1: ConversionParams, arg2: EntitySpawnReason, arg3: ConversionParams_AfterConversion<T>, arg4: JavaOpaque<"org.bukkit.event.entity.EntityTransformEvent$TransformReason"> | null, arg5: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): T | null;
   convertTo<T /* extends Mob */>(arg0: EntityType<T>, arg1: ConversionParams, arg2: EntitySpawnReason, arg3: ConversionParams_CancellingAfterConversion<T>, arg4: JavaOpaque<"org.bukkit.event.entity.EntityTransformEvent$TransformReason"> | null, arg5: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason"> | null): T | null;
-  createBodyControl(): j_net_minecraft_world_entity_ai_control.BodyRotationControl;
   createEquipmentSlotContainer(arg0: EquipmentSlot): j_net_minecraft_world.Container;
-  createNavigation(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  customServerAiStep(arg0: j_net_minecraft_server_level.ServerLevel): void;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   despawnInPeacefulOverride: JavaOpaque<"net.kyori.adventure.util.TriState">;
   doHurtTarget(arg0: j_net_minecraft_server_level.ServerLevel, arg1: Entity): boolean;
-  dropCustomDeathLoot(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
-  dropFromLootTable(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: boolean): void;
   dropPreservedEquipment(arg0: j_net_minecraft_server_level.ServerLevel): void;
   dropPreservedEquipment(arg0: j_net_minecraft_server_level.ServerLevel, arg1: JavaPredicate<j_net_minecraft_world_item.ItemStack>): JavaSet<EquipmentSlot>;
-  enchantSpawnedArmor(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: EquipmentSlot, arg3: j_net_minecraft_world.DifficultyInstance): void;
-  enchantSpawnedWeapon(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world.DifficultyInstance): void;
   equip(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>, arg1: JavaMap<EquipmentSlot, number>): void;
   equip(arg0: EquipmentTable): void;
   equipItemIfPossible(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_world_item.ItemStack;
-  equipItemIfPossible(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_entity_item.ItemEntity | null): j_net_minecraft_world_item.ItemStack | null;
+  equipItemIfPossible(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_world_entity_item.ItemEntity | null): j_net_minecraft_world_item.ItemStack;
   finalizeSpawn(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_world.DifficultyInstance, arg2: EntitySpawnReason, arg3: SpawnGroupData | null): SpawnGroupData | null;
   getAmbientSound(): j_net_minecraft_sounds.SoundEvent | null;
   getAmbientSoundInterval(): number;
-  getAttackBoundingBox(): j_net_minecraft_world_phys.AABB;
-  getBaseExperienceReward(arg0: j_net_minecraft_server_level.ServerLevel): number;
   getBodyArmorItem(): j_net_minecraft_world_item.ItemStack;
   getControllingPassenger(): LivingEntity | null;
   getDropChances(): DropChances;
@@ -2740,11 +2463,9 @@ export interface MobMembers {
   getNavigation(): j_net_minecraft_world_entity_ai_navigation.PathNavigation;
   getPathfindingMalus(arg0: j_net_minecraft_world_level_pathfinder.PathType): number;
   getPickResult(): j_net_minecraft_world_item.ItemStack | null;
-  getPickupReach(): j_net_minecraft_core.Vec3i;
   getPreferredWeaponType(): j_net_minecraft_tags.TagKey<j_net_minecraft_world_item.Item> | null;
   getSensing(): j_net_minecraft_world_entity_ai_sensing.Sensing;
   getTarget(): LivingEntity | null;
-  getTargetFromBrain(): LivingEntity | null;
   goalFloat: j_net_minecraft_world_entity_ai_goal.FloatGoal | null;
   goalSelector: j_net_minecraft_world_entity_ai_goal.GoalSelector;
   handleEntityEvent(arg0: number): void;
@@ -2764,36 +2485,18 @@ export interface MobMembers {
   isWithinHome(arg0: j_net_minecraft_core.BlockPos): boolean;
   isWithinHome(arg0: j_net_minecraft_world_phys.Vec3): boolean;
   isWithinMeleeAttackRange(arg0: LivingEntity): boolean;
-  jumpControl: j_net_minecraft_world_entity_ai_control.JumpControl;
-  jumpInLiquid(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_material.Fluid>): void;
   leashTooFarBehaviour(): void;
   lookAt(arg0: Entity, arg1: number, arg2: number): void;
-  lookControl: j_net_minecraft_world_entity_ai_control.LookControl;
   lootTable: JavaOptional<j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_storage_loot.LootTable>>;
   lootTableSeed: bigint;
-  mobInteract(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world.InteractionHand): j_net_minecraft_world.InteractionResult;
-  moveControl: j_net_minecraft_world_entity_ai_control.MoveControl;
-  navigation: j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  onAttributeUpdated(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_entity_ai_attributes.Attribute>): void;
   onLeashRemoved(): void;
-  onOffspringSpawnedFromEgg(arg0: j_net_minecraft_world_entity_player.Player, arg1: Mob): void;
   onPathfindingDone(): void;
   onPathfindingStart(): void;
-  pickUpItem(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_item.ItemEntity): void;
   playAmbientSound(): void;
-  playAttackSound(): void;
-  playHurtSound(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
-  populateDefaultEquipmentEnchantments(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world.DifficultyInstance): void;
-  populateDefaultEquipmentSlots(arg0: j_net_minecraft_util.RandomSource, arg1: j_net_minecraft_world.DifficultyInstance): void;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
-  registerGoals(): void;
-  removeAfterChangingDimensions(): void;
   removeAllGoals(arg0: JavaPredicate<j_net_minecraft_world_entity_ai_goal.Goal>): void;
   removeFreeWill(): void;
   removeWhenFarAway(arg0: number): boolean;
   requiresCustomPersistence(): boolean;
-  sendDebugPackets(): void;
-  serverAiStep(): void;
   setAggressive(arg0: boolean): void;
   setBaby(arg0: boolean): void;
   setBodyArmorItem(arg0: j_net_minecraft_world_item.ItemStack): void;
@@ -2801,42 +2504,32 @@ export interface MobMembers {
   setDropChance(arg0: EquipmentSlot, arg1: number): void;
   setGuaranteedDrop(arg0: EquipmentSlot): void;
   setHomeTo(arg0: j_net_minecraft_core.BlockPos, arg1: number): void;
-  setItemSlotAndDropWhenKilled(arg0: EquipmentSlot, arg1: j_net_minecraft_world_item.ItemStack): void;
-  setLeashData(arg0: Leashable_LeashData | null): void | null;
+  setLeashData(arg0: Leashable_LeashData | null): void;
   setLeftHanded(arg0: boolean): void;
   setNoAi(arg0: boolean): void;
   setPathfindingMalus(arg0: j_net_minecraft_world_level_pathfinder.PathType, arg1: number): void;
   setPersistenceRequired(): void;
   setPersistenceRequired(arg0: boolean): void;
   setSpeed(arg0: number): void;
-  setTarget(arg0: LivingEntity | null): void | null;
-  setTarget(arg0: LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean | null;
+  setTarget(arg0: LivingEntity | null): void;
+  setTarget(arg0: LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean;
   setXxa(arg0: number): void;
   setYya(arg0: number): void;
   setZza(arg0: number): void;
   shouldActuallyDespawnInPeaceful(): boolean;
-  shouldDespawnInPeaceful(): boolean;
-  shouldPassengersInheritMalus(): boolean;
-  shouldSkipLoot(arg0: EquipmentSlot): boolean;
   spawnAnim(): void;
   startRiding(arg0: Entity, arg1: boolean): boolean;
   stopInPlace(): void;
   targetSelector: j_net_minecraft_world_entity_ai_goal.GoalSelector;
   tick(): void;
-  tickHeadTurn(arg0: number): void;
-  updateControlFlags(): void;
   wantsToPickUp(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_item.ItemStack): boolean;
-  xpReward: number;
 }
 export type Mob = MobMembers & LivingEntity & EquipmentUser & Leashable & Targeting;
 export interface MobStatics {
-  new(arg0: EntityType<Mob>, arg1: j_net_minecraft_world_level.Level): Mob;
   readonly MAX_ENCHANTED_ARMOR_CHANCE: 0.5;
   readonly MAX_ENCHANTED_WEAPON_CHANCE: 0.25;
   readonly MAX_PICKUP_LOOT_CHANCE: 0.55;
   readonly MAX_WEARING_ARMOR_CHANCE: 0.15;
-  readonly PICKUP_REACH: 1;
-  readonly RANDOM_SPAWN_BONUS_ID: j_net_minecraft_resources.ResourceLocation;
   readonly TAG_CAN_PICK_UP_LOOT: "CanPickUpLoot";
   readonly TAG_DROP_CHANCES: "drop_chances";
   readonly TAG_LEFT_HANDED: "LeftHanded";
@@ -2900,11 +2593,11 @@ export interface NeutralMobMembers {
   isAngryAtAllPlayers(arg0: j_net_minecraft_server_level.ServerLevel): boolean;
   playerDied(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity_player.Player): void;
   readPersistentAngerSaveData(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_storage.ValueInput): void;
-  setLastHurtByMob(arg0: LivingEntity | null): void | null;
-  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setLastHurtByMob(arg0: LivingEntity | null): void;
+  setPersistentAngerTarget(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setRemainingPersistentAngerTime(arg0: number): void;
-  setTarget(arg0: LivingEntity | null): void | null;
-  setTarget(arg0: LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean | null;
+  setTarget(arg0: LivingEntity | null): void;
+  setTarget(arg0: LivingEntity | null, arg1: JavaOpaque<"org.bukkit.event.entity.EntityTargetEvent$TargetReason"> | null): boolean;
   startPersistentAngerTimer(): void;
   stopBeingAngry(): void;
   tickInitialPersistentAnger(arg0: j_net_minecraft_world_level.Level): void;
@@ -2919,17 +2612,11 @@ export interface NeutralMobStatics {
 /** JVM class net.minecraft.world.entity.OminousItemSpawner. */
 export interface OminousItemSpawnerMembers {
   readonly __javaSupertypes?: readonly [Entity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
   addParticles(): void;
-  addPassenger(arg0: Entity): void;
-  canAddPassenger(arg0: Entity): boolean;
-  couldAcceptPassenger(): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   getItem(): j_net_minecraft_world_item.ItemStack;
   getPistonPushReaction(): j_net_minecraft_world_level_material.PushReaction;
   hurtServer(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_damagesource.DamageSource, arg2: number): boolean;
   isIgnoringBlockTriggers(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setItem(arg0: j_net_minecraft_world_item.ItemStack): void;
   spawnItemAfterTicks: bigint;
   tick(): void;
@@ -2957,20 +2644,16 @@ export interface PathfinderMobMembers {
   readonly __javaSupertypes?: readonly [Mob];
   checkSpawnRules(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: EntitySpawnReason): boolean;
   closeRangeLeashBehaviour(arg0: Entity): void;
-  followLeashSpeed(): number;
   getMovingTarget(): j_net_minecraft_core.BlockPos;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos): number;
   getWalkTargetValue(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level.LevelReader): number;
   isPanicking(): boolean;
   isPathFinding(): boolean;
   movingTarget: j_net_minecraft_core.BlockPos;
-  shouldStayCloseToLeashHolder(): boolean;
   whenLeashedTo(arg0: Entity): void;
 }
 export type PathfinderMob = PathfinderMobMembers & Mob;
 export interface PathfinderMobStatics {
-  new(arg0: EntityType<PathfinderMob>, arg1: j_net_minecraft_world_level.Level): PathfinderMob;
-  readonly DEFAULT_WALK_TARGET_VALUE: 0;
 }
 
 /** JVM interface net.minecraft.world.entity.PlayerRideable. */
@@ -3135,7 +2818,7 @@ export type SpawnPlacements = SpawnPlacementsMembers;
 export interface SpawnPlacementsStatics {
   new(): SpawnPlacements;
   checkSpawnRules<T /* extends Entity */>(arg0: EntityType<T>, arg1: j_net_minecraft_world_level.ServerLevelAccessor, arg2: EntitySpawnReason, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_util.RandomSource): boolean;
-  getHeightmapType(arg0: EntityType<object> | null): j_net_minecraft_world_level_levelgen.Heightmap_Types | null;
+  getHeightmapType(arg0: EntityType<object> | null): j_net_minecraft_world_level_levelgen.Heightmap_Types;
   getPlacementType(arg0: EntityType<object>): SpawnPlacementType;
   isSpawnPositionOk(arg0: EntityType<object>, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
@@ -3151,7 +2834,7 @@ export interface SpawnPlacements_SpawnPredicateStatics {
 /** JVM interface net.minecraft.world.entity.SpawnPlacementType. */
 export interface SpawnPlacementTypeMembers {
   adjustSpawnPosition(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
-  isSpawnPositionOk(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: EntityType<object> | null): boolean | null;
+  isSpawnPositionOk(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: EntityType<object> | null): boolean;
 }
 export type SpawnPlacementType = SpawnPlacementTypeMembers;
 export interface SpawnPlacementTypeStatics {
@@ -3171,13 +2854,8 @@ export interface SpawnPlacementTypesStatics {
 /** JVM abstract net.minecraft.world.entity.TamableAnimal. */
 export interface TamableAnimalMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_entity_animal.Animal, OwnableEntity];
-  addAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueOutput): void;
-  applyTamingSideEffects(): void;
   canAttack(arg0: LivingEntity): boolean;
   canBeLeashed(): boolean;
-  canFlyToOwner(): boolean;
-  considersEntityAsAlly(arg0: Entity): boolean;
-  defineSynchedData(arg0: j_net_minecraft_network_syncher.SynchedEntityData_Builder): void;
   die(arg0: j_net_minecraft_world_damagesource.DamageSource): void;
   getOwnerReference(): EntityReference<LivingEntity> | null;
   getTeam(): j_net_minecraft_world_scores.PlayerTeam | null;
@@ -3186,15 +2864,13 @@ export interface TamableAnimalMembers {
   isOrderedToSit(): boolean;
   isOwnedBy(arg0: LivingEntity): boolean;
   isTame(): boolean;
-  readAdditionalSaveData(arg0: j_net_minecraft_world_level_storage.ValueInput): void;
   setInSittingPose(arg0: boolean): void;
   setInSittingPose(arg0: boolean, arg1: boolean): void;
   setOrderedToSit(arg0: boolean): void;
-  setOwner(arg0: LivingEntity | null): void | null;
-  setOwnerReference(arg0: EntityReference<LivingEntity> | null): void | null;
+  setOwner(arg0: LivingEntity | null): void;
+  setOwnerReference(arg0: EntityReference<LivingEntity> | null): void;
   setTame(arg0: boolean, arg1: boolean): void;
   shouldTryTeleportToOwner(): boolean;
-  spawnTamingParticles(arg0: boolean): void;
   tame(arg0: j_net_minecraft_world_entity_player.Player): void;
   tryToTeleportToOwner(): void;
   unableToMoveToOwner(): boolean;
@@ -3202,9 +2878,6 @@ export interface TamableAnimalMembers {
 }
 export type TamableAnimal = TamableAnimalMembers & j_net_minecraft_world_entity_animal.Animal & OwnableEntity;
 export interface TamableAnimalStatics {
-  new(arg0: EntityType<TamableAnimal>, arg1: j_net_minecraft_world_level.Level): TamableAnimal;
-  readonly DATA_FLAGS_ID: j_net_minecraft_network_syncher.EntityDataAccessor<number>;
-  readonly DATA_OWNERUUID_ID: j_net_minecraft_network_syncher.EntityDataAccessor<JavaOptional<EntityReference<LivingEntity>>>;
   readonly TELEPORT_WHEN_DISTANCE_IS_SQ: 144;
 }
 

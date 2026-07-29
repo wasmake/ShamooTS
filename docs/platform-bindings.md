@@ -8,13 +8,18 @@ The checked-in canonical model versions, exact emitted counts, and opaque totals
 
 Coverage is measured from emitted declaration symbols, members, event descriptors, exceptions, packets, registrations, and exported declaration indices against canonical model denominators. Packet declarations and registrations have separate coverage counts, so a packet registered in multiple phases contributes once to packet coverage and once per phase to registration coverage.
 
-Generated declarations are deterministically sharded by Java package. The checked-in generated source occupies 2,808,837 bytes for Paper, 312,410 bytes for Velocity, 7,148,690 bytes for NMS, and 339,346 bytes for packets. Package barrels preserve the complete named-export surface. Event decorators are sharded by event package, yielding all 422 Paper and 46 Velocity convenience decorators. Generated declaration JSDoc and package barrels form the comprehensive reference index without asking TypeDoc to construct one monolithic symbol graph.
+Generated declarations are deterministically sharded by Java package, and package barrels preserve the complete named-export surface. Event decorators are sharded by event package, yielding all 423 Paper and 46 Velocity convenience decorators. Generated declaration JSDoc and package barrels form the comprehensive reference index without asking TypeDoc to construct one monolithic symbol graph.
 
 Use `pnpm codegen:check` to fail on drift. Package CLIs accept `generate`, `sync`, or `diff`. Paper also accepts `paper`, `paper-nms`, or `paper-packets` as the surface.
 
 ## Paper
 
-`@shamoo/paper-raw` preserves generated Java method names, overloads, nullability, generics, constructors, fields, constants, nested type identities, deprecation, and declared exceptions as type-only contracts. `JAVA_TYPES` contains the runtime descriptors a host `JavaBridge` resolves; raw packages do not pretend Java classes are JavaScript constructor exports. `@shamoo/paper` adds typed properties around events, commands, messaging, and scheduling where the conversion does not erase native behavior.
+`@shamoo/paper-raw` preserves generated Java method names, overloads, nullability, generics,
+constructors, fields, constants, nested identities, and declared exceptions. `paperJava` resolves
+`JAVA_TYPES` into asynchronous static controls and generation-scoped handles. `$invoke`, `$get`,
+`$set`, and `$new` select only members in the exact public catalog; Runtime does not enable Javet
+reflection. Live event handles execute through bounded origin-thread frames, while ordinary calls are
+routed through Paper/Folia schedulers.
 
 Paper scheduling distinguishes server, global region, region, and entity ownership. Global, region, and entity work must not be substituted for one another. Folia callers select the scheduler matching the data they access; cancellation returns the native generated cancellation state rather than a simplified boolean.
 

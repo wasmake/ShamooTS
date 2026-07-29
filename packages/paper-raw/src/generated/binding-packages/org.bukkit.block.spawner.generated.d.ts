@@ -11,9 +11,9 @@ export interface SpawnerEntryMembers {
   getSnapshot(): j_org_bukkit_entity.EntitySnapshot;
   getSpawnRule(): SpawnRule | null;
   getSpawnWeight(): number;
-  setEquipment(arg0: SpawnerEntry_Equipment | null): void | null;
+  setEquipment(arg0: SpawnerEntry_Equipment | null): void;
   setSnapshot(arg0: j_org_bukkit_entity.EntitySnapshot): void;
-  setSpawnRule(arg0: SpawnRule | null): void | null;
+  setSpawnRule(arg0: SpawnRule | null): void;
   setSpawnWeight(arg0: number): void;
 }
 export type SpawnerEntry = SpawnerEntryMembers;
@@ -36,8 +36,6 @@ export interface SpawnerEntry_EquipmentStatics {
 /** JVM class org.bukkit.block.spawner.SpawnRule. */
 export interface SpawnRuleMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Cloneable">, j_org_bukkit_configuration_serialization.ConfigurationSerializable];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): SpawnRule;
   equals(arg0: object): boolean;
   getMaxBlockLight(): number;

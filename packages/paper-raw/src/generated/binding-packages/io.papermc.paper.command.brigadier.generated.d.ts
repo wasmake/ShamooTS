@@ -35,16 +35,16 @@ export interface CommandsMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_plugin_lifecycle_event_registrar.Registrar];
   getDispatcher(): JavaOpaque<"com.mojang.brigadier.CommandDispatcher", [CommandSourceStack]>;
   register(arg0: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>): JavaSet<string>;
-  register(arg0: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg1: string): JavaSet<string> | null;
-  register(arg0: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg1: string, arg2: JavaCollection<string>): JavaSet<string> | null;
+  register(arg0: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg1: string | null): JavaSet<string>;
+  register(arg0: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg1: string | null, arg2: JavaCollection<string>): JavaSet<string>;
   register(arg0: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg1: JavaCollection<string>): JavaSet<string>;
-  register(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg2: string, arg3: JavaCollection<string>): JavaSet<string> | null;
-  register(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: string, arg2: string, arg3: JavaCollection<string>, arg4: BasicCommand): JavaSet<string> | null;
+  register(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg2: string | null, arg3: JavaCollection<string>): JavaSet<string>;
+  register(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: string, arg2: string | null, arg3: JavaCollection<string>, arg4: BasicCommand): JavaSet<string>;
   register(arg0: string, arg1: BasicCommand): JavaSet<string>;
-  register(arg0: string, arg1: string, arg2: BasicCommand): JavaSet<string> | null;
-  register(arg0: string, arg1: string, arg2: JavaCollection<string>, arg3: BasicCommand): JavaSet<string> | null;
+  register(arg0: string, arg1: string | null, arg2: BasicCommand): JavaSet<string>;
+  register(arg0: string, arg1: string | null, arg2: JavaCollection<string>, arg3: BasicCommand): JavaSet<string>;
   register(arg0: string, arg1: JavaCollection<string>, arg2: BasicCommand): JavaSet<string>;
-  registerWithFlags(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg2: string, arg3: JavaCollection<string>, arg4: JavaSet<CommandRegistrationFlag>): JavaSet<string> | null;
+  registerWithFlags(arg0: j_io_papermc_paper_plugin_configuration.PluginMeta, arg1: JavaOpaque<"com.mojang.brigadier.tree.LiteralCommandNode", [CommandSourceStack]>, arg2: string | null, arg3: JavaCollection<string>, arg4: JavaSet<CommandRegistrationFlag>): JavaSet<string>;
 }
 export type Commands = CommandsMembers & j_io_papermc_paper_plugin_lifecycle_event_registrar.Registrar;
 export interface CommandsStatics {

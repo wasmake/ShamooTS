@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_kyori_adventure_identity from './net.kyori.adventure.identity.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
@@ -7,7 +7,7 @@ import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.gen
 export interface ChatTypeMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"net.kyori.adventure.key.Keyed">, JavaOpaque<"net.kyori.examination.Examinable">];
   bind(arg0: j_net_kyori_adventure_text.ComponentLike): ChatType_Bound;
-  bind(arg0: j_net_kyori_adventure_text.ComponentLike, arg1: j_net_kyori_adventure_text.ComponentLike | null): ChatType_Bound | null;
+  bind(arg0: j_net_kyori_adventure_text.ComponentLike, arg1: j_net_kyori_adventure_text.ComponentLike | null): ChatType_Bound;
   examinableProperties(): JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"net.kyori.examination.ExaminableProperty">]>;
   key(): JavaOpaque<"net.kyori.adventure.key.Key">;
 }
@@ -50,7 +50,7 @@ export interface SignedMessage_2Members {
 export type SignedMessage_2 = SignedMessage_2Members & j_net_kyori_adventure_identity.Identified & JavaOpaque<"net.kyori.examination.Examinable">;
 export interface SignedMessage_2Statics {
   signature(arg0: Array<number>): SignedMessage_Signature;
-  system(arg0: string, arg1: j_net_kyori_adventure_text.ComponentLike | null): SignedMessage_2 | null;
+  system(arg0: string, arg1: j_net_kyori_adventure_text.ComponentLike | null): SignedMessage_2;
 }
 
 /** JVM interface net.kyori.adventure.chat.SignedMessage$Signature. */

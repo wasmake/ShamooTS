@@ -21,17 +21,10 @@ import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.gen
 /** JVM abstract net.minecraft.world.level.levelgen.feature.AbstractHugeMushroomFeature. */
 export interface AbstractHugeMushroomFeatureMembers {
   readonly __javaSupertypes?: readonly [Feature<j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration>];
-  getTreeHeight(arg0: j_net_minecraft_util.RandomSource): number;
-  getTreeRadiusForHeight(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  isValidPosition(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: j_net_minecraft_core.BlockPos_MutableBlockPos, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration): boolean;
-  makeCap(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: j_net_minecraft_core.BlockPos_MutableBlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration): void;
   place(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration>): boolean;
-  placeMushroomBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos_MutableBlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  placeTrunk(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration, arg4: number, arg5: j_net_minecraft_core.BlockPos_MutableBlockPos): void;
 }
 export type AbstractHugeMushroomFeature = AbstractHugeMushroomFeatureMembers & Feature<j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration>;
 export interface AbstractHugeMushroomFeatureStatics {
-  new(arg0: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration]>): AbstractHugeMushroomFeature;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.BambooFeature. */
@@ -146,7 +139,6 @@ export interface ConfiguredFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.CoralClawFeature. */
 export interface CoralClawFeatureMembers {
   readonly __javaSupertypes?: readonly [CoralFeature];
-  placeFeature(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type CoralClawFeature = CoralClawFeatureMembers & CoralFeature;
 export interface CoralClawFeatureStatics {
@@ -157,18 +149,14 @@ export interface CoralClawFeatureStatics {
 export interface CoralFeatureMembers {
   readonly __javaSupertypes?: readonly [Feature<j_net_minecraft_world_level_levelgen_feature_configurations.NoneFeatureConfiguration>];
   place(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.NoneFeatureConfiguration>): boolean;
-  placeCoralBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  placeFeature(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type CoralFeature = CoralFeatureMembers & Feature<j_net_minecraft_world_level_levelgen_feature_configurations.NoneFeatureConfiguration>;
 export interface CoralFeatureStatics {
-  new(arg0: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_world_level_levelgen_feature_configurations.NoneFeatureConfiguration]>): CoralFeature;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.CoralMushroomFeature. */
 export interface CoralMushroomFeatureMembers {
   readonly __javaSupertypes?: readonly [CoralFeature];
-  placeFeature(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type CoralMushroomFeature = CoralMushroomFeatureMembers & CoralFeature;
 export interface CoralMushroomFeatureStatics {
@@ -178,7 +166,6 @@ export interface CoralMushroomFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.CoralTreeFeature. */
 export interface CoralTreeFeatureMembers {
   readonly __javaSupertypes?: readonly [CoralFeature];
-  placeFeature(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type CoralTreeFeature = CoralTreeFeatureMembers & CoralFeature;
 export interface CoralTreeFeatureStatics {
@@ -209,7 +196,6 @@ export interface DesertWellFeatureStatics {
 export interface DiskFeatureMembers {
   readonly __javaSupertypes?: readonly [Feature<j_net_minecraft_world_level_levelgen_feature_configurations.DiskConfiguration>];
   place(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.DiskConfiguration>): boolean;
-  placeColumn(arg0: j_net_minecraft_world_level_levelgen_feature_configurations.DiskConfiguration, arg1: j_net_minecraft_world_level.WorldGenLevel, arg2: j_net_minecraft_util.RandomSource, arg3: number, arg4: number, arg5: j_net_minecraft_core.BlockPos_MutableBlockPos): boolean;
 }
 export type DiskFeature = DiskFeatureMembers & Feature<j_net_minecraft_world_level_levelgen_feature_configurations.DiskConfiguration>;
 export interface DiskFeatureStatics {
@@ -232,18 +218,11 @@ export interface DripstoneUtilsMembers {
 export type DripstoneUtils = DripstoneUtilsMembers;
 export interface DripstoneUtilsStatics {
   new(): DripstoneUtils;
-  buildBaseToTipColumn(arg0: j_net_minecraft_core.Direction, arg1: number, arg2: boolean, arg3: JavaConsumer<j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDripstoneHeight(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  growPointedDripstone(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction, arg3: number, arg4: boolean): void;
-  isCircleMostlyEmbeddedInStone(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos, arg2: number): boolean;
   isDripstoneBase(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isDripstoneBaseOrLava(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isEmptyOrWater(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos): boolean;
   isEmptyOrWater(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isEmptyOrWaterOrLava(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos): boolean;
   isEmptyOrWaterOrLava(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isNeitherEmptyNorWater(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  placeDripstoneBlockIfPossible(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos): boolean;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.EndGatewayFeature. */
@@ -275,7 +254,7 @@ export type EndPlatformFeature = EndPlatformFeatureMembers & Feature<j_net_minec
 export interface EndPlatformFeatureStatics {
   new(arg0: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_world_level_levelgen_feature_configurations.NoneFeatureConfiguration]>): EndPlatformFeature;
   createEndPlatform(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: boolean): void;
-  createEndPlatform(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: j_net_minecraft_world_entity.Entity | null): void | null;
+  createEndPlatform(arg0: j_net_minecraft_world_level.ServerLevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: j_net_minecraft_world_entity.Entity | null): void;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.EndPodiumFeature. */
@@ -306,15 +285,11 @@ export interface FallenTreeFeatureStatics {
 /** JVM abstract net.minecraft.world.level.levelgen.feature.Feature. */
 export interface FeatureMembers<FC /* extends j_net_minecraft_world_level_levelgen_feature_configurations.FeatureConfiguration */ = unknown> {
   configuredCodec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ConfiguredFeature<FC, Feature<FC>>]>;
-  markAboveForPostProcessing(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos): void;
   place(arg0: FeaturePlaceContext<FC>): boolean;
   place(arg0: FC, arg1: j_net_minecraft_world_level.WorldGenLevel, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: j_net_minecraft_core.BlockPos): boolean;
-  safeSetBlock(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>): void;
-  setBlock(arg0: j_net_minecraft_world_level.LevelWriter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type Feature<FC /* extends j_net_minecraft_world_level_levelgen_feature_configurations.FeatureConfiguration */ = unknown> = FeatureMembers<FC>;
 export interface FeatureStatics {
-  new<FC /* extends j_net_minecraft_world_level_levelgen_feature_configurations.FeatureConfiguration */>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [FC]>): Feature<FC>;
   readonly BAMBOO: Feature<j_net_minecraft_world_level_levelgen_feature_configurations.ProbabilityFeatureConfiguration>;
   readonly BASALT_COLUMNS: Feature<j_net_minecraft_world_level_levelgen_feature_configurations.ColumnFeatureConfiguration>;
   readonly BASALT_PILLAR: Feature<j_net_minecraft_world_level_levelgen_feature_configurations.NoneFeatureConfiguration>;
@@ -383,7 +358,6 @@ export interface FeatureStatics {
   isDirt(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isGrassOrDirt(arg0: j_net_minecraft_world_level.LevelSimulatedReader, arg1: j_net_minecraft_core.BlockPos): boolean;
   isReplaceable(arg0: j_net_minecraft_tags.TagKey<j_net_minecraft_world_level_block.Block>): JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>;
-  isStone(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.FeatureCountTracker. */
@@ -470,8 +444,6 @@ export interface GlowstoneFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.HugeBrownMushroomFeature. */
 export interface HugeBrownMushroomFeatureMembers {
   readonly __javaSupertypes?: readonly [AbstractHugeMushroomFeature];
-  getTreeRadiusForHeight(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  makeCap(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: j_net_minecraft_core.BlockPos_MutableBlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration): void;
 }
 export type HugeBrownMushroomFeature = HugeBrownMushroomFeatureMembers & AbstractHugeMushroomFeature;
 export interface HugeBrownMushroomFeatureStatics {
@@ -507,8 +479,6 @@ export interface HugeFungusFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.HugeRedMushroomFeature. */
 export interface HugeRedMushroomFeatureMembers {
   readonly __javaSupertypes?: readonly [AbstractHugeMushroomFeature];
-  getTreeRadiusForHeight(arg0: number, arg1: number, arg2: number, arg3: number): number;
-  makeCap(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: j_net_minecraft_core.BlockPos_MutableBlockPos, arg5: j_net_minecraft_world_level_levelgen_feature_configurations.HugeMushroomFeatureConfiguration): void;
 }
 export type HugeRedMushroomFeature = HugeRedMushroomFeatureMembers & AbstractHugeMushroomFeature;
 export interface HugeRedMushroomFeatureStatics {
@@ -624,14 +594,12 @@ export interface NoOpFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.OreFeature. */
 export interface OreFeatureMembers {
   readonly __javaSupertypes?: readonly [Feature<j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration>];
-  doPlace(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: number, arg10: number, arg11: number, arg12: number, arg13: number): boolean;
   place(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration>): boolean;
 }
 export type OreFeature = OreFeatureMembers & Feature<j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration>;
 export interface OreFeatureStatics {
   new(arg0: JavaOpaque<"com.mojang.serialization.Codec", [j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration]>): OreFeature;
   canPlaceOre(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: JavaFunction<j_net_minecraft_core.BlockPos, j_net_minecraft_world_level_block_state.BlockState>, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration, arg4: j_net_minecraft_world_level_levelgen_feature_configurations.OreConfiguration_TargetBlockState, arg5: j_net_minecraft_core.BlockPos_MutableBlockPos): boolean;
-  shouldSkipAirCheck(arg0: j_net_minecraft_util.RandomSource, arg1: number): boolean;
 }
 
 /** JVM class net.minecraft.world.level.levelgen.feature.PointedDripstoneFeature. */
@@ -815,7 +783,6 @@ export interface SpringFeatureStatics {
 export interface TreeFeatureMembers {
   readonly __javaSupertypes?: readonly [Feature<j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration>];
   place(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration>): boolean;
-  setBlock(arg0: j_net_minecraft_world_level.LevelWriter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type TreeFeature = TreeFeatureMembers & Feature<j_net_minecraft_world_level_levelgen_feature_configurations.TreeConfiguration>;
 export interface TreeFeatureStatics {
@@ -850,11 +817,7 @@ export interface UnderwaterMagmaFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.VegetationPatchFeature. */
 export interface VegetationPatchFeatureMembers {
   readonly __javaSupertypes?: readonly [Feature<j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration>];
-  distributeVegetation(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration>, arg1: j_net_minecraft_world_level.WorldGenLevel, arg2: j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration, arg3: j_net_minecraft_util.RandomSource, arg4: JavaSet<j_net_minecraft_core.BlockPos>, arg5: number, arg6: number): void;
   place(arg0: FeaturePlaceContext<j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration>): boolean;
-  placeGround(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration, arg2: JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>, arg3: j_net_minecraft_util.RandomSource, arg4: j_net_minecraft_core.BlockPos_MutableBlockPos, arg5: number): boolean;
-  placeGroundPatch(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>, arg5: number, arg6: number): JavaSet<j_net_minecraft_core.BlockPos>;
-  placeVegetation(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: j_net_minecraft_core.BlockPos): boolean;
 }
 export type VegetationPatchFeature = VegetationPatchFeatureMembers & Feature<j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration>;
 export interface VegetationPatchFeatureStatics {
@@ -884,8 +847,6 @@ export interface VoidStartPlatformFeatureStatics {
 /** JVM class net.minecraft.world.level.levelgen.feature.WaterloggedVegetationPatchFeature. */
 export interface WaterloggedVegetationPatchFeatureMembers {
   readonly __javaSupertypes?: readonly [VegetationPatchFeature];
-  placeGroundPatch(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration, arg2: j_net_minecraft_util.RandomSource, arg3: j_net_minecraft_core.BlockPos, arg4: JavaPredicate<j_net_minecraft_world_level_block_state.BlockState>, arg5: number, arg6: number): JavaSet<j_net_minecraft_core.BlockPos>;
-  placeVegetation(arg0: j_net_minecraft_world_level.WorldGenLevel, arg1: j_net_minecraft_world_level_levelgen_feature_configurations.VegetationPatchConfiguration, arg2: j_net_minecraft_world_level_chunk.ChunkGenerator, arg3: j_net_minecraft_util.RandomSource, arg4: j_net_minecraft_core.BlockPos): boolean;
 }
 export type WaterloggedVegetationPatchFeature = WaterloggedVegetationPatchFeatureMembers & VegetationPatchFeature;
 export interface WaterloggedVegetationPatchFeatureStatics {

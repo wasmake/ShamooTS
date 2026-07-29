@@ -3,6 +3,7 @@ import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaCon
 import type * as j_net_kyori_adventure_audience from './net.kyori.adventure.audience.generated.js';
 import type * as j_net_kyori_adventure_identity from './net.kyori.adventure.identity.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
+import type * as j_net_kyori_adventure_text_minimessage_tag_resolver from './net.kyori.adventure.text.minimessage.tag.resolver.generated.js';
 import type * as j_org_bukkit from './org.bukkit.generated.js';
 import type * as j_org_bukkit_block from './org.bukkit.block.generated.js';
 import type * as j_org_bukkit_conversations from './org.bukkit.conversations.generated.js';
@@ -33,7 +34,6 @@ export interface BufferedCommandSenderStatics {
 /** JVM abstract org.bukkit.command.Command. */
 export interface CommandMembers {
   canBeOverriden(): boolean;
-  description: string;
   execute(arg0: CommandSender, arg1: string, arg2: Array<string>): boolean;
   getAliases(): JavaList<string>;
   getDescription(): string;
@@ -45,30 +45,27 @@ export interface CommandMembers {
   getUsage(): string;
   isRegistered(): boolean;
   permissionMessage(): j_net_kyori_adventure_text.Component | null;
-  permissionMessage(arg0: j_net_kyori_adventure_text.Component): void | null;
+  permissionMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
   register(arg0: CommandMap): boolean;
   setAliases(arg0: JavaList<string>): Command;
   setDescription(arg0: string): Command;
   setLabel(arg0: string): boolean;
   setName(arg0: string): boolean;
-  setPermission(arg0: string | null): void | null;
-  setPermissionMessage(arg0: string | null): Command | null;
+  setPermission(arg0: string | null): void;
+  setPermissionMessage(arg0: string | null): Command;
   setUsage(arg0: string): Command;
   /** @throws java.lang.IllegalArgumentException */
   tabComplete(arg0: CommandSender, arg1: string, arg2: Array<string>): JavaList<string>;
   /** @throws java.lang.IllegalArgumentException */
-  tabComplete(arg0: CommandSender, arg1: string, arg2: Array<string>, arg3: j_org_bukkit.Location | null): JavaList<string> | null;
+  tabComplete(arg0: CommandSender, arg1: string, arg2: Array<string>, arg3: j_org_bukkit.Location | null): JavaList<string>;
   testPermission(arg0: CommandSender): boolean;
   testPermissionSilent(arg0: CommandSender): boolean;
   timings: JavaOpaque<"co.aikar.timings.Timing">;
   toString(): string;
   unregister(arg0: CommandMap): boolean;
-  usageMessage: string;
 }
 export type Command = CommandMembers;
 export interface CommandStatics {
-  new(arg0: string): Command;
-  new(arg0: string, arg1: string, arg2: string, arg3: JavaList<string>): Command;
   broadcastCommandMessage(arg0: CommandSender, arg1: string): void;
   broadcastCommandMessage(arg0: CommandSender, arg1: string, arg2: boolean): void;
   broadcastCommandMessage(arg0: CommandSender, arg1: j_net_kyori_adventure_text.Component): void;
@@ -120,15 +117,15 @@ export interface CommandSenderMembers {
   getServer(): j_org_bukkit.Server;
   name(): j_net_kyori_adventure_text.Component;
   sendMessage(arg0: string): void;
-  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string): void | null;
-  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, ...arg1: Array<string>): void | null;
+  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string): void;
+  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, ...arg1: Array<string>): void;
   sendMessage(arg0: j_net_kyori_adventure_identity.Identity, arg1: j_net_kyori_adventure_text.Component, arg2: j_net_kyori_adventure_audience.MessageType): void;
   sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
   sendMessage(...arg0: Array<string>): void;
   sendMessage(...arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void;
   sendPlainMessage(arg0: string): void;
   sendRichMessage(arg0: string): void;
-  sendRichMessage(arg0: string, ...arg1: Array<JavaOpaque<"net.kyori.adventure.text.minimessage.tag.resolver.TagResolver">>): void;
+  sendRichMessage(arg0: string, ...arg1: Array<j_net_kyori_adventure_text_minimessage_tag_resolver.TagResolver>): void;
   spigot(): CommandSender_Spigot;
 }
 export type CommandSender = CommandSenderMembers & j_net_kyori_adventure_audience.Audience & j_org_bukkit_permissions.Permissible;
@@ -137,8 +134,8 @@ export interface CommandSenderStatics {
 
 /** JVM class org.bukkit.command.CommandSender$Spigot. */
 export interface CommandSender_SpigotMembers {
-  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void | null;
-  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, ...arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void | null;
+  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
+  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, ...arg1: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void;
   sendMessage(arg0: JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">): void;
   sendMessage(...arg0: Array<JavaOpaque<"net.md_5.bungee.api.chat.BaseComponent">>): void;
 }
@@ -184,8 +181,8 @@ export interface MessageCommandSenderMembers {
   name(): j_net_kyori_adventure_text.Component;
   recalculatePermissions(): void;
   removeAttachment(arg0: j_org_bukkit_permissions.PermissionAttachment): void;
-  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string): void | null;
-  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: Array<string>): void | null;
+  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: string): void;
+  sendMessage(arg0: JavaOpaque<"java.util.UUID"> | null, arg1: Array<string>): void;
   sendMessage(arg0: Array<string>): void;
   setOp(arg0: boolean): void;
   spigot(): CommandSender_Spigot;
@@ -212,8 +209,8 @@ export interface PluginCommandMembers {
   getExecutor(): CommandExecutor;
   getPlugin(): j_org_bukkit_plugin.Plugin;
   getTabCompleter(): TabCompleter | null;
-  setExecutor(arg0: CommandExecutor | null): void | null;
-  setTabCompleter(arg0: TabCompleter | null): void | null;
+  setExecutor(arg0: CommandExecutor | null): void;
+  setTabCompleter(arg0: TabCompleter | null): void;
   /** @throws java.lang.IllegalArgumentException @throws org.bukkit.command.CommandException */
   tabComplete(arg0: CommandSender, arg1: string, arg2: Array<string>): JavaList<string>;
   toString(): string;
@@ -269,7 +266,6 @@ export interface SimpleCommandMapMembers {
   getCommand(arg0: string): Command | null;
   getCommands(): JavaCollection<Command>;
   getKnownCommands(): JavaMap<string, Command>;
-  readonly knownCommands: JavaMap<string, Command>;
   register(arg0: string, arg1: string, arg2: Command): boolean;
   register(arg0: string, arg1: Command): boolean;
   registerAll(arg0: string, arg1: JavaList<Command>): void;

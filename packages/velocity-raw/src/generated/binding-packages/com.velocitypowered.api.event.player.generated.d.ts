@@ -1,4 +1,4 @@
-// Generated from velocity 3.4.0-20260121.190037-118 (velocity-api+adventure). Do not edit.
+// Generated from velocity 3.4.0 (velocity-api+adventure). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_com_velocitypowered_api_event from './com.velocitypowered.api.event.generated.js';
 import type * as j_com_velocitypowered_api_proxy from './com.velocitypowered.api.proxy.generated.js';
@@ -14,15 +14,13 @@ export interface CookieReceiveEventMembers {
   getOriginalData(): Array<number> | null;
   getOriginalKey(): JavaOpaque<"net.kyori.adventure.key.Key">;
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): CookieReceiveEvent_ForwardResult;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: CookieReceiveEvent_ForwardResult): void;
   toString(): string;
 }
 export type CookieReceiveEvent = CookieReceiveEventMembers & j_com_velocitypowered_api_event.ResultedEvent<CookieReceiveEvent_ForwardResult>;
 export interface CookieReceiveEventStatics {
-  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: JavaOpaque<"net.kyori.adventure.key.Key">, arg2: Array<number>): CookieReceiveEvent;
+  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: JavaOpaque<"net.kyori.adventure.key.Key">, arg2: Array<number> | null): CookieReceiveEvent;
 }
 
 /** JVM class com.velocitypowered.api.event.player.CookieReceiveEvent$ForwardResult. */
@@ -46,9 +44,7 @@ export interface CookieRequestEventMembers {
   readonly __javaSupertypes?: readonly [j_com_velocitypowered_api_event.ResultedEvent<CookieRequestEvent_ForwardResult>];
   getOriginalKey(): JavaOpaque<"net.kyori.adventure.key.Key">;
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): CookieRequestEvent_ForwardResult;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: CookieRequestEvent_ForwardResult): void;
   toString(): string;
 }
@@ -77,9 +73,7 @@ export interface CookieStoreEventMembers {
   getOriginalData(): Array<number>;
   getOriginalKey(): JavaOpaque<"net.kyori.adventure.key.Key">;
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): CookieStoreEvent_ForwardResult;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: CookieStoreEvent_ForwardResult): void;
   toString(): string;
 }
@@ -111,7 +105,7 @@ export interface GameProfileRequestEventMembers {
   getOriginalProfile(): j_com_velocitypowered_api_util.GameProfile;
   getUsername(): string;
   isOnlineMode(): boolean;
-  setGameProfile(arg0: j_com_velocitypowered_api_util.GameProfile): void | null;
+  setGameProfile(arg0: j_com_velocitypowered_api_util.GameProfile | null): void;
   toString(): string;
 }
 export type GameProfileRequestEvent = GameProfileRequestEventMembers;
@@ -123,18 +117,16 @@ export interface GameProfileRequestEventStatics {
 export interface KickedFromServerEventMembers {
   readonly __javaSupertypes?: readonly [j_com_velocitypowered_api_event.ResultedEvent<KickedFromServerEvent_ServerKickResult>];
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): KickedFromServerEvent_ServerKickResult;
   getServer(): j_com_velocitypowered_api_proxy_server.RegisteredServer;
   getServerKickReason(): JavaOptional<j_net_kyori_adventure_text.Component>;
   kickedDuringLogin(): boolean;
   kickedDuringServerConnect(): boolean;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: KickedFromServerEvent_ServerKickResult): void;
 }
 export type KickedFromServerEvent = KickedFromServerEventMembers & j_com_velocitypowered_api_event.ResultedEvent<KickedFromServerEvent_ServerKickResult>;
 export interface KickedFromServerEventStatics {
-  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer, arg2: j_net_kyori_adventure_text.Component, arg3: boolean, arg4: KickedFromServerEvent_ServerKickResult): KickedFromServerEvent;
+  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer, arg2: j_net_kyori_adventure_text.Component | null, arg3: boolean, arg4: KickedFromServerEvent_ServerKickResult): KickedFromServerEvent;
 }
 
 /** JVM class com.velocitypowered.api.event.player.KickedFromServerEvent$DisconnectPlayer. */
@@ -210,9 +202,7 @@ export interface PlayerChatEventMembers {
   readonly __javaSupertypes?: readonly [j_com_velocitypowered_api_event.ResultedEvent<PlayerChatEvent_ChatResult>];
   getMessage(): string;
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): PlayerChatEvent_ChatResult;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: PlayerChatEvent_ChatResult): void;
   toString(): string;
 }
@@ -239,12 +229,12 @@ export interface PlayerChatEvent_ChatResultStatics {
 export interface PlayerChooseInitialServerEventMembers {
   getInitialServer(): JavaOptional<j_com_velocitypowered_api_proxy_server.RegisteredServer>;
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
-  setInitialServer(arg0: j_com_velocitypowered_api_proxy_server.RegisteredServer): void | null;
+  setInitialServer(arg0: j_com_velocitypowered_api_proxy_server.RegisteredServer | null): void;
   toString(): string;
 }
 export type PlayerChooseInitialServerEvent = PlayerChooseInitialServerEventMembers;
 export interface PlayerChooseInitialServerEventStatics {
-  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer): PlayerChooseInitialServerEvent;
+  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer | null): PlayerChooseInitialServerEvent;
 }
 
 /** JVM class com.velocitypowered.api.event.player.PlayerClientBrandEvent. */
@@ -324,7 +314,7 @@ export interface ServerConnectedEventMembers {
 }
 export type ServerConnectedEvent = ServerConnectedEventMembers;
 export interface ServerConnectedEventStatics {
-  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer, arg2: j_com_velocitypowered_api_proxy_server.RegisteredServer): ServerConnectedEvent;
+  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer, arg2: j_com_velocitypowered_api_proxy_server.RegisteredServer | null): ServerConnectedEvent;
 }
 
 /** JVM class com.velocitypowered.api.event.player.ServerLoginPluginMessageEvent. */
@@ -335,10 +325,8 @@ export interface ServerLoginPluginMessageEventMembers {
   getConnection(): j_com_velocitypowered_api_proxy.ServerConnection;
   getContents(): Array<number>;
   getIdentifier(): j_com_velocitypowered_api_proxy_messages.ChannelIdentifier;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): ServerLoginPluginMessageEvent_ResponseResult;
   getSequenceId(): number;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: ServerLoginPluginMessageEvent_ResponseResult): void;
   toString(): string;
 }
@@ -370,7 +358,7 @@ export interface ServerPostConnectEventMembers {
 }
 export type ServerPostConnectEvent = ServerPostConnectEventMembers;
 export interface ServerPostConnectEventStatics {
-  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer): ServerPostConnectEvent;
+  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer | null): ServerPostConnectEvent;
 }
 
 /** JVM class com.velocitypowered.api.event.player.ServerPreConnectEvent. */
@@ -379,16 +367,14 @@ export interface ServerPreConnectEventMembers {
   getOriginalServer(): j_com_velocitypowered_api_proxy_server.RegisteredServer;
   getPlayer(): j_com_velocitypowered_api_proxy.Player;
   getPreviousServer(): j_com_velocitypowered_api_proxy_server.RegisteredServer | null;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getResult(): ServerPreConnectEvent_ServerResult;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
   setResult(arg0: ServerPreConnectEvent_ServerResult): void;
   toString(): string;
 }
 export type ServerPreConnectEvent = ServerPreConnectEventMembers & j_com_velocitypowered_api_event.ResultedEvent<ServerPreConnectEvent_ServerResult>;
 export interface ServerPreConnectEventStatics {
   new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer): ServerPreConnectEvent;
-  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer, arg2: j_com_velocitypowered_api_proxy_server.RegisteredServer): ServerPreConnectEvent;
+  new(arg0: j_com_velocitypowered_api_proxy.Player, arg1: j_com_velocitypowered_api_proxy_server.RegisteredServer, arg2: j_com_velocitypowered_api_proxy_server.RegisteredServer | null): ServerPreConnectEvent;
 }
 
 /** JVM class com.velocitypowered.api.event.player.ServerPreConnectEvent$ServerResult. */
@@ -409,10 +395,8 @@ export interface ServerResourcePackRemoveEventMembers {
   readonly __javaSupertypes?: readonly [j_com_velocitypowered_api_event.ResultedEvent<j_com_velocitypowered_api_event.ResultedEvent_GenericResult>];
   getPackId(): JavaOpaque<"java.util.UUID"> | null;
   getResult(): j_com_velocitypowered_api_event.ResultedEvent_GenericResult;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getServerConnection(): j_com_velocitypowered_api_proxy.ServerConnection;
   setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_GenericResult): void;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
 }
 export type ServerResourcePackRemoveEvent = ServerResourcePackRemoveEventMembers & j_com_velocitypowered_api_event.ResultedEvent<j_com_velocitypowered_api_event.ResultedEvent_GenericResult>;
 export interface ServerResourcePackRemoveEventStatics {
@@ -425,11 +409,9 @@ export interface ServerResourcePackSendEventMembers {
   getProvidedResourcePack(): j_com_velocitypowered_api_proxy_player.ResourcePackInfo;
   getReceivedResourcePack(): j_com_velocitypowered_api_proxy_player.ResourcePackInfo;
   getResult(): j_com_velocitypowered_api_event.ResultedEvent_GenericResult;
-  getResult(): j_com_velocitypowered_api_event.ResultedEvent_Result;
   getServerConnection(): j_com_velocitypowered_api_proxy.ServerConnection;
   setProvidedResourcePack(arg0: j_com_velocitypowered_api_proxy_player.ResourcePackInfo): void;
   setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_GenericResult): void;
-  setResult(arg0: j_com_velocitypowered_api_event.ResultedEvent_Result): void;
 }
 export type ServerResourcePackSendEvent = ServerResourcePackSendEventMembers & j_com_velocitypowered_api_event.ResultedEvent<j_com_velocitypowered_api_event.ResultedEvent_GenericResult>;
 export interface ServerResourcePackSendEventStatics {

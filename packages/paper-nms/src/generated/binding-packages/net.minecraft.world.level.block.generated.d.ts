@@ -9,7 +9,6 @@ import type * as j_net_minecraft_network_codec from './net.minecraft.network.cod
 import type * as j_net_minecraft_resources from './net.minecraft.resources.generated.js';
 import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
-import type * as j_net_minecraft_stats from './net.minecraft.stats.generated.js';
 import type * as j_net_minecraft_tags from './net.minecraft.tags.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
 import type * as j_net_minecraft_util_valueproviders from './net.minecraft.util.valueproviders.generated.js';
@@ -19,7 +18,6 @@ import type * as j_net_minecraft_world_effect from './net.minecraft.world.effect
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
 import type * as j_net_minecraft_world_entity_item from './net.minecraft.world.entity.item.generated.js';
 import type * as j_net_minecraft_world_entity_player from './net.minecraft.world.entity.player.generated.js';
-import type * as j_net_minecraft_world_entity_projectile from './net.minecraft.world.entity.projectile.generated.js';
 import type * as j_net_minecraft_world_inventory from './net.minecraft.world.inventory.generated.js';
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_item_component from './net.minecraft.world.item.component.generated.js';
@@ -40,117 +38,73 @@ import type * as j_net_minecraft_world_level_levelgen_structure_templatesystem f
 import type * as j_net_minecraft_world_level_material from './net.minecraft.world.level.material.generated.js';
 import type * as j_net_minecraft_world_level_pathfinder from './net.minecraft.world.level.pathfinder.generated.js';
 import type * as j_net_minecraft_world_level_portal from './net.minecraft.world.level.portal.generated.js';
-import type * as j_net_minecraft_world_level_redstone from './net.minecraft.world.level.redstone.generated.js';
 import type * as j_net_minecraft_world_level_storage from './net.minecraft.world.level.storage.generated.js';
-import type * as j_net_minecraft_world_level_storage_loot from './net.minecraft.world.level.storage.loot.generated.js';
 import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 import type * as j_net_minecraft_world_phys_shapes from './net.minecraft.world.phys.shapes.generated.js';
 
 /** JVM abstract net.minecraft.world.level.block.AbstractBannerBlock. */
 export interface AbstractBannerBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AbstractBannerBlock]>;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   getColor(): j_net_minecraft_world_item.DyeColor;
   isPossibleToRespawnInThis(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
 }
 export type AbstractBannerBlock = AbstractBannerBlockMembers & BaseEntityBlock;
 export interface AbstractBannerBlockStatics {
-  new(arg0: j_net_minecraft_world_item.DyeColor, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): AbstractBannerBlock;
 }
 
 /** JVM abstract net.minecraft.world.level.block.AbstractCandleBlock. */
 export interface AbstractCandleBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canBeLit(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AbstractCandleBlock]>;
-  getParticleOffsets(arg0: j_net_minecraft_world_level_block_state.BlockState): Iterable<j_net_minecraft_world_phys.Vec3>;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
 }
 export type AbstractCandleBlock = AbstractCandleBlockMembers & Block;
 export interface AbstractCandleBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): AbstractCandleBlock;
   readonly LIGHT_PER_CANDLE: 3;
   readonly LIT: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  extinguish(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.LevelAccessor, arg3: j_net_minecraft_core.BlockPos): void | null;
+  extinguish(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.LevelAccessor, arg3: j_net_minecraft_core.BlockPos): void;
   isLit(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 
 /** JVM abstract net.minecraft.world.level.block.AbstractCauldronBlock. */
 export interface AbstractCauldronBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canReceiveStalactiteDrip(arg0: j_net_minecraft_world_level_material.Fluid): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AbstractCauldronBlock]>;
-  getContentHeight(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getInteractionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  readonly interactions: j_net_minecraft_core_cauldron.CauldronInteraction_InteractionMap;
   isFull(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  receiveStalactiteDrip(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_material.Fluid): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type AbstractCauldronBlock = AbstractCauldronBlockMembers & Block;
 export interface AbstractCauldronBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: j_net_minecraft_core_cauldron.CauldronInteraction_InteractionMap): AbstractCauldronBlock;
-  readonly FLOOR_LEVEL: 4;
-  readonly SHAPE: j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 
 /** JVM abstract net.minecraft.world.level.block.AbstractChestBlock. */
 export interface AbstractChestBlockMembers<E /* extends j_net_minecraft_world_level_block_entity.BlockEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  readonly blockEntityType: JavaSupplier<j_net_minecraft_world_level_block_entity.BlockEntityType<E>>;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AbstractChestBlock<E>]>;
   combine(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): DoubleBlockCombiner_NeighborCombineResult<j_net_minecraft_world_level_block_entity.ChestBlockEntity>;
 }
 export type AbstractChestBlock<E /* extends j_net_minecraft_world_level_block_entity.BlockEntity */ = unknown> = AbstractChestBlockMembers<E> & BaseEntityBlock;
 export interface AbstractChestBlockStatics {
-  new<E /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: JavaSupplier<j_net_minecraft_world_level_block_entity.BlockEntityType<E>>): AbstractChestBlock<E>;
 }
 
 /** JVM abstract net.minecraft.world.level.block.AbstractFurnaceBlock. */
 export interface AbstractFurnaceBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AbstractFurnaceBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  openContainer(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type AbstractFurnaceBlock = AbstractFurnaceBlockMembers & BaseEntityBlock;
 export interface AbstractFurnaceBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): AbstractFurnaceBlock;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly LIT: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  createFurnaceTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_entity.BlockEntityType<T>, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<j_net_minecraft_world_level_block_entity.AbstractFurnaceBlockEntity>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
 }
 
 /** JVM abstract net.minecraft.world.level.block.AbstractSkullBlock. */
 export interface AbstractSkullBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AbstractSkullBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   getType(): SkullBlock_Type;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
 }
 export type AbstractSkullBlock = AbstractSkullBlockMembers & BaseEntityBlock;
 export interface AbstractSkullBlockStatics {
-  new(arg0: SkullBlock_Type, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): AbstractSkullBlock;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
 
@@ -158,8 +112,6 @@ export interface AbstractSkullBlockStatics {
 export interface AirBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AirBlock]>;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type AirBlock = AirBlockMembers & Block;
 export interface AirBlockStatics {
@@ -171,7 +123,6 @@ export interface AirBlockStatics {
 export interface AmethystBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AmethystBlock]>;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
 }
 export type AmethystBlock = AmethystBlockMembers & Block;
 export interface AmethystBlockStatics {
@@ -182,15 +133,8 @@ export interface AmethystBlockStatics {
 /** JVM class net.minecraft.world.level.block.AmethystClusterBlock. */
 export interface AmethystClusterBlockMembers {
   readonly __javaSupertypes?: readonly [AmethystBlock, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AmethystClusterBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type AmethystClusterBlock = AmethystClusterBlockMembers & AmethystBlock & SimpleWaterloggedBlock;
 export interface AmethystClusterBlockStatics {
@@ -204,18 +148,12 @@ export interface AmethystClusterBlockStatics {
 export interface AnvilBlockMembers {
   readonly __javaSupertypes?: readonly [FallingBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AnvilBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  falling(arg0: j_net_minecraft_world_entity_item.FallingBlockEntity): void;
   getDustColor(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
   getFallDamageSource(arg0: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_damagesource.DamageSource;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   onBrokenAfterFall(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_item.FallingBlockEntity): void;
   onLand(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_entity_item.FallingBlockEntity): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type AnvilBlock = AnvilBlockMembers & FallingBlock;
 export interface AnvilBlockStatics {
@@ -229,17 +167,9 @@ export interface AnvilBlockStatics {
 export interface AttachedStemBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AttachedStemBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type AttachedStemBlock = AttachedStemBlockMembers & VegetationBlock;
 export interface AttachedStemBlockStatics {
-  new(arg0: j_net_minecraft_resources.ResourceKey<Block>, arg1: j_net_minecraft_resources.ResourceKey<Block>, arg2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item.Item>, arg3: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): AttachedStemBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [AttachedStemBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
 }
@@ -248,32 +178,22 @@ export interface AttachedStemBlockStatics {
 export interface AzaleaBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [AzaleaBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type AzaleaBlock = AzaleaBlockMembers & VegetationBlock & BonemealableBlock;
 export interface AzaleaBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): AzaleaBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [AzaleaBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.BambooSaplingBlock. */
 export interface BambooSaplingBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BonemealableBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BambooSaplingBlock]>;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  growBamboo(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): void;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BambooSaplingBlock = BambooSaplingBlockMembers & Block & BonemealableBlock;
 export interface BambooSaplingBlockStatics {
@@ -284,25 +204,11 @@ export interface BambooSaplingBlockStatics {
 /** JVM class net.minecraft.world.level.block.BambooStalkBlock. */
 export interface BambooStalkBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BonemealableBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BambooStalkBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getHeightAboveUpToMax(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): number;
-  getHeightBelowUpToMax(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  growBamboo(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource, arg4: number): void;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isCollisionShapeFullBlock(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BambooStalkBlock = BambooStalkBlockMembers & Block & BonemealableBlock;
 export interface BambooStalkBlockStatics {
@@ -321,14 +227,8 @@ export interface BambooStalkBlockStatics {
 /** JVM class net.minecraft.world.level.block.BannerBlock. */
 export interface BannerBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractBannerBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BannerBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BannerBlock = BannerBlockMembers & AbstractBannerBlock;
 export interface BannerBlockStatics {
@@ -341,17 +241,9 @@ export interface BannerBlockStatics {
 /** JVM class net.minecraft.world.level.block.BarrelBlock. */
 export interface BarrelBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BarrelBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type BarrelBlock = BarrelBlockMembers & BaseEntityBlock;
 export interface BarrelBlockStatics {
@@ -364,20 +256,13 @@ export interface BarrelBlockStatics {
 /** JVM class net.minecraft.world.level.block.BarrierBlock. */
 export interface BarrierBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BarrierBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack | null;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
+  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack;
 }
 export type BarrierBlock = BarrierBlockMembers & Block & SimpleWaterloggedBlock;
 export interface BarrierBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BarrierBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BarrierBlock]>;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
@@ -386,11 +271,9 @@ export interface BarrierBlockStatics {
 export interface BaseCoralFanBlockMembers {
   readonly __javaSupertypes?: readonly [BaseCoralPlantTypeBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralFanBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type BaseCoralFanBlock = BaseCoralFanBlockMembers & BaseCoralPlantTypeBlock;
 export interface BaseCoralFanBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseCoralFanBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralFanBlock]>;
 }
 
@@ -398,48 +281,30 @@ export interface BaseCoralFanBlockStatics {
 export interface BaseCoralPlantBlockMembers {
   readonly __javaSupertypes?: readonly [BaseCoralPlantTypeBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralPlantBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type BaseCoralPlantBlock = BaseCoralPlantBlockMembers & BaseCoralPlantTypeBlock;
 export interface BaseCoralPlantBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseCoralPlantBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralPlantBlock]>;
 }
 
 /** JVM abstract net.minecraft.world.level.block.BaseCoralPlantTypeBlock. */
 export interface BaseCoralPlantTypeBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralPlantTypeBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  tryScheduleDieTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_util.RandomSource, arg4: j_net_minecraft_core.BlockPos): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BaseCoralPlantTypeBlock = BaseCoralPlantTypeBlockMembers & Block & SimpleWaterloggedBlock;
 export interface BaseCoralPlantTypeBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseCoralPlantTypeBlock;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  scanForWater(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 
 /** JVM class net.minecraft.world.level.block.BaseCoralWallFanBlock. */
 export interface BaseCoralWallFanBlockMembers {
   readonly __javaSupertypes?: readonly [BaseCoralFanBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralWallFanBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BaseCoralWallFanBlock = BaseCoralWallFanBlockMembers & BaseCoralFanBlock;
 export interface BaseCoralWallFanBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseCoralWallFanBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BaseCoralWallFanBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
 }
@@ -447,34 +312,21 @@ export interface BaseCoralWallFanBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.BaseEntityBlock. */
 export interface BaseEntityBlockMembers {
   readonly __javaSupertypes?: readonly [Block, EntityBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseEntityBlock]>;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  triggerEvent(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: number): boolean;
 }
 export type BaseEntityBlock = BaseEntityBlockMembers & Block & EntityBlock;
 export interface BaseEntityBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseEntityBlock;
-  createTickerHelper<E /* extends j_net_minecraft_world_level_block_entity.BlockEntity */, A /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level_block_entity.BlockEntityType<A>, arg1: j_net_minecraft_world_level_block_entity.BlockEntityType<E>, arg2: j_net_minecraft_world_level_block_entity.BlockEntityTicker<E>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<A> | null;
 }
 
 /** JVM abstract net.minecraft.world.level.block.BaseFireBlock. */
 export interface BaseFireBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canBurn(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseFireBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  fireExtinguished(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean, arg5: j_net_minecraft_world_item_context.UseOnContext): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  spawnDestroyParticles(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type BaseFireBlock = BaseFireBlockMembers & Block;
 export interface BaseFireBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: number): BaseFireBlock;
-  readonly SHAPE: j_net_minecraft_world_phys_shapes.VoxelShape;
   canBePlacedAt(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction): boolean;
   fireIgnite(arg0: j_net_minecraft_world_entity.Entity, arg1: j_net_minecraft_core.BlockPos): void;
   getState(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
@@ -483,55 +335,21 @@ export interface BaseFireBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.BasePressurePlateBlock. */
 export interface BasePressurePlateBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BasePressurePlateBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getPressedTime(): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getSignalForState(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getSignalStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
   isPossibleToRespawnInThis(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  setSignalForState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: number): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  readonly type: j_net_minecraft_world_level_block_state_properties.BlockSetType;
-  updateNeighbours(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BasePressurePlateBlock = BasePressurePlateBlockMembers & Block;
 export interface BasePressurePlateBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: j_net_minecraft_world_level_block_state_properties.BlockSetType): BasePressurePlateBlock;
-  readonly TOUCH_AABB: j_net_minecraft_world_phys.AABB;
-  getEntities<T /* extends j_net_minecraft_world_entity.Entity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_phys.AABB, arg2: JavaClass<T>): JavaList<T>;
-  getEntityCount(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_phys.AABB, arg2: JavaClass<j_net_minecraft_world_entity.Entity>): number;
 }
 
 /** JVM abstract net.minecraft.world.level.block.BaseRailBlock. */
 export interface BaseRailBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseRailBlock]>;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getShapeProperty(): j_net_minecraft_world_level_block_state_properties.Property<j_net_minecraft_world_level_block_state_properties.RailShape>;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   isStraight(): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state_properties.RailShape, arg1: Mirror): j_net_minecraft_world_level_block_state_properties.RailShape;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state_properties.RailShape, arg1: Rotation): j_net_minecraft_world_level_block_state_properties.RailShape;
-  updateDir(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  updateState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block): void;
-  updateState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BaseRailBlock = BaseRailBlockMembers & Block & SimpleWaterloggedBlock;
 export interface BaseRailBlockStatics {
-  new(arg0: boolean, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseRailBlock;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   isRail(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): boolean;
   isRail(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
@@ -540,14 +358,9 @@ export interface BaseRailBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.BaseTorchBlock. */
 export interface BaseTorchBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BaseTorchBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BaseTorchBlock = BaseTorchBlockMembers & Block;
 export interface BaseTorchBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BaseTorchBlock;
 }
 
 /** JVM interface net.minecraft.world.level.block.BeaconBeamBlock. */
@@ -565,7 +378,6 @@ export interface BeaconBlockMembers {
   getColor(): j_net_minecraft_world_item.DyeColor;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type BeaconBlock = BeaconBlockMembers & BaseEntityBlock & BeaconBeamBlock;
 export interface BeaconBlockStatics {
@@ -577,19 +389,13 @@ export interface BeaconBlockStatics {
 export interface BedBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock, EntityBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BedBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   fallOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: number): void;
   getColor(): j_net_minecraft_world_item.DyeColor;
-  getSeed(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos): bigint;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
   updateEntityMovementAfterFallOn(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_world_entity.Entity): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type BedBlock = BedBlockMembers & HorizontalDirectionalBlock & EntityBlock;
 export interface BedBlockStatics {
@@ -609,23 +415,15 @@ export interface BeehiveBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BeehiveBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_storage_loot.LootParams_Builder): JavaList<j_net_minecraft_world_item.ItemStack>;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void | null;
+  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  releaseBeesAndResetHoneyLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player | null, arg4: j_net_minecraft_world_level_block_entity.BeehiveBlockEntity_BeeReleaseStatus): void | null;
+  releaseBeesAndResetHoneyLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player | null, arg4: j_net_minecraft_world_level_block_entity.BeehiveBlockEntity_BeeReleaseStatus): void;
   resetHoneyLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos): void;
   rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type BeehiveBlock = BeehiveBlockMembers & BaseEntityBlock;
 export interface BeehiveBlockStatics {
@@ -641,13 +439,7 @@ export interface BeehiveBlockStatics {
 export interface BeetrootBlockMembers {
   readonly __javaSupertypes?: readonly [CropBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BeetrootBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAgeProperty(): j_net_minecraft_world_level_block_state_properties.IntegerProperty;
-  getBaseSeedId(): j_net_minecraft_world_level.ItemLike;
-  getBonemealAgeIncrease(arg0: j_net_minecraft_world_level.Level): number;
   getMaxAge(): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type BeetrootBlock = BeetrootBlockMembers & CropBlock;
 export interface BeetrootBlockStatics {
@@ -660,25 +452,15 @@ export interface BeetrootBlockStatics {
 /** JVM class net.minecraft.world.level.block.BellBlock. */
 export interface BellBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  attemptToRing(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction | null): boolean | null;
-  attemptToRing(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction | null): boolean | null;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
+  attemptToRing(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction | null): boolean;
+  attemptToRing(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction | null): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BellBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  onHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_player.Player | null, arg4: boolean): boolean | null;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
+  onHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_player.Player | null, arg4: boolean): boolean;
   rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type BellBlock = BellBlockMembers & BaseEntityBlock;
 export interface BellBlockStatics {
@@ -693,51 +475,29 @@ export interface BellBlockStatics {
 /** JVM class net.minecraft.world.level.block.BigDripleafBlock. */
 export interface BigDripleafBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock, BonemealableBlock, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BigDripleafBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BigDripleafBlock = BigDripleafBlockMembers & HorizontalDirectionalBlock & BonemealableBlock & SimpleWaterloggedBlock;
 export interface BigDripleafBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BigDripleafBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BigDripleafBlock]>;
-  canPlaceAt(arg0: j_net_minecraft_world_level.LevelHeightAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  place(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_material.FluidState, arg3: j_net_minecraft_core.Direction): boolean;
   placeWithRandomHeight(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): void;
 }
 
 /** JVM class net.minecraft.world.level.block.BigDripleafStemBlock. */
 export interface BigDripleafStemBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock, BonemealableBlock, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BigDripleafStemBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type BigDripleafStemBlock = BigDripleafStemBlockMembers & HorizontalDirectionalBlock & BonemealableBlock & SimpleWaterloggedBlock;
 export interface BigDripleafStemBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BigDripleafStemBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BigDripleafStemBlock]>;
-  place(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_material.FluidState, arg3: j_net_minecraft_core.Direction): boolean;
 }
 
 /** JVM class net.minecraft.world.level.block.BlastFurnaceBlock. */
@@ -747,11 +507,9 @@ export interface BlastFurnaceBlockMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BlastFurnaceBlock]>;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  openContainer(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): void;
 }
 export type BlastFurnaceBlock = BlastFurnaceBlockMembers & AbstractFurnaceBlock;
 export interface BlastFurnaceBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BlastFurnaceBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BlastFurnaceBlock]>;
 }
 
@@ -759,11 +517,8 @@ export interface BlastFurnaceBlockStatics {
 export interface BlockMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world_level_block_state.BlockBehaviour, j_net_minecraft_world_level.ItemLike];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  asBlock(): Block;
   asItem(): j_net_minecraft_world_item.Item;
   builtInRegistryHolder(): j_net_minecraft_core.Holder_Reference<Block>;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [Block]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   defaultBlockState(): j_net_minecraft_world_level_block_state.BlockState;
   destroy(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   dropFromExplosion(arg0: j_net_minecraft_world_level.Explosion): boolean;
@@ -773,8 +528,6 @@ export interface BlockMembers {
   getFriction(): number;
   getJumpFactor(): number;
   getName(): j_net_minecraft_network_chat.MutableComponent;
-  getShapeForEachState(arg0: JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_phys_shapes.VoxelShape>): JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_phys_shapes.VoxelShape>;
-  getShapeForEachState(arg0: JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_phys_shapes.VoxelShape>, ...arg1: Array<j_net_minecraft_world_level_block_state_properties.Property<object>>): JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_phys_shapes.VoxelShape>;
   getSpeedFactor(): number;
   getStateDefinition(): j_net_minecraft_world_level_block_state.StateDefinition<Block, j_net_minecraft_world_level_block_state.BlockState>;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
@@ -782,18 +535,14 @@ export interface BlockMembers {
   hasDynamicShape(): boolean;
   isDestroyable(): boolean;
   isPossibleToRespawnInThis(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack): void | null;
-  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void | null;
+  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack): void;
+  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
   popExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: number): void;
-  popExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: j_net_minecraft_world_entity.Entity | null): void | null;
-  registerDefaultState(arg0: j_net_minecraft_world_level_block_state.BlockState): void;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
-  spawnDestroyParticles(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  readonly stateDefinition: j_net_minecraft_world_level_block_state.StateDefinition<Block, j_net_minecraft_world_level_block_state.BlockState>;
+  popExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: j_net_minecraft_world_entity.Entity | null): void;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
   stepOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity): void;
   toString(): string;
-  tryDropExperience(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_item.ItemStack, arg3: j_net_minecraft_util_valueproviders.IntProvider): number;
   updateEntityMovementAfterFallOn(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_world_entity.Entity): void;
   wasExploded(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level.Explosion): void;
   withPropertiesOf(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
@@ -825,7 +574,7 @@ export interface BlockStatics {
   boxZ(arg0: number, arg1: number, arg2: number, arg3: number): j_net_minecraft_world_phys_shapes.VoxelShape;
   boxZ(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): j_net_minecraft_world_phys_shapes.VoxelShape;
   boxes(arg0: number, arg1: JavaOpaque<"java.util.function.IntFunction", [j_net_minecraft_world_phys_shapes.VoxelShape]>): Array<j_net_minecraft_world_phys_shapes.VoxelShape>;
-  byItem(arg0: j_net_minecraft_world_item.Item | null): Block | null;
+  byItem(arg0: j_net_minecraft_world_item.Item | null): Block;
   canSupportCenter(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction): boolean;
   canSupportRigidBlock(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): boolean;
   column(arg0: number, arg1: number, arg2: number): j_net_minecraft_world_phys_shapes.VoxelShape;
@@ -833,13 +582,13 @@ export interface BlockStatics {
   cube(arg0: number): j_net_minecraft_world_phys_shapes.VoxelShape;
   cube(arg0: number, arg1: number, arg2: number): j_net_minecraft_world_phys_shapes.VoxelShape;
   dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): void;
-  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: j_net_minecraft_world_item.ItemStack): void | null;
-  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean): void | null;
-  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null): void | null;
-  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_core.BlockPos): boolean | null;
-  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null): JavaList<j_net_minecraft_world_item.ItemStack> | null;
-  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: j_net_minecraft_world_item.ItemStack): JavaList<j_net_minecraft_world_item.ItemStack> | null;
-  getId(arg0: j_net_minecraft_world_level_block_state.BlockState | null): number | null;
+  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: j_net_minecraft_world_item.ItemStack): void;
+  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean): void;
+  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null): void;
+  dropResources(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_core.BlockPos): boolean;
+  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null): JavaList<j_net_minecraft_world_item.ItemStack>;
+  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg4: j_net_minecraft_world_entity.Entity | null, arg5: j_net_minecraft_world_item.ItemStack): JavaList<j_net_minecraft_world_item.ItemStack>;
+  getId(arg0: j_net_minecraft_world_level_block_state.BlockState | null): number;
   isExceptionForConnection(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isFaceFull(arg0: j_net_minecraft_world_phys_shapes.VoxelShape, arg1: j_net_minecraft_core.Direction): boolean;
   isShapeFullBlock(arg0: j_net_minecraft_world_phys_shapes.VoxelShape): boolean;
@@ -2019,17 +1768,10 @@ export interface BonemealableFeaturePlacerBlockStatics {
 /** JVM class net.minecraft.world.level.block.BrewingStandBlock. */
 export interface BrewingStandBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BrewingStandBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type BrewingStandBlock = BrewingStandBlockMembers & BaseEntityBlock;
 export interface BrewingStandBlockStatics {
@@ -2043,7 +1785,6 @@ export interface BrushableBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, Fallable];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BrushableBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getBrushCompletedSound(): j_net_minecraft_sounds.SoundEvent;
   getBrushSound(): j_net_minecraft_sounds.SoundEvent;
   getTurnsInto(): Block;
@@ -2064,17 +1805,9 @@ export interface BrushableBlockStatics {
 export interface BubbleColumnBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BucketPickup];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BubbleColumnBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack | null;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
+  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack;
 }
 export type BubbleColumnBlock = BubbleColumnBlockMembers & Block & BucketPickup;
 export interface BubbleColumnBlockStatics {
@@ -2088,7 +1821,7 @@ export interface BubbleColumnBlockStatics {
 /** JVM interface net.minecraft.world.level.block.BucketPickup. */
 export interface BucketPickupMembers {
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
-  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack | null;
+  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack;
 }
 export type BucketPickup = BucketPickupMembers;
 export interface BucketPickupStatics {
@@ -2098,7 +1831,6 @@ export interface BucketPickupStatics {
 export interface BuddingAmethystBlockMembers {
   readonly __javaSupertypes?: readonly [AmethystBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BuddingAmethystBlock]>;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type BuddingAmethystBlock = BuddingAmethystBlockMembers & AmethystBlock;
 export interface BuddingAmethystBlockStatics {
@@ -2112,39 +1844,23 @@ export interface BuddingAmethystBlockStatics {
 export interface BushBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [BushBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type BushBlock = BushBlockMembers & VegetationBlock & BonemealableBlock;
 export interface BushBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): BushBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [BushBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.ButtonBlock. */
 export interface ButtonBlockMembers {
   readonly __javaSupertypes?: readonly [FaceAttachedHorizontalDirectionalBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  checkPressed(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ButtonBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getSound(arg0: boolean): j_net_minecraft_sounds.SoundEvent;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  playSound(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void | null;
-  press(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player | null): void | null;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
+  press(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player | null): void;
 }
 export type ButtonBlock = ButtonBlockMembers & FaceAttachedHorizontalDirectionalBlock;
 export interface ButtonBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg1: number, arg2: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): ButtonBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [ButtonBlock]>;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
@@ -2152,20 +1868,10 @@ export interface ButtonBlockStatics {
 /** JVM class net.minecraft.world.level.block.CactusBlock. */
 export interface CactusBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CactusBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CactusBlock = CactusBlockMembers & Block;
 export interface CactusBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CactusBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CactusBlock]>;
   readonly MAX_AGE: 15;
@@ -2175,8 +1881,6 @@ export interface CactusBlockStatics {
 export interface CactusFlowerBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CactusFlowerBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type CactusFlowerBlock = CactusFlowerBlockMembers & VegetationBlock;
 export interface CactusFlowerBlockStatics {
@@ -2187,25 +1891,14 @@ export interface CactusFlowerBlockStatics {
 /** JVM class net.minecraft.world.level.block.CakeBlock. */
 export interface CakeBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CakeBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CakeBlock = CakeBlockMembers & Block;
 export interface CakeBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CakeBlock;
   readonly BITES: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CakeBlock]>;
   readonly FULL_CAKE_SIGNAL: number;
   readonly MAX_BITES: 6;
-  eat(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world.InteractionResult;
   getOutputSignal(arg0: number): number;
 }
 
@@ -2213,7 +1906,6 @@ export interface CakeBlockStatics {
 export interface CalibratedSculkSensorBlockMembers {
   readonly __javaSupertypes?: readonly [SculkSensorBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CalibratedSculkSensorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getActiveTicks(): number;
   getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
@@ -2234,20 +1926,10 @@ export interface CampfireBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, SimpleWaterloggedBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CampfireBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CampfireBlock = CampfireBlockMembers & BaseEntityBlock & SimpleWaterloggedBlock;
 export interface CampfireBlockStatics {
@@ -2258,7 +1940,7 @@ export interface CampfireBlockStatics {
   readonly SIGNAL_FIRE: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   canLight(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  dowse(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void | null;
+  dowse(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
   isLitCampfire(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isSmokeyPos(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): boolean;
   makeParticles(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: boolean): void;
@@ -2267,18 +1949,9 @@ export interface CampfireBlockStatics {
 /** JVM class net.minecraft.world.level.block.CandleBlock. */
 export interface CandleBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractCandleBlock, SimpleWaterloggedBlock];
-  canBeLit(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CandleBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getParticleOffsets(arg0: j_net_minecraft_world_level_block_state.BlockState): Iterable<j_net_minecraft_world_phys.Vec3>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CandleBlock = CandleBlockMembers & AbstractCandleBlock & SimpleWaterloggedBlock;
 export interface CandleBlockStatics {
@@ -2296,22 +1969,10 @@ export interface CandleBlockStatics {
 /** JVM class net.minecraft.world.level.block.CandleCakeBlock. */
 export interface CandleCakeBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractCandleBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CandleCakeBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getParticleOffsets(arg0: j_net_minecraft_world_level_block_state.BlockState): Iterable<j_net_minecraft_world_phys.Vec3>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CandleCakeBlock = CandleCakeBlockMembers & AbstractCandleBlock;
 export interface CandleCakeBlockStatics {
-  new(arg0: Block, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CandleCakeBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CandleCakeBlock]>;
   readonly LIT: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   byCandle(arg0: CandleBlock): j_net_minecraft_world_level_block_state.BlockState;
@@ -2321,10 +1982,7 @@ export interface CandleCakeBlockStatics {
 /** JVM class net.minecraft.world.level.block.CarpetBlock. */
 export interface CarpetBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CarpetBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CarpetBlock = CarpetBlockMembers & Block;
 export interface CarpetBlockStatics {
@@ -2336,8 +1994,6 @@ export interface CarpetBlockStatics {
 export interface CarrotBlockMembers {
   readonly __javaSupertypes?: readonly [CropBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CarrotBlock]>;
-  getBaseSeedId(): j_net_minecraft_world_level.ItemLike;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type CarrotBlock = CarrotBlockMembers & CropBlock;
 export interface CarrotBlockStatics {
@@ -2350,11 +2006,9 @@ export interface CartographyTableBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CartographyTableBlock]>;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CartographyTableBlock = CartographyTableBlockMembers & Block;
 export interface CartographyTableBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CartographyTableBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CartographyTableBlock]>;
 }
 
@@ -2363,13 +2017,10 @@ export interface CarvedPumpkinBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock];
   canSpawnGolem(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CarvedPumpkinBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
 }
 export type CarvedPumpkinBlock = CarvedPumpkinBlockMembers & HorizontalDirectionalBlock;
 export interface CarvedPumpkinBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CarvedPumpkinBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CarvedPumpkinBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   clearPatternBlocks(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state_pattern.BlockPattern_BlockPatternMatch): void;
@@ -2379,17 +2030,14 @@ export interface CarvedPumpkinBlockStatics {
 /** JVM class net.minecraft.world.level.block.CauldronBlock. */
 export interface CauldronBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractCauldronBlock];
-  canReceiveStalactiteDrip(arg0: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CauldronBlock]>;
   handlePrecipitation(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_biome.Biome_Precipitation): void;
   isFull(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  receiveStalactiteDrip(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_material.Fluid): void;
 }
 export type CauldronBlock = CauldronBlockMembers & AbstractCauldronBlock;
 export interface CauldronBlockStatics {
   new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CauldronBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CauldronBlock]>;
-  shouldHandlePrecipitation(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_biome.Biome_Precipitation): boolean;
 }
 
 /** JVM interface net.minecraft.world.level.block.CaveVines. */
@@ -2401,25 +2049,16 @@ export interface CaveVinesStatics {
   readonly SHAPE: j_net_minecraft_world_phys_shapes.VoxelShape;
   emission(arg0: number): JavaOpaque<"java.util.function.ToIntFunction", [j_net_minecraft_world_level_block_state.BlockState]>;
   hasGlowBerries(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  use(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos): j_net_minecraft_world.InteractionResult | null;
+  use(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos): j_net_minecraft_world.InteractionResult;
 }
 
 /** JVM class net.minecraft.world.level.block.CaveVinesBlock. */
 export interface CaveVinesBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantHeadBlock, CaveVines];
-  canGrowInto(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CaveVinesBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getBlocksToGrowWhenBonemealed(arg0: j_net_minecraft_util.RandomSource): number;
-  getBodyBlock(): Block;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getGrowIntoState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  getGrowIntoState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world_level.Level | null): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  updateBodyAfterConvertedFromHead(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CaveVinesBlock = CaveVinesBlockMembers & GrowingPlantHeadBlock & CaveVines;
 export interface CaveVinesBlockStatics {
@@ -2431,14 +2070,9 @@ export interface CaveVinesBlockStatics {
 export interface CaveVinesPlantBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantBodyBlock, CaveVines];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CaveVinesPlantBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getHeadBlock(): GrowingPlantHeadBlock;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  updateHeadAfterConvertedFromBody(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CaveVinesPlantBlock = CaveVinesPlantBlockMembers & GrowingPlantBodyBlock & CaveVines;
 export interface CaveVinesPlantBlockStatics {
@@ -2449,19 +2083,11 @@ export interface CaveVinesPlantBlockStatics {
 /** JVM class net.minecraft.world.level.block.CeilingHangingSignBlock. */
 export interface CeilingHangingSignBlockMembers {
   readonly __javaSupertypes?: readonly [SignBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CeilingHangingSignBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   getYRotationDegrees(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CeilingHangingSignBlock = CeilingHangingSignBlockMembers & SignBlock;
 export interface CeilingHangingSignBlockStatics {
@@ -2475,12 +2101,7 @@ export interface CeilingHangingSignBlockStatics {
 export interface ChainBlockMembers {
   readonly __javaSupertypes?: readonly [RotatedPillarBlock, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ChainBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ChainBlock = ChainBlockMembers & RotatedPillarBlock & SimpleWaterloggedBlock;
 export interface ChainBlockStatics {
@@ -2505,31 +2126,17 @@ export interface ChangeOverTimeBlockStatics {
 /** JVM class net.minecraft.world.level.block.ChestBlock. */
 export interface ChestBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractChestBlock<j_net_minecraft_world_level_block_entity.ChestBlockEntity>, SimpleWaterloggedBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   blockEntityType(): j_net_minecraft_world_level_block_entity.BlockEntityType<j_net_minecraft_world_level_block_entity.ChestBlockEntity>;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ChestBlock]>;
   combine(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): DoubleBlockCombiner_NeighborCombineResult<j_net_minecraft_world_level_block_entity.ChestBlockEntity>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): j_net_minecraft_world.MenuProvider | null;
-  getOpenChestStat(): j_net_minecraft_stats.Stat<j_net_minecraft_resources.ResourceLocation>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type ChestBlock = ChestBlockMembers & AbstractChestBlock<j_net_minecraft_world_level_block_entity.ChestBlockEntity> & SimpleWaterloggedBlock;
 export interface ChestBlockStatics {
-  new(arg0: JavaSupplier<j_net_minecraft_world_level_block_entity.BlockEntityType<j_net_minecraft_world_level_block_entity.ChestBlockEntity>>, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): ChestBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [ChestBlock]>;
   readonly EVENT_SET_OPEN_COUNT: 1;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
@@ -2559,18 +2166,12 @@ export interface ChestBlock_DoubleInventoryStatics {
 /** JVM class net.minecraft.world.level.block.ChiseledBookShelfBlock. */
 export interface ChiseledBookShelfBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ChiseledBookShelfBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getHitSlot(arg0: j_net_minecraft_world_phys.BlockHitResult, arg1: j_net_minecraft_world_level_block_state.BlockState): JavaOptionalNumber;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
   rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type ChiseledBookShelfBlock = ChiseledBookShelfBlockMembers & BaseEntityBlock;
 export interface ChiseledBookShelfBlockStatics {
@@ -2584,19 +2185,11 @@ export interface ChiseledBookShelfBlockStatics {
 /** JVM class net.minecraft.world.level.block.ChorusFlowerBlock. */
 export interface ChorusFlowerBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ChorusFlowerBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ChorusFlowerBlock = ChorusFlowerBlockMembers & Block;
 export interface ChorusFlowerBlockStatics {
-  new(arg0: Block, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): ChorusFlowerBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [ChorusFlowerBlock]>;
   readonly DEAD_AGE: 5;
@@ -2606,17 +2199,11 @@ export interface ChorusFlowerBlockStatics {
 /** JVM class net.minecraft.world.level.block.ChorusPlantBlock. */
 export interface ChorusPlantBlockMembers {
   readonly __javaSupertypes?: readonly [PipeBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ChorusPlantBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ChorusPlantBlock = ChorusPlantBlockMembers & PipeBlock;
 export interface ChorusPlantBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): ChorusPlantBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [ChorusPlantBlock]>;
   getStateWithConnections(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
 }
@@ -2624,18 +2211,11 @@ export interface ChorusPlantBlockStatics {
 /** JVM class net.minecraft.world.level.block.CocoaBlock. */
 export interface CocoaBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock, BonemealableBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CocoaBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CocoaBlock = CocoaBlockMembers & HorizontalDirectionalBlock & BonemealableBlock;
 export interface CocoaBlockStatics {
@@ -2649,7 +2229,6 @@ export interface CocoaBlockStatics {
 export interface ColoredFallingBlockMembers {
   readonly __javaSupertypes?: readonly [FallingBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ColoredFallingBlock]>;
-  readonly dustColor: j_net_minecraft_util.ColorRGBA;
   getDustColor(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
 }
 export type ColoredFallingBlock = ColoredFallingBlockMembers & FallingBlock;
@@ -2662,17 +2241,9 @@ export interface ColoredFallingBlockStatics {
 export interface CommandBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, GameMasterBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CommandBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CommandBlock = CommandBlockMembers & BaseEntityBlock & GameMasterBlock;
 export interface CommandBlockStatics {
@@ -2685,18 +2256,9 @@ export interface CommandBlockStatics {
 /** JVM class net.minecraft.world.level.block.ComparatorBlock. */
 export interface ComparatorBlockMembers {
   readonly __javaSupertypes?: readonly [DiodeBlock, EntityBlock];
-  checkTickOnNeighbor(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ComparatorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDelay(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getInputSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): number;
-  getOutputSignal(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): number;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  shouldTurnOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  triggerEvent(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: number): boolean;
   updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type ComparatorBlock = ComparatorBlockMembers & DiodeBlock & EntityBlock;
 export interface ComparatorBlockStatics {
@@ -2709,18 +2271,7 @@ export interface ComparatorBlockStatics {
 export interface ComposterBlockMembers {
   readonly __javaSupertypes?: readonly [Block, j_net_minecraft_world.WorldlyContainerHolder];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ComposterBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getContainer(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.WorldlyContainer;
-  getInteractionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type ComposterBlock = ComposterBlockMembers & Block & j_net_minecraft_world.WorldlyContainerHolder;
 export interface ComposterBlockStatics {
@@ -2740,7 +2291,7 @@ export interface ComposterBlockStatics {
 /** JVM class net.minecraft.world.level.block.ComposterBlock$EmptyContainer. */
 export interface ComposterBlock_EmptyContainerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world.SimpleContainer, j_net_minecraft_world.WorldlyContainer];
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
 }
@@ -2752,7 +2303,7 @@ export interface ComposterBlock_EmptyContainerStatics {
 /** JVM class net.minecraft.world.level.block.ComposterBlock$InputContainer. */
 export interface ComposterBlock_InputContainerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world.SimpleContainer, j_net_minecraft_world.WorldlyContainer];
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
   getMaxStackSize(): number;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
@@ -2766,7 +2317,7 @@ export interface ComposterBlock_InputContainerStatics {
 /** JVM class net.minecraft.world.level.block.ComposterBlock$OutputContainer. */
 export interface ComposterBlock_OutputContainerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_world.SimpleContainer, j_net_minecraft_world.WorldlyContainer];
-  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean | null;
+  canPlaceItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction | null): boolean;
   canTakeItemThroughFace(arg0: number, arg1: j_net_minecraft_world_item.ItemStack, arg2: j_net_minecraft_core.Direction): boolean;
   getMaxStackSize(): number;
   getSlotsForFace(arg0: j_net_minecraft_core.Direction): Array<number>;
@@ -2784,7 +2335,6 @@ export interface ConcretePowderBlockMembers {
   getDustColor(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   onLand(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_entity_item.FallingBlockEntity): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ConcretePowderBlock = ConcretePowderBlockMembers & FallingBlock;
 export interface ConcretePowderBlockStatics {
@@ -2796,14 +2346,9 @@ export interface ConcretePowderBlockStatics {
 export interface ConduitBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ConduitBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ConduitBlock = ConduitBlockMembers & BaseEntityBlock & SimpleWaterloggedBlock;
 export interface ConduitBlockStatics {
@@ -2816,12 +2361,6 @@ export interface ConduitBlockStatics {
 export interface CopperBulbBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   checkAndFlip(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CopperBulbBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
 }
 export type CopperBulbBlock = CopperBulbBlockMembers & Block;
 export interface CopperBulbBlockStatics {
@@ -2836,9 +2375,6 @@ export interface CoralBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CoralBlock]>;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  scanForWater(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CoralBlock = CoralBlockMembers & Block;
 export interface CoralBlockStatics {
@@ -2851,13 +2387,9 @@ export interface CoralBlockStatics {
 export interface CoralFanBlockMembers {
   readonly __javaSupertypes?: readonly [BaseCoralFanBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CoralFanBlock]>;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CoralFanBlock = CoralFanBlockMembers & BaseCoralFanBlock;
 export interface CoralFanBlockStatics {
-  new(arg0: Block, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CoralFanBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CoralFanBlock]>;
 }
 
@@ -2865,14 +2397,9 @@ export interface CoralFanBlockStatics {
 export interface CoralPlantBlockMembers {
   readonly __javaSupertypes?: readonly [BaseCoralPlantTypeBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CoralPlantBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CoralPlantBlock = CoralPlantBlockMembers & BaseCoralPlantTypeBlock;
 export interface CoralPlantBlockStatics {
-  new(arg0: Block, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CoralPlantBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CoralPlantBlock]>;
 }
 
@@ -2880,34 +2407,19 @@ export interface CoralPlantBlockStatics {
 export interface CoralWallFanBlockMembers {
   readonly __javaSupertypes?: readonly [BaseCoralWallFanBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CoralWallFanBlock]>;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CoralWallFanBlock = CoralWallFanBlockMembers & BaseCoralWallFanBlock;
 export interface CoralWallFanBlockStatics {
-  new(arg0: Block, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CoralWallFanBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CoralWallFanBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.CrafterBlock. */
 export interface CrafterBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CrafterBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  dispenseFrom(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CrafterBlock = CrafterBlockMembers & BaseEntityBlock;
 export interface CrafterBlockStatics {
@@ -2923,35 +2435,24 @@ export interface CraftingTableBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CraftingTableBlock]>;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type CraftingTableBlock = CraftingTableBlockMembers & Block;
 export interface CraftingTableBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CraftingTableBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CraftingTableBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.CreakingHeartBlock. */
 export interface CreakingHeartBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CreakingHeartBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CreakingHeartBlock = CreakingHeartBlockMembers & BaseEntityBlock;
 export interface CreakingHeartBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CreakingHeartBlock;
   readonly AXIS: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction_Axis>;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CreakingHeartBlock]>;
   readonly NATURAL: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -2963,53 +2464,29 @@ export interface CreakingHeartBlockStatics {
 /** JVM class net.minecraft.world.level.block.CropBlock. */
 export interface CropBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CropBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getAge(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getAgeProperty(): j_net_minecraft_world_level_block_state_properties.IntegerProperty;
-  getBaseSeedId(): j_net_minecraft_world_level.ItemLike;
-  getBonemealAgeIncrease(arg0: j_net_minecraft_world_level.Level): number;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   getMaxAge(): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForAge(arg0: number): j_net_minecraft_world_level_block_state.BlockState;
   growCrops(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isMaxAge(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type CropBlock = CropBlockMembers & VegetationBlock & BonemealableBlock;
 export interface CropBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CropBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [CropBlock]>;
   readonly MAX_AGE: 7;
-  getGrowthSpeed(arg0: Block, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  hasSufficientLight(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
 }
 
 /** JVM abstract net.minecraft.world.level.block.CrossCollisionBlock. */
 export interface CrossCollisionBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [CrossCollisionBlock]>;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  makeShapes(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_phys_shapes.VoxelShape>;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type CrossCollisionBlock = CrossCollisionBlockMembers & Block & SimpleWaterloggedBlock;
 export interface CrossCollisionBlockStatics {
-  new(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): CrossCollisionBlock;
   readonly EAST: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly NORTH: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly PROPERTY_BY_DIRECTION: JavaMap<j_net_minecraft_core.Direction, j_net_minecraft_world_level_block_state_properties.BooleanProperty>;
@@ -3034,14 +2511,8 @@ export interface CryingObsidianBlockStatics {
 export interface DaylightDetectorBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DaylightDetectorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type DaylightDetectorBlock = DaylightDetectorBlockMembers & BaseEntityBlock;
 export interface DaylightDetectorBlockStatics {
@@ -3054,30 +2525,13 @@ export interface DaylightDetectorBlockStatics {
 /** JVM class net.minecraft.world.level.block.DecoratedPotBlock. */
 export interface DecoratedPotBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, SimpleWaterloggedBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DecoratedPotBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_storage_loot.LootParams_Builder): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSoundType(arg0: j_net_minecraft_world_level_block_state.BlockState): SoundType;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type DecoratedPotBlock = DecoratedPotBlockMembers & BaseEntityBlock & SimpleWaterloggedBlock;
 export interface DecoratedPotBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DecoratedPotBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DecoratedPotBlock]>;
   readonly CRACKED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly HORIZONTAL_FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
@@ -3089,19 +2543,7 @@ export interface DecoratedPotBlockStatics {
 export interface DetectorRailBlockMembers {
   readonly __javaSupertypes?: readonly [BaseRailBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DetectorRailBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getShapeProperty(): j_net_minecraft_world_level_block_state_properties.Property<j_net_minecraft_world_level_block_state_properties.RailShape>;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updatePowerToConnected(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): void;
 }
 export type DetectorRailBlock = DetectorRailBlockMembers & BaseRailBlock;
 export interface DetectorRailBlockStatics {
@@ -3114,33 +2556,13 @@ export interface DetectorRailBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.DiodeBlock. */
 export interface DiodeBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  canSurviveOn(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  checkTickOnNeighbor(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DiodeBlock]>;
-  getAlternateSignal(arg0: j_net_minecraft_world_level.SignalGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): number;
-  getDelay(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getInputSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): number;
-  getOutputSignal(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   isLocked(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
   shouldPrioritize(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  shouldTurnOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  sideInputDiodesOnly(): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateNeighborsInFront(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type DiodeBlock = DiodeBlockMembers & HorizontalDirectionalBlock;
 export interface DiodeBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DiodeBlock;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   isDiode(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
@@ -3148,53 +2570,33 @@ export interface DiodeBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.DirectionalBlock. */
 export interface DirectionalBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DirectionalBlock]>;
 }
 export type DirectionalBlock = DirectionalBlockMembers & Block;
 export interface DirectionalBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DirectionalBlock;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
 }
 
 /** JVM class net.minecraft.world.level.block.DirtPathBlock. */
 export interface DirtPathBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DirtPathBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type DirtPathBlock = DirtPathBlockMembers & Block;
 export interface DirtPathBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DirtPathBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DirtPathBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.DispenserBlock. */
 export interface DispenserBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DispenserBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   dispenseFrom(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getDispenseMethod(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_core_dispenser.DispenseItemBehavior;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type DispenserBlock = DispenserBlockMembers & BaseEntityBlock;
 export interface DispenserBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DispenserBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DispenserBlock]>;
   readonly DISPENSER_REGISTRY: JavaMap<j_net_minecraft_world_item.Item, j_net_minecraft_core_dispenser.DispenseItemBehavior>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
@@ -3209,28 +2611,16 @@ export interface DispenserBlockStatics {
 /** JVM class net.minecraft.world.level.block.DoorBlock. */
 export interface DoorBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DoorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getSeed(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos): bigint;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isOpen(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  setOpen(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos, arg4: boolean): void | null;
+  setOpen(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos, arg4: boolean): void;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
   type(): j_net_minecraft_world_level_block_state_properties.BlockSetType;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type DoorBlock = DoorBlockMembers & Block;
 export interface DoorBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DoorBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DoorBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly HALF: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.DoubleBlockHalf>;
@@ -3303,15 +2693,11 @@ export interface DoubleBlockCombiner_NeighborCombineResult_SingleStatics {
 /** JVM class net.minecraft.world.level.block.DoublePlantBlock. */
 export interface DoublePlantBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DoublePlantBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getSeed(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.BlockPos): bigint;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void | null;
+  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type DoublePlantBlock = DoublePlantBlockMembers & VegetationBlock;
 export interface DoublePlantBlockStatics {
@@ -3320,19 +2706,13 @@ export interface DoublePlantBlockStatics {
   readonly HALF: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.DoubleBlockHalf>;
   copyWaterloggedFrom(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
   placeAt(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: number): void;
-  preventDropFromBottomPart(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): void;
 }
 
 /** JVM class net.minecraft.world.level.block.DragonEggBlock. */
 export interface DragonEggBlockMembers {
   readonly __javaSupertypes?: readonly [FallingBlock];
-  attack(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DragonEggBlock]>;
-  getDelayAfterPlace(): number;
   getDustColor(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type DragonEggBlock = DragonEggBlockMembers & FallingBlock;
 export interface DragonEggBlockStatics {
@@ -3345,17 +2725,12 @@ export interface DriedGhastBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock, SimpleWaterloggedBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DriedGhastBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getHydrationLevel(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
   getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
 }
 export type DriedGhastBlock = DriedGhastBlockMembers & HorizontalDirectionalBlock & SimpleWaterloggedBlock;
 export interface DriedGhastBlockStatics {
@@ -3372,7 +2747,6 @@ export interface DropExperienceBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DropExperienceBlock]>;
   getExpDrop(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): number;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
 }
 export type DropExperienceBlock = DropExperienceBlockMembers & Block;
 export interface DropExperienceBlockStatics {
@@ -3385,7 +2759,6 @@ export interface DropperBlockMembers {
   readonly __javaSupertypes?: readonly [DispenserBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DropperBlock]>;
   dispenseFrom(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos): void;
-  getDispenseMethod(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_item.ItemStack): j_net_minecraft_core_dispenser.DispenseItemBehavior;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
 }
 export type DropperBlock = DropperBlockMembers & DispenserBlock;
@@ -3399,12 +2772,9 @@ export interface DryVegetationBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [DryVegetationBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type DryVegetationBlock = DryVegetationBlockMembers & VegetationBlock;
 export interface DryVegetationBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): DryVegetationBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [DryVegetationBlock]>;
 }
 
@@ -3414,16 +2784,11 @@ export interface EnchantingTableBlockMembers {
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EnchantingTableBlock]>;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type EnchantingTableBlock = EnchantingTableBlockMembers & BaseEntityBlock;
 export interface EnchantingTableBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): EnchantingTableBlock;
   readonly BOOKSHELF_OFFSETS: JavaList<j_net_minecraft_core.BlockPos>;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [EnchantingTableBlock]>;
   isValidBookShelf(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos): boolean;
@@ -3435,22 +2800,12 @@ export interface EnderChestBlockMembers {
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EnderChestBlock]>;
   combine(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): DoubleBlockCombiner_NeighborCombineResult<j_net_minecraft_world_level_block_entity.ChestBlockEntity>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type EnderChestBlock = EnderChestBlockMembers & AbstractChestBlock<j_net_minecraft_world_level_block_entity.EnderChestBlockEntity> & SimpleWaterloggedBlock;
 export interface EnderChestBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): EnderChestBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [EnderChestBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -3460,18 +2815,13 @@ export interface EnderChestBlockStatics {
 export interface EndGatewayBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, Portal];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EndGatewayBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   getPortalDestination(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_portal.TeleportTransition | null;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
 }
 export type EndGatewayBlock = EndGatewayBlockMembers & BaseEntityBlock & Portal;
 export interface EndGatewayBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): EndGatewayBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [EndGatewayBlock]>;
 }
 
@@ -3479,19 +2829,12 @@ export interface EndGatewayBlockStatics {
 export interface EndPortalBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, Portal];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EndPortalBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getEntityInsideCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_phys_shapes.VoxelShape;
   getPortalDestination(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_portal.TeleportTransition | null;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
 }
 export type EndPortalBlock = EndPortalBlockMembers & BaseEntityBlock & Portal;
 export interface EndPortalBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): EndPortalBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [EndPortalBlock]>;
 }
 
@@ -3499,15 +2842,7 @@ export interface EndPortalBlockStatics {
 export interface EndPortalFrameBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EndPortalFrameBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type EndPortalFrameBlock = EndPortalFrameBlockMembers & Block;
 export interface EndPortalFrameBlockStatics {
@@ -3523,12 +2858,10 @@ export interface EndRodBlockMembers {
   readonly __javaSupertypes?: readonly [RodBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EndRodBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type EndRodBlock = EndRodBlockMembers & RodBlock;
 export interface EndRodBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): EndRodBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [EndRodBlock]>;
 }
 
@@ -3547,10 +2880,7 @@ export interface EyeblossomBlockMembers {
   readonly __javaSupertypes?: readonly [FlowerBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [EyeblossomBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getBeeInteractionEffect(): j_net_minecraft_world_effect.MobEffectInstance;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type EyeblossomBlock = EyeblossomBlockMembers & FlowerBlock;
 export interface EyeblossomBlockStatics {
@@ -3580,17 +2910,12 @@ export interface EyeblossomBlock_TypeStatics {
 /** JVM abstract net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock. */
 export interface FaceAttachedHorizontalDirectionalBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FaceAttachedHorizontalDirectionalBlock]>;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type FaceAttachedHorizontalDirectionalBlock = FaceAttachedHorizontalDirectionalBlockMembers & HorizontalDirectionalBlock;
 export interface FaceAttachedHorizontalDirectionalBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FaceAttachedHorizontalDirectionalBlock;
   readonly FACE: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.AttachFace>;
   canAttach(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction): boolean;
-  getConnectedDirection(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_core.Direction;
 }
 
 /** JVM interface net.minecraft.world.level.block.Fallable. */
@@ -3607,42 +2932,26 @@ export interface FallableStatics {
 export interface FallingBlockMembers {
   readonly __javaSupertypes?: readonly [Block, Fallable];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FallingBlock]>;
-  falling(arg0: j_net_minecraft_world_entity_item.FallingBlockEntity): void;
-  getDelayAfterPlace(): number;
   getDustColor(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type FallingBlock = FallingBlockMembers & Block & Fallable;
 export interface FallingBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FallingBlock;
   isFree(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 
 /** JVM class net.minecraft.world.level.block.FarmBlock. */
 export interface FarmBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FarmBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   fallOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: number): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type FarmBlock = FarmBlockMembers & Block;
 export interface FarmBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FarmBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FarmBlock]>;
   readonly MAX_MOISTURE: 7;
   readonly MOISTURE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
-  turnToDirt(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos): void | null;
+  turnToDirt(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos): void;
 }
 
 /** JVM class net.minecraft.world.level.block.FenceBlock. */
@@ -3650,13 +2959,7 @@ export interface FenceBlockMembers {
   readonly __javaSupertypes?: readonly [CrossCollisionBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FenceBlock]>;
   connectsTo(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: boolean, arg2: j_net_minecraft_core.Direction): boolean;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type FenceBlock = FenceBlockMembers & CrossCollisionBlock;
 export interface FenceBlockStatics {
@@ -3668,17 +2971,7 @@ export interface FenceBlockStatics {
 export interface FenceGateBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FenceGateBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type FenceGateBlock = FenceGateBlockMembers & HorizontalDirectionalBlock;
 export interface FenceGateBlockStatics {
@@ -3693,19 +2986,10 @@ export interface FenceGateBlockStatics {
 /** JVM class net.minecraft.world.level.block.FireBlock. */
 export interface FireBlockMembers {
   readonly __javaSupertypes?: readonly [BaseFireBlock];
-  canBurn(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FireBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  getStateForPlacement(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_block_state.BlockState;
   readonly igniteOdds: JavaOpaque<"it.unimi.dsi.fastutil.objects.Object2IntMap", [Block]>;
-  isNearRain(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): boolean;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean, arg5: j_net_minecraft_world_item_context.UseOnContext): void;
   setFlammable(arg0: Block, arg1: number, arg2: number): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type FireBlock = FireBlockMembers & BaseFireBlock;
 export interface FireBlockStatics {
@@ -3726,7 +3010,6 @@ export interface FireBlockStatics {
 export interface FireflyBushBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FireflyBushBlock]>;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
@@ -3741,11 +3024,9 @@ export interface FireflyBushBlockStatics {
 export interface FletchingTableBlockMembers {
   readonly __javaSupertypes?: readonly [CraftingTableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FletchingTableBlock]>;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type FletchingTableBlock = FletchingTableBlockMembers & CraftingTableBlock;
 export interface FletchingTableBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FletchingTableBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FletchingTableBlock]>;
 }
 
@@ -3754,7 +3035,6 @@ export interface FlowerBedBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock, SegmentableBlock];
   canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FlowerBedBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getSegmentAmountProperty(): j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getShapeHeight(): number;
@@ -3767,7 +3047,6 @@ export interface FlowerBedBlockMembers {
 }
 export type FlowerBedBlock = FlowerBedBlockMembers & VegetationBlock & BonemealableBlock & SegmentableBlock;
 export interface FlowerBedBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FlowerBedBlock;
   readonly AMOUNT: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FlowerBedBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
@@ -3778,7 +3057,6 @@ export interface FlowerBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, SuspiciousEffectHolder];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FlowerBlock]>;
   getBeeInteractionEffect(): j_net_minecraft_world_effect.MobEffectInstance | null;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getSuspiciousEffects(): j_net_minecraft_world_item_component.SuspiciousStewEffects;
 }
 export type FlowerBlock = FlowerBlockMembers & VegetationBlock & SuspiciousEffectHolder;
@@ -3786,24 +3064,14 @@ export interface FlowerBlockStatics {
   new(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, arg1: number, arg2: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FlowerBlock;
   new(arg0: j_net_minecraft_world_item_component.SuspiciousStewEffects, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FlowerBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FlowerBlock]>;
-  readonly EFFECTS_FIELD: JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_world_item_component.SuspiciousStewEffects]>;
-  makeEffectList(arg0: j_net_minecraft_core.Holder<j_net_minecraft_world_effect.MobEffect>, arg1: number): j_net_minecraft_world_item_component.SuspiciousStewEffects;
 }
 
 /** JVM class net.minecraft.world.level.block.FlowerPotBlock. */
 export interface FlowerPotBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FlowerPotBlock]>;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   getPotted(): Block;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   opposite(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type FlowerPotBlock = FlowerPotBlockMembers & Block;
 export interface FlowerPotBlockStatics {
@@ -3814,13 +3082,7 @@ export interface FlowerPotBlockStatics {
 /** JVM class net.minecraft.world.level.block.FrogspawnBlock. */
 export interface FrogspawnBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FrogspawnBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type FrogspawnBlock = FrogspawnBlockMembers & Block;
 export interface FrogspawnBlockStatics {
@@ -3834,11 +3096,7 @@ export interface FrogspawnBlockStatics {
 export interface FrostedIceBlockMembers {
   readonly __javaSupertypes?: readonly [IceBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FrostedIceBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type FrostedIceBlock = FrostedIceBlockMembers & IceBlock;
 export interface FrostedIceBlockStatics {
@@ -3852,15 +3110,12 @@ export interface FrostedIceBlockStatics {
 export interface FungusBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FungusBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type FungusBlock = FungusBlockMembers & VegetationBlock & BonemealableBlock;
 export interface FungusBlockStatics {
-  new(arg0: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_level_levelgen_feature.ConfiguredFeature<object, object>>, arg1: Block, arg2: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FungusBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FungusBlock]>;
 }
 
@@ -3871,11 +3126,9 @@ export interface FurnaceBlockMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FurnaceBlock]>;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  openContainer(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): void;
 }
 export type FurnaceBlock = FurnaceBlockMembers & AbstractFurnaceBlock;
 export interface FurnaceBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): FurnaceBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [FurnaceBlock]>;
 }
 
@@ -3890,7 +3143,6 @@ export interface GameMasterBlockStatics {
 export interface GlazedTerracottaBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [GlazedTerracottaBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type GlazedTerracottaBlock = GlazedTerracottaBlockMembers & HorizontalDirectionalBlock;
@@ -3907,7 +3159,6 @@ export interface GlowLichenBlockMembers {
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type GlowLichenBlock = GlowLichenBlockMembers & MultifaceSpreadeableBlock & BonemealableBlock;
 export interface GlowLichenBlockStatics {
@@ -3934,86 +3185,47 @@ export interface GrassBlockStatics {
 /** JVM class net.minecraft.world.level.block.GrindstoneBlock. */
 export interface GrindstoneBlockMembers {
   readonly __javaSupertypes?: readonly [FaceAttachedHorizontalDirectionalBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [GrindstoneBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type GrindstoneBlock = GrindstoneBlockMembers & FaceAttachedHorizontalDirectionalBlock;
 export interface GrindstoneBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): GrindstoneBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [GrindstoneBlock]>;
 }
 
 /** JVM abstract net.minecraft.world.level.block.GrowingPlantBlock. */
 export interface GrowingPlantBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canAttachTo(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [GrowingPlantBlock]>;
-  getBodyBlock(): Block;
-  getHeadBlock(): GrowingPlantHeadBlock;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  readonly growthDirection: j_net_minecraft_core.Direction;
-  readonly scheduleFluidTicks: boolean;
-  readonly shape: j_net_minecraft_world_phys_shapes.VoxelShape;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type GrowingPlantBlock = GrowingPlantBlockMembers & Block;
 export interface GrowingPlantBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_world_phys_shapes.VoxelShape, arg3: boolean): GrowingPlantBlock;
 }
 
 /** JVM abstract net.minecraft.world.level.block.GrowingPlantBodyBlock. */
 export interface GrowingPlantBodyBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantBlock, BonemealableBlock];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [GrowingPlantBodyBlock]>;
-  getBodyBlock(): Block;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  updateHeadAfterConvertedFromBody(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type GrowingPlantBodyBlock = GrowingPlantBodyBlockMembers & GrowingPlantBlock & BonemealableBlock;
 export interface GrowingPlantBodyBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_world_phys_shapes.VoxelShape, arg3: boolean): GrowingPlantBodyBlock;
 }
 
 /** JVM abstract net.minecraft.world.level.block.GrowingPlantHeadBlock. */
 export interface GrowingPlantHeadBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantBlock, BonemealableBlock];
-  canGrowInto(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [GrowingPlantHeadBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getBlocksToGrowWhenBonemealed(arg0: j_net_minecraft_util.RandomSource): number;
-  getGrowIntoState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  getGrowIntoState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_world_level.Level | null): j_net_minecraft_world_level_block_state.BlockState | null;
-  getHeadBlock(): GrowingPlantHeadBlock;
   getMaxAgeState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
   getStateForPlacement(arg0: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isMaxAge(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateBodyAfterConvertedFromHead(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type GrowingPlantHeadBlock = GrowingPlantHeadBlockMembers & GrowingPlantBlock & BonemealableBlock;
 export interface GrowingPlantHeadBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_world_phys_shapes.VoxelShape, arg3: boolean, arg4: number): GrowingPlantHeadBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly MAX_AGE: 25;
 }
@@ -4021,12 +3233,9 @@ export interface GrowingPlantHeadBlockStatics {
 /** JVM class net.minecraft.world.level.block.HalfTransparentBlock. */
 export interface HalfTransparentBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HalfTransparentBlock]>;
-  skipRendering(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction): boolean;
 }
 export type HalfTransparentBlock = HalfTransparentBlockMembers & Block;
 export interface HalfTransparentBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): HalfTransparentBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [HalfTransparentBlock]>;
 }
 
@@ -4034,17 +3243,11 @@ export interface HalfTransparentBlockStatics {
 export interface HangingMossBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BonemealableBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HangingMossBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getTip(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): j_net_minecraft_core.BlockPos;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type HangingMossBlock = HangingMossBlockMembers & Block & BonemealableBlock;
 export interface HangingMossBlockStatics {
@@ -4056,17 +3259,11 @@ export interface HangingMossBlockStatics {
 /** JVM class net.minecraft.world.level.block.HangingRootsBlock. */
 export interface HangingRootsBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HangingRootsBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type HangingRootsBlock = HangingRootsBlockMembers & Block & SimpleWaterloggedBlock;
 export interface HangingRootsBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): HangingRootsBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [HangingRootsBlock]>;
 }
 
@@ -4086,12 +3283,7 @@ export interface HayBlockStatics {
 export interface HeavyCoreBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HeavyCoreBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type HeavyCoreBlock = HeavyCoreBlockMembers & Block & SimpleWaterloggedBlock;
 export interface HeavyCoreBlockStatics {
@@ -4104,9 +3296,7 @@ export interface HeavyCoreBlockStatics {
 export interface HoneyBlockMembers {
   readonly __javaSupertypes?: readonly [HalfTransparentBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HoneyBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   fallOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: number): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type HoneyBlock = HoneyBlockMembers & HalfTransparentBlock;
 export interface HoneyBlockStatics {
@@ -4119,23 +3309,10 @@ export interface HoneyBlockStatics {
 /** JVM class net.minecraft.world.level.block.HopperBlock. */
 export interface HopperBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HopperBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getInteractionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type HopperBlock = HopperBlockMembers & BaseEntityBlock;
 export interface HopperBlockStatics {
@@ -4148,13 +3325,9 @@ export interface HopperBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.HorizontalDirectionalBlock. */
 export interface HorizontalDirectionalBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HorizontalDirectionalBlock]>;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type HorizontalDirectionalBlock = HorizontalDirectionalBlockMembers & Block;
 export interface HorizontalDirectionalBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): HorizontalDirectionalBlock;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
 }
 
@@ -4162,11 +3335,7 @@ export interface HorizontalDirectionalBlockStatics {
 export interface HugeMushroomBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [HugeMushroomBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type HugeMushroomBlock = HugeMushroomBlockMembers & Block;
 export interface HugeMushroomBlockStatics {
@@ -4185,9 +3354,7 @@ export interface IceBlockMembers {
   readonly __javaSupertypes?: readonly [HalfTransparentBlock];
   afterDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_item.ItemStack): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [IceBlock]>;
-  melt(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): void;
-  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void | null;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
+  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void;
 }
 export type IceBlock = IceBlockMembers & HalfTransparentBlock;
 export interface IceBlockStatics {
@@ -4202,7 +3369,6 @@ export interface InfestedBlockMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [InfestedBlock]>;
   getHostBlock(): Block;
   hostStateByInfested(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
 }
 export type InfestedBlock = InfestedBlockMembers & Block;
 export interface InfestedBlockStatics {
@@ -4216,9 +3382,7 @@ export interface InfestedBlockStatics {
 export interface InfestedRotatedPillarBlockMembers {
   readonly __javaSupertypes?: readonly [InfestedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [InfestedRotatedPillarBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type InfestedRotatedPillarBlock = InfestedRotatedPillarBlockMembers & InfestedBlock;
 export interface InfestedRotatedPillarBlockStatics {
@@ -4231,15 +3395,10 @@ export interface IronBarsBlockMembers {
   readonly __javaSupertypes?: readonly [CrossCollisionBlock];
   attachsTo(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: boolean): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [IronBarsBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  skipRendering(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type IronBarsBlock = IronBarsBlockMembers & CrossCollisionBlock;
 export interface IronBarsBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): IronBarsBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [IronBarsBlock]>;
 }
 
@@ -4247,16 +3406,11 @@ export interface IronBarsBlockStatics {
 export interface JigsawBlockMembers {
   readonly __javaSupertypes?: readonly [Block, EntityBlock, GameMasterBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [JigsawBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type JigsawBlock = JigsawBlockMembers & Block & EntityBlock & GameMasterBlock;
 export interface JigsawBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): JigsawBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [JigsawBlock]>;
   readonly ORIENTATION: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.FrontAndTop>;
   canAttach(arg0: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate_JigsawBlockInfo, arg1: j_net_minecraft_world_level_levelgen_structure_templatesystem.StructureTemplate_JigsawBlockInfo): boolean;
@@ -4267,22 +3421,15 @@ export interface JigsawBlockStatics {
 /** JVM class net.minecraft.world.level.block.JukeboxBlock. */
 export interface JukeboxBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [JukeboxBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
 }
 export type JukeboxBlock = JukeboxBlockMembers & BaseEntityBlock;
 export interface JukeboxBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): JukeboxBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [JukeboxBlock]>;
   readonly HAS_RECORD: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
@@ -4290,54 +3437,36 @@ export interface JukeboxBlockStatics {
 /** JVM class net.minecraft.world.level.block.KelpBlock. */
 export interface KelpBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantHeadBlock, LiquidBlockContainer];
-  canAttachTo(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canGrowInto(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [KelpBlock]>;
-  getBlocksToGrowWhenBonemealed(arg0: j_net_minecraft_util.RandomSource): number;
-  getBodyBlock(): Block;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
 }
 export type KelpBlock = KelpBlockMembers & GrowingPlantHeadBlock & LiquidBlockContainer;
 export interface KelpBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): KelpBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [KelpBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.KelpPlantBlock. */
 export interface KelpPlantBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantBodyBlock, LiquidBlockContainer];
-  canAttachTo(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [KelpPlantBlock]>;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getHeadBlock(): GrowingPlantHeadBlock;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
 }
 export type KelpPlantBlock = KelpPlantBlockMembers & GrowingPlantBodyBlock & LiquidBlockContainer;
 export interface KelpPlantBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): KelpPlantBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [KelpPlantBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.LadderBlock. */
 export interface LadderBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LadderBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type LadderBlock = LadderBlockMembers & Block & SimpleWaterloggedBlock;
 export interface LadderBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): LadderBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LadderBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly SHAPES: JavaMap<j_net_minecraft_core.Direction, j_net_minecraft_world_phys_shapes.VoxelShape>;
@@ -4347,14 +3476,8 @@ export interface LadderBlockStatics {
 /** JVM class net.minecraft.world.level.block.LanternBlock. */
 export interface LanternBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LanternBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type LanternBlock = LanternBlockMembers & Block & SimpleWaterloggedBlock;
 export interface LanternBlockStatics {
@@ -4362,17 +3485,12 @@ export interface LanternBlockStatics {
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LanternBlock]>;
   readonly HANGING: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  getConnectedDirection(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_core.Direction;
 }
 
 /** JVM class net.minecraft.world.level.block.LavaCauldronBlock. */
 export interface LavaCauldronBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractCauldronBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LavaCauldronBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getContentHeight(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getEntityInsideCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_phys_shapes.VoxelShape;
   isFull(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type LavaCauldronBlock = LavaCauldronBlockMembers & AbstractCauldronBlock;
@@ -4384,16 +3502,9 @@ export interface LavaCauldronBlockStatics {
 /** JVM class net.minecraft.world.level.block.LayeredCauldronBlock. */
 export interface LayeredCauldronBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractCauldronBlock];
-  canReceiveStalactiteDrip(arg0: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LayeredCauldronBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getContentHeight(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getEntityInsideCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_phys_shapes.VoxelShape;
   handlePrecipitation(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_biome.Biome_Precipitation): void;
   isFull(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  receiveStalactiteDrip(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_material.Fluid): void;
 }
 export type LayeredCauldronBlock = LayeredCauldronBlockMembers & AbstractCauldronBlock;
 export interface LayeredCauldronBlockStatics {
@@ -4402,19 +3513,16 @@ export interface LayeredCauldronBlockStatics {
   readonly LEVEL: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly MAX_FILL_LEVEL: 3;
   readonly MIN_FILL_LEVEL: 1;
-  changeLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity | null, arg4: JavaOpaque<"org.bukkit.event.block.CauldronLevelChangeEvent$ChangeReason">): boolean | null;
-  changeLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity | null, arg4: JavaOpaque<"org.bukkit.event.block.CauldronLevelChangeEvent$ChangeReason">, arg5: boolean): boolean | null;
+  changeLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity | null, arg4: JavaOpaque<"org.bukkit.event.block.CauldronLevelChangeEvent$ChangeReason">): boolean;
+  changeLevel(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity | null, arg4: JavaOpaque<"org.bukkit.event.block.CauldronLevelChangeEvent$ChangeReason">, arg5: boolean): boolean;
   lowerFillLevel(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): void;
-  lowerFillLevel(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity | null, arg4: JavaOpaque<"org.bukkit.event.block.CauldronLevelChangeEvent$ChangeReason">): boolean | null;
+  lowerFillLevel(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity | null, arg4: JavaOpaque<"org.bukkit.event.block.CauldronLevelChangeEvent$ChangeReason">): boolean;
 }
 
 /** JVM class net.minecraft.world.level.block.LeafLitterBlock. */
 export interface LeafLitterBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, SegmentableBlock];
   canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LeafLitterBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
@@ -4432,22 +3540,10 @@ export interface LeavesBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LeavesBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  decaying(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getLightBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  readonly leafParticleChance: number;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  spawnFallingLeavesParticle(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type LeavesBlock = LeavesBlockMembers & Block & SimpleWaterloggedBlock;
 export interface LeavesBlockStatics {
-  new(arg0: number, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): LeavesBlock;
   readonly DECAY_DISTANCE: 7;
   readonly DISTANCE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly PERSISTENT: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -4458,38 +3554,20 @@ export interface LeavesBlockStatics {
 /** JVM class net.minecraft.world.level.block.LecternBlock. */
 export interface LecternBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LecternBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type LecternBlock = LecternBlockMembers & BaseEntityBlock;
 export interface LecternBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): LecternBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LecternBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly HAS_BOOK: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  resetBookState(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void | null;
+  resetBookState(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
   signalPageChange(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  tryPlaceBook(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_item.ItemStack): boolean | null;
+  tryPlaceBook(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_item.ItemStack): boolean;
 }
 
 /** JVM class net.minecraft.world.level.block.LevelEvent. */
@@ -4585,40 +3663,20 @@ export interface LevelEventStatics {
 /** JVM class net.minecraft.world.level.block.LeverBlock. */
 export interface LeverBlockMembers {
   readonly __javaSupertypes?: readonly [FaceAttachedHorizontalDirectionalBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LeverBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  pull(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player | null): void | null;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
+  pull(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player | null): void;
 }
 export type LeverBlock = LeverBlockMembers & FaceAttachedHorizontalDirectionalBlock;
 export interface LeverBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): LeverBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LeverBlock]>;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  playSound(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void | null;
 }
 
 /** JVM class net.minecraft.world.level.block.LightBlock. */
 export interface LightBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LightBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type LightBlock = LightBlockMembers & Block & SimpleWaterloggedBlock;
 export interface LightBlockStatics {
@@ -4634,19 +3692,10 @@ export interface LightBlockStatics {
 /** JVM class net.minecraft.world.level.block.LightningRodBlock. */
 export interface LightningRodBlockMembers {
   readonly __javaSupertypes?: readonly [RodBlock, SimpleWaterloggedBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LightningRodBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   onLightningStrike(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): void;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type LightningRodBlock = LightningRodBlockMembers & RodBlock & SimpleWaterloggedBlock;
 export interface LightningRodBlockStatics {
@@ -4661,28 +3710,12 @@ export interface LightningRodBlockStatics {
 export interface LiquidBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BucketPickup];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LiquidBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  readonly fluid: j_net_minecraft_world_level_material.FlowingFluid;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_storage_loot.LootParams_Builder): JavaList<j_net_minecraft_world_item.ItemStack>;
   getFlowSpeed(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack | null;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  skipRendering(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
+  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack;
 }
 export type LiquidBlock = LiquidBlockMembers & Block & BucketPickup;
 export interface LiquidBlockStatics {
-  new(arg0: j_net_minecraft_world_level_material.FlowingFluid, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): LiquidBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LiquidBlock]>;
   readonly LEVEL: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly POSSIBLE_FLOW_DIRECTIONS: JavaOpaque<"com.google.common.collect.ImmutableList", [j_net_minecraft_core.Direction]>;
@@ -4691,7 +3724,7 @@ export interface LiquidBlockStatics {
 
 /** JVM interface net.minecraft.world.level.block.LiquidBlockContainer. */
 export interface LiquidBlockContainerMembers {
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
 }
 export type LiquidBlockContainer = LiquidBlockContainerMembers;
@@ -4702,14 +3735,11 @@ export interface LiquidBlockContainerStatics {
 export interface LoomBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [LoomBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type LoomBlock = LoomBlockMembers & HorizontalDirectionalBlock;
 export interface LoomBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): LoomBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [LoomBlock]>;
 }
 
@@ -4717,10 +3747,7 @@ export interface LoomBlockStatics {
 export interface MagmaBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MagmaBlock]>;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
   stepOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type MagmaBlock = MagmaBlockMembers & Block;
 export interface MagmaBlockStatics {
@@ -4746,18 +3773,11 @@ export interface MangroveLeavesBlockStatics {
 /** JVM class net.minecraft.world.level.block.MangrovePropaguleBlock. */
 export interface MangrovePropaguleBlockMembers {
   readonly __javaSupertypes?: readonly [SaplingBlock, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MangrovePropaguleBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type MangrovePropaguleBlock = MangrovePropaguleBlockMembers & SaplingBlock & SimpleWaterloggedBlock;
 export interface MangrovePropaguleBlockStatics {
@@ -4774,15 +3794,10 @@ export interface MangrovePropaguleBlockStatics {
 export interface MangroveRootsBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MangroveRootsBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  skipRendering(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type MangroveRootsBlock = MangroveRootsBlockMembers & Block & SimpleWaterloggedBlock;
 export interface MangroveRootsBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): MangroveRootsBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [MangroveRootsBlock]>;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
@@ -4810,22 +3825,13 @@ export interface MirrorStatics {
 /** JVM class net.minecraft.world.level.block.MossyCarpetBlock. */
 export interface MossyCarpetBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BonemealableBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MossyCarpetBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   makeShapes(): JavaFunction<j_net_minecraft_world_level_block_state.BlockState, j_net_minecraft_world_phys_shapes.VoxelShape>;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
 }
 export type MossyCarpetBlock = MossyCarpetBlockMembers & Block & BonemealableBlock;
 export interface MossyCarpetBlockStatics {
@@ -4845,11 +3851,6 @@ export interface MossyCarpetBlockStatics {
 export interface MudBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MudBlock]>;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
 }
 export type MudBlock = MudBlockMembers & Block;
 export interface MudBlockStatics {
@@ -4860,31 +3861,19 @@ export interface MudBlockStatics {
 /** JVM class net.minecraft.world.level.block.MultifaceBlock. */
 export interface MultifaceBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MultifaceBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getStateForPlacement(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): j_net_minecraft_world_level_block_state.BlockState | null;
-  isFaceSupported(arg0: j_net_minecraft_core.Direction): boolean;
   isValidStateForPlacement(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type MultifaceBlock = MultifaceBlockMembers & Block & SimpleWaterloggedBlock;
 export interface MultifaceBlockStatics {
   new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): MultifaceBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [MultifaceBlock]>;
-  readonly DIRECTIONS: Array<j_net_minecraft_core.Direction>;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   availableFaces(arg0: j_net_minecraft_world_level_block_state.BlockState): JavaSet<j_net_minecraft_core.Direction>;
   canAttachTo(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction): boolean;
   canAttachTo(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.Direction, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   getFaceProperty(arg0: j_net_minecraft_core.Direction): j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  hasAnyFace(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   hasFace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.Direction): boolean;
   pack(arg0: JavaCollection<j_net_minecraft_core.Direction>): number;
   unpack(arg0: number): JavaSet<j_net_minecraft_core.Direction>;
@@ -4898,7 +3887,6 @@ export interface MultifaceSpreadeableBlockMembers {
 }
 export type MultifaceSpreadeableBlock = MultifaceSpreadeableBlockMembers & MultifaceBlock;
 export interface MultifaceSpreadeableBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): MultifaceSpreadeableBlock;
 }
 
 /** JVM class net.minecraft.world.level.block.MultifaceSpreader. */
@@ -4921,10 +3909,8 @@ export interface MultifaceSpreaderStatics {
 /** JVM class net.minecraft.world.level.block.MultifaceSpreader$DefaultSpreaderConfig. */
 export interface MultifaceSpreader_DefaultSpreaderConfigMembers {
   readonly __javaSupertypes?: readonly [MultifaceSpreader_SpreadConfig];
-  block: MultifaceBlock;
   canSpreadInto(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: MultifaceSpreader_SpreadPos): boolean;
   getStateForPlacement(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): j_net_minecraft_world_level_block_state.BlockState | null;
-  stateCanBeReplaced(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction, arg4: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type MultifaceSpreader_DefaultSpreaderConfig = MultifaceSpreader_DefaultSpreaderConfigMembers & MultifaceSpreader_SpreadConfig;
 export interface MultifaceSpreader_DefaultSpreaderConfigStatics {
@@ -4984,15 +3970,11 @@ export interface MultifaceSpreader_SpreadTypeStatics {
 /** JVM class net.minecraft.world.level.block.MushroomBlock. */
 export interface MushroomBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [MushroomBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   growMushroom(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_util.RandomSource): boolean;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type MushroomBlock = MushroomBlockMembers & VegetationBlock & BonemealableBlock;
 export interface MushroomBlockStatics {
@@ -5017,16 +3999,9 @@ export interface NetherPortalBlockMembers {
   readonly __javaSupertypes?: readonly [Block, Portal];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [NetherPortalBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   getLocalTransition(): Portal_Transition;
   getPortalDestination(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_level_portal.TeleportTransition | null;
   getPortalTransitionTime(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_world_entity.Entity): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type NetherPortalBlock = NetherPortalBlockMembers & Block & Portal;
 export interface NetherPortalBlockStatics {
@@ -5054,8 +4029,6 @@ export interface NetherrackBlockStatics {
 export interface NetherSproutsBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [NetherSproutsBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type NetherSproutsBlock = NetherSproutsBlockMembers & VegetationBlock;
 export interface NetherSproutsBlockStatics {
@@ -5078,16 +4051,9 @@ export interface NetherVinesStatics {
 export interface NetherWartBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [NetherWartBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type NetherWartBlock = NetherWartBlockMembers & VegetationBlock;
 export interface NetherWartBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): NetherWartBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [NetherWartBlock]>;
   readonly MAX_AGE: 3;
@@ -5096,15 +4062,8 @@ export interface NetherWartBlockStatics {
 /** JVM class net.minecraft.world.level.block.NoteBlock. */
 export interface NoteBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  attack(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [NoteBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  triggerEvent(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: number): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type NoteBlock = NoteBlockMembers & Block;
 export interface NoteBlockStatics {
@@ -5125,30 +4084,17 @@ export interface NyliumBlockMembers {
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type NyliumBlock = NyliumBlockMembers & Block & BonemealableBlock;
 export interface NyliumBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): NyliumBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [NyliumBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.ObserverBlock. */
 export interface ObserverBlockMembers {
   readonly __javaSupertypes?: readonly [DirectionalBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ObserverBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateNeighborsInFront(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ObserverBlock = ObserverBlockMembers & DirectionalBlock;
 export interface ObserverBlockStatics {
@@ -5161,7 +4107,6 @@ export interface ObserverBlockStatics {
 export interface PiglinWallSkullBlockMembers {
   readonly __javaSupertypes?: readonly [WallSkullBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PiglinWallSkullBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type PiglinWallSkullBlock = PiglinWallSkullBlockMembers & WallSkullBlock;
 export interface PiglinWallSkullBlockStatics {
@@ -5172,13 +4117,9 @@ export interface PiglinWallSkullBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.PipeBlock. */
 export interface PipeBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PipeBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type PipeBlock = PipeBlockMembers & Block;
 export interface PipeBlockStatics {
-  new(arg0: number, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): PipeBlock;
   readonly DOWN: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly EAST: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly NORTH: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -5194,7 +4135,6 @@ export interface PitcherCropBlockMembers {
   canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
   canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PitcherCropBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
@@ -5202,7 +4142,6 @@ export interface PitcherCropBlockMembers {
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
   randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
@@ -5224,7 +4163,6 @@ export interface PlayerHeadBlockMembers {
 }
 export type PlayerHeadBlock = PlayerHeadBlockMembers & SkullBlock;
 export interface PlayerHeadBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): PlayerHeadBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [PlayerHeadBlock]>;
 }
 
@@ -5235,7 +4173,6 @@ export interface PlayerWallHeadBlockMembers {
 }
 export type PlayerWallHeadBlock = PlayerWallHeadBlockMembers & WallSkullBlock;
 export interface PlayerWallHeadBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): PlayerWallHeadBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [PlayerWallHeadBlock]>;
 }
 
@@ -5243,23 +4180,11 @@ export interface PlayerWallHeadBlockStatics {
 export interface PointedDripstoneBlockMembers {
   readonly __javaSupertypes?: readonly [Block, Fallable, SimpleWaterloggedBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PointedDripstoneBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   fallOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: number): void;
   getFallDamageSource(arg0: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_damagesource.DamageSource;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getMaxHorizontalOffset(): number;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  isCollisionShapeFullBlock(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   onBrokenAfterFall(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_item.FallingBlockEntity): void;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type PointedDripstoneBlock = PointedDripstoneBlockMembers & Block & Fallable & SimpleWaterloggedBlock;
 export interface PointedDripstoneBlockStatics {
@@ -5301,8 +4226,6 @@ export interface Portal_TransitionStatics {
 export interface PotatoBlockMembers {
   readonly __javaSupertypes?: readonly [CropBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PotatoBlock]>;
-  getBaseSeedId(): j_net_minecraft_world_level.ItemLike;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type PotatoBlock = PotatoBlockMembers & CropBlock;
 export interface PotatoBlockStatics {
@@ -5314,15 +4237,9 @@ export interface PotatoBlockStatics {
 export interface PowderSnowBlockMembers {
   readonly __javaSupertypes?: readonly [Block, BucketPickup];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PowderSnowBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   fallOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: number): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getEntityInsideCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_phys_shapes.VoxelShape;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack | null;
-  skipRendering(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.Direction): boolean;
+  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack;
 }
 export type PowderSnowBlock = PowderSnowBlockMembers & Block & BucketPickup;
 export interface PowderSnowBlockStatics {
@@ -5335,8 +4252,6 @@ export interface PowderSnowBlockStatics {
 export interface PoweredBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PoweredBlock]>;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type PoweredBlock = PoweredBlockMembers & Block;
 export interface PoweredBlockStatics {
@@ -5348,17 +4263,10 @@ export interface PoweredBlockStatics {
 export interface PoweredRailBlockMembers {
   readonly __javaSupertypes?: readonly [BaseRailBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PoweredRailBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  findPoweredRailSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean, arg4: number): boolean;
   getShapeProperty(): j_net_minecraft_world_level_block_state_properties.Property<j_net_minecraft_world_level_block_state_properties.RailShape>;
-  isSameRailWithPower(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: boolean, arg3: number, arg4: j_net_minecraft_world_level_block_state_properties.RailShape): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block): void;
 }
 export type PoweredRailBlock = PoweredRailBlockMembers & BaseRailBlock;
 export interface PoweredRailBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): PoweredRailBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [PoweredRailBlock]>;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly SHAPE: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.RailShape>;
@@ -5368,14 +4276,9 @@ export interface PoweredRailBlockStatics {
 export interface PressurePlateBlockMembers {
   readonly __javaSupertypes?: readonly [BasePressurePlateBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PressurePlateBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getSignalForState(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getSignalStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  setSignalForState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: number): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type PressurePlateBlock = PressurePlateBlockMembers & BasePressurePlateBlock;
 export interface PressurePlateBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): PressurePlateBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [PressurePlateBlock]>;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
@@ -5384,11 +4287,9 @@ export interface PressurePlateBlockStatics {
 export interface PumpkinBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [PumpkinBlock]>;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type PumpkinBlock = PumpkinBlockMembers & Block;
 export interface PumpkinBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): PumpkinBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [PumpkinBlock]>;
 }
 
@@ -5396,22 +4297,16 @@ export interface PumpkinBlockStatics {
 export interface RailBlockMembers {
   readonly __javaSupertypes?: readonly [BaseRailBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RailBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getShapeProperty(): j_net_minecraft_world_level_block_state_properties.Property<j_net_minecraft_world_level_block_state_properties.RailShape>;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block): void;
 }
 export type RailBlock = RailBlockMembers & BaseRailBlock;
 export interface RailBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): RailBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [RailBlock]>;
   readonly SHAPE: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.RailShape>;
 }
 
 /** JVM class net.minecraft.world.level.block.RailState. */
 export interface RailStateMembers {
-  countPotentialConnections(): number;
   getConnections(): JavaList<j_net_minecraft_core.BlockPos>;
   getState(): j_net_minecraft_world_level_block_state.BlockState;
   isValid(): boolean;
@@ -5426,10 +4321,7 @@ export interface RailStateStatics {
 export interface RedstoneLampBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RedstoneLampBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type RedstoneLampBlock = RedstoneLampBlockMembers & Block;
 export interface RedstoneLampBlockStatics {
@@ -5442,15 +4334,9 @@ export interface RedstoneLampBlockStatics {
 export interface RedStoneOreBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  attack(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RedStoneOreBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getExpDrop(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): number;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
   stepOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity): void;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type RedStoneOreBlock = RedStoneOreBlockMembers & Block;
 export interface RedStoneOreBlockStatics {
@@ -5462,22 +4348,11 @@ export interface RedStoneOreBlockStatics {
 /** JVM class net.minecraft.world.level.block.RedstoneTorchBlock. */
 export interface RedstoneTorchBlockMembers {
   readonly __javaSupertypes?: readonly [BaseTorchBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RedstoneTorchBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  hasNeighborSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  randomOrientation(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_redstone.Orientation | null;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type RedstoneTorchBlock = RedstoneTorchBlockMembers & BaseTorchBlock;
 export interface RedstoneTorchBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): RedstoneTorchBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [RedstoneTorchBlock]>;
   readonly LIT: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly MAX_RECENT_TOGGLES: 8;
@@ -5497,21 +4372,11 @@ export interface RedstoneTorchBlock_ToggleStatics {
 export interface RedstoneWallTorchBlockMembers {
   readonly __javaSupertypes?: readonly [RedstoneTorchBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RedstoneWallTorchBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  hasNeighborSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  randomOrientation(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_redstone.Orientation | null;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type RedstoneWallTorchBlock = RedstoneWallTorchBlockMembers & RedstoneTorchBlock;
 export interface RedstoneWallTorchBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): RedstoneWallTorchBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [RedstoneWallTorchBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly LIT: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -5520,26 +4385,13 @@ export interface RedstoneWallTorchBlockStatics {
 /** JVM class net.minecraft.world.level.block.RedStoneWireBlock. */
 export interface RedStoneWireBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   calculateCurrentChanges(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state.BlockState;
   canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RedStoneWireBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getBlockSignal(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
   shouldSignal: boolean;
-  updateIndirectNeighbourShapes(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: number, arg4: number): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type RedStoneWireBlock = RedStoneWireBlockMembers & Block;
 export interface RedStoneWireBlockStatics {
@@ -5552,8 +4404,6 @@ export interface RedStoneWireBlockStatics {
   readonly SOUTH: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.RedstoneSide>;
   readonly WEST: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.RedstoneSide>;
   getColorForPower(arg0: number): number;
-  shouldConnectTo(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  shouldConnectTo(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.Direction | null): boolean | null;
 }
 
 /** Live JVM enum net.minecraft.world.level.block.RenderShape; constants are host handles, not strings. */
@@ -5572,17 +4422,11 @@ export interface RepeaterBlockMembers {
   readonly __javaSupertypes?: readonly [DiodeBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RepeaterBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDelay(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   isLocked(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  sideInputDiodesOnly(): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type RepeaterBlock = RepeaterBlockMembers & DiodeBlock;
 export interface RepeaterBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): RepeaterBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [RepeaterBlock]>;
   readonly DELAY: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly LOCKED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -5593,12 +4437,6 @@ export interface RespawnAnchorBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RespawnAnchorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type RespawnAnchorBlock = RespawnAnchorBlockMembers & Block;
 export interface RespawnAnchorBlockStatics {
@@ -5608,7 +4446,7 @@ export interface RespawnAnchorBlockStatics {
   readonly MAX_CHARGES: 4;
   readonly MIN_CHARGES: 0;
   canSetSpawn(arg0: j_net_minecraft_world_level.Level): boolean;
-  charge(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void | null;
+  charge(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
   findStandUpPosition(arg0: j_net_minecraft_world_entity.EntityType<object>, arg1: j_net_minecraft_world_level.CollisionGetter, arg2: j_net_minecraft_core.BlockPos): JavaOptional<j_net_minecraft_world_phys.Vec3>;
   getScaledChargeLevel(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: number): number;
 }
@@ -5616,15 +4454,9 @@ export interface RespawnAnchorBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.RodBlock. */
 export interface RodBlockMembers {
   readonly __javaSupertypes?: readonly [DirectionalBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RodBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type RodBlock = RodBlockMembers & DirectionalBlock;
 export interface RodBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): RodBlock;
 }
 
 /** JVM class net.minecraft.world.level.block.RootedDirtBlock. */
@@ -5646,12 +4478,9 @@ export interface RootedDirtBlockStatics {
 export interface RootsBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RootsBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type RootsBlock = RootsBlockMembers & VegetationBlock;
 export interface RootsBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): RootsBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [RootsBlock]>;
 }
 
@@ -5659,9 +4488,7 @@ export interface RootsBlockStatics {
 export interface RotatedPillarBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [RotatedPillarBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type RotatedPillarBlock = RotatedPillarBlockMembers & Block;
 export interface RotatedPillarBlockStatics {
@@ -5712,17 +4539,12 @@ export interface SaplingBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   advanceTree(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SaplingBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  readonly treeGrower: j_net_minecraft_world_level_block_grower.TreeGrower;
 }
 export type SaplingBlock = SaplingBlockMembers & VegetationBlock & BonemealableBlock;
 export interface SaplingBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_grower.TreeGrower, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SaplingBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SaplingBlock]>;
   readonly STAGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly treeType: JavaOpaque<"org.bukkit.TreeType"> | null;
@@ -5731,22 +4553,11 @@ export interface SaplingBlockStatics {
 /** JVM class net.minecraft.world.level.block.ScaffoldingBlock. */
 export interface ScaffoldingBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ScaffoldingBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getInteractionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type ScaffoldingBlock = ScaffoldingBlockMembers & Block & SimpleWaterloggedBlock;
 export interface ScaffoldingBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): ScaffoldingBlock;
   readonly BOTTOM: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [ScaffoldingBlock]>;
   readonly DISTANCE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
@@ -5757,7 +4568,7 @@ export interface ScaffoldingBlockStatics {
 
 /** JVM interface net.minecraft.world.level.block.SculkBehaviour. */
 export interface SculkBehaviourMembers {
-  attemptSpreadVein(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: JavaCollection<j_net_minecraft_core.Direction> | null, arg4: boolean): boolean | null;
+  attemptSpreadVein(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: JavaCollection<j_net_minecraft_core.Direction> | null, arg4: boolean): boolean;
   attemptUseCharge(arg0: SculkSpreader_ChargeCursor, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource, arg4: SculkSpreader, arg5: boolean): number;
   canChangeBlockStateOnSpread(): boolean;
   depositCharge(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): boolean;
@@ -5787,12 +4598,9 @@ export interface SculkBlockStatics {
 export interface SculkCatalystBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SculkCatalystBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getExpDrop(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): number;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type SculkCatalystBlock = SculkCatalystBlockMembers & BaseEntityBlock;
 export interface SculkCatalystBlockStatics {
@@ -5804,30 +4612,16 @@ export interface SculkCatalystBlockStatics {
 /** JVM class net.minecraft.world.level.block.SculkSensorBlock. */
 export interface SculkSensorBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, SimpleWaterloggedBlock];
-  activate(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: number, arg5: number): void | null;
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
+  activate(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: number, arg5: number): void;
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SculkSensorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getActiveTicks(): number;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
   getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getExpDrop(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): number;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
   stepOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type SculkSensorBlock = SculkSensorBlockMembers & BaseEntityBlock & SimpleWaterloggedBlock;
 export interface SculkSensorBlockStatics {
@@ -5841,26 +4635,18 @@ export interface SculkSensorBlockStatics {
   canActivate(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   deactivate(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   getPhase(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_state_properties.SculkSensorPhase;
-  tryResonateVibration(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: number): void | null;
+  tryResonateVibration(arg0: j_net_minecraft_world_entity.Entity | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: number): void;
 }
 
 /** JVM class net.minecraft.world.level.block.SculkShriekerBlock. */
 export interface SculkShriekerBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SculkShriekerBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getExpDrop(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): number;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
   stepOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type SculkShriekerBlock = SculkShriekerBlockMembers & BaseEntityBlock & SimpleWaterloggedBlock;
 export interface SculkShriekerBlockStatics {
@@ -5935,44 +4721,30 @@ export interface SculkVeinBlockStatics {
 /** JVM class net.minecraft.world.level.block.SeagrassBlock. */
 export interface SeagrassBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock, LiquidBlockContainer];
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SeagrassBlock]>;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SeagrassBlock = SeagrassBlockMembers & VegetationBlock & BonemealableBlock & LiquidBlockContainer;
 export interface SeagrassBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SeagrassBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SeagrassBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.SeaPickleBlock. */
 export interface SeaPickleBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock, SimpleWaterloggedBlock];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SeaPickleBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SeaPickleBlock = SeaPickleBlockMembers & VegetationBlock & BonemealableBlock & SimpleWaterloggedBlock;
 export interface SeaPickleBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SeaPickleBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SeaPickleBlock]>;
   readonly MAX_PICKLES: 4;
   readonly PICKLES: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
@@ -6000,38 +4772,25 @@ export interface ShortDryGrassBlockMembers {
   readonly __javaSupertypes?: readonly [DryVegetationBlock, BonemealableBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ShortDryGrassBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type ShortDryGrassBlock = ShortDryGrassBlockMembers & DryVegetationBlock & BonemealableBlock;
 export interface ShortDryGrassBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): ShortDryGrassBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [ShortDryGrassBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.ShulkerBoxBlock. */
 export interface ShulkerBoxBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [ShulkerBoxBlock]>;
   readonly color: j_net_minecraft_world_item.DyeColor | null;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): number;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
   getColor(): j_net_minecraft_world_item.DyeColor | null;
-  getDrops(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_storage_loot.LootParams_Builder): JavaList<j_net_minecraft_world_item.ItemStack>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
-  hasAnalogOutputSignal(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type ShulkerBoxBlock = ShulkerBoxBlockMembers & BaseEntityBlock;
 export interface ShulkerBoxBlockStatics {
@@ -6040,16 +4799,13 @@ export interface ShulkerBoxBlockStatics {
   readonly CONTENTS: j_net_minecraft_resources.ResourceLocation;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly SHAPES_OPEN_SUPPORT: JavaMap<j_net_minecraft_core.Direction, j_net_minecraft_world_phys_shapes.VoxelShape>;
-  getBlockByColor(arg0: j_net_minecraft_world_item.DyeColor | null): Block | null;
-  getColoredItemStack(arg0: j_net_minecraft_world_item.DyeColor | null): j_net_minecraft_world_item.ItemStack | null;
+  getBlockByColor(arg0: j_net_minecraft_world_item.DyeColor | null): Block;
+  getColoredItemStack(arg0: j_net_minecraft_world_item.DyeColor | null): j_net_minecraft_world_item.ItemStack;
 }
 
 /** JVM abstract net.minecraft.world.level.block.SignBlock. */
 export interface SignBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, SimpleWaterloggedBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SignBlock]>;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getSignHitboxCenterPosition(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys.Vec3;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   getYRotationDegrees(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
@@ -6058,13 +4814,9 @@ export interface SignBlockMembers {
   openTextEdit(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_level_block_entity.SignBlockEntity, arg2: boolean): void;
   openTextEdit(arg0: j_net_minecraft_world_entity_player.Player, arg1: j_net_minecraft_world_level_block_entity.SignBlockEntity, arg2: boolean, arg3: JavaOpaque<"io.papermc.paper.event.player.PlayerOpenSignEvent$Cause">): void;
   type(): j_net_minecraft_world_level_block_state_properties.WoodType;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type SignBlock = SignBlockMembers & BaseEntityBlock & SimpleWaterloggedBlock;
 export interface SignBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.WoodType, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SignBlock;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   getWoodType(arg0: Block): j_net_minecraft_world_level_block_state_properties.WoodType;
 }
@@ -6072,9 +4824,9 @@ export interface SignBlockStatics {
 /** JVM interface net.minecraft.world.level.block.SimpleWaterloggedBlock. */
 export interface SimpleWaterloggedBlockMembers {
   readonly __javaSupertypes?: readonly [BucketPickup, LiquidBlockContainer];
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
-  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack | null;
+  pickupBlock(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.LevelAccessor, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_item.ItemStack;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
 }
 export type SimpleWaterloggedBlock = SimpleWaterloggedBlockMembers & BucketPickup & LiquidBlockContainer;
@@ -6085,16 +4837,10 @@ export interface SimpleWaterloggedBlockStatics {
 export interface SkullBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractSkullBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SkullBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getOcclusionShape(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SkullBlock = SkullBlockMembers & AbstractSkullBlock;
 export interface SkullBlockStatics {
-  new(arg0: SkullBlock_Type, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SkullBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SkullBlock]>;
   readonly MAX: number;
   readonly ROTATION: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
@@ -6130,17 +4876,10 @@ export interface SkullBlock_TypesStatics {
 /** JVM class net.minecraft.world.level.block.SlabBlock. */
 export interface SlabBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SlabBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type SlabBlock = SlabBlockMembers & Block & SimpleWaterloggedBlock;
 export interface SlabBlockStatics {
@@ -6167,21 +4906,12 @@ export interface SlimeBlockStatics {
 /** JVM class net.minecraft.world.level.block.SmallDripleafBlock. */
 export interface SmallDripleafBlockMembers {
   readonly __javaSupertypes?: readonly [DoublePlantBlock, BonemealableBlock, SimpleWaterloggedBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SmallDripleafBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getMaxVerticalOffset(): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SmallDripleafBlock = SmallDripleafBlockMembers & DoublePlantBlock & BonemealableBlock & SimpleWaterloggedBlock;
 export interface SmallDripleafBlockStatics {
@@ -6195,11 +4925,9 @@ export interface SmithingTableBlockMembers {
   readonly __javaSupertypes?: readonly [CraftingTableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SmithingTableBlock]>;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type SmithingTableBlock = SmithingTableBlockMembers & CraftingTableBlock;
 export interface SmithingTableBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SmithingTableBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SmithingTableBlock]>;
 }
 
@@ -6210,11 +4938,9 @@ export interface SmokerBlockMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SmokerBlock]>;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  openContainer(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity_player.Player): void;
 }
 export type SmokerBlock = SmokerBlockMembers & AbstractFurnaceBlock;
 export interface SmokerBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SmokerBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SmokerBlock]>;
 }
 
@@ -6222,7 +4948,6 @@ export interface SmokerBlockStatics {
 export interface SnifferEggBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SnifferEggBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getHatchLevel(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
   getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
@@ -6241,24 +4966,11 @@ export interface SnifferEggBlockStatics {
 /** JVM class net.minecraft.world.level.block.SnowLayerBlock. */
 export interface SnowLayerBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SnowLayerBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type SnowLayerBlock = SnowLayerBlockMembers & Block;
 export interface SnowLayerBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SnowLayerBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SnowLayerBlock]>;
   readonly HEIGHT_IMPASSABLE: 5;
   readonly LAYERS: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
@@ -6268,26 +4980,18 @@ export interface SnowLayerBlockStatics {
 /** JVM class net.minecraft.world.level.block.SnowyDirtBlock. */
 export interface SnowyDirtBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SnowyDirtBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SnowyDirtBlock = SnowyDirtBlockMembers & Block;
 export interface SnowyDirtBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SnowyDirtBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SnowyDirtBlock]>;
   readonly SNOWY: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  isSnowySetting(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 
 /** JVM class net.minecraft.world.level.block.SoulFireBlock. */
 export interface SoulFireBlockMembers {
   readonly __javaSupertypes?: readonly [BaseFireBlock];
-  canBurn(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SoulFireBlock]>;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SoulFireBlock = SoulFireBlockMembers & BaseFireBlock;
 export interface SoulFireBlockStatics {
@@ -6300,14 +5004,6 @@ export interface SoulFireBlockStatics {
 export interface SoulSandBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SoulSandBlock]>;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SoulSandBlock = SoulSandBlockMembers & Block;
 export interface SoulSandBlockStatics {
@@ -6462,11 +5158,9 @@ export interface SpawnerBlockMembers {
   getExpDrop(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): number;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  spawnAfterBreak(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_item.ItemStack, arg4: boolean): void;
 }
 export type SpawnerBlock = SpawnerBlockMembers & BaseEntityBlock;
 export interface SpawnerBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SpawnerBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SpawnerBlock]>;
 }
 
@@ -6474,13 +5168,9 @@ export interface SpawnerBlockStatics {
 export interface SpongeBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SpongeBlock]>;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  tryAbsorbWater(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): void;
 }
 export type SpongeBlock = SpongeBlockMembers & Block;
 export interface SpongeBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SpongeBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SpongeBlock]>;
   readonly MAX_COUNT: 64;
   readonly MAX_DEPTH: 6;
@@ -6490,10 +5180,7 @@ export interface SpongeBlockStatics {
 export interface SporeBlossomBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SporeBlossomBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SporeBlossomBlock = SporeBlossomBlockMembers & Block;
 export interface SporeBlossomBlockStatics {
@@ -6504,12 +5191,9 @@ export interface SporeBlossomBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.SpreadingSnowyDirtBlock. */
 export interface SpreadingSnowyDirtBlockMembers {
   readonly __javaSupertypes?: readonly [SnowyDirtBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SpreadingSnowyDirtBlock]>;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type SpreadingSnowyDirtBlock = SpreadingSnowyDirtBlockMembers & SnowyDirtBlock;
 export interface SpreadingSnowyDirtBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SpreadingSnowyDirtBlock;
 }
 
 /** JVM class net.minecraft.world.level.block.StainedGlassBlock. */
@@ -6539,22 +5223,12 @@ export interface StainedGlassPaneBlockStatics {
 /** JVM class net.minecraft.world.level.block.StairBlock. */
 export interface StairBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
-  readonly baseState: j_net_minecraft_world_level_block_state.BlockState;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [StairBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getExplosionResistance(): number;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type StairBlock = StairBlockMembers & Block & SimpleWaterloggedBlock;
 export interface StairBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): StairBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [StairBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly HALF: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.Half>;
@@ -6566,14 +5240,9 @@ export interface StairBlockStatics {
 /** JVM class net.minecraft.world.level.block.StandingSignBlock. */
 export interface StandingSignBlockMembers {
   readonly __javaSupertypes?: readonly [SignBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [StandingSignBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getYRotationDegrees(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type StandingSignBlock = StandingSignBlockMembers & SignBlock;
 export interface StandingSignBlockStatics {
@@ -6586,18 +5255,12 @@ export interface StandingSignBlockStatics {
 export interface StemBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [StemBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type StemBlock = StemBlockMembers & VegetationBlock & BonemealableBlock;
 export interface StemBlockStatics {
-  new(arg0: j_net_minecraft_resources.ResourceKey<Block>, arg1: j_net_minecraft_resources.ResourceKey<Block>, arg2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_world_item.Item>, arg3: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): StemBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [StemBlock]>;
   readonly MAX_AGE: 7;
@@ -6607,15 +5270,8 @@ export interface StemBlockStatics {
 export interface StonecutterBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [StonecutterBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getMenuProvider(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world.MenuProvider | null;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  useShapeForLightOcclusion(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type StonecutterBlock = StonecutterBlockMembers & Block;
 export interface StonecutterBlockStatics {
@@ -6628,15 +5284,11 @@ export interface StonecutterBlockStatics {
 export interface StructureBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, GameMasterBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [StructureBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
 }
 export type StructureBlock = StructureBlockMembers & BaseEntityBlock & GameMasterBlock;
 export interface StructureBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): StructureBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [StructureBlock]>;
   readonly MODE: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.StructureMode>;
 }
@@ -6645,30 +5297,19 @@ export interface StructureBlockStatics {
 export interface StructureVoidBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [StructureVoidBlock]>;
-  getRenderShape(arg0: j_net_minecraft_world_level_block_state.BlockState): RenderShape;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
 }
 export type StructureVoidBlock = StructureVoidBlockMembers & Block;
 export interface StructureVoidBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): StructureVoidBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [StructureVoidBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.SugarCaneBlock. */
 export interface SugarCaneBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SugarCaneBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type SugarCaneBlock = SugarCaneBlockMembers & Block;
 export interface SugarCaneBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): SugarCaneBlock;
   readonly AGE: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [SugarCaneBlock]>;
 }
@@ -6700,17 +5341,9 @@ export interface SuspiciousEffectHolderStatics {
 export interface SweetBerryBushBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [SweetBerryBushBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type SweetBerryBushBlock = SweetBerryBushBlockMembers & VegetationBlock & BonemealableBlock;
 export interface SweetBerryBushBlockStatics {
@@ -6725,14 +5358,12 @@ export interface TallDryGrassBlockMembers {
   readonly __javaSupertypes?: readonly [DryVegetationBlock, BonemealableBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TallDryGrassBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type TallDryGrassBlock = TallDryGrassBlockMembers & DryVegetationBlock & BonemealableBlock;
 export interface TallDryGrassBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): TallDryGrassBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TallDryGrassBlock]>;
 }
 
@@ -6754,28 +5385,21 @@ export interface TallFlowerBlockStatics {
 export interface TallGrassBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock, BonemealableBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TallGrassBlock]>;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   isBonemealSuccess(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): boolean;
   isValidBonemealTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): boolean;
   performBonemeal(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_util.RandomSource, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState): void;
 }
 export type TallGrassBlock = TallGrassBlockMembers & VegetationBlock & BonemealableBlock;
 export interface TallGrassBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): TallGrassBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TallGrassBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.TallSeagrassBlock. */
 export interface TallSeagrassBlockMembers {
   readonly __javaSupertypes?: readonly [DoublePlantBlock, LiquidBlockContainer];
-  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean | null;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
+  canPlaceLiquid(arg0: j_net_minecraft_world_entity.LivingEntity | null, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_material.Fluid): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TallSeagrassBlock]>;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
   placeLiquid(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_level_material.FluidState): boolean;
 }
 export type TallSeagrassBlock = TallSeagrassBlockMembers & DoublePlantBlock & LiquidBlockContainer;
@@ -6789,12 +5413,6 @@ export interface TallSeagrassBlockStatics {
 export interface TargetBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TargetBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type TargetBlock = TargetBlockMembers & Block;
 export interface TargetBlockStatics {
@@ -6805,15 +5423,9 @@ export interface TargetBlockStatics {
 /** JVM class net.minecraft.world.level.block.TestBlock. */
 export interface TestBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, GameMasterBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TestBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCloneItemStack(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean): j_net_minecraft_world_item.ItemStack;
   getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type TestBlock = TestBlockMembers & BaseEntityBlock & GameMasterBlock;
 export interface TestBlockStatics {
@@ -6826,9 +5438,7 @@ export interface TestBlockStatics {
 /** JVM class net.minecraft.world.level.block.TestInstanceBlock. */
 export interface TestInstanceBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock, GameMasterBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TestInstanceBlock]>;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type TestInstanceBlock = TestInstanceBlockMembers & BaseEntityBlock & GameMasterBlock;
 export interface TestInstanceBlockStatics {
@@ -6840,8 +5450,6 @@ export interface TestInstanceBlockStatics {
 export interface TintedGlassBlockMembers {
   readonly __javaSupertypes?: readonly [TransparentBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TintedGlassBlock]>;
-  getLightBlock(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type TintedGlassBlock = TintedGlassBlockMembers & TransparentBlock;
 export interface TintedGlassBlockStatics {
@@ -6853,7 +5461,6 @@ export interface TintedGlassBlockStatics {
 export interface TintedParticleLeavesBlockMembers {
   readonly __javaSupertypes?: readonly [LeavesBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TintedParticleLeavesBlock]>;
-  spawnFallingLeavesParticle(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
 }
 export type TintedParticleLeavesBlock = TintedParticleLeavesBlockMembers & LeavesBlock;
 export interface TintedParticleLeavesBlockStatics {
@@ -6865,13 +5472,8 @@ export interface TintedParticleLeavesBlockStatics {
 export interface TntBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TntBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   dropFromExplosion(arg0: j_net_minecraft_world_level.Explosion): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  onProjectileHit(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_phys.BlockHitResult, arg3: j_net_minecraft_world_entity_projectile.Projectile): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
   wasExploded(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level.Explosion): void;
 }
 export type TntBlock = TntBlockMembers & Block;
@@ -6888,23 +5490,16 @@ export interface TorchBlockMembers {
   readonly __javaSupertypes?: readonly [BaseTorchBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TorchBlock]>;
-  readonly flameParticle: j_net_minecraft_core_particles.SimpleParticleType;
 }
 export type TorchBlock = TorchBlockMembers & BaseTorchBlock;
 export interface TorchBlockStatics {
-  new(arg0: j_net_minecraft_core_particles.SimpleParticleType, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): TorchBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TorchBlock]>;
-  readonly PARTICLE_OPTIONS_FIELD: JavaOpaque<"com.mojang.serialization.MapCodec", [j_net_minecraft_core_particles.SimpleParticleType]>;
 }
 
 /** JVM class net.minecraft.world.level.block.TorchflowerCropBlock. */
 export interface TorchflowerCropBlockMembers {
   readonly __javaSupertypes?: readonly [CropBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TorchflowerCropBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getAgeProperty(): j_net_minecraft_world_level_block_state_properties.IntegerProperty;
-  getBaseSeedId(): j_net_minecraft_world_level.ItemLike;
-  getBonemealAgeIncrease(arg0: j_net_minecraft_world_level.Level): number;
   getMaxAge(): number;
   getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForAge(arg0: number): j_net_minecraft_world_level_block_state.BlockState;
@@ -6921,14 +5516,9 @@ export interface TorchflowerCropBlockStatics {
 /** JVM class net.minecraft.world.level.block.TransparentBlock. */
 export interface TransparentBlockMembers {
   readonly __javaSupertypes?: readonly [HalfTransparentBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TransparentBlock]>;
-  getShadeBrightness(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getVisualShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
 }
 export type TransparentBlock = TransparentBlockMembers & HalfTransparentBlock;
 export interface TransparentBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): TransparentBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TransparentBlock]>;
 }
 
@@ -6936,21 +5526,10 @@ export interface TransparentBlockStatics {
 export interface TrapDoorBlockMembers {
   readonly __javaSupertypes?: readonly [HorizontalDirectionalBlock, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TrapDoorBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  getType(): j_net_minecraft_world_level_block_state_properties.BlockSetType;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  neighborChanged(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: Block, arg4: j_net_minecraft_world_level_redstone.Orientation | null, arg5: boolean): void | null;
-  onExplosionHit(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level.Explosion, arg4: JavaBiConsumer<j_net_minecraft_world_item.ItemStack, j_net_minecraft_core.BlockPos>): void;
-  playSound(arg0: j_net_minecraft_world_entity_player.Player | null, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void | null;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useWithoutItem(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity_player.Player, arg4: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type TrapDoorBlock = TrapDoorBlockMembers & HorizontalDirectionalBlock & SimpleWaterloggedBlock;
 export interface TrapDoorBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): TrapDoorBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TrapDoorBlock]>;
   readonly HALF: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_world_level_block_state_properties.Half>;
   readonly OPEN: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
@@ -6962,10 +5541,6 @@ export interface TrapDoorBlockStatics {
 export interface TrappedChestBlockMembers {
   readonly __javaSupertypes?: readonly [ChestBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TrappedChestBlock]>;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getOpenChestStat(): j_net_minecraft_stats.Stat<j_net_minecraft_resources.ResourceLocation>;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
 }
 export type TrappedChestBlock = TrappedChestBlockMembers & ChestBlock;
@@ -6978,7 +5553,6 @@ export interface TrappedChestBlockStatics {
 export interface TrialSpawnerBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TrialSpawnerBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity | null;
 }
@@ -6993,20 +5567,10 @@ export interface TrialSpawnerBlockStatics {
 /** JVM class net.minecraft.world.level.block.TripWireBlock. */
 export interface TripWireBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TripWireBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getEntityInsideCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
   playerWillDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity_player.Player): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
   shouldConnectTo(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_core.Direction): boolean;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type TripWireBlock = TripWireBlockMembers & Block;
 export interface TripWireBlockStatics {
@@ -7024,20 +5588,9 @@ export interface TripWireBlockStatics {
 /** JVM class net.minecraft.world.level.block.TripWireHookBlock. */
 export interface TripWireHookBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  affectNeighborsAfterRemoval(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: boolean): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TripWireHookBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getDirectSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSignal(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): number;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  isSignalSource(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
   setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity, arg4: j_net_minecraft_world_item.ItemStack): void;
-  tick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type TripWireHookBlock = TripWireHookBlockMembers & Block;
 export interface TripWireHookBlockStatics {
@@ -7046,24 +5599,17 @@ export interface TripWireHookBlockStatics {
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [TripWireHookBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   readonly POWERED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
-  readonly WIRE_DIST_MAX: 42;
-  readonly WIRE_DIST_MIN: 1;
-  calculateState(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean, arg4: boolean, arg5: number, arg6: j_net_minecraft_world_level_block_state.BlockState | null): void | null;
+  calculateState(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: boolean, arg4: boolean, arg5: number, arg6: j_net_minecraft_world_level_block_state.BlockState | null): void;
 }
 
 /** JVM class net.minecraft.world.level.block.TurtleEggBlock. */
 export interface TurtleEggBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TurtleEggBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   decreaseEggs(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   fallOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: number): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
-  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void | null;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
+  playerDestroy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_entity_player.Player, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: j_net_minecraft_world_level_block_entity.BlockEntity | null, arg5: j_net_minecraft_world_item.ItemStack, arg6: boolean, arg7: boolean): void;
   stepOn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.Entity): void;
 }
 export type TurtleEggBlock = TurtleEggBlockMembers & Block;
@@ -7082,10 +5628,7 @@ export interface TurtleEggBlockStatics {
 /** JVM class net.minecraft.world.level.block.TwistingVinesBlock. */
 export interface TwistingVinesBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantHeadBlock];
-  canGrowInto(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TwistingVinesBlock]>;
-  getBlocksToGrowWhenBonemealed(arg0: j_net_minecraft_util.RandomSource): number;
-  getBodyBlock(): Block;
 }
 export type TwistingVinesBlock = TwistingVinesBlockMembers & GrowingPlantHeadBlock;
 export interface TwistingVinesBlockStatics {
@@ -7097,7 +5640,6 @@ export interface TwistingVinesBlockStatics {
 export interface TwistingVinesPlantBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantBodyBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [TwistingVinesPlantBlock]>;
-  getHeadBlock(): GrowingPlantHeadBlock;
 }
 export type TwistingVinesPlantBlock = TwistingVinesPlantBlockMembers & GrowingPlantBodyBlock;
 export interface TwistingVinesPlantBlockStatics {
@@ -7109,8 +5651,6 @@ export interface TwistingVinesPlantBlockStatics {
 export interface UntintedParticleLeavesBlockMembers {
   readonly __javaSupertypes?: readonly [LeavesBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [UntintedParticleLeavesBlock]>;
-  readonly leafParticle: j_net_minecraft_core_particles.ParticleOptions;
-  spawnFallingLeavesParticle(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
 }
 export type UntintedParticleLeavesBlock = UntintedParticleLeavesBlockMembers & LeavesBlock;
 export interface UntintedParticleLeavesBlockStatics {
@@ -7122,7 +5662,6 @@ export interface UntintedParticleLeavesBlockStatics {
 export interface VaultBlockMembers {
   readonly __javaSupertypes?: readonly [BaseEntityBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [VaultBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
@@ -7142,32 +5681,16 @@ export interface VaultBlockStatics {
 /** JVM abstract net.minecraft.world.level.block.VegetationBlock. */
 export interface VegetationBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [VegetationBlock]>;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type VegetationBlock = VegetationBlockMembers & Block;
 export interface VegetationBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): VegetationBlock;
 }
 
 /** JVM class net.minecraft.world.level.block.VineBlock. */
 export interface VineBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
-  canBeReplaced(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_item_context.BlockPlaceContext): boolean;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [VineBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type VineBlock = VineBlockMembers & Block;
 export interface VineBlockStatics {
@@ -7186,14 +5709,8 @@ export interface VineBlockStatics {
 /** JVM class net.minecraft.world.level.block.WallBannerBlock. */
 export interface WallBannerBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractBannerBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WallBannerBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WallBannerBlock = WallBannerBlockMembers & AbstractBannerBlock;
 export interface WallBannerBlockStatics {
@@ -7206,16 +5723,7 @@ export interface WallBannerBlockStatics {
 export interface WallBlockMembers {
   readonly __javaSupertypes?: readonly [Block, SimpleWaterloggedBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WallBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  propagatesSkylightDown(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WallBlock = WallBlockMembers & Block & SimpleWaterloggedBlock;
 export interface WallBlockStatics {
@@ -7236,19 +5744,10 @@ export interface WallHangingSignBlockMembers {
   canAttachTo(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_core.Direction): boolean;
   canPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WallHangingSignBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getBlockSupportShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getCollisionShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getTicker<T /* extends j_net_minecraft_world_level_block_entity.BlockEntity */>(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level_block_entity.BlockEntityType<T>): j_net_minecraft_world_level_block_entity.BlockEntityTicker<T> | null;
   getYRotationDegrees(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  isPathfindable(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level_pathfinder.PathComputationType): boolean;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
   newBlockEntity(arg0: j_net_minecraft_core.BlockPos, arg1: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_block_entity.BlockEntity;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
-  useItemOn(arg0: j_net_minecraft_world_item.ItemStack, arg1: j_net_minecraft_world_level_block_state.BlockState, arg2: j_net_minecraft_world_level.Level, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_world_entity_player.Player, arg5: j_net_minecraft_world.InteractionHand, arg6: j_net_minecraft_world_phys.BlockHitResult): j_net_minecraft_world.InteractionResult;
 }
 export type WallHangingSignBlock = WallHangingSignBlockMembers & SignBlock;
 export interface WallHangingSignBlockStatics {
@@ -7260,16 +5759,10 @@ export interface WallHangingSignBlockStatics {
 /** JVM class net.minecraft.world.level.block.WallSignBlock. */
 export interface WallSignBlockMembers {
   readonly __javaSupertypes?: readonly [SignBlock];
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WallSignBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getSignHitboxCenterPosition(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_phys.Vec3;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
   getYRotationDegrees(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WallSignBlock = WallSignBlockMembers & SignBlock;
 export interface WallSignBlockStatics {
@@ -7282,15 +5775,10 @@ export interface WallSignBlockStatics {
 export interface WallSkullBlockMembers {
   readonly __javaSupertypes?: readonly [AbstractSkullBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WallSkullBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WallSkullBlock = WallSkullBlockMembers & AbstractSkullBlock;
 export interface WallSkullBlockStatics {
-  new(arg0: SkullBlock_Type, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WallSkullBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WallSkullBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
 }
@@ -7299,18 +5787,11 @@ export interface WallSkullBlockStatics {
 export interface WallTorchBlockMembers {
   readonly __javaSupertypes?: readonly [TorchBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
-  canSurvive(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_core.BlockPos): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WallTorchBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  mirror(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Mirror): j_net_minecraft_world_level_block_state.BlockState;
-  rotate(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: Rotation): j_net_minecraft_world_level_block_state.BlockState;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WallTorchBlock = WallTorchBlockMembers & TorchBlock;
 export interface WallTorchBlockStatics {
-  new(arg0: j_net_minecraft_core_particles.SimpleParticleType, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WallTorchBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WallTorchBlock]>;
   readonly FACING: j_net_minecraft_world_level_block_state_properties.EnumProperty<j_net_minecraft_core.Direction>;
   canSurvive(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction): boolean;
@@ -7321,28 +5802,19 @@ export interface WallTorchBlockStatics {
 export interface WaterlilyBlockMembers {
   readonly __javaSupertypes?: readonly [VegetationBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WaterlilyBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
-  getShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_phys_shapes.CollisionContext): j_net_minecraft_world_phys_shapes.VoxelShape;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type WaterlilyBlock = WaterlilyBlockMembers & VegetationBlock;
 export interface WaterlilyBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WaterlilyBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WaterlilyBlock]>;
 }
 
 /** JVM class net.minecraft.world.level.block.WaterloggedTransparentBlock. */
 export interface WaterloggedTransparentBlockMembers {
   readonly __javaSupertypes?: readonly [TransparentBlock, SimpleWaterloggedBlock];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WaterloggedTransparentBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getFluidState(arg0: j_net_minecraft_world_level_block_state.BlockState): j_net_minecraft_world_level_material.FluidState;
   getStateForPlacement(arg0: j_net_minecraft_world_item_context.BlockPlaceContext): j_net_minecraft_world_level_block_state.BlockState | null;
-  updateShape(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.LevelReader, arg2: j_net_minecraft_world_level.ScheduledTickAccess, arg3: j_net_minecraft_core.BlockPos, arg4: j_net_minecraft_core.Direction, arg5: j_net_minecraft_core.BlockPos, arg6: j_net_minecraft_world_level_block_state.BlockState, arg7: j_net_minecraft_util.RandomSource): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WaterloggedTransparentBlock = WaterloggedTransparentBlockMembers & TransparentBlock & SimpleWaterloggedBlock;
 export interface WaterloggedTransparentBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WaterloggedTransparentBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WaterloggedTransparentBlock]>;
   readonly WATERLOGGED: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
 }
@@ -7382,11 +5854,7 @@ export interface WeatheringCopper_WeatherStateStatics {
 /** JVM class net.minecraft.world.level.block.WeatheringCopperBulbBlock. */
 export interface WeatheringCopperBulbBlockMembers {
   readonly __javaSupertypes?: readonly [CopperBulbBlock, WeatheringCopper];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperBulbBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperBulbBlock = WeatheringCopperBulbBlockMembers & CopperBulbBlock & WeatheringCopper;
 export interface WeatheringCopperBulbBlockStatics {
@@ -7398,14 +5866,10 @@ export interface WeatheringCopperBulbBlockStatics {
 export interface WeatheringCopperDoorBlockMembers {
   readonly __javaSupertypes?: readonly [DoorBlock, WeatheringCopper];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperDoorBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperDoorBlock = WeatheringCopperDoorBlockMembers & DoorBlock & WeatheringCopper;
 export interface WeatheringCopperDoorBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg1: WeatheringCopper_WeatherState, arg2: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WeatheringCopperDoorBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperDoorBlock]>;
 }
 
@@ -7413,10 +5877,7 @@ export interface WeatheringCopperDoorBlockStatics {
 export interface WeatheringCopperFullBlockMembers {
   readonly __javaSupertypes?: readonly [Block, WeatheringCopper];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperFullBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperFullBlock = WeatheringCopperFullBlockMembers & Block & WeatheringCopper;
 export interface WeatheringCopperFullBlockStatics {
@@ -7427,15 +5888,10 @@ export interface WeatheringCopperFullBlockStatics {
 /** JVM class net.minecraft.world.level.block.WeatheringCopperGrateBlock. */
 export interface WeatheringCopperGrateBlockMembers {
   readonly __javaSupertypes?: readonly [WaterloggedTransparentBlock, WeatheringCopper];
-  codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperGrateBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperGrateBlock = WeatheringCopperGrateBlockMembers & WaterloggedTransparentBlock & WeatheringCopper;
 export interface WeatheringCopperGrateBlockStatics {
-  new(arg0: WeatheringCopper_WeatherState, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WeatheringCopperGrateBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperGrateBlock]>;
 }
 
@@ -7443,10 +5899,7 @@ export interface WeatheringCopperGrateBlockStatics {
 export interface WeatheringCopperSlabBlockMembers {
   readonly __javaSupertypes?: readonly [SlabBlock, WeatheringCopper];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperSlabBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperSlabBlock = WeatheringCopperSlabBlockMembers & SlabBlock & WeatheringCopper;
 export interface WeatheringCopperSlabBlockStatics {
@@ -7458,10 +5911,7 @@ export interface WeatheringCopperSlabBlockStatics {
 export interface WeatheringCopperStairBlockMembers {
   readonly __javaSupertypes?: readonly [StairBlock, WeatheringCopper];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperStairBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperStairBlock = WeatheringCopperStairBlockMembers & StairBlock & WeatheringCopper;
 export interface WeatheringCopperStairBlockStatics {
@@ -7473,14 +5923,10 @@ export interface WeatheringCopperStairBlockStatics {
 export interface WeatheringCopperTrapDoorBlockMembers {
   readonly __javaSupertypes?: readonly [TrapDoorBlock, WeatheringCopper];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperTrapDoorBlock]>;
-  getAge(): JavaOpaque<"java.lang.Enum">;
   getAge(): WeatheringCopper_WeatherState;
-  isRandomlyTicking(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
-  randomTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_server_level.ServerLevel, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
 }
 export type WeatheringCopperTrapDoorBlock = WeatheringCopperTrapDoorBlockMembers & TrapDoorBlock & WeatheringCopper;
 export interface WeatheringCopperTrapDoorBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg1: WeatheringCopper_WeatherState, arg2: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WeatheringCopperTrapDoorBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WeatheringCopperTrapDoorBlock]>;
 }
 
@@ -7488,7 +5934,6 @@ export interface WeatheringCopperTrapDoorBlockStatics {
 export interface WebBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WebBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
 }
 export type WebBlock = WebBlockMembers & Block;
 export interface WebBlockStatics {
@@ -7499,10 +5944,7 @@ export interface WebBlockStatics {
 /** JVM class net.minecraft.world.level.block.WeepingVinesBlock. */
 export interface WeepingVinesBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantHeadBlock];
-  canGrowInto(arg0: j_net_minecraft_world_level_block_state.BlockState): boolean;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeepingVinesBlock]>;
-  getBlocksToGrowWhenBonemealed(arg0: j_net_minecraft_util.RandomSource): number;
-  getBodyBlock(): Block;
 }
 export type WeepingVinesBlock = WeepingVinesBlockMembers & GrowingPlantHeadBlock;
 export interface WeepingVinesBlockStatics {
@@ -7514,7 +5956,6 @@ export interface WeepingVinesBlockStatics {
 export interface WeepingVinesPlantBlockMembers {
   readonly __javaSupertypes?: readonly [GrowingPlantBodyBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeepingVinesPlantBlock]>;
-  getHeadBlock(): GrowingPlantHeadBlock;
 }
 export type WeepingVinesPlantBlock = WeepingVinesPlantBlockMembers & GrowingPlantBodyBlock;
 export interface WeepingVinesPlantBlockStatics {
@@ -7526,15 +5967,9 @@ export interface WeepingVinesPlantBlockStatics {
 export interface WeightedPressurePlateBlockMembers {
   readonly __javaSupertypes?: readonly [BasePressurePlateBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WeightedPressurePlateBlock]>;
-  createBlockStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Block, j_net_minecraft_world_level_block_state.BlockState>): void;
-  getPressedTime(): number;
-  getSignalForState(arg0: j_net_minecraft_world_level_block_state.BlockState): number;
-  getSignalStrength(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): number;
-  setSignalForState(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: number): j_net_minecraft_world_level_block_state.BlockState;
 }
 export type WeightedPressurePlateBlock = WeightedPressurePlateBlockMembers & BasePressurePlateBlock;
 export interface WeightedPressurePlateBlockStatics {
-  new(arg0: number, arg1: j_net_minecraft_world_level_block_state_properties.BlockSetType, arg2: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WeightedPressurePlateBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WeightedPressurePlateBlock]>;
   readonly POWER: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
 }
@@ -7544,11 +5979,9 @@ export interface WetSpongeBlockMembers {
   readonly __javaSupertypes?: readonly [Block];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WetSpongeBlock]>;
-  onPlace(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_level_block_state.BlockState, arg4: boolean): void;
 }
 export type WetSpongeBlock = WetSpongeBlockMembers & Block;
 export interface WetSpongeBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WetSpongeBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WetSpongeBlock]>;
 }
 
@@ -7557,9 +5990,7 @@ export interface WitherRoseBlockMembers {
   readonly __javaSupertypes?: readonly [FlowerBlock];
   animateTick(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_util.RandomSource): void;
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WitherRoseBlock]>;
-  entityInside(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.Level, arg2: j_net_minecraft_core.BlockPos, arg3: j_net_minecraft_world_entity.Entity, arg4: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getBeeInteractionEffect(): j_net_minecraft_world_effect.MobEffectInstance;
-  mayPlaceOn(arg0: j_net_minecraft_world_level_block_state.BlockState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): boolean;
 }
 export type WitherRoseBlock = WitherRoseBlockMembers & FlowerBlock;
 export interface WitherRoseBlockStatics {
@@ -7572,11 +6003,10 @@ export interface WitherRoseBlockStatics {
 export interface WitherSkullBlockMembers {
   readonly __javaSupertypes?: readonly [SkullBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WitherSkullBlock]>;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
 }
 export type WitherSkullBlock = WitherSkullBlockMembers & SkullBlock;
 export interface WitherSkullBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WitherSkullBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WitherSkullBlock]>;
   canSpawnMob(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_item.ItemStack): boolean;
   checkSpawn(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): void;
@@ -7587,11 +6017,10 @@ export interface WitherSkullBlockStatics {
 export interface WitherWallSkullBlockMembers {
   readonly __javaSupertypes?: readonly [WallSkullBlock];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [WitherWallSkullBlock]>;
-  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void | null;
+  setPlacedBy(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_world_entity.LivingEntity | null, arg4: j_net_minecraft_world_item.ItemStack): void;
 }
 export type WitherWallSkullBlock = WitherWallSkullBlockMembers & WallSkullBlock;
 export interface WitherWallSkullBlockStatics {
-  new(arg0: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WitherWallSkullBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WitherWallSkullBlock]>;
 }
 
@@ -7603,6 +6032,5 @@ export interface WoolCarpetBlockMembers {
 }
 export type WoolCarpetBlock = WoolCarpetBlockMembers & CarpetBlock;
 export interface WoolCarpetBlockStatics {
-  new(arg0: j_net_minecraft_world_item.DyeColor, arg1: j_net_minecraft_world_level_block_state.BlockBehaviour_Properties): WoolCarpetBlock;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.MapCodec", [WoolCarpetBlock]>;
 }

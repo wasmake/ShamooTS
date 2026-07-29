@@ -32,7 +32,6 @@ export interface ResourcePackInfoStatics {
 export interface ResourcePackInfo_BuilderMembers {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_builder.AbstractBuilder<ResourcePackInfo>, ResourcePackInfoLike];
   asResourcePackInfo(): ResourcePackInfo;
-  build(): object;
   build(): ResourcePackInfo;
   computeHashAndBuild(): PromiseLike<ResourcePackInfo>;
   computeHashAndBuild(arg0: JavaOpaque<"java.util.concurrent.Executor">): PromiseLike<ResourcePackInfo>;
@@ -79,7 +78,7 @@ export interface ResourcePackRequest_BuilderMembers {
   callback(arg0: ResourcePackCallback): ResourcePackRequest_Builder;
   packs(arg0: Iterable<ResourcePackInfoLike>): ResourcePackRequest_Builder;
   packs(arg0: ResourcePackInfoLike, ...arg1: Array<ResourcePackInfoLike>): ResourcePackRequest_Builder;
-  prompt(arg0: j_net_kyori_adventure_text.Component | null): ResourcePackRequest_Builder | null;
+  prompt(arg0: j_net_kyori_adventure_text.Component | null): ResourcePackRequest_Builder;
   replace(arg0: boolean): ResourcePackRequest_Builder;
   required(arg0: boolean): ResourcePackRequest_Builder;
 }

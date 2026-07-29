@@ -8,7 +8,7 @@ import type * as j_org_bukkit_loot from './org.bukkit.loot.generated.js';
 /** JVM interface org.bukkit.spawner.BaseSpawner. */
 export interface BaseSpawnerMembers {
   addPotentialSpawn(arg0: j_org_bukkit_block_spawner.SpawnerEntry): void;
-  addPotentialSpawn(arg0: j_org_bukkit_entity.EntitySnapshot, arg1: number, arg2: j_org_bukkit_block_spawner.SpawnRule): void | null;
+  addPotentialSpawn(arg0: j_org_bukkit_entity.EntitySnapshot, arg1: number, arg2: j_org_bukkit_block_spawner.SpawnRule | null): void;
   getDelay(): number;
   getPotentialSpawns(): JavaList<j_org_bukkit_block_spawner.SpawnerEntry>;
   getRequiredPlayerRange(): number;
@@ -20,8 +20,8 @@ export interface BaseSpawnerMembers {
   setRequiredPlayerRange(arg0: number): void;
   setSpawnRange(arg0: number): void;
   setSpawnedEntity(arg0: j_org_bukkit_block_spawner.SpawnerEntry): void;
-  setSpawnedEntity(arg0: j_org_bukkit_entity.EntitySnapshot): void | null;
-  setSpawnedType(arg0: j_org_bukkit_entity.EntityType): void | null;
+  setSpawnedEntity(arg0: j_org_bukkit_entity.EntitySnapshot | null): void;
+  setSpawnedType(arg0: j_org_bukkit_entity.EntityType | null): void;
 }
 export type BaseSpawner = BaseSpawnerMembers;
 export interface BaseSpawnerStatics {

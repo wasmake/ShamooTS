@@ -100,9 +100,6 @@ export interface ArrayListDequeMembers<T = unknown> {
   removeLast(): T;
   removeLastOccurrence(arg0: object): boolean;
   replaceAll(arg0: JavaOpaque<"java.util.function.UnaryOperator", [T]>): void;
-  reversed(): JavaOpaque<"java.util.Deque">;
-  reversed(): JavaList<object>;
-  reversed(): JavaOpaque<"java.util.SequencedCollection">;
   reversed(): ListAndDeque<T>;
   set(arg0: number, arg1: T): T;
   size(): number;
@@ -288,8 +285,8 @@ export interface CommonLinksStatics {
   readonly START_REALMS_TRIAL: JavaOpaque<"java.net.URI">;
   readonly SUSPENSION_HELP: JavaOpaque<"java.net.URI">;
   readonly SYMLINK_HELP: JavaOpaque<"java.net.URI">;
-  extendRealms(arg0: string | null, arg1: JavaOpaque<"java.util.UUID">): string | null;
-  extendRealms(arg0: string | null, arg1: JavaOpaque<"java.util.UUID">, arg2: boolean): string | null;
+  extendRealms(arg0: string | null, arg1: JavaOpaque<"java.util.UUID">): string;
+  extendRealms(arg0: string | null, arg1: JavaOpaque<"java.util.UUID">, arg2: boolean): string;
 }
 
 /** JVM class net.minecraft.util.CrudeIncrementalIntIdentityHashBiMap. */
@@ -302,7 +299,7 @@ export interface CrudeIncrementalIntIdentityHashBiMapMembers<K = unknown> {
   contains(arg0: number): boolean;
   contains(arg0: K): boolean;
   copy(): CrudeIncrementalIntIdentityHashBiMap<K>;
-  getId(arg0: K | null): number | null;
+  getId(arg0: K | null): number;
   iterator(): JavaOpaque<"java.util.Iterator", [K]>;
   moonrise$getRawPalette(arg0: JavaOpaque<"ca.spottedleaf.moonrise.patches.fast_palette.FastPaletteData", [K]>): Array<K>;
   size(): number;
@@ -446,8 +443,6 @@ export interface CubicSpline_BuilderMembers<C = unknown, I /* extends ToFloatFun
 }
 export type CubicSpline_Builder<C = unknown, I /* extends ToFloatFunction<C> */ = unknown> = CubicSpline_BuilderMembers<C, I>;
 export interface CubicSpline_BuilderStatics {
-  new<C, I /* extends ToFloatFunction<C> */>(arg0: I): CubicSpline_Builder<C, I>;
-  new<C, I /* extends ToFloatFunction<C> */>(arg0: I, arg1: ToFloatFunction<number>): CubicSpline_Builder<C, I>;
 }
 
 /** JVM record net.minecraft.util.CubicSpline$Constant. */
@@ -693,7 +688,6 @@ export interface ExtraCodecs_StrictUnboundedMapCodecMembers<K = unknown, V = unk
   decode<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg1: JavaOpaque<"com.mojang.serialization.MapLike", [T]>): JavaOpaque<"com.mojang.serialization.DataResult", [JavaMap<K, V>]>;
   decode<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg1: T): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaMap<K, V>, T]>]>;
   elementCodec(): JavaOpaque<"com.mojang.serialization.Codec", [V]>;
-  encode(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   encode<T>(arg0: JavaMap<K, V>, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg2: T): JavaOpaque<"com.mojang.serialization.DataResult", [T]>;
   equals(arg0: object): boolean;
   hashCode(): number;
@@ -829,7 +823,7 @@ export interface GsonHelperStatics {
   convertToJsonArray(arg0: JavaOpaque<"com.google.gson.JsonElement">, arg1: string): JavaOpaque<"com.google.gson.JsonArray">;
   convertToJsonObject(arg0: JavaOpaque<"com.google.gson.JsonElement">, arg1: string): JavaOpaque<"com.google.gson.JsonObject">;
   convertToLong(arg0: JavaOpaque<"com.google.gson.JsonElement">, arg1: string): bigint;
-  convertToObject<T>(arg0: JavaOpaque<"com.google.gson.JsonElement"> | null, arg1: string, arg2: JavaOpaque<"com.google.gson.JsonDeserializationContext">, arg3: JavaClass<T>): T | null;
+  convertToObject<T>(arg0: JavaOpaque<"com.google.gson.JsonElement"> | null, arg1: string, arg2: JavaOpaque<"com.google.gson.JsonDeserializationContext">, arg3: JavaClass<T>): T;
   convertToShort(arg0: JavaOpaque<"com.google.gson.JsonElement">, arg1: string): number;
   convertToString(arg0: JavaOpaque<"com.google.gson.JsonElement">, arg1: string): string;
   encodesLongerThan(arg0: JavaOpaque<"com.google.gson.JsonElement">, arg1: number): boolean;
@@ -869,7 +863,7 @@ export interface GsonHelperStatics {
   getAsString(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): string;
   getAsString(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string, arg2: string | null): string | null;
   getNonNull(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): JavaOpaque<"com.google.gson.JsonElement">;
-  getType(arg0: JavaOpaque<"com.google.gson.JsonElement"> | null): string | null;
+  getType(arg0: JavaOpaque<"com.google.gson.JsonElement"> | null): string;
   isArrayNode(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): boolean;
   isBooleanValue(arg0: JavaOpaque<"com.google.gson.JsonElement">): boolean;
   isBooleanValue(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): boolean;
@@ -878,7 +872,7 @@ export interface GsonHelperStatics {
   isObjectNode(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): boolean;
   isStringValue(arg0: JavaOpaque<"com.google.gson.JsonElement">): boolean;
   isStringValue(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): boolean;
-  isValidNode(arg0: JavaOpaque<"com.google.gson.JsonObject"> | null, arg1: string): boolean | null;
+  isValidNode(arg0: JavaOpaque<"com.google.gson.JsonObject"> | null, arg1: string): boolean;
   isValidPrimitive(arg0: JavaOpaque<"com.google.gson.JsonObject">, arg1: string): boolean;
   parse(arg0: JavaOpaque<"java.io.Reader">): JavaOpaque<"com.google.gson.JsonObject">;
   parse(arg0: string): JavaOpaque<"com.google.gson.JsonObject">;
@@ -886,99 +880,57 @@ export interface GsonHelperStatics {
   parseArray(arg0: string): JavaOpaque<"com.google.gson.JsonArray">;
   toStableString(arg0: JavaOpaque<"com.google.gson.JsonElement">): string;
   /** @throws java.io.IOException */
-  writeValue(arg0: JavaOpaque<"com.google.gson.stream.JsonWriter">, arg1: JavaOpaque<"com.google.gson.JsonElement"> | null, arg2: JavaOpaque<"java.util.Comparator", [string]> | null): void | null;
+  writeValue(arg0: JavaOpaque<"com.google.gson.stream.JsonWriter">, arg1: JavaOpaque<"com.google.gson.JsonElement"> | null, arg2: JavaOpaque<"java.util.Comparator", [string]> | null): void;
 }
 
 /** JVM class net.minecraft.util.HashOps. */
 export interface HashOpsMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.DynamicOps", [JavaOpaque<"com.google.common.hash.HashCode">]>];
   convertTo<U>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [U]>, arg1: JavaOpaque<"com.google.common.hash.HashCode">): U;
-  convertTo(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg1: object): object;
   createBoolean(arg0: boolean): JavaOpaque<"com.google.common.hash.HashCode">;
-  createBoolean(arg0: boolean): object;
   createByte(arg0: number): JavaOpaque<"com.google.common.hash.HashCode">;
-  createByte(arg0: number): object;
   createByteList(arg0: JavaOpaque<"java.nio.ByteBuffer">): JavaOpaque<"com.google.common.hash.HashCode">;
-  createByteList(arg0: JavaOpaque<"java.nio.ByteBuffer">): object;
   createDouble(arg0: number): JavaOpaque<"com.google.common.hash.HashCode">;
-  createDouble(arg0: number): object;
   createFloat(arg0: number): JavaOpaque<"com.google.common.hash.HashCode">;
-  createFloat(arg0: number): object;
   createInt(arg0: number): JavaOpaque<"com.google.common.hash.HashCode">;
-  createInt(arg0: number): object;
   createIntList(arg0: JavaOpaque<"java.util.stream.IntStream">): JavaOpaque<"com.google.common.hash.HashCode">;
-  createIntList(arg0: JavaOpaque<"java.util.stream.IntStream">): object;
   createList(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.google.common.hash.HashCode">]>): JavaOpaque<"com.google.common.hash.HashCode">;
-  createList(arg0: JavaOpaque<"java.util.stream.Stream">): object;
   createLong(arg0: bigint): JavaOpaque<"com.google.common.hash.HashCode">;
-  createLong(arg0: bigint): object;
   createLongList(arg0: JavaOpaque<"java.util.stream.LongStream">): JavaOpaque<"com.google.common.hash.HashCode">;
-  createLongList(arg0: JavaOpaque<"java.util.stream.LongStream">): object;
   createMap(arg0: JavaMap<JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">>): JavaOpaque<"com.google.common.hash.HashCode">;
-  createMap(arg0: JavaMap<object>): object;
   createMap(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">]>]>): JavaOpaque<"com.google.common.hash.HashCode">;
-  createMap(arg0: JavaOpaque<"java.util.stream.Stream">): object;
   createNumeric(arg0: number): JavaOpaque<"com.google.common.hash.HashCode">;
-  createNumeric(arg0: number): object;
   createShort(arg0: number): JavaOpaque<"com.google.common.hash.HashCode">;
-  createShort(arg0: number): object;
   createString(arg0: string): JavaOpaque<"com.google.common.hash.HashCode">;
-  createString(arg0: string): object;
   empty(): JavaOpaque<"com.google.common.hash.HashCode">;
-  empty(): object;
   emptyList(): JavaOpaque<"com.google.common.hash.HashCode">;
-  emptyList(): object;
   emptyMap(): JavaOpaque<"com.google.common.hash.HashCode">;
-  emptyMap(): object;
   get(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: string): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
-  get(arg0: object, arg1: string): JavaOpaque<"com.mojang.serialization.DataResult">;
   getBooleanValue(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [boolean]>;
-  getBooleanValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getByteBuffer(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.nio.ByteBuffer">]>;
-  getByteBuffer(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getGeneric(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
-  getGeneric(arg0: object, arg1: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getIntStream(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.IntStream">]>;
-  getIntStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getList(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaConsumer<JavaConsumer<JavaOpaque<"com.google.common.hash.HashCode">>>]>;
-  getList(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getLongStream(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.LongStream">]>;
-  getLongStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMap(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.serialization.MapLike", [JavaOpaque<"com.google.common.hash.HashCode">]>]>;
-  getMap(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMapEntries(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaConsumer<JavaBiConsumer<JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">>>]>;
-  getMapEntries(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMapValues(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.datafixers.util.Pair", [JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">]>]>]>;
-  getMapValues(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getNumberValue(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [number]>;
   getNumberValue(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: number): number;
-  getNumberValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  getNumberValue(arg0: object, arg1: number): number;
   getStream(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.google.common.hash.HashCode">]>]>;
-  getStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getStringValue(arg0: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [string]>;
-  getStringValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   listBuilder(): JavaOpaque<"com.mojang.serialization.ListBuilder", [JavaOpaque<"com.google.common.hash.HashCode">]>;
   mapBuilder(): JavaOpaque<"com.mojang.serialization.RecordBuilder", [JavaOpaque<"com.google.common.hash.HashCode">]>;
   mergeToList(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
   mergeToList(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaList<JavaOpaque<"com.google.common.hash.HashCode">>): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
-  mergeToList(arg0: object, arg1: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToList(arg0: object, arg1: JavaList<object>): JavaOpaque<"com.mojang.serialization.DataResult">;
   mergeToMap(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaOpaque<"com.google.common.hash.HashCode">, arg2: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
   mergeToMap(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaOpaque<"com.mojang.serialization.MapLike", [JavaOpaque<"com.google.common.hash.HashCode">]>): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
   mergeToMap(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaMap<JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">>): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.google.common.hash.HashCode">]>;
-  mergeToMap(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.MapLike">): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToMap(arg0: object, arg1: object, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToMap(arg0: object, arg1: JavaMap<object>): JavaOpaque<"com.mojang.serialization.DataResult">;
   remove(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: string): JavaOpaque<"com.google.common.hash.HashCode">;
-  remove(arg0: object, arg1: string): object;
   set(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: string, arg2: JavaOpaque<"com.google.common.hash.HashCode">): JavaOpaque<"com.google.common.hash.HashCode">;
-  set(arg0: object, arg1: string, arg2: object): object;
   toString(): string;
   update(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: string, arg2: JavaFunction<JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">>): JavaOpaque<"com.google.common.hash.HashCode">;
-  update(arg0: object, arg1: string, arg2: JavaFunction<object, object>): object;
   updateGeneric(arg0: JavaOpaque<"com.google.common.hash.HashCode">, arg1: JavaOpaque<"com.google.common.hash.HashCode">, arg2: JavaFunction<JavaOpaque<"com.google.common.hash.HashCode">, JavaOpaque<"com.google.common.hash.HashCode">>): JavaOpaque<"com.google.common.hash.HashCode">;
-  updateGeneric(arg0: object, arg1: object, arg2: JavaFunction<object, object>): object;
 }
 export type HashOps = HashOpsMembers & JavaOpaque<"com.mojang.serialization.DynamicOps", [JavaOpaque<"com.google.common.hash.HashCode">]>;
 export interface HashOpsStatics {
@@ -993,7 +945,7 @@ export interface HttpUtilMembers {
 }
 export type HttpUtil = HttpUtilMembers;
 export interface HttpUtilStatics {
-  downloadFile(arg0: JavaOpaque<"java.nio.file.Path">, arg1: JavaOpaque<"java.net.URL">, arg2: JavaMap<string, string>, arg3: JavaOpaque<"com.google.common.hash.HashFunction">, arg4: JavaOpaque<"com.google.common.hash.HashCode"> | null, arg5: number, arg6: JavaOpaque<"java.net.Proxy">, arg7: HttpUtil_DownloadProgressListener): JavaOpaque<"java.nio.file.Path"> | null;
+  downloadFile(arg0: JavaOpaque<"java.nio.file.Path">, arg1: JavaOpaque<"java.net.URL">, arg2: JavaMap<string, string>, arg3: JavaOpaque<"com.google.common.hash.HashFunction">, arg4: JavaOpaque<"com.google.common.hash.HashCode"> | null, arg5: number, arg6: JavaOpaque<"java.net.Proxy">, arg7: HttpUtil_DownloadProgressListener): JavaOpaque<"java.nio.file.Path">;
   getAvailablePort(): number;
   isPortAvailable(arg0: number): boolean;
 }
@@ -1090,9 +1042,6 @@ export interface ListAndDequeMembers<T = unknown> {
   remove(): T;
   removeFirst(): T;
   removeLast(): T;
-  reversed(): JavaOpaque<"java.util.Deque">;
-  reversed(): JavaList<object>;
-  reversed(): JavaOpaque<"java.util.SequencedCollection">;
   reversed(): ListAndDeque<T>;
 }
 export type ListAndDeque<T = unknown> = ListAndDequeMembers<T> & JavaOpaque<"java.io.Serializable"> & JavaOpaque<"java.lang.Cloneable"> & JavaOpaque<"java.util.Deque", [T]> & JavaList<T> & JavaOpaque<"java.util.RandomAccess">;
@@ -1296,79 +1245,43 @@ export interface NativeModuleLister_NativeModuleVersionStatics {
 /** JVM class net.minecraft.util.NullOps. */
 export interface NullOpsMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.DynamicOps", [Unit]>];
-  convertTo(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg1: object): object;
   convertTo<U>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [U]>, arg1: Unit): U;
-  createBoolean(arg0: boolean): object;
   createBoolean(arg0: boolean): Unit;
-  createByte(arg0: number): object;
   createByte(arg0: number): Unit;
-  createByteList(arg0: JavaOpaque<"java.nio.ByteBuffer">): object;
   createByteList(arg0: JavaOpaque<"java.nio.ByteBuffer">): Unit;
-  createDouble(arg0: number): object;
   createDouble(arg0: number): Unit;
-  createFloat(arg0: number): object;
   createFloat(arg0: number): Unit;
-  createInt(arg0: number): object;
   createInt(arg0: number): Unit;
-  createIntList(arg0: JavaOpaque<"java.util.stream.IntStream">): object;
   createIntList(arg0: JavaOpaque<"java.util.stream.IntStream">): Unit;
-  createList(arg0: JavaOpaque<"java.util.stream.Stream">): object;
   createList(arg0: JavaOpaque<"java.util.stream.Stream", [Unit]>): Unit;
-  createLong(arg0: bigint): object;
   createLong(arg0: bigint): Unit;
-  createLongList(arg0: JavaOpaque<"java.util.stream.LongStream">): object;
   createLongList(arg0: JavaOpaque<"java.util.stream.LongStream">): Unit;
-  createMap(arg0: JavaMap<object>): object;
   createMap(arg0: JavaMap<Unit, Unit>): Unit;
-  createMap(arg0: JavaOpaque<"java.util.stream.Stream">): object;
   createMap(arg0: JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.datafixers.util.Pair", [Unit, Unit]>]>): Unit;
-  createNumeric(arg0: number): object;
   createNumeric(arg0: number): Unit;
-  createShort(arg0: number): object;
   createShort(arg0: number): Unit;
-  createString(arg0: string): object;
   createString(arg0: string): Unit;
-  empty(): object;
   empty(): Unit;
-  emptyList(): object;
   emptyList(): Unit;
-  emptyMap(): object;
   emptyMap(): Unit;
-  getBooleanValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getBooleanValue(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [boolean]>;
-  getByteBuffer(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getByteBuffer(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.nio.ByteBuffer">]>;
-  getIntStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getIntStream(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.IntStream">]>;
-  getList(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getList(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaConsumer<JavaConsumer<Unit>>]>;
-  getLongStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getLongStream(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.LongStream">]>;
-  getMap(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMap(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.serialization.MapLike", [Unit]>]>;
-  getMapEntries(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMapEntries(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaConsumer<JavaBiConsumer<Unit, Unit>>]>;
-  getMapValues(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getMapValues(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.Stream", [JavaOpaque<"com.mojang.datafixers.util.Pair", [Unit, Unit]>]>]>;
-  getNumberValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getNumberValue(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [number]>;
-  getStream(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getStream(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"java.util.stream.Stream", [Unit]>]>;
-  getStringValue(arg0: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   getStringValue(arg0: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [string]>;
   listBuilder(): JavaOpaque<"com.mojang.serialization.ListBuilder", [Unit]>;
   mapBuilder(): JavaOpaque<"com.mojang.serialization.RecordBuilder", [Unit]>;
-  mergeToList(arg0: object, arg1: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToList(arg0: object, arg1: JavaList<object>): JavaOpaque<"com.mojang.serialization.DataResult">;
   mergeToList(arg0: Unit, arg1: JavaList<Unit>): JavaOpaque<"com.mojang.serialization.DataResult", [Unit]>;
   mergeToList(arg0: Unit, arg1: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [Unit]>;
-  mergeToMap(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.MapLike">): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToMap(arg0: object, arg1: object, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
-  mergeToMap(arg0: object, arg1: JavaMap<object>): JavaOpaque<"com.mojang.serialization.DataResult">;
   mergeToMap(arg0: Unit, arg1: JavaOpaque<"com.mojang.serialization.MapLike", [Unit]>): JavaOpaque<"com.mojang.serialization.DataResult", [Unit]>;
   mergeToMap(arg0: Unit, arg1: JavaMap<Unit, Unit>): JavaOpaque<"com.mojang.serialization.DataResult", [Unit]>;
   mergeToMap(arg0: Unit, arg1: Unit, arg2: Unit): JavaOpaque<"com.mojang.serialization.DataResult", [Unit]>;
-  remove(arg0: object, arg1: string): object;
   remove(arg0: Unit, arg1: string): Unit;
   toString(): string;
 }
@@ -1653,7 +1566,6 @@ export interface SegmentedAnglePrecisionStatics {
 export interface SequencedPriorityIteratorMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.google.common.collect.AbstractIterator", [T]>];
   add(arg0: T, arg1: number): void;
-  computeNext(): T | null;
 }
 export type SequencedPriorityIterator<T = unknown> = SequencedPriorityIteratorMembers<T> & JavaOpaque<"com.google.common.collect.AbstractIterator", [T]>;
 export interface SequencedPriorityIteratorStatics {
@@ -1787,7 +1699,7 @@ export type SpawnUtil = SpawnUtilMembers;
 export interface SpawnUtilStatics {
   new(): SpawnUtil;
   trySpawnMob<T /* extends j_net_minecraft_world_entity.Mob */>(arg0: j_net_minecraft_world_entity.EntityType<T>, arg1: j_net_minecraft_world_entity.EntitySpawnReason, arg2: j_net_minecraft_server_level.ServerLevel, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: number, arg6: number, arg7: SpawnUtil_Strategy, arg8: boolean): JavaOptional<T>;
-  trySpawnMob<T /* extends j_net_minecraft_world_entity.Mob */>(arg0: j_net_minecraft_world_entity.EntityType<T>, arg1: j_net_minecraft_world_entity.EntitySpawnReason, arg2: j_net_minecraft_server_level.ServerLevel, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: number, arg6: number, arg7: SpawnUtil_Strategy, arg8: boolean, arg9: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">, arg10: JavaRunnable | null): JavaOptional<T> | null;
+  trySpawnMob<T /* extends j_net_minecraft_world_entity.Mob */>(arg0: j_net_minecraft_world_entity.EntityType<T>, arg1: j_net_minecraft_world_entity.EntitySpawnReason, arg2: j_net_minecraft_server_level.ServerLevel, arg3: j_net_minecraft_core.BlockPos, arg4: number, arg5: number, arg6: number, arg7: SpawnUtil_Strategy, arg8: boolean, arg9: JavaOpaque<"org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason">, arg10: JavaRunnable | null): JavaOptional<T>;
 }
 
 /** JVM interface net.minecraft.util.SpawnUtil$Strategy. */
@@ -1867,8 +1779,8 @@ export interface StringRepresentableStatics {
 export interface StringRepresentable_EnumCodecMembers<E /* extends StringRepresentable */ = unknown> {
   readonly __javaSupertypes?: readonly [StringRepresentable_StringRepresentableCodec<E>];
   byName(arg0: string | null): E | null;
-  byName(arg0: string | null, arg1: E): E | null;
-  byName(arg0: string | null, arg1: JavaSupplier<E>): E | null;
+  byName(arg0: string | null, arg1: E): E;
+  byName(arg0: string | null, arg1: JavaSupplier<E>): E;
 }
 export type StringRepresentable_EnumCodec<E /* extends StringRepresentable */ = unknown> = StringRepresentable_EnumCodecMembers<E> & StringRepresentable_StringRepresentableCodec<E>;
 export interface StringRepresentable_EnumCodecStatics {
@@ -1879,7 +1791,6 @@ export interface StringRepresentable_EnumCodecStatics {
 export interface StringRepresentable_StringRepresentableCodecMembers<S /* extends StringRepresentable */ = unknown> {
   readonly __javaSupertypes?: readonly [JavaOpaque<"com.mojang.serialization.Codec", [S]>];
   decode<T>(arg0: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg1: T): JavaOpaque<"com.mojang.serialization.DataResult", [JavaOpaque<"com.mojang.datafixers.util.Pair", [S, T]>]>;
-  encode(arg0: object, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps">, arg2: object): JavaOpaque<"com.mojang.serialization.DataResult">;
   encode<T>(arg0: S, arg1: JavaOpaque<"com.mojang.serialization.DynamicOps", [T]>, arg2: T): JavaOpaque<"com.mojang.serialization.DataResult", [T]>;
 }
 export type StringRepresentable_StringRepresentableCodec<S /* extends StringRepresentable */ = unknown> = StringRepresentable_StringRepresentableCodecMembers<S> & JavaOpaque<"com.mojang.serialization.Codec", [S]>;
@@ -1898,8 +1809,8 @@ export interface StringUtilStatics {
   filterText(arg0: string, arg1: boolean): string;
   formatTickDuration(arg0: number, arg1: number): string;
   isAllowedChatCharacter(arg0: string): boolean;
-  isBlank(arg0: string | null): boolean | null;
-  isNullOrEmpty(arg0: string | null): boolean | null;
+  isBlank(arg0: string | null): boolean;
+  isNullOrEmpty(arg0: string | null): boolean;
   isReasonablePlayerName(arg0: string): boolean;
   isValidPlayerName(arg0: string): boolean;
   isWhitespace(arg0: number): boolean;
@@ -1928,7 +1839,7 @@ export interface ThreadingDetectorMembers {
 export type ThreadingDetector = ThreadingDetectorMembers;
 export interface ThreadingDetectorStatics {
   new(arg0: string): ThreadingDetector;
-  makeThreadingException(arg0: string, arg1: JavaOpaque<"java.lang.Thread"> | null): j_net_minecraft.ReportedException | null;
+  makeThreadingException(arg0: string, arg1: JavaOpaque<"java.lang.Thread"> | null): j_net_minecraft.ReportedException;
 }
 
 /** JVM class net.minecraft.util.TickThrottler. */

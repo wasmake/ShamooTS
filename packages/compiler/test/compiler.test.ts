@@ -305,7 +305,13 @@ describe('shamooc metadata compiler', () => {
       expect.objectContaining({
         name: 'joined',
         invocation: 'event',
-        decorators: [expect.objectContaining({ name: 'OnPlayerJoinEvent', arguments: [] })],
+        decorators: [
+          expect.objectContaining({ name: 'OnPlayerJoinEvent', arguments: [] }),
+          expect.objectContaining({
+            name: 'OnPlayerRecipeBookClickEvent_2',
+            arguments: ['HIGHEST', true],
+          }),
+        ],
       }),
     ]);
   });

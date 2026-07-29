@@ -10,7 +10,6 @@ export interface FunctionCallbackMembers {
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FunctionCallback]>;
   equals(arg0: object): boolean;
   functionId(): j_net_minecraft_resources.ResourceLocation;
-  handle(arg0: object, arg1: TimerQueue, arg2: bigint): void;
   handle(arg0: j_net_minecraft_server.MinecraftServer, arg1: TimerQueue<j_net_minecraft_server.MinecraftServer>, arg2: bigint): void;
   hashCode(): number;
   toString(): string;
@@ -26,7 +25,6 @@ export interface FunctionTagCallbackMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Record">, TimerCallback<j_net_minecraft_server.MinecraftServer>];
   codec(): JavaOpaque<"com.mojang.serialization.MapCodec", [FunctionTagCallback]>;
   equals(arg0: object): boolean;
-  handle(arg0: object, arg1: TimerQueue, arg2: bigint): void;
   handle(arg0: j_net_minecraft_server.MinecraftServer, arg1: TimerQueue<j_net_minecraft_server.MinecraftServer>, arg2: bigint): void;
   hashCode(): number;
   tagId(): j_net_minecraft_resources.ResourceLocation;

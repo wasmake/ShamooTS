@@ -79,53 +79,33 @@ export interface BlockMathStatics {
 export interface BlockPosMembers {
   readonly __javaSupertypes?: readonly [Vec3i];
   above(): BlockPos;
-  above(): Vec3i;
   above(arg0: number): BlockPos;
-  above(arg0: number): Vec3i;
   asLong(): bigint;
   atY(arg0: number): BlockPos;
   below(): BlockPos;
-  below(): Vec3i;
   below(arg0: number): BlockPos;
-  below(arg0: number): Vec3i;
   clampLocationWithin(arg0: j_net_minecraft_world_phys.Vec3): j_net_minecraft_world_phys.Vec3;
   cross(arg0: Vec3i): BlockPos;
-  cross(arg0: Vec3i): Vec3i;
   east(): BlockPos;
-  east(): Vec3i;
   east(arg0: number): BlockPos;
-  east(arg0: number): Vec3i;
   getBottomCenter(): j_net_minecraft_world_phys.Vec3;
   getCenter(): j_net_minecraft_world_phys.Vec3;
   immutable(): BlockPos;
   multiply(arg0: number): BlockPos;
-  multiply(arg0: number): Vec3i;
   mutable(): BlockPos_MutableBlockPos;
   north(): BlockPos;
-  north(): Vec3i;
   north(arg0: number): BlockPos;
-  north(arg0: number): Vec3i;
   offset(arg0: number, arg1: number, arg2: number): BlockPos;
-  offset(arg0: number, arg1: number, arg2: number): Vec3i;
   offset(arg0: Vec3i): BlockPos;
-  offset(arg0: Vec3i): Vec3i;
   relative(arg0: Direction_Axis, arg1: number): BlockPos;
-  relative(arg0: Direction_Axis, arg1: number): Vec3i;
   relative(arg0: Direction): BlockPos;
-  relative(arg0: Direction): Vec3i;
   relative(arg0: Direction, arg1: number): BlockPos;
-  relative(arg0: Direction, arg1: number): Vec3i;
   rotate(arg0: j_net_minecraft_world_level_block.Rotation): BlockPos;
   south(): BlockPos;
-  south(): Vec3i;
   south(arg0: number): BlockPos;
-  south(arg0: number): Vec3i;
   subtract(arg0: Vec3i): BlockPos;
-  subtract(arg0: Vec3i): Vec3i;
   west(): BlockPos;
-  west(): Vec3i;
   west(arg0: number): BlockPos;
-  west(arg0: number): Vec3i;
 }
 export type BlockPos = BlockPosMembers & Vec3i;
 export interface BlockPosStatics {
@@ -170,31 +150,16 @@ export interface BlockPosStatics {
 /** JVM class net.minecraft.core.BlockPos$MutableBlockPos. */
 export interface BlockPos_MutableBlockPosMembers {
   readonly __javaSupertypes?: readonly [BlockPos];
-  above(): Vec3i;
-  above(arg0: number): Vec3i;
-  below(): Vec3i;
-  below(arg0: number): Vec3i;
   clamp(arg0: Direction_Axis, arg1: number, arg2: number): BlockPos_MutableBlockPos;
-  cross(arg0: Vec3i): Vec3i;
-  east(): Vec3i;
-  east(arg0: number): Vec3i;
   immutable(): BlockPos;
   move(arg0: number, arg1: number, arg2: number): BlockPos_MutableBlockPos;
   move(arg0: Direction): BlockPos_MutableBlockPos;
   move(arg0: Direction, arg1: number): BlockPos_MutableBlockPos;
   move(arg0: Vec3i): BlockPos_MutableBlockPos;
   multiply(arg0: number): BlockPos;
-  multiply(arg0: number): Vec3i;
-  north(): Vec3i;
-  north(arg0: number): Vec3i;
   offset(arg0: number, arg1: number, arg2: number): BlockPos;
-  offset(arg0: number, arg1: number, arg2: number): Vec3i;
-  offset(arg0: Vec3i): Vec3i;
   relative(arg0: Direction_Axis, arg1: number): BlockPos;
-  relative(arg0: Direction_Axis, arg1: number): Vec3i;
-  relative(arg0: Direction): Vec3i;
   relative(arg0: Direction, arg1: number): BlockPos;
-  relative(arg0: Direction, arg1: number): Vec3i;
   rotate(arg0: j_net_minecraft_world_level_block.Rotation): BlockPos;
   set(arg0: number, arg1: number, arg2: number): BlockPos_MutableBlockPos;
   set(arg0: number, arg1: number, arg2: number): BlockPos_MutableBlockPos;
@@ -205,16 +170,8 @@ export interface BlockPos_MutableBlockPosMembers {
   setWithOffset(arg0: Vec3i, arg1: Direction): BlockPos_MutableBlockPos;
   setWithOffset(arg0: Vec3i, arg1: Vec3i): BlockPos_MutableBlockPos;
   setX(arg0: number): BlockPos_MutableBlockPos;
-  setX(arg0: number): Vec3i;
   setY(arg0: number): BlockPos_MutableBlockPos;
-  setY(arg0: number): Vec3i;
   setZ(arg0: number): BlockPos_MutableBlockPos;
-  setZ(arg0: number): Vec3i;
-  south(): Vec3i;
-  south(arg0: number): Vec3i;
-  subtract(arg0: Vec3i): Vec3i;
-  west(): Vec3i;
-  west(arg0: number): Vec3i;
 }
 export type BlockPos_MutableBlockPos = BlockPos_MutableBlockPosMembers & BlockPos;
 export interface BlockPos_MutableBlockPosStatics {
@@ -294,11 +251,11 @@ export interface DefaultedMappedRegistryMembers<T = unknown> {
   byId(arg0: number): T;
   getAny(): JavaOptional<Holder_Reference<T>>;
   getDefaultKey(): j_net_minecraft_resources.ResourceLocation;
-  getId(arg0: T | null): number | null;
+  getId(arg0: T | null): number;
   getKey(arg0: T): j_net_minecraft_resources.ResourceLocation;
-  getOptional(arg0: j_net_minecraft_resources.ResourceLocation | null): JavaOptional<T> | null;
+  getOptional(arg0: j_net_minecraft_resources.ResourceLocation | null): JavaOptional<T>;
   getRandom(arg0: j_net_minecraft_util.RandomSource): JavaOptional<Holder_Reference<T>>;
-  getValue(arg0: j_net_minecraft_resources.ResourceLocation | null): T | null;
+  getValue(arg0: j_net_minecraft_resources.ResourceLocation | null): T;
   register(arg0: j_net_minecraft_resources.ResourceKey<T>, arg1: T, arg2: RegistrationInfo): Holder_Reference<T>;
 }
 export type DefaultedMappedRegistry<T = unknown> = DefaultedMappedRegistryMembers<T> & MappedRegistry<T> & DefaultedRegistry<T>;
@@ -312,7 +269,7 @@ export interface DefaultedRegistryMembers<T = unknown> {
   byId(arg0: number): T;
   getDefaultKey(): j_net_minecraft_resources.ResourceLocation;
   getKey(arg0: T): j_net_minecraft_resources.ResourceLocation;
-  getValue(arg0: j_net_minecraft_resources.ResourceLocation | null): T | null;
+  getValue(arg0: j_net_minecraft_resources.ResourceLocation | null): T;
 }
 export type DefaultedRegistry<T = unknown> = DefaultedRegistryMembers<T> & Registry<T>;
 export interface DefaultedRegistryStatics {
@@ -394,8 +351,7 @@ export interface Direction_AxisMembers {
   getSerializedName(): string;
   isHorizontal(): boolean;
   isVertical(): boolean;
-  test(arg0: object | null): boolean | null;
-  test(arg0: Direction | null): boolean | null;
+  test(arg0: Direction | null): boolean;
   toString(): string;
 }
 export interface Direction_AxisStatics {
@@ -434,8 +390,7 @@ export interface Direction_PlaneMembers {
   length(): number;
   shuffledCopy(arg0: j_net_minecraft_util.RandomSource): JavaList<Direction>;
   stream(): JavaOpaque<"java.util.stream.Stream", [Direction]>;
-  test(arg0: object | null): boolean | null;
-  test(arg0: Direction | null): boolean | null;
+  test(arg0: Direction | null): boolean;
 }
 export interface Direction_PlaneStatics {
   readonly HORIZONTAL: Direction_Plane;
@@ -567,7 +522,6 @@ export interface Holder_KindStatics {
 /** JVM class net.minecraft.core.Holder$Reference. */
 export interface Holder_ReferenceMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [Holder<T>];
-  bindValue(arg0: T): void;
   canSerializeIn(arg0: HolderOwner<T>): boolean;
   is(arg0: JavaPredicate<j_net_minecraft_resources.ResourceKey<T>>): boolean;
   is(arg0: Holder<T>): boolean;
@@ -585,8 +539,7 @@ export interface Holder_ReferenceMembers<T = unknown> {
 }
 export type Holder_Reference<T = unknown> = Holder_ReferenceMembers<T> & Holder<T>;
 export interface Holder_ReferenceStatics {
-  new<T>(arg0: Holder_Reference_Type, arg1: HolderOwner<T>, arg2: j_net_minecraft_resources.ResourceKey<T> | null, arg3: T | null): Holder_Reference<T>;
-  createIntrusive<T>(arg0: HolderOwner<T>, arg1: T | null): Holder_Reference<T> | null;
+  createIntrusive<T>(arg0: HolderOwner<T>, arg1: T | null): Holder_Reference<T>;
   createStandAlone<T>(arg0: HolderOwner<T>, arg1: j_net_minecraft_resources.ResourceKey<T>): Holder_Reference<T>;
 }
 
@@ -643,7 +596,6 @@ export interface HolderLookup_ProviderMembers {
   listRegistries(): JavaOpaque<"java.util.stream.Stream", [HolderLookup_RegistryLookup<object>]>;
   listRegistryKeys(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_resources.ResourceKey<Registry<object>>]>;
   lookup<T>(arg0: j_net_minecraft_resources.ResourceKey<Registry<T>>): JavaOptional<HolderLookup_RegistryLookup<T>>;
-  lookupOrThrow(arg0: j_net_minecraft_resources.ResourceKey): HolderGetter;
   lookupOrThrow<T>(arg0: j_net_minecraft_resources.ResourceKey<Registry<T>>): HolderLookup_RegistryLookup<T>;
 }
 export type HolderLookup_Provider = HolderLookup_ProviderMembers & HolderGetter_Provider;
@@ -715,7 +667,6 @@ export interface HolderSetStatics {
 export interface HolderSet_DirectMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [HolderSet_ListBacked<T>];
   contains(arg0: Holder<T>): boolean;
-  contents(): JavaList<Holder<T>>;
   equals(arg0: object): boolean;
   hashCode(): number;
   isBound(): boolean;
@@ -731,7 +682,6 @@ export interface HolderSet_DirectStatics {
 export interface HolderSet_ListBackedMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [HolderSet<T>];
   canSerializeIn(arg0: HolderOwner<T>): boolean;
-  contents(): JavaList<Holder<T>>;
   get(arg0: number): Holder<T>;
   getRandomElement(arg0: j_net_minecraft_util.RandomSource): JavaOptional<Holder<T>>;
   iterator(): JavaOpaque<"java.util.Iterator", [Holder<T>]>;
@@ -741,7 +691,6 @@ export interface HolderSet_ListBackedMembers<T = unknown> {
 }
 export type HolderSet_ListBacked<T = unknown> = HolderSet_ListBackedMembers<T> & HolderSet<T>;
 export interface HolderSet_ListBackedStatics {
-  new<T>(): HolderSet_ListBacked<T>;
 }
 
 /** JVM class net.minecraft.core.HolderSet$Named. */
@@ -749,7 +698,6 @@ export interface HolderSet_NamedMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [HolderSet_ListBacked<T>];
   canSerializeIn(arg0: HolderOwner<T>): boolean;
   contains(arg0: Holder<T>): boolean;
-  contents(): JavaList<Holder<T>>;
   isBound(): boolean;
   key(): j_net_minecraft_tags.TagKey<T>;
   toString(): string;
@@ -823,7 +771,7 @@ export interface MappedRegistryMembers<T = unknown> {
   get(arg0: j_net_minecraft_resources.ResourceLocation): JavaOptional<Holder_Reference<T>>;
   get(arg0: j_net_minecraft_tags.TagKey<T>): JavaOptional<HolderSet_Named<T>>;
   getAny(): JavaOptional<Holder_Reference<T>>;
-  getId(arg0: T | null): number | null;
+  getId(arg0: T | null): number;
   getKey(arg0: T): j_net_minecraft_resources.ResourceLocation | null;
   getRandom(arg0: j_net_minecraft_util.RandomSource): JavaOptional<Holder_Reference<T>>;
   getResourceKey(arg0: T): JavaOptional<j_net_minecraft_resources.ResourceKey<T>>;
@@ -865,7 +813,6 @@ export interface NonNullListMembers<E = unknown> {
 }
 export type NonNullList<E = unknown> = NonNullListMembers<E> & JavaOpaque<"java.util.AbstractList", [E]>;
 export interface NonNullListStatics {
-  new<E>(arg0: JavaList<E>, arg1: E | null): NonNullList<E>;
   create<E>(): NonNullList<E>;
   createWithCapacity<E>(arg0: number): NonNullList<E>;
   of<E>(arg0: E, ...arg1: Array<E>): NonNullList<E>;
@@ -925,10 +872,10 @@ export interface RegistryMembers<T = unknown> {
   get(arg0: number): JavaOptional<Holder_Reference<T>>;
   get(arg0: j_net_minecraft_resources.ResourceLocation): JavaOptional<Holder_Reference<T>>;
   getAny(): JavaOptional<Holder_Reference<T>>;
-  getId(arg0: T | null): number | null;
+  getId(arg0: T | null): number;
   getKey(arg0: T): j_net_minecraft_resources.ResourceLocation | null;
-  getOptional(arg0: j_net_minecraft_resources.ResourceKey<T> | null): JavaOptional<T> | null;
-  getOptional(arg0: j_net_minecraft_resources.ResourceLocation | null): JavaOptional<T> | null;
+  getOptional(arg0: j_net_minecraft_resources.ResourceKey<T> | null): JavaOptional<T>;
+  getOptional(arg0: j_net_minecraft_resources.ResourceLocation | null): JavaOptional<T>;
   getRandom(arg0: j_net_minecraft_util.RandomSource): JavaOptional<Holder_Reference<T>>;
   getRandomElementOf(arg0: j_net_minecraft_tags.TagKey<T>, arg1: j_net_minecraft_util.RandomSource): JavaOptional<Holder<T>>;
   getResourceKey(arg0: T): JavaOptional<j_net_minecraft_resources.ResourceKey<T>>;
@@ -973,8 +920,6 @@ export interface RegistryAccessMembers {
   freeze(): RegistryAccess_Frozen;
   listRegistryKeys(): JavaOpaque<"java.util.stream.Stream", [j_net_minecraft_resources.ResourceKey<Registry<object>>]>;
   lookup<E>(arg0: j_net_minecraft_resources.ResourceKey<Registry<E>>): JavaOptional<Registry<E>>;
-  lookupOrThrow(arg0: j_net_minecraft_resources.ResourceKey): HolderGetter;
-  lookupOrThrow(arg0: j_net_minecraft_resources.ResourceKey): HolderLookup_RegistryLookup;
   lookupOrThrow<E>(arg0: j_net_minecraft_resources.ResourceKey<Registry<E>>): Registry<E>;
   registries(): JavaOpaque<"java.util.stream.Stream", [RegistryAccess_RegistryEntry<object>]>;
 }
@@ -1125,7 +1070,6 @@ export interface SectionPosMembers {
   minBlockY(): number;
   minBlockZ(): number;
   offset(arg0: number, arg1: number, arg2: number): SectionPos;
-  offset(arg0: number, arg1: number, arg2: number): Vec3i;
   origin(): BlockPos;
   relativeToBlockPos(arg0: number): BlockPos;
   relativeToBlockX(arg0: number): number;
@@ -1211,7 +1155,6 @@ export interface Vec3iMembers {
   below(arg0: number): Vec3i;
   closerThan(arg0: Vec3i, arg1: number): boolean;
   closerToCenterThan(arg0: Position, arg1: number): boolean;
-  compareTo(arg0: object): number;
   compareTo(arg0: Vec3i): number;
   cross(arg0: Vec3i): Vec3i;
   distChessboard(arg0: Vec3i): number;
@@ -1237,9 +1180,6 @@ export interface Vec3iMembers {
   relative(arg0: Direction_Axis, arg1: number): Vec3i;
   relative(arg0: Direction): Vec3i;
   relative(arg0: Direction, arg1: number): Vec3i;
-  setX(arg0: number): Vec3i;
-  setY(arg0: number): Vec3i;
-  setZ(arg0: number): Vec3i;
   south(): Vec3i;
   south(arg0: number): Vec3i;
   subtract(arg0: Vec3i): Vec3i;
@@ -1247,9 +1187,6 @@ export interface Vec3iMembers {
   toString(): string;
   west(): Vec3i;
   west(arg0: number): Vec3i;
-  x: number;
-  y: number;
-  z: number;
 }
 export type Vec3i = Vec3iMembers;
 export interface Vec3iStatics {

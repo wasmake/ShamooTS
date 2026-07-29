@@ -22,7 +22,6 @@ export interface AttributeModifiersPredicateMembers {
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_component.ItemAttributeModifiers>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.ItemAttributeModifiers): boolean;
   modifiers(): JavaOptional<j_net_minecraft_advancements_critereon.CollectionPredicate<j_net_minecraft_world_item_component.ItemAttributeModifiers_Entry, AttributeModifiersPredicate_EntryPredicate>>;
   toString(): string;
@@ -43,7 +42,6 @@ export interface AttributeModifiersPredicate_EntryPredicateMembers {
   id(): JavaOptional<j_net_minecraft_resources.ResourceLocation>;
   operation(): JavaOptional<j_net_minecraft_world_entity_ai_attributes.AttributeModifier_Operation>;
   slot(): JavaOptional<j_net_minecraft_world_entity.EquipmentSlotGroup>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_item_component.ItemAttributeModifiers_Entry): boolean;
   toString(): string;
 }
@@ -60,7 +58,6 @@ export interface BundlePredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   items(): JavaOptional<j_net_minecraft_advancements_critereon.CollectionPredicate<j_net_minecraft_world_item.ItemStack, j_net_minecraft_advancements_critereon.ItemPredicate>>;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.BundleContents): boolean;
   toString(): string;
 }
@@ -77,7 +74,6 @@ export interface ContainerPredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   items(): JavaOptional<j_net_minecraft_advancements_critereon.CollectionPredicate<j_net_minecraft_world_item.ItemStack, j_net_minecraft_advancements_critereon.ItemPredicate>>;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.ItemContainerContents): boolean;
   toString(): string;
 }
@@ -183,13 +179,10 @@ export interface DataComponentPredicatesStatics {
 /** JVM abstract net.minecraft.core.component.predicates.EnchantmentsPredicate. */
 export interface EnchantmentsPredicateMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_advancements_critereon.SingleComponentItemPredicate<j_net_minecraft_world_item_enchantment.ItemEnchantments>];
-  enchantments(): JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_enchantment.ItemEnchantments): boolean;
 }
 export type EnchantmentsPredicate = EnchantmentsPredicateMembers & j_net_minecraft_advancements_critereon.SingleComponentItemPredicate<j_net_minecraft_world_item_enchantment.ItemEnchantments>;
 export interface EnchantmentsPredicateStatics {
-  new(arg0: JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>): EnchantmentsPredicate;
   codec<T /* extends EnchantmentsPredicate */>(arg0: JavaFunction<JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>, T>): JavaOpaque<"com.mojang.serialization.Codec", [T]>;
   enchantments(arg0: JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>): EnchantmentsPredicate_Enchantments;
   storedEnchantments(arg0: JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>): EnchantmentsPredicate_StoredEnchantments;
@@ -199,11 +192,9 @@ export interface EnchantmentsPredicateStatics {
 export interface EnchantmentsPredicate_EnchantmentsMembers {
   readonly __javaSupertypes?: readonly [EnchantmentsPredicate];
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_enchantment.ItemEnchantments>;
-  matches(arg0: object): boolean;
 }
 export type EnchantmentsPredicate_Enchantments = EnchantmentsPredicate_EnchantmentsMembers & EnchantmentsPredicate;
 export interface EnchantmentsPredicate_EnchantmentsStatics {
-  new(arg0: JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>): EnchantmentsPredicate_Enchantments;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [EnchantmentsPredicate_Enchantments]>;
 }
 
@@ -211,11 +202,9 @@ export interface EnchantmentsPredicate_EnchantmentsStatics {
 export interface EnchantmentsPredicate_StoredEnchantmentsMembers {
   readonly __javaSupertypes?: readonly [EnchantmentsPredicate];
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_enchantment.ItemEnchantments>;
-  matches(arg0: object): boolean;
 }
 export type EnchantmentsPredicate_StoredEnchantments = EnchantmentsPredicate_StoredEnchantmentsMembers & EnchantmentsPredicate;
 export interface EnchantmentsPredicate_StoredEnchantmentsStatics {
-  new(arg0: JavaList<j_net_minecraft_advancements_critereon.EnchantmentPredicate>): EnchantmentsPredicate_StoredEnchantments;
   readonly CODEC: JavaOpaque<"com.mojang.serialization.Codec", [EnchantmentsPredicate_StoredEnchantments]>;
 }
 
@@ -225,7 +214,6 @@ export interface FireworkExplosionPredicateMembers {
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_component.FireworkExplosion>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.FireworkExplosion): boolean;
   predicate(): FireworkExplosionPredicate_FireworkPredicate;
   toString(): string;
@@ -242,7 +230,6 @@ export interface FireworkExplosionPredicate_FireworkPredicateMembers {
   equals(arg0: object): boolean;
   hashCode(): number;
   shape(): JavaOptional<j_net_minecraft_world_item_component.FireworkExplosion_Shape>;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_world_item_component.FireworkExplosion): boolean;
   toString(): string;
   trail(): JavaOptional<boolean>;
@@ -262,7 +249,6 @@ export interface FireworksPredicateMembers {
   explosions(): JavaOptional<j_net_minecraft_advancements_critereon.CollectionPredicate<j_net_minecraft_world_item_component.FireworkExplosion, FireworkExplosionPredicate_FireworkPredicate>>;
   flightDuration(): j_net_minecraft_advancements_critereon.MinMaxBounds_Ints;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.Fireworks): boolean;
   toString(): string;
 }
@@ -278,7 +264,6 @@ export interface JukeboxPlayablePredicateMembers {
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item.JukeboxPlayable>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item.JukeboxPlayable): boolean;
   song(): JavaOptional<j_net_minecraft_core.HolderSet<j_net_minecraft_world_item.JukeboxSong>>;
   toString(): string;
@@ -296,7 +281,6 @@ export interface PotionsPredicateMembers {
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_alchemy.PotionContents>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_alchemy.PotionContents): boolean;
   potions(): j_net_minecraft_core.HolderSet<j_net_minecraft_world_item_alchemy.Potion>;
   toString(): string;
@@ -314,7 +298,6 @@ export interface TrimPredicateMembers {
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_equipment_trim.ArmorTrim>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_equipment_trim.ArmorTrim): boolean;
   material(): JavaOptional<j_net_minecraft_core.HolderSet<j_net_minecraft_world_item_equipment_trim.TrimMaterial>>;
   pattern(): JavaOptional<j_net_minecraft_core.HolderSet<j_net_minecraft_world_item_equipment_trim.TrimPattern>>;
@@ -332,7 +315,6 @@ export interface WritableBookPredicateMembers {
   componentType(): j_net_minecraft_core_component.DataComponentType<j_net_minecraft_world_item_component.WritableBookContent>;
   equals(arg0: object): boolean;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.WritableBookContent): boolean;
   pages(): JavaOptional<j_net_minecraft_advancements_critereon.CollectionPredicate<j_net_minecraft_server_network.Filterable<string>, WritableBookPredicate_PagePredicate>>;
   toString(): string;
@@ -349,7 +331,6 @@ export interface WritableBookPredicate_PagePredicateMembers {
   contents(): string;
   equals(arg0: object): boolean;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_server_network.Filterable<string>): boolean;
   toString(): string;
 }
@@ -367,7 +348,6 @@ export interface WrittenBookPredicateMembers {
   equals(arg0: object): boolean;
   generation(): j_net_minecraft_advancements_critereon.MinMaxBounds_Ints;
   hashCode(): number;
-  matches(arg0: object): boolean;
   matches(arg0: j_net_minecraft_world_item_component.WrittenBookContent): boolean;
   pages(): JavaOptional<j_net_minecraft_advancements_critereon.CollectionPredicate<j_net_minecraft_server_network.Filterable<j_net_minecraft_network_chat.Component>, WrittenBookPredicate_PagePredicate>>;
   resolved(): JavaOptional<boolean>;
@@ -386,7 +366,6 @@ export interface WrittenBookPredicate_PagePredicateMembers {
   contents(): j_net_minecraft_network_chat.Component;
   equals(arg0: object): boolean;
   hashCode(): number;
-  test(arg0: object): boolean;
   test(arg0: j_net_minecraft_server_network.Filterable<j_net_minecraft_network_chat.Component>): boolean;
   toString(): string;
 }

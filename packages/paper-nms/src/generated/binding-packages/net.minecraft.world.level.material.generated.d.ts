@@ -18,16 +18,13 @@ import type * as j_net_minecraft_world_phys_shapes from './net.minecraft.world.p
 export interface EmptyFluidMembers {
   readonly __javaSupertypes?: readonly [Fluid];
   canBeReplacedWith(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: Fluid, arg4: j_net_minecraft_core.Direction): boolean;
-  createLegacyBlock(arg0: FluidState): j_net_minecraft_world_level_block_state.BlockState;
   getAmount(arg0: FluidState): number;
   getBucket(): j_net_minecraft_world_item.Item;
-  getExplosionResistance(): number;
   getFlow(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState): j_net_minecraft_world_phys.Vec3;
   getHeight(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
   getOwnHeight(arg0: FluidState): number;
   getShape(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
   getTickDelay(arg0: j_net_minecraft_world_level.LevelReader): number;
-  isEmpty(): boolean;
   isSource(arg0: FluidState): boolean;
 }
 export type EmptyFluid = EmptyFluidMembers & Fluid;
@@ -38,36 +35,21 @@ export interface EmptyFluidStatics {
 /** JVM abstract net.minecraft.world.level.material.FlowingFluid. */
 export interface FlowingFluidMembers {
   readonly __javaSupertypes?: readonly [Fluid];
-  beforeDestroyingBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  beforeDestroyingBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
-  canConvertToSource(arg0: j_net_minecraft_server_level.ServerLevel): boolean;
-  createFluidStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Fluid, FluidState>): void;
   getAmount(arg0: FluidState): number;
-  getDropOff(arg0: j_net_minecraft_world_level.LevelReader): number;
   getFlow(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState): j_net_minecraft_world_phys.Vec3;
   getFlowing(): Fluid;
   getFlowing(arg0: number, arg1: boolean): FluidState;
   getHeight(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
-  getNewLiquid(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): FluidState;
   getOwnHeight(arg0: FluidState): number;
   getShape(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys_shapes.VoxelShape;
-  getSlopeDistance(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos, arg2: number, arg3: j_net_minecraft_core.Direction, arg4: j_net_minecraft_world_level_block_state.BlockState, arg5: FlowingFluid_SpreadContext): number;
-  getSlopeFindDistance(arg0: j_net_minecraft_world_level.LevelReader): number;
   getSource(): Fluid;
   getSource(arg0: boolean): FluidState;
-  getSpread(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): JavaMap<j_net_minecraft_core.Direction, FluidState>;
-  getSpreadDelay(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: FluidState): number;
-  isSolidFace(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_core.Direction): boolean;
-  spread(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: FluidState): void;
-  spreadTo(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.Direction, arg4: FluidState): void;
   tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: FluidState): void;
 }
 export type FlowingFluid = FlowingFluidMembers & Fluid;
 export interface FlowingFluidStatics {
-  new(): FlowingFluid;
   readonly FALLING: j_net_minecraft_world_level_block_state_properties.BooleanProperty;
   readonly LEVEL: j_net_minecraft_world_level_block_state_properties.IntegerProperty;
-  getLegacyLevel(arg0: FluidState): number;
 }
 
 /** JVM class net.minecraft.world.level.material.FlowingFluid$SpreadContext. */
@@ -82,19 +64,11 @@ export interface FlowingFluid_SpreadContextStatics {
 
 /** JVM abstract net.minecraft.world.level.material.Fluid. */
 export interface FluidMembers {
-  animateTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: j_net_minecraft_util.RandomSource): void;
   builtInRegistryHolder(): j_net_minecraft_core.Holder_Reference<Fluid>;
-  canBeReplacedWith(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: Fluid, arg4: j_net_minecraft_core.Direction): boolean;
-  createFluidStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Fluid, FluidState>): void;
-  createLegacyBlock(arg0: FluidState): j_net_minecraft_world_level_block_state.BlockState;
   defaultFluidState(): FluidState;
-  entityInside(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getAABB(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): j_net_minecraft_world_phys.AABB | null;
   getAmount(arg0: FluidState): number;
   getBucket(): j_net_minecraft_world_item.Item;
-  getDripParticle(): j_net_minecraft_core_particles.ParticleOptions | null;
-  getExplosionResistance(): number;
-  getFlow(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState): j_net_minecraft_world_phys.Vec3;
   getHeight(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos): number;
   getOwnHeight(arg0: FluidState): number;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
@@ -102,18 +76,11 @@ export interface FluidMembers {
   getStateDefinition(): j_net_minecraft_world_level_block_state.StateDefinition<Fluid, FluidState>;
   getTickDelay(arg0: j_net_minecraft_world_level.LevelReader): number;
   is(arg0: j_net_minecraft_tags.TagKey<Fluid>): boolean;
-  isEmpty(): boolean;
-  isRandomlyTicking(): boolean;
   isSame(arg0: Fluid): boolean;
   isSource(arg0: FluidState): boolean;
-  randomTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: j_net_minecraft_util.RandomSource): void;
-  registerDefaultState(arg0: FluidState): void;
-  readonly stateDefinition: j_net_minecraft_world_level_block_state.StateDefinition<Fluid, FluidState>;
-  tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: FluidState): void;
 }
 export type Fluid = FluidMembers;
 export interface FluidStatics {
-  new(): Fluid;
   readonly FLUID_STATE_REGISTRY: j_net_minecraft_core.IdMapper<FluidState>;
 }
 
@@ -160,20 +127,16 @@ export interface FluidStateMembers {
   is(arg0: j_net_minecraft_core.HolderSet<Fluid>): boolean;
   is(arg0: j_net_minecraft_tags.TagKey<Fluid>): boolean;
   is(arg0: Fluid): boolean;
-  readonly isEmpty: (boolean) & { (): boolean };
+  isEmpty(): boolean;
   isRandomlyTicking(): boolean;
   isSource(): boolean;
   isSourceOfType(arg0: Fluid): boolean;
   moonrise$getTableIndex(): bigint;
   moonrise$initCaches(): void;
-  optimisedTable: JavaOpaque<"ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.util.ZeroCollidingReferenceStateTable", [Fluid, FluidState]>;
-  readonly owner: Fluid;
   populateNeighbours(arg0: JavaMap<JavaMap<j_net_minecraft_world_level_block_state_properties.Property<object>, JavaOpaque<"java.lang.Comparable", [object]>>, FluidState>): void;
-  readonly propertiesCodec: JavaOpaque<"com.mojang.serialization.MapCodec", [FluidState]>;
   randomTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_util.RandomSource): void;
   setValue<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */, V /* extends T */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: V): FluidState;
   shouldRenderBackwardUpFace(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_core.BlockPos): boolean;
-  readonly tableIndex: bigint;
   tick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   toString(): string;
   trySetValue<T /* extends JavaOpaque<"java.lang.Comparable", [T]> */, V /* extends T */>(arg0: j_net_minecraft_world_level_block_state_properties.Property<T>, arg1: V): FluidState;
@@ -205,36 +168,28 @@ export interface FogTypeStatics {
 export interface LavaFluidMembers {
   readonly __javaSupertypes?: readonly [FlowingFluid];
   animateTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: j_net_minecraft_util.RandomSource): void;
-  beforeDestroyingBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
   canBeReplacedWith(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: Fluid, arg4: j_net_minecraft_core.Direction): boolean;
-  canConvertToSource(arg0: j_net_minecraft_server_level.ServerLevel): boolean;
   createLegacyBlock(arg0: FluidState): j_net_minecraft_world_level_block_state.BlockState;
-  entityInside(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getBucket(): j_net_minecraft_world_item.Item;
   getDripParticle(): j_net_minecraft_core_particles.ParticleOptions | null;
   getDropOff(arg0: j_net_minecraft_world_level.LevelReader): number;
-  getExplosionResistance(): number;
   getFlowing(): Fluid;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
   getSlopeFindDistance(arg0: j_net_minecraft_world_level.LevelReader): number;
   getSource(): Fluid;
   getSpreadDelay(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: FluidState): number;
   getTickDelay(arg0: j_net_minecraft_world_level.LevelReader): number;
-  isRandomlyTicking(): boolean;
   isSame(arg0: Fluid): boolean;
   randomTick(arg0: j_net_minecraft_server_level.ServerLevel, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: j_net_minecraft_util.RandomSource): void;
-  spreadTo(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.Direction, arg4: FluidState): void;
 }
 export type LavaFluid = LavaFluidMembers & FlowingFluid;
 export interface LavaFluidStatics {
-  new(): LavaFluid;
   readonly MIN_LEVEL_CUTOFF: 0.44444445;
 }
 
 /** JVM class net.minecraft.world.level.material.LavaFluid$Flowing. */
 export interface LavaFluid_FlowingMembers {
   readonly __javaSupertypes?: readonly [LavaFluid];
-  createFluidStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Fluid, FluidState>): void;
   getAmount(arg0: FluidState): number;
   isSource(arg0: FluidState): boolean;
 }
@@ -364,16 +319,11 @@ export interface PushReactionStatics {
 export interface WaterFluidMembers {
   readonly __javaSupertypes?: readonly [FlowingFluid];
   animateTick(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: FluidState, arg3: j_net_minecraft_util.RandomSource): void;
-  beforeDestroyingBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState): void;
-  beforeDestroyingBlock(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_level_block_state.BlockState, arg3: j_net_minecraft_core.BlockPos): void;
   canBeReplacedWith(arg0: FluidState, arg1: j_net_minecraft_world_level.BlockGetter, arg2: j_net_minecraft_core.BlockPos, arg3: Fluid, arg4: j_net_minecraft_core.Direction): boolean;
-  canConvertToSource(arg0: j_net_minecraft_server_level.ServerLevel): boolean;
   createLegacyBlock(arg0: FluidState): j_net_minecraft_world_level_block_state.BlockState;
-  entityInside(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos, arg2: j_net_minecraft_world_entity.Entity, arg3: j_net_minecraft_world_entity.InsideBlockEffectApplier): void;
   getBucket(): j_net_minecraft_world_item.Item;
   getDripParticle(): j_net_minecraft_core_particles.ParticleOptions | null;
   getDropOff(arg0: j_net_minecraft_world_level.LevelReader): number;
-  getExplosionResistance(): number;
   getFlowing(): Fluid;
   getPickupSound(): JavaOptional<j_net_minecraft_sounds.SoundEvent>;
   getSlopeFindDistance(arg0: j_net_minecraft_world_level.LevelReader): number;
@@ -383,13 +333,11 @@ export interface WaterFluidMembers {
 }
 export type WaterFluid = WaterFluidMembers & FlowingFluid;
 export interface WaterFluidStatics {
-  new(): WaterFluid;
 }
 
 /** JVM class net.minecraft.world.level.material.WaterFluid$Flowing. */
 export interface WaterFluid_FlowingMembers {
   readonly __javaSupertypes?: readonly [WaterFluid];
-  createFluidStateDefinition(arg0: j_net_minecraft_world_level_block_state.StateDefinition_Builder<Fluid, FluidState>): void;
   getAmount(arg0: FluidState): number;
   isSource(arg0: FluidState): boolean;
 }

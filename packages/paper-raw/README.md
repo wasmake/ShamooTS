@@ -1,3 +1,6 @@
 # @shamoo/paper-raw
 
-Generated type-only, one-to-one contracts from the pinned canonical Paper model. Java names, overloads, nullability, generics, events, exceptions, and native result types remain accessible. Runtime `JAVA_TYPES` descriptors are resolved by a host bridge; Java classes are not JavaScript exports. The exact model version and counts are generated in `docs/platform-bindings.generated.md`.
+Generated one-to-one contracts and executable descriptors from the pinned canonical Paper model. Use
+`paperJava.resolve(JAVA_TYPES[name])` for static calls, `$new` for constructors, and `$invoke`, `$get`,
+or `$set` on opaque handles. Calls return promises because Runtime preserves Paper/Folia thread affinity;
+live event handles use a bounded origin-thread frame so cancellation completes before native dispatch returns.

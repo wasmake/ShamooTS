@@ -6,7 +6,6 @@ import type * as j_net_minecraft_server_packs from './net.minecraft.server.packs
 import type * as j_net_minecraft_server_packs_metadata from './net.minecraft.server.packs.metadata.generated.js';
 import type * as j_net_minecraft_server_packs_repository from './net.minecraft.server.packs.repository.generated.js';
 import type * as j_net_minecraft_util from './net.minecraft.util.generated.js';
-import type * as j_net_minecraft_util_profiling from './net.minecraft.util.profiling.generated.js';
 
 /** JVM interface net.minecraft.server.packs.resources.CloseableResourceManager. */
 export interface CloseableResourceManagerMembers {
@@ -20,7 +19,6 @@ export interface CloseableResourceManagerStatics {
 /** JVM class net.minecraft.server.packs.resources.FallbackResourceManager. */
 export interface FallbackResourceManagerMembers {
   readonly __javaSupertypes?: readonly [ResourceManager];
-  readonly fallbacks: JavaList<JavaOpaque<"net.minecraft.server.packs.resources.FallbackResourceManager$PackEntry">>;
   getNamespaces(): JavaSet<string>;
   getResource(arg0: j_net_minecraft_resources.ResourceLocation): JavaOptional<Resource>;
   getResourceStack(arg0: j_net_minecraft_resources.ResourceLocation): JavaList<Resource>;
@@ -83,7 +81,6 @@ export interface PreparableReloadListener_PreparationBarrierStatics {
 /** JVM class net.minecraft.server.packs.resources.ProfiledReloadInstance. */
 export interface ProfiledReloadInstanceMembers {
   readonly __javaSupertypes?: readonly [SimpleReloadInstance<ProfiledReloadInstance_State>];
-  prepareTasks(arg0: JavaOpaque<"java.util.concurrent.Executor">, arg1: JavaOpaque<"java.util.concurrent.Executor">, arg2: ResourceManager, arg3: JavaList<PreparableReloadListener>, arg4: SimpleReloadInstance_StateFactory<ProfiledReloadInstance_State>, arg5: PromiseLike<object>): PromiseLike<JavaList<ProfiledReloadInstance_State>>;
 }
 export type ProfiledReloadInstance = ProfiledReloadInstanceMembers & SimpleReloadInstance<ProfiledReloadInstance_State>;
 export interface ProfiledReloadInstanceStatics {
@@ -252,13 +249,9 @@ export interface ResourceProviderStatics {
 /** JVM abstract net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener. */
 export interface SimpleJsonResourceReloadListenerMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [SimplePreparableReloadListener<JavaMap<j_net_minecraft_resources.ResourceLocation, T>>];
-  prepare(arg0: ResourceManager, arg1: j_net_minecraft_util_profiling.ProfilerFiller): object;
-  prepare(arg0: ResourceManager, arg1: j_net_minecraft_util_profiling.ProfilerFiller): JavaMap<j_net_minecraft_resources.ResourceLocation, T>;
 }
 export type SimpleJsonResourceReloadListener<T = unknown> = SimpleJsonResourceReloadListenerMembers<T> & SimplePreparableReloadListener<JavaMap<j_net_minecraft_resources.ResourceLocation, T>>;
 export interface SimpleJsonResourceReloadListenerStatics {
-  new<T>(arg0: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg1: j_net_minecraft_resources.FileToIdConverter): SimpleJsonResourceReloadListener<T>;
-  new<T>(arg0: j_net_minecraft_core.HolderLookup_Provider, arg1: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg2: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>): SimpleJsonResourceReloadListener<T>;
   scanDirectory<T>(arg0: ResourceManager, arg1: j_net_minecraft_resources.FileToIdConverter, arg2: JavaOpaque<"com.mojang.serialization.DynamicOps", [JavaOpaque<"com.google.gson.JsonElement">]>, arg3: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg4: JavaMap<j_net_minecraft_resources.ResourceLocation, T>): void;
   scanDirectory<T>(arg0: ResourceManager, arg1: j_net_minecraft_resources.ResourceKey<j_net_minecraft_core.Registry<T>>, arg2: JavaOpaque<"com.mojang.serialization.DynamicOps", [JavaOpaque<"com.google.gson.JsonElement">]>, arg3: JavaOpaque<"com.mojang.serialization.Codec", [T]>, arg4: JavaMap<j_net_minecraft_resources.ResourceLocation, T>): void;
 }
@@ -266,13 +259,10 @@ export interface SimpleJsonResourceReloadListenerStatics {
 /** JVM abstract net.minecraft.server.packs.resources.SimplePreparableReloadListener. */
 export interface SimplePreparableReloadListenerMembers<T = unknown> {
   readonly __javaSupertypes?: readonly [PreparableReloadListener];
-  apply(arg0: T, arg1: ResourceManager, arg2: j_net_minecraft_util_profiling.ProfilerFiller): void;
-  prepare(arg0: ResourceManager, arg1: j_net_minecraft_util_profiling.ProfilerFiller): T;
   reload(arg0: PreparableReloadListener_PreparationBarrier, arg1: ResourceManager, arg2: JavaOpaque<"java.util.concurrent.Executor">, arg3: JavaOpaque<"java.util.concurrent.Executor">): PromiseLike<void>;
 }
 export type SimplePreparableReloadListener<T = unknown> = SimplePreparableReloadListenerMembers<T> & PreparableReloadListener;
 export interface SimplePreparableReloadListenerStatics {
-  new<T>(): SimplePreparableReloadListener<T>;
 }
 
 /** JVM class net.minecraft.server.packs.resources.SimpleReloadInstance. */
@@ -280,12 +270,9 @@ export interface SimpleReloadInstanceMembers<S = unknown> {
   readonly __javaSupertypes?: readonly [ReloadInstance];
   done(): PromiseLike<object>;
   getActualProgress(): number;
-  prepareTasks(arg0: JavaOpaque<"java.util.concurrent.Executor">, arg1: JavaOpaque<"java.util.concurrent.Executor">, arg2: ResourceManager, arg3: JavaList<PreparableReloadListener>, arg4: SimpleReloadInstance_StateFactory<S>, arg5: PromiseLike<object>): PromiseLike<JavaList<S>>;
-  startTasks(arg0: JavaOpaque<"java.util.concurrent.Executor">, arg1: JavaOpaque<"java.util.concurrent.Executor">, arg2: ResourceManager, arg3: JavaList<PreparableReloadListener>, arg4: SimpleReloadInstance_StateFactory<S>, arg5: PromiseLike<object>): void;
 }
 export type SimpleReloadInstance<S = unknown> = SimpleReloadInstanceMembers<S> & ReloadInstance;
 export interface SimpleReloadInstanceStatics {
-  new<S>(arg0: JavaList<PreparableReloadListener>): SimpleReloadInstance<S>;
   create(arg0: ResourceManager, arg1: JavaList<PreparableReloadListener>, arg2: JavaOpaque<"java.util.concurrent.Executor">, arg3: JavaOpaque<"java.util.concurrent.Executor">, arg4: PromiseLike<j_net_minecraft_util.Unit>, arg5: boolean): ReloadInstance;
   of(arg0: ResourceManager, arg1: JavaList<PreparableReloadListener>, arg2: JavaOpaque<"java.util.concurrent.Executor">, arg3: JavaOpaque<"java.util.concurrent.Executor">, arg4: PromiseLike<j_net_minecraft_util.Unit>): ReloadInstance;
 }

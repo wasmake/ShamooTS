@@ -62,7 +62,6 @@ export interface VanillaArchaeologyLootStatics {
 /** JVM class net.minecraft.data.loot.packs.VanillaBlockLoot. */
 export interface VanillaBlockLootMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_data_loot.BlockLootSubProvider];
-  generate(): void;
 }
 export type VanillaBlockLoot = VanillaBlockLootMembers & j_net_minecraft_data_loot.BlockLootSubProvider;
 export interface VanillaBlockLootStatics {

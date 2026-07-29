@@ -1,15 +1,12 @@
 // Generated from paper-nms 1.21.8+paper.55+mache.2 (mojang+paperweight). Do not edit.
 import type { JavaBiConsumer, JavaBiFunction, JavaClass, JavaCollection, JavaConsumer, JavaEnum, JavaFunction, JavaList, JavaMap, JavaMapEntry, JavaOpaque, JavaOptional, JavaOptionalBigInt, JavaOptionalNumber, JavaPredicate, JavaRunnable, JavaSet, JavaSupplier } from '../java-support.generated.js';
 import type * as j_net_minecraft_core from './net.minecraft.core.generated.js';
-import type * as j_net_minecraft_server_level from './net.minecraft.server.level.generated.js';
 import type * as j_net_minecraft_sounds from './net.minecraft.sounds.generated.js';
 import type * as j_net_minecraft_tags from './net.minecraft.tags.generated.js';
 import type * as j_net_minecraft_util_valueproviders from './net.minecraft.util.valueproviders.generated.js';
 import type * as j_net_minecraft_world from './net.minecraft.world.generated.js';
 import type * as j_net_minecraft_world_damagesource from './net.minecraft.world.damagesource.generated.js';
 import type * as j_net_minecraft_world_entity from './net.minecraft.world.entity.generated.js';
-import type * as j_net_minecraft_world_entity_ai_navigation from './net.minecraft.world.entity.ai.navigation.generated.js';
-import type * as j_net_minecraft_world_entity_ai_targeting from './net.minecraft.world.entity.ai.targeting.generated.js';
 import type * as j_net_minecraft_world_entity_animal from './net.minecraft.world.entity.animal.generated.js';
 import type * as j_net_minecraft_world_entity_animal_horse from './net.minecraft.world.entity.animal.horse.generated.js';
 import type * as j_net_minecraft_world_entity_animal_wolf from './net.minecraft.world.entity.animal.wolf.generated.js';
@@ -19,25 +16,15 @@ import type * as j_net_minecraft_world_entity_raid from './net.minecraft.world.e
 import type * as j_net_minecraft_world_item from './net.minecraft.world.item.generated.js';
 import type * as j_net_minecraft_world_level from './net.minecraft.world.level.generated.js';
 import type * as j_net_minecraft_world_level_block from './net.minecraft.world.level.block.generated.js';
-import type * as j_net_minecraft_world_level_pathfinder from './net.minecraft.world.level.pathfinder.generated.js';
-import type * as j_net_minecraft_world_phys from './net.minecraft.world.phys.generated.js';
 
 /** JVM class net.minecraft.world.entity.ai.goal.AvoidEntityGoal. */
 export interface AvoidEntityGoalMembers<T /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> {
   readonly __javaSupertypes?: readonly [Goal];
-  readonly avoidClass: JavaClass<T>;
-  readonly avoidPredicate: JavaPredicate<j_net_minecraft_world_entity.LivingEntity>;
   canContinueToUse(): boolean;
   canUse(): boolean;
-  readonly maxDist: number;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
-  path: j_net_minecraft_world_level_pathfinder.Path | null;
-  readonly pathNav: j_net_minecraft_world_entity_ai_navigation.PathNavigation;
-  readonly predicateOnAvoidEntity: JavaPredicate<j_net_minecraft_world_entity.LivingEntity>;
   start(): void;
   stop(): void;
   tick(): void;
-  toAvoid: T | null;
 }
 export type AvoidEntityGoal<T /* extends j_net_minecraft_world_entity.LivingEntity */ = unknown> = AvoidEntityGoalMembers<T> & Goal;
 export interface AvoidEntityGoalStatics {
@@ -63,12 +50,8 @@ export interface BegGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.BreakDoorGoal. */
 export interface BreakDoorGoalMembers {
   readonly __javaSupertypes?: readonly [DoorInteractGoal];
-  breakTime: number;
   canContinueToUse(): boolean;
   canUse(): boolean;
-  doorBreakTime: number;
-  getDoorBreakTime(): number;
-  lastBreakProgress: number;
   start(): void;
   stop(): void;
   tick(): void;
@@ -96,12 +79,8 @@ export interface BreathAirGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.BreedGoal. */
 export interface BreedGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
-  readonly animal: j_net_minecraft_world_entity_animal.Animal;
-  breed(): void;
   canContinueToUse(): boolean;
   canUse(): boolean;
-  readonly level: j_net_minecraft_server_level.ServerLevel;
-  partner: j_net_minecraft_world_entity_animal.Animal | null;
   stop(): void;
   tick(): void;
 }
@@ -115,8 +94,6 @@ export interface BreedGoalStatics {
 export interface CatLieOnBedGoalMembers {
   readonly __javaSupertypes?: readonly [MoveToBlockGoal];
   canUse(): boolean;
-  isValidTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
-  nextStartTick(arg0: j_net_minecraft_world_entity.PathfinderMob): number;
   start(): void;
   stop(): void;
   tick(): void;
@@ -130,7 +107,6 @@ export interface CatLieOnBedGoalStatics {
 export interface CatSitOnBlockGoalMembers {
   readonly __javaSupertypes?: readonly [MoveToBlockGoal];
   canUse(): boolean;
-  isValidTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
   start(): void;
   stop(): void;
   tick(): void;
@@ -172,18 +148,12 @@ export interface DoorInteractGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  doorPos: j_net_minecraft_core.BlockPos;
-  hasDoor: boolean;
-  isOpen(): boolean;
-  mob: j_net_minecraft_world_entity.Mob;
   requiresUpdateEveryTick(): boolean;
-  setOpen(arg0: boolean): void;
   start(): void;
   tick(): void;
 }
 export type DoorInteractGoal = DoorInteractGoalMembers & Goal;
 export interface DoorInteractGoalStatics {
-  new(arg0: j_net_minecraft_world_entity.Mob): DoorInteractGoal;
 }
 
 /** JVM class net.minecraft.world.entity.ai.goal.EatBlockGoal. */
@@ -206,9 +176,6 @@ export interface FleeSunGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  getHidePos(): j_net_minecraft_world_phys.Vec3 | null;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
-  setWantedPos(): boolean;
   start(): void;
 }
 export type FleeSunGoal = FleeSunGoalMembers & Goal;
@@ -248,7 +215,6 @@ export interface FollowFlockLeaderGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  nextStartTick(arg0: j_net_minecraft_world_entity_animal.AbstractSchoolingFish): number;
   start(): void;
   stop(): void;
   tick(): void;
@@ -306,7 +272,6 @@ export interface FollowParentGoalStatics {
 /** JVM abstract net.minecraft.world.entity.ai.goal.Goal. */
 export interface GoalMembers {
   addFlag(arg0: Goal_Flag): void;
-  adjustedTickDelay(arg0: number): number;
   asPaperGoal<T /* extends JavaOpaque<"org.bukkit.entity.Mob"> */>(): JavaOpaque<"com.destroystokyo.paper.entity.ai.Goal", [T]>;
   canContinueToUse(): boolean;
   canUse(): boolean;
@@ -322,10 +287,6 @@ export interface GoalMembers {
 }
 export type Goal = GoalMembers;
 export interface GoalStatics {
-  new(): Goal;
-  getServerLevel(arg0: j_net_minecraft_world_entity.Entity): j_net_minecraft_server_level.ServerLevel;
-  getServerLevel(arg0: j_net_minecraft_world_level.Level): j_net_minecraft_server_level.ServerLevel;
-  reducedTickDelay(arg0: number): number;
 }
 
 /** Live JVM enum net.minecraft.world.entity.ai.goal.Goal$Flag; constants are host handles, not strings. */
@@ -364,7 +325,6 @@ export interface GoalSelectorStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.GolemRandomStrollInVillageGoal. */
 export interface GolemRandomStrollInVillageGoalMembers {
   readonly __javaSupertypes?: readonly [RandomStrollGoal];
-  getPosition(): j_net_minecraft_world_phys.Vec3 | null;
 }
 export type GolemRandomStrollInVillageGoal = GolemRandomStrollInVillageGoalMembers & RandomStrollGoal;
 export interface GolemRandomStrollInVillageGoalStatics {
@@ -387,7 +347,6 @@ export interface JumpGoalMembers {
 }
 export type JumpGoal = JumpGoalMembers & Goal;
 export interface JumpGoalStatics {
-  new(): JumpGoal;
 }
 
 /** JVM class net.minecraft.world.entity.ai.goal.LandOnOwnersShoulderGoal. */
@@ -434,12 +393,6 @@ export interface LookAtPlayerGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  lookAt: j_net_minecraft_world_entity.Entity | null;
-  readonly lookAtContext: j_net_minecraft_world_entity_ai_targeting.TargetingConditions;
-  readonly lookAtType: JavaClass<j_net_minecraft_world_entity.LivingEntity>;
-  readonly lookDistance: number;
-  readonly mob: j_net_minecraft_world_entity.Mob;
-  readonly probability: number;
   start(): void;
   stop(): void;
   tick(): void;
@@ -466,15 +419,8 @@ export interface LookAtTradingPlayerGoalStatics {
 export interface MeleeAttackGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
-  canPerformAttack(arg0: j_net_minecraft_world_entity.LivingEntity): boolean;
   canUse(): boolean;
-  checkAndPerformAttack(arg0: j_net_minecraft_world_entity.LivingEntity): void;
-  getAttackInterval(): number;
-  getTicksUntilNextAttack(): number;
-  isTimeToAttack(): boolean;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
   requiresUpdateEveryTick(): boolean;
-  resetAttackCooldown(): void;
   start(): void;
   stop(): void;
   tick(): void;
@@ -488,7 +434,6 @@ export interface MeleeAttackGoalStatics {
 export interface MoveBackToVillageGoalMembers {
   readonly __javaSupertypes?: readonly [RandomStrollGoal];
   canUse(): boolean;
-  getPosition(): j_net_minecraft_world_phys.Vec3 | null;
 }
 export type MoveBackToVillageGoal = MoveBackToVillageGoalMembers & RandomStrollGoal;
 export interface MoveBackToVillageGoalStatics {
@@ -500,7 +445,6 @@ export interface MoveThroughVillageGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
   start(): void;
   stop(): void;
 }
@@ -513,29 +457,17 @@ export interface MoveThroughVillageGoalStatics {
 export interface MoveToBlockGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   acceptedDistance(): number;
-  blockPos: j_net_minecraft_core.BlockPos;
   canContinueToUse(): boolean;
   canUse(): boolean;
-  findNearestBlock(): boolean;
-  getMoveToTarget(): j_net_minecraft_core.BlockPos;
-  isReachedTarget(): boolean;
-  isValidTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
-  moveMobToBlock(): void;
-  nextStartTick: (number) & { (arg0: j_net_minecraft_world_entity.PathfinderMob): number };
   requiresUpdateEveryTick(): boolean;
   shouldRecalculatePath(): boolean;
   readonly speedModifier: number;
   start(): void;
   stop(): void;
   tick(): void;
-  tryTicks: number;
-  verticalSearchStart: number;
 }
 export type MoveToBlockGoal = MoveToBlockGoalMembers & Goal;
 export interface MoveToBlockGoalStatics {
-  new(arg0: j_net_minecraft_world_entity.PathfinderMob, arg1: number, arg2: number): MoveToBlockGoal;
-  new(arg0: j_net_minecraft_world_entity.PathfinderMob, arg1: number, arg2: number, arg3: number): MoveToBlockGoal;
 }
 
 /** JVM class net.minecraft.world.entity.ai.goal.MoveTowardsRestrictionGoal. */
@@ -610,15 +542,7 @@ export interface PanicGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  findRandomPosition(): boolean;
-  isRunning: (boolean) & { (): boolean };
-  lookForWater(arg0: j_net_minecraft_world_level.BlockGetter, arg1: j_net_minecraft_world_entity.Entity, arg2: number): j_net_minecraft_core.BlockPos | null;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
-  posX: number;
-  posY: number;
-  posZ: number;
-  shouldPanic(): boolean;
-  readonly speedModifier: number;
+  isRunning(): boolean;
   start(): void;
   stop(): void;
 }
@@ -674,18 +598,10 @@ export interface RandomStrollGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  forceTrigger: boolean;
-  getPosition(): j_net_minecraft_world_phys.Vec3 | null;
-  interval: number;
-  readonly mob: j_net_minecraft_world_entity.PathfinderMob;
   setInterval(arg0: number): void;
-  readonly speedModifier: number;
   start(): void;
   stop(): void;
   trigger(): void;
-  wantedX: number;
-  wantedY: number;
-  wantedZ: number;
 }
 export type RandomStrollGoal = RandomStrollGoalMembers & Goal;
 export interface RandomStrollGoalStatics {
@@ -698,7 +614,6 @@ export interface RandomStrollGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.RandomSwimmingGoal. */
 export interface RandomSwimmingGoalMembers {
   readonly __javaSupertypes?: readonly [RandomStrollGoal];
-  getPosition(): j_net_minecraft_world_phys.Vec3 | null;
 }
 export type RandomSwimmingGoal = RandomSwimmingGoalMembers & RandomStrollGoal;
 export interface RandomSwimmingGoalStatics {
@@ -725,7 +640,6 @@ export interface RangedBowAttackGoalMembers<T /* extends j_net_minecraft_world_e
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
   canUse(): boolean;
-  isHoldingBow(): boolean;
   requiresUpdateEveryTick(): boolean;
   setMinAttackInterval(arg0: number): void;
   start(): void;
@@ -756,7 +670,6 @@ export interface RangedCrossbowAttackGoalStatics {
 export interface RemoveBlockGoalMembers {
   readonly __javaSupertypes?: readonly [MoveToBlockGoal];
   canUse(): boolean;
-  isValidTarget(arg0: j_net_minecraft_world_level.LevelReader, arg1: j_net_minecraft_core.BlockPos): boolean;
   playBreakSound(arg0: j_net_minecraft_world_level.Level, arg1: j_net_minecraft_core.BlockPos): void;
   playDestroyProgressSound(arg0: j_net_minecraft_world_level.LevelAccessor, arg1: j_net_minecraft_core.BlockPos): void;
   start(): void;
@@ -837,16 +750,10 @@ export interface SwellGoalStatics {
 export interface TemptGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
   canContinueToUse(): boolean;
-  canScare(): boolean;
   canUse(): boolean;
   isRunning(): boolean;
-  readonly mob: j_net_minecraft_world_entity.Mob;
-  navigateTowards(arg0: j_net_minecraft_world_entity.LivingEntity): void;
-  player: j_net_minecraft_world_entity.LivingEntity | null;
-  readonly speedModifier: number;
   start(): void;
   stop(): void;
-  stopNavigation(): void;
   tick(): void;
 }
 export type TemptGoal = TemptGoalMembers & Goal;
@@ -858,8 +765,6 @@ export interface TemptGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.TemptGoal$ForNonPathfinders. */
 export interface TemptGoal_ForNonPathfindersMembers {
   readonly __javaSupertypes?: readonly [TemptGoal];
-  navigateTowards(arg0: j_net_minecraft_world_entity.LivingEntity): void;
-  stopNavigation(): void;
 }
 export type TemptGoal_ForNonPathfinders = TemptGoal_ForNonPathfindersMembers & TemptGoal;
 export interface TemptGoal_ForNonPathfindersStatics {
@@ -905,7 +810,6 @@ export interface UseItemGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal. */
 export interface WaterAvoidingRandomFlyingGoalMembers {
   readonly __javaSupertypes?: readonly [WaterAvoidingRandomStrollGoal];
-  getPosition(): j_net_minecraft_world_phys.Vec3 | null;
 }
 export type WaterAvoidingRandomFlyingGoal = WaterAvoidingRandomFlyingGoalMembers & WaterAvoidingRandomStrollGoal;
 export interface WaterAvoidingRandomFlyingGoalStatics {
@@ -915,8 +819,6 @@ export interface WaterAvoidingRandomFlyingGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal. */
 export interface WaterAvoidingRandomStrollGoalMembers {
   readonly __javaSupertypes?: readonly [RandomStrollGoal];
-  getPosition(): j_net_minecraft_world_phys.Vec3 | null;
-  readonly probability: number;
 }
 export type WaterAvoidingRandomStrollGoal = WaterAvoidingRandomStrollGoalMembers & RandomStrollGoal;
 export interface WaterAvoidingRandomStrollGoalStatics {
@@ -928,11 +830,10 @@ export interface WaterAvoidingRandomStrollGoalStatics {
 /** JVM class net.minecraft.world.entity.ai.goal.WrappedGoal. */
 export interface WrappedGoalMembers {
   readonly __javaSupertypes?: readonly [Goal];
-  adjustedTickDelay(arg0: number): number;
   canBeReplacedBy(arg0: WrappedGoal): boolean;
   canContinueToUse(): boolean;
   canUse(): boolean;
-  equals(arg0: object | null): boolean | null;
+  equals(arg0: object | null): boolean;
   getFlags(): JavaOpaque<"ca.spottedleaf.moonrise.common.set.OptimizedSmallEnumSet", [Goal_Flag]>;
   getGoal(): Goal;
   getPriority(): number;

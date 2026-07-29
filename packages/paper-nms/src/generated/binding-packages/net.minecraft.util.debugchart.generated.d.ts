@@ -7,17 +7,12 @@ import type * as j_net_minecraft_server_players from './net.minecraft.server.pla
 /** JVM abstract net.minecraft.util.debugchart.AbstractSampleLogger. */
 export interface AbstractSampleLoggerMembers {
   readonly __javaSupertypes?: readonly [SampleLogger];
-  readonly defaults: Array<bigint>;
   logFullSample(arg0: Array<bigint>): void;
   logPartialSample(arg0: bigint, arg1: number): void;
   logSample(arg0: bigint): void;
-  resetSample(): void;
-  readonly sample: Array<bigint>;
-  useSample(): void;
 }
 export type AbstractSampleLogger = AbstractSampleLoggerMembers & SampleLogger;
 export interface AbstractSampleLoggerStatics {
-  new(arg0: number, arg1: Array<bigint>): AbstractSampleLogger;
 }
 
 /** JVM class net.minecraft.util.debugchart.DebugSampleSubscriptionTracker. */
@@ -42,7 +37,6 @@ export interface LocalSampleLoggerMembers {
   get(arg0: number, arg1: number): bigint;
   reset(): void;
   size(): number;
-  useSample(): void;
 }
 export type LocalSampleLogger = LocalSampleLoggerMembers & AbstractSampleLogger & SampleStorage;
 export interface LocalSampleLoggerStatics {
@@ -64,7 +58,6 @@ export interface RemoteDebugSampleTypeStatics {
 /** JVM class net.minecraft.util.debugchart.RemoteSampleLogger. */
 export interface RemoteSampleLoggerMembers {
   readonly __javaSupertypes?: readonly [AbstractSampleLogger];
-  useSample(): void;
 }
 export type RemoteSampleLogger = RemoteSampleLoggerMembers & AbstractSampleLogger;
 export interface RemoteSampleLoggerStatics {

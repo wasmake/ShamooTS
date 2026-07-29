@@ -11,7 +11,6 @@ import type * as j_net_minecraft_world_item_equipment_trim from './net.minecraft
 /** JVM class net.minecraft.data.recipes.packs.VanillaRecipeProvider. */
 export interface VanillaRecipeProviderMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_data_recipes.RecipeProvider];
-  buildRecipes(): void;
 }
 export type VanillaRecipeProvider = VanillaRecipeProviderMembers & j_net_minecraft_data_recipes.RecipeProvider;
 export interface VanillaRecipeProviderStatics {
@@ -21,7 +20,6 @@ export interface VanillaRecipeProviderStatics {
 /** JVM class net.minecraft.data.recipes.packs.VanillaRecipeProvider$Runner. */
 export interface VanillaRecipeProvider_RunnerMembers {
   readonly __javaSupertypes?: readonly [j_net_minecraft_data_recipes.RecipeProvider_Runner];
-  createRecipeProvider(arg0: j_net_minecraft_core.HolderLookup_Provider, arg1: j_net_minecraft_data_recipes.RecipeOutput): j_net_minecraft_data_recipes.RecipeProvider;
   getName(): string;
 }
 export type VanillaRecipeProvider_Runner = VanillaRecipeProvider_RunnerMembers & j_net_minecraft_data_recipes.RecipeProvider_Runner;

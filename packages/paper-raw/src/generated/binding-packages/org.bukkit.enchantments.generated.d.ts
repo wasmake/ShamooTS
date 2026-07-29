@@ -39,7 +39,6 @@ export interface EnchantmentMembers {
 }
 export type Enchantment = EnchantmentMembers & j_net_kyori_adventure_translation.Translatable & j_org_bukkit.Keyed & j_org_bukkit.Translatable_2;
 export interface EnchantmentStatics {
-  new(): Enchantment;
   readonly AQUA_AFFINITY: Enchantment;
   readonly BANE_OF_ARTHROPODS: Enchantment;
   readonly BINDING_CURSE: Enchantment;
@@ -143,5 +142,4 @@ export interface EnchantmentWrapperMembers {
 }
 export type EnchantmentWrapper = EnchantmentWrapperMembers & Enchantment;
 export interface EnchantmentWrapperStatics {
-  new(): EnchantmentWrapper;
 }

@@ -72,7 +72,6 @@ export interface FilledProfileResultsMembers {
   getEndTimeNano(): bigint;
   getEndTimeTicks(): number;
   getProfilerResults(): string;
-  getProfilerResults(arg0: bigint, arg1: number): string;
   getStartTimeNano(): bigint;
   getStartTimeTicks(): number;
   getTickDuration(): number;
@@ -217,7 +216,6 @@ export interface ProfilerPathEntryStatics {
 /** JVM class net.minecraft.util.profiling.ResultField. */
 export interface ResultFieldMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Comparable", [ResultField]>];
-  compareTo(arg0: object): number;
   compareTo(arg0: ResultField): number;
   readonly count: bigint;
   getColor(): number;
@@ -239,7 +237,7 @@ export type SingleTickProfiler = SingleTickProfilerMembers;
 export interface SingleTickProfilerStatics {
   new(arg0: JavaOpaque<"java.util.function.LongSupplier">, arg1: string, arg2: bigint): SingleTickProfiler;
   createTickProfiler(arg0: string): SingleTickProfiler | null;
-  decorateFiller(arg0: ProfilerFiller, arg1: SingleTickProfiler | null): ProfilerFiller | null;
+  decorateFiller(arg0: ProfilerFiller, arg1: SingleTickProfiler | null): ProfilerFiller;
 }
 
 /** JVM class net.minecraft.util.profiling.TracyZoneFiller. */

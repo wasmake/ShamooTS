@@ -6,7 +6,6 @@ import type * as j_com_destroystokyo_paper_profile from './com.destroystokyo.pap
 import type * as j_io_papermc_paper_block from './io.papermc.paper.block.generated.js';
 import type * as j_io_papermc_paper_command from './io.papermc.paper.command.generated.js';
 import type * as j_io_papermc_paper_math from './io.papermc.paper.math.generated.js';
-import type * as j_io_papermc_paper_persistence from './io.papermc.paper.persistence.generated.js';
 import type * as j_io_papermc_paper_world_flag from './io.papermc.paper.world.flag.generated.js';
 import type * as j_net_kyori_adventure_text from './net.kyori.adventure.text.generated.js';
 import type * as j_net_kyori_adventure_translation from './net.kyori.adventure.translation.generated.js';
@@ -63,8 +62,8 @@ export interface BeaconMembers {
   getTier(): number;
   resetEffectRange(): void;
   setEffectRange(arg0: number): void;
-  setPrimaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void | null;
-  setSecondaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void | null;
+  setPrimaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
+  setSecondaryEffect(arg0: j_org_bukkit_potion.PotionEffectType | null): void;
 }
 export type Beacon = BeaconMembers & j_io_papermc_paper_block.LockableTileState;
 export interface BeaconStatics {
@@ -85,7 +84,7 @@ export interface BeehiveMembers {
   readonly __javaSupertypes?: readonly [EntityBlockStorage<j_org_bukkit_entity.Bee>];
   getFlower(): j_org_bukkit.Location | null;
   isSedated(): boolean;
-  setFlower(arg0: j_org_bukkit.Location | null): void | null;
+  setFlower(arg0: j_org_bukkit.Location | null): void;
 }
 export type Beehive = BeehiveMembers & EntityBlockStorage<j_org_bukkit_entity.Bee>;
 export interface BeehiveStatics {
@@ -99,9 +98,9 @@ export interface BellMembers {
   isResonating(): boolean;
   isShaking(): boolean;
   ring(): boolean;
-  ring(arg0: BlockFace | null): boolean | null;
-  ring(arg0: j_org_bukkit_entity.Entity | null): boolean | null;
-  ring(arg0: j_org_bukkit_entity.Entity | null, arg1: BlockFace | null): boolean | null;
+  ring(arg0: BlockFace | null): boolean;
+  ring(arg0: j_org_bukkit_entity.Entity | null): boolean;
+  ring(arg0: j_org_bukkit_entity.Entity | null, arg1: BlockFace | null): boolean;
 }
 export type Bell = BellMembers & TileState;
 export interface BellStatics {
@@ -110,7 +109,6 @@ export interface BellStatics {
 /** JVM interface org.bukkit.block.Biome. */
 export interface BiomeMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_util.OldEnum<Biome>, j_org_bukkit.Keyed, j_net_kyori_adventure_translation.Translatable];
-  compareTo(arg0: object): number;
   compareTo(arg0: Biome): number;
   getKey(): j_org_bukkit.NamespacedKey;
   key(): JavaOpaque<"net.kyori.adventure.key.Key">;
@@ -203,7 +201,7 @@ export interface BlockMembers {
   readonly __javaSupertypes?: readonly [j_net_kyori_adventure_translation.Translatable, j_org_bukkit.Translatable_2, j_org_bukkit_metadata.Metadatable];
   applyBoneMeal(arg0: BlockFace): boolean;
   breakNaturally(): boolean;
-  breakNaturally(arg0: j_org_bukkit_inventory.ItemStack | null): boolean | null;
+  breakNaturally(arg0: j_org_bukkit_inventory.ItemStack | null): boolean;
   breakNaturally(arg0: j_org_bukkit_inventory.ItemStack, arg1: boolean): boolean;
   breakNaturally(arg0: j_org_bukkit_inventory.ItemStack, arg1: boolean, arg2: boolean): boolean;
   breakNaturally(arg0: j_org_bukkit_inventory.ItemStack, arg1: boolean, arg2: boolean, arg3: boolean): boolean;
@@ -226,8 +224,8 @@ export interface BlockMembers {
   getDestroySpeed(arg0: j_org_bukkit_inventory.ItemStack): number;
   getDestroySpeed(arg0: j_org_bukkit_inventory.ItemStack, arg1: boolean): number;
   getDrops(): JavaCollection<j_org_bukkit_inventory.ItemStack>;
-  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null): JavaCollection<j_org_bukkit_inventory.ItemStack> | null;
-  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null, arg1: j_org_bukkit_entity.Entity | null): JavaCollection<j_org_bukkit_inventory.ItemStack> | null;
+  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null): JavaCollection<j_org_bukkit_inventory.ItemStack>;
+  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null, arg1: j_org_bukkit_entity.Entity | null): JavaCollection<j_org_bukkit_inventory.ItemStack>;
   getFace(arg0: Block): BlockFace | null;
   getHumidity(): number;
   getLightFromBlocks(): number;
@@ -325,8 +323,8 @@ export interface BlockStateMembers {
   getChunk(): j_org_bukkit.Chunk;
   getData(): j_org_bukkit_material.MaterialData;
   getDrops(): JavaCollection<j_org_bukkit_inventory.ItemStack>;
-  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null): JavaCollection<j_org_bukkit_inventory.ItemStack> | null;
-  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null, arg1: j_org_bukkit_entity.Entity | null): JavaCollection<j_org_bukkit_inventory.ItemStack> | null;
+  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null): JavaCollection<j_org_bukkit_inventory.ItemStack>;
+  getDrops(arg0: j_org_bukkit_inventory.ItemStack | null, arg1: j_org_bukkit_entity.Entity | null): JavaCollection<j_org_bukkit_inventory.ItemStack>;
   getLightLevel(): number;
   getLocation(): j_org_bukkit.Location;
   getLocation(arg0: j_org_bukkit.Location | null): j_org_bukkit.Location | null;
@@ -368,7 +366,7 @@ export interface BlockTypeMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_world_flag.FeatureDependant, j_net_kyori_adventure_translation.Translatable, j_org_bukkit.Keyed, j_org_bukkit.Translatable_2];
   asMaterial(): j_org_bukkit.Material | null;
   createBlockData(): j_org_bukkit_block_data.BlockData;
-  createBlockData(arg0: string): j_org_bukkit_block_data.BlockData | null;
+  createBlockData(arg0: string | null): j_org_bukkit_block_data.BlockData;
   createBlockDataStates(): JavaCollection<j_org_bukkit_block_data.BlockData>;
   getBlastResistance(): number;
   getBlockDataClass(): JavaClass<j_org_bukkit_block_data.BlockData>;
@@ -1502,8 +1500,8 @@ export interface BlockTypeStatics {
 export interface BlockType_TypedMembers<B /* extends j_org_bukkit_block_data.BlockData */ = unknown> {
   readonly __javaSupertypes?: readonly [BlockType];
   createBlockData(): B;
-  createBlockData(arg0: string): B | null;
-  createBlockData(arg0: JavaConsumer<B>): B | null;
+  createBlockData(arg0: string | null): B;
+  createBlockData(arg0: JavaConsumer<B> | null): B;
   createBlockDataStates(): JavaCollection<B>;
   getBlockDataClass(): JavaClass<B>;
 }
@@ -1517,10 +1515,8 @@ export interface BrewingStandMembers {
   getBrewingTime(): number;
   getFuelLevel(): number;
   getInventory(): j_org_bukkit_inventory.BrewerInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getRecipeBrewTime(): number;
   getSnapshotInventory(): j_org_bukkit_inventory.BrewerInventory;
-  getSnapshotInventory(): j_org_bukkit_inventory.Inventory;
   setBrewingTime(arg0: number): void;
   setFuelLevel(arg0: number): void;
   setRecipeBrewTime(arg0: number): void;
@@ -1533,7 +1529,7 @@ export interface BrewingStandStatics {
 export interface BrushableBlockMembers {
   readonly __javaSupertypes?: readonly [TileState, j_org_bukkit_loot.Lootable];
   getItem(): j_org_bukkit_inventory.ItemStack;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type BrushableBlock = BrushableBlockMembers & TileState & j_org_bukkit_loot.Lootable;
 export interface BrushableBlockStatics {
@@ -1557,7 +1553,7 @@ export interface CampfireMembers {
   isCookingDisabled(arg0: number): boolean;
   setCookTime(arg0: number, arg1: number): void;
   setCookTimeTotal(arg0: number, arg1: number): void;
-  setItem(arg0: number, arg1: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItem(arg0: number, arg1: j_org_bukkit_inventory.ItemStack | null): void;
   startCooking(): void;
   startCooking(arg0: number): boolean;
   stopCooking(): void;
@@ -1581,11 +1577,9 @@ export interface ChestStatics {
 export interface ChiseledBookshelfMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_block.TileStateInventoryHolder];
   getInventory(): j_org_bukkit_inventory.ChiseledBookshelfInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getLastInteractedSlot(): number;
   getSlot(arg0: j_org_bukkit_util.Vector): number;
   getSnapshotInventory(): j_org_bukkit_inventory.ChiseledBookshelfInventory;
-  getSnapshotInventory(): j_org_bukkit_inventory.Inventory;
   setLastInteractedSlot(arg0: number): void;
 }
 export type ChiseledBookshelf = ChiseledBookshelfMembers & j_io_papermc_paper_block.TileStateInventoryHolder;
@@ -1598,9 +1592,9 @@ export interface CommandBlockMembers {
   getCommand(): string;
   getName(): string;
   name(): j_net_kyori_adventure_text.Component;
-  name(arg0: j_net_kyori_adventure_text.Component): void | null;
-  setCommand(arg0: string | null): void | null;
-  setName(arg0: string | null): void | null;
+  name(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setCommand(arg0: string | null): void;
+  setName(arg0: string | null): void;
 }
 export type CommandBlock = CommandBlockMembers & j_io_papermc_paper_command.CommandBlockHolder & TileState;
 export interface CommandBlockStatics {
@@ -1625,7 +1619,7 @@ export interface ConduitMembers {
   hasTarget(): boolean;
   isActive(): boolean;
   isHunting(): boolean;
-  setTarget(arg0: j_org_bukkit_entity.LivingEntity | null): boolean | null;
+  setTarget(arg0: j_org_bukkit_entity.LivingEntity | null): boolean;
 }
 export type Conduit = ConduitMembers & TileState;
 export interface ConduitStatics {
@@ -1665,7 +1659,7 @@ export interface CreakingHeartStatics {
 export interface CreatureSpawnerMembers {
   readonly __javaSupertypes?: readonly [TileState, j_org_bukkit_spawner.Spawner];
   getCreatureTypeName(): string | null;
-  setCreatureTypeByName(arg0: string | null): void | null;
+  setCreatureTypeByName(arg0: string | null): void;
 }
 export type CreatureSpawner = CreatureSpawnerMembers & TileState & j_org_bukkit_spawner.Spawner;
 export interface CreatureSpawnerStatics {
@@ -1683,13 +1677,11 @@ export interface DaylightDetectorStatics {
 export interface DecoratedPotMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_block.TileStateInventoryHolder, j_org_bukkit_loot.Lootable];
   getInventory(): j_org_bukkit_inventory.DecoratedPotInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getShards(): JavaList<j_org_bukkit.Material>;
   getSherd(arg0: DecoratedPot_Side): j_org_bukkit.Material;
   getSherds(): JavaMap<DecoratedPot_Side, j_org_bukkit.Material>;
   getSnapshotInventory(): j_org_bukkit_inventory.DecoratedPotInventory;
-  getSnapshotInventory(): j_org_bukkit_inventory.Inventory;
-  setSherd(arg0: DecoratedPot_Side, arg1: j_org_bukkit.Material | null): void | null;
+  setSherd(arg0: DecoratedPot_Side, arg1: j_org_bukkit.Material | null): void;
 }
 export type DecoratedPot = DecoratedPotMembers & j_io_papermc_paper_block.TileStateInventoryHolder & j_org_bukkit_loot.Lootable;
 export interface DecoratedPotStatics {
@@ -1771,7 +1763,7 @@ export interface EndGatewayMembers {
   isExactTeleport(): boolean;
   setAge(arg0: bigint): void;
   setExactTeleport(arg0: boolean): void;
-  setExitLocation(arg0: j_org_bukkit.Location | null): void | null;
+  setExitLocation(arg0: j_org_bukkit.Location | null): void;
 }
 export type EndGateway = EndGatewayMembers & TileState;
 export interface EndGatewayStatics {
@@ -1800,11 +1792,9 @@ export interface FurnaceMembers {
   getCookTime(): number;
   getCookTimeTotal(): number;
   getInventory(): j_org_bukkit_inventory.FurnaceInventory;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getRecipeUsedCount(arg0: j_org_bukkit.NamespacedKey): number;
   getRecipesUsed(): JavaMap<j_org_bukkit_inventory.CookingRecipe<object>, number>;
   getSnapshotInventory(): j_org_bukkit_inventory.FurnaceInventory;
-  getSnapshotInventory(): j_org_bukkit_inventory.Inventory;
   hasRecipeUsedCount(arg0: j_org_bukkit.NamespacedKey): boolean;
   setBurnTime(arg0: number): void;
   setCookSpeedMultiplier(arg0: number): void;
@@ -1847,16 +1837,14 @@ export interface JigsawStatics {
 export interface JukeboxMembers {
   readonly __javaSupertypes?: readonly [j_io_papermc_paper_block.TileStateInventoryHolder];
   eject(): boolean;
-  getInventory(): j_org_bukkit_inventory.Inventory;
   getInventory(): j_org_bukkit_inventory.JukeboxInventory;
   getPlaying(): j_org_bukkit.Material;
   getRecord(): j_org_bukkit_inventory.ItemStack;
-  getSnapshotInventory(): j_org_bukkit_inventory.Inventory;
   getSnapshotInventory(): j_org_bukkit_inventory.JukeboxInventory;
   hasRecord(): boolean;
   isPlaying(): boolean;
-  setPlaying(arg0: j_org_bukkit.Material | null): void | null;
-  setRecord(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setPlaying(arg0: j_org_bukkit.Material | null): void;
+  setRecord(arg0: j_org_bukkit_inventory.ItemStack | null): void;
   startPlaying(): boolean;
   stopPlaying(): void;
 }
@@ -1888,8 +1876,8 @@ export interface LiddedStatics {
 export interface LockableMembers {
   getLock(): string;
   isLocked(): boolean;
-  setLock(arg0: string | null): void | null;
-  setLockItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setLock(arg0: string | null): void;
+  setLockItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type Lockable = LockableMembers;
 export interface LockableStatics {
@@ -1959,7 +1947,7 @@ export interface SculkShriekerMembers {
   readonly __javaSupertypes?: readonly [TileState];
   getWarningLevel(): number;
   setWarningLevel(arg0: number): void;
-  tryShriek(arg0: j_org_bukkit_entity.Player | null): void | null;
+  tryShriek(arg0: j_org_bukkit_entity.Player | null): void;
 }
 export type SculkShrieker = SculkShriekerMembers & TileState;
 export interface SculkShriekerStatics {
@@ -1996,7 +1984,7 @@ export interface SignMembers {
   /** @throws java.lang.IndexOutOfBoundsException */
   line(arg0: number, arg1: j_net_kyori_adventure_text.Component): void;
   lines(): JavaList<j_net_kyori_adventure_text.Component>;
-  setAllowedEditorUniqueId(arg0: JavaOpaque<"java.util.UUID"> | null): void | null;
+  setAllowedEditorUniqueId(arg0: JavaOpaque<"java.util.UUID"> | null): void;
   setColor(arg0: j_org_bukkit.DyeColor): void;
   setEditable(arg0: boolean): void;
   setGlowingText(arg0: boolean): void;
@@ -2012,7 +2000,7 @@ export interface SignStatics {
 export interface SkullMembers {
   readonly __javaSupertypes?: readonly [TileState];
   customName(): j_net_kyori_adventure_text.Component | null;
-  customName(arg0: j_net_kyori_adventure_text.Component | null): void | null;
+  customName(arg0: j_net_kyori_adventure_text.Component | null): void;
   getNoteBlockSound(): j_org_bukkit.NamespacedKey | null;
   getOwner(): string | null;
   getOwnerProfile(): j_org_bukkit_profile.PlayerProfile_2 | null;
@@ -2021,9 +2009,9 @@ export interface SkullMembers {
   getRotation(): BlockFace;
   getSkullType(): j_org_bukkit.SkullType;
   hasOwner(): boolean;
-  setNoteBlockSound(arg0: j_org_bukkit.NamespacedKey | null): void | null;
-  setOwner(arg0: string | null): boolean | null;
-  setOwnerProfile(arg0: j_org_bukkit_profile.PlayerProfile_2 | null): void | null;
+  setNoteBlockSound(arg0: j_org_bukkit.NamespacedKey | null): void;
+  setOwner(arg0: string | null): boolean;
+  setOwnerProfile(arg0: j_org_bukkit_profile.PlayerProfile_2 | null): void;
   setOwningPlayer(arg0: j_org_bukkit.OfflinePlayer): void;
   setPlayerProfile(arg0: j_com_destroystokyo_paper_profile.PlayerProfile): void;
   setRotation(arg0: BlockFace): void;
@@ -2103,7 +2091,6 @@ export interface TestInstanceBlockStatics {
 /** JVM interface org.bukkit.block.TileState. */
 export interface TileStateMembers {
   readonly __javaSupertypes?: readonly [BlockState, j_org_bukkit_persistence.PersistentDataHolder];
-  getPersistentDataContainer(): j_io_papermc_paper_persistence.PersistentDataContainerView;
   getPersistentDataContainer(): j_org_bukkit_persistence.PersistentDataContainer;
   isSnapshot(): boolean;
 }
@@ -2158,7 +2145,7 @@ export interface VaultMembers {
   setActivationRange(arg0: number): void;
   setDeactivationRange(arg0: number): void;
   setDisplayedItem(arg0: j_org_bukkit_inventory.ItemStack): void;
-  setDisplayedLootTable(arg0: j_org_bukkit_loot.LootTable): void | null;
+  setDisplayedLootTable(arg0: j_org_bukkit_loot.LootTable | null): void;
   setKeyItem(arg0: j_org_bukkit_inventory.ItemStack): void;
   setLootTable(arg0: j_org_bukkit_loot.LootTable): void;
   setNextStateUpdateTime(arg0: bigint): void;

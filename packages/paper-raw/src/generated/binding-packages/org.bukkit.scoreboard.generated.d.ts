@@ -123,7 +123,7 @@ export interface NameTagVisibilityStatics {
 /** JVM interface org.bukkit.scoreboard.Objective. */
 export interface ObjectiveMembers {
   displayName(): j_net_kyori_adventure_text.Component;
-  displayName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  displayName(arg0: j_net_kyori_adventure_text.Component | null): void;
   getCriteria(): string;
   getDisplayName(): string;
   getDisplaySlot(): DisplaySlot | null;
@@ -137,10 +137,10 @@ export interface ObjectiveMembers {
   getTrackedCriteria(): Criteria;
   isModifiable(): boolean;
   numberFormat(): j_io_papermc_paper_scoreboard_numbers.NumberFormat | null;
-  numberFormat(arg0: j_io_papermc_paper_scoreboard_numbers.NumberFormat | null): void | null;
+  numberFormat(arg0: j_io_papermc_paper_scoreboard_numbers.NumberFormat | null): void;
   setAutoUpdateDisplay(arg0: boolean): void;
   setDisplayName(arg0: string): void;
-  setDisplaySlot(arg0: DisplaySlot | null): void | null;
+  setDisplaySlot(arg0: DisplaySlot | null): void;
   setRenderType(arg0: RenderType): void;
   unregister(): void;
   willAutoUpdateDisplay(): boolean;
@@ -163,7 +163,7 @@ export interface RenderTypeStatics {
 /** JVM interface org.bukkit.scoreboard.Score. */
 export interface ScoreMembers {
   customName(): j_net_kyori_adventure_text.Component | null;
-  customName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  customName(arg0: j_net_kyori_adventure_text.Component | null): void;
   getEntry(): string;
   getObjective(): Objective;
   getPlayer(): j_org_bukkit.OfflinePlayer;
@@ -172,7 +172,7 @@ export interface ScoreMembers {
   isScoreSet(): boolean;
   isTriggerable(): boolean;
   numberFormat(): j_io_papermc_paper_scoreboard_numbers.NumberFormat | null;
-  numberFormat(arg0: j_io_papermc_paper_scoreboard_numbers.NumberFormat | null): void | null;
+  numberFormat(arg0: j_io_papermc_paper_scoreboard_numbers.NumberFormat | null): void;
   /** @throws java.lang.IllegalStateException */
   resetScore(): void;
   setScore(arg0: number): void;
@@ -205,15 +205,15 @@ export interface ScoreboardMembers {
   registerNewObjective(arg0: string, arg1: string): Objective;
   registerNewObjective(arg0: string, arg1: string, arg2: string): Objective;
   registerNewObjective(arg0: string, arg1: string, arg2: string, arg3: RenderType): Objective;
-  registerNewObjective(arg0: string, arg1: string, arg2: j_net_kyori_adventure_text.Component): Objective | null;
+  registerNewObjective(arg0: string, arg1: string, arg2: j_net_kyori_adventure_text.Component | null): Objective;
   /** @throws java.lang.IllegalArgumentException */
-  registerNewObjective(arg0: string, arg1: string, arg2: j_net_kyori_adventure_text.Component, arg3: RenderType): Objective | null;
+  registerNewObjective(arg0: string, arg1: string, arg2: j_net_kyori_adventure_text.Component | null, arg3: RenderType): Objective;
   registerNewObjective(arg0: string, arg1: Criteria, arg2: string): Objective;
   registerNewObjective(arg0: string, arg1: Criteria, arg2: string, arg3: RenderType): Objective;
   /** @throws java.lang.IllegalArgumentException */
-  registerNewObjective(arg0: string, arg1: Criteria, arg2: j_net_kyori_adventure_text.Component): Objective | null;
+  registerNewObjective(arg0: string, arg1: Criteria, arg2: j_net_kyori_adventure_text.Component | null): Objective;
   /** @throws java.lang.IllegalArgumentException */
-  registerNewObjective(arg0: string, arg1: Criteria, arg2: j_net_kyori_adventure_text.Component, arg3: RenderType): Objective | null;
+  registerNewObjective(arg0: string, arg1: Criteria, arg2: j_net_kyori_adventure_text.Component | null, arg3: RenderType): Objective;
   registerNewTeam(arg0: string): Team;
   resetScores(arg0: string): void;
   resetScores(arg0: j_org_bukkit.OfflinePlayer): void;
@@ -250,9 +250,9 @@ export interface TeamMembers {
   allowFriendlyFire(): boolean;
   canSeeFriendlyInvisibles(): boolean;
   color(): j_net_kyori_adventure_text_format.TextColor;
-  color(arg0: j_net_kyori_adventure_text_format.NamedTextColor): void | null;
+  color(arg0: j_net_kyori_adventure_text_format.NamedTextColor | null): void;
   displayName(): j_net_kyori_adventure_text.Component;
-  displayName(arg0: j_net_kyori_adventure_text.Component): void | null;
+  displayName(arg0: j_net_kyori_adventure_text.Component | null): void;
   getColor(): j_org_bukkit.ChatColor;
   getDisplayName(): string;
   getEntries(): JavaSet<string>;
@@ -270,7 +270,7 @@ export interface TeamMembers {
   hasEntry(arg0: string): boolean;
   hasPlayer(arg0: j_org_bukkit.OfflinePlayer): boolean;
   prefix(): j_net_kyori_adventure_text.Component;
-  prefix(arg0: j_net_kyori_adventure_text.Component): void | null;
+  prefix(arg0: j_net_kyori_adventure_text.Component | null): void;
   /** @throws java.lang.IllegalArgumentException @throws java.lang.IllegalStateException */
   removeEntities(arg0: JavaCollection<j_org_bukkit_entity.Entity>): boolean;
   /** @throws java.lang.IllegalArgumentException @throws java.lang.IllegalStateException */
@@ -292,7 +292,7 @@ export interface TeamMembers {
   setPrefix(arg0: string): void;
   setSuffix(arg0: string): void;
   suffix(): j_net_kyori_adventure_text.Component;
-  suffix(arg0: j_net_kyori_adventure_text.Component): void | null;
+  suffix(arg0: j_net_kyori_adventure_text.Component | null): void;
   unregister(): void;
 }
 export type Team = TeamMembers & j_net_kyori_adventure_audience.ForwardingAudience;

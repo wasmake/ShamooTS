@@ -7,8 +7,8 @@
     "percent": 100
   },
   "members": {
-    "expected": 68422,
-    "emitted": 68422,
+    "expected": 57844,
+    "emitted": 57844,
     "percent": 100
   },
   "events": {
@@ -17,8 +17,8 @@
     "percent": 100
   },
   "exceptions": {
-    "expected": 624,
-    "emitted": 624,
+    "expected": 507,
+    "emitted": 507,
     "percent": 100
   },
   "packets": {
@@ -104,11 +104,6 @@
     },
     {
       "javaName": "ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.PropertyAccessStateHolder",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "ca.spottedleaf.moonrise.patches.blockstate_propertyaccess.util.ZeroCollidingReferenceStateTable",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
@@ -374,7 +369,7 @@
     },
     {
       "javaName": "ca.spottedleaf.moonrise.patches.starlight.light.StarLightInterface",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -504,7 +499,7 @@
     },
     {
       "javaName": "com.destroystokyo.paper.profile.PlayerProfile",
-      "occurrences": 41,
+      "occurrences": 40,
       "reason": "not-in-scanner-model"
     },
     {
@@ -569,12 +564,7 @@
     },
     {
       "javaName": "com.google.common.collect.ImmutableList",
-      "occurrences": 50,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.google.common.collect.ImmutableList$Builder",
-      "occurrences": 1,
+      "occurrences": 30,
       "reason": "not-in-scanner-model"
     },
     {
@@ -589,7 +579,7 @@
     },
     {
       "javaName": "com.google.common.collect.Multimap",
-      "occurrences": 60,
+      "occurrences": 6,
       "reason": "not-in-scanner-model"
     },
     {
@@ -624,7 +614,7 @@
     },
     {
       "javaName": "com.google.gson.JsonArray",
-      "occurrences": 7,
+      "occurrences": 6,
       "reason": "not-in-scanner-model"
     },
     {
@@ -639,7 +629,7 @@
     },
     {
       "javaName": "com.google.gson.JsonObject",
-      "occurrences": 111,
+      "occurrences": 78,
       "reason": "not-in-scanner-model"
     },
     {
@@ -659,7 +649,7 @@
     },
     {
       "javaName": "com.mojang.authlib.GameProfile",
-      "occurrences": 95,
+      "occurrences": 80,
       "reason": "not-in-scanner-model"
     },
     {
@@ -699,7 +689,7 @@
     },
     {
       "javaName": "com.mojang.brigadier.arguments.ArgumentType",
-      "occurrences": 79,
+      "occurrences": 52,
       "reason": "not-in-scanner-model"
     },
     {
@@ -759,12 +749,12 @@
     },
     {
       "javaName": "com.mojang.brigadier.context.CommandContext",
-      "occurrences": 142,
+      "occurrences": 139,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.brigadier.context.ContextChain",
-      "occurrences": 11,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
@@ -779,7 +769,7 @@
     },
     {
       "javaName": "com.mojang.brigadier.exceptions.CommandSyntaxException",
-      "occurrences": 13,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
@@ -804,7 +794,7 @@
     },
     {
       "javaName": "com.mojang.brigadier.ImmutableStringReader",
-      "occurrences": 11,
+      "occurrences": 10,
       "reason": "not-in-scanner-model"
     },
     {
@@ -829,7 +819,7 @@
     },
     {
       "javaName": "com.mojang.brigadier.StringReader",
-      "occurrences": 169,
+      "occurrences": 118,
       "reason": "not-in-scanner-model"
     },
     {
@@ -874,17 +864,17 @@
     },
     {
       "javaName": "com.mojang.datafixers.DataFixer",
-      "occurrences": 28,
+      "occurrences": 25,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.DSL$TypeReference",
-      "occurrences": 62,
+      "occurrences": 57,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.kinds.App",
-      "occurrences": 39,
+      "occurrences": 21,
       "reason": "not-in-scanner-model"
     },
     {
@@ -914,67 +904,37 @@
     },
     {
       "javaName": "com.mojang.datafixers.OpticFinder",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.datafixers.Products$P1",
-      "occurrences": 3,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.datafixers.Products$P2",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.datafixers.Products$P3",
-      "occurrences": 4,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.datafixers.Products$P4",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.datafixers.Products$P5",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.schemas.Schema",
-      "occurrences": 517,
+      "occurrences": 484,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.Typed",
-      "occurrences": 132,
+      "occurrences": 19,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.TypeRewriteRule",
-      "occurrences": 159,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.datafixers.types.templates.Hook$HookFunction",
-      "occurrences": 5,
+      "occurrences": 68,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.types.templates.TypeTemplate",
-      "occurrences": 177,
+      "occurrences": 160,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.types.Type",
-      "occurrences": 22,
+      "occurrences": 14,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.util.Either",
-      "occurrences": 47,
+      "occurrences": 35,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1019,12 +979,12 @@
     },
     {
       "javaName": "com.mojang.datafixers.util.Pair",
-      "occurrences": 94,
+      "occurrences": 72,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.datafixers.util.Unit",
-      "occurrences": 11,
+      "occurrences": 4,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1039,7 +999,7 @@
     },
     {
       "javaName": "com.mojang.serialization.Codec",
-      "occurrences": 1010,
+      "occurrences": 998,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1059,22 +1019,17 @@
     },
     {
       "javaName": "com.mojang.serialization.codecs.RecordCodecBuilder",
-      "occurrences": 9,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.serialization.codecs.RecordCodecBuilder$Instance",
-      "occurrences": 12,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "com.mojang.serialization.codecs.RecordCodecBuilder$Mu",
-      "occurrences": 11,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.serialization.DataResult",
-      "occurrences": 170,
+      "occurrences": 116,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1084,7 +1039,7 @@
     },
     {
       "javaName": "com.mojang.serialization.Dynamic",
-      "occurrences": 203,
+      "occurrences": 102,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1094,7 +1049,7 @@
     },
     {
       "javaName": "com.mojang.serialization.DynamicOps",
-      "occurrences": 78,
+      "occurrences": 68,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1114,12 +1069,12 @@
     },
     {
       "javaName": "com.mojang.serialization.ListBuilder",
-      "occurrences": 11,
+      "occurrences": 10,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.serialization.MapCodec",
-      "occurrences": 1200,
+      "occurrences": 1141,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1134,12 +1089,12 @@
     },
     {
       "javaName": "com.mojang.serialization.MapLike",
-      "occurrences": 12,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "com.mojang.serialization.RecordBuilder",
-      "occurrences": 15,
+      "occurrences": 14,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1159,7 +1114,7 @@
     },
     {
       "javaName": "io.netty.buffer.ByteBuf",
-      "occurrences": 379,
+      "occurrences": 276,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1189,7 +1144,7 @@
     },
     {
       "javaName": "io.netty.channel.ChannelHandlerContext",
-      "occurrences": 42,
+      "occurrences": 19,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1269,7 +1224,7 @@
     },
     {
       "javaName": "io.netty.util.ReferenceCounted",
-      "occurrences": 9,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1308,11 +1263,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "io.papermc.paper.command.brigadier.CommandSourceStack",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "io.papermc.paper.command.brigadier.PaperCommandSourceStack",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
@@ -1334,7 +1284,7 @@
     },
     {
       "javaName": "io.papermc.paper.configuration.WorldConfiguration",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1344,7 +1294,7 @@
     },
     {
       "javaName": "io.papermc.paper.connection.PaperCommonConnection",
-      "occurrences": 3,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1390,11 +1340,6 @@
     {
       "javaName": "io.papermc.paper.datacomponent.DataComponentType$Valued",
       "occurrences": 5,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "io.papermc.paper.datapack.DatapackManager",
-      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1524,7 +1469,7 @@
     },
     {
       "javaName": "io.papermc.paper.persistence.PersistentDataContainerView",
-      "occurrences": 9,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1638,11 +1583,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "io.papermc.paper.threadedregions.scheduler.RegionScheduler",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
@@ -1650,11 +1590,6 @@
     {
       "javaName": "io.papermc.paper.util.Holderable",
       "occurrences": 6,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "io.papermc.paper.util.IntervalledCounter",
-      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1688,11 +1623,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "it.unimi.dsi.fastutil.chars.CharList",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "it.unimi.dsi.fastutil.doubles.AbstractDoubleList",
       "occurrences": 3,
       "reason": "not-in-scanner-model"
@@ -1704,7 +1634,7 @@
     },
     {
       "javaName": "it.unimi.dsi.fastutil.doubles.DoubleList",
-      "occurrences": 24,
+      "occurrences": 20,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1729,7 +1659,7 @@
     },
     {
       "javaName": "it.unimi.dsi.fastutil.ints.Int2ObjectMap",
-      "occurrences": 10,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1753,11 +1683,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "it.unimi.dsi.fastutil.longs.Long2ByteMap",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
@@ -1778,13 +1703,8 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "it.unimi.dsi.fastutil.longs.Long2ObjectMap",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
-      "occurrences": 5,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1804,17 +1724,12 @@
     },
     {
       "javaName": "it.unimi.dsi.fastutil.longs.LongSet",
-      "occurrences": 20,
+      "occurrences": 18,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "it.unimi.dsi.fastutil.objects.Object2BooleanMap",
       "occurrences": 3,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "it.unimi.dsi.fastutil.objects.Object2DoubleMap",
-      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1824,7 +1739,7 @@
     },
     {
       "javaName": "it.unimi.dsi.fastutil.objects.Object2IntMap",
-      "occurrences": 10,
+      "occurrences": 7,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1864,7 +1779,7 @@
     },
     {
       "javaName": "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
-      "occurrences": 5,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1879,7 +1794,7 @@
     },
     {
       "javaName": "it.unimi.dsi.fastutil.shorts.ShortList",
-      "occurrences": 8,
+      "occurrences": 7,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1904,7 +1819,7 @@
     },
     {
       "javaName": "java.awt.image.BufferedImage",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1939,12 +1854,12 @@
     },
     {
       "javaName": "java.io.File",
-      "occurrences": 36,
+      "occurrences": 34,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.io.InputStream",
-      "occurrences": 35,
+      "occurrences": 34,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1954,7 +1869,7 @@
     },
     {
       "javaName": "java.io.OutputStream",
-      "occurrences": 10,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
@@ -1994,12 +1909,12 @@
     },
     {
       "javaName": "java.lang.Comparable",
-      "occurrences": 56,
+      "occurrences": 43,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.lang.Enum",
-      "occurrences": 281,
+      "occurrences": 270,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2028,11 +1943,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "java.lang.reflect.Constructor",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "java.lang.reflect.Field",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
@@ -2054,7 +1964,7 @@
     },
     {
       "javaName": "java.lang.Thread",
-      "occurrences": 18,
+      "occurrences": 14,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2083,11 +1993,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "java.net.HttpURLConnection",
-      "occurrences": 5,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "java.net.InetAddress",
       "occurrences": 21,
       "reason": "not-in-scanner-model"
@@ -2099,27 +2004,27 @@
     },
     {
       "javaName": "java.net.Proxy",
-      "occurrences": 6,
+      "occurrences": 4,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.net.SocketAddress",
-      "occurrences": 23,
+      "occurrences": 22,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.net.URI",
-      "occurrences": 43,
+      "occurrences": 41,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.net.URL",
-      "occurrences": 12,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.nio.ByteBuffer",
-      "occurrences": 27,
+      "occurrences": 19,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2164,7 +2069,7 @@
     },
     {
       "javaName": "java.nio.file.Path",
-      "occurrences": 186,
+      "occurrences": 177,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2214,7 +2119,7 @@
     },
     {
       "javaName": "java.time.Duration",
-      "occurrences": 42,
+      "occurrences": 40,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2224,7 +2129,7 @@
     },
     {
       "javaName": "java.time.Instant",
-      "occurrences": 45,
+      "occurrences": 43,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2269,7 +2174,7 @@
     },
     {
       "javaName": "java.util.ArrayList",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2319,17 +2224,12 @@
     },
     {
       "javaName": "java.util.concurrent.Executor",
-      "occurrences": 66,
+      "occurrences": 51,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.concurrent.ExecutorService",
-      "occurrences": 7,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "java.util.concurrent.locks.ReentrantLock",
-      "occurrences": 2,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2344,12 +2244,12 @@
     },
     {
       "javaName": "java.util.Date",
-      "occurrences": 37,
+      "occurrences": 31,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.Deque",
-      "occurrences": 3,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2359,7 +2259,7 @@
     },
     {
       "javaName": "java.util.EnumSet",
-      "occurrences": 15,
+      "occurrences": 14,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2374,7 +2274,7 @@
     },
     {
       "javaName": "java.util.function.BooleanSupplier",
-      "occurrences": 21,
+      "occurrences": 18,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2384,7 +2284,7 @@
     },
     {
       "javaName": "java.util.function.DoubleSupplier",
-      "occurrences": 4,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2399,7 +2299,7 @@
     },
     {
       "javaName": "java.util.function.IntFunction",
-      "occurrences": 32,
+      "occurrences": 31,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2409,12 +2309,7 @@
     },
     {
       "javaName": "java.util.function.IntSupplier",
-      "occurrences": 6,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "java.util.function.IntUnaryOperator",
-      "occurrences": 1,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2439,7 +2334,7 @@
     },
     {
       "javaName": "java.util.function.UnaryOperator",
-      "occurrences": 33,
+      "occurrences": 31,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2449,7 +2344,7 @@
     },
     {
       "javaName": "java.util.Iterator",
-      "occurrences": 32,
+      "occurrences": 31,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2479,7 +2374,7 @@
     },
     {
       "javaName": "java.util.Properties",
-      "occurrences": 8,
+      "occurrences": 4,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2499,11 +2394,6 @@
     },
     {
       "javaName": "java.util.regex.Pattern",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "java.util.SequencedCollection",
       "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
@@ -2529,22 +2419,22 @@
     },
     {
       "javaName": "java.util.stream.IntStream",
-      "occurrences": 17,
+      "occurrences": 14,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.stream.LongStream",
-      "occurrences": 15,
+      "occurrences": 12,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.stream.Stream",
-      "occurrences": 223,
+      "occurrences": 205,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "java.util.UUID",
-      "occurrences": 294,
+      "occurrences": 289,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2559,7 +2449,7 @@
     },
     {
       "javaName": "javax.crypto.Cipher",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2624,7 +2514,7 @@
     },
     {
       "javaName": "joptsimple.OptionSet",
-      "occurrences": 12,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2669,12 +2559,7 @@
     },
     {
       "javaName": "net.kyori.adventure.inventory.Book",
-      "occurrences": 9,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "net.kyori.adventure.inventory.Book$Builder",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2714,7 +2599,7 @@
     },
     {
       "javaName": "net.kyori.adventure.text.Component",
-      "occurrences": 210,
+      "occurrences": 129,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2768,18 +2653,13 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "net.kyori.adventure.util.Buildable$Builder",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "net.kyori.adventure.util.TriState",
       "occurrences": 21,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "net.md_5.bungee.api.chat.BaseComponent",
-      "occurrences": 56,
+      "occurrences": 20,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2843,11 +2723,6 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "net.minecraft.server.packs.resources.FallbackResourceManager$PackEntry",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "net.minecraft.server.players.GameProfileCache$GameProfileInfo",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
@@ -2879,7 +2754,7 @@
     },
     {
       "javaName": "net.minecraft.world.level.biome.Climate$DistanceMetric",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2939,12 +2814,12 @@
     },
     {
       "javaName": "net.minecraft.world.level.levelgen.DensityFunctions$Mapped$Type",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "net.minecraft.world.level.levelgen.DensityFunctions$Marker$Type",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -2984,7 +2859,7 @@
     },
     {
       "javaName": "net.minecraft.world.level.levelgen.structure.structures.OceanMonumentPieces$RoomDefinition",
-      "occurrences": 11,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3004,7 +2879,7 @@
     },
     {
       "javaName": "net.minecraft.world.level.storage.loot.entries.ComposableEntryContainer",
-      "occurrences": 9,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3029,7 +2904,7 @@
     },
     {
       "javaName": "org.apache.commons.lang3.mutable.MutableBoolean",
-      "occurrences": 5,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3084,7 +2959,7 @@
     },
     {
       "javaName": "org.bukkit.attribute.Attribute",
-      "occurrences": 93,
+      "occurrences": 21,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3099,7 +2974,7 @@
     },
     {
       "javaName": "org.bukkit.attribute.AttributeModifier",
-      "occurrences": 49,
+      "occurrences": 13,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3119,7 +2994,7 @@
     },
     {
       "javaName": "org.bukkit.BanEntry",
-      "occurrences": 44,
+      "occurrences": 36,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3184,7 +3059,7 @@
     },
     {
       "javaName": "org.bukkit.block.Block",
-      "occurrences": 69,
+      "occurrences": 65,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3194,7 +3069,7 @@
     },
     {
       "javaName": "org.bukkit.block.BlockState",
-      "occurrences": 147,
+      "occurrences": 43,
       "reason": "not-in-scanner-model"
     },
     {
@@ -3299,7 +3174,7 @@
     },
     {
       "javaName": "org.bukkit.block.data.BlockData",
-      "occurrences": 97,
+      "occurrences": 61,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4209,12 +4084,7 @@
     },
     {
       "javaName": "org.bukkit.command.Command",
-      "occurrences": 3,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "org.bukkit.command.CommandMap",
-      "occurrences": 1,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4224,7 +4094,7 @@
     },
     {
       "javaName": "org.bukkit.command.CommandSender$Spigot",
-      "occurrences": 5,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4279,7 +4149,7 @@
     },
     {
       "javaName": "org.bukkit.craftbukkit.inventory.CraftMetaItem",
-      "occurrences": 41,
+      "occurrences": 22,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4334,7 +4204,7 @@
     },
     {
       "javaName": "org.bukkit.enchantments.Enchantment",
-      "occurrences": 106,
+      "occurrences": 16,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4649,7 +4519,7 @@
     },
     {
       "javaName": "org.bukkit.entity.ComplexLivingEntity",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4769,12 +4639,12 @@
     },
     {
       "javaName": "org.bukkit.entity.Entity",
-      "occurrences": 147,
+      "occurrences": 143,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.entity.Entity$Spigot",
-      "occurrences": 3,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4784,7 +4654,7 @@
     },
     {
       "javaName": "org.bukkit.entity.EntityFactory",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -4794,7 +4664,7 @@
     },
     {
       "javaName": "org.bukkit.entity.EntityType",
-      "occurrences": 60,
+      "occurrences": 59,
       "reason": "not-in-scanner-model"
     },
     {
@@ -5029,7 +4899,7 @@
     },
     {
       "javaName": "org.bukkit.entity.LivingEntity",
-      "occurrences": 33,
+      "occurrences": 32,
       "reason": "not-in-scanner-model"
     },
     {
@@ -5209,7 +5079,7 @@
     },
     {
       "javaName": "org.bukkit.entity.Player",
-      "occurrences": 57,
+      "occurrences": 56,
       "reason": "not-in-scanner-model"
     },
     {
@@ -5729,7 +5599,7 @@
     },
     {
       "javaName": "org.bukkit.event.entity.EntityDamageEvent",
-      "occurrences": 13,
+      "occurrences": 11,
       "reason": "not-in-scanner-model"
     },
     {
@@ -5744,7 +5614,7 @@
     },
     {
       "javaName": "org.bukkit.event.entity.EntityDeathEvent",
-      "occurrences": 7,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6204,7 +6074,7 @@
     },
     {
       "javaName": "org.bukkit.generator.BiomeProvider",
-      "occurrences": 8,
+      "occurrences": 7,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6214,7 +6084,7 @@
     },
     {
       "javaName": "org.bukkit.generator.ChunkGenerator",
-      "occurrences": 7,
+      "occurrences": 6,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6264,7 +6134,7 @@
     },
     {
       "javaName": "org.bukkit.help.HelpTopic",
-      "occurrences": 10,
+      "occurrences": 9,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6289,17 +6159,17 @@
     },
     {
       "javaName": "org.bukkit.inventory.AbstractHorseInventory",
-      "occurrences": 4,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.AnvilInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.BeaconInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6309,12 +6179,12 @@
     },
     {
       "javaName": "org.bukkit.inventory.BlockInventoryHolder",
-      "occurrences": 3,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.BrewerInventory",
-      "occurrences": 6,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6344,7 +6214,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.CrafterInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6374,7 +6244,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.EnchantingInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6384,7 +6254,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.EquipmentSlot",
-      "occurrences": 75,
+      "occurrences": 39,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6394,7 +6264,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.FurnaceInventory",
-      "occurrences": 6,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6414,17 +6284,17 @@
     },
     {
       "javaName": "org.bukkit.inventory.Inventory",
-      "occurrences": 90,
+      "occurrences": 76,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.InventoryHolder",
-      "occurrences": 67,
+      "occurrences": 57,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.InventoryView",
-      "occurrences": 55,
+      "occurrences": 36,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6439,22 +6309,22 @@
     },
     {
       "javaName": "org.bukkit.inventory.ItemFactory",
-      "occurrences": 6,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.ItemFlag",
-      "occurrences": 57,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.ItemRarity",
-      "occurrences": 37,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.ItemStack",
-      "occurrences": 377,
+      "occurrences": 337,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6474,7 +6344,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.LecternInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6484,7 +6354,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.LoomInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6509,7 +6379,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.MerchantInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6519,12 +6389,12 @@
     },
     {
       "javaName": "org.bukkit.inventory.meta.ArmorMeta",
-      "occurrences": 3,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.AxolotlBucketMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6544,7 +6414,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.meta.BookMeta",
-      "occurrences": 12,
+      "occurrences": 10,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6569,37 +6439,37 @@
     },
     {
       "javaName": "org.bukkit.inventory.meta.ColorableArmorMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.CompassMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.components.CustomModelDataComponent",
-      "occurrences": 37,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.components.EquippableComponent",
-      "occurrences": 37,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.components.FoodComponent",
-      "occurrences": 37,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.components.JukeboxPlayableComponent",
-      "occurrences": 37,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.components.ToolComponent",
-      "occurrences": 39,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6609,7 +6479,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.meta.components.UseCooldownComponent",
-      "occurrences": 37,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6618,48 +6488,33 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "org.bukkit.inventory.meta.Damageable",
-      "occurrences": 19,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "org.bukkit.inventory.meta.FireworkMeta",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.ItemMeta",
-      "occurrences": 50,
+      "occurrences": 31,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.KnowledgeBookMeta",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "org.bukkit.inventory.meta.LeatherArmorMeta",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.MusicInstrumentMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.OminousBottleMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.PotionMeta",
       "occurrences": 3,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "org.bukkit.inventory.meta.Repairable",
-      "occurrences": 19,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6669,17 +6524,17 @@
     },
     {
       "javaName": "org.bukkit.inventory.meta.SpawnEggMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.SuspiciousStewMeta",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.inventory.meta.tags.CustomItemTagContainer",
-      "occurrences": 20,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6709,7 +6564,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.meta.WritableBookMeta",
-      "occurrences": 3,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6719,7 +6574,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.Recipe",
-      "occurrences": 25,
+      "occurrences": 23,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6779,7 +6634,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.StonecutterInventory",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6809,7 +6664,7 @@
     },
     {
       "javaName": "org.bukkit.inventory.view.builder.InventoryViewBuilder",
-      "occurrences": 15,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6864,12 +6719,12 @@
     },
     {
       "javaName": "org.bukkit.Keyed",
-      "occurrences": 21,
+      "occurrences": 15,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.Location",
-      "occurrences": 519,
+      "occurrences": 342,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6929,7 +6784,7 @@
     },
     {
       "javaName": "org.bukkit.map.MapView",
-      "occurrences": 6,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6939,7 +6794,7 @@
     },
     {
       "javaName": "org.bukkit.Material",
-      "occurrences": 280,
+      "occurrences": 262,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6959,7 +6814,7 @@
     },
     {
       "javaName": "org.bukkit.metadata.MetadataValue",
-      "occurrences": 13,
+      "occurrences": 12,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6974,7 +6829,7 @@
     },
     {
       "javaName": "org.bukkit.NamespacedKey",
-      "occurrences": 216,
+      "occurrences": 140,
       "reason": "not-in-scanner-model"
     },
     {
@@ -6984,7 +6839,7 @@
     },
     {
       "javaName": "org.bukkit.OfflinePlayer",
-      "occurrences": 28,
+      "occurrences": 26,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7019,7 +6874,7 @@
     },
     {
       "javaName": "org.bukkit.permissions.PermissibleBase",
-      "occurrences": 3,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7039,12 +6894,12 @@
     },
     {
       "javaName": "org.bukkit.persistence.PersistentDataAdapterContext",
-      "occurrences": 9,
+      "occurrences": 7,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.persistence.PersistentDataContainer",
-      "occurrences": 35,
+      "occurrences": 15,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7064,7 +6919,7 @@
     },
     {
       "javaName": "org.bukkit.plugin.Plugin",
-      "occurrences": 81,
+      "occurrences": 80,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7084,11 +6939,6 @@
     },
     {
       "javaName": "org.bukkit.plugin.ServicesManager",
-      "occurrences": 1,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "org.bukkit.potion.PotionBrewer",
       "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
@@ -7129,12 +6979,12 @@
     },
     {
       "javaName": "org.bukkit.profile.PlayerProfile",
-      "occurrences": 13,
+      "occurrences": 12,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.profile.PlayerTextures",
-      "occurrences": 4,
+      "occurrences": 3,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7184,7 +7034,7 @@
     },
     {
       "javaName": "org.bukkit.scheduler.BukkitScheduler",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7199,7 +7049,7 @@
     },
     {
       "javaName": "org.bukkit.scoreboard.Criteria",
-      "occurrences": 6,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7224,12 +7074,12 @@
     },
     {
       "javaName": "org.bukkit.scoreboard.Scoreboard",
-      "occurrences": 5,
+      "occurrences": 2,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.scoreboard.ScoreboardManager",
-      "occurrences": 2,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7324,7 +7174,7 @@
     },
     {
       "javaName": "org.bukkit.Tag",
-      "occurrences": 44,
+      "occurrences": 8,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7364,7 +7214,7 @@
     },
     {
       "javaName": "org.bukkit.util.CachedServerIcon",
-      "occurrences": 4,
+      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7375,11 +7225,6 @@
     {
       "javaName": "org.bukkit.util.EulerAngle",
       "occurrences": 12,
-      "reason": "not-in-scanner-model"
-    },
-    {
-      "javaName": "org.bukkit.util.OldEnum",
-      "occurrences": 1,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7419,12 +7264,12 @@
     },
     {
       "javaName": "org.bukkit.World",
-      "occurrences": 111,
+      "occurrences": 104,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.bukkit.World$Environment",
-      "occurrences": 6,
+      "occurrences": 5,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7528,18 +7373,13 @@
       "reason": "not-in-scanner-model"
     },
     {
-      "javaName": "org.objectweb.asm.MethodVisitor",
-      "occurrences": 2,
-      "reason": "not-in-scanner-model"
-    },
-    {
       "javaName": "org.objectweb.asm.Type",
       "occurrences": 12,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "org.slf4j.Logger",
-      "occurrences": 15,
+      "occurrences": 14,
       "reason": "not-in-scanner-model"
     },
     {
@@ -7549,12 +7389,12 @@
     },
     {
       "javaName": "org.spigotmc.SpigotWorldConfig",
-      "occurrences": 8,
+      "occurrences": 7,
       "reason": "not-in-scanner-model"
     },
     {
       "javaName": "T",
-      "occurrences": 55,
+      "occurrences": 53,
       "reason": "not-in-scanner-model"
     }
   ],

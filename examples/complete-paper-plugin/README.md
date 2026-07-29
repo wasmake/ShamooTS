@@ -11,10 +11,10 @@ pnpm build
 ```
 
 The async `/shamoo-status` handler awaits an explicit `PaperCommandContext.reply`; its decorated
-method return value is ignored. Runtime event callbacks are data-only DTOs, so the join handler
-consumes `{ type, asynchronous }` rather than a Java event proxy. The argument-free `@Scheduled()`
-declaration registers one immediate global task with no timing options. Use the `folia` example for
-explicit scheduler ownership.
+method return value is ignored. Runtime event callbacks receive generation-scoped `PaperHandle`
+values backed by the generated public Paper catalog, never raw Javet Java proxies. The argument-free
+`@Scheduled()` declaration registers one immediate global task with no timing options. Use the
+`folia` example for explicit scheduler ownership.
 
 ## Ready-to-run
 

@@ -103,7 +103,7 @@ export interface BlockFailedDispenseEventStatics {
 /** JVM class io.papermc.paper.event.block.BlockLockCheckEvent. */
 export interface BlockLockCheckEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event_block.BlockEvent];
-  denyWithMessageAndSound(arg0: j_net_kyori_adventure_text.Component, arg1: j_net_kyori_adventure_sound.Sound): void | null;
+  denyWithMessageAndSound(arg0: j_net_kyori_adventure_text.Component | null, arg1: j_net_kyori_adventure_sound.Sound | null): void;
   getBlockState(): j_io_papermc_paper_block.LockableTileState;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getKeyItem(): j_org_bukkit_inventory.ItemStack;
@@ -114,8 +114,8 @@ export interface BlockLockCheckEventMembers {
   isUsingCustomKeyItemStack(): boolean;
   resetKeyItem(): void;
   setKeyItem(arg0: j_org_bukkit_inventory.ItemStack): void;
-  setLockedMessage(arg0: j_net_kyori_adventure_text.Component): void | null;
-  setLockedSound(arg0: j_net_kyori_adventure_sound.Sound): void | null;
+  setLockedMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setLockedSound(arg0: j_net_kyori_adventure_sound.Sound | null): void;
   setResult(arg0: j_org_bukkit_event.Event_Result): void;
 }
 export type BlockLockCheckEvent = BlockLockCheckEventMembers & j_org_bukkit_event_block.BlockEvent;
@@ -207,6 +207,6 @@ export interface VaultChangeStateEventMembers {
 }
 export type VaultChangeStateEvent = VaultChangeStateEventMembers & j_org_bukkit_event_block.BlockEvent & j_org_bukkit_event.Cancellable;
 export interface VaultChangeStateEventStatics {
-  new(arg0: j_org_bukkit_block.Block, arg1: j_org_bukkit_entity.Player, arg2: j_org_bukkit_block_data_type.Vault_State, arg3: j_org_bukkit_block_data_type.Vault_State): VaultChangeStateEvent;
+  new(arg0: j_org_bukkit_block.Block, arg1: j_org_bukkit_entity.Player | null, arg2: j_org_bukkit_block_data_type.Vault_State, arg3: j_org_bukkit_block_data_type.Vault_State): VaultChangeStateEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }

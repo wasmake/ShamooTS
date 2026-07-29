@@ -5,7 +5,7 @@ import type * as j_net_minecraft_world_level_chunk_status from './net.minecraft.
 
 /** JVM interface net.minecraft.server.level.progress.ChunkProgressListener. */
 export interface ChunkProgressListenerMembers {
-  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void | null;
+  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void;
   start(): void;
   stop(): void;
   updateSpawnPos(arg0: j_net_minecraft_world_level.ChunkPos): void;
@@ -27,7 +27,7 @@ export interface ChunkProgressListenerFactoryStatics {
 export interface LoggerChunkProgressListenerMembers {
   readonly __javaSupertypes?: readonly [ChunkProgressListener];
   getProgress(): number;
-  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void | null;
+  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void;
   start(): void;
   stop(): void;
   updateSpawnPos(arg0: j_net_minecraft_world_level.ChunkPos): void;
@@ -42,7 +42,7 @@ export interface LoggerChunkProgressListenerStatics {
 /** JVM class net.minecraft.server.level.progress.ProcessorChunkProgressListener. */
 export interface ProcessorChunkProgressListenerMembers {
   readonly __javaSupertypes?: readonly [ChunkProgressListener];
-  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void | null;
+  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void;
   start(): void;
   stop(): void;
   updateSpawnPos(arg0: j_net_minecraft_world_level.ChunkPos): void;
@@ -59,7 +59,7 @@ export interface StoringChunkProgressListenerMembers {
   getFullDiameter(): number;
   getProgress(): number;
   getStatus(arg0: number, arg1: number): j_net_minecraft_world_level_chunk_status.ChunkStatus | null;
-  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void | null;
+  onStatusChange(arg0: j_net_minecraft_world_level.ChunkPos, arg1: j_net_minecraft_world_level_chunk_status.ChunkStatus | null): void;
   start(): void;
   stop(): void;
   updateSpawnPos(arg0: j_net_minecraft_world_level.ChunkPos): void;

@@ -36,7 +36,7 @@ export interface BrainMembers<E /* extends j_net_minecraft_world_entity.LivingEn
   setActiveActivityToFirstValid(arg0: JavaList<j_net_minecraft_world_entity_schedule.Activity>): void;
   setCoreActivities(arg0: JavaSet<j_net_minecraft_world_entity_schedule.Activity>): void;
   setDefaultActivity(arg0: j_net_minecraft_world_entity_schedule.Activity): void;
-  setMemory<U>(arg0: j_net_minecraft_world_entity_ai_memory.MemoryModuleType<U>, arg1: U | null): void | null;
+  setMemory<U>(arg0: j_net_minecraft_world_entity_ai_memory.MemoryModuleType<U>, arg1: U | null): void;
   setMemory<U>(arg0: j_net_minecraft_world_entity_ai_memory.MemoryModuleType<U>, arg1: JavaOptional<U>): void;
   setMemoryWithExpiry<U>(arg0: j_net_minecraft_world_entity_ai_memory.MemoryModuleType<U>, arg1: U, arg2: bigint): void;
   setSchedule(arg0: j_net_minecraft_world_entity_schedule.Schedule): void;

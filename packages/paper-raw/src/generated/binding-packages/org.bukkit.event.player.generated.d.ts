@@ -105,7 +105,7 @@ export interface PlayerAdvancementDoneEventMembers {
   getAdvancement(): j_org_bukkit_advancement.Advancement;
   getHandlers(): j_org_bukkit_event.HandlerList;
   message(): j_net_kyori_adventure_text.Component | null;
-  message(arg0: j_net_kyori_adventure_text.Component | null): void | null;
+  message(arg0: j_net_kyori_adventure_text.Component | null): void;
 }
 export type PlayerAdvancementDoneEvent = PlayerAdvancementDoneEventMembers & PlayerEvent;
 export interface PlayerAdvancementDoneEventStatics {
@@ -148,7 +148,6 @@ export interface PlayerArmorStandManipulateEventMembers {
   getHandlers(): j_org_bukkit_event.HandlerList;
   getPlayerItem(): j_org_bukkit_inventory.ItemStack;
   getRightClicked(): j_org_bukkit_entity.ArmorStand;
-  getRightClicked(): j_org_bukkit_entity.Entity;
   getSlot(): j_org_bukkit_inventory.EquipmentSlot;
 }
 export type PlayerArmorStandManipulateEvent = PlayerArmorStandManipulateEventMembers & PlayerInteractEntityEvent;
@@ -242,7 +241,6 @@ export interface PlayerBucketEmptyEventStatics {
 /** JVM class org.bukkit.event.player.PlayerBucketEntityEvent. */
 export interface PlayerBucketEntityEventMembers {
   readonly __javaSupertypes?: readonly [PlayerEvent, j_org_bukkit_event.Cancellable];
-  readonly entity: j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Entity;
   getEntityBucket(): j_org_bukkit_inventory.ItemStack;
   getHand(): j_org_bukkit_inventory.EquipmentSlot;
@@ -268,13 +266,10 @@ export interface PlayerBucketEventMembers {
   getItemStack(): j_org_bukkit_inventory.ItemStack | null;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setItemStack(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItemStack(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PlayerBucketEvent = PlayerBucketEventMembers & PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerBucketEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_org_bukkit_block.Block, arg2: j_org_bukkit_block.Block, arg3: j_org_bukkit_block.BlockFace, arg4: j_org_bukkit.Material, arg5: j_org_bukkit_inventory.ItemStack): PlayerBucketEvent;
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_org_bukkit_block.Block, arg2: j_org_bukkit_block.Block, arg3: j_org_bukkit_block.BlockFace, arg4: j_org_bukkit.Material, arg5: j_org_bukkit_inventory.ItemStack, arg6: j_org_bukkit_inventory.EquipmentSlot): PlayerBucketEvent;
-  new(arg0: j_org_bukkit_entity.Player, arg1: j_org_bukkit_block.Block, arg2: j_org_bukkit_block.BlockFace, arg3: j_org_bukkit.Material, arg4: j_org_bukkit_inventory.ItemStack): PlayerBucketEvent;
 }
 
 /** JVM class org.bukkit.event.player.PlayerBucketFillEvent. */
@@ -293,7 +288,6 @@ export interface PlayerBucketFillEventStatics {
 /** JVM class org.bukkit.event.player.PlayerBucketFishEvent. */
 export interface PlayerBucketFishEventMembers {
   readonly __javaSupertypes?: readonly [PlayerBucketEntityEvent];
-  getEntity(): j_org_bukkit_entity.Entity;
   getEntity(): j_org_bukkit_entity.Fish;
   getFishBucket(): j_org_bukkit_inventory.ItemStack;
   getWaterBucket(): j_org_bukkit_inventory.ItemStack;
@@ -336,7 +330,6 @@ export interface PlayerChannelEventMembers {
 }
 export type PlayerChannelEvent = PlayerChannelEventMembers & PlayerEvent;
 export interface PlayerChannelEventStatics {
-  new(arg0: j_org_bukkit_entity.Player, arg1: string): PlayerChannelEvent;
   getHandlerList(): j_org_bukkit_event.HandlerList;
 }
 
@@ -462,12 +455,9 @@ export interface PlayerEggThrowEventStatics {
 export interface PlayerEventMembers {
   readonly __javaSupertypes?: readonly [j_org_bukkit_event.Event];
   getPlayer(): j_org_bukkit_entity.Player;
-  player: j_org_bukkit_entity.Player;
 }
 export type PlayerEvent = PlayerEventMembers & j_org_bukkit_event.Event;
 export interface PlayerEventStatics {
-  new(arg0: j_org_bukkit_entity.Player): PlayerEvent;
-  new(arg0: j_org_bukkit_entity.Player, arg1: boolean): PlayerEvent;
 }
 
 /** JVM class org.bukkit.event.player.PlayerExpChangeEvent. */
@@ -551,7 +541,7 @@ export interface PlayerFishEvent_StateStatics {
 export interface PlayerGameModeChangeEventMembers {
   readonly __javaSupertypes?: readonly [PlayerEvent, j_org_bukkit_event.Cancellable];
   cancelMessage(): j_net_kyori_adventure_text.Component | null;
-  cancelMessage(arg0: j_net_kyori_adventure_text.Component | null): void | null;
+  cancelMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
   getCause(): PlayerGameModeChangeEvent_Cause;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getNewGameMode(): j_org_bukkit.GameMode;
@@ -636,7 +626,6 @@ export interface PlayerInteractAtEntityEventStatics {
 /** JVM class org.bukkit.event.player.PlayerInteractEntityEvent. */
 export interface PlayerInteractEntityEventMembers {
   readonly __javaSupertypes?: readonly [PlayerEvent, j_org_bukkit_event.Cancellable];
-  clickedEntity: j_org_bukkit_entity.Entity;
   getHand(): j_org_bukkit_inventory.EquipmentSlot;
   getHandlers(): j_org_bukkit_event.HandlerList;
   getRightClicked(): j_org_bukkit_entity.Entity;
@@ -701,8 +690,8 @@ export interface PlayerItemConsumeEventMembers {
   getReplacement(): j_org_bukkit_inventory.ItemStack | null;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
-  setReplacement(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setReplacement(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PlayerItemConsumeEvent = PlayerItemConsumeEventMembers & PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerItemConsumeEventStatics {
@@ -773,8 +762,8 @@ export interface PlayerJoinEventMembers {
   getHandlers(): j_org_bukkit_event.HandlerList;
   getJoinMessage(): string | null;
   joinMessage(): j_net_kyori_adventure_text.Component | null;
-  joinMessage(arg0: j_net_kyori_adventure_text.Component | null): void | null;
-  setJoinMessage(arg0: string | null): void | null;
+  joinMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setJoinMessage(arg0: string | null): void;
 }
 export type PlayerJoinEvent = PlayerJoinEventMembers & PlayerEvent;
 export interface PlayerJoinEventStatics {
@@ -1040,8 +1029,8 @@ export interface PlayerQuitEventMembers {
   getQuitMessage(): string | null;
   getReason(): PlayerQuitEvent_QuitReason;
   quitMessage(): j_net_kyori_adventure_text.Component | null;
-  quitMessage(arg0: j_net_kyori_adventure_text.Component | null): void | null;
-  setQuitMessage(arg0: string | null): void | null;
+  quitMessage(arg0: j_net_kyori_adventure_text.Component | null): void;
+  setQuitMessage(arg0: string | null): void;
 }
 export type PlayerQuitEvent = PlayerQuitEventMembers & PlayerEvent;
 export interface PlayerQuitEventStatics {
@@ -1288,7 +1277,7 @@ export interface PlayerSpawnChangeEventMembers {
   isForced(): boolean;
   setCancelled(arg0: boolean): void;
   setForced(arg0: boolean): void;
-  setNewSpawn(arg0: j_org_bukkit.Location | null): void | null;
+  setNewSpawn(arg0: j_org_bukkit.Location | null): void;
 }
 export type PlayerSpawnChangeEvent = PlayerSpawnChangeEventMembers & PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerSpawnChangeEventStatics {
@@ -1322,7 +1311,6 @@ export interface PlayerStatisticIncrementEventMembers {
   getStatistic(): j_org_bukkit.Statistic;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  readonly statistic: j_org_bukkit.Statistic;
 }
 export type PlayerStatisticIncrementEvent = PlayerStatisticIncrementEventMembers & PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerStatisticIncrementEventStatics {
@@ -1340,8 +1328,8 @@ export interface PlayerSwapHandItemsEventMembers {
   getOffHandItem(): j_org_bukkit_inventory.ItemStack;
   isCancelled(): boolean;
   setCancelled(arg0: boolean): void;
-  setMainHandItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
-  setOffHandItem(arg0: j_org_bukkit_inventory.ItemStack | null): void | null;
+  setMainHandItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
+  setOffHandItem(arg0: j_org_bukkit_inventory.ItemStack | null): void;
 }
 export type PlayerSwapHandItemsEvent = PlayerSwapHandItemsEventMembers & PlayerEvent & j_org_bukkit_event.Cancellable;
 export interface PlayerSwapHandItemsEventStatics {

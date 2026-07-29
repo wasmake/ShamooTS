@@ -249,6 +249,11 @@ describe('universal platform bundler', () => {
               invocation: 'event',
               decorators: [
                 { name: 'OnPlayerJoinEvent', arguments: [], location: sourceLocation(file) },
+                {
+                  name: 'OnPlayerRecipeBookClickEvent_2',
+                  arguments: ['HIGHEST', true],
+                  location: sourceLocation(file),
+                },
               ],
               parameters: [],
               location: sourceLocation(file),
@@ -374,6 +379,13 @@ describe('universal platform bundler', () => {
         'PlayerJoinEvent',
         'NORMAL',
         false,
+        { $callback: joinedCallback },
+      ],
+      [
+        metadataFor('paperSubscribeEvent', 'joined'),
+        'PlayerRecipeBookClickEvent_2',
+        'HIGHEST',
+        true,
         { $callback: joinedCallback },
       ],
       [

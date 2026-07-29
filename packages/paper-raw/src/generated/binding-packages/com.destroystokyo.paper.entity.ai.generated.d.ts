@@ -21,7 +21,7 @@ export interface GoalStatics {
 
 /** JVM class com.destroystokyo.paper.entity.ai.GoalKey. */
 export interface GoalKeyMembers<T /* extends j_org_bukkit_entity.Mob */ = unknown> {
-  equals(arg0: object): boolean | null;
+  equals(arg0: object | null): boolean;
   getEntityClass(): JavaClass<T>;
   getNamespacedKey(): j_org_bukkit.NamespacedKey;
   hashCode(): number;

@@ -18,10 +18,7 @@ export interface Attachable_2Statics {
 /** JVM class org.bukkit.material.Banner. */
 export interface Banner_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Attachable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Banner_2;
-  clone(): MaterialData;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   getFacing(): j_org_bukkit_block.BlockFace;
   isWallBanner(): boolean;
@@ -38,10 +35,7 @@ export interface Banner_2Statics {
 /** JVM class org.bukkit.material.Bed. */
 export interface Bed_3Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Bed_3;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   isHeadOfBed(): boolean;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
@@ -59,11 +53,7 @@ export interface Bed_3Statics {
 /** JVM class org.bukkit.material.Button. */
 export interface ButtonMembers {
   readonly __javaSupertypes?: readonly [SimpleAttachableMaterialData, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Button;
-  clone(): MaterialData;
-  clone(): SimpleAttachableMaterialData;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   isPowered(): boolean;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
@@ -80,10 +70,7 @@ export interface ButtonStatics {
 /** JVM class org.bukkit.material.Cake. */
 export interface Cake_2Members {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Cake_2;
-  clone(): MaterialData;
   getSlicesEaten(): number;
   getSlicesRemaining(): number;
   setSlicesEaten(arg0: number): void;
@@ -100,10 +87,7 @@ export interface Cake_2Statics {
 /** JVM class org.bukkit.material.Cauldron. */
 export interface CauldronMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Cauldron;
-  clone(): MaterialData;
   isEmpty(): boolean;
   isFull(): boolean;
   toString(): string;
@@ -118,11 +102,7 @@ export interface CauldronStatics {
 /** JVM class org.bukkit.material.Chest. */
 export interface Chest_3Members {
   readonly __javaSupertypes?: readonly [DirectionalContainer];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Chest_3;
-  clone(): DirectionalContainer;
-  clone(): MaterialData;
 }
 export type Chest_3 = Chest_3Members & DirectionalContainer;
 export interface Chest_3Statics {
@@ -135,10 +115,7 @@ export interface Chest_3Statics {
 /** JVM class org.bukkit.material.Coal. */
 export interface CoalMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Coal;
-  clone(): MaterialData;
   getType(): j_org_bukkit.CoalType;
   setType(arg0: j_org_bukkit.CoalType): void;
   toString(): string;
@@ -154,10 +131,7 @@ export interface CoalStatics {
 /** JVM class org.bukkit.material.CocoaPlant. */
 export interface CocoaPlantMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Attachable_2, Directional_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): CocoaPlant;
-  clone(): MaterialData;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   getFacing(): j_org_bukkit_block.BlockFace;
   getSize(): CocoaPlant_CocoaPlantSize;
@@ -197,10 +171,7 @@ export interface ColorableStatics {
 /** JVM class org.bukkit.material.Command. */
 export interface Command_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Command_2;
-  clone(): MaterialData;
   isPowered(): boolean;
   setPowered(arg0: boolean): void;
   toString(): string;
@@ -215,10 +186,7 @@ export interface Command_2Statics {
 /** JVM class org.bukkit.material.Comparator. */
 export interface Comparator_3Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Comparator_3;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   isBeingPowered(): boolean;
   isPowered(): boolean;
@@ -235,18 +203,12 @@ export interface Comparator_3Statics {
   new(arg0: j_org_bukkit_block.BlockFace): Comparator_3;
   new(arg0: j_org_bukkit_block.BlockFace, arg1: boolean): Comparator_3;
   new(arg0: j_org_bukkit_block.BlockFace, arg1: boolean, arg2: boolean): Comparator_3;
-  readonly DEFAULT_DIRECTION: j_org_bukkit_block.BlockFace;
-  readonly DEFAULT_STATE: 0;
-  readonly DEFAULT_SUBTRACTION_MODE: 0;
 }
 
 /** JVM class org.bukkit.material.Crops. */
 export interface CropsMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Crops;
-  clone(): MaterialData;
   getState(): j_org_bukkit.CropState;
   setState(arg0: j_org_bukkit.CropState): void;
   toString(): string;
@@ -258,19 +220,12 @@ export interface CropsStatics {
   new(arg0: j_org_bukkit.Material): Crops;
   new(arg0: j_org_bukkit.Material, arg1: number): Crops;
   new(arg0: j_org_bukkit.Material, arg1: j_org_bukkit.CropState): Crops;
-  readonly DEFAULT_STATE: j_org_bukkit.CropState;
-  readonly DEFAULT_TYPE: j_org_bukkit.Material;
 }
 
 /** JVM class org.bukkit.material.DetectorRail. */
 export interface DetectorRailMembers {
   readonly __javaSupertypes?: readonly [ExtendedRails, PressureSensor];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): DetectorRail;
-  clone(): ExtendedRails;
-  clone(): MaterialData;
-  clone(): Rails;
   isPressed(): boolean;
   setPressed(arg0: boolean): void;
 }
@@ -284,10 +239,7 @@ export interface DetectorRailStatics {
 /** JVM class org.bukkit.material.Diode. */
 export interface DiodeMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Diode;
-  clone(): MaterialData;
   getDelay(): number;
   getFacing(): j_org_bukkit_block.BlockFace;
   isPowered(): boolean;
@@ -303,9 +255,6 @@ export interface DiodeStatics {
   new(arg0: j_org_bukkit_block.BlockFace): Diode;
   new(arg0: j_org_bukkit_block.BlockFace, arg1: number): Diode;
   new(arg0: j_org_bukkit_block.BlockFace, arg1: number, arg2: boolean): Diode;
-  readonly DEFAULT_DELAY: 1;
-  readonly DEFAULT_DIRECTION: j_org_bukkit_block.BlockFace;
-  readonly DEFAULT_STATE: 0;
 }
 
 /** JVM interface org.bukkit.material.Directional. */
@@ -320,10 +269,7 @@ export interface Directional_2Statics {
 /** JVM class org.bukkit.material.DirectionalContainer. */
 export interface DirectionalContainerMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): DirectionalContainer;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
   toString(): string;
@@ -337,12 +283,7 @@ export interface DirectionalContainerStatics {
 /** JVM class org.bukkit.material.Dispenser. */
 export interface Dispenser_3Members {
   readonly __javaSupertypes?: readonly [FurnaceAndDispenser];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): DirectionalContainer;
   clone(): Dispenser_3;
-  clone(): FurnaceAndDispenser;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
 }
@@ -357,10 +298,7 @@ export interface Dispenser_3Statics {
 /** JVM class org.bukkit.material.Door. */
 export interface Door_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Openable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Door_2;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   getHinge(): boolean;
   getHingeCorner(): j_org_bukkit_block.BlockFace;
@@ -389,10 +327,7 @@ export interface Door_2Statics {
 /** JVM class org.bukkit.material.Dye. */
 export interface DyeMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Colorable];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Dye;
-  clone(): MaterialData;
   getColor(): j_org_bukkit.DyeColor;
   setColor(arg0: j_org_bukkit.DyeColor): void;
   toString(): string;
@@ -408,11 +343,7 @@ export interface DyeStatics {
 /** JVM class org.bukkit.material.EnderChest. */
 export interface EnderChest_3Members {
   readonly __javaSupertypes?: readonly [DirectionalContainer];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): DirectionalContainer;
   clone(): EnderChest_3;
-  clone(): MaterialData;
 }
 export type EnderChest_3 = EnderChest_3Members & DirectionalContainer;
 export interface EnderChest_3Statics {
@@ -425,12 +356,7 @@ export interface EnderChest_3Statics {
 /** JVM class org.bukkit.material.ExtendedRails. */
 export interface ExtendedRailsMembers {
   readonly __javaSupertypes?: readonly [Rails];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): ExtendedRails;
-  clone(): MaterialData;
-  clone(): Rails;
-  getConvertedData(): number;
   isCurve(): boolean;
   setDirection(arg0: j_org_bukkit_block.BlockFace, arg1: boolean): void;
 }
@@ -443,10 +369,7 @@ export interface ExtendedRailsStatics {
 /** JVM class org.bukkit.material.FlowerPot. */
 export interface FlowerPotMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): FlowerPot;
-  clone(): MaterialData;
   getContents(): MaterialData;
   setContents(arg0: MaterialData): void;
   toString(): string;
@@ -461,12 +384,7 @@ export interface FlowerPotStatics {
 /** JVM class org.bukkit.material.Furnace. */
 export interface Furnace_3Members {
   readonly __javaSupertypes?: readonly [FurnaceAndDispenser];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): DirectionalContainer;
   clone(): Furnace_3;
-  clone(): FurnaceAndDispenser;
-  clone(): MaterialData;
 }
 export type Furnace_3 = Furnace_3Members & FurnaceAndDispenser;
 export interface Furnace_3Statics {
@@ -479,11 +397,7 @@ export interface Furnace_3Statics {
 /** JVM class org.bukkit.material.FurnaceAndDispenser. */
 export interface FurnaceAndDispenserMembers {
   readonly __javaSupertypes?: readonly [DirectionalContainer];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): DirectionalContainer;
   clone(): FurnaceAndDispenser;
-  clone(): MaterialData;
 }
 export type FurnaceAndDispenser = FurnaceAndDispenserMembers & DirectionalContainer;
 export interface FurnaceAndDispenserStatics {
@@ -494,10 +408,7 @@ export interface FurnaceAndDispenserStatics {
 /** JVM class org.bukkit.material.Gate. */
 export interface Gate_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Openable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Gate_2;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   isOpen(): boolean;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
@@ -514,10 +425,7 @@ export interface Gate_2Statics {
 /** JVM class org.bukkit.material.Hopper. */
 export interface Hopper_3Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Hopper_3;
-  clone(): MaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   isActive(): boolean;
   isPowered(): boolean;
@@ -532,18 +440,12 @@ export interface Hopper_3Statics {
   new(arg0: j_org_bukkit.Material, arg1: number): Hopper_3;
   new(arg0: j_org_bukkit_block.BlockFace): Hopper_3;
   new(arg0: j_org_bukkit_block.BlockFace, arg1: boolean): Hopper_3;
-  readonly DEFAULT_ACTIVE: 1;
-  readonly DEFAULT_DIRECTION: j_org_bukkit_block.BlockFace;
 }
 
 /** JVM class org.bukkit.material.Ladder. */
 export interface Ladder_2Members {
   readonly __javaSupertypes?: readonly [SimpleAttachableMaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Ladder_2;
-  clone(): MaterialData;
-  clone(): SimpleAttachableMaterialData;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
 }
@@ -557,11 +459,7 @@ export interface Ladder_2Statics {
 /** JVM class org.bukkit.material.Leaves. */
 export interface Leaves_2Members {
   readonly __javaSupertypes?: readonly [Wood];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Leaves_2;
-  clone(): MaterialData;
-  clone(): Wood;
   isDecayable(): boolean;
   isDecaying(): boolean;
   setDecayable(arg0: boolean): void;
@@ -577,18 +475,12 @@ export interface Leaves_2Statics {
   new(arg0: j_org_bukkit.Material, arg1: j_org_bukkit.TreeSpecies, arg2: boolean): Leaves_2;
   new(arg0: j_org_bukkit.TreeSpecies): Leaves_2;
   new(arg0: j_org_bukkit.TreeSpecies, arg1: boolean): Leaves_2;
-  readonly DEFAULT_DECAYABLE: 1;
-  readonly DEFAULT_TYPE: j_org_bukkit.Material;
 }
 
 /** JVM class org.bukkit.material.Lever. */
 export interface LeverMembers {
   readonly __javaSupertypes?: readonly [SimpleAttachableMaterialData, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): Lever;
-  clone(): MaterialData;
-  clone(): SimpleAttachableMaterialData;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   isPowered(): boolean;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
@@ -605,10 +497,7 @@ export interface LeverStatics {
 /** JVM class org.bukkit.material.LongGrass. */
 export interface LongGrassMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): LongGrass;
-  clone(): MaterialData;
   getSpecies(): j_org_bukkit.GrassSpecies;
   setSpecies(arg0: j_org_bukkit.GrassSpecies): void;
   toString(): string;
@@ -624,8 +513,6 @@ export interface LongGrassStatics {
 /** JVM class org.bukkit.material.MaterialData. */
 export interface MaterialDataMembers {
   readonly __javaSupertypes?: readonly [JavaOpaque<"java.lang.Cloneable">];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
   clone(): MaterialData;
   equals(arg0: object): boolean;
   getData(): number;
@@ -645,11 +532,7 @@ export interface MaterialDataStatics {
 /** JVM class org.bukkit.material.MonsterEggs. */
 export interface MonsterEggsMembers {
   readonly __javaSupertypes?: readonly [TexturedMaterial];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): MonsterEggs;
-  clone(): TexturedMaterial;
   getTextures(): JavaList<j_org_bukkit.Material>;
 }
 export type MonsterEggs = MonsterEggsMembers & TexturedMaterial;
@@ -662,9 +545,6 @@ export interface MonsterEggsStatics {
 /** JVM class org.bukkit.material.Mushroom. */
 export interface MushroomMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Mushroom;
   getBlockTexture(): j_org_bukkit_material_types.MushroomBlockTexture;
   getPaintedFaces(): JavaSet<j_org_bukkit_block.BlockFace>;
@@ -686,9 +566,6 @@ export interface MushroomStatics {
 /** JVM class org.bukkit.material.NetherWarts. */
 export interface NetherWartsMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): NetherWarts;
   getState(): j_org_bukkit.NetherWartsState;
   setState(arg0: j_org_bukkit.NetherWartsState): void;
@@ -705,9 +582,6 @@ export interface NetherWartsStatics {
 /** JVM class org.bukkit.material.Observer. */
 export interface Observer_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Observer_2;
   getFacing(): j_org_bukkit_block.BlockFace;
   isPowered(): boolean;
@@ -734,9 +608,6 @@ export interface Openable_2Statics {
 /** JVM class org.bukkit.material.PistonBaseMaterial. */
 export interface PistonBaseMaterialMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): PistonBaseMaterial;
   getFacing(): j_org_bukkit_block.BlockFace;
   isPowered(): boolean;
@@ -753,9 +624,6 @@ export interface PistonBaseMaterialStatics {
 /** JVM class org.bukkit.material.PistonExtensionMaterial. */
 export interface PistonExtensionMaterialMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Attachable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): PistonExtensionMaterial;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   getFacing(): j_org_bukkit_block.BlockFace;
@@ -772,12 +640,7 @@ export interface PistonExtensionMaterialStatics {
 /** JVM class org.bukkit.material.PoweredRail. */
 export interface PoweredRailMembers {
   readonly __javaSupertypes?: readonly [ExtendedRails, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): ExtendedRails;
-  clone(): MaterialData;
   clone(): PoweredRail;
-  clone(): Rails;
   isPowered(): boolean;
   setPowered(arg0: boolean): void;
 }
@@ -791,9 +654,6 @@ export interface PoweredRailStatics {
 /** JVM class org.bukkit.material.PressurePlate. */
 export interface PressurePlateMembers {
   readonly __javaSupertypes?: readonly [MaterialData, PressureSensor];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): PressurePlate;
   isPressed(): boolean;
   toString(): string;
@@ -816,9 +676,6 @@ export interface PressureSensorStatics {
 /** JVM class org.bukkit.material.Pumpkin. */
 export interface PumpkinMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Pumpkin;
   getFacing(): j_org_bukkit_block.BlockFace;
   isLit(): boolean;
@@ -836,11 +693,7 @@ export interface PumpkinStatics {
 /** JVM class org.bukkit.material.Rails. */
 export interface RailsMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Rails;
-  getConvertedData(): number;
   getDirection(): j_org_bukkit_block.BlockFace;
   isCurve(): boolean;
   isOnSlope(): boolean;
@@ -865,12 +718,7 @@ export interface RedstoneStatics {
 /** JVM class org.bukkit.material.RedstoneTorch. */
 export interface RedstoneTorchMembers {
   readonly __javaSupertypes?: readonly [Torch, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): RedstoneTorch;
-  clone(): SimpleAttachableMaterialData;
-  clone(): Torch;
   isPowered(): boolean;
   toString(): string;
 }
@@ -884,9 +732,6 @@ export interface RedstoneTorchStatics {
 /** JVM class org.bukkit.material.RedstoneWire. */
 export interface RedstoneWire_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): RedstoneWire_2;
   isPowered(): boolean;
   toString(): string;
@@ -901,9 +746,6 @@ export interface RedstoneWire_2Statics {
 /** JVM class org.bukkit.material.Sandstone. */
 export interface SandstoneMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Sandstone;
   getType(): j_org_bukkit.SandstoneType;
   setType(arg0: j_org_bukkit.SandstoneType): void;
@@ -920,11 +762,7 @@ export interface SandstoneStatics {
 /** JVM class org.bukkit.material.Sapling. */
 export interface Sapling_2Members {
   readonly __javaSupertypes?: readonly [Wood];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Sapling_2;
-  clone(): Wood;
   isInstantGrowable(): boolean;
   setIsInstantGrowable(arg0: boolean): void;
   toString(): string;
@@ -943,9 +781,6 @@ export interface Sapling_2Statics {
 /** JVM class org.bukkit.material.Sign. */
 export interface Sign_3Members {
   readonly __javaSupertypes?: readonly [MaterialData, Attachable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Sign_3;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   getFacing(): j_org_bukkit_block.BlockFace;
@@ -963,26 +798,17 @@ export interface Sign_3Statics {
 /** JVM abstract org.bukkit.material.SimpleAttachableMaterialData. */
 export interface SimpleAttachableMaterialDataMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Attachable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): SimpleAttachableMaterialData;
   getFacing(): j_org_bukkit_block.BlockFace;
   toString(): string;
 }
 export type SimpleAttachableMaterialData = SimpleAttachableMaterialDataMembers & MaterialData & Attachable_2;
 export interface SimpleAttachableMaterialDataStatics {
-  new(arg0: j_org_bukkit.Material): SimpleAttachableMaterialData;
-  new(arg0: j_org_bukkit.Material, arg1: number): SimpleAttachableMaterialData;
-  new(arg0: j_org_bukkit.Material, arg1: j_org_bukkit_block.BlockFace): SimpleAttachableMaterialData;
 }
 
 /** JVM class org.bukkit.material.Skull. */
 export interface Skull_3Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Skull_3;
   getFacing(): j_org_bukkit_block.BlockFace;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
@@ -999,11 +825,7 @@ export interface Skull_3Statics {
 /** JVM class org.bukkit.material.SmoothBrick. */
 export interface SmoothBrickMembers {
   readonly __javaSupertypes?: readonly [TexturedMaterial];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): SmoothBrick;
-  clone(): TexturedMaterial;
   getTextures(): JavaList<j_org_bukkit.Material>;
 }
 export type SmoothBrick = SmoothBrickMembers & TexturedMaterial;
@@ -1016,9 +838,6 @@ export interface SmoothBrickStatics {
 /** JVM class org.bukkit.material.SpawnEgg. */
 export interface SpawnEggMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): SpawnEgg;
   getSpawnedType(): j_org_bukkit_entity.EntityType;
   setSpawnedType(arg0: j_org_bukkit_entity.EntityType): void;
@@ -1035,9 +854,6 @@ export interface SpawnEggStatics {
 /** JVM class org.bukkit.material.Stairs. */
 export interface Stairs_2Members {
   readonly __javaSupertypes?: readonly [MaterialData, Directional_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Stairs_2;
   getAscendingDirection(): j_org_bukkit_block.BlockFace;
   getDescendingDirection(): j_org_bukkit_block.BlockFace;
@@ -1056,16 +872,10 @@ export interface Stairs_2Statics {
 /** JVM class org.bukkit.material.Step. */
 export interface StepMembers {
   readonly __javaSupertypes?: readonly [TexturedMaterial];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Step;
-  clone(): TexturedMaterial;
-  getTextureIndex(): number;
   getTextures(): JavaList<j_org_bukkit.Material>;
   isInverted(): boolean;
   setInverted(arg0: boolean): void;
-  setTextureIndex(arg0: number): void;
   toString(): string;
 }
 export type Step = StepMembers & TexturedMaterial;
@@ -1078,30 +888,19 @@ export interface StepStatics {
 /** JVM abstract org.bukkit.material.TexturedMaterial. */
 export interface TexturedMaterialMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): TexturedMaterial;
   getMaterial(): j_org_bukkit.Material;
-  getTextureIndex(): number;
   getTextures(): JavaList<j_org_bukkit.Material>;
   setMaterial(arg0: j_org_bukkit.Material): void;
-  setTextureIndex(arg0: number): void;
   toString(): string;
 }
 export type TexturedMaterial = TexturedMaterialMembers & MaterialData;
 export interface TexturedMaterialStatics {
-  new(arg0: j_org_bukkit.Material): TexturedMaterial;
-  new(arg0: j_org_bukkit.Material, arg1: number): TexturedMaterial;
 }
 
 /** JVM class org.bukkit.material.Torch. */
 export interface TorchMembers {
   readonly __javaSupertypes?: readonly [SimpleAttachableMaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
-  clone(): SimpleAttachableMaterialData;
   clone(): Torch;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   setFacingDirection(arg0: j_org_bukkit_block.BlockFace): void;
@@ -1116,10 +915,6 @@ export interface TorchStatics {
 /** JVM class org.bukkit.material.TrapDoor. */
 export interface TrapDoor_2Members {
   readonly __javaSupertypes?: readonly [SimpleAttachableMaterialData, Openable_2];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
-  clone(): SimpleAttachableMaterialData;
   clone(): TrapDoor_2;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   isInverted(): boolean;
@@ -1139,11 +934,7 @@ export interface TrapDoor_2Statics {
 /** JVM class org.bukkit.material.Tree. */
 export interface TreeMembers {
   readonly __javaSupertypes?: readonly [Wood];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Tree;
-  clone(): Wood;
   getDirection(): j_org_bukkit_block.BlockFace;
   setDirection(arg0: j_org_bukkit_block.BlockFace): void;
   toString(): string;
@@ -1157,16 +948,11 @@ export interface TreeStatics {
   new(arg0: j_org_bukkit.Material, arg1: j_org_bukkit.TreeSpecies, arg2: j_org_bukkit_block.BlockFace): Tree;
   new(arg0: j_org_bukkit.TreeSpecies): Tree;
   new(arg0: j_org_bukkit.TreeSpecies, arg1: j_org_bukkit_block.BlockFace): Tree;
-  readonly DEFAULT_DIRECTION: j_org_bukkit_block.BlockFace;
-  readonly DEFAULT_TYPE: j_org_bukkit.Material;
 }
 
 /** JVM class org.bukkit.material.Tripwire. */
 export interface Tripwire_2Members {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Tripwire_2;
   isActivated(): boolean;
   isObjectTriggering(): boolean;
@@ -1183,10 +969,6 @@ export interface Tripwire_2Statics {
 /** JVM class org.bukkit.material.TripwireHook. */
 export interface TripwireHook_2Members {
   readonly __javaSupertypes?: readonly [SimpleAttachableMaterialData, Redstone];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
-  clone(): SimpleAttachableMaterialData;
   clone(): TripwireHook_2;
   getAttachedFace(): j_org_bukkit_block.BlockFace;
   isActivated(): boolean;
@@ -1207,9 +989,6 @@ export interface TripwireHook_2Statics {
 /** JVM class org.bukkit.material.Vine. */
 export interface VineMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Vine;
   isOnFace(arg0: j_org_bukkit_block.BlockFace): boolean;
   putOnFace(arg0: j_org_bukkit_block.BlockFace): void;
@@ -1228,9 +1007,6 @@ export interface VineStatics {
 /** JVM class org.bukkit.material.Wood. */
 export interface WoodMembers {
   readonly __javaSupertypes?: readonly [MaterialData];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Wood;
   getSpecies(): j_org_bukkit.TreeSpecies;
   setSpecies(arg0: j_org_bukkit.TreeSpecies): void;
@@ -1243,17 +1019,11 @@ export interface WoodStatics {
   new(arg0: j_org_bukkit.Material, arg1: number): Wood;
   new(arg0: j_org_bukkit.Material, arg1: j_org_bukkit.TreeSpecies): Wood;
   new(arg0: j_org_bukkit.TreeSpecies): Wood;
-  readonly DEFAULT_SPECIES: j_org_bukkit.TreeSpecies;
-  readonly DEFAULT_TYPE: j_org_bukkit.Material;
 }
 
 /** JVM class org.bukkit.material.WoodenStep. */
 export interface WoodenStepMembers {
   readonly __javaSupertypes?: readonly [Wood];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
-  clone(): Wood;
   clone(): WoodenStep;
   isInverted(): boolean;
   setInverted(arg0: boolean): void;
@@ -1265,16 +1035,11 @@ export interface WoodenStepStatics {
   new(arg0: j_org_bukkit.Material, arg1: number): WoodenStep;
   new(arg0: j_org_bukkit.TreeSpecies): WoodenStep;
   new(arg0: j_org_bukkit.TreeSpecies, arg1: boolean): WoodenStep;
-  readonly DEFAULT_INVERTED: 0;
-  readonly DEFAULT_TYPE: j_org_bukkit.Material;
 }
 
 /** JVM class org.bukkit.material.Wool. */
 export interface WoolMembers {
   readonly __javaSupertypes?: readonly [MaterialData, Colorable];
-  /** @throws java.lang.CloneNotSupportedException */
-  clone(): object;
-  clone(): MaterialData;
   clone(): Wool;
   getColor(): j_org_bukkit.DyeColor;
   setColor(arg0: j_org_bukkit.DyeColor): void;

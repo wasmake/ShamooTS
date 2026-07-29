@@ -407,12 +407,12 @@ importers:
         specifier: workspace:^
         version: link:../runtime-protocol
       semver:
-        specifier: 7.7.2
-        version: 7.7.2
+        specifier: 7.8.5
+        version: 7.8.5
     devDependencies:
       '@types/semver':
-        specifier: 7.7.0
-        version: 7.7.0
+        specifier: 7.7.1
+        version: 7.7.1
 
   packages/compiler:
     dependencies:
@@ -521,15 +521,15 @@ importers:
   packages/metadata:
     dependencies:
       semver:
-        specifier: 7.7.2
-        version: 7.7.2
+        specifier: 7.8.5
+        version: 7.8.5
       zod:
         specifier: 4.3.6
         version: 4.3.6
     devDependencies:
       '@types/semver':
-        specifier: 7.7.0
-        version: 7.7.0
+        specifier: 7.7.1
+        version: 7.7.1
 
   packages/paper:
     dependencies:
@@ -605,15 +605,15 @@ importers:
         specifier: workspace:^
         version: link:../metadata
       semver:
-        specifier: 7.7.2
-        version: 7.7.2
+        specifier: 7.8.5
+        version: 7.8.5
       zod:
         specifier: 4.3.6
         version: 4.3.6
     devDependencies:
       '@types/semver':
-        specifier: 7.7.0
-        version: 7.7.0
+        specifier: 7.7.1
+        version: 7.7.1
 
   packages/scheduler:
     dependencies:
@@ -1409,8 +1409,8 @@ packages:
   '@types/node@22.20.1':
     resolution: {integrity: sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==}
 
-  '@types/semver@7.7.0':
-    resolution: {integrity: sha512-k107IF4+Xr7UHjwDc7Cfd6PRQfbdkiRabXGRjo07b4WyPahFBZCZ1sE+BNxYIJPPg73UkfOsVOLwqVc/6ETrIA==}
+  '@types/semver@7.7.1':
+    resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -2500,11 +2500,6 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  semver@7.7.2:
-    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.4:
     resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
     engines: {node: '>=10'}
@@ -2893,7 +2888,7 @@ snapshots:
       outdent: 0.5.0
       prettier: 2.8.8
       resolve-from: 5.0.0
-      semver: 7.7.2
+      semver: 7.8.5
 
   '@changesets/assemble-release-plan@6.0.10':
     dependencies:
@@ -2902,7 +2897,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@manypkg/get-packages': 1.1.3
-      semver: 7.7.2
+      semver: 7.8.5
 
   '@changesets/changelog-git@0.2.1':
     dependencies:
@@ -2959,7 +2954,7 @@ snapshots:
       '@changesets/types': 6.1.0
       '@manypkg/get-packages': 1.1.3
       picocolors: 1.1.1
-      semver: 7.7.2
+      semver: 7.8.5
 
   '@changesets/get-release-plan@4.0.16':
     dependencies:
@@ -3531,7 +3526,7 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/semver@7.7.0': {}
+  '@types/semver@7.7.1': {}
 
   '@types/unist@3.0.3': {}
 
@@ -4259,7 +4254,7 @@ snapshots:
 
   is-bun-module@2.0.0:
     dependencies:
-      semver: 7.7.2
+      semver: 7.8.5
 
   is-core-module@2.16.2:
     dependencies:
@@ -4394,7 +4389,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.7.2
+      semver: 7.8.5
 
   markdown-it@14.3.0:
     dependencies:
@@ -4625,8 +4620,6 @@ snapshots:
       queue-microtask: 1.2.3
 
   safer-buffer@2.1.2: {}
-
-  semver@7.7.2: {}
 
   semver@7.7.4: {}
 

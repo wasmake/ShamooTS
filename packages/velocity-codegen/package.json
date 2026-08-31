@@ -32,7 +32,7 @@
     "@shamoo/platform-codegen": "workspace:*"
   },
   "devDependencies": {
-    "tsx": "^4.20.3"
+    "tsx": "^4.23.12"
   },
   "engines": {
     "node": ">=22.0.0"

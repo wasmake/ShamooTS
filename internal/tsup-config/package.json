@@ -8,7 +8,7 @@
     "typecheck": "tsc --build --pretty false"
   },
   "dependencies": {
-    "tsup": "^8.5.0"
+    "tsup": "^9.0.0"
   },
   "devDependencies": {
     "@shamoo/tsconfig": "workspace:*",

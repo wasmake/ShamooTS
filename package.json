@@ -45,7 +45,7 @@
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
-    "tsup": "^8.5.0",
+    "tsup": "^9.0.0",
     "typedoc": "^0.28.8",
     "typedoc-plugin-markdown": "^4.8.1",
     "typescript": "^5.8.3",
